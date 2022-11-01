@@ -1,0 +1,91 @@
+{
+  "__type__": "cc.Material",
+  "_name": "MI_PavementTile02",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "68f4e58a-8cb0-496a-a551-70c1531c113c@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "pbrMap": {
+        "__uuid__": "812df0a4-8ad2-4598-bdb1-91bfa7c442ba@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "normalMap": {
+        "__uuid__": "437c45c0-f168-4028-af0c-362f301cf911@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "occlusion": 0,
+      "roughness": 1,
+      "metallic": 1,
+      "specularIntensity": 0.5
+    },
+    {},
+    {}
+  ]
+}

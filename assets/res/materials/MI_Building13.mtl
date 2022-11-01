@@ -1,0 +1,91 @@
+{
+  "__type__": "cc.Material",
+  "_name": "MI_Building13",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "b269de97-1d71-4cf8-b052-43bb201afb27@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "pbrMap": {
+        "__uuid__": "63049075-9903-4a94-8ea9-fbbac3c7a878@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "normalMap": {
+        "__uuid__": "98d2e343-d8a8-4099-a9bf-dd072ee73bc9@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "occlusion": 0,
+      "roughness": 1,
+      "metallic": 1,
+      "specularIntensity": 0.5
+    },
+    {},
+    {}
+  ]
+}

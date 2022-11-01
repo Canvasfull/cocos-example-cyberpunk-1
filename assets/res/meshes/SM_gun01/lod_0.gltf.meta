@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "4780c41e-e86d-4385-b0a8-901a79c224db",
+  "files": [],
+  "subMetas": {
+    "1589f": {
+      "importer": "gltf-mesh",
+      "uuid": "4780c41e-e86d-4385-b0a8-901a79c224db@1589f",
+      "displayName": "",
+      "id": "1589f",
+      "name": "SM_gun01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "4780c41e-e86d-4385-b0a8-901a79c224db@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "4780c41e-e86d-4385-b0a8-901a79c224db@9d156",
+    "assetFinder": {
+      "meshes": [
+        "4780c41e-e86d-4385-b0a8-901a79c224db@1589f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "4780c41e-e86d-4385-b0a8-901a79c224db@9d156"
+      ]
+    }
+  }
+}

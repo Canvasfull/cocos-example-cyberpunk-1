@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "7e8220d4-f9b9-46a4-b676-0b27553d69f8",
+  "files": [],
+  "subMetas": {
+    "c8860": {
+      "importer": "gltf-mesh",
+      "uuid": "7e8220d4-f9b9-46a4-b676-0b27553d69f8@c8860",
+      "displayName": "",
+      "id": "c8860",
+      "name": "SM_CyborgEnemy01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "7e8220d4-f9b9-46a4-b676-0b27553d69f8@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "7e8220d4-f9b9-46a4-b676-0b27553d69f8@9d156",
+    "assetFinder": {
+      "meshes": [
+        "7e8220d4-f9b9-46a4-b676-0b27553d69f8@c8860"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "7e8220d4-f9b9-46a4-b676-0b27553d69f8@9d156"
+      ]
+    }
+  }
+}

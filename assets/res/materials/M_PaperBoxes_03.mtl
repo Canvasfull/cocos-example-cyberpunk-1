@@ -1,0 +1,91 @@
+{
+  "__type__": "cc.Material",
+  "_name": "M_PaperBoxes_03",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "d7a01335-8b33-4697-9f1a-47536b016298@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "pbrMap": {
+        "__uuid__": "f3990139-0077-47c2-81e6-5077fec4da67@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "normalMap": {
+        "__uuid__": "1ee0e829-6e58-4fcc-9402-2832e1a0b9a4@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "occlusion": 0,
+      "roughness": 1,
+      "metallic": 1,
+      "specularIntensity": 0.5
+    },
+    {},
+    {}
+  ]
+}

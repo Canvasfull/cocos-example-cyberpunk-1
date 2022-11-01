@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c75d895c-3f00-4dc9-9125-638b93ed853d",
+  "files": [],
+  "subMetas": {
+    "c67a2": {
+      "importer": "gltf-mesh",
+      "uuid": "c75d895c-3f00-4dc9-9125-638b93ed853d@c67a2",
+      "displayName": "",
+      "id": "c67a2",
+      "name": "SM_car.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "c75d895c-3f00-4dc9-9125-638b93ed853d@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "c75d895c-3f00-4dc9-9125-638b93ed853d@9d156",
+    "assetFinder": {
+      "meshes": [
+        "c75d895c-3f00-4dc9-9125-638b93ed853d@c67a2"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c75d895c-3f00-4dc9-9125-638b93ed853d@9d156"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "ee4b037c-caba-475d-bd2f-40f26ae15b15",
+  "files": [],
+  "subMetas": {
+    "af44f": {
+      "importer": "gltf-mesh",
+      "uuid": "ee4b037c-caba-475d-bd2f-40f26ae15b15@af44f",
+      "displayName": "",
+      "id": "af44f",
+      "name": "SM_PipeCorn_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "ee4b037c-caba-475d-bd2f-40f26ae15b15@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "ee4b037c-caba-475d-bd2f-40f26ae15b15@9d156",
+    "assetFinder": {
+      "meshes": [
+        "ee4b037c-caba-475d-bd2f-40f26ae15b15@af44f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "ee4b037c-caba-475d-bd2f-40f26ae15b15@9d156"
+      ]
+    }
+  }
+}

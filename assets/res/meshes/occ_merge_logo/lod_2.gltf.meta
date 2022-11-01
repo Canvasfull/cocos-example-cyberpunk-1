@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "77912524-b769-471d-b1d1-8dbe4ea7da17",
+  "files": [],
+  "subMetas": {
+    "565ce": {
+      "importer": "gltf-mesh",
+      "uuid": "77912524-b769-471d-b1d1-8dbe4ea7da17@565ce",
+      "displayName": "",
+      "id": "565ce",
+      "name": "occ_merge_logo.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "77912524-b769-471d-b1d1-8dbe4ea7da17@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "77912524-b769-471d-b1d1-8dbe4ea7da17@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "77912524-b769-471d-b1d1-8dbe4ea7da17@565ce"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "77912524-b769-471d-b1d1-8dbe4ea7da17@53b6b"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "91b5779d-3acb-408a-9359-e1074cb3bcad",
+  "files": [],
+  "subMetas": {
+    "f3041": {
+      "importer": "gltf-mesh",
+      "uuid": "91b5779d-3acb-408a-9359-e1074cb3bcad@f3041",
+      "displayName": "",
+      "id": "f3041",
+      "name": "SM_Lamp01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "91b5779d-3acb-408a-9359-e1074cb3bcad@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "91b5779d-3acb-408a-9359-e1074cb3bcad@f0843",
+    "assetFinder": {
+      "meshes": [
+        "91b5779d-3acb-408a-9359-e1074cb3bcad@f3041"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "91b5779d-3acb-408a-9359-e1074cb3bcad@f0843"
+      ]
+    }
+  }
+}

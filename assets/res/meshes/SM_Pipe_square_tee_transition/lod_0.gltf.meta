@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f0a1cc9b-0053-4d86-b0e0-7660f8f3d0c3",
+  "files": [],
+  "subMetas": {
+    "0556f": {
+      "importer": "gltf-mesh",
+      "uuid": "f0a1cc9b-0053-4d86-b0e0-7660f8f3d0c3@0556f",
+      "displayName": "",
+      "id": "0556f",
+      "name": "SM_Pipe_square_tee_transition.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "f0a1cc9b-0053-4d86-b0e0-7660f8f3d0c3@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "f0a1cc9b-0053-4d86-b0e0-7660f8f3d0c3@9d156",
+    "assetFinder": {
+      "meshes": [
+        "f0a1cc9b-0053-4d86-b0e0-7660f8f3d0c3@0556f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f0a1cc9b-0053-4d86-b0e0-7660f8f3d0c3@9d156"
+      ]
+    }
+  }
+}

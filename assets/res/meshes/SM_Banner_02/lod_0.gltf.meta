@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "a058437e-8554-4742-81d6-46ae50b15a41",
+  "files": [],
+  "subMetas": {
+    "8cf84": {
+      "importer": "gltf-mesh",
+      "uuid": "a058437e-8554-4742-81d6-46ae50b15a41@8cf84",
+      "displayName": "",
+      "id": "8cf84",
+      "name": "SM_Banner_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "a058437e-8554-4742-81d6-46ae50b15a41@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "a058437e-8554-4742-81d6-46ae50b15a41@9d156",
+    "assetFinder": {
+      "meshes": [
+        "a058437e-8554-4742-81d6-46ae50b15a41@8cf84"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "a058437e-8554-4742-81d6-46ae50b15a41@9d156"
+      ]
+    }
+  }
+}

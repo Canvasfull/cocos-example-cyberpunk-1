@@ -1,0 +1,37 @@
+// Copyright (c) 2017-2020 Xiamen Yaji Software Co., Ltd.
+
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthWrite: false
+        depthTest: false
+}%
+
+CCProgram vs %{
+  #include <./chunks/vert>
+}%
+
+
+CCProgram fs %{
+  precision highp float;
+
+  #include <builtin/uniforms/cc-global>
+  #include <./chunks/space>
+  #include <./chunks/global-map>
+
+  in vec2 v_uv;
+
+  layout(location = 0) out vec4 fragColor;
+
+  void main () {
+    float depth = texture(cc_scene_depth, v_uv).r;
+    float linearDepth = linearizeDepth01(depth);
+    fragColor = vec4(vec3(1. - linearDepth), 1.);
+  }
+  
+}%

@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "d1f09a6a-ad8e-426f-94ab-afb9222506fc",
+  "files": [],
+  "subMetas": {
+    "95883": {
+      "importer": "gltf-mesh",
+      "uuid": "d1f09a6a-ad8e-426f-94ab-afb9222506fc@95883",
+      "displayName": "",
+      "id": "95883",
+      "name": "SM_LineCorn_blue.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "d1f09a6a-ad8e-426f-94ab-afb9222506fc@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "d1f09a6a-ad8e-426f-94ab-afb9222506fc@9d156",
+    "assetFinder": {
+      "meshes": [
+        "d1f09a6a-ad8e-426f-94ab-afb9222506fc@95883"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "d1f09a6a-ad8e-426f-94ab-afb9222506fc@9d156"
+      ]
+    }
+  }
+}

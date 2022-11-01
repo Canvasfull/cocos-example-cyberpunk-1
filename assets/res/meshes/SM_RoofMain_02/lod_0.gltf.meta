@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "7ebbb27c-f3fc-4c2a-866e-f9114ecc0515",
+  "files": [],
+  "subMetas": {
+    "1260a": {
+      "importer": "gltf-mesh",
+      "uuid": "7ebbb27c-f3fc-4c2a-866e-f9114ecc0515@1260a",
+      "displayName": "",
+      "id": "1260a",
+      "name": "SM_RoofMain_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "7ebbb27c-f3fc-4c2a-866e-f9114ecc0515@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "7ebbb27c-f3fc-4c2a-866e-f9114ecc0515@9d156",
+    "assetFinder": {
+      "meshes": [
+        "7ebbb27c-f3fc-4c2a-866e-f9114ecc0515@1260a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "7ebbb27c-f3fc-4c2a-866e-f9114ecc0515@9d156"
+      ]
+    }
+  }
+}

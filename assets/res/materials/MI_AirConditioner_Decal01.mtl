@@ -1,0 +1,91 @@
+{
+  "__type__": "cc.Material",
+  "_name": "MI_AirConditioner_Decal01",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true,
+      "USE_NORMAL_MAP": true,
+      "USE_EMISSIVE_MAP": false,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "ea1d011a-b240-4769-8cbe-9c34dee59653@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "pbrMap": {
+        "__uuid__": "03f1b6e8-f52e-429f-a7e8-192aa79a3005@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "normalMap": {
+        "__uuid__": "a2166c05-acab-4bf3-b21f-a77daf8ed255@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "occlusion": 0,
+      "roughness": 1,
+      "metallic": 1,
+      "specularIntensity": 0.5
+    },
+    {},
+    {}
+  ]
+}

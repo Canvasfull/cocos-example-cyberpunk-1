@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "75100873-1362-4adc-af75-685ad1d7fe8f",
+  "files": [],
+  "subMetas": {
+    "df7d1": {
+      "importer": "gltf-mesh",
+      "uuid": "75100873-1362-4adc-af75-685ad1d7fe8f@df7d1",
+      "displayName": "",
+      "id": "df7d1",
+      "name": "SM_Pipe_round_corner2.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "75100873-1362-4adc-af75-685ad1d7fe8f@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "75100873-1362-4adc-af75-685ad1d7fe8f@f0843",
+    "assetFinder": {
+      "meshes": [
+        "75100873-1362-4adc-af75-685ad1d7fe8f@df7d1"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "75100873-1362-4adc-af75-685ad1d7fe8f@f0843"
+      ]
+    }
+  }
+}

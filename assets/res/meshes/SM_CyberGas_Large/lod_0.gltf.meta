@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "dd87f400-3456-466f-a9b0-3d505b18eb81",
+  "files": [],
+  "subMetas": {
+    "b3125": {
+      "importer": "gltf-mesh",
+      "uuid": "dd87f400-3456-466f-a9b0-3d505b18eb81@b3125",
+      "displayName": "",
+      "id": "b3125",
+      "name": "SM_CyberGas_Large.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "dd87f400-3456-466f-a9b0-3d505b18eb81@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "dd87f400-3456-466f-a9b0-3d505b18eb81@9d156",
+    "assetFinder": {
+      "meshes": [
+        "dd87f400-3456-466f-a9b0-3d505b18eb81@b3125"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "dd87f400-3456-466f-a9b0-3d505b18eb81@9d156"
+      ]
+    }
+  }
+}

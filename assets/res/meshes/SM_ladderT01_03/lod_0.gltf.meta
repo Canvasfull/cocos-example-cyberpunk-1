@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "a2973e1b-2bf4-48f1-af4d-d5f40726986a",
+  "files": [],
+  "subMetas": {
+    "0424a": {
+      "importer": "gltf-mesh",
+      "uuid": "a2973e1b-2bf4-48f1-af4d-d5f40726986a@0424a",
+      "displayName": "",
+      "id": "0424a",
+      "name": "SM_ladderT01_03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "a2973e1b-2bf4-48f1-af4d-d5f40726986a@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "a2973e1b-2bf4-48f1-af4d-d5f40726986a@9d156",
+    "assetFinder": {
+      "meshes": [
+        "a2973e1b-2bf4-48f1-af4d-d5f40726986a@0424a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "a2973e1b-2bf4-48f1-af4d-d5f40726986a@9d156"
+      ]
+    }
+  }
+}

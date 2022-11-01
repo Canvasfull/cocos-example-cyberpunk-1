@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "7f6c5d44-e2da-4386-b944-e14990ddad57",
+  "files": [],
+  "subMetas": {
+    "78e36": {
+      "importer": "gltf-mesh",
+      "uuid": "7f6c5d44-e2da-4386-b944-e14990ddad57@78e36",
+      "displayName": "",
+      "id": "78e36",
+      "name": "SM_SignboardText04.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "7f6c5d44-e2da-4386-b944-e14990ddad57@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "7f6c5d44-e2da-4386-b944-e14990ddad57@9d156",
+    "assetFinder": {
+      "meshes": [
+        "7f6c5d44-e2da-4386-b944-e14990ddad57@78e36"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "7f6c5d44-e2da-4386-b944-e14990ddad57@9d156"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "41e2ba42-cac8-403e-93b5-edd9430f41cc",
+  "files": [],
+  "subMetas": {
+    "c87e6": {
+      "importer": "gltf-mesh",
+      "uuid": "41e2ba42-cac8-403e-93b5-edd9430f41cc@c87e6",
+      "displayName": "",
+      "id": "c87e6",
+      "name": "SM_Pipe_square_long.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "41e2ba42-cac8-403e-93b5-edd9430f41cc@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "41e2ba42-cac8-403e-93b5-edd9430f41cc@9d156",
+    "assetFinder": {
+      "meshes": [
+        "41e2ba42-cac8-403e-93b5-edd9430f41cc@c87e6"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "41e2ba42-cac8-403e-93b5-edd9430f41cc@9d156"
+      ]
+    }
+  }
+}

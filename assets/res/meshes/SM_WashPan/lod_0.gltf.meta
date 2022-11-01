@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2597774a-a3e9-44d6-b660-d7dc435a57d8",
+  "files": [],
+  "subMetas": {
+    "56cd8": {
+      "importer": "gltf-mesh",
+      "uuid": "2597774a-a3e9-44d6-b660-d7dc435a57d8@56cd8",
+      "displayName": "",
+      "id": "56cd8",
+      "name": "SM_WashPan.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "2597774a-a3e9-44d6-b660-d7dc435a57d8@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "2597774a-a3e9-44d6-b660-d7dc435a57d8@9d156",
+    "assetFinder": {
+      "meshes": [
+        "2597774a-a3e9-44d6-b660-d7dc435a57d8@56cd8"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "2597774a-a3e9-44d6-b660-d7dc435a57d8@9d156"
+      ]
+    }
+  }
+}

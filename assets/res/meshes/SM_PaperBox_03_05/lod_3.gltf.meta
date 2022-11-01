@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "702b80e0-f50d-4f35-8d72-f758ec33c786",
+  "files": [],
+  "subMetas": {
+    "0f993": {
+      "importer": "gltf-mesh",
+      "uuid": "702b80e0-f50d-4f35-8d72-f758ec33c786@0f993",
+      "displayName": "",
+      "id": "0f993",
+      "name": "SM_PaperBox_03_05.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7883c": {
+      "importer": "gltf-scene",
+      "uuid": "702b80e0-f50d-4f35-8d72-f758ec33c786@7883c",
+      "displayName": "",
+      "id": "7883c",
+      "name": "lod_3.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "702b80e0-f50d-4f35-8d72-f758ec33c786@7883c",
+    "assetFinder": {
+      "meshes": [
+        "702b80e0-f50d-4f35-8d72-f758ec33c786@0f993"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "702b80e0-f50d-4f35-8d72-f758ec33c786@7883c"
+      ]
+    }
+  }
+}

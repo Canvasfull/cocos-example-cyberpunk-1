@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "dbaf520b-0c79-49d9-a2c3-0913fa14ef38",
+  "files": [],
+  "subMetas": {
+    "f0f15": {
+      "importer": "gltf-mesh",
+      "uuid": "dbaf520b-0c79-49d9-a2c3-0913fa14ef38@f0f15",
+      "displayName": "",
+      "id": "f0f15",
+      "name": "SM_RoofAntena01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "dbaf520b-0c79-49d9-a2c3-0913fa14ef38@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "dbaf520b-0c79-49d9-a2c3-0913fa14ef38@9d156",
+    "assetFinder": {
+      "meshes": [
+        "dbaf520b-0c79-49d9-a2c3-0913fa14ef38@f0f15"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "dbaf520b-0c79-49d9-a2c3-0913fa14ef38@9d156"
+      ]
+    }
+  }
+}

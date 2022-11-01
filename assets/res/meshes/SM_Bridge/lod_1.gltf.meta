@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f8ea40a5-7989-4db5-96f2-a51094b3e134",
+  "files": [],
+  "subMetas": {
+    "c98cb": {
+      "importer": "gltf-mesh",
+      "uuid": "f8ea40a5-7989-4db5-96f2-a51094b3e134@c98cb",
+      "displayName": "",
+      "id": "c98cb",
+      "name": "SM_Bridge.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "f8ea40a5-7989-4db5-96f2-a51094b3e134@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "f8ea40a5-7989-4db5-96f2-a51094b3e134@f0843",
+    "assetFinder": {
+      "meshes": [
+        "f8ea40a5-7989-4db5-96f2-a51094b3e134@c98cb"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f8ea40a5-7989-4db5-96f2-a51094b3e134@f0843"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "46fe4956-3b13-4bea-a147-1450cb8a2039",
+  "files": [],
+  "subMetas": {
+    "1071b": {
+      "importer": "gltf-mesh",
+      "uuid": "46fe4956-3b13-4bea-a147-1450cb8a2039@1071b",
+      "displayName": "",
+      "id": "1071b",
+      "name": "SM_MetalBeam06.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "46fe4956-3b13-4bea-a147-1450cb8a2039@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "46fe4956-3b13-4bea-a147-1450cb8a2039@9d156",
+    "assetFinder": {
+      "meshes": [
+        "46fe4956-3b13-4bea-a147-1450cb8a2039@1071b"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "46fe4956-3b13-4bea-a147-1450cb8a2039@9d156"
+      ]
+    }
+  }
+}

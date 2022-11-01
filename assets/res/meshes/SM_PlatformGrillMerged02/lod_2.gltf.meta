@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "34cfa830-98c3-4fc9-b214-29a6e30c0b01",
+  "files": [],
+  "subMetas": {
+    "91906": {
+      "importer": "gltf-mesh",
+      "uuid": "34cfa830-98c3-4fc9-b214-29a6e30c0b01@91906",
+      "displayName": "",
+      "id": "91906",
+      "name": "SM_PlatformGrillMerged02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "34cfa830-98c3-4fc9-b214-29a6e30c0b01@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "34cfa830-98c3-4fc9-b214-29a6e30c0b01@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "34cfa830-98c3-4fc9-b214-29a6e30c0b01@91906"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "34cfa830-98c3-4fc9-b214-29a6e30c0b01@53b6b"
+      ]
+    }
+  }
+}

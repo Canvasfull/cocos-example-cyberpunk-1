@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "e0fd3fca-859e-41a0-ba06-15a7a8ddb0c3",
+  "files": [],
+  "subMetas": {
+    "e5ef3": {
+      "importer": "gltf-mesh",
+      "uuid": "e0fd3fca-859e-41a0-ba06-15a7a8ddb0c3@e5ef3",
+      "displayName": "",
+      "id": "e5ef3",
+      "name": "SM_RoadMarkings02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "e0fd3fca-859e-41a0-ba06-15a7a8ddb0c3@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "e0fd3fca-859e-41a0-ba06-15a7a8ddb0c3@9d156",
+    "assetFinder": {
+      "meshes": [
+        "e0fd3fca-859e-41a0-ba06-15a7a8ddb0c3@e5ef3"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "e0fd3fca-859e-41a0-ba06-15a7a8ddb0c3@9d156"
+      ]
+    }
+  }
+}

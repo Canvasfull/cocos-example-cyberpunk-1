@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "e271e65a-1f97-4a54-af77-83870f83d6ad",
+  "files": [],
+  "subMetas": {
+    "676dd": {
+      "importer": "gltf-mesh",
+      "uuid": "e271e65a-1f97-4a54-af77-83870f83d6ad@676dd",
+      "displayName": "",
+      "id": "676dd",
+      "name": "SM_AirPlatformMerged01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "e271e65a-1f97-4a54-af77-83870f83d6ad@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "e271e65a-1f97-4a54-af77-83870f83d6ad@f0843",
+    "assetFinder": {
+      "meshes": [
+        "e271e65a-1f97-4a54-af77-83870f83d6ad@676dd"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "e271e65a-1f97-4a54-af77-83870f83d6ad@f0843"
+      ]
+    }
+  }
+}

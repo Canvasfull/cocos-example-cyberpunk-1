@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cbc78a35-6a1f-425e-9472-d21f2a1f267f",
+  "files": [],
+  "subMetas": {
+    "a088a": {
+      "importer": "gltf-mesh",
+      "uuid": "cbc78a35-6a1f-425e-9472-d21f2a1f267f@a088a",
+      "displayName": "",
+      "id": "a088a",
+      "name": "SM_CornerBuildingMerged04.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "cbc78a35-6a1f-425e-9472-d21f2a1f267f@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "cbc78a35-6a1f-425e-9472-d21f2a1f267f@f0843",
+    "assetFinder": {
+      "meshes": [
+        "cbc78a35-6a1f-425e-9472-d21f2a1f267f@a088a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "cbc78a35-6a1f-425e-9472-d21f2a1f267f@f0843"
+      ]
+    }
+  }
+}

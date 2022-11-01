@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f3744fee-cdfb-4e96-a845-4281de480eb3",
+  "files": [],
+  "subMetas": {
+    "ea70e": {
+      "importer": "gltf-mesh",
+      "uuid": "f3744fee-cdfb-4e96-a845-4281de480eb3@ea70e",
+      "displayName": "",
+      "id": "ea70e",
+      "name": "SM_AirConditioningPlatform_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "f3744fee-cdfb-4e96-a845-4281de480eb3@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "f3744fee-cdfb-4e96-a845-4281de480eb3@f0843",
+    "assetFinder": {
+      "meshes": [
+        "f3744fee-cdfb-4e96-a845-4281de480eb3@ea70e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f3744fee-cdfb-4e96-a845-4281de480eb3@f0843"
+      ]
+    }
+  }
+}

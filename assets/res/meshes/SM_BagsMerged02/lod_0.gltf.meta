@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cef7b066-ef3d-4d6d-8bcd-c6f715c8dcd0",
+  "files": [],
+  "subMetas": {
+    "41080": {
+      "importer": "gltf-mesh",
+      "uuid": "cef7b066-ef3d-4d6d-8bcd-c6f715c8dcd0@41080",
+      "displayName": "",
+      "id": "41080",
+      "name": "SM_BagsMerged02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "cef7b066-ef3d-4d6d-8bcd-c6f715c8dcd0@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "cef7b066-ef3d-4d6d-8bcd-c6f715c8dcd0@9d156",
+    "assetFinder": {
+      "meshes": [
+        "cef7b066-ef3d-4d6d-8bcd-c6f715c8dcd0@41080"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "cef7b066-ef3d-4d6d-8bcd-c6f715c8dcd0@9d156"
+      ]
+    }
+  }
+}

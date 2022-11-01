@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "beb806cb-c418-4638-8775-04cb14e32759",
+  "files": [],
+  "subMetas": {
+    "c6513": {
+      "importer": "gltf-mesh",
+      "uuid": "beb806cb-c418-4638-8775-04cb14e32759@c6513",
+      "displayName": "",
+      "id": "c6513",
+      "name": "SM_Pavement03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "beb806cb-c418-4638-8775-04cb14e32759@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "beb806cb-c418-4638-8775-04cb14e32759@9d156",
+    "assetFinder": {
+      "meshes": [
+        "beb806cb-c418-4638-8775-04cb14e32759@c6513"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "beb806cb-c418-4638-8775-04cb14e32759@9d156"
+      ]
+    }
+  }
+}

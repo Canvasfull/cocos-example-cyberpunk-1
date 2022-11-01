@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "490b9ec1-3f43-4bf0-862f-49aacb842a26",
+  "files": [],
+  "subMetas": {
+    "c8a1f": {
+      "importer": "gltf-mesh",
+      "uuid": "490b9ec1-3f43-4bf0-862f-49aacb842a26@c8a1f",
+      "displayName": "",
+      "id": "c8a1f",
+      "name": "SM_HangingCable02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "490b9ec1-3f43-4bf0-862f-49aacb842a26@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "490b9ec1-3f43-4bf0-862f-49aacb842a26@f0843",
+    "assetFinder": {
+      "meshes": [
+        "490b9ec1-3f43-4bf0-862f-49aacb842a26@c8a1f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "490b9ec1-3f43-4bf0-862f-49aacb842a26@f0843"
+      ]
+    }
+  }
+}

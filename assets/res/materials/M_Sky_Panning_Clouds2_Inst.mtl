@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.Material",
+  "_name": "M_Sky_Panning_Clouds2_Inst",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": false,
+      "USE_PBR_MAP": false,
+      "USE_NORMAL_MAP": false,
+      "USE_EMISSIVE_MAP": true,
+      "EMISSIVE_UV": "v_uv1",
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": false,
+      "USE_PBR_MAP": false,
+      "USE_NORMAL_MAP": false,
+      "USE_EMISSIVE_MAP": true,
+      "EMISSIVE_UV": "v_uv1",
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": false,
+      "USE_PBR_MAP": false,
+      "USE_NORMAL_MAP": false,
+      "USE_EMISSIVE_MAP": true,
+      "EMISSIVE_UV": "v_uv1",
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "emissiveMap": {
+        "__uuid__": "97f63625-c5a6-4585-8809-93cf86d5d484@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "occlusion": 1,
+      "roughness": 0,
+      "metallic": 0,
+      "specularIntensity": 0,
+      "emissiveScale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "emissive": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+      },
+      "albedoScale": {
+        "__type__": "cc.Vec3",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {},
+    {}
+  ]
+}

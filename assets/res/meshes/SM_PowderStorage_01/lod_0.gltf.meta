@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "3e6aad21-ef64-4696-8b24-742558fae49a",
+  "files": [],
+  "subMetas": {
+    "1dea9": {
+      "importer": "gltf-mesh",
+      "uuid": "3e6aad21-ef64-4696-8b24-742558fae49a@1dea9",
+      "displayName": "",
+      "id": "1dea9",
+      "name": "SM_PowderStorage_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "3e6aad21-ef64-4696-8b24-742558fae49a@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "3e6aad21-ef64-4696-8b24-742558fae49a@9d156",
+    "assetFinder": {
+      "meshes": [
+        "3e6aad21-ef64-4696-8b24-742558fae49a@1dea9"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "3e6aad21-ef64-4696-8b24-742558fae49a@9d156"
+      ]
+    }
+  }
+}

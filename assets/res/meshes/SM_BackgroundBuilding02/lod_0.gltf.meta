@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "d01087d0-4c8a-4e7a-a7aa-0a09ba8e838b",
+  "files": [],
+  "subMetas": {
+    "720fb": {
+      "importer": "gltf-mesh",
+      "uuid": "d01087d0-4c8a-4e7a-a7aa-0a09ba8e838b@720fb",
+      "displayName": "",
+      "id": "720fb",
+      "name": "SM_BackgroundBuilding02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "d01087d0-4c8a-4e7a-a7aa-0a09ba8e838b@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "d01087d0-4c8a-4e7a-a7aa-0a09ba8e838b@9d156",
+    "assetFinder": {
+      "meshes": [
+        "d01087d0-4c8a-4e7a-a7aa-0a09ba8e838b@720fb"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "d01087d0-4c8a-4e7a-a7aa-0a09ba8e838b@9d156"
+      ]
+    }
+  }
+}

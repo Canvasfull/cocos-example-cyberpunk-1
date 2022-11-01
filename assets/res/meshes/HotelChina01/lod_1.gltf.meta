@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "5e77d5c9-96fd-494d-bce2-33688ae7c7b2",
+  "files": [],
+  "subMetas": {
+    "d5211": {
+      "importer": "gltf-mesh",
+      "uuid": "5e77d5c9-96fd-494d-bce2-33688ae7c7b2@d5211",
+      "displayName": "",
+      "id": "d5211",
+      "name": "HotelChina01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "5e77d5c9-96fd-494d-bce2-33688ae7c7b2@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "5e77d5c9-96fd-494d-bce2-33688ae7c7b2@f0843",
+    "assetFinder": {
+      "meshes": [
+        "5e77d5c9-96fd-494d-bce2-33688ae7c7b2@d5211"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "5e77d5c9-96fd-494d-bce2-33688ae7c7b2@f0843"
+      ]
+    }
+  }
+}

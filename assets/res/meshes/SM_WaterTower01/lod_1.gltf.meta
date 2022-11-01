@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "1e555399-ccbb-4918-acde-5ecf829465cf",
+  "files": [],
+  "subMetas": {
+    "a8ccc": {
+      "importer": "gltf-mesh",
+      "uuid": "1e555399-ccbb-4918-acde-5ecf829465cf@a8ccc",
+      "displayName": "",
+      "id": "a8ccc",
+      "name": "SM_WaterTower01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "1e555399-ccbb-4918-acde-5ecf829465cf@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "1e555399-ccbb-4918-acde-5ecf829465cf@f0843",
+    "assetFinder": {
+      "meshes": [
+        "1e555399-ccbb-4918-acde-5ecf829465cf@a8ccc"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "1e555399-ccbb-4918-acde-5ecf829465cf@f0843"
+      ]
+    }
+  }
+}

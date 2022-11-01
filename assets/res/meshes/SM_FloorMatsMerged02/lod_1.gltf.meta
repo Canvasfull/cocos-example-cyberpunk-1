@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "843b26a6-cb3b-4a67-9b4b-9738b0def074",
+  "files": [],
+  "subMetas": {
+    "0ea93": {
+      "importer": "gltf-mesh",
+      "uuid": "843b26a6-cb3b-4a67-9b4b-9738b0def074@0ea93",
+      "displayName": "",
+      "id": "0ea93",
+      "name": "SM_FloorMatsMerged02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "843b26a6-cb3b-4a67-9b4b-9738b0def074@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "843b26a6-cb3b-4a67-9b4b-9738b0def074@f0843",
+    "assetFinder": {
+      "meshes": [
+        "843b26a6-cb3b-4a67-9b4b-9738b0def074@0ea93"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "843b26a6-cb3b-4a67-9b4b-9738b0def074@f0843"
+      ]
+    }
+  }
+}

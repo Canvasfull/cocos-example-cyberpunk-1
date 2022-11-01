@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cfa59314-dfe9-4540-9e79-380cba671edb",
+  "files": [],
+  "subMetas": {
+    "e3811": {
+      "importer": "gltf-mesh",
+      "uuid": "cfa59314-dfe9-4540-9e79-380cba671edb@e3811",
+      "displayName": "",
+      "id": "e3811",
+      "name": "SM_GroundCable02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "cfa59314-dfe9-4540-9e79-380cba671edb@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "cfa59314-dfe9-4540-9e79-380cba671edb@f0843",
+    "assetFinder": {
+      "meshes": [
+        "cfa59314-dfe9-4540-9e79-380cba671edb@e3811"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "cfa59314-dfe9-4540-9e79-380cba671edb@f0843"
+      ]
+    }
+  }
+}

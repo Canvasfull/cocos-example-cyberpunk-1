@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "635db25b-7603-49c8-9a21-57ae3d3bac58",
+  "files": [],
+  "subMetas": {
+    "4f8d7": {
+      "importer": "gltf-mesh",
+      "uuid": "635db25b-7603-49c8-9a21-57ae3d3bac58@4f8d7",
+      "displayName": "",
+      "id": "4f8d7",
+      "name": "SM_Antenna.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "635db25b-7603-49c8-9a21-57ae3d3bac58@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "635db25b-7603-49c8-9a21-57ae3d3bac58@9d156",
+    "assetFinder": {
+      "meshes": [
+        "635db25b-7603-49c8-9a21-57ae3d3bac58@4f8d7"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "635db25b-7603-49c8-9a21-57ae3d3bac58@9d156"
+      ]
+    }
+  }
+}

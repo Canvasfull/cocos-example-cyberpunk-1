@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "600c2eab-6316-499c-83c7-fad57753c30e",
+  "files": [],
+  "subMetas": {
+    "cdacf": {
+      "importer": "gltf-mesh",
+      "uuid": "600c2eab-6316-499c-83c7-fad57753c30e@cdacf",
+      "displayName": "",
+      "id": "cdacf",
+      "name": "SM_MetalWallPart_05.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "600c2eab-6316-499c-83c7-fad57753c30e@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "600c2eab-6316-499c-83c7-fad57753c30e@9d156",
+    "assetFinder": {
+      "meshes": [
+        "600c2eab-6316-499c-83c7-fad57753c30e@cdacf"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "600c2eab-6316-499c-83c7-fad57753c30e@9d156"
+      ]
+    }
+  }
+}

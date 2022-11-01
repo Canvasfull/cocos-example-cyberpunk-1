@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "17c8ac63-87c7-486e-b6ae-e55347c01f1f",
+  "files": [],
+  "subMetas": {
+    "b7bc6": {
+      "importer": "gltf-mesh",
+      "uuid": "17c8ac63-87c7-486e-b6ae-e55347c01f1f@b7bc6",
+      "displayName": "",
+      "id": "b7bc6",
+      "name": "SM_WallTrim01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "17c8ac63-87c7-486e-b6ae-e55347c01f1f@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "17c8ac63-87c7-486e-b6ae-e55347c01f1f@9d156",
+    "assetFinder": {
+      "meshes": [
+        "17c8ac63-87c7-486e-b6ae-e55347c01f1f@b7bc6"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "17c8ac63-87c7-486e-b6ae-e55347c01f1f@9d156"
+      ]
+    }
+  }
+}

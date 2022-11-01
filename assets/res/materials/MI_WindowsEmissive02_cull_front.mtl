@@ -1,0 +1,90 @@
+{
+  "__type__": "cc.Material",
+  "_name": "MI_WindowsEmissive02_cull_front",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": false,
+      "USE_PBR_MAP": false,
+      "USE_NORMAL_MAP": false,
+      "USE_EMISSIVE_MAP": true,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": false,
+      "USE_PBR_MAP": false,
+      "USE_NORMAL_MAP": false,
+      "USE_EMISSIVE_MAP": true,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    },
+    {
+      "HAS_SECOND_UV": true,
+      "USE_ALBEDO_MAP": false,
+      "USE_PBR_MAP": false,
+      "USE_NORMAL_MAP": false,
+      "USE_EMISSIVE_MAP": true,
+      "USE_INSTANCING": true,
+      "USE_ALPHA_TEST": false
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {
+        "cullMode": 1
+      }
+    },
+    {
+      "rasterizerState": {
+        "cullMode": 1
+      }
+    },
+    {
+      "rasterizerState": {
+        "cullMode": 1
+      }
+    }
+  ],
+  "_props": [
+    {
+      "emissiveMap": {
+        "__uuid__": "dbe2b242-e0b4-4d40-809f-3e69909648a9@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "albedoScale": {
+        "__type__": "cc.Vec3",
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "occlusion": 0,
+      "roughness": 0.5,
+      "metallic": 0,
+      "specularIntensity": 0.5,
+      "emissiveScale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "emissive": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+      }
+    },
+    {},
+    {}
+  ]
+}

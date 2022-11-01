@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "5ae9e95b-cdcf-428a-abf0-096d1acccdb2",
+  "files": [],
+  "subMetas": {
+    "0a8f3": {
+      "importer": "gltf-mesh",
+      "uuid": "5ae9e95b-cdcf-428a-abf0-096d1acccdb2@0a8f3",
+      "displayName": "",
+      "id": "0a8f3",
+      "name": "SM_WindowGlow04.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "5ae9e95b-cdcf-428a-abf0-096d1acccdb2@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "5ae9e95b-cdcf-428a-abf0-096d1acccdb2@9d156",
+    "assetFinder": {
+      "meshes": [
+        "5ae9e95b-cdcf-428a-abf0-096d1acccdb2@0a8f3"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "5ae9e95b-cdcf-428a-abf0-096d1acccdb2@9d156"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "b251f618-a58b-45ae-b477-83091ae55da0",
+  "files": [],
+  "subMetas": {
+    "60921": {
+      "importer": "gltf-mesh",
+      "uuid": "b251f618-a58b-45ae-b477-83091ae55da0@60921",
+      "displayName": "",
+      "id": "60921",
+      "name": "SM_GasStationNeon02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "b251f618-a58b-45ae-b477-83091ae55da0@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "redirect": "b251f618-a58b-45ae-b477-83091ae55da0@9d156",
+    "assetFinder": {
+      "meshes": [
+        "b251f618-a58b-45ae-b477-83091ae55da0@60921"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "b251f618-a58b-45ae-b477-83091ae55da0@9d156"
+      ]
+    }
+  }
+}
