@@ -1,5 +1,5 @@
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString } from "cc";
 import { getCameraUniqueID, SRGBToLinear } from "../utils/utils";
 
 const { type, property, ccclass } = _decorator;
@@ -11,7 +11,7 @@ export class DeferredGBufferStage extends BaseStage {
     _name = 'DeferredGBufferStage'
     _materialName = 'blit-screen';
 
-    @property(String)
+    @property({ override: true, type: CCString })
     outputNames = ['gBufferColor', 'gBufferNormal', 'gBufferEmissive', 'gBufferDS']
 
     uniqueStage = true;

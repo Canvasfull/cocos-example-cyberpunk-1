@@ -1,5 +1,5 @@
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { EDITOR } from "cc/env";
 
@@ -12,7 +12,7 @@ export class DeferredTransparentStage extends BaseStage {
     _name = 'DeferredTransparentStage'
     _materialName = 'blit-screen';
 
-    @property(String)
+    @property({ override: true, type: CCString })
     outputNames = ['transparent']
 
     uniqueStage = true;

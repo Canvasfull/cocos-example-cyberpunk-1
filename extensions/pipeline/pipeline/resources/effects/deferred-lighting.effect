@@ -162,7 +162,7 @@ CCProgram lighting-fs %{
     color.rgb = color.rgb * fogColor.a + fogColor.rgb;
 
     // CC_APPLY_FOG_BASE(color, fogFactor);
-    color = CCFragOutput(color);
+    // color = CCFragOutput(color);
 
     #if CLEAR_LIGHTING
       color = vec4(0.);

@@ -3,8 +3,8 @@ import { EDITOR, JSB } from 'cc/env';
 import { InPlayMode } from '../utils/npm';
 import { HrefSetting } from './href-setting';
 
-// if (true) {
-if (!EDITOR && !JSB && HrefSetting.spector) {
+if (true) {
+    // if (!EDITOR && !JSB && HrefSetting.spector) {
 
     let SPECTORTOOLS: any;
     (function (SPECTORTOOLS) {

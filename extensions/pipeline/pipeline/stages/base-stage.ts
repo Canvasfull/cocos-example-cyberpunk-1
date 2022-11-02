@@ -1,4 +1,4 @@
-import { director, game, gfx, Material, PipelineStateManager, renderer, RenderStage, RenderTexture, Vec2, _decorator, pipeline, Enum, Node, ForwardStage, rendering } from 'cc';
+import { director, game, gfx, Material, PipelineStateManager, renderer, RenderStage, RenderTexture, Vec2, _decorator, pipeline, Enum, Node, ForwardStage, rendering, CCString } from 'cc';
 import { getCameraUniqueID, getQuadIA } from '../utils/utils';
 import { UBOBase } from '../ubo';
 import { loadResource } from '../utils/npm';
@@ -72,7 +72,7 @@ export class BaseStage {
     @type(InputType)
     inputType = InputType.LastStageOutput;
 
-    @property(String)
+    @property(CCString)
     outputNames = []
 
     @type(Node)

@@ -1,4 +1,4 @@
-import { geometry, gfx, pipeline, renderer, rendering, _decorator } from "cc";
+import { CCString, geometry, gfx, pipeline, renderer, rendering, _decorator } from "cc";
 import { CameraInfo, getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea, validPunctualLightsCulling } from "../utils/utils";
 import { BaseStage } from "./base-stage";
 
@@ -15,7 +15,7 @@ export class ForwardStage extends BaseStage {
     _name = 'ForwardStage'
     _materialName = 'blit-screen';
 
-    @property(String)
+    @property({ override: true, type: CCString })
     outputNames = ['ForwardColor', 'ForwardDepth']
 
     buildShadowPass (passName: Readonly<string>,

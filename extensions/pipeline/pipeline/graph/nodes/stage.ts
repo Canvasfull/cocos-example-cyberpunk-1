@@ -12,6 +12,7 @@ import { DeferredLightingStage } from '../../stages/deferred-lighting-stage';
 import { PipelineAssets } from '../../resources/pipeline-assets';
 import { DeferredPostStage } from '../../stages/deferred-post-stage';
 import { DeferredTransparentStage } from '../../stages/deferred-transparent-stage';
+import { BloomStage } from '../../stages/bloom-stage';
 
 export function createStageGraph (sclass: typeof BaseStage) {
     let name = js.getClassName(sclass);
@@ -296,3 +297,4 @@ createStageGraph(DeferredGBufferStage);
 createStageGraph(DeferredLightingStage);
 createStageGraph(DeferredPostStage);
 createStageGraph(DeferredTransparentStage);
+createStageGraph(BloomStage);

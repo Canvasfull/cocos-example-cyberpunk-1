@@ -3,6 +3,7 @@ import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
 import { buildDeferred } from './test-custom';
+import { passUtils } from './utils/pass-utils';
 
 export class CustomPipelineBuilder {
     static pipelines: Map<string, BaseStage[]> = new Map
@@ -18,23 +19,28 @@ export class CustomPipelineBuilder {
     public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
         let excludes = [
             'scene:material-previewcamera',
-            // 'Scene Gizmo Camera',
-            // 'Editor UIGizmoCamera'
+            'Scene Gizmo Camera',
+            'Editor UIGizmoCamera'
         ]
         if (EDITOR) {
             excludes.push('Main Camera')
         }
+
+        passUtils.ppl = ppl;
+
         for (let i = 0; i < cameras.length; i++) {
             const camera = cameras[i];
             if (!camera.scene) {
                 continue;
             }
-            buildDeferred(camera, ppl);
+            // buildDeferred(camera, ppl);
 
-            // if (excludes.includes(camera.name)) {
-            //     continue;
-            // }
-            // this.renderCamera(camera, ppl)
+            passUtils.camera = camera;
+
+            if (excludes.includes(camera.name)) {
+                continue;
+            }
+            this.renderCamera(camera, ppl)
         }
     }
     renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline) {

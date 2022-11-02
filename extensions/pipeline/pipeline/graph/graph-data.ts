@@ -1,6 +1,6 @@
 export default {
-    "last_node_id": 13,
-    "last_link_id": 25,
+    "last_node_id": 14,
+    "last_link_id": 33,
     "nodes": [
         {
             "id": 1,
@@ -82,18 +82,67 @@ export default {
             }
         },
         {
+            "id": 5,
+            "type": "pipeline/custom.ForwardStage",
+            "pos": [
+                402,
+                133
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 218
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": null
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "CameraOutputType": "Color",
+                "Name": "custom.ForwardStage",
+                "Format": "RGBA8",
+                "showResult": false,
+                "material": "blit-screen",
+                "shadingScale": 1,
+                "outputName": "ForwardStage"
+            }
+        },
+        {
             "id": 4,
             "type": "pipeline/RenderToScreen",
             "pos": [
-                1583,
-                421
+                1725,
+                423
             ],
             "size": {
                 "0": 140,
                 "1": 26
             },
             "flags": {},
-            "order": 5,
+            "order": 6,
             "mode": 0,
             "inputs": [
                 {
@@ -108,15 +157,15 @@ export default {
             "id": 12,
             "type": "pipeline/DeferredPostStage",
             "pos": [
-                1313,
-                507
+                1376,
+                531
             ],
             "size": {
                 "0": 228.39999389648438,
                 "1": 218
             },
             "flags": {},
-            "order": 4,
+            "order": 5,
             "mode": 0,
             "inputs": [
                 {
@@ -127,7 +176,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 25
+                    "link": 33
                 },
                 {
                     "name": "Custom Size",
@@ -190,7 +239,7 @@ export default {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
                     "links": [
-                        25
+                        32
                     ],
                     "slot_index": 0
                 }
@@ -205,18 +254,18 @@ export default {
             }
         },
         {
-            "id": 5,
-            "type": "pipeline/custom.ForwardStage",
+            "id": 14,
+            "type": "pipeline/custom.BloomStage",
             "pos": [
-                402,
-                133
+                1056,
+                622
             ],
             "size": {
                 "0": 228.39999389648438,
                 "1": 218
             },
             "flags": {},
-            "order": 1,
+            "order": 4,
             "mode": 0,
             "inputs": [
                 {
@@ -227,30 +276,35 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": null
+                    "link": 32
                 },
                 {
                     "name": "Custom Size",
                     "type": "vec2",
-                    "link": null
+                    "link": null,
+                    "slot_index": 2
                 }
             ],
             "outputs": [
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "links": [],
+                    "links": [
+                        33
+                    ],
                     "slot_index": 0
                 }
             ],
             "properties": {
                 "CameraOutputType": "Color",
-                "Name": "custom.ForwardStage",
+                "Name": "custom.BloomStage",
                 "Format": "RGBA8",
                 "showResult": false,
                 "material": "blit-screen",
                 "shadingScale": 1,
-                "outputName": "ForwardStage"
+                "threshold": 0.1,
+                "iterations": 2,
+                "intensity": 0.8
             }
         }
     ],
@@ -280,8 +334,16 @@ export default {
             "RenderTexture"
         ],
         [
-            25,
+            32,
             11,
+            0,
+            14,
+            1,
+            "RenderTexture"
+        ],
+        [
+            33,
+            14,
             0,
             12,
             1,
