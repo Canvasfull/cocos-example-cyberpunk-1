@@ -3,8 +3,8 @@ import { EDITOR, JSB } from 'cc/env';
 import { InPlayMode } from '../utils/npm';
 import { HrefSetting } from './href-setting';
 
-if (true) {
-    // if (!EDITOR && !JSB && HrefSetting.spector) {
+// if (true) {
+if (!EDITOR && !JSB && HrefSetting.spector) {
 
     let SPECTORTOOLS: any;
     (function (SPECTORTOOLS) {
@@ -103,8 +103,10 @@ if (true) {
             })
         ])
 
+        let fullCapture = true
+
         let spector: any = new globalThis.SPECTOR.Spector();
-        // spector.fullCapture = true;
+        spector.fullCapture = fullCapture;
         spector.timeSpy.spyRequestAnimationFrame('requestAnimationFrame', window);
         spector.displayUI(undefined, undefined, false, false);
         spector.spyCanvas(game.canvas);
@@ -117,7 +119,7 @@ if (true) {
         spector.capture = function () {
             let frameRate = game.frameRate
             game.frameRate = 60
-            spector.captureCanvas(game.canvas, undefined, undefined, false);
+            spector.captureCanvas(game.canvas, undefined, undefined, fullCapture);
             // game.frameRate = frameRate
         }
     }

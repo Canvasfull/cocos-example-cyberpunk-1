@@ -155,9 +155,9 @@
     "__prefab": {
       "__id__": 9
     },
-    "threshold": 1,
+    "threshold": 0.3,
     "iterations": 2,
-    "intensity": 0.8,
+    "intensity": 0.15,
     "_id": ""
   },
   {

@@ -6,32 +6,59 @@ CCEffect %{
     - vert: vs
       frag: prefilter-fs
       phase: post-process
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: one
+          blendDst: zero
       rasterizerState:
         cullMode: none
       depthStencilState:
         depthTest: false
+    - &downsample
+        vert: vs
+        frag: down-sample-fs
+        phase: post-process
+        blendState:
+          targets:
+          - blend: true
+            blendSrc: one
+            blendDst: zero
+        rasterizerState:
+          cullMode: none
+        depthStencilState:
+          depthTest: false
+    - *downsample
+    - *downsample
+    - *downsample
+    - *downsample
+    - *downsample
+    - &upsample
+        vert: vs
+        frag: combine-fs
+        phase: post-process
+        blendState:
+          targets:
+          - blend: true
+            blendSrc: one
+            blendDst: zero
+        rasterizerState:
+          cullMode: none
+        depthStencilState:
+          depthTest: false
+    - *upsample
+    - *upsample
+    - *upsample
+    - *upsample
+    - *upsample
     - vert: vs
-      frag: down-sample-fs
-      phase: post-process
-      rasterizerState:
-        cullMode: none
-      depthStencilState:
-        depthTest: false
-    - vert: vs
-      frag: up-sample-fs
+      frag: combine-fs
       phase: post-process
       blendState:
         targets:
         - blend: true
           blendSrc: one
-          blendDst: one
-      rasterizerState:
-        cullMode: none
-      depthStencilState:
-        depthTest: false
-    - vert: vs
-      frag: combine-fs
-      phase: post-process
+          blendDst: zero
       rasterizerState:
         cullMode: none
       depthStencilState:
@@ -144,8 +171,9 @@ CCProgram up-sample-fs %{
     layout(location = 0) out vec4 fragColor;
   
     void main () {
-      vec2 textureSize = texSize.xy;
-      fragColor = SampleCatmullRom(bloomTexture, v_uv, textureSize);
+      // vec2 textureSize = texSize.xy;
+      // fragColor = SampleCatmullRom(bloomTexture, v_uv, textureSize);
+      fragColor =  texture(bloomTexture, v_uv);
     }
   
 }%

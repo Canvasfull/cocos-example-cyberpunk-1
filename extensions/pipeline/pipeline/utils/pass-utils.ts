@@ -19,7 +19,11 @@ class PassUtils {
         this.pass = pass;
         this.rasterWidth = width;
         this.rasterHeight = height;
-        return pass;
+        return this;
+    }
+    setViewport (x, y, w, h) {
+        this.pass.setViewport(new Viewport(x, y, w, h))
+        return this;
     }
     addRasterView (name: string, format: gfx.Format, residency = ResourceResidency.MANAGED) {
         if (!this.ppl.containsResource(name)) {
@@ -28,11 +32,12 @@ class PassUtils {
 
         const view = new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,
-            LoadOp.CLEAR, StoreOp.STORE,
+            this.clearFlag === ClearFlagBit.NONE ? LoadOp.LOAD : LoadOp.CLEAR,
+            StoreOp.STORE,
             this.clearFlag,
             this.clearColor);
         this.pass.addRasterView(name, view);
-
+        return this;
     }
     setPassInput (inputName: string, shaderName: string) {
         if (this.ppl.containsResource(inputName)) {
@@ -40,6 +45,7 @@ class PassUtils {
             computeView.name = shaderName;
             this.pass.addComputeView(inputName, computeView);
         }
+        return this;
     }
 
     blitScreen (passIdx = 0) {
@@ -47,6 +53,7 @@ class PassUtils {
             this.camera, this.material, passIdx,
             SceneFlags.NONE,
         );
+        return this;
     }
 }
 

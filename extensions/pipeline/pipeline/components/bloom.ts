@@ -16,6 +16,9 @@ export class BloomSetting extends Component {
     @property
     intensity = 0.8
 
+    @property
+    blurRadius = 1
+
     onEnable () {
         BloomSetting.instance = this
     }

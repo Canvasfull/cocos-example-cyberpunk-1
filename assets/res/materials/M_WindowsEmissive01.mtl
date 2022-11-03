@@ -1,6 +1,6 @@
 {
   "__type__": "cc.Material",
-  "_name": "M_WindowsEmissive01",
+  "_name": "",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
@@ -11,33 +11,23 @@
   "_defines": [
     {
       "HAS_SECOND_UV": true,
-      "USE_ALBEDO_MAP": false,
-      "USE_PBR_MAP": false,
-      "USE_NORMAL_MAP": false,
-      "USE_EMISSIVE_MAP": true,
       "USE_INSTANCING": true,
-      "USE_ALPHA_TEST": false
+      "USE_EMISSIVE_MAP": true
     },
-    {
-      "HAS_SECOND_UV": true,
-      "USE_ALBEDO_MAP": false,
-      "USE_PBR_MAP": false,
-      "USE_NORMAL_MAP": false,
-      "USE_EMISSIVE_MAP": true,
-      "USE_INSTANCING": true,
-      "USE_ALPHA_TEST": false
-    },
-    {
-      "HAS_SECOND_UV": true,
-      "USE_ALBEDO_MAP": false,
-      "USE_PBR_MAP": false,
-      "USE_NORMAL_MAP": false,
-      "USE_EMISSIVE_MAP": true,
-      "USE_INSTANCING": true,
-      "USE_ALPHA_TEST": false
-    }
+    {},
+    {},
+    {}
   ],
   "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
     {
       "rasterizerState": {},
       "depthStencilState": {},
@@ -68,34 +58,33 @@
   ],
   "_props": [
     {
-      "emissiveMap": {
-        "__uuid__": "dbe2b242-e0b4-4d40-809f-3e69909648a9@6c48a",
-        "__expectedType__": "cc.Texture2D"
-      },
       "albedoScale": {
         "__type__": "cc.Vec3",
         "x": 0,
         "y": 0,
         "z": 0
       },
-      "occlusion": 0,
       "roughness": 0.5,
       "metallic": 0,
-      "specularIntensity": 0.5,
-      "emissiveScale": {
-        "__type__": "cc.Vec3",
-        "x": 5,
-        "y": 5,
-        "z": 5
-      },
       "emissive": {
         "__type__": "cc.Color",
         "r": 255,
         "g": 255,
         "b": 255,
         "a": 255
+      },
+      "emissiveScale": {
+        "__type__": "cc.Vec3",
+        "x": 10,
+        "y": 10,
+        "z": 10
+      },
+      "emissiveMap": {
+        "__uuid__": "dbe2b242-e0b4-4d40-809f-3e69909648a9@6c48a",
+        "__expectedType__": "cc.Texture2D"
       }
     },
+    {},
     {},
     {}
   ]
