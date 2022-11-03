@@ -165,6 +165,7 @@ export class BloomStage extends BaseStage {
 
             inputName = bloomPassUpSampleRTName;
         }
+
         // passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
 
         // === Bloom Combine Pass ===
@@ -173,7 +174,7 @@ export class BloomStage extends BaseStage {
 
         passUtils.addRasterPass(area.width, area.height, 'Bloom_Combine', `CameraBloomCombinePass${cameraID}`)
             .setPassInput(input0, 'outputResultMap')
-            .setPassInput(`dsBloomPassUpSampleColor${cameraName}0`, 'bloomTexture')
+            .setPassInput(inputName, 'bloomTexture')
             .addRasterView(slot0, format)
             .blitScreen(BLOOM_COMBINEPASS_INDEX);
     }
