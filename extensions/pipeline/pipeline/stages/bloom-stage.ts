@@ -113,7 +113,7 @@ export class BloomStage extends BaseStage {
         passUtils.addRasterPass(width, height, 'Bloom_Prefilter', `CameraBloomPrefilterPass${cameraID}`)
             .setViewport(area.x, area.y, width, height)
             .setPassInput(input0, 'outputResultMap')
-            .addRasterView(`dsBloomPassPrefilterColor${cameraName}`, format)
+            .addRasterView(bloomPassPrefilterRTName, format)
             .blitScreen(BLOOM_PREFILTERPASS_INDEX)
 
         // === Bloom downSampler ===
@@ -148,7 +148,6 @@ export class BloomStage extends BaseStage {
 
 
         // === Bloom upSampler ===
-        // passUtils.clearFlag = gfx.ClearFlagBit.NONE;
         for (let i = iterations - 2; i >= 0; --i) {
             width <<= 1;
             height <<= 1;
@@ -165,8 +164,6 @@ export class BloomStage extends BaseStage {
 
             inputName = bloomPassUpSampleRTName;
         }
-
-        // passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
 
         // === Bloom Combine Pass ===
         const slot0 = this.slotName(camera, 0);
