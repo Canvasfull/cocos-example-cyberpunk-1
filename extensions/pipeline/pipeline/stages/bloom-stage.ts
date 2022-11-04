@@ -16,52 +16,6 @@ export const BLOOM_DOWNSAMPLEPASS_INDEX = 1;
 export const BLOOM_UPSAMPLEPASS_INDEX = BLOOM_DOWNSAMPLEPASS_INDEX + MAX_BLOOM_FILTER_PASS_NUM;
 export const BLOOM_COMBINEPASS_INDEX = BLOOM_UPSAMPLEPASS_INDEX + MAX_BLOOM_FILTER_PASS_NUM;
 
-class BloomData {
-    declare bloomMaterial: Material;
-    threshold = 0.1;
-    iterations = 2;
-    intensity = 0.8;
-    private _updateBloomPass () {
-        if (!this.bloomMaterial) return;
-
-        const prefilterPass = this.bloomMaterial.passes[BLOOM_PREFILTERPASS_INDEX];
-        prefilterPass.beginChangeStatesSilently();
-        prefilterPass.tryCompile();
-        prefilterPass.endChangeStatesSilently();
-
-        for (let i = 0; i < MAX_BLOOM_FILTER_PASS_NUM; ++i) {
-            const downsamplePass = this.bloomMaterial.passes[BLOOM_DOWNSAMPLEPASS_INDEX + i];
-            downsamplePass.beginChangeStatesSilently();
-            downsamplePass.tryCompile();
-            downsamplePass.endChangeStatesSilently();
-
-            const upsamplePass = this.bloomMaterial.passes[BLOOM_UPSAMPLEPASS_INDEX + i];
-            upsamplePass.beginChangeStatesSilently();
-            upsamplePass.tryCompile();
-            upsamplePass.endChangeStatesSilently();
-        }
-
-        const combinePass = this.bloomMaterial.passes[BLOOM_COMBINEPASS_INDEX];
-        combinePass.beginChangeStatesSilently();
-        combinePass.tryCompile();
-        combinePass.endChangeStatesSilently();
-    }
-    private _init () {
-        if (this.bloomMaterial) return;
-        this.bloomMaterial = new Material();
-        this.bloomMaterial._uuid = 'builtin-bloom-material';
-        this.bloomMaterial.initialize({ effectName: 'pipeline/bloom' });
-        for (let i = 0; i < this.bloomMaterial.passes.length; ++i) {
-            this.bloomMaterial.passes[i].tryCompile();
-        }
-        this._updateBloomPass();
-    }
-    constructor () {
-        this._init();
-    }
-}
-let bloomData: BloomData | null = null;
-
 let defaultSetting = {
     threshold: 1,
     iterations: 2,

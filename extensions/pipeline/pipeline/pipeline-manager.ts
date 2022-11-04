@@ -5,6 +5,12 @@ import { EDITOR } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 
+let EditorCameras = [
+    'scene:material-previewcamera',
+    'Scene Gizmo Camera',
+    'Editor UIGizmoCamera'
+]
+
 export class CustomPipelineBuilder {
     static pipelines: Map<string, BaseStage[]> = new Map
 
@@ -17,14 +23,10 @@ export class CustomPipelineBuilder {
     }
 
     public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
-        let excludes = [
-            'scene:material-previewcamera',
-            'Scene Gizmo Camera',
-            'Editor UIGizmoCamera'
-        ]
-        if (EDITOR) {
-            excludes.push('Main Camera')
-        }
+
+        // if (EDITOR) {
+        //     excludes.push('Main Camera')
+        // }
 
         passUtils.ppl = ppl;
 
@@ -36,10 +38,6 @@ export class CustomPipelineBuilder {
             // buildDeferred(camera, ppl);
 
             passUtils.camera = camera;
-
-            if (excludes.includes(camera.name)) {
-                continue;
-            }
             this.renderCamera(camera, ppl)
         }
     }
@@ -50,7 +48,12 @@ export class CustomPipelineBuilder {
         let cameraSetting = camera.node.getComponent(CameraSetting);
 
         let pipelineName = 'main';
-        if (cameraSetting) {
+        if (EDITOR) {
+            if (camera.name !== 'Editor Camera') {
+                pipelineName = 'editor';
+            }
+        }
+        else if (cameraSetting) {
             pipelineName = cameraSetting.pipeline;
         }
 
@@ -63,5 +66,5 @@ export class CustomPipelineBuilder {
 }
 
 // if (!EDITOR) {
-rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
+// rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 // }

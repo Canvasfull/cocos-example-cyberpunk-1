@@ -29,7 +29,9 @@ export class ForwardStage extends BaseStage {
             ppl.addRenderTarget(shadowMapName, format, width, height, ResourceResidency.MANAGED);
             ppl.addDepthStencil(`${shadowMapName}Depth`, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
-        const pass = ppl.addRasterPass(width, height, 'default', passName);
+        const pass = ppl.addRasterPass(width, height, 'default');
+        pass.name = passName;
+
         pass.addRasterView(shadowMapName, new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,
             LoadOp.CLEAR, StoreOp.STORE,
@@ -104,36 +106,40 @@ export class ForwardStage extends BaseStage {
         const cameraID = getCameraUniqueID(camera);
         const cameraName = `Camera${cameraID}`;
 
-        const cameraInfo = this.buildShadowPasses(cameraName, camera, ppl);
-        const width = camera.window.width;
-        const height = camera.window.height;
+        // const shadowInfo = this.buildShadowPasses(cameraName, camera, ppl);
+        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const width = area.width;
+        const height = area.height;
 
         let isOffScreen = !this.renderToScreen;
 
-        const forwardPassRTName = this.slotName(camera, 0);
-        const forwardPassDSName = this.slotName(camera, 1);
-        if (!ppl.containsResource(forwardPassRTName)) {
+        const slot0 = this.slotName(camera, 0);
+        const slot1 = this.slotName(camera, 1);
+        if (!ppl.containsResource(slot0)) {
             if (!isOffScreen) {
-                ppl.addRenderTexture(forwardPassRTName, Format.RGBA8, width, height, camera.window);
+                ppl.addRenderTexture(slot0, Format.RGBA8, width, height, camera.window);
             } else {
-                ppl.addRenderTarget(forwardPassRTName, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
+                ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
             }
-            ppl.addDepthStencil(forwardPassDSName, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+            ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
 
-        const forwardPass = ppl.addRasterPass(width, height, 'default', `${this._name}_${cameraID}`);
-        for (const dirShadowName of cameraInfo.mainLightShadowNames) {
-            if (ppl.containsResource(dirShadowName)) {
-                const computeView = new ComputeView();
-                forwardPass.addComputeView(dirShadowName, computeView);
-            }
-        }
-        for (const spotShadowName of cameraInfo.spotLightShadowNames) {
-            if (ppl.containsResource(spotShadowName)) {
-                const computeView = new ComputeView();
-                forwardPass.addComputeView(spotShadowName, computeView);
-            }
-        }
+        const pass = ppl.addRasterPass(width, height, 'default');
+        pass.name = `${this._name}_${cameraID}`;
+        pass.setViewport(new Viewport(area.x, area.y, width, height));
+
+        // for (const dirShadowName of shadowInfo.mainLightShadowNames) {
+        //     if (ppl.containsResource(dirShadowName)) {
+        //         const computeView = new ComputeView();
+        //         forwardPass.addComputeView(dirShadowName, computeView);
+        //     }
+        // }
+        // for (const spotShadowName of shadowInfo.spotLightShadowNames) {
+        //     if (ppl.containsResource(spotShadowName)) {
+        //         const computeView = new ComputeView();
+        //         forwardPass.addComputeView(spotShadowName, computeView);
+        //     }
+        // }
 
         const passView = new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,
@@ -147,21 +153,18 @@ export class ForwardStage extends BaseStage {
             StoreOp.STORE,
             camera.clearFlag,
             new Color(camera.clearDepth, camera.clearStencil, 0, 0));
-        forwardPass.addRasterView(forwardPassRTName, passView);
-        forwardPass.addRasterView(forwardPassDSName, passDSView);
+        pass.addRasterView(slot0, passView);
+        pass.addRasterView(slot1, passDSView);
 
-        forwardPass
-            .addQueue(QueueHint.RENDER_OPAQUE)
+        pass.addQueue(QueueHint.RENDER_OPAQUE)
             .addSceneOfCamera(camera, new LightInfo(),
                 SceneFlags.OPAQUE_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.CUTOUT_OBJECT
                 | SceneFlags.DEFAULT_LIGHTING | SceneFlags.DRAW_INSTANCING);
-        // forwardPass
-        //     .addQueue(QueueHint.RENDER_TRANSPARENT)
-        //     .addSceneOfCamera(camera, new LightInfo(), SceneFlags.TRANSPARENT_OBJECT | SceneFlags.GEOMETRY);
+        pass.addQueue(QueueHint.RENDER_TRANSPARENT)
+            .addSceneOfCamera(camera, new LightInfo(), SceneFlags.TRANSPARENT_OBJECT | SceneFlags.GEOMETRY);
 
         if (!isOffScreen) {
-            forwardPass
-                .addQueue(QueueHint.RENDER_TRANSPARENT)
+            pass.addQueue(QueueHint.RENDER_TRANSPARENT)
                 .addSceneOfCamera(camera, new LightInfo(), SceneFlags.UI | SceneFlags.PROFILER);
         }
     }
