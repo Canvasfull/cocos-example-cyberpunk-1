@@ -1,4 +1,4 @@
-import { _decorator, renderer, rendering } from 'cc';
+import { _decorator, renderer, rendering, ReflectionProbeManager } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
@@ -8,7 +8,9 @@ import { passUtils } from './utils/pass-utils';
 let EditorCameras = [
     'scene:material-previewcamera',
     'Scene Gizmo Camera',
-    'Editor UIGizmoCamera'
+    'Editor UIGizmoCamera',
+
+    // 'Main Camera'
 ]
 
 export class CustomPipelineBuilder {
@@ -38,7 +40,35 @@ export class CustomPipelineBuilder {
             // buildDeferred(camera, ppl);
 
             passUtils.camera = camera;
-            this.renderCamera(camera, ppl)
+
+            if (camera.cameraType === renderer.scene.CameraType.REFLECTION_PROBE) {
+                const probe = ReflectionProbeManager.probeManager.getProbeByCamera(camera);
+                if (probe && probe.needRender) {
+                    let faceIdx = probe._bakedfaceIdx++;
+                    if (probe.probeType === 0 && faceIdx < 6) {
+                        // let originName = camera.name;
+                        // for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
+                        //update camera dirction
+                        probe.updateCameraDir(faceIdx);
+                        const renderTexture = probe.bakedCubeTextures[faceIdx];
+                        probe.setTargetTexture(renderTexture);
+                        // probeStage.setUsageInfo(probe, renderTexture.window!.framebuffer);
+                        // probeStage.render(probe.camera);
+
+                        // camera._name = originName + faceIdx;
+
+                        this.renderCamera(camera, ppl)
+                        // }
+
+                        // camera._name = originName;
+                        probe.setTargetTexture(null);
+                    }
+                }
+            }
+            else {
+                this.renderCamera(camera, ppl)
+            }
+
         }
     }
     renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline) {
@@ -49,8 +79,11 @@ export class CustomPipelineBuilder {
 
         let pipelineName = 'main';
         if (EDITOR) {
-            if (camera.name !== 'Editor Camera') {
+            if (EditorCameras.includes(camera.name)) {
                 pipelineName = 'editor';
+            }
+            else if (camera.name !== 'Editor Camera' && camera.name !== 'PrivatePreview') {
+                return;
             }
         }
         else if (cameraSetting) {
@@ -66,5 +99,5 @@ export class CustomPipelineBuilder {
 }
 
 // if (!EDITOR) {
-// rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
+rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 // }

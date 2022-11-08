@@ -57,6 +57,8 @@ CCProgram lighting-fs %{
     vec4 fog_Parameters2;
     vec4 fog_Parameters3;
     vec4 fog_ColorParameters;
+
+    vec4 inputViewPort;
   };
 
   uniform sampler2D light_cluster_InfoTexture;
@@ -126,10 +128,10 @@ CCProgram lighting-fs %{
         float depth = texture(depth_stencil, v_uv).x;
       #endif
     #else
-      vec4 albedoMap = texture(gbuffer_albedoMap,v_uv);
-      vec4 normalMap = texture(gbuffer_normalMap,v_uv);
-      vec4 emissiveMap = texture(gbuffer_emissiveMap,v_uv);
-      float depth = texture(depth_stencil, v_uv).x;
+      vec4 albedoMap = texture(gbuffer_albedoMap,v_uv * inputViewPort.xy);
+      vec4 normalMap = texture(gbuffer_normalMap,v_uv * inputViewPort.xy);
+      vec4 emissiveMap = texture(gbuffer_emissiveMap,v_uv * inputViewPort.xy);
+      float depth = texture(depth_stencil, v_uv * inputViewPort.xy).x;
     #endif
 
     s.albedo = albedoMap;

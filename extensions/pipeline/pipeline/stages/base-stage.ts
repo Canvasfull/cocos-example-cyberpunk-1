@@ -2,6 +2,7 @@ import { director, game, gfx, Material, PipelineStateManager, renderer, RenderSt
 import { getCameraUniqueID, getQuadIA } from '../utils/utils';
 import { UBOBase } from '../ubo';
 import { loadResource } from '../utils/npm';
+import { PipelineAssets } from '../resources/pipeline-assets';
 
 const { ccclass, type, property } = _decorator;
 
@@ -39,28 +40,9 @@ export class BaseStage {
     get materialName () {
         return this._materialName;
     }
-    set materialName (v) {
-        if (v !== this._materialName) {
-            this.loadMaterial();
-        }
 
-        this._materialName = v;
-    }
-
-    loadMaterial () {
-        loadResource(MaterialResourceDir + this.materialName, (m: Material) => {
-            this.material = m;
-        });
-    }
-
-    @type(Material)
-    _material: Material | undefined
-    @type(Material)
     get material () {
-        return this._material;
-    }
-    set material (v) {
-        this._material = v;
+        return PipelineAssets.instance.getMaterial(this._materialName);
     }
 
     @property

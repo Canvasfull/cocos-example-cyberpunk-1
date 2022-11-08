@@ -65,7 +65,7 @@ export function getCameraUniqueID (camera: renderer.scene.Camera) {
     if (!_cameras.includes(camera)) {
         _cameras.push(camera);
     }
-    return _cameras.indexOf(camera);
+    return camera.name + '_' + _cameras.indexOf(camera);
 }
 
 export function getRenderArea (camera: renderer.scene.Camera, width: number, height: number, light: renderer.scene.Light | null = null, level = 0) {
@@ -104,6 +104,10 @@ export function getRenderArea (camera: renderer.scene.Camera, width: number, hei
             default:
         }
     }
+
+    out.width = Math.floor(out.width);
+    out.height = Math.floor(out.height);
+
     return out;
 }
 

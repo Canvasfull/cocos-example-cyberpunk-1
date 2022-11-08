@@ -84,29 +84,29 @@ export function createStageGraph (sclass: typeof BaseStage) {
         onPropertyChanges.set('material', (v: string) => {
         })
 
-        if (PipelineAssets.instance) {
-            let names = PipelineAssets.instance.materialNames;
+        // if (PipelineAssets.instance) {
+        //     let names = PipelineAssets.instance.materialNames;
 
-            function setMaterial (effectName: string) {
-                stage.material = PipelineAssets.instance.materialMap.get(effectName)
-            }
+        //     function setMaterial (effectName: string) {
+        //         stage.material = PipelineAssets.instance.materialMap.get(effectName)
+        //     }
 
-            let name = 'material';
-            let value = this.properties.material || stage.materialName || names[0];
+        //     let name = 'material';
+        //     let value = this.properties.material || stage.materialName || names[0];
 
-            let widget = self.addWidget("combo", name, value, name, { values: names });
-            self.addProperty(name, widget.value, widget.type);
+        //     let widget = self.addWidget("combo", name, value, name, { values: names });
+        //     self.addProperty(name, widget.value, widget.type);
 
-            setMaterial(value);
+        //     setMaterial(value);
 
-            onPropertyChanges.set('material', (v: string) => {
-                setMaterial(v);
-            })
+        //     onPropertyChanges.set('material', (v: string) => {
+        //         setMaterial(v);
+        //     })
 
-            self.addWidget('button', 'show result', null, () => {
-                self.properties.showResult = !self.properties.showResult;
-            });
-        }
+        //     self.addWidget('button', 'show result', null, () => {
+        //         self.properties.showResult = !self.properties.showResult;
+        //     });
+        // }
 
         let props = (sclass as any).__props__;
         let attrs = (sclass as any).__attrs__;

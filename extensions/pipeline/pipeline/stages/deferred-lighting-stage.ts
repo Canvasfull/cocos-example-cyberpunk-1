@@ -1,6 +1,6 @@
 
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
 import { EDITOR } from "cc/env";
@@ -10,10 +10,11 @@ const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, Sc
 const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 
 let EditorCameras = [
-    'Main Camera',
     'scene:material-previewcamera',
     'Scene Gizmo Camera',
-    'Editor UIGizmoCamera'
+    'Editor UIGizmoCamera',
+
+    'Main Camera',
 ]
 
 @ccclass('DeferredLightingStage')
@@ -26,12 +27,13 @@ export class DeferredLightingStage extends BaseStage {
 
     tempMat: Material
     clearMat: renderer.MaterialInstance
+    materialMap: Map<renderer.scene.Camera, Material> = new Map
 
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
-        const cameraName = `Camera${cameraID}`;
+        // const cameraName = `Camera${cameraID}`;
         // const cameraInfo = buildShadowPasses(cameraName, camera, ppl);
         const area = getRenderArea(camera, camera.window.width, camera.window.height);
         const width = area.width;
@@ -96,16 +98,24 @@ export class DeferredLightingStage extends BaseStage {
             lightingClearColor);
         lightingPass.addRasterView(deferredLightingPassRTName, lightingPassView);
 
-        let material = PipelineAssets.instance.getMaterial('deferred-lighting')
-        if (EDITOR && EditorCameras.includes(camera.name)) {
-            if (!this.clearMat) {
-                this.clearMat = new renderer.MaterialInstance({
-                    parent: material,
+        let material = this.materialMap.get(camera);
+        if (!material) {
+            let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
+            if (EDITOR && EditorCameras.includes(camera.name)) {
+                material = new renderer.MaterialInstance({
+                    parent: sharedMaterial,
                 })
-                this.clearMat.recompileShaders({ CLEAR_LIGHTING: true })
+                material.recompileShaders({ CLEAR_LIGHTING: true })
             }
-            material = this.clearMat;
+            else {
+                material = new renderer.MaterialInstance({
+                    parent: sharedMaterial,
+                })
+            }
+            this.materialMap.set(camera, material);
         }
+
+        material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
 
         lightingPass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
             camera, material, 0,

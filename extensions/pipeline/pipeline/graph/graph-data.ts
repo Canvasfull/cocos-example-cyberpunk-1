@@ -1,6 +1,6 @@
 export default {
     "last_node_id": 16,
-    "last_link_id": 35,
+    "last_link_id": 36,
     "nodes": [
         {
             "id": 10,
@@ -11,10 +11,10 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 218
+                "1": 170
             },
             "flags": {},
-            "order": 2,
+            "order": 3,
             "mode": 0,
             "inputs": [
                 {
@@ -48,8 +48,8 @@ export default {
                 "Name": "DeferredGBufferStage",
                 "Format": "RGBA8",
                 "showResult": false,
-                "material": "blit-screen",
-                "shadingScale": 1
+                "shadingScale": 1,
+                "material": "blit-screen"
             }
         },
         {
@@ -61,7 +61,7 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 218
+                "1": 170
             },
             "flags": {},
             "order": 7,
@@ -75,7 +75,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 33
+                    "link": 36
                 },
                 {
                     "name": "Custom Size",
@@ -98,112 +98,8 @@ export default {
                 "Name": "DeferredPostStage",
                 "Format": "RGBA8",
                 "showResult": false,
-                "material": "blit-screen",
-                "shadingScale": 1
-            }
-        },
-        {
-            "id": 11,
-            "type": "pipeline/DeferredLightingStage",
-            "pos": [
-                776,
-                505
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 218
-            },
-            "flags": {},
-            "order": 4,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": null
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 17
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        32
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "DeferredLightingStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "material": "blit-screen",
-                "shadingScale": 1
-            }
-        },
-        {
-            "id": 14,
-            "type": "pipeline/custom.BloomStage",
-            "pos": [
-                1056,
-                622
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 218
-            },
-            "flags": {},
-            "order": 6,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": null
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 32
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null,
-                    "slot_index": 2
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        33
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "custom.BloomStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "material": "blit-screen",
                 "shadingScale": 1,
-                "threshold": 0.1,
-                "iterations": 2,
-                "intensity": 0.8
+                "material": "blit-screen"
             }
         },
         {
@@ -299,7 +195,7 @@ export default {
                 "1": 26
             },
             "flags": {},
-            "order": 5,
+            "order": 6,
             "mode": 0,
             "inputs": [
                 {
@@ -319,10 +215,10 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 218
+                "1": 170
             },
             "flags": {},
-            "order": 3,
+            "order": 4,
             "mode": 0,
             "inputs": [
                 {
@@ -356,9 +252,111 @@ export default {
                 "Name": "custom.ForwardStage",
                 "Format": "RGBA8",
                 "showResult": false,
-                "material": "blit-screen",
                 "shadingScale": 1,
+                "material": "blit-screen",
                 "outputName": "ForwardStage"
+            }
+        },
+        {
+            "id": 11,
+            "type": "pipeline/DeferredLightingStage",
+            "pos": [
+                776,
+                505
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 170
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 17
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        36
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "CameraOutputType": "Color",
+                "Name": "DeferredLightingStage",
+                "Format": "RGBA8",
+                "showResult": false,
+                "shadingScale": 1,
+                "material": "blit-screen"
+            }
+        },
+        {
+            "id": 14,
+            "type": "pipeline/custom.BloomStage",
+            "pos": [
+                1056,
+                622
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 170
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": null
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null,
+                    "slot_index": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "CameraOutputType": "Color",
+                "Name": "custom.BloomStage",
+                "Format": "RGBA8",
+                "showResult": false,
+                "shadingScale": 1,
+                "material": "blit-screen",
+                "threshold": 0.1,
+                "iterations": 2,
+                "intensity": 0.8
             }
         }
     ],
@@ -388,22 +386,6 @@ export default {
             "RenderTexture"
         ],
         [
-            32,
-            11,
-            0,
-            14,
-            1,
-            "RenderTexture"
-        ],
-        [
-            33,
-            14,
-            0,
-            12,
-            1,
-            "RenderTexture"
-        ],
-        [
             34,
             15,
             0,
@@ -417,6 +399,14 @@ export default {
             0,
             16,
             0,
+            "RenderTexture"
+        ],
+        [
+            36,
+            11,
+            0,
+            12,
+            1,
             "RenderTexture"
         ]
     ],

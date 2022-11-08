@@ -1,6 +1,6 @@
 import { BaseStage, InputType } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString } from "cc";
-import { getCameraUniqueID, SRGBToLinear } from "../utils/utils";
+import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -17,9 +17,13 @@ export class DeferredGBufferStage extends BaseStage {
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
-        const size = this.finalShadingSize(camera)
-        const width = size.x;
-        const height = size.y;
+        // const size = this.finalShadingSize(camera)
+        // const width = size.x;
+        // const height = size.y;
+
+        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const width = area.width;
+        const height = area.height;
 
         const cameraID = getCameraUniqueID(camera);
         const slot0 = this.slotName(camera, 0);
@@ -35,8 +39,9 @@ export class DeferredGBufferStage extends BaseStage {
             ppl.addDepthStencil(slot3, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         // gbuffer pass
-        const gBufferPass = ppl.addRasterPass(width, height, 'Geometry',);
-        gBufferPass.name = `${slot0}_Pass`
+        const pass = ppl.addRasterPass(width, height, 'Geometry',);
+        pass.name = `${slot0}_Pass`
+        pass.setViewport(new Viewport(area.x, area.y, width, height));
 
         const rtColor = new Color(0, 0, 0, 0);
         if (camera.clearFlag & ClearFlagBit.COLOR) {
@@ -68,12 +73,11 @@ export class DeferredGBufferStage extends BaseStage {
             LoadOp.CLEAR, StoreOp.STORE,
             camera.clearFlag,
             new Color(camera.clearDepth, camera.clearStencil, 0, 0));
-        gBufferPass.addRasterView(slot0, passColorView);
-        gBufferPass.addRasterView(slot1, passNormalView);
-        gBufferPass.addRasterView(slot2, passEmissiveView);
-        gBufferPass.addRasterView(slot3, passDSView);
-        gBufferPass
-            .addQueue(QueueHint.RENDER_OPAQUE)
+        pass.addRasterView(slot0, passColorView);
+        pass.addRasterView(slot1, passNormalView);
+        pass.addRasterView(slot2, passEmissiveView);
+        pass.addRasterView(slot3, passDSView);
+        pass.addQueue(QueueHint.RENDER_OPAQUE)
             .addSceneOfCamera(camera, new LightInfo(), SceneFlags.OPAQUE_OBJECT | SceneFlags.CUTOUT_OBJECT | SceneFlags.DRAW_INSTANCING);
     }
 }

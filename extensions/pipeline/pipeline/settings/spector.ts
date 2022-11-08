@@ -3,8 +3,8 @@ import { EDITOR, JSB } from 'cc/env';
 import { InPlayMode } from '../utils/npm';
 import { HrefSetting } from './href-setting';
 
-// if (true) {
-if (!EDITOR && !JSB && HrefSetting.spector) {
+if (true) {
+    // if (!EDITOR && !JSB && HrefSetting.spector) {
 
     let SPECTORTOOLS: any;
     (function (SPECTORTOOLS) {
@@ -13,12 +13,14 @@ if (!EDITOR && !JSB && HrefSetting.spector) {
             let queue: any;
             let callback: any;
 
+            useDist = true
+
             // const host = 'http://' + location.host.split(':')[0]
             const host = 'http://127.0.0.1'
 
             function Loader () {
                 queue = [];
-                useDist = (document.location.href.toLowerCase().indexOf('dist=true') > 0);
+                // useDist = (document.location.href.toLowerCase().indexOf('dist=true') > 0);
                 callback = null;
             }
 

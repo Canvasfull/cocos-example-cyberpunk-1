@@ -25,9 +25,19 @@ class PassUtils {
         this.pass.setViewport(new Viewport(x, y, w, h))
         return this;
     }
-    addRasterView (name: string, format: gfx.Format, residency = ResourceResidency.MANAGED) {
+
+    addRasterView (name: string, format: gfx.Format, offscreen = true) {
         if (!this.ppl.containsResource(name)) {
-            this.ppl.addRenderTarget(name, format, this.rasterWidth, this.rasterHeight, residency);
+            if (offscreen) {
+                this.ppl.addRenderTarget(name, format, this.rasterWidth, this.rasterHeight, ResourceResidency.MANAGED);
+            }
+            else {
+                this.ppl.addRenderTexture(name, format, this.rasterWidth, this.rasterHeight, this.camera.window);
+            }
+        }
+
+        if (!offscreen) {
+            this.ppl.updateRenderWindow(name, this.camera.window);
         }
 
         const view = new RasterView('_',
