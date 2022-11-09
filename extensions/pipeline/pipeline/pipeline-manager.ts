@@ -1,4 +1,4 @@
-import { _decorator, renderer, rendering, ReflectionProbeManager } from 'cc';
+import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
@@ -33,46 +33,68 @@ export class CustomPipelineBuilder {
 
         passUtils.ppl = ppl;
 
+        const probes = ReflectionProbeManager.probeManager.getProbes();
+        for (let i = 0; i < probes.length; i++) {
+            let probe = probes[i];
+
+            if (probe.needRender) {
+                settings.OUTPUT_RGBE = true;
+
+                let originCamera = probe.camera;
+                let originName = originCamera.name;
+                if (!probe.cameras) {
+                    probe.cameras = []
+                    for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
+                        probe._camera = null;
+                        let camera = probe._createCamera();
+                        camera._name = originName + faceIdx;
+                        probe.cameras.push(camera);
+
+                        // let faceIdx = 4;
+                        const window = probe.bakedCubeTextures[faceIdx].window;
+                        camera.changeTargetWindow(window);
+                        camera.setFixedSize(window.width, window.height);
+                        camera.update();
+                    }
+                }
+
+                for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
+                    let camera = probe.cameras[faceIdx];
+                    camera.attachToScene(probe.node.scene.renderScene);
+
+                    passUtils.camera = camera;
+                    probe._camera = camera;
+
+                    //update camera dirction
+                    probe.updateCameraDir(faceIdx);
+
+                    this.renderCamera(camera, ppl, true)
+
+                    let index = cameras.indexOf(camera);
+                    if (index !== -1) {
+                        cameras.splice(index, 1);
+                    }
+                }
+
+                probe._camera = originCamera;
+
+                probe.needRender = false;
+                settings.OUTPUT_RGBE = false;
+            }
+        }
+
         for (let i = 0; i < cameras.length; i++) {
             const camera = cameras[i];
             if (!camera.scene) {
                 continue;
             }
+            if (camera.node.getComponent(ReflectionProbe)) {
+                continue;
+            }
             // buildDeferred(camera, ppl);
 
             passUtils.camera = camera;
-
-            if (camera.cameraType === renderer.scene.CameraType.REFLECTION_PROBE) {
-                const probe = ReflectionProbeManager.probeManager.getProbeByCamera(camera);
-                if (probe && probe.needRender) {
-                    if (probe.probeType === 0) {
-                        settings.OUTPUT_RGBE = true;
-
-                        let originName = camera.name;
-                        for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
-                            //update camera dirction
-                            probe.updateCameraDir(faceIdx);
-                            const renderTexture = probe.bakedCubeTextures[faceIdx];
-                            probe.setTargetTexture(renderTexture);
-                            // probeStage.setUsageInfo(probe, renderTexture.window!.framebuffer);
-                            // probeStage.render(probe.camera);
-
-                            camera._name = originName + faceIdx;
-
-                            this.renderCamera(camera, ppl, true)
-                        }
-
-                        camera._name = originName;
-                        probe.setTargetTexture(null);
-
-                        settings.OUTPUT_RGBE = false;
-                    }
-                }
-            }
-            else {
-                this.renderCamera(camera, ppl)
-            }
-
+            this.renderCamera(camera, ppl)
         }
     }
     renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline, forceMain = false) {
