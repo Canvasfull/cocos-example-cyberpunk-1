@@ -13,10 +13,12 @@ CCEffect %{
       blendState:
         targets:
         - blend: true
-          blendSrc: src_alpha
-          blendDst: one_minus_src_alpha
-          blendSrcAlpha: src_alpha
-          blendDstAlpha: one_minus_src_alpha
+          blendSrc: one
+          blendDst: zero
+          # blendSrc: src_alpha
+          # blendDst: one_minus_src_alpha
+          # blendSrcAlpha: src_alpha
+          # blendDstAlpha: one_minus_src_alpha
 }%
 
 
@@ -31,6 +33,8 @@ CCProgram fs %{
   #include <builtin/uniforms/cc-global>
   #include <legacy/output-standard>
 
+  #include <unpack>
+
   in vec2 v_uv;
   
   uniform PostUBO {
@@ -42,7 +46,18 @@ CCProgram fs %{
 
   void main () {
     fragColor = texture(outputResultMap, v_uv * inputViewPort.xy);
-    fragColor = CCFragOutput(fragColor);
+    // fragColor = CCFragOutput(fragColor);
+    
+    if (inputViewPort.z == 1.) {
+      // fragColor = vec4(vec3(0.5), 0.5);
+
+      fragColor = packRGBE(fragColor.rgb);
+      // fragColor = vec4(unpackRGBE(fragColor), 1.);
+      // fragColor = vec4(fragColor.w);
+    }
+    else {
+      fragColor = CCFragOutput(fragColor);
+    }
   }
   
 }%

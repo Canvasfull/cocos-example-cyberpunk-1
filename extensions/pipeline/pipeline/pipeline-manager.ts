@@ -4,6 +4,7 @@ import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
+import { settings } from './stages/setting';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -44,24 +45,27 @@ export class CustomPipelineBuilder {
             if (camera.cameraType === renderer.scene.CameraType.REFLECTION_PROBE) {
                 const probe = ReflectionProbeManager.probeManager.getProbeByCamera(camera);
                 if (probe && probe.needRender) {
-                    let faceIdx = probe._bakedfaceIdx++;
-                    if (probe.probeType === 0 && faceIdx < 6) {
-                        // let originName = camera.name;
-                        // for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
-                        //update camera dirction
-                        probe.updateCameraDir(faceIdx);
-                        const renderTexture = probe.bakedCubeTextures[faceIdx];
-                        probe.setTargetTexture(renderTexture);
-                        // probeStage.setUsageInfo(probe, renderTexture.window!.framebuffer);
-                        // probeStage.render(probe.camera);
+                    if (probe.probeType === 0) {
+                        settings.OUTPUT_RGBE = true;
 
-                        // camera._name = originName + faceIdx;
+                        let originName = camera.name;
+                        for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
+                            //update camera dirction
+                            probe.updateCameraDir(faceIdx);
+                            const renderTexture = probe.bakedCubeTextures[faceIdx];
+                            probe.setTargetTexture(renderTexture);
+                            // probeStage.setUsageInfo(probe, renderTexture.window!.framebuffer);
+                            // probeStage.render(probe.camera);
 
-                        this.renderCamera(camera, ppl)
-                        // }
+                            camera._name = originName + faceIdx;
 
-                        // camera._name = originName;
+                            this.renderCamera(camera, ppl, true)
+                        }
+
+                        camera._name = originName;
                         probe.setTargetTexture(null);
+
+                        settings.OUTPUT_RGBE = false;
                     }
                 }
             }
@@ -71,14 +75,15 @@ export class CustomPipelineBuilder {
 
         }
     }
-    renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline) {
+    renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline, forceMain = false) {
         // const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
         // || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
 
         let cameraSetting = camera.node.getComponent(CameraSetting);
 
         let pipelineName = 'main';
-        if (EDITOR) {
+        if (forceMain) { }
+        else if (EDITOR) {
             if (EditorCameras.includes(camera.name)) {
                 pipelineName = 'editor';
             }

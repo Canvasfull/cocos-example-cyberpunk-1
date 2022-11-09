@@ -1,4 +1,4 @@
-import { clamp, Color, Component, Vec4, _decorator } from 'cc';
+import { clamp, Color, Component, Material, Vec4, _decorator } from 'cc';
 import { CameraSetting } from '../../camera-setting';
 import { PipelineAssets } from '../../resources/pipeline-assets';
 
@@ -19,6 +19,25 @@ let CollapsedFogParameter = new Array(NumFogs).fill(0);
 const _tempFogInscatteringColor = new Color;
 
 let _empty = new Array(4).fill(0);
+
+export let fogUBO = {
+    fog_Parameters: new Vec4,
+    fog_Parameters2: new Vec4,
+    fog_Parameters3: new Vec4,
+    fog_ColorParameters: new Vec4,
+
+    update (material: Material) {
+        material.setProperty('fog_Parameters', this.fog_Parameters)
+        material.setProperty('fog_Parameters2', this.fog_Parameters2)
+        material.setProperty('fog_Parameters3', this.fog_Parameters3)
+        material.setProperty('fog_ColorParameters', this.fog_ColorParameters)
+    },
+
+    reset () {
+        this.fog_Parameters.w = 1000000;
+    }
+}
+
 
 @ccclass('SecondExponentialHeightFog')
 export class SecondExponentialHeightFog {
@@ -147,17 +166,11 @@ export class ExponentialHeightFog extends Component {
         ExponentialHeightFog.instance = this;
     }
     onDisable () {
-        let material = PipelineAssets.instance.getMaterial('deferred-lighting')
-        if (material) {
-            material.setProperty('fog_Parameters', _empty)
-            material.setProperty('fog_Parameters2', _empty)
-            material.setProperty('fog_Parameters3', _empty)
-            material.setProperty('fog_ColorParameters', _empty)
-        }
-
         if (ExponentialHeightFog.instance === this) {
             ExponentialHeightFog.instance = undefined;
         }
+
+        fogUBO.reset();
     }
 
     update () {
@@ -212,14 +225,9 @@ export class ExponentialHeightFog extends Component {
             CollapsedFogParameter[i] = FogData[i].Density * Math.pow(2.0, CollapsedFogParameterPower);
         }
 
-        let material = PipelineAssets.instance.getMaterial('deferred-lighting')
-        if (material) {
-            let temp = new Vec4()
-            material.setProperty('fog_Parameters', temp.set(CollapsedFogParameter[0], FogData[0].HeightFalloff, MaxObserverHeight, this.startDistance))
-            material.setProperty('fog_Parameters2', temp.set(CollapsedFogParameter[1], FogData[1].HeightFalloff, FogData[1].Density, FogData[1].Height))
-            material.setProperty('fog_Parameters3', temp.set(FogData[0].Density, FogData[0].Height, this.inscatteringColorCubemap ? 1.0 : 0.0, this.fogCutoffDistance))
-            material.setProperty('fog_ColorParameters', temp.set(FogColor.x, FogColor.y, FogColor.z, 1 - this.fogMaxOpacity))
-        }
-
+        fogUBO.fog_Parameters.set(CollapsedFogParameter[0], FogData[0].HeightFalloff, MaxObserverHeight, this.startDistance)
+        fogUBO.fog_Parameters2.set(CollapsedFogParameter[1], FogData[1].HeightFalloff, FogData[1].Density, FogData[1].Height)
+        fogUBO.fog_Parameters3.set(FogData[0].Density, FogData[0].Height, this.inscatteringColorCubemap ? 1.0 : 0.0, this.fogCutoffDistance)
+        fogUBO.fog_ColorParameters.set(FogColor.x, FogColor.y, FogColor.z, 1 - this.fogMaxOpacity)
     }
 }

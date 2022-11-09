@@ -1,6 +1,6 @@
 export default {
     "last_node_id": 16,
-    "last_link_id": 36,
+    "last_link_id": 42,
     "nodes": [
         {
             "id": 10,
@@ -75,7 +75,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 36
+                    "link": 42
                 },
                 {
                     "name": "Custom Size",
@@ -293,7 +293,7 @@ export default {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
                     "links": [
-                        36
+                        42
                     ],
                     "slot_index": 0
                 }
@@ -311,8 +311,8 @@ export default {
             "id": 14,
             "type": "pipeline/custom.BloomStage",
             "pos": [
-                1056,
-                622
+                1085,
+                607
             ],
             "size": {
                 "0": 228.39999389648438,
@@ -402,7 +402,7 @@ export default {
             "RenderTexture"
         ],
         [
-            36,
+            42,
             11,
             0,
             12,

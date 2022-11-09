@@ -4,6 +4,7 @@ import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils
 import { EDITOR } from "cc/env";
 import { PipelineAssets } from "../resources/pipeline-assets";
 import { passUtils } from "../utils/pass-utils";
+import { settings } from "./setting";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -30,21 +31,25 @@ export class DeferredPostStage extends BaseStage {
         const input0 = this.lastStage.slotName(camera, 0);
         const slot0 = this.slotName(camera, 0);
 
-        passUtils.clearFlag = 0;
+        passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
         Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
 
         let material = this.materialMap.get(camera);
-        if (!material) {
+        if (!material || material.parent !== this.material) {
             material = new renderer.MaterialInstance({
                 parent: this.material
             })
             this.materialMap.set(camera, material);
         }
+
         passUtils.material = material;
 
-        material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
-        // (material.passes[0].descriptorSet as any)._isDirty = true;
-        // material.passes[0].update();
+        material.setProperty('inputViewPort',
+            new Vec4(
+                width / game.canvas.width, height / game.canvas.height,
+                settings.OUTPUT_RGBE ? 1 : 0, 0
+            )
+        );
 
         passUtils.addRasterPass(width, height, 'Postprocess', `CameraPostprocessPass${cameraID}`)
             .setViewport(area.x, area.y, width, height)

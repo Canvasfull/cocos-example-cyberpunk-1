@@ -4,6 +4,7 @@ import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, C
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
 import { EDITOR } from "cc/env";
+import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -98,9 +99,9 @@ export class DeferredLightingStage extends BaseStage {
             lightingClearColor);
         lightingPass.addRasterView(deferredLightingPassRTName, lightingPassView);
 
+        let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
         let material = this.materialMap.get(camera);
-        if (!material) {
-            let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
+        if (!material || material.parent !== sharedMaterial) {
             if (EDITOR && EditorCameras.includes(camera.name)) {
                 material = new renderer.MaterialInstance({
                     parent: sharedMaterial,
@@ -116,6 +117,8 @@ export class DeferredLightingStage extends BaseStage {
         }
 
         material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
+
+        fogUBO.update(material);
 
         lightingPass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
             camera, material, 0,
