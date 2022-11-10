@@ -12,11 +12,32 @@ CCEffect %{
         depthWrite: false
 }%
 
+CCProgram UBO %{
+    uniform CustomLightingUBO {
+      vec4 light_cluster_BoundsMin;
+      vec4 light_cluster_BoundsDelta;
+      vec4 light_cluster_CellsDot;
+      vec4 light_cluster_CellsMax;
+      vec4 light_cluster_TextureSize;         
+      vec4 light_cluster_InfoTextureInvSize;  
+      vec4 light_cluster_CellsCountByBoundsSizeAndPixelsPerCell;
+
+      vec4 fog_Parameters;
+      vec4 fog_Parameters2;
+      vec4 fog_Parameters3;
+      vec4 fog_ColorParameters;
+
+      vec4 inputViewPort;
+    };
+}%
+
 CCProgram lighting-vs %{
   precision highp float;
   #include <legacy/decode>
   #include <builtin/uniforms/cc-global>
   #include <common/common-define>
+
+  #include <UBO>
 
   out vec2 v_uv;
 
@@ -25,7 +46,7 @@ CCProgram lighting-vs %{
     CCDecode(position);
     CC_HANDLE_GET_CLIP_FLIP(position.xy);
     gl_Position = vec4(position.x, position.y, 1.0, 1.0);
-    v_uv = a_texCoord;
+    v_uv = a_texCoord * inputViewPort.xy;
   }
 }%
 
@@ -44,22 +65,7 @@ CCProgram lighting-fs %{
 
   in vec2 v_uv;
 
-  uniform CustomLightingUBO {
-    vec4 light_cluster_BoundsMin;
-    vec4 light_cluster_BoundsDelta;
-    vec4 light_cluster_CellsDot;
-    vec4 light_cluster_CellsMax;
-    vec4 light_cluster_TextureSize;         
-    vec4 light_cluster_InfoTextureInvSize;  
-    vec4 light_cluster_CellsCountByBoundsSizeAndPixelsPerCell;
-
-    vec4 fog_Parameters;
-    vec4 fog_Parameters2;
-    vec4 fog_Parameters3;
-    vec4 fog_ColorParameters;
-
-    vec4 inputViewPort;
-  };
+  #include <UBO>
 
   uniform sampler2D light_cluster_InfoTexture;
   uniform sampler2D light_cluster_Texture;
@@ -86,12 +92,14 @@ CCProgram lighting-fs %{
     uniform sampler2D depth_stencil;
   // #endif
 
-  #if !CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT || __VERSION__ >= 450
-    layout(location = 0) out vec4 fragColor;
-  #endif
+  // #if !CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT || __VERSION__ >= 450
+    layout(location = 0) out vec4 fragColor0;
+    layout(location = 1) out vec4 fragColor1;
+  // #endif
 
   #include <./chunks/lighting-cluster>
   #include <./chunks/height-fog>
+  #include <./chunks/shading-base>
 
   vec4 screen2WS(vec3 coord) {
     vec3 ndc = vec3(
@@ -110,29 +118,29 @@ CCProgram lighting-fs %{
   void main () {
     StandardSurface s;
 
-    #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
-      #if __VERSION__ >= 450
-        vec4 albedoMap = subpassLoad(gbuffer_albedoMap);
-        vec4 normalMap = subpassLoad(gbuffer_normalMap);
-        vec4 emissiveMap = subpassLoad(gbuffer_emissiveMap);
-        float depth = subpassLoad(depth_stencil).x;
-      #elif __VERSION__ >= 300
-        vec4 albedoMap = gbuffer_albedoMap;
-        vec4 normalMap = gbuffer_normalMap;
-        vec4 emissiveMap = gbuffer_emissiveMap;
-        float depth = texture(depth_stencil, v_uv).x;
-      #else
-        vec4 albedoMap = gl_LastFragData[0];
-        vec4 normalMap = gl_LastFragData[1];
-        vec4 emissiveMap = gl_LastFragData[2];
-        float depth = texture(depth_stencil, v_uv).x;
-      #endif
-    #else
-      vec4 albedoMap = texture(gbuffer_albedoMap,v_uv * inputViewPort.xy);
-      vec4 normalMap = texture(gbuffer_normalMap,v_uv * inputViewPort.xy);
-      vec4 emissiveMap = texture(gbuffer_emissiveMap,v_uv * inputViewPort.xy);
-      float depth = texture(depth_stencil, v_uv * inputViewPort.xy).x;
-    #endif
+    // #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
+    //   #if __VERSION__ >= 450
+    //     vec4 albedoMap = subpassLoad(gbuffer_albedoMap);
+    //     vec4 normalMap = subpassLoad(gbuffer_normalMap);
+    //     vec4 emissiveMap = subpassLoad(gbuffer_emissiveMap);
+    //     float depth = subpassLoad(depth_stencil).x;
+    //   #elif __VERSION__ >= 300
+    //     vec4 albedoMap = gbuffer_albedoMap;
+    //     vec4 normalMap = gbuffer_normalMap;
+    //     vec4 emissiveMap = gbuffer_emissiveMap;
+    //     float depth = texture(depth_stencil, v_uv).x;
+    //   #else
+    //     vec4 albedoMap = gl_LastFragData[0];
+    //     vec4 normalMap = gl_LastFragData[1];
+    //     vec4 emissiveMap = gl_LastFragData[2];
+    //     float depth = texture(depth_stencil, v_uv).x;
+    //   #endif
+    // #else
+      vec4 albedoMap = texture(gbuffer_albedoMap,v_uv);
+      vec4 normalMap = texture(gbuffer_normalMap,v_uv);
+      vec4 emissiveMap = texture(gbuffer_emissiveMap,v_uv);
+      float depth = texture(depth_stencil, v_uv).x;
+    // #endif
 
     s.albedo = albedoMap;
     vec3 position = screen2WS(vec3(gl_FragCoord.xy, depth)).xyz;
@@ -150,36 +158,29 @@ CCProgram lighting-fs %{
     vec4 shadowPos;
     CC_TRANSFER_SHADOW_BASE(vec4(position, 1), shadowPos);
 
-    vec4 color = CCStandardShadingBase(s, shadowPos);
-
-// #if CC_ENABLE_CLUSTERED_LIGHT_CULLING == 1
-//                  color += CCClusterShadingAdditive(s, shadowPos);
-// #else
-//                  color += CCStandardShadingAdditive(s, shadowPos);
-// #endif
-
+    vec3 specular;
+    vec4 color = CCCustomShadingBase(s, shadowPos, specular);
     color += lightingAdd(s, shadowPos);
 
     vec4 fogColor = calculateHeightFog(position.xyz - cc_cameraPos.xyz);
     color.rgb = color.rgb * fogColor.a + fogColor.rgb;
 
-    // CC_APPLY_FOG_BASE(color, fogFactor);
-    // color = CCFragOutput(color);
-
     #if CLEAR_LIGHTING
       color = vec4(0.);
     #endif
 
-    #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
-      #if __VERSION__ >= 450
-        fragColor = color;
-      #elif __VERSION__ >= 300
-        gbuffer_emissiveMap = color;
-      #else
-        gl_FragData[2] = color;
-      #endif
-    #else
-      fragColor = color;
-    #endif
+    // #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
+    //   #if __VERSION__ >= 450
+    //     fragColor = color;
+    //   #elif __VERSION__ >= 300
+    //     gbuffer_emissiveMap = color;
+    //   #else
+    //     gl_FragData[2] = color;
+    //   #endif
+    // #else
+      fragColor0 = color;
+      fragColor1 = vec4(specular, 1.);
+
+    // #endif
   }
 }%

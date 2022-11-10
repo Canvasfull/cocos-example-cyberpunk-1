@@ -1,6 +1,6 @@
 
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
 import { EDITOR } from "cc/env";
@@ -24,7 +24,7 @@ export class DeferredLightingStage extends BaseStage {
     _materialName = 'blit-screen';
 
     @property({ override: true, type: CCString })
-    outputNames = ['DeferredLightingColor', 'DeferredLightingDepth']
+    outputNames = ['DeferredLightingColor', 'DeferredLightSpecular', 'DeferredLightingDepth']
 
     tempMat: Material
     clearMat: renderer.MaterialInstance
@@ -40,11 +40,13 @@ export class DeferredLightingStage extends BaseStage {
         const width = area.width;
         const height = area.height;
 
-        const deferredLightingPassRTName = this.slotName(camera, 0);
-        const deferredLightingPassDS = this.slotName(camera, 1);
-        if (!ppl.containsResource(deferredLightingPassRTName)) {
-            ppl.addRenderTarget(deferredLightingPassRTName, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
-            ppl.addDepthStencil(deferredLightingPassDS, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+        const slot0 = this.slotName(camera, 0);
+        const slot1 = this.slotName(camera, 1);
+        // const slot2 = this.slotName(camera, 2);
+        if (!ppl.containsResource(slot0)) {
+            ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
+            ppl.addRenderTarget(slot1, Format.RGBA8, width, height, ResourceResidency.MANAGED);
+            // ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         // lighting pass
         const lightingPass = ppl.addRasterPass(width, height, 'Lighting');
@@ -92,12 +94,18 @@ export class DeferredLightingStage extends BaseStage {
             lightingClearColor.z = camera.clearColor.z;
         }
         lightingClearColor.w = 0;
-        const lightingPassView = new RasterView('_',
+        const slot0View = new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,
             LoadOp.CLEAR, StoreOp.STORE,
             camera.clearFlag,
             lightingClearColor);
-        lightingPass.addRasterView(deferredLightingPassRTName, lightingPassView);
+        lightingPass.addRasterView(slot0, slot0View);
+        const slot1View = new RasterView('_',
+            AccessType.WRITE, AttachmentType.RENDER_TARGET,
+            LoadOp.CLEAR, StoreOp.STORE,
+            camera.clearFlag,
+            lightingClearColor);
+        lightingPass.addRasterView(slot1, slot1View);
 
         let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
         let material = this.materialMap.get(camera);
@@ -109,9 +117,12 @@ export class DeferredLightingStage extends BaseStage {
                 material.recompileShaders({ CLEAR_LIGHTING: true })
             }
             else {
+                director.root.pipeline.macros.CC_USE_IBL = 0;
+
                 material = new renderer.MaterialInstance({
                     parent: sharedMaterial,
                 })
+                material.recompileShaders({ CC_USE_IBL: 0 })
             }
             this.materialMap.set(camera, material);
         }
