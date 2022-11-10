@@ -1,0 +1,193 @@
+// Effect Syntax Guide: https://docs.cocos.com/creator/manual/zh/shader/index.html
+
+CCEffect %{
+  techniques:
+  - name: opaque
+    passes:
+    - vert: unlit-vs:vert # builtin header
+      frag: unlit-fs
+      properties: &props
+        mainTexture:    { value: white }
+        mainColor:      { value: [1, 1, 1, 1], editor: { type: color } }
+  - name: transparent
+    passes:
+    - vert: unlit-vs:vert # builtin header
+      frag: unlit-fs
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendSrcAlpha: src_alpha
+          blendDstAlpha: one_minus_src_alpha
+      properties: *props
+}%
+
+CCProgram unlit-vs %{
+  
+precision highp float;
+#include <legacy/input-standard>
+#include <builtin/uniforms/cc-global>
+#include <legacy/local-batch>
+#include <legacy/input-standard>
+#include <legacy/fog-vs>
+#include <legacy/shadow-map-vs>
+
+in vec4 a_color;
+#if HAS_SECOND_UV
+  in vec2 a_texCoord1;
+#endif
+
+out vec3 v_position;
+out vec3 v_normal;
+out vec3 v_tangent;
+out vec3 v_bitangent;
+out vec2 v_uv;
+out vec2 v_uv1;
+out vec4 v_color;
+
+vec4 vert () {
+  StandardVertInput In;
+  CCVertInput(In);
+
+  mat4 matWorld, matWorldIT;
+  CCGetWorldMatrixFull(matWorld, matWorldIT);
+
+  vec4 pos = matWorld * In.position;
+
+  v_position = pos.xyz;
+  v_normal = normalize((matWorldIT * vec4(In.normal, 0.0)).xyz);
+  v_tangent = normalize((matWorld * vec4(In.tangent.xyz, 0.0)).xyz);
+  v_bitangent = cross(v_normal, v_tangent) * In.tangent.w; // note the cross order
+
+  v_uv = a_texCoord;
+  #if HAS_SECOND_UV
+    v_uv1 = a_texCoord1;
+  #endif
+  v_color = a_color;
+
+  CC_TRANSFER_FOG(pos);
+  CC_TRANSFER_SHADOW(pos);
+
+  return cc_matProj * (cc_matView * matWorld) * In.position;
+}
+
+}%
+
+CCProgram unlit-fs %{
+  precision highp float;
+  #include <legacy/output>
+  #include <legacy/fog-fs>
+
+  #include <unpack>
+
+  in vec2 v_uv;
+  in vec3 v_position;
+  in vec3 v_normal;
+
+  uniform samplerCube mainTexture;
+
+  uniform Constant {
+    vec4 mainColor;
+  };
+
+  #if CC_FORWARD_ADD
+    layout(location = 0) out vec4 fragColorX;                        
+                                                                   
+    void main () {
+      fragColorX = vec4(0.);                                            
+    } 
+  #elif (CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD) 
+                                                                   
+    layout(location = 0) out vec4 fragColorX;                        
+                                                                    
+    void main () {                                                   
+      vec3 uv = normalize(v_position);
+      vec4 col = texture(mainTexture, uv);
+
+      col.rgb = unpackRGBE(col);
+      
+      // CC_APPLY_FOG(col, v_position);
+      fragColorX = CCFragOutput(col);                                            
+    }                                                                
+                                                                   
+  #else           
+    #include <common/math/octahedron-transform>                                  
+                                                                    
+    layout(location = 0) out vec4 fragColor0;                        
+    layout(location = 1) out vec4 fragColor1;                        
+    layout(location = 2) out vec4 fragColor2;         
+
+    
+  vec3 GetLookupVectorForSphereCapture(vec3 ReflectionVector, vec3 WorldPosition, vec4 SphereCapturePositionAndRadius, float NormalizedDistanceToCapture, vec3 LocalCaptureOffset, inout float DistanceAlpha)
+  {
+    vec3 ProjectedCaptureVector = ReflectionVector;
+    float ProjectionSphereRadius = SphereCapturePositionAndRadius.w;
+    float SphereRadiusSquared = ProjectionSphereRadius * ProjectionSphereRadius;
+
+    vec3 LocalPosition = WorldPosition - SphereCapturePositionAndRadius.xyz;
+    float LocalPositionSqr = dot(LocalPosition, LocalPosition);
+
+    // Find the intersection between the ray along the reflection vector and the capture's sphere
+    vec3 QuadraticCoef;
+    QuadraticCoef.x = 1.;
+    QuadraticCoef.y = dot(ReflectionVector, LocalPosition);
+    QuadraticCoef.z = LocalPositionSqr - SphereRadiusSquared;
+
+    float Determinant = QuadraticCoef.y * QuadraticCoef.y - QuadraticCoef.z;
+
+    // Only continue if the ray intersects the sphere
+    // FLATTEN
+    if (Determinant >= 0.)
+    {
+      float FarIntersection = sqrt(Determinant) - QuadraticCoef.y;
+
+      vec3 LocalIntersectionPosition = LocalPosition + FarIntersection * ReflectionVector;
+      ProjectedCaptureVector = normalize(LocalIntersectionPosition - LocalCaptureOffset);
+      // Note: some compilers don't handle smoothstep min > max (this was 1, .6)
+      //DistanceAlpha = 1.0 - smoothstep(.6, 1, NormalizedDistanceToCapture);
+
+      float x = clamp( 2.5 * NormalizedDistanceToCapture - 1.5, 0., 1. );
+      DistanceAlpha = 1. - x*x*(3. - 2.*x);
+    }
+    return ProjectedCaptureVector;
+  }               
+
+    float raySphere (vec3 o, vec3 d, vec3 center, float radius) {
+        float rSq = radius * radius;
+        vec3 e = center - o;
+        float eSq = dot(e, e);
+
+        float aLength = dot(e, d); // assume ray direction already normalized
+        float fSq = rSq - (eSq - aLength * aLength);
+        if (fSq < 0.) { return 0.; }
+
+        float f = sqrt(fSq);
+        float t = eSq < rSq ? aLength + f : aLength - f;
+        if (t < 0.) { return 0.; }
+        return t;
+    }
+                                                                    
+    void main () {                
+      fragColor0 = vec4(vec3(0.), 1.);
+      fragColor1 = vec4(vec3(0.), 1.);
+
+      vec3 V = normalize(cc_cameraPos.xyz - v_position);
+      vec3 ref = normalize(reflect(-V, v_normal));
+
+      vec4 cubePosRadius = vec4(5.27, 1.512, -6.648, 30.);
+      // float DistanceAlpha = 1.;
+      // ref = GetLookupVectorForSphereCapture(ref, v_position, cubePosRadius, length(v_position - cubePosRadius.xyz) / cubePosRadius.w, vec3(0.), DistanceAlpha);
+
+      float t = raySphere(v_position, ref, cubePosRadius.xyz, cubePosRadius.w);
+      vec3 intersectionPos = v_position + ref * t;
+      ref = normalize(intersectionPos - cubePosRadius.xyz);
+
+      vec4 col = texture(mainTexture, ref);
+      col.rgb = unpackRGBE(col);
+      fragColor2 = vec4(col.rgb, 0.);
+      // fragColor2 = vec4(vec3(col.w), 0.);
+    }                                                                
+                                                                    
+  #endif
+}%
