@@ -350,8 +350,6 @@ CCProgram standard-fs %{
     layout(location = 1) out vec4 fragColor1;                        
     layout(location = 2) out vec4 fragColor2;
 
-    #include <cc-environment>
-    #include <cc-reflection-probe>
 
     float raySphere (vec3 o, vec3 d, vec3 center, float radius) {
       float rSq = radius * radius;
@@ -383,20 +381,25 @@ CCProgram standard-fs %{
       fragColor0 = s.albedo;                                         
       fragColor1 = vec4(float32x3_to_oct(s.normal), s.roughness, s.metallic);
 
-
-
-      #if USE_REFLECTION_PROBE == REFLECTION_PROBE_CUBE
+      #if CC_USE_IBL && USE_REFLECTION_PROBE == REFLECTION_PROBE_CUBE
         vec3 V = normalize(cc_cameraPos.xyz - v_position);
         vec3 ref = normalize(reflect(-V, v_normal));
 
-        vec4 cubePosRadius = vec4(5.27, 1.512, -6.648, 30.);
-        float t = raySphere(v_position, ref, cubePosRadius.xyz, cubePosRadius.w);
-        vec3 intersectionPos = v_position + ref * t;
-        ref = normalize(intersectionPos - cubePosRadius.xyz);
+        // vec4 cubePosRadius = vec4(5.27, 1.512, -6.648, 30.);
+        // vec4 cubePosRadius = vec4(0., 4.498, 0., 30.);
         
-        vec4 col = texture(cc_reflectionProbeCubemap, ref);
-        col.rgb = unpackRGBE(col);
-        s.emissive += col.rgb;
+        // float t = raySphere(v_position, ref, cubePosRadius.xyz, cubePosRadius.w);
+        // vec3 intersectionPos = v_position + ref * t;
+        // ref = normalize(intersectionPos - cubePosRadius.xyz);
+        
+        vec4 env = fragTextureLod(cc_reflectionProbeCubemap, ref, s.roughness * (cc_ambientGround.w - 1.0));
+        env.rgb = unpackRGBE(env);
+
+        vec3 specular = mix(vec3(0.08 * s.specularIntensity), s.albedo.rgb, s.metallic);
+        float NV = max(abs(dot(s.normal, V)), 0.0);
+        specular = BRDFApprox(specular, s.roughness, NV);
+
+        s.emissive += env.rgb * cc_ambientSky.w * specular * s.occlusion;
       #endif
 
       fragColor2 = vec4(s.emissive, s.occlusion);                    

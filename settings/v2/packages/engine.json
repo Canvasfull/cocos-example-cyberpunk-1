@@ -25,9 +25,6 @@
       "2d": {
         "_value": true
       },
-      "xr": {
-        "_value": true
-      },
       "ui": {
         "_value": true
       },
@@ -102,6 +99,9 @@
       "terrain": {
         "_value": true
       },
+      "light-probe": {
+        "_value": true
+      },
       "tiled-map": {
         "_value": true
       },
@@ -114,9 +114,16 @@
       "marionette": {
         "_value": true
       },
+      "xr": {
+        "_value": false
+      },
+      "ar": {
+        "_value": false
+      },
       "custom-pipeline": {
         "_value": true
-      }
+      },
+      "undefined": {}
     },
     "flags": {},
     "includeModules": [
@@ -146,8 +153,7 @@
       "ui",
       "video",
       "websocket",
-      "webview",
-      "xr"
+      "webview"
     ],
     "noDeprecatedFeatures": {
       "value": false,
@@ -156,5 +162,6 @@
   },
   "macroConfig": {
     "CUSTOM_PIPELINE_NAME": "Deferred"
-  }
+  },
+  "__version__": "1.0.7"
 }

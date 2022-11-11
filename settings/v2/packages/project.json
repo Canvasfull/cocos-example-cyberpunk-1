@@ -2,5 +2,11 @@
   "general": {
     "renderPipeline": "fd8ec536-a354-4a17-9c74-4f3883c378c8"
   },
-  "custom_joint_texture_layouts": []
+  "custom_joint_texture_layouts": [],
+  "__version__": "1.0.2",
+  "fbx": {
+    "legacyFbxImporter": {
+      "visible": true
+    }
+  }
 }
