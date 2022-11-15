@@ -93,6 +93,8 @@ export class CustomPipelineBuilder {
             }
             // buildDeferred(camera, ppl);
 
+            camera.culled = false;
+
             passUtils.camera = camera;
             this.renderCamera(camera, ppl)
         }

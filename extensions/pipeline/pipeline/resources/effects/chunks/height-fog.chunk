@@ -1,8 +1,4 @@
 
-float rsqrt (float x) {
-  return 1. / sqrt(x);
-}
-
 const float FLT_EPSILON = 0.001;
 const float FLT_EPSILON2 = 0.01;
 #define pow2(x) (pow(2., x))

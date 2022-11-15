@@ -96,7 +96,13 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
         return lights
     }
 
+    dirty = true;
+
     update (dt) {
+        if (!this.dirty) {
+            return;
+        }
+
         super.update(dt)
 
         let material = PipelineAssets.instance.getMaterial('deferred-lighting')
@@ -119,5 +125,9 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
             binding = pass.getBinding('light_cluster_Texture')
             pass.bindSampler(binding, pointSampler)
         }
+
+        setTimeout(() => {
+            this.dirty = false;
+        }, 1000)
     }
 }
