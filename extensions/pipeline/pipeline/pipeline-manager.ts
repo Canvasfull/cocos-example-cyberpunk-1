@@ -120,6 +120,9 @@ export class CustomPipelineBuilder {
         }
 
         let stages = CustomPipelineBuilder.pipelines.get(pipelineName);
+        if (!stages) {
+            return;
+        }
 
         for (let i = 0; i < stages.length; i++) {
             stages[i].render(camera, ppl);

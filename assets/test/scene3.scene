@@ -173,7 +173,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": false,
     "_castShadow": false
   },
   {
@@ -249,7 +248,7 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 1,
+    "_reflectionProbeType": 0,
     "_probeCubemap": {
       "__uuid__": "629bcd7c-1364-4fe3-81a8-fe902a891dcb@b47c0",
       "__expectedType__": "cc.TextureCube"
@@ -1483,7 +1482,7 @@
     "_useHDR": true,
     "_editableMaterial": null,
     "_reflectionHDR": {
-      "__uuid__": "8a4a7007-5fe8-4ef0-bb63-4af3dc02ffd8@b47c0",
+      "__uuid__": "fd284562-3580-48ac-bd5e-ed6c619dc5ad@b47c0",
       "__expectedType__": "cc.TextureCube"
     },
     "_reflectionLDR": null,
@@ -1527,7 +1526,6 @@
   },
   {
     "__type__": "cc.LightProbeInfo",
-    "_enabled": false,
     "_giScale": 1,
     "_giSamples": 1024,
     "_bounces": 2,
@@ -1535,7 +1533,6 @@
     "_showProbe": true,
     "_showWireframe": true,
     "_showConvex": false,
-    "_data": null,
-    "_lightProbeGroups": []
+    "_data": null
   }
 ]

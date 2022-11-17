@@ -1,4 +1,4 @@
-import { Component, MeshRenderer, ReflectionProbeType, _decorator } from "cc";
+import { Component, director, MeshRenderer, ReflectionProbeType, _decorator } from "cc";
 
 const { ccclass, executeInEditMode, property } = _decorator;
 

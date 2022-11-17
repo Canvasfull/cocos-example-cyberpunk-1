@@ -614,7 +614,7 @@ export class StaticOcclusionCulling extends Component {
         let blockColor = new Color(255, 0, 0, 20);
         let locateBlockColor = new Color(0, 0, 255, 20);
         let tempMatrix = new Mat4();
-        let identityAABB = new geometry.AABB();
+        let identityAABB = new geometry.AABB(0, 0, 0, 0.5, 0.5, 0.5);
 
         for (let i = 0; i < this.areas.length; i++) {
             let area = this.areas[i];
