@@ -10,7 +10,7 @@ export class StaticOcclusionArea extends Component {
     @property
     blockCells = new Vec3();
 
-    @property({ visible: false })
+    @property(CullingBlock)
     blocks: CullingBlock[] = []
 
     @property

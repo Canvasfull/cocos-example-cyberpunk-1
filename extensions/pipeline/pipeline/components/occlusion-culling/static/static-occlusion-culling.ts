@@ -33,17 +33,6 @@ export class StaticOcclusionCulling extends Component {
     @type(Camera)
     camera: Camera | null = null;
 
-    @type(StaticOcclusionArea)
-    _areas: StaticOcclusionArea[] = [];
-    @type(StaticOcclusionArea)
-    get areas () {
-        return this._areas;
-    }
-    set areas (v) {
-        this._areas = v;
-        this._updateAreas();
-    }
-
     @property
     _blockSize = 3;
     @property
@@ -78,7 +67,7 @@ export class StaticOcclusionCulling extends Component {
     }
 
     @property
-    shouldFastBack = true;
+    shouldFastBack = false;
 
     @property
     sphereBakeCount = 6000;
@@ -129,9 +118,10 @@ export class StaticOcclusionCulling extends Component {
     _lastLocatedBlock: CullingBlock | null = null
 
     _updateAreas () {
-        this.areas.forEach(a => {
-            a.culling = this;
-        })
+        this.areas = this.getComponentsInChildren(StaticOcclusionArea);
+        for (let i = 0; i < this.areas.length; i++) {
+            this.areas[i].culling = this;
+        }
     }
 
     onEnable () {
@@ -151,10 +141,11 @@ export class StaticOcclusionCulling extends Component {
     }
 
     start () {
-        this._updateAreas();
         this._init();
     }
     _init () {
+        this._updateAreas();
+
         if (this.root) {
             this.renderers = this.root!.getComponentsInChildren(MeshRenderer);
             this.renderers = this.renderers.filter(r => r.enabledInHierarchy);
@@ -251,6 +242,8 @@ export class StaticOcclusionCulling extends Component {
     }
 
     update () {
+        this._updateAreas();
+
         if (this._enabledCulling) {
             this.calcCulling();
         }
@@ -389,7 +382,9 @@ export class StaticOcclusionCulling extends Component {
 
 
         if (EDITOR) {
-            (window as any).cce.Engine.repaintInEditMode();
+            setTimeout(() => {
+                (window as any).cce.Engine.repaintInEditMode();
+            }, 0)
         }
 
         const maxBakeBlockCountPerFrame = 1;
@@ -621,66 +616,66 @@ export class StaticOcclusionCulling extends Component {
             geometryRenderer.addBoundingBox(identityAABB, areaColor, false, false, undefined, true, area.node.worldMatrix);
         }
 
-        this.areas.forEach(area => {
-            let blocks = area.blocks;
-            for (let i = 0; i < blocks.length; i++) {
-                let block = blocks[i];
+        // this.areas.forEach(area => {
+        //     let blocks = area.blocks;
+        //     for (let i = 0; i < blocks.length; i++) {
+        //         let block = blocks[i];
 
-                let tempScale = Pool.Vec3.get().set(block.halfExtents.x * 2, block.halfExtents.y * 2, block.halfExtents.z * 2 * block.bakingProcess);
-                tempMatrix.fromRTS(Quat.IDENTITY as Quat, block.center as Vec3, tempScale);
-                Pool.Vec3.put(tempScale);
+        //         let tempScale = Pool.Vec3.get().set(block.halfExtents.x * 2, block.halfExtents.y * 2, block.halfExtents.z * 2 * block.bakingProcess);
+        //         tempMatrix.fromRTS(Quat.IDENTITY as Quat, block.center as Vec3, tempScale);
+        //         Pool.Vec3.put(tempScale);
 
-                let color = blockColor;
-                if (block === this._currentLocatedBlock) {
-                    color = locateBlockColor;
-                }
+        //         let color = blockColor;
+        //         if (block === this._currentLocatedBlock) {
+        //             color = locateBlockColor;
+        //         }
 
-                geometryRenderer.addBoundingBox(identityAABB, color, false, false, undefined, true, tempMatrix);
+        //         geometryRenderer.addBoundingBox(identityAABB, color, false, false, undefined, true, tempMatrix);
 
-                // if (this.renderRaycast /*&& block === this._currentLocatedBlock*/) {
-                //     drawer.type = DrawType.Line;
-                //     drawer.matrix.fromRTS(Quat.IDENTITY as Quat, Vec3.ZERO as Vec3, Vec3.ONE as Vec3);
+        //         // if (this.renderRaycast /*&& block === this._currentLocatedBlock*/) {
+        //         //     drawer.type = DrawType.Line;
+        //         //     drawer.matrix.fromRTS(Quat.IDENTITY as Quat, Vec3.ZERO as Vec3, Vec3.ONE as Vec3);
 
-                //     let lines: Vec3[][] = []
-                //     if (this.shouldFastBack) {
-                //         let directions = sphereDirections(this.sphereBakeCount)
-                //         for (let i = 0; i < directions.length; i++) {
-                //             directions[i].multiplyScalar(this.renderRaycastLength).add(block.center)
-                //             lines.push([block.center, directions[i]])
-                //         }
-                //     }
-                //     else {
-                //         let corners: Vec3[] = [block.center];
-                //         // for (let x = -1; x <= 1; x += 2) {
-                //         //     for (let y = -1; y <= 1; y += 2) {
-                //         //         for (let z = -1; z <= 1; z += 2) {
-                //         //             corners.push(new Vec3(block.center).add3f(block.halfExtents.x * x, block.halfExtents.y * y, block.halfExtents.z * z));
-                //         //         }
-                //         //     }
-                //         // }
+        //         //     let lines: Vec3[][] = []
+        //         //     if (this.shouldFastBack) {
+        //         //         let directions = sphereDirections(this.sphereBakeCount)
+        //         //         for (let i = 0; i < directions.length; i++) {
+        //         //             directions[i].multiplyScalar(this.renderRaycastLength).add(block.center)
+        //         //             lines.push([block.center, directions[i]])
+        //         //         }
+        //         //     }
+        //         //     else {
+        //         //         let corners: Vec3[] = [block.center];
+        //         //         // for (let x = -1; x <= 1; x += 2) {
+        //         //         //     for (let y = -1; y <= 1; y += 2) {
+        //         //         //         for (let z = -1; z <= 1; z += 2) {
+        //         //         //             corners.push(new Vec3(block.center).add3f(block.halfExtents.x * x, block.halfExtents.y * y, block.halfExtents.z * z));
+        //         //         //         }
+        //         //         //     }
+        //         //         // }
 
-                //         if (!this.useGpu) {
-                //             for (let i = 0; i < corners.length; i++) {
-                //                 let points = modelPoints(this.models);
-                //                 points.forEach(p => {
-                //                     lines.push([corners[i], p])
-                //                 })
-                //             }
-                //         }
-                //         else {
-                //             // let results = raycastGpu.raycastModels(models, corners, points);
-                //             // results.forEach(m => {
-                //             //     let r = m.node.getComponent(MeshRenderer);
-                //             //     if (r && block.renderers.indexOf(r) === -1) {
-                //             //         block.renderers.push(r);
-                //             //     }
-                //             // })
-                //         }
-                //     }
+        //         //         if (!this.useGpu) {
+        //         //             for (let i = 0; i < corners.length; i++) {
+        //         //                 let points = modelPoints(this.models);
+        //         //                 points.forEach(p => {
+        //         //                     lines.push([corners[i], p])
+        //         //                 })
+        //         //             }
+        //         //         }
+        //         //         else {
+        //         //             // let results = raycastGpu.raycastModels(models, corners, points);
+        //         //             // results.forEach(m => {
+        //         //             //     let r = m.node.getComponent(MeshRenderer);
+        //         //             //     if (r && block.renderers.indexOf(r) === -1) {
+        //         //             //         block.renderers.push(r);
+        //         //             //     }
+        //         //             // })
+        //         //         }
+        //         //     }
 
-                //     drawer.line(...lines)
-                // }
-            }
-        })
+        //         //     drawer.line(...lines)
+        //         // }
+        //     }
+        // })
     }
 }
