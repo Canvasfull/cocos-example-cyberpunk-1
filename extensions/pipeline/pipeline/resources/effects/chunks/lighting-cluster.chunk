@@ -96,7 +96,7 @@ vec4 lightingAdd (in StandardSurface s, in vec4 shadowPos) {
       }
 
       // end of the cell array
-      if (pixelIndex > light_cluster_CellsCountByBoundsSizeAndPixelsPerCell.w) {
+      if ((pixelIndex + 1.) > light_cluster_CellsCountByBoundsSizeAndPixelsPerCell.w) {
         break;
       }
     }
