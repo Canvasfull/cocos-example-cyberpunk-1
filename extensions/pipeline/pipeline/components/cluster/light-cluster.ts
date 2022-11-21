@@ -2,7 +2,7 @@ import { director, geometry, renderer, SphereLight, SpotLight, Vec4, _decorator 
 import { PipelineAssets } from "../../resources/pipeline-assets";
 import { ClusterObject, WorldCluster } from "./world-cluster";
 
-const { ccclass, executeInEditMode } = _decorator
+const { ccclass, executeInEditMode, property } = _decorator
 
 let _sphere = new geometry.Sphere();
 
@@ -85,11 +85,15 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
         for (let i = 0; i < director.root.scenes.length; i++) {
             let sphereLights = director.root.scenes[i].sphereLights;
             for (let ii = 0; ii < sphereLights.length; ii++) {
-                lights.push(sphereLights[ii])
+                if (sphereLights[ii].node.activeInHierarchy) {
+                    lights.push(sphereLights[ii])
+                }
             }
             let spotLights = director.root.scenes[i].spotLights;
             for (let ii = 0; ii < spotLights.length; ii++) {
-                lights.push(spotLights[ii])
+                if (spotLights[ii].node.activeInHierarchy) {
+                    lights.push(spotLights[ii])
+                }
             }
         }
 
@@ -98,8 +102,11 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
 
     dirty = true;
 
+    @property
+    forceUpdate = false;
+
     update (dt) {
-        if (!this.dirty) {
+        if (!this.dirty && !this.forceUpdate) {
             return;
         }
 

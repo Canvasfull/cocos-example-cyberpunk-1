@@ -1,4 +1,6 @@
-import { Component, director, geometry, gfx, Vec3, Vec4, _decorator } from 'cc';
+import { Color, Component, director, geometry, GeometryRenderer, gfx, Mat4, Quat, Vec3, Vec4, _decorator } from 'cc';
+import { EDITOR } from 'cc/env';
+import { CameraSetting } from '../../camera-setting';
 import { roundUp, vec3_min, vec3_max, vec3_floor, vec3_ceil } from '../../utils/math';
 
 const { ccclass, property, executeInEditMode } = _decorator;
@@ -283,7 +285,7 @@ export class WorldCluster<T extends Component> extends Component {
         max.subtract(this.boundsMin);
         max.divide(this.boundsDelta);
         max.multiply(this._cells);
-        vec3_ceil(max, max);
+        vec3_floor(max, max);
 
         // clamp to limits
         vec3_max(min, min, Vec3.ZERO as Vec3);
@@ -349,8 +351,7 @@ export class WorldCluster<T extends Component> extends Component {
 
                         if (count < limit) {
                             clusters[pixelsPerCellCount * clusterIndex * 4 + count] = usedObjects.indexOf(clusteredObject);
-                            counts[clusterIndex] = count;
-                            count++;
+                            counts[clusterIndex] = ++count;
                         }
                         else {
                             // console.log(`light cluster out of limit [${x}, ${y}, ${z}]`)
@@ -374,7 +375,7 @@ export class WorldCluster<T extends Component> extends Component {
         this.updateClusters();
         this.uploadTextures();
 
-        // this.drawDebug();
+        this.drawDebug();
     }
 
     uploadTextures () {
@@ -400,78 +401,84 @@ export class WorldCluster<T extends Component> extends Component {
         this.dataInfoTextureFloat?.destroy();
     }
 
-    // protected _drawer: MeshDrawer | undefined
-    // drawDebug (draw = true) {
-    //     if (!draw) {
-    //         if (this._drawer) {
-    //             this._drawer.node.active = false
-    //         }
-    //         return
-    //     }
-    //     else if (!this._drawer) {
-    //         let node = new Node('WorldClusterDebugDrawer')
-    //         node._objFlags |= CCObject.Flags.DontSave | CCObject.Flags.HideInHierarchy;
-    //         node.parent = director.getScene() as any as Node
+    @property
+    renderDebug = false
 
-    //         this._drawer = node.addComponent(MeshDrawer)
-    //     }
-    //     else {
-    //         this._drawer.node.active = true
-    //     }
+    drawDebug () {
+        if (!this.renderDebug) {
+            return;
+        }
 
-    //     this._drawer.clear();
+        let camera;
+        if (EDITOR) {
+            director.root.scenes.forEach(s => {
+                s.cameras.forEach(c => {
+                    if (c.name === 'Editor UIGizmoCamera') {
+                        camera = c;
+                    }
+                })
+            })
+        }
+        else {
+            camera = CameraSetting.mainCamera && CameraSetting.mainCamera.camera;
+        }
 
-    //     this.drawCluster()
-    //     this.drawObjects()
+        if (camera) {
+            camera.initGeometryRenderer();
+        }
+        let geometryRenderer: GeometryRenderer = camera && camera.geometryRenderer || director.root.pipeline.geometryRenderer;
+        if (!geometryRenderer) {
+            return;
+        }
 
-    //     this._drawer.finish()
-    // }
+        this.drawCluster(geometryRenderer)
+        // this.drawObjects()
+    }
 
-    // drawCluster () {
-    //     let cells = this.cells;
-    //     (tempVec3.set(this.boundsDelta) as Vec3).divide(cells);
-    //     let xStep = tempVec3.x;
-    //     let yStep = tempVec3.y;
-    //     let zStep = tempVec3.z;
+    drawCluster (geometryRenderer: GeometryRenderer) {
+        let cells = this.cells;
+        (tempVec3.set(this.boundsDelta) as Vec3).divide(cells);
+        let xStep = tempVec3.x;
+        let yStep = tempVec3.y;
+        let zStep = tempVec3.z;
 
-    //     const drawer = this._drawer!;
-    //     drawer.color.set(255, 255, 255, 50);
-    //     drawer.frameWireColor.set(0, 0, 255, 100);
-    //     drawer.type = DrawType.Line | DrawType.Solid;
+        let tempMatrix = new Mat4
+        let identityAABB = new geometry.AABB(0, 0, 0, 0.5, 0.5, 0.5);
+        let areaColor = new Color(255, 255, 255, 50)
 
-    //     let start = new Vec3(0, 0, 0);
-    //     let end = cells;
+        let start = new Vec3(0, 0, 0);
+        let end = cells;
 
-    //     for (let x = start.x; x < end.x; x++) {
-    //         for (let y = start.y; y < end.y; y++) {
-    //             for (let z = start.z; z < end.z; z++) {
-    //                 (tempMin3.set(this.boundsMin) as Vec3).add3f(xStep * (x + 0.5), yStep * (y + 0.5), zStep * (z + 0.5));
+        for (let x = start.x; x < end.x; x++) {
+            for (let y = start.y; y < end.y; y++) {
+                for (let z = start.z; z < end.z; z++) {
+                    (tempMin3.set(this.boundsMin) as Vec3).add3f(xStep * (x + 0.5), yStep * (y + 0.5), zStep * (z + 0.5));
 
-    //                 drawer.color.set(255, 255, 255, 50);
-    //                 tempVec3.set(xStep, yStep, zStep);
-    //                 drawer.matrix.fromRTS(Quat.IDENTITY as Quat, tempMin3 as Vec3, tempVec3);
-    //                 drawer.type = DrawType.Line | DrawType.Solid;
-    //                 drawer.box()
+                    tempVec3.set(xStep, yStep, zStep);
+                    tempMatrix.fromRTS(Quat.IDENTITY as Quat, tempMin3 as Vec3, tempVec3);
 
-    //                 // drawer.color.set(255, 255, 255, 255);
-    //                 // // tempVec3.set(100, 100, 100)
-    //                 // drawer.matrix.fromRTS(Quat.IDENTITY as Quat, tempMin3 as Vec3, Vec3.ONE);
-    //                 // drawer.type = DrawType.Solid;
-    //                 // drawer.text(`${x}_${y}_${z}`)
+                    geometryRenderer.addBoundingBox(identityAABB, areaColor, false, false, undefined, true, tempMatrix);
 
-    //                 // tempMin3.y += 1;
-    //                 // drawer.matrix.fromRTS(Quat.IDENTITY as Quat, tempMin3 as Vec3, Vec3.ONE);
-    //                 // const clusterIndex = x + this._cells.x * (z + y * this._cells.z);
-    //                 // let count = this.clustersCounts![clusterIndex]
-    //                 // let info = `${count}:`
-    //                 // for (let i = 0; i < count; i++) {
-    //                 //     info += '_' + this.clustersData![this._pixelsPerCellCount * clusterIndex * 4 + i]
-    //                 // }
-    //                 // drawer.text(info)
-    //             }
-    //         }
-    //     }
-    // }
+
+                    // drawer.color.set(255, 255, 255, 255);
+                    // // tempVec3.set(100, 100, 100)
+                    // drawer.matrix.fromRTS(Quat.IDENTITY as Quat, tempMin3 as Vec3, Vec3.ONE);
+                    // drawer.type = DrawType.Solid;
+                    // drawer.text(`${x}_${y}_${z}`)
+
+                    // tempMin3.y += 1;
+                    // drawer.matrix.fromRTS(Quat.IDENTITY as Quat, tempMin3 as Vec3, Vec3.ONE);
+                    // const clusterIndex = x + this._cells.x * (z + y * this._cells.z);
+                    // let count = this.clustersCounts![clusterIndex]
+                    // let info = `${count}:`
+                    // for (let i = 0; i < count; i++) {
+                    //     info += '_' + this.clustersData![this._pixelsPerCellCount * clusterIndex * 4 + i]
+                    // }
+                    // drawer.text(info)
+                }
+            }
+        }
+    }
 
     // drawObjects () {
     //     let objs = this._usedObjects;

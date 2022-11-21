@@ -117,6 +117,7 @@ export class StaticOcclusionCulling extends Component {
     _currentLocatedBlock: CullingBlock | null = null
     _lastLocatedBlock: CullingBlock | null = null
 
+    areas: StaticOcclusionArea[] = []
     _updateAreas () {
         this.areas = this.getComponentsInChildren(StaticOcclusionArea);
         for (let i = 0; i < this.areas.length; i++) {
