@@ -22,6 +22,10 @@ CCProgram UBO %{
       vec4 light_cluster_InfoTextureInvSize;  
       vec4 light_cluster_CellsCountByBoundsSizeAndPixelsPerCell;
 
+      vec4 light_ibl_posRange0;
+      vec4 light_ibl_posRange1;
+      vec4 light_ibl_posRange2;
+
       vec4 fog_Parameters;
       vec4 fog_Parameters2;
       vec4 fog_Parameters3;
@@ -63,12 +67,19 @@ CCProgram lighting-fs %{
   #include <common/math/octahedron-transform>
   #include <common/math/coordinates>
 
+  #pragma builtin(global)
+  layout(set = 0, binding = 5) uniform samplerCube cc_environment;
+
   in vec2 v_uv;
 
   #include <UBO>
-
+  
   uniform sampler2D light_cluster_InfoTexture;
   uniform sampler2D light_cluster_Texture;
+
+  uniform samplerCube light_ibl_Texture0;
+  uniform samplerCube light_ibl_Texture1;
+  uniform samplerCube light_ibl_Texture2;
   
   // #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
   //   #pragma extension([GL_EXT_shader_framebuffer_fetch, __VERSION__ < 450, enable])
@@ -92,12 +103,13 @@ CCProgram lighting-fs %{
     uniform sampler2D depth_stencil;
   // #endif
 
+
   // #if !CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT || __VERSION__ >= 450
     layout(location = 0) out vec4 fragColor0;
-    layout(location = 1) out vec4 fragColor1;
   // #endif
 
   #include <./chunks/lighting-cluster>
+  #include <./chunks/lighting-ibl>
   #include <./chunks/height-fog>
   #include <./chunks/shading-base>
 
@@ -162,6 +174,8 @@ CCProgram lighting-fs %{
     vec4 color = CCCustomShadingBase(s, shadowPos, specular);
     color += lightingAdd(s, shadowPos);
 
+    color.rgb += lightingIbl(s, specular);
+
     vec4 fogColor = calculateHeightFog(position.xyz - cc_cameraPos.xyz);
     color.rgb = color.rgb * fogColor.a + fogColor.rgb;
 
@@ -179,7 +193,6 @@ CCProgram lighting-fs %{
     //   #endif
     // #else
       fragColor0 = color;
-      fragColor1 = vec4(specular, 1.);
 
     // #endif
   }

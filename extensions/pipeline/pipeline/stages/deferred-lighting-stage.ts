@@ -1,10 +1,11 @@
 
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbeManager } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
 import { EDITOR } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
+import { ReflectionProbes } from "../components/reflection-probe-utils";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -17,6 +18,8 @@ let EditorCameras = [
 
     'Main Camera',
 ]
+
+let tempVec4 = new Vec4
 
 @ccclass('DeferredLightingStage')
 export class DeferredLightingStage extends BaseStage {
@@ -41,11 +44,11 @@ export class DeferredLightingStage extends BaseStage {
         const height = area.height;
 
         const slot0 = this.slotName(camera, 0);
-        const slot1 = this.slotName(camera, 1);
+        // const slot1 = this.slotName(camera, 1);
         // const slot2 = this.slotName(camera, 2);
         if (!ppl.containsResource(slot0)) {
             ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
-            ppl.addRenderTarget(slot1, Format.RGBA8, width, height, ResourceResidency.MANAGED);
+            // ppl.addRenderTarget(slot1, Format.RGBA8, width, height, ResourceResidency.MANAGED);
             // ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         // lighting pass
@@ -100,12 +103,12 @@ export class DeferredLightingStage extends BaseStage {
             camera.clearFlag,
             lightingClearColor);
         lightingPass.addRasterView(slot0, slot0View);
-        const slot1View = new RasterView('_',
-            AccessType.WRITE, AttachmentType.RENDER_TARGET,
-            LoadOp.CLEAR, StoreOp.STORE,
-            camera.clearFlag,
-            lightingClearColor);
-        lightingPass.addRasterView(slot1, slot1View);
+        // const slot1View = new RasterView('_',
+        //     AccessType.WRITE, AttachmentType.RENDER_TARGET,
+        //     LoadOp.CLEAR, StoreOp.STORE,
+        //     camera.clearFlag,
+        //     lightingClearColor);
+        // lightingPass.addRasterView(slot1, slot1View);
 
         let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
         let material = this.materialMap.get(camera);
@@ -128,6 +131,22 @@ export class DeferredLightingStage extends BaseStage {
         }
 
         material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
+
+        let probes = ReflectionProbes.probes
+        probes = probes.filter(p => {
+            return p.enabledInHierarchy
+        })
+
+        for (let i = 0; i < 3; i++) {
+            let probe = probes[i];
+            if (!probe) break;
+
+            let pos = probe.node.worldPosition;
+            let range = Math.max(probe.size.x, probe.size.y, probe.size.z)
+
+            material.setProperty('light_ibl_Texture' + i, probe._cubemap)
+            material.setProperty('light_ibl_posRange' + i, tempVec4.set(pos.x, pos.y, pos.z, range))
+        }
 
         fogUBO.update(material);
 
