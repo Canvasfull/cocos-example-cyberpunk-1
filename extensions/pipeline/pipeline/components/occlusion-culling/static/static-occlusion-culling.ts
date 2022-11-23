@@ -1,4 +1,4 @@
-import { Camera, Component, director, geometry, gfx, MeshRenderer, Node, Quat, renderer, Vec2, Vec3, _decorator, ccenum, Color, GeometryRenderer, Mat4 } from 'cc';
+import { Camera, Component, director, geometry, gfx, MeshRenderer, Node, Quat, renderer, Vec2, Vec3, _decorator, ccenum, Color, GeometryRenderer, Mat4, InstancedBuffer } from 'cc';
 import { EDITOR } from 'cc/env';
 import { Pool } from './utils/pool';
 import raycast from './utils/raycast';
@@ -110,6 +110,9 @@ export class StaticOcclusionCulling extends Component {
         this._gpuKernelDirty = true;
     }
 
+    @property
+    bakeInstances = false;
+
     renderers: MeshRenderer[] = []
     models: renderer.scene.Model[] = []
 
@@ -166,8 +169,20 @@ export class StaticOcclusionCulling extends Component {
 
         }
 
+        if (this._enabledCulling && this.bakeInstances) {
+            let renderers = this.renderers;
+            for (let i = 0; i < renderers.length; i++) {
+                let model = renderers[i].model;
+                if (model) {
+                    model.enabled = false;
+                }
+            }
+        }
+
         this._loadCompeleted = true;
     }
+
+    instances: Set<InstancedBuffer> | undefined;
 
     calcCulling () {
         if (!this.camera || !this._loadCompeleted || this._isBaking) {
@@ -225,18 +240,27 @@ export class StaticOcclusionCulling extends Component {
         else {
             let block = this._currentLocatedBlock;
 
-            for (let i = 0; i < renderers.length; i++) {
-                let model = renderers[i].model;
-                if (model) {
-                    model.enabled = false;
+            if (this.bakeInstances) {
+                block.bakeInstances();
+                this.instances = block.instances;
+
+                (this.camera.camera as any).instances = this.instances;
+            }
+            else {
+                for (let i = 0; i < renderers.length; i++) {
+                    let model = renderers[i].model;
+                    if (model) {
+                        model.enabled = false;
+                    }
+                }
+                for (let i = 0; i < block.renderers.length; i++) {
+                    let model = block.renderers[i] && block.renderers[i].model;
+                    if (model) {
+                        model.enabled = true;
+                    }
                 }
             }
-            for (let i = 0; i < block.renderers.length; i++) {
-                let model = block.renderers[i] && block.renderers[i].model;
-                if (model) {
-                    model.enabled = true;
-                }
-            }
+
         }
 
         this._lastLocatedBlock = this._currentLocatedBlock;
