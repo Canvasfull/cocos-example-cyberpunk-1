@@ -112,6 +112,11 @@ export class DeferredLightingStage extends BaseStage {
         //     lightingClearColor);
         // lightingPass.addRasterView(slot1, slot1View);
 
+        let probes = ReflectionProbes.probes
+        probes = probes.filter(p => {
+            return p.enabledInHierarchy
+        })
+
         let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
         let material = this.materialMap.get(camera);
         if (!material || material.parent !== sharedMaterial) {
@@ -127,16 +132,10 @@ export class DeferredLightingStage extends BaseStage {
                 material = new renderer.MaterialInstance({
                     parent: sharedMaterial,
                 })
-                material.recompileShaders({ CC_USE_IBL: 0 })
+                material.recompileShaders({ CC_USE_IBL: 0, REFLECTION_PROBE_COUNT: probes.length })
             }
             this.materialMap.set(camera, material);
         }
-
-
-        let probes = ReflectionProbes.probes
-        probes = probes.filter(p => {
-            return p.enabledInHierarchy
-        })
 
         if (probes.length !== this.probes.length) {
             material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
