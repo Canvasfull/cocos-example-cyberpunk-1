@@ -22,4 +22,26 @@ export class ReflectionProbeUtils extends Component {
             ReflectionProbes.probes.splice(index, 1);
         }
     }
+
+    capturing = false;
+    runtimeCapture (capturing = true) {
+        this.capturing = capturing;
+
+        if (capturing) {
+            if (!this.probe) {
+                return;
+            }
+
+            if (!this.probe.probe) {
+                this.probe._createProbe()
+            }
+            this.probe.probe.captureCubemap()
+        }
+    }
+
+    update () {
+        if (this.capturing) {
+            this.probe.probe._needRender = true;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe } from 'cc';
+import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, ProgressBarComponent } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
@@ -40,13 +40,18 @@ export class CustomPipelineBuilder {
             if (probe.needRender) {
                 settings.OUTPUT_RGBE = true;
 
+                let originCameraNode = probe.cameraNode;
                 let originCamera = probe.camera;
                 let originName = originCamera.name;
-                if (!probe.cameras) {
+                if (!probe.cameras || !probe.cameras.length) {
                     probe.cameras = []
                     for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
                         probe._camera = null;
-                        let camera = probe._createCamera();
+                        const tempNode = new Node(probe.node.name + ' Camera ' + faceIdx);
+                        tempNode.hideFlags |= CCObject.Flags.DontSave | CCObject.Flags.HideInHierarchy;
+                        tempNode.parent = probe.node;
+
+                        let camera = probe._createCamera(tempNode);
                         camera._name = originName + faceIdx;
                         probe.cameras.push(camera);
 
@@ -64,6 +69,7 @@ export class CustomPipelineBuilder {
 
                     passUtils.camera = camera;
                     probe._camera = camera;
+                    probe.cameraNode = camera.node;
 
                     //update camera dirction
                     probe.updateCameraDir(faceIdx);
@@ -77,6 +83,7 @@ export class CustomPipelineBuilder {
                 }
 
                 probe._camera = originCamera;
+                probe.cameraNode = originCameraNode;
 
                 probe.needRender = false;
                 settings.OUTPUT_RGBE = false;

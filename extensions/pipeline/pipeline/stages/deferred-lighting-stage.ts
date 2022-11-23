@@ -1,6 +1,6 @@
 
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbeManager } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbeManager, ReflectionProbe } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
 import { EDITOR } from "cc/env";
@@ -34,6 +34,8 @@ export class DeferredLightingStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
 
     uniqueStage = true;
+
+    probes: ReflectionProbe[] = []
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
@@ -130,12 +132,15 @@ export class DeferredLightingStage extends BaseStage {
             this.materialMap.set(camera, material);
         }
 
-        material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
 
         let probes = ReflectionProbes.probes
         probes = probes.filter(p => {
             return p.enabledInHierarchy
         })
+
+        if (probes.length !== this.probes.length) {
+            material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
+        }
 
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
@@ -147,6 +152,10 @@ export class DeferredLightingStage extends BaseStage {
             material.setProperty('light_ibl_Texture' + i, probe._cubemap)
             material.setProperty('light_ibl_posRange' + i, tempVec4.set(pos.x, pos.y, pos.z, range))
         }
+
+        this.probes = probes;
+
+        material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
 
         fogUBO.update(material);
 
