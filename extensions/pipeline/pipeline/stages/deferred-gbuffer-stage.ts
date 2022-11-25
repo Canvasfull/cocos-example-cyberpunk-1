@@ -12,7 +12,7 @@ export class DeferredGBufferStage extends BaseStage {
     _materialName = 'blit-screen';
 
     @property({ override: true, type: CCString })
-    outputNames = ['gBufferColor', 'gBufferNormal', 'gBufferEmissive', 'gBufferDS']
+    outputNames = ['gBufferColor', 'gBufferNormal', 'gBufferEmissive', 'gBufferPosition', 'gBufferDS']
 
     uniqueStage = true;
 
@@ -30,13 +30,15 @@ export class DeferredGBufferStage extends BaseStage {
         const slot1 = this.slotName(camera, 1);
         const slot2 = this.slotName(camera, 2);
         const slot3 = this.slotName(camera, 3);
+        const slot4 = this.slotName(camera, 4);
         if (!ppl.containsResource(slot0)) {
             const colFormat = Format.RGBA16F;
 
             ppl.addRenderTarget(slot0, colFormat, width, height, ResourceResidency.MANAGED);
             ppl.addRenderTarget(slot1, colFormat, width, height, ResourceResidency.MANAGED);
             ppl.addRenderTarget(slot2, colFormat, width, height, ResourceResidency.MANAGED);
-            ppl.addDepthStencil(slot3, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+            ppl.addDepthStencil(slot3, Format.RGBA32F, width, height, ResourceResidency.MANAGED);
+            ppl.addRenderTarget(slot4, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         // gbuffer pass
         const pass = ppl.addRasterPass(width, height, 'Geometry',);
@@ -68,7 +70,12 @@ export class DeferredGBufferStage extends BaseStage {
             LoadOp.CLEAR, StoreOp.STORE,
             camera.clearFlag,
             new Color(0, 0, 0, 0));
-        const passDSView = new RasterView('_',
+        const slot3View = new RasterView('_',
+            AccessType.WRITE, AttachmentType.RENDER_TARGET,
+            LoadOp.CLEAR, StoreOp.STORE,
+            camera.clearFlag,
+            new Color(camera.clearDepth, camera.clearStencil, 0, 0));
+        const slot4View = new RasterView('_',
             AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
             LoadOp.CLEAR, StoreOp.STORE,
             camera.clearFlag,
@@ -76,7 +83,8 @@ export class DeferredGBufferStage extends BaseStage {
         pass.addRasterView(slot0, passColorView);
         pass.addRasterView(slot1, passNormalView);
         pass.addRasterView(slot2, passEmissiveView);
-        pass.addRasterView(slot3, passDSView);
+        pass.addRasterView(slot3, slot3View);
+        pass.addRasterView(slot4, slot4View);
         pass.addQueue(QueueHint.RENDER_OPAQUE)
             .addSceneOfCamera(camera, new LightInfo(), SceneFlags.OPAQUE_OBJECT | SceneFlags.CUTOUT_OBJECT | SceneFlags.DRAW_INSTANCING);
     }

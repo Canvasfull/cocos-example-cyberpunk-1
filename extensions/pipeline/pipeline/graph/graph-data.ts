@@ -1,6 +1,6 @@
 export default {
     "last_node_id": 16,
-    "last_link_id": 42,
+    "last_link_id": 44,
     "nodes": [
         {
             "id": 10,
@@ -14,7 +14,7 @@ export default {
                 "1": 170
             },
             "flags": {},
-            "order": 3,
+            "order": 2,
             "mode": 0,
             "inputs": [
                 {
@@ -75,7 +75,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 42
+                    "link": 44
                 },
                 {
                     "name": "Custom Size",
@@ -195,7 +195,7 @@ export default {
                 "1": 26
             },
             "flags": {},
-            "order": 6,
+            "order": 5,
             "mode": 0,
             "inputs": [
                 {
@@ -218,7 +218,7 @@ export default {
                 "1": 170
             },
             "flags": {},
-            "order": 4,
+            "order": 3,
             "mode": 0,
             "inputs": [
                 {
@@ -269,7 +269,7 @@ export default {
                 "1": 170
             },
             "flags": {},
-            "order": 5,
+            "order": 4,
             "mode": 0,
             "inputs": [
                 {
@@ -293,7 +293,7 @@ export default {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
                     "links": [
-                        42
+                        43
                     ],
                     "slot_index": 0
                 }
@@ -311,15 +311,15 @@ export default {
             "id": 14,
             "type": "pipeline/custom.BloomStage",
             "pos": [
-                1085,
-                607
+                1058,
+                621
             ],
             "size": {
                 "0": 228.39999389648438,
                 "1": 170
             },
             "flags": {},
-            "order": 2,
+            "order": 6,
             "mode": 0,
             "inputs": [
                 {
@@ -330,7 +330,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": null
+                    "link": 43
                 },
                 {
                     "name": "Custom Size",
@@ -343,7 +343,9 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "links": [],
+                    "links": [
+                        44
+                    ],
                     "slot_index": 0
                 }
             ],
@@ -402,8 +404,16 @@ export default {
             "RenderTexture"
         ],
         [
-            42,
+            43,
             11,
+            0,
+            14,
+            1,
+            "RenderTexture"
+        ],
+        [
+            44,
+            14,
             0,
             12,
             1,

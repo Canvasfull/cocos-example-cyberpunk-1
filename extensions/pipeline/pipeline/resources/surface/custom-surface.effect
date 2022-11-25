@@ -350,6 +350,7 @@ CCProgram standard-fs %{
     layout(location = 0) out vec4 fragColor0;                        
     layout(location = 1) out vec4 fragColor1;                        
     layout(location = 2) out vec4 fragColor2;
+    layout(location = 3) out vec4 fragColor3;
 
 
     float raySphere (vec3 o, vec3 d, vec3 center, float radius) {
@@ -412,6 +413,7 @@ CCProgram standard-fs %{
       // #endif
 
       fragColor2 = vec4(s.emissive, s.occlusion);                    
+      fragColor3 = vec4(s.position, 0.);                    
     }                                                                
                                                                     
   #endif  
