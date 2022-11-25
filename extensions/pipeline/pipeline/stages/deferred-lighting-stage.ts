@@ -148,7 +148,7 @@ export class DeferredLightingStage extends BaseStage {
             let pos = probe.node.worldPosition;
             let range = Math.max(probe.size.x, probe.size.y, probe.size.z)
 
-            material.setProperty('light_ibl_Texture' + i, probe._cubemap)
+            material.setProperty('light_ibl_Texture' + i, (probe as any)._cubemap)
             material.setProperty('light_ibl_posRange' + i, tempVec4.set(pos.x, pos.y, pos.z, range))
         }
 

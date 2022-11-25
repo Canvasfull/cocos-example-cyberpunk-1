@@ -1,0 +1,66 @@
+// Copyright (c) 2017-2020 Xiamen Yaji Software Co., Ltd.
+
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: vs
+      frag: fs
+      rasterizerState:
+        cullMode: none
+      depthStencilState:
+        depthTest: false
+        depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: one
+          blendDst: zero
+          # blendSrc: src_alpha
+          # blendDst: one_minus_src_alpha
+          # blendSrcAlpha: src_alpha
+          # blendDstAlpha: one_minus_src_alpha
+}%
+
+
+CCProgram vs %{
+  #include <./chunks/vert>
+}%     
+
+
+CCProgram fs %{
+  precision highp float;
+
+  #include <builtin/uniforms/cc-global>
+  #include <legacy/output-standard>
+
+  #include <unpack>
+
+  in vec2 v_uv;
+  
+  uniform TaaUBO {
+    vec4 inputViewPort;
+  };
+  uniform sampler2D inputTexture;
+  uniform sampler2D depthBuffer;
+  uniform sampler2D taaPrevTexture;
+
+  layout(location = 0) out vec4 fragColor;
+
+  void main () {
+    fragColor = texture(inputTexture, v_uv * inputViewPort.xy);
+    // fragColor = CCFragOutput(fragColor);
+    
+    // if (inputViewPort.z == 1.) {
+    //   // fragColor = vec4(vec3(0.5), 0.5);
+
+    //   fragColor = packRGBE(fragColor.rgb);
+    //   // fragColor = vec4(unpackRGBE(fragColor), 1.);
+    //   // fragColor = vec4(fragColor.w);
+    // }
+    // else {
+    //   fragColor = CCFragOutput(fragColor);
+    // }
+  }
+  
+}%
+        
