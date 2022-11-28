@@ -1,4 +1,4 @@
-import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, ProgressBarComponent } from 'cc';
+import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
@@ -140,3 +140,9 @@ export class CustomPipelineBuilder {
 // if (!EDITOR) {
 rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 // }
+
+if (!EDITOR) {
+    game.on(Game.EVENT_GAME_INITED, () => {
+        profiler.showStats()
+    })
+}

@@ -100,7 +100,7 @@ CCProgram lighting-fs %{
     uniform sampler2D gbuffer_albedoMap;
     uniform sampler2D gbuffer_normalMap;
     uniform sampler2D gbuffer_emissiveMap;
-    uniform sampler2D depth_stencil;
+    uniform sampler2D gbuffer_posMap;
   // #endif
 
 
@@ -151,11 +151,10 @@ CCProgram lighting-fs %{
       vec4 albedoMap = texture(gbuffer_albedoMap,v_uv);
       vec4 normalMap = texture(gbuffer_normalMap,v_uv);
       vec4 emissiveMap = texture(gbuffer_emissiveMap,v_uv);
-      float depth = texture(depth_stencil, v_uv).x;
+      vec3 position = texture(gbuffer_posMap, v_uv).xyz;
     // #endif
 
     s.albedo = albedoMap;
-    vec3 position = screen2WS(vec3(gl_FragCoord.xy, depth)).xyz;
     s.position = position;
     s.roughness = normalMap.z;
     s.normal = oct_to_float32x3(normalMap.xy);
