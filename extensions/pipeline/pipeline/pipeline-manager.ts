@@ -1,10 +1,11 @@
-import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler } from 'cc';
+import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler, Mat4 } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
+import { TAASetting } from './components/taa';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -124,6 +125,28 @@ export class CustomPipelineBuilder {
         }
         else if (cameraSetting) {
             pipelineName = cameraSetting.pipeline;
+        }
+
+        if (!EDITOR && TAASetting.instance && pipelineName === 'main') {
+            (camera as any)._isProjDirty = true
+            camera._onCalcProjMat = function () {
+                this.matProj.m12 += TAASetting.instance.sampleOffset.x;
+                this.matProj.m13 += TAASetting.instance.sampleOffset.y;
+            }
+            camera.update(true)
+            // camera.matProj.m12 += TAASetting.instance.sampleOffset.x;
+            // camera.matProj.m13 += TAASetting.instance.sampleOffset.y;
+            // // console.log(TAASetting.instance.sampleOffset)
+            // // console.log(camera.matProj)
+
+            // Mat4.invert(camera.matProjInv, camera.matProj);
+
+            // Mat4.multiply(camera.matViewProj, camera.matProj, camera.matView);
+            // // console.log(camera.matProj)
+            // // console.log(camera.matViewProj)
+
+            // Mat4.invert(camera.matViewProjInv, camera.matViewProj);
+            // camera.frustum.update(camera.matViewProj, camera.matViewProjInv);
         }
 
         let stages = CustomPipelineBuilder.pipelines.get(pipelineName);

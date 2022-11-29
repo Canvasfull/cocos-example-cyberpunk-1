@@ -26,10 +26,10 @@ class PassUtils {
         return this;
     }
 
-    addRasterView (name: string, format: gfx.Format, offscreen = true) {
+    addRasterView (name: string, format: gfx.Format, offscreen = true, residency?: rendering.ResourceResidency) {
         if (!this.ppl.containsResource(name)) {
             if (offscreen) {
-                this.ppl.addRenderTarget(name, format, this.rasterWidth, this.rasterHeight, ResourceResidency.MANAGED);
+                this.ppl.addRenderTarget(name, format, this.rasterWidth, this.rasterHeight, residency || ResourceResidency.MANAGED);
             }
             else {
                 this.ppl.addRenderTexture(name, format, this.rasterWidth, this.rasterHeight, this.camera.window);

@@ -1,6 +1,6 @@
 export default {
     "last_node_id": 17,
-    "last_link_id": 46,
+    "last_link_id": 49,
     "nodes": [
         {
             "id": 10,
@@ -156,56 +156,6 @@ export default {
             }
         },
         {
-            "id": 11,
-            "type": "pipeline/DeferredLightingStage",
-            "pos": [
-                745,
-                608
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 170
-            },
-            "flags": {},
-            "order": 5,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": null
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 17
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        43
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "DeferredLightingStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "shadingScale": 1,
-                "material": "blit-screen"
-            }
-        },
-        {
             "id": 1,
             "type": "pipeline/Pipeline",
             "pos": [
@@ -308,60 +258,6 @@ export default {
             }
         },
         {
-            "id": 14,
-            "type": "pipeline/custom.BloomStage",
-            "pos": [
-                1069,
-                610
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 170
-            },
-            "flags": {},
-            "order": 6,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": null
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 43
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null,
-                    "slot_index": 2
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        45
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "custom.BloomStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "shadingScale": 1,
-                "material": "blit-screen",
-                "threshold": 0.1,
-                "iterations": 2,
-                "intensity": 0.8
-            }
-        },
-        {
             "id": 17,
             "type": "pipeline/TAAStage",
             "pos": [
@@ -370,7 +266,7 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 314
+                "1": 170
             },
             "flags": {},
             "order": 7,
@@ -384,7 +280,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 45
+                    "link": 49
                 },
                 {
                     "name": "Custom Size",
@@ -414,6 +310,110 @@ export default {
                 "clampHistoryTexture": true,
                 "forceRender": true,
                 "dirty": false
+            }
+        },
+        {
+            "id": 11,
+            "type": "pipeline/DeferredLightingStage",
+            "pos": [
+                745,
+                608
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 170
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 17
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        48
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "CameraOutputType": "Color",
+                "Name": "DeferredLightingStage",
+                "Format": "RGBA8",
+                "showResult": false,
+                "shadingScale": 1,
+                "material": "blit-screen"
+            }
+        },
+        {
+            "id": 14,
+            "type": "pipeline/custom.BloomStage",
+            "pos": [
+                1088,
+                753
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 170
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 48
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null,
+                    "slot_index": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        49
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "CameraOutputType": "Color",
+                "Name": "custom.BloomStage",
+                "Format": "RGBA8",
+                "showResult": false,
+                "shadingScale": 1,
+                "material": "blit-screen",
+                "threshold": 0.1,
+                "iterations": 2,
+                "intensity": 0.8
             }
         }
     ],
@@ -459,7 +459,15 @@ export default {
             "RenderTexture"
         ],
         [
-            43,
+            46,
+            17,
+            0,
+            12,
+            1,
+            "RenderTexture"
+        ],
+        [
+            48,
             11,
             0,
             14,
@@ -467,18 +475,10 @@ export default {
             "RenderTexture"
         ],
         [
-            45,
+            49,
             14,
             0,
             17,
-            1,
-            "RenderTexture"
-        ],
-        [
-            46,
-            17,
-            0,
-            12,
             1,
             "RenderTexture"
         ]
