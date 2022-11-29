@@ -41,12 +41,12 @@ export class PipelineAssets extends Component {
         })
     }
 
-    __preload () {
+    onEnable () {
         PipelineAssets.instance = this
         this.updateMaterials();
         loadGraph()
     }
-    onDestroy () {
+    onDisable () {
         if (PipelineAssets.instance === this) {
             PipelineAssets.instance = undefined
         }

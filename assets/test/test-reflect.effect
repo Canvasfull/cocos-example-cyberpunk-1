@@ -117,6 +117,7 @@ CCProgram unlit-fs %{
     layout(location = 0) out vec4 fragColor0;                        
     layout(location = 1) out vec4 fragColor1;                        
     layout(location = 2) out vec4 fragColor2;         
+    layout(location = 3) out vec4 fragColor3;         
 
     
   vec3 GetLookupVectorForSphereCapture(vec3 ReflectionVector, vec3 WorldPosition, vec4 SphereCapturePositionAndRadius, float NormalizedDistanceToCapture, vec3 LocalCaptureOffset, inout float DistanceAlpha)
@@ -186,7 +187,7 @@ CCProgram unlit-fs %{
       vec4 col = texture(mainTexture, ref);
       col.rgb = unpackRGBE(col);
       fragColor2 = vec4(col.rgb, 0.);
-      // fragColor2 = vec4(vec3(col.w), 0.);
+      fragColor3 = vec4(v_position, 1.);
     }                                                                
                                                                     
   #endif

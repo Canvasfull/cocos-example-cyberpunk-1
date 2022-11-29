@@ -143,13 +143,13 @@
     },
     "_cells": {
       "__type__": "cc.Vec3",
-      "x": 4,
-      "y": 1,
-      "z": 2
+      "x": 24,
+      "y": 12,
+      "z": 24
     },
-    "_maxCellObjectCount": 1,
+    "_maxCellObjectCount": 8,
     "renderDebug": false,
-    "forceUpdate": true,
+    "forceUpdate": false,
     "_id": ""
   },
   {
@@ -194,7 +194,7 @@
     "feedback": 0.95,
     "shaowHistoryTexture": false,
     "clampHistoryTexture": true,
-    "forceRender": false,
+    "forceRender": true,
     "dirty": false,
     "_id": ""
   },

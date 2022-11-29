@@ -1,4 +1,4 @@
-import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler, Mat4 } from 'cc';
+import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler, Mat4, assetManager, instantiate, Prefab, director, Director } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
 import { EDITOR } from 'cc/env';
@@ -6,6 +6,7 @@ import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
 import { TAASetting } from './components/taa';
+import { PipelineAssets } from './resources/pipeline-assets';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -27,6 +28,9 @@ export class CustomPipelineBuilder {
     }
 
     public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
+        if (!PipelineAssets.instance) {
+            return;
+        }
 
         // if (EDITOR) {
         //     excludes.push('Main Camera')
@@ -163,6 +167,32 @@ export class CustomPipelineBuilder {
 // if (!EDITOR) {
 rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 // }
+
+
+game.on(Game.EVENT_GAME_INITED, () => {
+    if (!globalThis.__pipeline__) {
+        assetManager.loadAny('223548d6-e1d4-462a-99e1-f4046b1d0647', (err, pipPrefab: Prefab) => {
+            if (err) {
+                return console.error(err);
+            }
+            let p = instantiate(pipPrefab)
+            p.hideFlags |= CCObject.Flags.DontSave;// | CCObject.Flags.HideInHierarchy;
+            globalThis.__pipeline__ = p;
+        })
+    }
+})
+
+let orirunSceneImmediate = director.runSceneImmediate
+director.runSceneImmediate = function (scene, onBeforeLoadScene, onLaunched) {
+    globalThis.__pipeline__.parent = null;
+
+    orirunSceneImmediate.call(this, scene, onBeforeLoadScene, onLaunched)
+
+    if (!PipelineAssets.instance && globalThis.__pipeline__) {
+        globalThis.__pipeline__.parent = director.getScene()
+    }
+}
+
 
 if (!EDITOR) {
     game.on(Game.EVENT_GAME_INITED, () => {

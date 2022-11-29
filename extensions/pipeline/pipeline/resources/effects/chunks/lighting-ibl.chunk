@@ -69,9 +69,11 @@ vec3 lightingIbl (in StandardSurface s, vec3 specular) {
    blendReflection(color, blendFactor, light_ibl_Texture2, mip, s, ref, light_ibl_posRange2, specular);
   #endif
 
-  vec4 skyEnv = fragTextureLod2(cc_environment, ref, mip);
-  skyEnv.rgb = unpackRGBE(skyEnv);
-  color += skyEnv.rgb * specular * blendFactor * 0.2;
+  #if CC_USE_IBL
+    vec4 skyEnv = fragTextureLod2(cc_environment, ref, mip);
+    skyEnv.rgb = unpackRGBE(skyEnv);
+    color += skyEnv.rgb * specular * blendFactor * 0.2;
+  #endif
 
   return color;
 }
