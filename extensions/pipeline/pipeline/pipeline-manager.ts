@@ -176,6 +176,7 @@ game.on(Game.EVENT_GAME_INITED, () => {
                 return console.error(err);
             }
             let p = instantiate(pipPrefab)
+            p.name = 'pipeline-default-persist';
             p.hideFlags |= CCObject.Flags.DontSave;// | CCObject.Flags.HideInHierarchy;
             globalThis.__pipeline__ = p;
         })
