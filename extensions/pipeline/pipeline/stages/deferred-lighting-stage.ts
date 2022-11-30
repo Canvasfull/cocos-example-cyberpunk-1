@@ -27,7 +27,7 @@ export class DeferredLightingStage extends BaseStage {
     _materialName = 'blit-screen';
 
     @property({ override: true, type: CCString })
-    outputNames = ['DeferredLightingColor', 'DeferredLightSpecular', 'DeferredLightingDepth']
+    outputNames = ['DeferredLightingColor', 'gBufferDS']
 
     tempMat: Material
     clearMat: renderer.MaterialInstance
@@ -46,12 +46,10 @@ export class DeferredLightingStage extends BaseStage {
         const height = area.height;
 
         const slot0 = this.slotName(camera, 0);
-        // const slot1 = this.slotName(camera, 1);
-        // const slot2 = this.slotName(camera, 2);
+        const slot1 = this.slotName(camera, 1);
         if (!ppl.containsResource(slot0)) {
             ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
-            // ppl.addRenderTarget(slot1, Format.RGBA8, width, height, ResourceResidency.MANAGED);
-            // ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+            ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         // lighting pass
         const lightingPass = ppl.addRasterPass(width, height, 'Lighting');
@@ -89,28 +87,23 @@ export class DeferredLightingStage extends BaseStage {
             lightingPass.addComputeView(input2, computeEmissiveView);
 
             const computeDepthView = new ComputeView();
-            computeDepthView.name = 'depth_stencil';
+            computeDepthView.name = 'gbuffer_posMap';
             lightingPass.addComputeView(input3, computeDepthView);
         }
+
         const lightingClearColor = new Color(0, 0, 0, 0);
-        if (camera.clearFlag & ClearFlagBit.COLOR) {
-            lightingClearColor.x = camera.clearColor.x;
-            lightingClearColor.y = camera.clearColor.y;
-            lightingClearColor.z = camera.clearColor.z;
-        }
-        lightingClearColor.w = 0;
         const slot0View = new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,
             LoadOp.CLEAR, StoreOp.STORE,
-            camera.clearFlag,
+            gfx.ClearFlagBit.COLOR,
             lightingClearColor);
         lightingPass.addRasterView(slot0, slot0View);
-        // const slot1View = new RasterView('_',
-        //     AccessType.WRITE, AttachmentType.RENDER_TARGET,
-        //     LoadOp.CLEAR, StoreOp.STORE,
-        //     camera.clearFlag,
-        //     lightingClearColor);
-        // lightingPass.addRasterView(slot1, slot1View);
+        const slot1View = new RasterView('_',
+            AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
+            LoadOp.LOAD, StoreOp.STORE,
+            gfx.ClearFlagBit.NONE,
+            lightingClearColor);
+        lightingPass.addRasterView(slot1, slot1View);
 
         let probes = ReflectionProbes.probes
         probes = probes.filter(p => {

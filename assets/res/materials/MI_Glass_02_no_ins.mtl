@@ -7,7 +7,7 @@
     "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
     "__expectedType__": "cc.EffectAsset"
   },
-  "_techIdx": "0",
+  "_techIdx": "1",
   "_defines": [
     {
       "HAS_SECOND_UV": true,
@@ -19,9 +19,7 @@
   ],
   "_states": [
     {
-      "rasterizerState": {
-        "isFrontFaceCCW": false
-      },
+      "rasterizerState": {},
       "depthStencilState": {},
       "blendState": {
         "targets": [
