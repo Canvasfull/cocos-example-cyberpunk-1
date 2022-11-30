@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"a2166c05-acab-4bf3-b21f-a77daf8ed255","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"a2166c05-acab-4bf3-b21f-a77daf8ed255@6c48a","displayName":"MI_AirConditioner_Decal01_Normal","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"a2166c05-acab-4bf3-b21f-a77daf8ed255","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"a2166c05-acab-4bf3-b21f-a77daf8ed255@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "a2166c05-acab-4bf3-b21f-a77daf8ed255",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "a2166c05-acab-4bf3-b21f-a77daf8ed255@6c48a",
+      "displayName": "MI_AirConditioner_Decal01_Normal",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a2166c05-acab-4bf3-b21f-a77daf8ed255",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "a2166c05-acab-4bf3-b21f-a77daf8ed255@6c48a"
+  }
+}

@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"da61432b-1226-49e5-99c5-c59cdb4f65b3","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"da61432b-1226-49e5-99c5-c59cdb4f65b3@6c48a","displayName":"T_SignboardText01_BC","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"da61432b-1226-49e5-99c5-c59cdb4f65b3","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"da61432b-1226-49e5-99c5-c59cdb4f65b3@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "da61432b-1226-49e5-99c5-c59cdb4f65b3",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "da61432b-1226-49e5-99c5-c59cdb4f65b3@6c48a",
+      "displayName": "T_SignboardText01_BC",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "da61432b-1226-49e5-99c5-c59cdb4f65b3",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "da61432b-1226-49e5-99c5-c59cdb4f65b3@6c48a"
+  }
+}

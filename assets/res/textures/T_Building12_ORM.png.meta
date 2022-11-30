@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"828051d5-2e16-4778-8465-9ecb104d3d91","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"828051d5-2e16-4778-8465-9ecb104d3d91@6c48a","displayName":"T_Building12_ORM","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"828051d5-2e16-4778-8465-9ecb104d3d91","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"828051d5-2e16-4778-8465-9ecb104d3d91@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "828051d5-2e16-4778-8465-9ecb104d3d91",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "828051d5-2e16-4778-8465-9ecb104d3d91@6c48a",
+      "displayName": "T_Building12_ORM",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "828051d5-2e16-4778-8465-9ecb104d3d91",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "828051d5-2e16-4778-8465-9ecb104d3d91@6c48a"
+  }
+}

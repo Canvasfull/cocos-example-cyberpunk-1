@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"0c80515c-9b20-4af7-ab3f-96c8f6792c1c","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"0c80515c-9b20-4af7-ab3f-96c8f6792c1c@6c48a","displayName":"T_Stairs_02_N","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"0c80515c-9b20-4af7-ab3f-96c8f6792c1c","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"0c80515c-9b20-4af7-ab3f-96c8f6792c1c@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "0c80515c-9b20-4af7-ab3f-96c8f6792c1c",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "0c80515c-9b20-4af7-ab3f-96c8f6792c1c@6c48a",
+      "displayName": "T_Stairs_02_N",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "0c80515c-9b20-4af7-ab3f-96c8f6792c1c",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "0c80515c-9b20-4af7-ab3f-96c8f6792c1c@6c48a"
+  }
+}

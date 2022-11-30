@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"ca26f4d2-e2de-4dd0-a477-1cf819ef6e52","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"ca26f4d2-e2de-4dd0-a477-1cf819ef6e52@6c48a","displayName":"T_Hair_ORM","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"ca26f4d2-e2de-4dd0-a477-1cf819ef6e52","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"ca26f4d2-e2de-4dd0-a477-1cf819ef6e52@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "ca26f4d2-e2de-4dd0-a477-1cf819ef6e52",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "ca26f4d2-e2de-4dd0-a477-1cf819ef6e52@6c48a",
+      "displayName": "T_Hair_ORM",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ca26f4d2-e2de-4dd0-a477-1cf819ef6e52",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "ca26f4d2-e2de-4dd0-a477-1cf819ef6e52@6c48a"
+  }
+}

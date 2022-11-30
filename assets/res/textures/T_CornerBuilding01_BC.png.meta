@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"d399f172-b845-4b60-84e1-845146fc1f90","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"d399f172-b845-4b60-84e1-845146fc1f90@6c48a","displayName":"T_CornerBuilding01_BC","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"d399f172-b845-4b60-84e1-845146fc1f90","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"d399f172-b845-4b60-84e1-845146fc1f90@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "d399f172-b845-4b60-84e1-845146fc1f90",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "d399f172-b845-4b60-84e1-845146fc1f90@6c48a",
+      "displayName": "T_CornerBuilding01_BC",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "d399f172-b845-4b60-84e1-845146fc1f90",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "d399f172-b845-4b60-84e1-845146fc1f90@6c48a"
+  }
+}

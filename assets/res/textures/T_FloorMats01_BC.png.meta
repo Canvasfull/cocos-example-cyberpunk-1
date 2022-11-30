@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"3673bb5c-eedb-4a06-b29f-78b5a83014e5","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"3673bb5c-eedb-4a06-b29f-78b5a83014e5@6c48a","displayName":"T_FloorMats01_BC","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"3673bb5c-eedb-4a06-b29f-78b5a83014e5","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"3673bb5c-eedb-4a06-b29f-78b5a83014e5@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "3673bb5c-eedb-4a06-b29f-78b5a83014e5",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "3673bb5c-eedb-4a06-b29f-78b5a83014e5@6c48a",
+      "displayName": "T_FloorMats01_BC",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3673bb5c-eedb-4a06-b29f-78b5a83014e5",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "3673bb5c-eedb-4a06-b29f-78b5a83014e5@6c48a"
+  }
+}

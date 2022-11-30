@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"5bee0b8b-78c5-4ed4-a679-13885384c0d8","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"5bee0b8b-78c5-4ed4-a679-13885384c0d8@6c48a","displayName":"T_Metalbeam01_ORM","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"5bee0b8b-78c5-4ed4-a679-13885384c0d8","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"5bee0b8b-78c5-4ed4-a679-13885384c0d8@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "5bee0b8b-78c5-4ed4-a679-13885384c0d8",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "5bee0b8b-78c5-4ed4-a679-13885384c0d8@6c48a",
+      "displayName": "T_Metalbeam01_ORM",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5bee0b8b-78c5-4ed4-a679-13885384c0d8",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "5bee0b8b-78c5-4ed4-a679-13885384c0d8@6c48a"
+  }
+}

@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"a3d4d28e-c584-442e-96e8-7b97ac440153","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"a3d4d28e-c584-442e-96e8-7b97ac440153@6c48a","displayName":"MI_AirConditioning_01_Occlusion","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"a3d4d28e-c584-442e-96e8-7b97ac440153","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"a3d4d28e-c584-442e-96e8-7b97ac440153@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "a3d4d28e-c584-442e-96e8-7b97ac440153",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "a3d4d28e-c584-442e-96e8-7b97ac440153@6c48a",
+      "displayName": "MI_AirConditioning_01_Occlusion",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a3d4d28e-c584-442e-96e8-7b97ac440153",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "a3d4d28e-c584-442e-96e8-7b97ac440153@6c48a"
+  }
+}

@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"0b65ee6b-4e92-4459-8a94-edb99aa991c0","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"0b65ee6b-4e92-4459-8a94-edb99aa991c0@6c48a","displayName":"T_FactoryConcreteFloor01_BC","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"0b65ee6b-4e92-4459-8a94-edb99aa991c0","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"0b65ee6b-4e92-4459-8a94-edb99aa991c0@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "0b65ee6b-4e92-4459-8a94-edb99aa991c0",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "0b65ee6b-4e92-4459-8a94-edb99aa991c0@6c48a",
+      "displayName": "T_FactoryConcreteFloor01_BC",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "0b65ee6b-4e92-4459-8a94-edb99aa991c0",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "0b65ee6b-4e92-4459-8a94-edb99aa991c0@6c48a"
+  }
+}

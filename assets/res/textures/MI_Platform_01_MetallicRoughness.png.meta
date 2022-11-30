@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"3886ea12-c4b9-4acd-a320-783a1bf22700","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"3886ea12-c4b9-4acd-a320-783a1bf22700@6c48a","displayName":"MI_Platform_01_MetallicRoughness","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"3886ea12-c4b9-4acd-a320-783a1bf22700","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"3886ea12-c4b9-4acd-a320-783a1bf22700@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "3886ea12-c4b9-4acd-a320-783a1bf22700",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "3886ea12-c4b9-4acd-a320-783a1bf22700@6c48a",
+      "displayName": "MI_Platform_01_MetallicRoughness",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3886ea12-c4b9-4acd-a320-783a1bf22700",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "3886ea12-c4b9-4acd-a320-783a1bf22700@6c48a"
+  }
+}

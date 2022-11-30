@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"1b7e607d-6751-4ce2-8afb-d57bc47cb339","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"1b7e607d-6751-4ce2-8afb-d57bc47cb339@6c48a","displayName":"MI_WGS_01_Emissive","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"1b7e607d-6751-4ce2-8afb-d57bc47cb339","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"1b7e607d-6751-4ce2-8afb-d57bc47cb339@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "1b7e607d-6751-4ce2-8afb-d57bc47cb339",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "1b7e607d-6751-4ce2-8afb-d57bc47cb339@6c48a",
+      "displayName": "MI_WGS_01_Emissive",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "1b7e607d-6751-4ce2-8afb-d57bc47cb339",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "1b7e607d-6751-4ce2-8afb-d57bc47cb339@6c48a"
+  }
+}

@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"6e9f2d89-05fd-42d3-bbd7-d1ce7590719a","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"6e9f2d89-05fd-42d3-bbd7-d1ce7590719a@6c48a","displayName":"T_WGS_02_ORM","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"6e9f2d89-05fd-42d3-bbd7-d1ce7590719a","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"6e9f2d89-05fd-42d3-bbd7-d1ce7590719a@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "6e9f2d89-05fd-42d3-bbd7-d1ce7590719a",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "6e9f2d89-05fd-42d3-bbd7-d1ce7590719a@6c48a",
+      "displayName": "T_WGS_02_ORM",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "6e9f2d89-05fd-42d3-bbd7-d1ce7590719a",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "6e9f2d89-05fd-42d3-bbd7-d1ce7590719a@6c48a"
+  }
+}

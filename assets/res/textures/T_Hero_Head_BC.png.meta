@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"050681a1-a72a-4cfc-a4c2-539456f685d9","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"050681a1-a72a-4cfc-a4c2-539456f685d9@6c48a","displayName":"T_Hero_Head_BC","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"050681a1-a72a-4cfc-a4c2-539456f685d9","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"050681a1-a72a-4cfc-a4c2-539456f685d9@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "050681a1-a72a-4cfc-a4c2-539456f685d9",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "050681a1-a72a-4cfc-a4c2-539456f685d9@6c48a",
+      "displayName": "T_Hero_Head_BC",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "050681a1-a72a-4cfc-a4c2-539456f685d9",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "050681a1-a72a-4cfc-a4c2-539456f685d9@6c48a"
+  }
+}

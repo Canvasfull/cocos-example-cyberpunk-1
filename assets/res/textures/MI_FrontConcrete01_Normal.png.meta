@@ -1,1 +1,42 @@
-{"ver":"1.0.25","importer":"image","imported":true,"uuid":"5b094f8b-3488-4ef6-817b-bd10de683c1b","files":[".json",".png"],"subMetas":{"6c48a":{"importer":"texture","uuid":"5b094f8b-3488-4ef6-817b-bd10de683c1b@6c48a","displayName":"MI_FrontConcrete01_Normal","id":"6c48a","name":"texture","userData":{"wrapModeS":"repeat","wrapModeT":"repeat","minfilter":"linear","magfilter":"linear","mipfilter":"linear","anisotropy":0,"isUuid":true,"imageUuidOrDatabaseUri":"5b094f8b-3488-4ef6-817b-bd10de683c1b","visible":true},"ver":"1.0.22","imported":true,"files":[".json"],"subMetas":{}}},"userData":{"type":"texture","fixAlphaTransparencyArtifacts":true,"hasAlpha":true,"redirect":"5b094f8b-3488-4ef6-817b-bd10de683c1b@6c48a"}}
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "5b094f8b-3488-4ef6-817b-bd10de683c1b",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "5b094f8b-3488-4ef6-817b-bd10de683c1b@6c48a",
+      "displayName": "MI_FrontConcrete01_Normal",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5b094f8b-3488-4ef6-817b-bd10de683c1b",
+        "visible": true,
+        "magfilter": "linear",
+        "mipfilter": "none"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "5b094f8b-3488-4ef6-817b-bd10de683c1b@6c48a"
+  }
+}
