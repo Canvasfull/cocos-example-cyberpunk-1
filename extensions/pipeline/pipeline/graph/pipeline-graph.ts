@@ -5,7 +5,7 @@ import { repaintInEditMode } from '../utils/editor'
 
 const { ccclass, property, executeInEditMode } = _decorator;
 
-@ccclass('PiepelineGraph')
+@ccclass('custom.PiepelineGraph')
 @executeInEditMode
 export class PiepelineGraph extends Component {
     @property

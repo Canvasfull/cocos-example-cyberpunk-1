@@ -25,7 +25,6 @@ export class DeferredGBufferStage extends BaseStage {
         const width = area.width;
         const height = area.height;
 
-        const cameraID = getCameraUniqueID(camera);
         const slot0 = this.slotName(camera, 0);
         const slot1 = this.slotName(camera, 1);
         const slot2 = this.slotName(camera, 2);
@@ -37,9 +36,17 @@ export class DeferredGBufferStage extends BaseStage {
             ppl.addRenderTarget(slot0, colFormat, width, height, ResourceResidency.MANAGED);
             ppl.addRenderTarget(slot1, colFormat, width, height, ResourceResidency.MANAGED);
             ppl.addRenderTarget(slot2, colFormat, width, height, ResourceResidency.MANAGED);
-            ppl.addDepthStencil(slot3, Format.RGBA32F, width, height, ResourceResidency.MANAGED);
-            ppl.addRenderTarget(slot4, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+            ppl.addRenderTarget(slot3, Format.RGBA32F, width, height, ResourceResidency.MANAGED);
+            ppl.addDepthStencil(slot4, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
+        else {
+            ppl.updateRenderTarget(slot0, width, height);
+            ppl.updateRenderTarget(slot1, width, height);
+            ppl.updateRenderTarget(slot2, width, height);
+            ppl.updateRenderTarget(slot3, width, height);
+            ppl.updateDepthStencil(slot4, width, height);
+        }
+
         // gbuffer pass
         const pass = ppl.addRasterPass(width, height, 'Geometry',);
         pass.name = `${slot0}_Pass`

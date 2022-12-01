@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "",
+    "_name": "test",
     "_objFlags": 0,
     "_native": "",
     "scene": {
@@ -296,7 +296,10 @@
         "__id__": 14
       }
     ],
-    "removedComponents": []
+    "removedComponents": [],
+    "ids": [
+      "4cN0f4x7tDlJ/VRrcf++/u"
+    ]
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -496,9 +499,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 20
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "0ecbb076-075f-4a9c-9cbb-4d3ea0ffad38@528cc",
       "__expectedType__": "cc.Mesh"
@@ -509,10 +510,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "f57vCCtjpAd6Prqp49v5YP"
+    "_id": "f57vCCtjpAd6Prqp49v5YP",
+    "bakeSettings": {
+      "__id__": 20
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -721,9 +725,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 25
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1d655240-57bc-46c2-b2d7-67bc065d29ca@d1dca",
       "__expectedType__": "cc.Mesh"
@@ -734,10 +736,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "5dhDN3BVlN37AW69T/wDGr"
+    "_id": "5dhDN3BVlN37AW69T/wDGr",
+    "bakeSettings": {
+      "__id__": 25
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -812,9 +817,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 28
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "de3cc8ed-dd42-4845-a504-c15b8dea984a@78519",
       "__expectedType__": "cc.Mesh"
@@ -825,10 +828,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "9eOB8a1T9Hy6dp3snn6j6M"
+    "_id": "9eOB8a1T9Hy6dp3snn6j6M",
+    "bakeSettings": {
+      "__id__": 28
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -903,9 +909,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 31
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "7e8220d4-f9b9-46a4-b676-0b27553d69f8@c8860",
       "__expectedType__": "cc.Mesh"
@@ -916,10 +920,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "50l8mTdGFJY5mGCYhQnTmV"
+    "_id": "50l8mTdGFJY5mGCYhQnTmV",
+    "bakeSettings": {
+      "__id__": 31
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -994,9 +1001,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 34
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "464996e5-a57b-42d1-9012-b3a847fba522@c04de",
       "__expectedType__": "cc.Mesh"
@@ -1007,10 +1012,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "00yb/KB+9LJ7u3zq2LXRHm"
+    "_id": "00yb/KB+9LJ7u3zq2LXRHm",
+    "bakeSettings": {
+      "__id__": 34
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1085,9 +1093,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 37
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "d3e34a27-fa48-4b9f-9cf7-b5f35a2eaed4@55fdb",
       "__expectedType__": "cc.Mesh"
@@ -1098,10 +1104,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "dem0Wym15A/aOGP6f5tVvt"
+    "_id": "dem0Wym15A/aOGP6f5tVvt",
+    "bakeSettings": {
+      "__id__": 37
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1176,9 +1185,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 40
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "4780c41e-e86d-4385-b0a8-901a79c224db@1589f",
       "__expectedType__": "cc.Mesh"
@@ -1189,10 +1196,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "3azdOVwTtHoJhhiHpcLm4N"
+    "_id": "3azdOVwTtHoJhhiHpcLm4N",
+    "bakeSettings": {
+      "__id__": 40
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1267,9 +1277,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 43
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "11f7b0f2-027e-48b7-9c2d-066974c211d1@de577",
       "__expectedType__": "cc.Mesh"
@@ -1280,10 +1288,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "e2tv4LF1RFrbwarxuK7jQB"
+    "_id": "e2tv4LF1RFrbwarxuK7jQB",
+    "bakeSettings": {
+      "__id__": 43
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1366,9 +1377,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 46
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "ef4c1d4e-6b62-4e6b-898a-33af40ce8066@0332a",
       "__expectedType__": "cc.Mesh"
@@ -1379,10 +1388,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "576Ba4HAZGQZ5+7Fue7Crr"
+    "_id": "576Ba4HAZGQZ5+7Fue7Crr",
+    "bakeSettings": {
+      "__id__": 46
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1457,9 +1469,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 49
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "3660c528-4803-4d16-bfa0-85d182caa55b@825ed",
       "__expectedType__": "cc.Mesh"
@@ -1470,10 +1480,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "c6NKg45T5PyYVVjUqV/Z8g"
+    "_id": "c6NKg45T5PyYVVjUqV/Z8g",
+    "bakeSettings": {
+      "__id__": 49
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1548,9 +1561,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 52
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "3660c528-4803-4d16-bfa0-85d182caa55b@825ed",
       "__expectedType__": "cc.Mesh"
@@ -1561,10 +1572,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "8dCL99AvFFA6k08Q1KnnAy"
+    "_id": "8dCL99AvFFA6k08Q1KnnAy",
+    "bakeSettings": {
+      "__id__": 52
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1639,9 +1653,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 55
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "59dd89c3-b2fe-4b6e-9794-f55e1a5c5ee4@a65ae",
       "__expectedType__": "cc.Mesh"
@@ -1652,10 +1664,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "6btzZ8PmNPX7gaTOankSFX"
+    "_id": "6btzZ8PmNPX7gaTOankSFX",
+    "bakeSettings": {
+      "__id__": 55
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1730,9 +1745,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 58
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "fc7b0f70-015d-4011-b0df-ae38fa880a28@565ce",
       "__expectedType__": "cc.Mesh"
@@ -1743,10 +1756,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "ccb/gTovRL84PyqSbQ6wce"
+    "_id": "ccb/gTovRL84PyqSbQ6wce",
+    "bakeSettings": {
+      "__id__": 58
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1821,9 +1837,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 61
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "3660c528-4803-4d16-bfa0-85d182caa55b@825ed",
       "__expectedType__": "cc.Mesh"
@@ -1834,10 +1848,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "c4iuDvzL9CvI/rFeSz+TN5"
+    "_id": "c4iuDvzL9CvI/rFeSz+TN5",
+    "bakeSettings": {
+      "__id__": 61
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1912,9 +1929,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 64
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "7d6e0bef-b46d-47fa-893a-a4e85861c6ce@2f6d1",
       "__expectedType__": "cc.Mesh"
@@ -1925,10 +1940,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "4eU68g5wxJIa1P9ENGOTbp"
+    "_id": "4eU68g5wxJIa1P9ENGOTbp",
+    "bakeSettings": {
+      "__id__": 64
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -2669,7 +2687,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -2749,7 +2766,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -2829,7 +2845,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -2909,7 +2924,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -2989,7 +3003,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3069,7 +3082,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3149,7 +3161,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3229,7 +3240,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3309,7 +3319,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3389,7 +3398,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3469,7 +3477,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3549,7 +3556,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3629,7 +3635,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3709,7 +3714,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3789,7 +3793,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3869,7 +3872,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -3949,7 +3951,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4029,7 +4030,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4109,7 +4109,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4189,7 +4188,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4269,7 +4267,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4349,7 +4346,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4429,7 +4425,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4509,7 +4504,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4589,7 +4583,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4669,7 +4662,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4749,7 +4741,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4829,7 +4820,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4909,7 +4899,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -4989,7 +4978,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5069,7 +5057,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5149,7 +5136,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5229,7 +5215,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5309,7 +5294,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5389,7 +5373,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5469,7 +5452,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5549,7 +5531,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5629,7 +5610,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5709,7 +5689,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5789,7 +5768,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5869,7 +5847,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -5949,7 +5926,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6029,7 +6005,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6109,7 +6084,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6189,7 +6163,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6269,7 +6242,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6349,7 +6321,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6429,7 +6400,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6509,7 +6479,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6589,7 +6558,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6669,7 +6637,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6749,7 +6716,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6829,7 +6795,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6909,7 +6874,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -6989,7 +6953,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7069,7 +7032,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7149,7 +7111,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7229,7 +7190,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7309,7 +7269,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7389,7 +7348,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7469,7 +7427,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7549,7 +7506,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7629,7 +7585,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7709,7 +7664,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7789,7 +7743,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7869,7 +7822,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -7949,7 +7901,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8029,7 +7980,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8109,7 +8059,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8189,7 +8138,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8269,7 +8217,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8349,7 +8296,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8429,7 +8375,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8509,7 +8454,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8589,7 +8533,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8669,7 +8612,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8749,7 +8691,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8829,7 +8770,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8909,7 +8849,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -8989,7 +8928,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9069,7 +9007,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9149,7 +9086,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9229,7 +9165,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9309,7 +9244,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9389,7 +9323,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9469,7 +9402,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9549,7 +9481,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9629,7 +9560,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9709,7 +9639,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9789,7 +9718,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9869,7 +9797,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -9949,7 +9876,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10029,7 +9955,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10109,7 +10034,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10189,7 +10113,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10269,7 +10192,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10349,7 +10271,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10429,7 +10350,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10509,7 +10429,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10589,7 +10508,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10669,7 +10587,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10749,7 +10666,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10829,7 +10745,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10909,7 +10824,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -10994,7 +10908,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11079,7 +10992,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11164,7 +11076,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11249,7 +11160,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11334,7 +11244,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11419,7 +11328,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11504,7 +11412,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11589,7 +11496,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11674,7 +11580,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11759,7 +11664,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11844,7 +11748,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -11929,7 +11832,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12014,7 +11916,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12099,7 +12000,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12184,7 +12084,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12269,7 +12168,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12354,7 +12252,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12439,7 +12336,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12524,7 +12420,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12609,7 +12504,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12694,7 +12588,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12779,7 +12672,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12864,7 +12756,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -12949,7 +12840,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13034,7 +12924,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13119,7 +13008,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13204,7 +13092,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13289,7 +13176,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13374,7 +13260,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13459,7 +13344,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13544,7 +13428,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13629,7 +13512,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13714,7 +13596,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13799,7 +13680,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13884,7 +13764,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -13969,7 +13848,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -14060,7 +13938,6 @@
     "__type__": "cc.StaticLightSettings",
     "_baked": false,
     "_editorOnly": false,
-    "_bakeable": true,
     "_castShadow": false
   },
   {
@@ -17205,9 +17082,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 606
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "f7948b78-fc1b-47f1-92a5-75076839d669@54c30",
       "__expectedType__": "cc.Mesh"
@@ -17218,10 +17093,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "61mwzyQIFKQ5gHIORx6mA1"
+    "_id": "61mwzyQIFKQ5gHIORx6mA1",
+    "bakeSettings": {
+      "__id__": 606
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -17296,9 +17174,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 609
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "f7948b78-fc1b-47f1-92a5-75076839d669@54c30",
       "__expectedType__": "cc.Mesh"
@@ -17309,10 +17185,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "b8HziA3DBLl4MS8a039QGB"
+    "_id": "b8HziA3DBLl4MS8a039QGB",
+    "bakeSettings": {
+      "__id__": 609
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -17387,9 +17266,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 612
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "f7948b78-fc1b-47f1-92a5-75076839d669@54c30",
       "__expectedType__": "cc.Mesh"
@@ -17400,10 +17277,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "9aZtgkN9ZNDpTLt3XZM5jw"
+    "_id": "9aZtgkN9ZNDpTLt3XZM5jw",
+    "bakeSettings": {
+      "__id__": 612
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -17478,9 +17358,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 615
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "f7948b78-fc1b-47f1-92a5-75076839d669@54c30",
       "__expectedType__": "cc.Mesh"
@@ -17491,10 +17369,13 @@
     "_shadowNormalBias": 0,
     "_useLightProbe": false,
     "_enableMorph": true,
-    "_id": "1buEtHTMlJiITbGEkKzePu"
+    "_id": "1buEtHTMlJiITbGEkKzePu",
+    "bakeSettings": {
+      "__id__": 615
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",

@@ -51,6 +51,10 @@ export class DeferredLightingStage extends BaseStage {
             ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
             ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
+        else {
+            ppl.updateRenderTarget(slot0, width, height);
+        }
+
         // lighting pass
         const lightingPass = ppl.addRasterPass(width, height, 'Lighting');
         lightingPass.name = `CameraLightingPass${cameraID}`;
