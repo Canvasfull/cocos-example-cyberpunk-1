@@ -1,19 +1,29 @@
 import { EDITOR } from 'cc/env';
 
-let href = window && window.location && window.location.href;
-
 export const HrefSetting = {
-    settings: 1,//href && href.includes('settings=1'),
-    spector: href && href.includes('spector=1'),
+    settings: 0,
+    spector: 0,
+    shadingScale: 1,
     graph: 0,
+}
+
+
+if (!EDITOR) {
+    let href = window && window.location && window.location.href;
+    let settings = href.split('?')[1]
+    if (settings) {
+        let results = settings.match(/([a-zA-Z]+=[0-9\.]+)/g)
+        results.forEach(res => {
+            let test = res.split('=')
+            let value = Number.parseFloat(test[1])
+            if (typeof value === 'number') {
+                HrefSetting[test[0]] = value
+            }
+        })
+    }
+
 }
 
 if (EDITOR) {
     HrefSetting.graph = 2;
-}
-else {
-    let rets = (/graph *= *([0-9])/g).exec(href);
-    if (rets && rets[1]) {
-        HrefSetting.graph = Number.parseInt(rets[1]);
-    }
 }
