@@ -1,0 +1,102 @@
+{
+    "logo": {
+        "start": [
+            { "time": 1.0, "name": "on_ui", "data": "ui_logo" }
+        ],
+        "end": [
+            { "time": 0.01, "name": "off_ui", "data": "ui_logo" },
+            { "time": 0.02, "name": "off_scene", "data": "scene-logo" },
+            { "time": 0.03, "name": "on_msg", "data": "start_auto_save" }
+        ]
+    },
+    "level": {
+        "start": [
+            { "time": 0, "name": "on_scene", "data": "scene-level" }, 
+            { "time": 0.1, "name": "on_ui", "data": "ui_level" },
+            { "time": 0.3, "name": "on_msg_str", "data": { "key":"level_action", "value":"start" } }
+        ],
+        "end": [
+            { "time": 0.1, "name": "off_ui", "data": "ui_level" },
+            { "time": 0.1, "name": "off_scene", "data": "scene-level" }
+        ]
+    },
+    "menu": {
+        "start": [
+            { "time": 0.5, "name": "on_scene", "data": "scene-menu" },
+            { "time": 0.6, "name": "on_ui", "data": "ui_menu" }
+        ],
+        "end": [
+            { "time": 0.1, "name": "off_ui", "data": "ui_menu" },
+            { "time": 0.1, "name": "off_scene", "data": "scene-menu" }
+        ]
+    },
+    "levelpause": {
+        "start": [
+            { "time": 0, "name": "on_ui", "data": "ui_level_pause" }
+        ],
+        "end": [
+            { "time": 0.1, "name": "off_ui", "data": "ui_level_pause" }
+        ]
+    },
+    "upgradecards": {
+        "start": [
+            { "time": 0, "name": "on_ui", "data": "ui_upgrade" }
+        ],
+        "end": [
+            { "time": 0.1, "name": "off_ui", "data": "ui_upgrade" }
+        ]
+    },
+    "selectequips": {
+        "start": [
+            { "time": 0, "name": "on_ui", "data": "ui_select_equips" }
+        ],
+        "end": [
+            { "time": 0.1, "name": "off_ui", "data": "ui_select_equips" }
+        ]
+    },
+    "levelend":{
+        "start":[
+            { "time": 0, "name": "on_ui", "data": "ui_level_end" }
+        ],
+        "end":[
+            { "time": 0.1, "name": "off_ui", "data": "ui_level_end" }
+        ]
+    },
+    "settings":{
+        "start":[
+            { "time": 0, "name": "on_ui", "data": "ui_settings" },
+            { "time": 0.3, "name": "on_sfx", "data": "sfx_notify_tip"}
+        ],
+        "end":[
+            { "time": 0, "name": "off_ui", "data": "uisettings" },
+            { "time": 0.01, "name": "on_sfx", "data": "sfx_panel_close"}
+        ]
+    },
+    "notify":{
+        "start":[
+            { "time": 0.1, "name": "on_ui", "data": "uinotify" },
+            { "time": 0.3, "name": "on_sfx", "data": "sfx_notify_tip"}
+        ],
+        "end":[
+            { "time": 0, "name": "off_ui", "data": "uinotify" },
+            { "time": 0, "name": "on_sfx", "data": "sfx_panel_close"},
+            { "time": 0, "name": "on_msg", "data": "msg_check_notify"}
+        ]
+    },
+    "credits":{
+        "start":[
+            { "time": 0.1, "name": "on_ui", "data": "uicredits" }
+        ],
+        "end":[
+            { "time": 0.1, "name": "off_ui", "data": "uicredits" }
+        ]
+    },
+    "tips":{
+        "start":[
+            { "time": 0.1, "name": "on_ui", "data": "uitips" }
+        ],
+        "end":[
+            { "time": 0.1, "name": "off_ui", "data": "uitips" }
+        ]
+    }
+}

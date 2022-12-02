@@ -1,0 +1,2759 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb",
+    "__original-animation-10.cconb",
+    "__original-animation-11.cconb",
+    "__original-animation-12.cconb",
+    "__original-animation-13.cconb",
+    "__original-animation-14.cconb",
+    "__original-animation-15.cconb",
+    "__original-animation-16.cconb",
+    "__original-animation-17.cconb",
+    "__original-animation-18.cconb",
+    "__original-animation-19.cconb",
+    "__original-animation-2.cconb",
+    "__original-animation-20.cconb",
+    "__original-animation-21.cconb",
+    "__original-animation-22.cconb",
+    "__original-animation-23.cconb",
+    "__original-animation-24.cconb",
+    "__original-animation-25.cconb",
+    "__original-animation-26.cconb",
+    "__original-animation-27.cconb",
+    "__original-animation-28.cconb",
+    "__original-animation-29.cconb",
+    "__original-animation-3.cconb",
+    "__original-animation-30.cconb",
+    "__original-animation-31.cconb",
+    "__original-animation-32.cconb",
+    "__original-animation-33.cconb",
+    "__original-animation-34.cconb",
+    "__original-animation-35.cconb",
+    "__original-animation-36.cconb",
+    "__original-animation-37.cconb",
+    "__original-animation-38.cconb",
+    "__original-animation-39.cconb",
+    "__original-animation-4.cconb",
+    "__original-animation-40.cconb",
+    "__original-animation-41.cconb",
+    "__original-animation-42.cconb",
+    "__original-animation-43.cconb",
+    "__original-animation-44.cconb",
+    "__original-animation-45.cconb",
+    "__original-animation-46.cconb",
+    "__original-animation-47.cconb",
+    "__original-animation-48.cconb",
+    "__original-animation-49.cconb",
+    "__original-animation-5.cconb",
+    "__original-animation-50.cconb",
+    "__original-animation-51.cconb",
+    "__original-animation-52.cconb",
+    "__original-animation-53.cconb",
+    "__original-animation-54.cconb",
+    "__original-animation-55.cconb",
+    "__original-animation-56.cconb",
+    "__original-animation-57.cconb",
+    "__original-animation-58.cconb",
+    "__original-animation-59.cconb",
+    "__original-animation-6.cconb",
+    "__original-animation-60.cconb",
+    "__original-animation-61.cconb",
+    "__original-animation-62.cconb",
+    "__original-animation-63.cconb",
+    "__original-animation-64.cconb",
+    "__original-animation-65.cconb",
+    "__original-animation-7.cconb",
+    "__original-animation-8.cconb",
+    "__original-animation-9.cconb"
+  ],
+  "subMetas": {
+    "23012": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@23012",
+      "displayName": "",
+      "id": "23012",
+      "name": "Fire_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 13,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.23333333432674408
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "30732": {
+      "importer": "gltf-skeleton",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@30732",
+      "displayName": "",
+      "id": "30732",
+      "name": "UnnamedSkeleton-0.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 60
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "35168": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@35168",
+      "displayName": "",
+      "id": "35168",
+      "name": "Jump_From_Stand_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 31,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "38502": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@38502",
+      "displayName": "",
+      "id": "38502",
+      "name": "Idle_Rifle.animation",
+      "userData": {
+        "gltfIndex": 21,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "51560": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@51560",
+      "displayName": "",
+      "id": "51560",
+      "name": "Walk_Bwd_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 44,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.8666666746139526
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "54729": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@54729",
+      "displayName": "",
+      "id": "54729",
+      "name": "Reload_Shotgun_Hip.animation",
+      "userData": {
+        "gltfIndex": 42,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 4.333333492279053
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "64640": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@64640",
+      "displayName": "",
+      "id": "64640",
+      "name": "Walk_Rt_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 47,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.8666666746139526
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "87595": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@87595",
+      "displayName": "",
+      "id": "87595",
+      "name": "NoWeapon_Jump_Start.animation",
+      "userData": {
+        "gltfIndex": 36,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.46666666865348816
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "89844": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@89844",
+      "displayName": "",
+      "id": "89844",
+      "name": "Crouch_Idle_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.333333492279053
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "98135": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@98135",
+      "displayName": "",
+      "id": "98135",
+      "name": "Jog_Fwd_Rifle.animation",
+      "userData": {
+        "gltfIndex": 25,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "c8860": {
+      "importer": "gltf-mesh",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@c8860",
+      "displayName": "",
+      "id": "c8860",
+      "name": "SM_CyborgEnemy01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a11d0": {
+      "importer": "gltf-mesh",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@a11d0",
+      "displayName": "",
+      "id": "a11d0",
+      "name": "SM_Gun03.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "33dc8": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@33dc8",
+      "displayName": "",
+      "id": "33dc8",
+      "name": "Cover_AimToIdle.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.2666666805744171
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "65bfb": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@65bfb",
+      "displayName": "",
+      "id": "65bfb",
+      "name": "Cover_Low_AimU.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.333333492279053
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "7ec0d": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@7ec0d",
+      "displayName": "",
+      "id": "7ec0d",
+      "name": "Cover_WalkLeft.animation",
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.8666666746139526
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "08a0b": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@08a0b",
+      "displayName": "",
+      "id": "08a0b",
+      "name": "Cover_WalkRight.animation",
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.8666666746139526
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "9dca8": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@9dca8",
+      "displayName": "",
+      "id": "9dca8",
+      "name": "Crouch_Idle_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 5,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.333333492279053
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "eb4b3": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@eb4b3",
+      "displayName": "",
+      "id": "eb4b3",
+      "name": "Crouch_Walk_Bwd_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 6,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.899999976158142
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b6879": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@b6879",
+      "displayName": "",
+      "id": "b6879",
+      "name": "Crouch_Walk_Bwd_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 7,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.899999976158142
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "3a858": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@3a858",
+      "displayName": "",
+      "id": "3a858",
+      "name": "Crouch_Walk_Fwd_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 8,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.899999976158142
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "153a4": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@153a4",
+      "displayName": "",
+      "id": "153a4",
+      "name": "Crouch_Walk_Fwd_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 9,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.899999976158142
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "3fef2": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@3fef2",
+      "displayName": "",
+      "id": "3fef2",
+      "name": "Crouch_Walk_Lt_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 10,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.899999976158142
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "66b1f": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@66b1f",
+      "displayName": "",
+      "id": "66b1f",
+      "name": "Crouch_Walk_Lt_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 11,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.899999976158142
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b54e1": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@b54e1",
+      "displayName": "",
+      "id": "b54e1",
+      "name": "Equip_Rifle_Standing.animation",
+      "userData": {
+        "gltfIndex": 12,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.7666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "2b872": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@2b872",
+      "displayName": "",
+      "id": "2b872",
+      "name": "Fire_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 14,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.23333333432674408
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b7858": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@b7858",
+      "displayName": "",
+      "id": "b7858",
+      "name": "Fire_Shotgun_Hip.animation",
+      "userData": {
+        "gltfIndex": 15,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2999999523162842
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "633d2": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@633d2",
+      "displayName": "",
+      "id": "633d2",
+      "name": "Fire_Shotgun_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 16,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2999999523162842
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "0cb11": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@0cb11",
+      "displayName": "",
+      "id": "0cb11",
+      "name": "Hit_React_1.animation",
+      "userData": {
+        "gltfIndex": 17,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.9666666388511658
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "e1de0": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@e1de0",
+      "displayName": "",
+      "id": "e1de0",
+      "name": "Hit_React_2.animation",
+      "userData": {
+        "gltfIndex": 18,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.9666666388511658
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f1668": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f1668",
+      "displayName": "",
+      "id": "f1668",
+      "name": "Hit_React_3.animation",
+      "userData": {
+        "gltfIndex": 19,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.9666666388511658
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "d95ca": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@d95ca",
+      "displayName": "",
+      "id": "d95ca",
+      "name": "Hit_React_4.animation",
+      "userData": {
+        "gltfIndex": 20,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.9666666388511658
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f5ed5": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f5ed5",
+      "displayName": "",
+      "id": "f5ed5",
+      "name": "Idle_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 22,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 6.333333492279053
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "5571d": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@5571d",
+      "displayName": "",
+      "id": "5571d",
+      "name": "Idle_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 23,
+        "wrapMode": 22,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.2666666805744171
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "d925e": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@d925e",
+      "displayName": "",
+      "id": "d925e",
+      "name": "Jog_Bwd_Rifle.animation",
+      "userData": {
+        "gltfIndex": 24,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "ded70": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@ded70",
+      "displayName": "",
+      "id": "ded70",
+      "name": "Jog_Lt_Rifle.animation",
+      "userData": {
+        "gltfIndex": 26,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.4666666984558105
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "c363e": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@c363e",
+      "displayName": "",
+      "id": "c363e",
+      "name": "Jog_Rt_Rifle.animation",
+      "userData": {
+        "gltfIndex": 27,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "4932d": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@4932d",
+      "displayName": "",
+      "id": "4932d",
+      "name": "Jump_From_Jog.animation",
+      "userData": {
+        "gltfIndex": 28,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.7666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "88ede": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@88ede",
+      "displayName": "",
+      "id": "88ede",
+      "name": "Jump_From_Jog_Loop.animation",
+      "userData": {
+        "gltfIndex": 29,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.1666666716337204
+        },
+        "events": [],
+        "speed": 0.3
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "76b06": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@76b06",
+      "displayName": "",
+      "id": "76b06",
+      "name": "Jump_From_Stand.animation",
+      "userData": {
+        "gltfIndex": 30,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "d9203": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@d9203",
+      "displayName": "",
+      "id": "d9203",
+      "name": "Jump_From_Stand_Loop.animation",
+      "userData": {
+        "gltfIndex": 32,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.1666666716337204
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "18da8": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@18da8",
+      "displayName": "",
+      "id": "18da8",
+      "name": "NoWeapon_Idle.animation",
+      "userData": {
+        "gltfIndex": 33,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.6666667461395264
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "e225d": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@e225d",
+      "displayName": "",
+      "id": "e225d",
+      "name": "NoWeapon_Jump_End.animation",
+      "userData": {
+        "gltfIndex": 34,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.20000000298023224
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "d26bf": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@d26bf",
+      "displayName": "",
+      "id": "d26bf",
+      "name": "NoWeapon_Jump_Loop.animation",
+      "userData": {
+        "gltfIndex": 35,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.699999988079071
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b9b1d": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@b9b1d",
+      "displayName": "",
+      "id": "b9b1d",
+      "name": "NoWeapon_Sprint.animation",
+      "userData": {
+        "gltfIndex": 37,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.6333333253860474
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "7ddd5": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@7ddd5",
+      "displayName": "",
+      "id": "7ddd5",
+      "name": "NoWeapon_Walk.animation",
+      "userData": {
+        "gltfIndex": 38,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.0666667222976685
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "5d5d7": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@5d5d7",
+      "displayName": "",
+      "id": "5d5d7",
+      "name": "NoWeapon_Walk_Fixed.animation",
+      "userData": {
+        "gltfIndex": 39,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.0666667222976685
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "cbc49": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@cbc49",
+      "displayName": "",
+      "id": "cbc49",
+      "name": "Reload_Rifle_Hip.animation",
+      "userData": {
+        "gltfIndex": 40,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.200000047683716
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "d935c": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@d935c",
+      "displayName": "",
+      "id": "d935c",
+      "name": "Reload_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 41,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.200000047683716
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "7bbf9": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@7bbf9",
+      "displayName": "",
+      "id": "7bbf9",
+      "name": "Reload_Shotgun_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 43,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 4.333333492279053
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b23ec": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@b23ec",
+      "displayName": "",
+      "id": "b23ec",
+      "name": "Walk_Fwd_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 45,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.7999999523162842
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "be3c8": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@be3c8",
+      "displayName": "",
+      "id": "be3c8",
+      "name": "Walk_Lt_Rifle_Ironsights.animation",
+      "userData": {
+        "gltfIndex": 46,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.8666666746139526
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "a571b": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@a571b",
+      "displayName": "",
+      "id": "a571b",
+      "name": "Ironsight_Aim_D.animation",
+      "userData": {
+        "gltfIndex": 48,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f5e63": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f5e63",
+      "displayName": "",
+      "id": "f5e63",
+      "name": "Ironsight_Aim_LD.animation",
+      "userData": {
+        "gltfIndex": 49,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "1d79a": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@1d79a",
+      "displayName": "",
+      "id": "1d79a",
+      "name": "Ironsight_Aim_LU.animation",
+      "userData": {
+        "gltfIndex": 50,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "568b8": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@568b8",
+      "displayName": "",
+      "id": "568b8",
+      "name": "Ironsight_Aim_R.animation",
+      "userData": {
+        "gltfIndex": 51,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "741a2": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@741a2",
+      "displayName": "",
+      "id": "741a2",
+      "name": "Ironsight_Aim_RD.animation",
+      "userData": {
+        "gltfIndex": 52,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "9e91b": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@9e91b",
+      "displayName": "",
+      "id": "9e91b",
+      "name": "Ironsight_AIM_RU.animation",
+      "userData": {
+        "gltfIndex": 53,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "e1603": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@e1603",
+      "displayName": "",
+      "id": "e1603",
+      "name": "Ironsight_Aim_U.animation",
+      "userData": {
+        "gltfIndex": 54,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "5b7e2": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@5b7e2",
+      "displayName": "",
+      "id": "5b7e2",
+      "name": "Ironsight_Aim_L.animation",
+      "userData": {
+        "gltfIndex": 55,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.06666667014360428
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "fb448": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@fb448",
+      "displayName": "",
+      "id": "fb448",
+      "name": "Jog_Aim_U.animation",
+      "userData": {
+        "gltfIndex": 56,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "62ea4": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@62ea4",
+      "displayName": "",
+      "id": "62ea4",
+      "name": "Jog_Aim_RU.animation",
+      "userData": {
+        "gltfIndex": 57,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "0005b": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@0005b",
+      "displayName": "",
+      "id": "0005b",
+      "name": "Jog_Aim_RD.animation",
+      "userData": {
+        "gltfIndex": 58,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "871dd": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@871dd",
+      "displayName": "",
+      "id": "871dd",
+      "name": "Jog_Aim_R.animation",
+      "userData": {
+        "gltfIndex": 59,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "a57a2": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@a57a2",
+      "displayName": "",
+      "id": "a57a2",
+      "name": "Jog_Aim_LU.animation",
+      "userData": {
+        "gltfIndex": 60,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "b0916": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@b0916",
+      "displayName": "",
+      "id": "b0916",
+      "name": "Jog_Aim_LD.animation",
+      "userData": {
+        "gltfIndex": 61,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "ddc15": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@ddc15",
+      "displayName": "",
+      "id": "ddc15",
+      "name": "Jog_Aim_L.animation",
+      "userData": {
+        "gltfIndex": 62,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "997bf": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@997bf",
+      "displayName": "",
+      "id": "997bf",
+      "name": "Jog_Aim_D.animation",
+      "userData": {
+        "gltfIndex": 63,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333507180214,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "bbf62": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@bbf62",
+      "displayName": "",
+      "id": "bbf62",
+      "name": "Idle_Rifle_Hip_Break2.animation",
+      "userData": {
+        "gltfIndex": 64,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 4.166666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "22aa2": {
+      "importer": "gltf-animation",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@22aa2",
+      "displayName": "",
+      "id": "22aa2",
+      "name": "Sprint_Rifle.animation",
+      "userData": {
+        "gltfIndex": 65,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f1394": {
+      "importer": "gltf-skeleton",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f1394",
+      "displayName": "",
+      "id": "f1394",
+      "name": "UnnamedSkeleton-1.skeleton",
+      "userData": {
+        "gltfIndex": 1,
+        "jointsLength": 1
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "997ef": {
+      "importer": "texture",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@997ef",
+      "displayName": "",
+      "id": "997ef",
+      "name": "SM_MainHero_Skin_2:T_gun03_BC_2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/textures/T_gun03_BC.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "82ab1": {
+      "importer": "gltf-material",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@82ab1",
+      "displayName": "",
+      "id": "82ab1",
+      "name": "CyborgEnemy01.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f5de9": {
+      "importer": "gltf-material",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f5de9",
+      "displayName": "",
+      "id": "f5de9",
+      "name": "SM_MainHero_Skin_2:M_Gun03.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "61c98": {
+      "importer": "gltf-scene",
+      "uuid": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@61c98",
+      "displayName": "",
+      "id": "61c98",
+      "name": "SM_CyborgEnemy01_baked.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "SM_MainHero_Skin_2:T_gun03_BC_2",
+        "uri": "db://assets/res/textures/T_gun03_BC.png"
+      }
+    ],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Cover_AimToIdle",
+        "duration": 0.2666666805744171,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Cover_AimToIdle",
+            "from": 0,
+            "to": 0.2666666805744171,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Cover_Low_AimU",
+        "duration": 6.333333492279053,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Cover_Low_AimU",
+            "from": 0,
+            "to": 6.333333492279053,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Cover_WalkLeft",
+        "duration": 1.8666666746139526,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Cover_WalkLeft",
+            "from": 0,
+            "to": 1.8666666746139526,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Cover_WalkRight",
+        "duration": 1.8666666746139526,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Cover_WalkRight",
+            "from": 0,
+            "to": 1.8666666746139526,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Idle_Rifle_Hip",
+        "duration": 6.333333492279053,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Idle_Rifle_Hip",
+            "from": 0,
+            "to": 6.333333492279053,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Idle_Rifle_Ironsights",
+        "duration": 6.333333492279053,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Idle_Rifle_Ironsights",
+            "from": 0,
+            "to": 6.333333492279053,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Walk_Bwd_Rifle_Hip",
+        "duration": 1.899999976158142,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Walk_Bwd_Rifle_Hip",
+            "from": 0,
+            "to": 1.899999976158142,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Walk_Bwd_Rifle_Ironsights",
+        "duration": 1.899999976158142,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Walk_Bwd_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.899999976158142,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Walk_Fwd_Rifle_Hip",
+        "duration": 1.899999976158142,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Walk_Fwd_Rifle_Hip",
+            "from": 0,
+            "to": 1.899999976158142,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Walk_Fwd_Rifle_Ironsights",
+        "duration": 1.899999976158142,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Walk_Fwd_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.899999976158142,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Walk_Lt_Rifle_Hip",
+        "duration": 1.899999976158142,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Walk_Lt_Rifle_Hip",
+            "from": 0,
+            "to": 1.899999976158142,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Crouch_Walk_Lt_Rifle_Ironsights",
+        "duration": 1.899999976158142,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Crouch_Walk_Lt_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.899999976158142,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Equip_Rifle_Standing",
+        "duration": 1.7666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Equip_Rifle_Standing",
+            "from": 0,
+            "to": 1.7666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Fire_Rifle_Hip",
+        "duration": 0.23333333432674408,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Fire_Rifle_Hip",
+            "from": 0,
+            "to": 0.23333333432674408,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Fire_Rifle_Ironsights",
+        "duration": 0.23333333432674408,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Fire_Rifle_Ironsights",
+            "from": 0,
+            "to": 0.23333333432674408,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Fire_Shotgun_Hip",
+        "duration": 1.2999999523162842,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Fire_Shotgun_Hip",
+            "from": 0,
+            "to": 1.2999999523162842,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Fire_Shotgun_Ironsights",
+        "duration": 1.2999999523162842,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Fire_Shotgun_Ironsights",
+            "from": 0,
+            "to": 1.2999999523162842,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Hit_React_1",
+        "duration": 0.9666666388511658,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Hit_React_1",
+            "from": 0,
+            "to": 0.9666666388511658,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Hit_React_2",
+        "duration": 0.9666666388511658,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Hit_React_2",
+            "from": 0,
+            "to": 0.9666666388511658,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Hit_React_3",
+        "duration": 0.9666666388511658,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Hit_React_3",
+            "from": 0,
+            "to": 0.9666666388511658,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Hit_React_4",
+        "duration": 0.9666666388511658,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Hit_React_4",
+            "from": 0,
+            "to": 0.9666666388511658,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Idle_Rifle",
+        "duration": 5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Idle_Rifle",
+            "from": 0,
+            "to": 5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Idle_Rifle_Hip",
+        "duration": 6.333333492279053,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Idle_Rifle_Hip",
+            "from": 0,
+            "to": 6.333333492279053,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Idle_Rifle_Ironsights",
+        "duration": 0.2666666805744171,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Idle_Rifle_Ironsights",
+            "from": 0,
+            "to": 0.2666666805744171,
+            "wrapMode": 22
+          }
+        ]
+      },
+      {
+        "name": "Jog_Bwd_Rifle",
+        "duration": 1.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Bwd_Rifle",
+            "from": 0,
+            "to": 1.5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Fwd_Rifle",
+        "duration": 1.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Fwd_Rifle",
+            "from": 0,
+            "to": 1.5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Lt_Rifle",
+        "duration": 1.4666666984558105,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Lt_Rifle",
+            "from": 0,
+            "to": 1.4666666984558105,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Rt_Rifle",
+        "duration": 1.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Rt_Rifle",
+            "from": 0,
+            "to": 1.5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jump_From_Jog",
+        "duration": 0.7666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jump_From_Jog",
+            "from": 0,
+            "to": 0.7666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jump_From_Jog_Loop",
+        "duration": 0.1666666716337204,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jump_From_Jog_Loop",
+            "from": 0,
+            "to": 0.1666666716337204,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jump_From_Stand",
+        "duration": 1.2666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jump_From_Stand",
+            "from": 0,
+            "to": 1.2666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jump_From_Stand_Ironsights",
+        "duration": 1.2666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jump_From_Stand_Ironsights",
+            "from": 0,
+            "to": 1.2666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jump_From_Stand_Loop",
+        "duration": 0.1666666716337204,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jump_From_Stand_Loop",
+            "from": 0,
+            "to": 0.1666666716337204,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Idle",
+        "duration": 2.6666667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Idle",
+            "from": 0,
+            "to": 2.6666667461395264,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Jump_End",
+        "duration": 0.20000000298023224,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Jump_End",
+            "from": 0,
+            "to": 0.20000000298023224,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Jump_Loop",
+        "duration": 0.699999988079071,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Jump_Loop",
+            "from": 0,
+            "to": 0.699999988079071,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Jump_Start",
+        "duration": 0.46666666865348816,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Jump_Start",
+            "from": 0,
+            "to": 0.46666666865348816,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Sprint",
+        "duration": 0.6333333253860474,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Sprint",
+            "from": 0,
+            "to": 0.6333333253860474,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Walk",
+        "duration": 1.0666667222976685,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Walk",
+            "from": 0,
+            "to": 1.0666667222976685,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "NoWeapon_Walk_Fixed",
+        "duration": 1.0666667222976685,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "NoWeapon_Walk_Fixed",
+            "from": 0,
+            "to": 1.0666667222976685,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Reload_Rifle_Hip",
+        "duration": 2.200000047683716,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Reload_Rifle_Hip",
+            "from": 0,
+            "to": 2.200000047683716,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Reload_Rifle_Ironsights",
+        "duration": 2.200000047683716,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Reload_Rifle_Ironsights",
+            "from": 0,
+            "to": 2.200000047683716,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Reload_Shotgun_Hip",
+        "duration": 4.333333492279053,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Reload_Shotgun_Hip",
+            "from": 0,
+            "to": 4.333333492279053,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Reload_Shotgun_Ironsights",
+        "duration": 4.333333492279053,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Reload_Shotgun_Ironsights",
+            "from": 0,
+            "to": 4.333333492279053,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Walk_Bwd_Rifle_Ironsights",
+        "duration": 1.8666666746139526,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Walk_Bwd_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.8666666746139526,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Walk_Fwd_Rifle_Ironsights",
+        "duration": 1.7999999523162842,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Walk_Fwd_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.7999999523162842,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Walk_Lt_Rifle_Ironsights",
+        "duration": 1.8666666746139526,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Walk_Lt_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.8666666746139526,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Walk_Rt_Rifle_Ironsights",
+        "duration": 1.8666666746139526,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Walk_Rt_Rifle_Ironsights",
+            "from": 0,
+            "to": 1.8666666746139526,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_D",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_D",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_LD",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_LD",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_LU",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_LU",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_R",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_R",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_RD",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_RD",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_AIM_RU",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_AIM_RU",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_U",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_U",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Ironsight_Aim_L",
+        "duration": 0.06666667014360428,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Ironsight_Aim_L",
+            "from": 0,
+            "to": 0.06666667014360428,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_U",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_U",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_RU",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_RU",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_RD",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_RD",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_R",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_R",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_LU",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_LU",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_LD",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_LD",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_L",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_L",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Jog_Aim_D",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Jog_Aim_D",
+            "from": 0.03333333507180214,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Idle_Rifle_Hip_Break2",
+        "duration": 4.166666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Idle_Rifle_Hip_Break2",
+            "from": 0,
+            "to": 4.166666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Sprint_Rifle",
+        "duration": 1,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Sprint_Rifle",
+            "from": 0,
+            "to": 1,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@61c98",
+    "assetFinder": {
+      "meshes": [
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@c8860",
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@a11d0"
+      ],
+      "skeletons": [
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@30732",
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f1394"
+      ],
+      "textures": [
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@997ef"
+      ],
+      "materials": [
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@82ab1",
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f5de9"
+      ],
+      "scenes": [
+        "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@61c98"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    },
+    "materials": {
+      "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f5de9": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_ALBEDO_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 0.15367138385772705,
+            "metallic": 0.4000000059604645,
+            "mainTexture": {
+              "__uuid__": "58bef193-6a8a-46f1-a868-28d46ce2366c@a851b",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@82ab1": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainTexture": {
+              "__uuid__": "690dd834-33df-4796-9728-f2d4c03632dd@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "emissive": {
+              "__type__": "cc.Color",
+              "r": 34,
+              "g": 34,
+              "b": 34,
+              "a": 255
+            },
+            "normalMap": {
+              "__uuid__": "c4ae0520-e575-4875-a1e4-7e5a1b10da8b@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallic": 0.4000000059604645
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

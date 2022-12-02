@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "",
+    "_name": "scene4",
     "_objFlags": 0,
     "_native": "",
     "scene": {
@@ -288,7 +288,14 @@
         "__id__": 14
       }
     ],
-    "removedComponents": []
+    "removedComponents": [],
+    "ids": [
+      "b12nyZMCxI5ZImp2z1tXcU",
+      "6dEI2WVmlHMJJoWh82Rqod",
+      "4eOhcOzfpF54DzMM7JJuH5",
+      "2bxGWE9+pEsLp7PmmfyzSy",
+      "0etZqvvzRJY7v3gfN+ou8Y"
+    ]
   },
   {
     "__type__": "CCPropertyOverrideInfo",

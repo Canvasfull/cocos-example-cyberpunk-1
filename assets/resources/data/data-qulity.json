@@ -1,0 +1,22 @@
+{
+    "set": [
+        {
+            "name": "gamequlity_high",
+            "level": 0,
+            "fps": 59.9,
+            "maxSubSteps": 1
+        },
+        {
+            "name": "gamequlity_medium",
+            "level": 1,
+            "fps": 29.9,
+            "maxSubSteps": 2
+        },
+        {
+            "name": "gamequlity_low",
+            "level": 2,
+            "fps": 29.9,
+            "maxSubSteps": 2
+        }
+    ]
+}

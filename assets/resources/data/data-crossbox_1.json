@@ -1,0 +1,9 @@
+{
+    "action":"action-handgun",
+    "type":"range",
+    "bullet_count":20,
+    "bind_bone":"bone_point_hand",
+    "bullet_type":"bullet_1",
+    "bullet_check_type":"physic_ray",
+    "atk":8
+}

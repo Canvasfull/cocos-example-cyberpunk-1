@@ -1,12 +1,49 @@
 {
   "general": {
-    "renderPipeline": "fd8ec536-a354-4a17-9c74-4f3883c378c8"
+    "renderPipeline": "fd8ec536-a354-4a17-9c74-4f3883c378c8",
+    "designResolution": {
+      "width": 1334,
+      "height": 750
+    }
   },
   "custom_joint_texture_layouts": [],
-  "__version__": "1.0.2",
+  "__version__": "1.0.4",
   "fbx": {
     "legacyFbxImporter": {
       "visible": true
     }
-  }
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "DROP"
+      },
+      {
+        "index": 2,
+        "name": "WALL"
+      },
+      {
+        "index": 3,
+        "name": "ACTOR_PART"
+      },
+      {
+        "index": 4,
+        "name": "GROUND"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 17,
+      "1": 16,
+      "2": 16,
+      "3": 16,
+      "4": 31
+    }
+  },
+  "layer": [
+    {
+      "name": "FPS",
+      "value": 1
+    }
+  ]
 }

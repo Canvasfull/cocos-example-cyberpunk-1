@@ -1,0 +1,396 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb",
+    "__original-animation-2.cconb",
+    "__original-animation-3.cconb",
+    "__original-animation-4.cconb",
+    "__original-animation-5.cconb"
+  ],
+  "subMetas": {
+    "32227": {
+      "importer": "gltf-animation",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@32227",
+      "displayName": "",
+      "id": "32227",
+      "name": "BaseballBat_Holster.animation",
+      "userData": {
+        "gltfIndex": 5,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.6666666865348816
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "88465": {
+      "importer": "gltf-animation",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@88465",
+      "displayName": "",
+      "id": "88465",
+      "name": "BaseballBat_Idle.animation",
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "bb260": {
+      "importer": "gltf-mesh",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@bb260",
+      "displayName": "",
+      "id": "bb260",
+      "name": "BaseballBat.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "77b60": {
+      "importer": "gltf-animation",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@77b60",
+      "displayName": "",
+      "id": "77b60",
+      "name": "BaseballBat_Hold.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "87e02": {
+      "importer": "gltf-animation",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@87e02",
+      "displayName": "",
+      "id": "87e02",
+      "name": "BaseballBat_Draw.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.800000011920929
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "a6801": {
+      "importer": "gltf-animation",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@a6801",
+      "displayName": "",
+      "id": "a6801",
+      "name": "BaseballBat_StrongAttack.animation",
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "43e8c": {
+      "importer": "gltf-animation",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@43e8c",
+      "displayName": "",
+      "id": "43e8c",
+      "name": "BaseballBat_ComboAttack.animation",
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.100000023841858
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 11
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1cfe5": {
+      "importer": "gltf-material",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@1cfe5",
+      "displayName": "",
+      "id": "1cfe5",
+      "name": "BaseballBat.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "09069": {
+      "importer": "gltf-scene",
+      "uuid": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@09069",
+      "displayName": "",
+      "id": "09069",
+      "name": "FP_BaseballBat.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "BaseballBat_Hold",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "BaseballBat_Hold",
+            "from": 0,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "BaseballBat_Draw",
+        "duration": 0.800000011920929,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "BaseballBat_Draw",
+            "from": 0,
+            "to": 0.800000011920929,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "BaseballBat_Idle",
+        "duration": 5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "BaseballBat_Idle",
+            "from": 0,
+            "to": 5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "BaseballBat_StrongAttack",
+        "duration": 1.2666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "BaseballBat_StrongAttack",
+            "from": 0,
+            "to": 1.2666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "BaseballBat_ComboAttack",
+        "duration": 1.100000023841858,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "BaseballBat_ComboAttack",
+            "from": 0,
+            "to": 1.100000023841858,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "BaseballBat_Holster",
+        "duration": 0.6666666865348816,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "BaseballBat_Holster",
+            "from": 0,
+            "to": 0.6666666865348816,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@09069",
+    "assetFinder": {
+      "meshes": [
+        "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@bb260"
+      ],
+      "skeletons": [
+        "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@1cfe5"
+      ],
+      "scenes": [
+        "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@09069"
+      ]
+    },
+    "materials": {
+      "8d09dff8-4d29-4edf-9cd3-58d52bcd6565@1cfe5": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "DCC_APP_NAME": 2,
+            "USE_ALBEDO_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainTexture": {
+              "__uuid__": "5e320ce3-76e6-44d0-8990-c3b41f51b269@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 231,
+              "g": 231,
+              "b": 231,
+              "a": 255
+            },
+            "shininessExponent": 25,
+            "specularFactor": 0.25,
+            "transparencyFactor": 0,
+            "metallicMap": {
+              "__uuid__": "5e320ce3-76e6-44d0-8990-c3b41f51b269@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

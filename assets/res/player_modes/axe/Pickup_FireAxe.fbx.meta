@@ -1,0 +1,190 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "cfd6ec79-9159-4670-af30-55fd7bc33dab",
+  "files": [],
+  "subMetas": {
+    "dee81": {
+      "importer": "gltf-mesh",
+      "uuid": "cfd6ec79-9159-4670-af30-55fd7bc33dab@dee81",
+      "displayName": "",
+      "id": "dee81",
+      "name": "Pickup_OldFireAxe_LOD0.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fc42b": {
+      "importer": "gltf-mesh",
+      "uuid": "cfd6ec79-9159-4670-af30-55fd7bc33dab@fc42b",
+      "displayName": "",
+      "id": "fc42b",
+      "name": "Pickup_OldFireAxe_LOD1.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6d290": {
+      "importer": "gltf-mesh",
+      "uuid": "cfd6ec79-9159-4670-af30-55fd7bc33dab@6d290",
+      "displayName": "",
+      "id": "6d290",
+      "name": "Pickup_OldFireAxe_LOD2.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "683ce": {
+      "importer": "gltf-material",
+      "uuid": "cfd6ec79-9159-4670-af30-55fd7bc33dab@683ce",
+      "displayName": "",
+      "id": "683ce",
+      "name": "OldFireAxe.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5bbf2": {
+      "importer": "gltf-scene",
+      "uuid": "cfd6ec79-9159-4670-af30-55fd7bc33dab@5bbf2",
+      "displayName": "",
+      "id": "5bbf2",
+      "name": "Pickup_FireAxe.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "cfd6ec79-9159-4670-af30-55fd7bc33dab@5bbf2",
+    "assetFinder": {
+      "meshes": [
+        "cfd6ec79-9159-4670-af30-55fd7bc33dab@dee81",
+        "cfd6ec79-9159-4670-af30-55fd7bc33dab@fc42b",
+        "cfd6ec79-9159-4670-af30-55fd7bc33dab@6d290"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "cfd6ec79-9159-4670-af30-55fd7bc33dab@683ce"
+      ],
+      "scenes": [
+        "cfd6ec79-9159-4670-af30-55fd7bc33dab@5bbf2"
+      ]
+    },
+    "materials": {
+      "cfd6ec79-9159-4670-af30-55fd7bc33dab@683ce": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "DCC_APP_NAME": 2,
+            "USE_ALBEDO_MAP": true,
+            "HAS_EXPORTED_METALLIC": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainTexture": {
+              "__uuid__": "e172ef2b-27e5-455e-87c0-7520827aa557@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 231,
+              "g": 231,
+              "b": 231,
+              "a": 255
+            },
+            "shininessExponent": 25,
+            "specularFactor": 0.25,
+            "transparencyFactor": 0,
+            "normalMap": {
+              "__uuid__": "71a5e2c2-e32a-47fe-96c2-cf24b34860b3@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

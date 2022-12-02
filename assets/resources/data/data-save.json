@@ -1,0 +1,26 @@
+{
+    "platform":"PC",
+    "playerid":27,
+    "totalTime":0,
+    "playTimes":0,
+    "name":"FPS_Project",
+    "nickname":"FPS_Project",
+    "guideIndex":0,
+    "sfx_volume":1,
+    "select_level":0,
+    "gamequlity":-1,
+    "languageIndex":0,
+    "debugIndex":0,
+    "input_index":0,
+    "curRoleIndex":0,
+    "statistics":{
+        "gameTimes":0,
+        "totalTime":0,
+        "playTimes":0,
+        "winTimes":0,
+        "loseTimes":0,
+        "totalStar":0,
+        "jumpTimes":0,
+        "flyTimes":0
+    }
+}

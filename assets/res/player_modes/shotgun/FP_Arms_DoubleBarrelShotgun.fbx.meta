@@ -1,0 +1,479 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb",
+    "__original-animation-2.cconb",
+    "__original-animation-3.cconb",
+    "__original-animation-4.cconb",
+    "__original-animation-5.cconb",
+    "__original-animation-6.cconb",
+    "__original-animation-7.cconb"
+  ],
+  "subMetas": {
+    "30732": {
+      "importer": "gltf-skeleton",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@30732",
+      "displayName": "",
+      "id": "30732",
+      "name": "UnnamedSkeleton-0.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 44
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "42101": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@42101",
+      "displayName": "",
+      "id": "42101",
+      "name": "Arm_DoubleBarrelShotgun_AimFire.animation",
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.800000011920929
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "8fd10": {
+      "importer": "gltf-mesh",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@8fd10",
+      "displayName": "",
+      "id": "8fd10",
+      "name": "Arm_Standard.l.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "092df": {
+      "importer": "gltf-mesh",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@092df",
+      "displayName": "",
+      "id": "092df",
+      "name": "Arm_Standard.r.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9e87c": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@9e87c",
+      "displayName": "",
+      "id": "9e87c",
+      "name": "Arm_DoubleBarrelShotgun_Hold.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "52f57": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@52f57",
+      "displayName": "",
+      "id": "52f57",
+      "name": "Arm_DoubleBarrelShotgun_Draw.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.800000011920929
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "3bd53": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@3bd53",
+      "displayName": "",
+      "id": "3bd53",
+      "name": "Arm_DoubleBarrelShotgun_Idle.animation",
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.9666666984558105
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "2392a": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@2392a",
+      "displayName": "",
+      "id": "2392a",
+      "name": "Arm_DoubleBarrelShotgun_Fire.animation",
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.800000011920929
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "eb818": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@eb818",
+      "displayName": "",
+      "id": "eb818",
+      "name": "Arm_DoubleBarrelShotgun_ReloadEmpty.animation",
+      "userData": {
+        "gltfIndex": 5,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "df85d": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@df85d",
+      "displayName": "",
+      "id": "df85d",
+      "name": "Arm_DoubleBarrelShotgun_Reload.animation",
+      "userData": {
+        "gltfIndex": 6,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.5999999046325684
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "4ed23": {
+      "importer": "gltf-animation",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@4ed23",
+      "displayName": "",
+      "id": "4ed23",
+      "name": "Arm_DoubleBarrelShotgun_Holster.animation",
+      "userData": {
+        "gltfIndex": 7,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.699999988079071
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f1394": {
+      "importer": "gltf-skeleton",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@f1394",
+      "displayName": "",
+      "id": "f1394",
+      "name": "UnnamedSkeleton-1.skeleton",
+      "userData": {
+        "gltfIndex": 1,
+        "jointsLength": 44
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "48b02": {
+      "importer": "gltf-embeded-image",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@48b02",
+      "displayName": "",
+      "id": "48b02",
+      "name": "base_color_texture.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@48b02"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "34d69": {
+      "importer": "gltf-material",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@34d69",
+      "displayName": "",
+      "id": "34d69",
+      "name": "Arm_Standard.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6ebd9": {
+      "importer": "gltf-scene",
+      "uuid": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@6ebd9",
+      "displayName": "",
+      "id": "6ebd9",
+      "name": "FP_Arms_DoubleBarrelShotgun.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "base_color_texture",
+        "uri": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@48b02"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "Arm_DoubleBarrelShotgun_Hold",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_Hold",
+            "from": 0,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_Draw",
+        "duration": 0.800000011920929,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_Draw",
+            "from": 0,
+            "to": 0.800000011920929,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_Idle",
+        "duration": 3.9666666984558105,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_Idle",
+            "from": 0,
+            "to": 3.9666666984558105,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_AimFire",
+        "duration": 0.800000011920929,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_AimFire",
+            "from": 0,
+            "to": 0.800000011920929,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_Fire",
+        "duration": 0.800000011920929,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_Fire",
+            "from": 0,
+            "to": 0.800000011920929,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_ReloadEmpty",
+        "duration": 2.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_ReloadEmpty",
+            "from": 0,
+            "to": 2.5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_Reload",
+        "duration": 2.5999999046325684,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_Reload",
+            "from": 0,
+            "to": 2.5999999046325684,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_DoubleBarrelShotgun_Holster",
+        "duration": 0.699999988079071,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_DoubleBarrelShotgun_Holster",
+            "from": 0,
+            "to": 0.699999988079071,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@6ebd9",
+    "assetFinder": {
+      "meshes": [
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@8fd10",
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@092df"
+      ],
+      "skeletons": [
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@30732",
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@f1394"
+      ],
+      "textures": [
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@7d6ab"
+      ],
+      "materials": [
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@34d69"
+      ],
+      "scenes": [
+        "e516e7a4-50e4-4ee4-8c02-c820a66d1c86@6ebd9"
+      ]
+    }
+  }
+}

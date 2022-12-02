@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "",
+    "_name": "test-culling",
     "_objFlags": 0,
     "_native": "",
     "scene": {
@@ -291,7 +291,10 @@
         "__id__": 14
       }
     ],
-    "removedComponents": []
+    "removedComponents": [],
+    "ids": [
+      "8bM/ZZyphDW4Irl4GfBi0I"
+    ]
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -1218,9 +1221,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 47
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1234,10 +1235,13 @@
     "_reflectionProbeType": 0,
     "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "56VcnhGmJGnqk6gDCxHMGR"
+    "_id": "56VcnhGmJGnqk6gDCxHMGR",
+    "bakeSettings": {
+      "__id__": 47
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1312,9 +1316,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 50
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1328,10 +1330,13 @@
     "_reflectionProbeType": 0,
     "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "74qijYsWpD/7q2hGa22rI2"
+    "_id": "74qijYsWpD/7q2hGa22rI2",
+    "bakeSettings": {
+      "__id__": 50
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1406,9 +1411,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 53
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1422,10 +1425,13 @@
     "_reflectionProbeType": 0,
     "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "2acrMnCKZA9pXBtbaZISyj"
+    "_id": "2acrMnCKZA9pXBtbaZISyj",
+    "bakeSettings": {
+      "__id__": 53
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1500,9 +1506,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 56
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1516,10 +1520,13 @@
     "_reflectionProbeType": 0,
     "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "defpaJ4vVI1bYFcqug2GS2"
+    "_id": "defpaJ4vVI1bYFcqug2GS2",
+    "bakeSettings": {
+      "__id__": 56
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1594,9 +1601,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 59
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1610,10 +1615,13 @@
     "_reflectionProbeType": 0,
     "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "e2eCnkl1FFOrhjVhUUUjFR"
+    "_id": "e2eCnkl1FFOrhjVhUUUjFR",
+    "bakeSettings": {
+      "__id__": 59
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1688,9 +1696,7 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 62
-    },
+    "lightmapSettings": null,
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1704,10 +1710,13 @@
     "_reflectionProbeType": 0,
     "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "05U3lFO59OoqxrUn4H5E91"
+    "_id": "05U3lFO59OoqxrUn4H5E91",
+    "bakeSettings": {
+      "__id__": 62
+    }
   },
   {
-    "__type__": "cc.ModelLightmapSettings",
+    "__type__": "cc.ModelBakeSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",

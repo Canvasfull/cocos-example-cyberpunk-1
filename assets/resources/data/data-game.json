@@ -1,0 +1,54 @@
+{
+    "name":"FPS_Project",
+    "fps":60,
+    "start_node":"logo",
+    "action_data":"action-game",
+    "version":"version:202210131800",
+    "count_picked_info": 10,
+    "count_bag_count": 8,
+    "sensitivity_select_weapon":3,
+    "res_ui_root":"ui/",
+    "ui_order":{
+        "ui_logo":1,
+        "ui_level":1,
+        "ui_menu":1,
+        "ui_level_win":2,
+        "ui_warning":4,
+        "ui_upgrade":5,
+        "ui_select_equip":6,
+        "ui_level_pause":7,
+        "ui_level_end":8
+    },
+    "events":[
+        { "name": "btn_start", "event": "next" },
+        { "name": "btn_start_level", "event": "push", "data": "level"},
+        { "name": "btn_home", "event": "push", "data": "menu"},
+        { "name": "btn_settings", "event": "", "data": "settings"},
+        { "name": "fil_strength" },
+        { "name": "fil_bag" }
+    ],
+    "nodes":{
+        "logo": { "next":"menu"},
+        "menu": {},
+        "level": {},
+        "levelend": {},
+        "levelpause":{ "ispop": 1},
+        "upgradecards": { "ispop": 1},
+        "selectequips": { "ispop": 1},
+        "tips": { "ispop":1 },
+        "settings": { "ispop":1 },
+        "credits": { "ispop": 1 },
+        "notify": { "ispop": 1}
+    },
+    "roles":[
+        { "name": "actor-hen" }
+    ],
+    "achievement":[
+        {"name":"gameTime30","value":"gameTime","condition":30 },
+        {"name":"gameTime100","value":"gameTime","condition":100 },
+        {"name":"gameTime500","value":"gameTime","condition":500 },
+        {"name":"gameTimes30","value":"logoTimes","condition":30 },
+        {"name":"gameTimes100","value":"logoTimes","condition":100 },
+        {"name":"gameTimes500","value":"logoTimes","condition":500 }
+    ]
+}

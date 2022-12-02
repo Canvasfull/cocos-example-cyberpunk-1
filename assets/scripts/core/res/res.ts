@@ -1,0 +1,157 @@
+import { _decorator, resources, Component, Node, Asset, error, Constructor, Prefab, instantiate, TextAsset, JsonAsset, Texture2D, Sprite, EffectAsset, AudioClip, AnimationClip, ImageAsset, SpriteFrame, SpriteAtlas, Mesh, Material, Skeleton, SceneAsset, Vec3, director } from 'cc';
+import { Msg } from '../msg/msg';
+import { waitFor } from '../util/util';
+import { ResCache } from './res-cache';
+const { ccclass, property } = _decorator;
+
+/**
+ * Predefined variables
+ * Name = res
+ * DateTime = Fri Jan 14 2022 10:19:35 GMT+0800 (China Standard Time)
+ * Author = canvas
+ * FileBasename = res.ts
+ * FileBasenameNoExtension = res
+ * URL = db://assets/scripts/core/res/res.ts
+ * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
+ *
+ */
+export class Res {
+
+    public static count: number = 0;
+
+    /*
+    public static inst(prefab: Prefab, node: Node): Node {
+        var obj = instantiate(prefab);
+        obj.parent = node;
+        return obj;
+    }
+    */
+
+    public static load<T extends Asset>(path: string, type: Constructor<T> | null, cb?: (err: Error | null, asset?: T | null)=>void) {
+        this.count++;
+        resources.load(path, type, function(err, res){
+            Res.count--;
+            if(err){
+                error(path,err.message || err);
+                Msg.emit('msg_res_error');
+            }
+            if(cb) {
+                cb(err, res);
+            }
+            ResCache.Instance.checkEnd();
+        });
+    }
+
+    public static loadJson(path: string, cb?: (err: Error | null, asset?: JsonAsset | null)=>void) {
+        this.load(path, JsonAsset, cb);
+    }
+
+    public static loadTxt(path: string, cb?: (err: Error | null, asset?: TextAsset | null)=>void) {
+        this.load(path, TextAsset, cb);
+    }
+
+    public static loadPrefab(path: string, cb?: (err: Error | null, asset?: Prefab | null)=>void) {
+        this.load(path, Prefab, cb);
+    }
+
+    public static loadTex2D(path: string, cb?: (err: Error | null, asset?: Texture2D | null)=>void) {
+        this.load(path, Texture2D, cb);
+    }
+    
+    public static loadImage(path: string, cb?: (err: Error | null, asset?: ImageAsset | null)=>void) {
+        this.load(path, ImageAsset, cb);
+    }
+
+    public static loadSprite(path: string, cb?: (err: Error | null, asset?: SpriteFrame | null)=>void) {
+        this.load(path, SpriteFrame, cb);
+    }
+
+    public static loadSpriteAtlas(path: string, cb?: (err: Error | null, asset?: SpriteAtlas | null)=>void) {
+        this.load(path, SpriteAtlas, cb);
+    }
+
+    public static loadEffect(path: string, cb?: (err: Error | null, asset?: EffectAsset | null)=>void) {
+        this.load(path, EffectAsset, cb);
+    }
+
+    public static loadAudio(path: string, cb?: (err: Error | null, asset?: AudioClip | null)=>void) {
+        this.load(path, AudioClip, cb);
+    }
+
+    public static loadAnimationClip(path: string, cb?: (err: Error | null, asset?: AnimationClip | null)=>void) {
+        this.load(path, AnimationClip, cb);
+    }
+
+    public static loadMesh(path: string, cb?: (err: Error | null, asset?: Mesh | null)=>void) {
+        this.load(path, Mesh, cb);
+    }
+
+    public static loadMateiral(path: string, cb?: (err: Error | null, asset?: Material | null)=>void) {
+        this.load(path, Material, cb);
+    }
+
+    public static loadSkeleton(path: string, cb?: (err: Error | null, asset?: Skeleton | null)=>void) {
+        this.load(path, Skeleton, cb);
+    }
+
+    public static loadScene(path: string, cb?: (err: Error | null, asset?: SceneAsset | null)=>void) {
+        this.load(path, SceneAsset, cb);
+    }
+
+
+    public static inst(asset: Prefab, root:Node = null,  pos:Vec3 = Vec3.ZERO) : Node {
+        var instObj = instantiate(asset);
+        if(root == null) {
+            director.getScene().addChild(instObj);
+        }else{
+            instObj.parent = root;
+        }
+        instObj.setPosition(pos);
+        instObj.setScale(Vec3.ONE);
+        return instObj;
+    }
+
+    public static instNode(node:Node, root:Node = null, pos:Vec3 = Vec3.ZERO) : Node {
+        var instObj = instantiate(node);
+        if(root == null) {
+            director.getScene().addChild(instObj);
+        }else{
+            instObj.parent = root;
+        }
+        instObj.setPosition(pos);
+        instObj.setScale(Vec3.ONE);
+        return instObj;
+    }
+
+    public static loadDir<T extends Asset>(path: string, type: Constructor<T> | null, cb?: (err: Error | null, asset?: T[] | null)=>void) {
+        this.count++;
+        resources.loadDir(path, type, function(err, res){
+            if(err){
+                error(err.message || err);
+                Msg.emit('msg_res_error');
+            }
+            if(cb) {
+                cb(err, res);
+            }
+            Res.count--;
+            ResCache.Instance.checkEnd();
+        });
+    }
+
+    public static loadDirJson(path, cb?: (err: Error | null, asset?: JsonAsset[] | null)=>void) {
+        this.loadDir(path, JsonAsset, cb);
+    }
+
+    public static loadDirPrefab(path, cb?: (err: Error | null, asset?: Prefab[] | null)=>void) {
+        this.loadDir(path, Prefab, cb);
+    }
+
+    public static loadDirText(path, cb?: (err: Error | null, asset?: TextAsset[] | null)=>void) {
+        this.loadDir(path, TextAsset, cb);
+    }
+
+    public static loadDirSprite(path, cb?: (err: Error | null, asset?: SpriteFrame[] | null)=>void) {
+        this.loadDir(path, SpriteFrame, cb);
+    }
+
+}

@@ -1,0 +1,90 @@
+{
+    "life":[
+        {
+            "name":"upgrade_card_name_hp_percent_lv0",
+            "detial":"upgrade_card_detail_hp_percent_lv0",
+            "icon":"img_icon_hp_percent_lv0",
+            "attribute":{
+                "hp_percent":[0.1, 0.2]
+            }
+        },
+        {
+            "name":"upgrade_card_name_hp_percent_lv1",
+            "detial":"upgrade_card_detail_hp_percent_lv1",
+            "icon":"img_icon_hp_percent_lv1",
+            "attribute":{
+                "hp_percent":[0.2, 0.4]
+            }
+        },
+        {
+            "name":"upgrade_card_name_hp_percent_lv2",
+            "detial":"upgrade_card_detail_hp_percent_lv2",
+            "icon":"img_icon_hp_percent_lv1",
+            "attribute":{
+                "hp_percent":[0.4, 0.6]
+            }
+        }
+    ],
+    "defense":[
+        {
+            "name":"upgrade_card_name_defense_percent_lv0",
+            "detial":"upgrade_card_detail_defense_percent_lv0",
+            "icon":"img_icon_defense_percent_lv0",
+            "attribute":{
+                "defense_percent":[0.1, 0.2]
+            }
+        },
+        {
+            "name":"upgrade_card_name_defense_percent_lv1",
+            "detial":"upgrade_card_detail_defense_percent_lv1",
+            "icon":"img_icon_defense_percent_lv1",
+            "attribute":{
+                "defense_percent":[0.2, 0.4]
+            }
+        },
+        {
+            "name":"upgrade_card_name_defense_percent_lv2",
+            "detial":"upgrade_card_detail_defense_percent_lv2",
+            "icon":"img_icon_defense_percent_lv1",
+            "attribute":{
+                "defense_percent":[0.4, 0.6]
+            }
+        }
+    ],
+    "attack":[
+        {
+            "name":"upgrade_card_name_attck_percent_lv0",
+            "detial":"upgrade_card_detail_attck_percent_lv0",
+            "icon":"img_icon_attck_percent_lv0",
+            "attribute":{
+                "attck_percent":[0.1, 0.2]
+            }
+        },
+        {
+            "name":"upgrade_card_name_attck_percent_lv1",
+            "detial":"upgrade_card_detail_attck_percent_lv1",
+            "icon":"img_icon_attck_percent_lv1",
+            "attribute":{
+                "attck_percent":[0.2, 0.4]
+            }
+        },
+        {
+            "name":"upgrade_card_name_attck_percent_lv2",
+            "detial":"upgrade_card_detail_attck_percent_lv2",
+            "icon":"img_icon_attck_percent_lv1",
+            "attribute":{
+                "attck_percent":[0.4, 0.6]
+            }
+        }
+    ],
+    "special":[
+        {
+            "name":"upgrade_card_name_static_invisibility",
+            "detial":"upgrade_card_detail_static_invisibility",
+            "icon":"img_icon_static_invisibility",
+            "attribute":{
+                "static_invisibility":true
+            }
+        }
+    ]
+}

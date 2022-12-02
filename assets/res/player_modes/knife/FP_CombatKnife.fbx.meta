@@ -1,0 +1,322 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb",
+    "__original-animation-2.cconb",
+    "__original-animation-3.cconb",
+    "__original-animation-4.cconb",
+    "__original-animation-5.cconb"
+  ],
+  "subMetas": {
+    "a46a5": {
+      "importer": "gltf-mesh",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@a46a5",
+      "displayName": "",
+      "id": "a46a5",
+      "name": "CombatKnife.001.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "dcb43": {
+      "importer": "gltf-animation",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@dcb43",
+      "displayName": "",
+      "id": "dcb43",
+      "name": "CombatKnife_Hold.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "884ce": {
+      "importer": "gltf-animation",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@884ce",
+      "displayName": "",
+      "id": "884ce",
+      "name": "CombatKnife_Draw.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.1666666269302368
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f0081": {
+      "importer": "gltf-animation",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@f0081",
+      "displayName": "",
+      "id": "f0081",
+      "name": "CombatKnife_Idle.animation",
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "4c8d6": {
+      "importer": "gltf-animation",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@4c8d6",
+      "displayName": "",
+      "id": "4c8d6",
+      "name": "CombatKnife_Stab1.animation",
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.7666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "cc6ad": {
+      "importer": "gltf-animation",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@cc6ad",
+      "displayName": "",
+      "id": "cc6ad",
+      "name": "CombatKnife_Stab2.animation",
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.8999999761581421
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "fe4c8": {
+      "importer": "gltf-animation",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@fe4c8",
+      "displayName": "",
+      "id": "fe4c8",
+      "name": "CombatKnife_Holster.animation",
+      "userData": {
+        "gltfIndex": 5,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.8999999761581421
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 1
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d9529": {
+      "importer": "gltf-material",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@d9529",
+      "displayName": "",
+      "id": "d9529",
+      "name": "CombatKnife.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8870a": {
+      "importer": "gltf-scene",
+      "uuid": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@8870a",
+      "displayName": "",
+      "id": "8870a",
+      "name": "FP_CombatKnife.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "CombatKnife_Hold",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "CombatKnife_Hold",
+            "from": 0,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "CombatKnife_Draw",
+        "duration": 1.1666666269302368,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "CombatKnife_Draw",
+            "from": 0,
+            "to": 1.1666666269302368,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "CombatKnife_Idle",
+        "duration": 5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "CombatKnife_Idle",
+            "from": 0,
+            "to": 5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "CombatKnife_Stab1",
+        "duration": 0.7666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "CombatKnife_Stab1",
+            "from": 0,
+            "to": 0.7666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "CombatKnife_Stab2",
+        "duration": 0.8999999761581421,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "CombatKnife_Stab2",
+            "from": 0,
+            "to": 0.8999999761581421,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "CombatKnife_Holster",
+        "duration": 0.8999999761581421,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "CombatKnife_Holster",
+            "from": 0,
+            "to": 0.8999999761581421,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "477ac3ce-9ebd-4971-ace2-750e51a6b29a@8870a",
+    "assetFinder": {
+      "meshes": [
+        "477ac3ce-9ebd-4971-ace2-750e51a6b29a@a46a5"
+      ],
+      "skeletons": [
+        "477ac3ce-9ebd-4971-ace2-750e51a6b29a@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "477ac3ce-9ebd-4971-ace2-750e51a6b29a@d9529"
+      ],
+      "scenes": [
+        "477ac3ce-9ebd-4971-ace2-750e51a6b29a@8870a"
+      ]
+    }
+  }
+}

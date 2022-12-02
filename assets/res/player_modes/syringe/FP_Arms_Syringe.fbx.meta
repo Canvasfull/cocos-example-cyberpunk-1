@@ -1,0 +1,257 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb"
+  ],
+  "subMetas": {
+    "30732": {
+      "importer": "gltf-skeleton",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@30732",
+      "displayName": "",
+      "id": "30732",
+      "name": "UnnamedSkeleton-0.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 44
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8fd10": {
+      "importer": "gltf-mesh",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@8fd10",
+      "displayName": "",
+      "id": "8fd10",
+      "name": "Arm_Standard.l.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3b1a0": {
+      "importer": "gltf-mesh",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@3b1a0",
+      "displayName": "",
+      "id": "3b1a0",
+      "name": "Arm_Standard,r.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5305e": {
+      "importer": "gltf-animation",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@5305e",
+      "displayName": "",
+      "id": "5305e",
+      "name": "Arm_Syringe_Hold.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "35d85": {
+      "importer": "gltf-animation",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@35d85",
+      "displayName": "",
+      "id": "35d85",
+      "name": "Arm_Syringe_Use.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.633333444595337
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f1394": {
+      "importer": "gltf-skeleton",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@f1394",
+      "displayName": "",
+      "id": "f1394",
+      "name": "UnnamedSkeleton-1.skeleton",
+      "userData": {
+        "gltfIndex": 1,
+        "jointsLength": 44
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "48b02": {
+      "importer": "gltf-embeded-image",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@48b02",
+      "displayName": "",
+      "id": "48b02",
+      "name": "base_color_texture.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "acfc72db-2398-4559-b3ee-48c97ea4c09f@48b02"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "34d69": {
+      "importer": "gltf-material",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@34d69",
+      "displayName": "",
+      "id": "34d69",
+      "name": "Arm_Standard.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "df219": {
+      "importer": "gltf-scene",
+      "uuid": "acfc72db-2398-4559-b3ee-48c97ea4c09f@df219",
+      "displayName": "",
+      "id": "df219",
+      "name": "FP_Arms_Syringe.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "base_color_texture",
+        "uri": "acfc72db-2398-4559-b3ee-48c97ea4c09f@48b02"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "Arm_Syringe_Hold",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_Syringe_Hold",
+            "from": 0,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Arm_Syringe_Use",
+        "duration": 2.633333444595337,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Arm_Syringe_Use",
+            "from": 0,
+            "to": 2.633333444595337,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "acfc72db-2398-4559-b3ee-48c97ea4c09f@df219",
+    "assetFinder": {
+      "meshes": [
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@8fd10",
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@3b1a0"
+      ],
+      "skeletons": [
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@30732",
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@f1394"
+      ],
+      "textures": [
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@7d6ab"
+      ],
+      "materials": [
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@34d69"
+      ],
+      "scenes": [
+        "acfc72db-2398-4559-b3ee-48c97ea4c09f@df219"
+      ]
+    }
+  }
+}

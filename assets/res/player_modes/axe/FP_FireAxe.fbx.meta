@@ -1,0 +1,361 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0",
+  "files": [
+    "__original-animation-0.cconb",
+    "__original-animation-1.cconb",
+    "__original-animation-2.cconb",
+    "__original-animation-3.cconb",
+    "__original-animation-4.cconb"
+  ],
+  "subMetas": {
+    "79262": {
+      "importer": "gltf-mesh",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@79262",
+      "displayName": "",
+      "id": "79262",
+      "name": "FireAxe.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bf710": {
+      "importer": "gltf-animation",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@bf710",
+      "displayName": "",
+      "id": "bf710",
+      "name": "FireAxe_Hold.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "2cede": {
+      "importer": "gltf-animation",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@2cede",
+      "displayName": "",
+      "id": "2cede",
+      "name": "FireAxe_Draw.animation",
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333333333333,
+          "to": 1.0666667222976685
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "7d85f": {
+      "importer": "gltf-animation",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@7d85f",
+      "displayName": "",
+      "id": "7d85f",
+      "name": "FireAxe_Idle.animation",
+      "userData": {
+        "gltfIndex": 2,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333333333333,
+          "to": 5
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "c3b8f": {
+      "importer": "gltf-animation",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@c3b8f",
+      "displayName": "",
+      "id": "c3b8f",
+      "name": "FireAxe_StrongAttack.animation",
+      "userData": {
+        "gltfIndex": 3,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333333333333,
+          "to": 2
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "f1229": {
+      "importer": "gltf-animation",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@f1229",
+      "displayName": "",
+      "id": "f1229",
+      "name": "FireAxe_Holster.animation",
+      "userData": {
+        "gltfIndex": 4,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0.03333333333333333,
+          "to": 0.7666666507720947
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 1
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "683ce": {
+      "importer": "gltf-material",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@683ce",
+      "displayName": "",
+      "id": "683ce",
+      "name": "OldFireAxe.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "60df7": {
+      "importer": "gltf-scene",
+      "uuid": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@60df7",
+      "displayName": "",
+      "id": "60df7",
+      "name": "FP_FireAxe.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "FireAxe_Hold",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "FireAxe_Hold",
+            "from": 0,
+            "to": 0.03333333507180214,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "FireAxe_Draw",
+        "duration": 1.0666667222976685,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "FireAxe_Draw",
+            "from": 0.03333333333333333,
+            "to": 1.0666667222976685,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "FireAxe_Idle",
+        "duration": 5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "FireAxe_Idle",
+            "from": 0.03333333333333333,
+            "to": 5,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "FireAxe_StrongAttack",
+        "duration": 2,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "FireAxe_StrongAttack",
+            "from": 0.03333333333333333,
+            "to": 2,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "FireAxe_Holster",
+        "duration": 0.7666666507720947,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "FireAxe_Holster",
+            "from": 0.03333333333333333,
+            "to": 0.7666666507720947,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@60df7",
+    "assetFinder": {
+      "meshes": [
+        "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@79262"
+      ],
+      "skeletons": [
+        "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@683ce"
+      ],
+      "scenes": [
+        "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@60df7"
+      ]
+    },
+    "materials": {
+      "86ee4f4c-96b7-4b6c-b1be-d54ac552dde0@683ce": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "DCC_APP_NAME": 2,
+            "USE_ALBEDO_MAP": true,
+            "HAS_EXPORTED_METALLIC": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainTexture": {
+              "__uuid__": "e172ef2b-27e5-455e-87c0-7520827aa557@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 231,
+              "g": 231,
+              "b": 231,
+              "a": 255
+            },
+            "shininessExponent": 25,
+            "specularFactor": 0.25,
+            "transparencyFactor": 0,
+            "normalMap": {
+              "__uuid__": "71a5e2c2-e32a-47fe-96c2-cf24b34860b3@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}
