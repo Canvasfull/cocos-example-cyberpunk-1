@@ -46,7 +46,7 @@ export class TAAStage extends BaseStage {
         let taa = TAASetting.instance;
 
         const cameraID = getCameraUniqueID(camera);
-        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;
 

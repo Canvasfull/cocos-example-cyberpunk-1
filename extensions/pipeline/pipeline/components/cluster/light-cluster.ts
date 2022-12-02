@@ -5,6 +5,7 @@ import { ClusterObject, WorldCluster } from "./world-cluster";
 const { ccclass, executeInEditMode, property } = _decorator
 
 let _sphere = new geometry.Sphere();
+let tempVec4 = new Vec4
 
 @ccclass('LightWorldCluster')
 @executeInEditMode
@@ -114,8 +115,8 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
 
         let material = PipelineAssets.instance.getMaterial('deferred-lighting')
         if (material) {
-            material.setProperty('light_cluster_BoundsMin', this.boundsMin)
-            material.setProperty('light_cluster_BoundsDelta', this.boundsDelta)
+            material.setProperty('light_cluster_BoundsMin', new Vec4(this.boundsMin.x, this.boundsMin.y, this.boundsMin.z, 1))
+            material.setProperty('light_cluster_BoundsDelta', new Vec4(this.boundsDelta.x, this.boundsDelta.y, this.boundsDelta.z, 1))
             material.setProperty('light_cluster_CellsDot', this.clusterCellsDotData)
             material.setProperty('light_cluster_CellsMax', this.clusterCellsMaxData)
             material.setProperty('light_cluster_TextureSize', this.clusterTextureSizeData)

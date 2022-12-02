@@ -48,11 +48,9 @@ export class BloomStage extends BaseStage {
 
         const cameraID = getCameraUniqueID(camera);
         const cameraName = `Camera${cameraID}`;
-        let width = camera.window.width;
-        let height = camera.window.height;
-        const area = getRenderArea(camera, width, height);
-        width = area.width;
-        height = area.height;
+        const area = this.getRenderArea(camera);
+        let width = area.width;
+        let height = area.height;
 
         // Start bloom
         // ==== Bloom prefilter ===
