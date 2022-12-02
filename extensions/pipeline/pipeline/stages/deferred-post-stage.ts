@@ -25,7 +25,7 @@ export class DeferredPostStage extends BaseStage {
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
-        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;
 
@@ -45,15 +45,16 @@ export class DeferredPostStage extends BaseStage {
 
         passUtils.material = material;
 
+        let shadingScale = this.finalShadingScale()
         material.setProperty('inputViewPort',
             new Vec4(
-                width / game.canvas.width, height / game.canvas.height,
+                width / Math.floor(game.canvas.width * shadingScale), height / Math.floor(game.canvas.height * shadingScale),
                 settings.OUTPUT_RGBE ? 1 : 0, 0
             )
         );
 
         passUtils.addRasterPass(width, height, 'Postprocess', `CameraPostprocessPass${cameraID}`)
-            .setViewport(area.x, area.y, width, height)
+            .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA8, false)
             .blitScreen(0)

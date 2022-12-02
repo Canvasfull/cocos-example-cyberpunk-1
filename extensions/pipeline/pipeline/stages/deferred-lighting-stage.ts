@@ -41,7 +41,7 @@ export class DeferredLightingStage extends BaseStage {
         const cameraID = getCameraUniqueID(camera);
         // const cameraName = `Camera${cameraID}`;
         // const cameraInfo = buildShadowPasses(cameraName, camera, ppl);
-        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;
 
@@ -151,7 +151,7 @@ export class DeferredLightingStage extends BaseStage {
 
         this.probes = probes;
 
-        material.setProperty('inputViewPort', new Vec4(width / game.canvas.width, height / game.canvas.height, 0, 0));
+        material.setProperty('inputViewPort', new Vec4(width / Math.floor(game.canvas.width * this.finalShadingScale()), height / Math.floor(game.canvas.height * this.finalShadingScale()), 0, 0));
 
         fogUBO.update(material);
 

@@ -17,11 +17,7 @@ export class DeferredGBufferStage extends BaseStage {
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
-        // const size = this.finalShadingSize(camera)
-        // const width = size.x;
-        // const height = size.y;
-
-        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;
 

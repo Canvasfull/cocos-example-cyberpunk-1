@@ -42,7 +42,7 @@ export class ForwardStage extends BaseStage {
             LoadOp.CLEAR, StoreOp.DISCARD,
             ClearFlagBit.DEPTH_STENCIL,
             new Color(camera.clearDepth, camera.clearStencil, 0, 0)));
-        const rect = getRenderArea(camera, width, height, light, level);
+        const rect = getRenderArea(new gfx.Rect, camera, width, height, light, level);
         pass.setViewport(new Viewport(rect.x, rect.y, rect.width, rect.height));
         const queue = pass.addQueue(QueueHint.RENDER_OPAQUE);
         queue.addSceneOfCamera(camera, new LightInfo(light, level),
@@ -107,7 +107,7 @@ export class ForwardStage extends BaseStage {
         const cameraName = `Camera${cameraID}`;
 
         // const shadowInfo = this.buildShadowPasses(cameraName, camera, ppl);
-        const area = getRenderArea(camera, camera.window.width, camera.window.height);
+        const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;
 

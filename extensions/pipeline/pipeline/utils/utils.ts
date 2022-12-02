@@ -68,8 +68,7 @@ export function getCameraUniqueID (camera: renderer.scene.Camera) {
     return camera.name + '_' + _cameras.indexOf(camera);
 }
 
-export function getRenderArea (camera: renderer.scene.Camera, width: number, height: number, light: renderer.scene.Light | null = null, level = 0) {
-    const out = new gfx.Rect();
+export function getRenderArea (out: gfx.Rect, camera: renderer.scene.Camera, width: number, height: number, light: renderer.scene.Light | null = null, level = 0) {
     const vp = camera.viewport;
     const w = width;
     const h = height;
