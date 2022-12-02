@@ -39,6 +39,9 @@ class PassUtils {
         if (!offscreen) {
             this.ppl.updateRenderWindow(name, this.camera.window);
         }
+        else {
+            this.ppl.updateRenderTarget(name, this.rasterWidth, this.rasterHeight);
+        }
 
         const view = new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,

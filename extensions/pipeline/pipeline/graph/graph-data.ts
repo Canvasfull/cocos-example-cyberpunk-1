@@ -1,6 +1,6 @@
 export default {
     "last_node_id": 17,
-    "last_link_id": 49,
+    "last_link_id": 52,
     "nodes": [
         {
             "id": 10,
@@ -280,7 +280,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 49
+                    "link": 52
                 },
                 {
                     "name": "Custom Size",
@@ -348,7 +348,7 @@ export default {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
                     "links": [
-                        48
+                        51
                     ],
                     "slot_index": 0
                 }
@@ -385,7 +385,7 @@ export default {
                 {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
-                    "link": 48
+                    "link": 51
                 },
                 {
                     "name": "Custom Size",
@@ -399,7 +399,7 @@ export default {
                     "name": "RenderTexture",
                     "type": "RenderTexture",
                     "links": [
-                        49
+                        52
                     ],
                     "slot_index": 0
                 }
@@ -467,7 +467,7 @@ export default {
             "RenderTexture"
         ],
         [
-            48,
+            51,
             11,
             0,
             14,
@@ -475,7 +475,7 @@ export default {
             "RenderTexture"
         ],
         [
-            49,
+            52,
             14,
             0,
             17,
