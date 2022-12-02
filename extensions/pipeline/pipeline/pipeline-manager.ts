@@ -7,6 +7,7 @@ import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
 import { TAASetting } from './components/taa';
 import { PipelineAssets } from './resources/pipeline-assets';
+import { HrefSetting } from './settings/href-setting';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -31,6 +32,8 @@ export class CustomPipelineBuilder {
         if (!PipelineAssets.instance) {
             return;
         }
+
+        director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
 
         // if (EDITOR) {
         //     excludes.push('Main Camera')
