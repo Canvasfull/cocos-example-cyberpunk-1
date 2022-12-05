@@ -50,7 +50,7 @@ CCProgram unlit-fs %{
 
       vec4 col = texture(cc_environment, normalize(v_position));
       col.rgb = unpackRGBE(col);
-      fragColor2 = vec4(col.xyz, 0.);
+      fragColor2 = vec4(col.rgb * mainColor.rgb, 0.);
       fragColor3 = vec4(v_position, 0.);
     }
   // #else

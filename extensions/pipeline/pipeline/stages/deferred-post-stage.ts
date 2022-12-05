@@ -1,11 +1,8 @@
 import { BaseStage, InputType } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material } from "cc";
-import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
-import { EDITOR } from "cc/env";
-import { PipelineAssets } from "../resources/pipeline-assets";
+import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
-import { TAASetting } from "../components/taa";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;

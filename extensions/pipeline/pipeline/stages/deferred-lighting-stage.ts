@@ -124,12 +124,15 @@ export class DeferredLightingStage extends BaseStage {
                 material.recompileShaders({ CLEAR_LIGHTING: true })
             }
             else {
-                director.root.pipeline.macros.CC_USE_IBL = 0;
+                // director.root.pipeline.macros.CC_USE_IBL = 0;
 
                 material = new renderer.MaterialInstance({
                     parent: sharedMaterial,
                 })
-                material.recompileShaders({ CC_USE_IBL: 0, REFLECTION_PROBE_COUNT: probes.length })
+                material.recompileShaders({
+                    // CC_USE_IBL: 0,
+                    REFLECTION_PROBE_COUNT: probes.length
+                })
             }
             this.materialMap.set(camera, material);
         }

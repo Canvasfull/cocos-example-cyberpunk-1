@@ -14,6 +14,7 @@ import { DeferredPostStage } from '../../stages/deferred-post-stage';
 import { DeferredTransparentStage } from '../../stages/deferred-transparent-stage';
 import { BloomStage } from '../../stages/bloom-stage';
 import { TAAStage } from '../../stages/taa-stage';
+import { FSRStage } from '../../stages/fsr-stage';
 
 export function createStageGraph (sclass: typeof BaseStage) {
     let name = js.getClassName(sclass);
@@ -300,3 +301,4 @@ createStageGraph(DeferredPostStage);
 createStageGraph(DeferredTransparentStage);
 createStageGraph(BloomStage);
 createStageGraph(TAAStage);
+createStageGraph(FSRStage);

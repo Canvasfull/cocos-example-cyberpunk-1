@@ -72,7 +72,7 @@ vec3 lightingIbl (in StandardSurface s, vec3 specular) {
   #if CC_USE_IBL
     vec4 skyEnv = fragTextureLod2(cc_environment, ref, mip);
     skyEnv.rgb = unpackRGBE(skyEnv);
-    color += skyEnv.rgb * specular * blendFactor * 0.2;
+    color += skyEnv.rgb * blendFactor * specular * 0.2;
   #endif
 
   return color;

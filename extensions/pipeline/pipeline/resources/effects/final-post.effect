@@ -56,7 +56,7 @@ CCProgram fs %{
       // fragColor = vec4(fragColor.w);
     }
     else {
-      fragColor = CCFragOutput(fragColor);
+      // fragColor = CCFragOutput(fragColor);
     }
   }
   

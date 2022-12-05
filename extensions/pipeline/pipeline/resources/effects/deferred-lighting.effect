@@ -50,7 +50,7 @@ CCProgram lighting-vs %{
     CCDecode(position);
     CC_HANDLE_GET_CLIP_FLIP(position.xy);
     gl_Position = vec4(position.x, position.y, 1.0, 1.0);
-    v_uv = a_texCoord * inputViewPort.xy;
+    v_uv = a_texCoord;// * inputViewPort.xy;
   }
 }%
 
@@ -67,8 +67,8 @@ CCProgram lighting-fs %{
   #include <common/math/octahedron-transform>
   #include <common/math/coordinates>
 
-  #pragma builtin(global)
-  layout(set = 0, binding = 5) uniform samplerCube cc_environment;
+  // #pragma builtin(global)
+  // layout(set = 0, binding = 5) uniform samplerCube cc_environment;
 
   in vec2 v_uv;
 
