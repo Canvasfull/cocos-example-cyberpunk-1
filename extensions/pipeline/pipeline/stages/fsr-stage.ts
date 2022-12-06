@@ -1,4 +1,4 @@
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material } from "cc";
 import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
@@ -10,15 +10,22 @@ const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 
 @ccclass('FSRStage')
 export class FSRStage extends BaseStage {
-    _name = 'FSRStage'
     _materialName = 'fsr';
-
     materialMap: Map<renderer.scene.Camera, Material> = new Map
-
     uniqueStage = true;
+
+    @property
+    name = 'FSRStage'
+
+    @property
+    sharpness = 0.2
 
     @property({ override: true, type: CCString })
     outputNames = ['FSRColor']
+
+    checkEnable () {
+        return this.enable && this.finalShadingScale() < 1
+    }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
@@ -27,8 +34,8 @@ export class FSRStage extends BaseStage {
         const inputHeight = area.height;
 
         let shadingScale = this.finalShadingScale()
-        const outWidth = inputWidth / shadingScale;
-        const outHeight = inputHeight / shadingScale;
+        const outWidth = Math.floor(inputWidth / shadingScale);
+        const outHeight = Math.floor(inputHeight / shadingScale);
 
         passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
         Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
@@ -43,6 +50,7 @@ export class FSRStage extends BaseStage {
 
         passUtils.material = material;
 
+        material.setProperty('fsrParams', new Vec4(this.sharpness, 0, 0, 0))
         material.setProperty('texSize',
             new Vec4(
                 inputWidth, inputHeight,
@@ -57,13 +65,15 @@ export class FSRStage extends BaseStage {
             .setViewport(area.x, area.y, outWidth, outHeight)
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(easu, Format.RGBA8)
-            .blitScreen(0)
+            .blitScreen(0);
 
         const slot0 = this.slotName(camera, 0);
         passUtils.addRasterPass(outWidth, outHeight, 'Postprocess', `CameraFSR_RCAS_Pass${cameraID}`)
             .setViewport(area.x, area.y, outWidth, outHeight)
             .setPassInput(easu, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA8)
-            .blitScreen(1)
+            .blitScreen(1);
+
+        settings.tonemapped = true;
     }
 }

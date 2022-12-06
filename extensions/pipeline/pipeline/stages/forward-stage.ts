@@ -12,9 +12,10 @@ const { ccclass, property } = _decorator
 
 @ccclass('custom.ForwardStage')
 export class ForwardStage extends BaseStage {
-    _name = 'ForwardStage'
     _materialName = 'blit-screen';
 
+    @property
+    name = 'ForwardStage'
     @property({ override: true, type: CCString })
     outputNames = ['ForwardColor', 'ForwardDepth']
 
@@ -125,7 +126,7 @@ export class ForwardStage extends BaseStage {
         }
 
         const pass = ppl.addRasterPass(width, height, 'default');
-        pass.name = `${this._name}_${cameraID}`;
+        pass.name = `${this.name}_${cameraID}`;
         pass.setViewport(new Viewport(area.x, area.y, width, height));
 
         // for (const dirShadowName of shadowInfo.mainLightShadowNames) {

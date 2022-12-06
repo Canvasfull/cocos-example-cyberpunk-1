@@ -6,6 +6,7 @@ export const HrefSetting = {
     shadingScale: 1,
     graph: 0,
 }
+globalThis.HrefSetting = HrefSetting
 
 
 if (!EDITOR) {

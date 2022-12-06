@@ -1,4 +1,4 @@
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material } from "cc";
 import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
@@ -10,12 +10,12 @@ const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 
 @ccclass('DeferredPostStage')
 export class DeferredPostStage extends BaseStage {
-    _name = 'DeferredPostStage'
     _materialName = 'final-post';
-
     materialMap: Map<renderer.scene.Camera, Material> = new Map
-
     // uniqueStage = true;
+
+    @property
+    name = 'DeferredPostStage'
 
     @property({ override: true, type: CCString })
     outputNames = ['DeferredPostColor', 'DeferredPostDS']
@@ -46,7 +46,8 @@ export class DeferredPostStage extends BaseStage {
         material.setProperty('inputViewPort',
             new Vec4(
                 width / Math.floor(game.canvas.width * shadingScale), height / Math.floor(game.canvas.height * shadingScale),
-                settings.OUTPUT_RGBE ? 1 : 0, 0
+                settings.outputRGBE ? 1 : 0,
+                settings.tonemapped ? 0 : 1
             )
         );
 

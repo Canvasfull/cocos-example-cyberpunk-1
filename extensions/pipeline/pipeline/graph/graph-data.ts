@@ -3,56 +3,6 @@ export default {
     "last_link_id": 54,
     "nodes": [
         {
-            "id": 10,
-            "type": "pipeline/DeferredGBufferStage",
-            "pos": [
-                444,
-                612
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 170
-            },
-            "flags": {},
-            "order": 3,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": 16
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": null
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        17
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "DeferredGBufferStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "shadingScale": 1,
-                "material": "blit-screen"
-            }
-        },
-        {
             "id": 15,
             "type": "pipeline/Pipeline",
             "pos": [
@@ -113,7 +63,7 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 170
+                "1": 146
             },
             "flags": {},
             "order": 2,
@@ -146,11 +96,14 @@ export default {
                 }
             ],
             "properties": {
-                "CameraOutputType": "Color",
-                "Name": "custom.ForwardStage",
-                "Format": "RGBA8",
                 "showResult": false,
+                "enable": true,
+                "name": "BaseStage",
                 "shadingScale": 1,
+                "Name": "custom.ForwardStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
                 "material": "blit-screen",
                 "outputName": "ForwardStage"
             }
@@ -185,6 +138,82 @@ export default {
             }
         },
         {
+            "id": 4,
+            "type": "pipeline/RenderToScreen",
+            "pos": [
+                2211,
+                603
+            ],
+            "size": {
+                "0": 140,
+                "1": 26
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 22
+                }
+            ],
+            "properties": {}
+        },
+        {
+            "id": 10,
+            "type": "pipeline/DeferredGBufferStage",
+            "pos": [
+                444,
+                612
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 146
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": 16
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": null
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        17
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "DeferredGBuffer",
+                "shadingScale": 1,
+                "Name": "DeferredGBufferStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
+                "material": "blit-screen"
+            }
+        },
+        {
             "id": 11,
             "type": "pipeline/DeferredLightingStage",
             "pos": [
@@ -193,7 +222,7 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 170
+                "1": 146
             },
             "flags": {},
             "order": 5,
@@ -226,11 +255,119 @@ export default {
                 }
             ],
             "properties": {
-                "CameraOutputType": "Color",
-                "Name": "DeferredLightingStage",
-                "Format": "RGBA8",
                 "showResult": false,
+                "enable": true,
+                "name": "DeferredLighting",
                 "shadingScale": 1,
+                "Name": "DeferredLightingStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
+                "material": "blit-screen"
+            }
+        },
+        {
+            "id": 18,
+            "type": "pipeline/FSRStage",
+            "pos": [
+                1618,
+                739
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 146
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 53
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        54
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "FSR",
+                "shadingScale": 1,
+                "Name": "FSRStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8"
+            }
+        },
+        {
+            "id": 12,
+            "type": "pipeline/DeferredPostStage",
+            "pos": [
+                1928,
+                598
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 146
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 54
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        22
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "DeferredPost",
+                "shadingScale": 1,
+                "Name": "DeferredPostStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
                 "material": "blit-screen"
             }
         },
@@ -243,7 +380,7 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 170
+                "1": 146
             },
             "flags": {},
             "order": 6,
@@ -277,88 +414,18 @@ export default {
                 }
             ],
             "properties": {
-                "CameraOutputType": "Color",
-                "Name": "custom.BloomStage",
-                "Format": "RGBA8",
                 "showResult": false,
+                "enable": true,
+                "name": "Bloom",
                 "shadingScale": 1,
+                "Name": "custom.BloomStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
                 "material": "blit-screen",
                 "threshold": 0.1,
                 "iterations": 2,
                 "intensity": 0.8
-            }
-        },
-        {
-            "id": 4,
-            "type": "pipeline/RenderToScreen",
-            "pos": [
-                2211,
-                603
-            ],
-            "size": {
-                "0": 140,
-                "1": 26
-            },
-            "flags": {},
-            "order": 10,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 22
-                }
-            ],
-            "properties": {}
-        },
-        {
-            "id": 12,
-            "type": "pipeline/DeferredPostStage",
-            "pos": [
-                1928,
-                598
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 170
-            },
-            "flags": {},
-            "order": 9,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": null
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 54
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        22
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "DeferredPostStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "shadingScale": 1,
-                "material": "blit-screen"
             }
         },
         {
@@ -370,7 +437,7 @@ export default {
             ],
             "size": {
                 "0": 228.39999389648438,
-                "1": 170
+                "1": 146
             },
             "flags": {},
             "order": 7,
@@ -403,66 +470,20 @@ export default {
                 }
             ],
             "properties": {
-                "CameraOutputType": "Color",
-                "Name": "TAAStage",
-                "Format": "RGBA8",
                 "showResult": false,
+                "enable": true,
+                "name": "TAA",
                 "shadingScale": 1,
+                "Name": "TAAStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
                 "sampleScale": 1,
                 "feedback": 0.95,
                 "shaowHistoryTexture": false,
                 "clampHistoryTexture": true,
                 "forceRender": true,
                 "dirty": false
-            }
-        },
-        {
-            "id": 18,
-            "type": "pipeline/FSRStage",
-            "pos": [
-                1618,
-                739
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 170
-            },
-            "flags": {},
-            "order": 8,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": null
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 53
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        54
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "CameraOutputType": "Color",
-                "Name": "FSRStage",
-                "Format": "RGBA8",
-                "showResult": false,
-                "shadingScale": 1
             }
         }
     ],

@@ -108,8 +108,7 @@ CCProgram fs-rcas %{
   void main () {
     // Set up constants
     float con;
-    float sharpness = 0.2;
-    FsrRcasCon(con,sharpness);
+    FsrRcasCon(con, fsrParams.x);
 
     // Perform RCAS pass
     vec3 col = FsrRcasF(gl_FragCoord.xy, con);

@@ -13,11 +13,12 @@ const slotNames = ['TAA_First', 'TAA_Second']
 
 @ccclass('TAAStage')
 export class TAAStage extends BaseStage {
-    _name = 'TAAStage'
     _materialName = 'deferred-taa';
     materialMap: Map<renderer.scene.Camera, Material> = new Map
-
     prevMatViewProj = new Mat4;
+
+    @property
+    name = 'TAAStage'
 
     slotName (camera: renderer.scene.Camera, index = 0) {
         if (EDITOR || !TAASetting.instance) {

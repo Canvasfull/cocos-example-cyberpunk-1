@@ -46,17 +46,15 @@ CCProgram fs %{
 
   void main () {
     fragColor = texture(outputResultMap, v_uv * inputViewPort.xy);
-    // fragColor = CCFragOutput(fragColor);
     
     if (inputViewPort.z == 1.) {
       // fragColor = vec4(vec3(0.5), 0.5);
-
       fragColor = packRGBE(fragColor.rgb);
       // fragColor = vec4(unpackRGBE(fragColor), 1.);
       // fragColor = vec4(fragColor.w);
     }
-    else {
-      // fragColor = CCFragOutput(fragColor);
+    else if (inputViewPort.w == 1.) {
+      fragColor = CCFragOutput(fragColor);
     }
   }
   

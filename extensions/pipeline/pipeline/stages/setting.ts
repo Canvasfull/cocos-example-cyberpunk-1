@@ -1,4 +1,5 @@
 
 export let settings = {
-    OUTPUT_RGBE: false,
+    outputRGBE: false,
+    tonemapped: false,
 }

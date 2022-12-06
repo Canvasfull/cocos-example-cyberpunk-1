@@ -47,7 +47,7 @@ export class DeferredEnvStage extends BaseStage {
         material.setProperty('inputViewPort',
             new Vec4(
                 width / game.canvas.width, height / game.canvas.height,
-                settings.OUTPUT_RGBE ? 1 : 0, 0
+                settings.outputRGBE ? 1 : 0, 0
             )
         );
 

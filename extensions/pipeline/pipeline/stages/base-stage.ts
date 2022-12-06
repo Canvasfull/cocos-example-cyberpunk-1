@@ -1,24 +1,8 @@
 import { director, game, gfx, Material, PipelineStateManager, renderer, RenderStage, RenderTexture, Vec2, _decorator, pipeline, Enum, Node, ForwardStage, rendering, CCString } from 'cc';
 import { getCameraUniqueID, getQuadIA, getRenderArea } from '../utils/utils';
-import { UBOBase } from '../ubo';
-import { loadResource } from '../utils/npm';
 import { PipelineAssets } from '../resources/pipeline-assets';
 
 const { ccclass, type, property } = _decorator;
-
-const MaterialResourceDir = 'pipeline/materials/';
-
-class UBOBaseStage extends UBOBase {
-    static TextureSize = this.increaseIndex(4);
-}
-
-export enum InputType {
-    LastStageOutput,
-    CameraColorTexture,
-    CameraDepthTexture,
-    TargetStageOutput,
-};
-Enum(InputType)
 
 let _BaseStageID = 0
 
@@ -33,7 +17,6 @@ export class BaseStage {
         this._id = _BaseStageID++;
     }
 
-    _name = 'BaseStage';
 
     // auto load material name
     _materialName = 'blit-screen';
@@ -45,14 +28,18 @@ export class BaseStage {
         return PipelineAssets.instance.getMaterial(this._materialName);
     }
 
+
+    @property
+    enable = true;
+
+    @property
+    name = 'BaseStage';
+
     @property
     shadingScale = 1;
 
     @property
     customSize = new Vec2(1024, 1024);
-
-    @type(InputType)
-    inputType = InputType.LastStageOutput;
 
     @property(CCString)
     outputNames = []
@@ -69,15 +56,13 @@ export class BaseStage {
     protected _rect = new gfx.Rect(0, 0, 1, 1);
     clearColors = [new gfx.Color(0, 0, 0, 1)];
 
-    textureFormat = gfx.Format.RGBA8;
-
     requestDepth = false;
 
     lastStage: BaseStage | undefined;
 
     uniqueStage = false
     slotName (camera: renderer.scene.Camera, index = 0) {
-        let name = this.outputNames[index] || this._name
+        let name = this.outputNames[index] || this.name
         if (this.uniqueStage) {
             return name
         }
@@ -86,6 +71,10 @@ export class BaseStage {
 
     finalShadingScale () {
         return this.shadingScale * director.root.pipeline.pipelineSceneData.shadingScale;
+    }
+
+    checkEnable () {
+        return this.enable;
     }
 
     // protected _finalShadingSize = new Vec2;

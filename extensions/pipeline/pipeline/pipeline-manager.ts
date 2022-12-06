@@ -46,7 +46,7 @@ export class CustomPipelineBuilder {
             let probe = probes[i];
 
             if (probe.needRender) {
-                settings.OUTPUT_RGBE = true;
+                settings.outputRGBE = true;
 
                 let originCameraNode = probe.cameraNode;
                 let originCamera = probe.camera;
@@ -94,7 +94,7 @@ export class CustomPipelineBuilder {
                 probe.cameraNode = originCameraNode;
 
                 probe.needRender = false;
-                settings.OUTPUT_RGBE = false;
+                settings.outputRGBE = false;
             }
         }
 
@@ -117,6 +117,8 @@ export class CustomPipelineBuilder {
     renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline, forceMain = false) {
         // const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
         // || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
+
+        settings.tonemapped = false;
 
         let cameraSetting = camera.node.getComponent(CameraSetting);
 
