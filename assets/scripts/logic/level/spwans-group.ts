@@ -2,12 +2,13 @@ import { _decorator, Component, Node, Camera, director, game, MeshRenderer } fro
 import { EDITOR } from 'cc/env';
 const { ccclass, property } = _decorator;
 
-@ccclass('spwans_group')
-export class spwans_group extends Component {
+@ccclass('SpawnsGroup')
+export class SpawnsGroup extends Component {
 
     onEnable() {
         this.node.children.forEach(child => {
-            child.getComponent(MeshRenderer).enabled = false;
+            const meshRender = child.getComponent(MeshRenderer);
+            if(meshRender) meshRender.enabled = false;
         });
     }
 

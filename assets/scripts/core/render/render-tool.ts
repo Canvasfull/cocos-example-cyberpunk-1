@@ -1,20 +1,8 @@
 
-import { _decorator, Component, Material, Node, effects, EffectAsset } from 'cc';
+import { _decorator, Component, Material, EffectAsset } from 'cc';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = render_tool
- * DateTime = Thu Jan 13 2022 10:02:17 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = render-tool.ts
- * FileBasenameNoExtension = render-tool
- * URL = db://assets/scripts/core/util/render-tool.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
- 
-@ccclass('RendeTool')
+@ccclass('RenderTool')
 export class RenderTool extends Component {
 
     /**

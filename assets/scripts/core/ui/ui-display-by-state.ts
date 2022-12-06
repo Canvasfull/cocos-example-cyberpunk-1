@@ -16,7 +16,7 @@ export class UIDisplayByState extends Component {
     start() {
 
         this._sprite = this.getComponent(SpriteComponent);
-        Msg.onbind(`msg_${this.node.name}`, this.onChangeState, this);
+        Msg.bind(`msg_${this.node.name}`, this.onChangeState, this);
 
     }
 

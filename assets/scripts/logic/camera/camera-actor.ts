@@ -5,8 +5,8 @@ import { CameraController } from './camera-controller';
 import { SmoothLocalZ } from './smooth-local-z';
 const { ccclass, property } = _decorator;
 
-@ccclass('camera_actor')
-export class camera_actor extends Component {
+@ccclass('CameraActor')
+export class CameraActor extends Component {
 
     controller:CameraController;
     actor_main:actor_main;

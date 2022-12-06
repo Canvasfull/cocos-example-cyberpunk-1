@@ -6,12 +6,11 @@ const { ccclass, property } = _decorator;
 @ccclass('ForceArea')
 export class ForceArea extends Component {
 
-
     @property(Vec3)
     force: Vec3 = v3(0, 0, 0);
 
     @property
-    pos_scale: Vec3 = v3(0, 4, 0);
+    posScale: Vec3 = v3(0, 4, 0);
 
     _force: Vec3 = v3(0, 0, 0);
 
@@ -32,9 +31,9 @@ export class ForceArea extends Component {
 
     forceRate (other: Node): Vec3 {
         u3.c(this._force, this.force);
-        if (this.pos_scale.x != 0) this._force.x = this.caculate(other.worldPosition.x - this.node.worldPosition.x, this.pos_scale.x, this.force.x);
-        if (this.pos_scale.y != 0) this._force.y = this.caculate(other.worldPosition.y - this.node.worldPosition.y, this.pos_scale.y, this.force.y);
-        if (this.pos_scale.z != 0) this._force.z = this.caculate(other.worldPosition.z - this.node.worldPosition.z, this.pos_scale.z, this.force.z);
+        if (this.posScale.x != 0) this._force.x = this.calculate(other.worldPosition.x - this.node.worldPosition.x, this.posScale.x, this.force.x);
+        if (this.posScale.y != 0) this._force.y = this.calculate(other.worldPosition.y - this.node.worldPosition.y, this.posScale.y, this.force.y);
+        if (this.posScale.z != 0) this._force.z = this.calculate(other.worldPosition.z - this.node.worldPosition.z, this.posScale.z, this.force.z);
 
         //if (this._force.x < 0) this._force.x = 0;
         //if (this._force.y < 0) this._force.y = 0;
@@ -42,16 +41,16 @@ export class ForceArea extends Component {
 
         //this._force.multiply(this.force);
 
-        //console.log('------- wind force:', this._force.y);
+        
         return this._force.clone();
     }
 
-    caculate (value: number, max: number, scale: number): number {
+    calculate (value: number, max: number, scale: number): number {
         var a = value / max;
         a = Math.log(a) * 2 + max;
         if (a < 0) a = 0;
         a = (max - a) / max + 11;
-        //console.log(' force ---  value:', value, ' -- max:', max, ' ---- -- a:', a);
+        
         return a;
     }
 

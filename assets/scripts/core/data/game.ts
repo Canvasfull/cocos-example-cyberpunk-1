@@ -10,7 +10,7 @@ import { ResCache } from "../res/res-cache";
 import { Level } from "../../logic/level/level";
 import { Sound } from "../audio/sound";
 import { Notify } from "../io/notify";
-import { GameQulity } from "../render/GameQulity";
+import { GameQuality as GameQuality } from "../render/GameQuality";
 import { DataEquip } from "./data-equip";
 
 
@@ -45,19 +45,16 @@ export class Game extends Singleton {
 
         DataEquipInst.init();
         
-        GameQulity.Instance.init();
+        GameQuality.Instance.init();
         //GM.init();
         Sound.init();
         //Guide.Instance.init();
         //Achievement.Instance.init();
         Local.Instance.init();
-        //DebugUtil.Instance.init();
         Level.Instance.init();
-        //World.Instance.init();
         Bind.Instance.init();
         Bind.Instance.initData(this._data['events']);
         UI.Instance.init();
-        //Buff.Instance.init();
 
         // Register event.
         Msg.on('push', (key: string) => { Game.Instance.push(key); });

@@ -8,9 +8,7 @@ export class ColliderGroup extends Component {
     group: number = 0;
 
     onEnable () {
-
         this.node.getComponent(Collider)?.setGroup(1 << this.group);
-
     }
 
 }

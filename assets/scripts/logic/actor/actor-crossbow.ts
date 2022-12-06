@@ -6,10 +6,10 @@ const { ccclass, property } = _decorator;
 @ccclass('ActorCrossbow')
 export class ActorCrossbow extends ActorEquipBase {
 
-    point_shoot:Node;
+    _pointShoot:Node | null | undefined;
 
     start() {
-        this.point_shoot = this.node.getChildByName('point_shoot');
+        this._pointShoot = this.node.getChildByName('point_shoot');
     }
 
     onDestroy() {

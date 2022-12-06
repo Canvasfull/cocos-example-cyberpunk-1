@@ -5,8 +5,11 @@ import { u3 } from '../../core/util/util';
 import { Actor } from './actor';
 const { ccclass, property } = _decorator;
 
-@ccclass('actor_push_box')
-export class actor_push_box extends Component {
+@ccclass('ActorPushBox')
+export class ActorPushBox extends Component {
+
+    @property
+    pushAnimationName = '';
 
     _actor:Actor;
 
@@ -38,7 +41,7 @@ export class actor_push_box extends Component {
         var v_length = this.velocity.length();
 
         if(this._actor._data.is_sokoban && v_length > 0.05) {
-            this._actor._animg.play('is_sokoban', true);
+            this._actor._animationGraph.play(this.pushAnimationName, true);
             if(!this._audio.loop) {
                 this._audio.play();
                 this._audio.loop = true;
@@ -47,7 +50,7 @@ export class actor_push_box extends Component {
             if(this._audio.loop) {
                 this._audio.loop = false;
             }
-            this._actor._animg.play('is_sokoban', false);
+            this._actor._animationGraph.play(this.pushAnimationName, false);
         }
 
         var volume = Sound.volume * v_length * 2;
@@ -60,11 +63,10 @@ export class actor_push_box extends Component {
 
         
         this._actor._rigid.getLinearVelocity(this.velocity);
-       
         if(Math.abs(this.velocity.y) > 0.1) return false;
 
         u3.c(this._ray.d, this._actor._dir);
-
+        
         if(!this._actor._data.is_ground) return false;
         const mask = (1 << 0);
         u3.c(this._ray.o, this.node.worldPosition);

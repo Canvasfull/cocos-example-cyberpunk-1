@@ -1,10 +1,10 @@
 import { _decorator, Component, Node, Label, math } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('jump_points')
-export class jump_points extends Component {
+@ccclass('JumpPoints')
+export class JumpPoints extends Component {
 
-    label: Label;
+    label: Label | null | undefined;
     real_points = 0;
     cur_points = 0;
 
@@ -14,15 +14,16 @@ export class jump_points extends Component {
     str: string = '';
 
     onEnable () {
-        console.log('************* on jump points. ************ ');
         this.label = this.node.getComponent(Label);
+        if(this.label === null) {
+            throw new Error(`Jump Points not get component Label.`);
+        }
         this.node.on('set_points', (points: number, str: string = 's') => {
             this.str = str;
             this.cur_points = 0;
             this.real_points = points;
             this.speed = 0;
             this.a = 1;
-            console.log('----------- set points:', this.real_points);
         })
     }
     update (deltaTime: number) {

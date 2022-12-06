@@ -1,6 +1,6 @@
 import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director } from 'cc';
 import { Log } from '../io/log';
-import { grandom } from './grandom';
+import { GRandom } from './grandom';
 const { ccclass, property } = _decorator;
 
 export class Util {
@@ -15,21 +15,20 @@ export class Util {
     }
 
 
-    public static caculateMaxBounders (renders: MeshRenderer[]) {
+    public static calculateMaxBounders (renders: MeshRenderer[]) {
 
         var max_x = 0;
         var max_y = 0;
-
         var max = 0;
 
         for (let i = 0; i < renders.length; i++) {
             if(!renders[i].node.active) continue;
-            let x = renders[i].model.worldBounds.halfExtents.x * renders[i].node.scale.x;
+            let x = renders[i].model!.worldBounds.halfExtents.x * renders[i].node.scale.x;
             if (x > max_x) {
                 max_x = x;
             }
 
-            let y = renders[i].model.worldBounds.halfExtents.y * renders[i].node.scale.y;
+            let y = renders[i].model!.worldBounds.halfExtents.y * renders[i].node.scale.y;
             if (y > max_y) {
                 max_y = y;
             }
@@ -58,7 +57,7 @@ export class UtilStr {
     public static include (str: string, items: string[]): boolean {
         const count = items.length;
         for (var i = 0; i < count; i++) {
-            var t = items[i];
+            const t = items[i];
             if (str.includes(t)) {
                 return true;
             }
@@ -74,11 +73,11 @@ export class UtilStr {
 
 }
 
-export class UtilMatrial {
+export class UtilMaterial {
 
     public static setColor (node: Node, color: Color) {
-        let meshrender = node.getComponent(MeshRenderer);
-        meshrender.material.setProperty('mainColor', color);
+        const meshRender = node.getComponent(MeshRenderer);
+        meshRender?.material?.setProperty('mainColor', color);
     }
 
 }
@@ -256,26 +255,26 @@ export function waitFor (duration: number) {
 
 export class UtilCurve {
 
-    public static beizer (points: number[], t: number) {
+    public static Bezier (points: number[], t: number) {
 
         let len = points.length / 3;
 
     }
 
-    public static ParaCurce (s: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, g: number, segement: number) {
+    public static ParaCurve (s: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, g: number, segment: number) {
 
         var points: number[] = [];
 
-        // Caculate total time.
+        // Calculate total time.
         var totalTime = Math.sqrt(2 * s / g);
-        var cell_time = totalTime / segement;
+        var cell_time = totalTime / segment;
 
         // x = vx * t
         // z = vz * t
         // y = 1/2 * g * t * t.
         // g = 0.98.
         var cur_time = 0;
-        for (var i = 0; i <= segement; i++) {
+        for (var i = 0; i <= segment; i++) {
             var xi = vx * cur_time + x;
             var zi = vz * cur_time + z;
             var yi = vy * cur_time - 1 / 2 * g * cur_time * cur_time + y;
@@ -287,20 +286,20 @@ export class UtilCurve {
         return points;
     }
 
-    public static ParaCurceByDir (s: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, g: number, dx: number, dy: number, dz: number, segement: number) {
+    public static ParaCurveByDir (s: number, x: number, y: number, z: number, vx: number, vy: number, vz: number, g: number, dx: number, dy: number, dz: number, segment: number) {
 
         var points: number[] = [];
 
-        // Caculate total time.
+        // Calculate total time.
         var totalTime = Math.sqrt(2 * s / g);
-        var cell_time = totalTime / segement;
+        var cell_time = totalTime / segment;
 
         // x = vx * t
         // z = vz * t
         // y = 1/2 * g * t * t.
         // g = 0.98.
         var cur_time = 0;
-        for (var i = 0; i <= segement; i++) {
+        for (var i = 0; i <= segment; i++) {
             var xi = vx * cur_time + x;
             var zi = vz * cur_time + z;
             var yi = vy * cur_time - 1 / 2 * g * cur_time * cur_time + y;
@@ -316,7 +315,7 @@ export class UtilCurve {
 
 export class UtilRandom {
 
-    public static pos (rand: grandom, min: Vec3, max: Vec3, f: number = 1000): Vec3 {
+    public static pos (rand: GRandom, min: Vec3, max: Vec3, f: number = 1000): Vec3 {
         var pos = v3(0, 0, 0);
         pos.x = rand.range(min.x, max.x) / f;
         pos.y = rand.range(min.y, max.y) / f;
@@ -324,7 +323,7 @@ export class UtilRandom {
         return pos;
     }
 
-    public static angle (rand: grandom, min: Vec3, max: Vec3): Vec3 {
+    public static angle (rand: GRandom, min: Vec3, max: Vec3): Vec3 {
         var angle = v3(0, 0, 0);
         angle.x = rand.range(min.x, max.x);
         angle.y = rand.range(min.y, max.y);
@@ -332,7 +331,7 @@ export class UtilRandom {
         return angle;
     }
 
-    public static scale (rand: grandom, min: Vec3, max: Vec3, f: number = 1000): Vec3 {
+    public static scale (rand: GRandom, min: Vec3, max: Vec3, f: number = 1000): Vec3 {
         var scale = v3(0, 0, 0);
         scale.x = rand.range(min.x, max.x) / f;
         scale.y = rand.range(min.y, max.y) / f;
@@ -345,8 +344,8 @@ export class UtilRandom {
 export class UtilGeometry {
 
     public static drawLine (p0: Vec3, p1: Vec3, color: Color = Color.GREEN) {
-        let geometryRenderer = director.root.pipeline.geometryRenderer;
-        geometryRenderer.addLine(p0, p1, color, undefined);
+        let geometryRenderer = director.root?.pipeline.geometryRenderer;
+        geometryRenderer?.addLine(p0, p1, color, undefined);
     }
 
 }

@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, PhysicsSystem, Vec3, geometry, debug, Graphics, RenderPipeline, v3 } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('sensor_rays')
-export class sensor_rays extends Component {
+@ccclass('SensorRays')
+export class SensorRays extends Component {
 
     @property([Vec3])
     dir = []
@@ -29,7 +29,7 @@ export class sensor_rays extends Component {
 
     _mask:number;
 
-    _curdir = v3(0, 0, 0);
+    _curDir = v3(0, 0, 0);
 
     start() {
         for(let i = 0; i < this.masks.length; i++)
@@ -43,12 +43,12 @@ export class sensor_rays extends Component {
             
             for(let i = 0; i < this.dir.length; i++) {
 
-                Vec3.transformMat4(this._curdir, this.dir[i], this.node.worldMatrix);
-                this._curdir = this._curdir.subtract(this.node.worldPosition).normalize();
-                //console.log(this.dir[i], this._curdir, this.node.forward);
-                this._ray.d.x = this._curdir.x;//this.node.forward.x;//this.dir[i].x;
-                this._ray.d.y = this._curdir.y;//this.node.forward.y;//this.dir[i].y;
-                this._ray.d.z = this._curdir.z;//this.node.forward.z;//this.dir[i].z;
+                Vec3.transformMat4(this._curDir, this.dir[i], this.node.worldMatrix);
+                this._curDir = this._curDir.subtract(this.node.worldPosition).normalize();
+                
+                this._ray.d.x = this._curDir.x;//this.node.forward.x;//this.dir[i].x;
+                this._ray.d.y = this._curDir.y;//this.node.forward.y;//this.dir[i].y;
+                this._ray.d.z = this._curDir.z;//this.node.forward.z;//this.dir[i].z;
 
                 this._ray.o.x = this.origin[i].x + this.node.worldPosition.x;
                 this._ray.o.y = this.origin[i].y + this.node.worldPosition.y;

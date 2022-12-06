@@ -38,7 +38,7 @@ export class SensorRaysAngle extends Component {
 
     _mask:number;
 
-    _curdir = v3(0, 0, 0);
+    _curDir = v3(0, 0, 0);
 
     _dirs: Array<Vec3>;
     _origins: Array<Vec3>;
@@ -75,11 +75,11 @@ export class SensorRaysAngle extends Component {
                 if(this._dirs[i] == undefined) {
                     console.log(this._dirs[i]);
                 }
-                Vec3.transformMat4(this._curdir, this._dirs[i], this.node.worldMatrix);
-                this._curdir = this._curdir.subtract(this.node.worldPosition).normalize();
-                this._ray.d.x = this._curdir.x;
-                this._ray.d.y = this._curdir.y;
-                this._ray.d.z = this._curdir.z;
+                Vec3.transformMat4(this._curDir, this._dirs[i], this.node.worldMatrix);
+                this._curDir = this._curDir.subtract(this.node.worldPosition).normalize();
+                this._ray.d.x = this._curDir.x;
+                this._ray.d.y = this._curDir.y;
+                this._ray.d.z = this._curDir.z;
                 this._ray.o.x = this._origins[i].x + this.node.worldPosition.x;
                 this._ray.o.y = this._origins[i].y + this.node.worldPosition.y;
                 this._ray.o.z = this._origins[i].z + this.node.worldPosition.z;

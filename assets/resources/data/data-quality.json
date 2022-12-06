@@ -1,0 +1,22 @@
+{
+    "set": [
+        {
+            "name": "game_quality_high",
+            "level": 0,
+            "fps": 59.9,
+            "maxSubSteps": 1
+        },
+        {
+            "name": "game_quality_medium",
+            "level": 1,
+            "fps": 29.9,
+            "maxSubSteps": 2
+        },
+        {
+            "name": "game_quality_low",
+            "level": 2,
+            "fps": 29.9,
+            "maxSubSteps": 2
+        }
+    ]
+}

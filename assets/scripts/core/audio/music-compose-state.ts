@@ -3,8 +3,8 @@ import { Msg } from '../msg/msg';
 import { Sound } from './sound';
 const { ccclass, property } = _decorator;
 
-@ccclass('music_compose_state')
-export class music_compose_state extends Component {
+@ccclass('MusicComposeState')
+export class MusicComposeState extends Component {
 
     @property([AudioClip])
     clips:AudioClip[] = [];

@@ -1,6 +1,7 @@
 
-import { _decorator, RigidBody, Vec3, Vec2, v3, game, Quat, Node, math } from 'cc';
+import { _decorator, RigidBody, Vec3, v3, game, Node, math } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
+import { Guide } from '../../core/guide/guide';
 import { IActorInput } from '../../core/input/IActorInput';
 import { Local } from '../../core/local/local';
 import { Msg } from '../../core/msg/msg';
@@ -11,49 +12,44 @@ import { ActorAnimationGraph } from './actor-animation-graph';
 import { ActorBag } from './actor-bag';
 import { ActorBuff } from './actor-buff';
 import { ActorEquipment } from './actor-equipment';
-import { actor_push_box } from './actor-push-box';
 import { ActorSensorDropItem } from './actor-sensor-drop-item';
+import { ActorSound } from './actor-sound';
 const { ccclass } = _decorator;
 
 @ccclass('Actor')
 export class Actor extends ActorBase implements IActorInput {
 
     _velocity = v3(0, 0, 0);
-    _velocity_local = v3(0, 0, 0);
-    //_velocity_quat = new Quat();
+    _velocityLocal = v3(0, 0, 0);
     _rigid: RigidBody = Object.create(null);
 
     _move = v3(0, 0, 0);
     _force = v3(0, 0, 0);
-    _area_force = v3(0, 0, 0);
+    _areaForce = v3(0, 0, 0);
     
-    _actorBuff: ActorBuff;
-    _actroBag: ActorBag;
-    _actorEquipment: ActorEquipment;
-    _actorSensorDropItem: ActorSensorDropItem;
-    _actorPushBox: actor_push_box;
+    _actorBuff: ActorBuff | undefined;
+    _actorBag: ActorBag | undefined;
+    _actorEquipment: ActorEquipment | undefined;
+    _actorSensorDropItem: ActorSensorDropItem | undefined;
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node = Object.create(null);
     _fps = 0;
 
-    //#region  logic
     get noAction () {
         return this._data.is_dead || this._data.is_win;
     }
-    //#endregion
 
     start () {
         
         this.init('data-player');
         this.node.setScale(v3(1, 1, 1).multiplyScalar(this._data.size));
-        this._rigid = this.node.getComponent(RigidBody);
+        this._rigid = this.node.getComponent(RigidBody)!;
         this._rigid.useCCD = true;
         Level.Instance.actor = this;
         this._actorBuff = new ActorBuff(this);
-        this._actroBag = new ActorBag(this);
+        this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
-        this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem);
-
+        this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
         this._forwardNode = UtilNode.find(this.node, 'camera_root');
 
         var load = async ()=> {
@@ -61,12 +57,10 @@ export class Actor extends ActorBase implements IActorInput {
                 if (asset) {
                     let role_node = UtilNode.find(this.node, 'view_point');
                     this._view = Res.inst(asset, role_node);
-                    this._animg = this._view.addComponent(ActorAnimationGraph);
-                    //var actorsound = this._view.addComponent(ActorSound);
-                    //actorsound.init(this);
-                    //this._actorPushBox = this.addComponent(actor_push_box);
-                    //if(!Guide.Instance._has_guide) this.do('play');
-                    //this._view.addComponent(ActorLookat); 
+                    this._animationGraph = this._view.addComponent(ActorAnimationGraph);
+                    const actorSound = this._view.addComponent(ActorSound);
+                    actorSound.init(this);
+                    if(!Guide.Instance._has_guide) this.do('play');
                 }
             });
         }
@@ -77,23 +71,23 @@ export class Actor extends ActorBase implements IActorInput {
 
     addAreaForce (force: Vec3) {
         if (this._data.is_glide) {
-            u3.c(this._area_force, force);
-            this._rigid.applyForce(this._area_force);
+            u3.c(this._areaForce, force);
+            this._rigid.applyForce(this._areaForce);
         }
     }
 
     onBind () {
         super.onBind();
         this.node.on('addAreaForce', this.addAreaForce, this);
-        Msg.onbind('guide_end', this.guide_end, this);
+        Msg.bind('guide_end', this.guide_end, this);
     }
 
     offBind () {
         super.offBind();
         Msg.off('guide_end', this.guide_end);
         this.node.off('addAreaForce', this.addAreaForce, this);
-        this._actorBuff.clear();
-        this._actorBuff = null;
+        this._actorBuff?.clear();
+        this._actorBuff = undefined;
     }
 
     public guide_end() {
@@ -116,36 +110,34 @@ export class Actor extends ActorBase implements IActorInput {
         super.do(name);
     }
 
-    run (detalTime: number) {
+    run (deltaTime: number) {
 
         this._data.changed_strength = false;
 
-        this._actorBuff.update(detalTime);
+        this._actorBuff?.update(deltaTime);
         this._fps = game.frameRate as number;
-
         this._rigid.getLinearVelocity(this._velocity);
-
-        u3.c(this._velocity_local, Vec3.ZERO);
+        u3.c(this._velocityLocal, Vec3.ZERO);
 
         // Check run strength
-        const canRun = this.calculateRunStrength(detalTime);
-        if(this._move.z > 0) this._velocity_local.z = this._data.move_speed.y;
-        if(this._move.z < 0) this._velocity_local.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
-        if(this._move.x != 0) this._velocity_local.x = this._data.move_speed.x * this._move.x;
+        const canRun = this.calculateRunStrength(deltaTime);
+        if(this._move.z > 0) this._velocityLocal.z = this._data.move_speed.y;
+        if(this._move.z < 0) this._velocityLocal.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
+        if(this._move.x != 0) this._velocityLocal.x = this._data.move_speed.x * this._move.x;
 
         //rotate y.
-        Vec3.rotateY(this._velocity_local, this._velocity_local, Vec3.ZERO, this.node.eulerAngles.y * Math.PI / 180);
-        this._velocity.x = math.lerp(this._velocity.x, this._velocity_local.x, detalTime * 5);
-        this._velocity.z = math.lerp(this._velocity.z, this._velocity_local.z, detalTime * 5);
+        Vec3.rotateY(this._velocityLocal, this._velocityLocal, Vec3.ZERO, this.node.eulerAngles.y * Math.PI / 180);
+        this._velocity.x = math.lerp(this._velocity.x, this._velocityLocal.x, deltaTime * 5);
+        this._velocity.z = math.lerp(this._velocity.z, this._velocityLocal.z, deltaTime * 5);
 
-        this._actorEquipment.updateAim(this._velocity.z);
+        this._actorEquipment?.updateAim(this._velocity.z);
         this._rigid.setLinearVelocity(this._velocity);
 
-        u3.c(this._curdir, this._dir);
-        var angle = Vec3.angle(this._curdir, this.node.forward);
+        u3.c(this._curDir, this._dir);
+        var angle = Vec3.angle(this._curDir, this.node.forward);
         var angleAbs = Math.abs(angle);
         if (angleAbs > 0.01) {
-            var side = Math.sign(-this._curdir.clone().cross(this.node.forward).y);
+            var side = Math.sign(-this._curDir.clone().cross(this.node.forward).y);
             var angleVel = new Vec3(0, side * angleAbs, 0);
             this._rigid.setAngularVelocity(angleVel);
         }
@@ -155,31 +147,17 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onBuff(key:string) {
-        //console.log('add buff:', key)
-        this._actorBuff.add(key);
+        this._actorBuff?.add(key);
     }
 
-    onEnterBox() {
-        if(this._actorPushBox.checkPushBox()) {
-            this._data.is_sokoban = true;
-        }
-    }
-
-    onExitBox() {
-        if(this._data.is_sokoban) {
-            this._data.is_sokoban = false;
-            this._animg.play('is_sokoban', false);
-        }
-    }
-
-    updateGlide (detalTime: number) {
+    updateGlide (deltaTime: number) {
         this._rigid.getLinearVelocity(this._velocity);
-        if (this._data.is_glide && this._velocity.y < 0 && this._area_force.y <= 0) {
+        if (this._data.is_glide && this._velocity.y < 0 && this._areaForce.y <= 0) {
             this._velocity.y = this._data.glide_speed_y;
             this._rigid.setLinearVelocity(this._velocity);
         }
 
-        this._area_force.y = 0;
+        this._areaForce.y = 0;
     }
 
     onJump () {
@@ -223,17 +201,16 @@ export class Actor extends ActorBase implements IActorInput {
 
         if(this._data.is_dead) return;
 
-        this._angle_head += x;
-        this._dir.z = -Math.cos(Math.PI / 180.0 * this._angle_head);
-        this._dir.x = Math.sin(Math.PI / 180.0 * this._angle_head);
+        this._angleHead += x;
+        this._dir.z = -Math.cos(Math.PI / 180.0 * this._angleHead);
+        this._dir.x = Math.sin(Math.PI / 180.0 * this._angleHead);
+        this._angleVertical -= y;
 
-        this._angle_vertical -= y;
+        if (this._angleVertical >= this._data.angle_vertical_max) 
+            this._angleVertical = this._data.angle_vertical_max;
 
-        if (this._angle_vertical >= this._data.angle_vertical_max) 
-            this._angle_vertical = this._data.angle_vertical_max;
-
-        if (this._angle_vertical <= this._data.angle_vertical_min)
-            this._angle_vertical = this._data.angle_vertical_min;
+        if (this._angleVertical <= this._data.angle_vertical_min)
+            this._angleVertical = this._data.angle_vertical_min;
 
     }
 
@@ -242,19 +219,19 @@ export class Actor extends ActorBase implements IActorInput {
         this._dir.x = x;
     }
     
-    onPasue() {
+    onPause() {
         
     }
 
-    onRun(isrun:boolean) {
-        this._data.is_run = isrun;
+    onRun(isRun:boolean) {
+        this._data.is_run = isRun;
     }
 
     onPick() {
 
-        var pickedNode = this._actorSensorDropItem.getPicked();
+        var pickedNode = this._actorSensorDropItem?.getPicked();
         if(pickedNode != null) {
-            if(this._actroBag.pickedItem(pickedNode.name)) {
+            if(this._actorBag?.pickedItem(pickedNode.name)) {
                 console.log('picked item:', pickedNode.name);
                 pickedNode.emit('picked');
                 Msg.emit(
@@ -274,7 +251,7 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onDrop() {
-        if(this._actroBag.dropItem()) {
+        if(this._actorBag?.dropItem()) {
             Msg.emit('msg_update_bag');
         }
     }
@@ -288,10 +265,10 @@ export class Actor extends ActorBase implements IActorInput {
     }
     
     onFire() {
-        const canUseEquip = this.caculateStrengthUseEquip();
+        const canUseEquip = this.calculateStrengthUseEquip();
         if(canUseEquip) {
             console.log(' Use equip. --------- ');
-            this._actorEquipment.do('fire');
+            this._actorEquipment?.do('fire');
         }
     }
 
@@ -300,14 +277,14 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onEquip(index:number) {
-        if(this._actorEquipment.equip(index)) {
+        if(this._actorEquipment?.equip(index)) {
             this._viewNoWeapon.active = false;
         }else{
             this._viewNoWeapon.active = true;
         }
     }
 
-    caculateStrengthUseEquip():boolean {
+    calculateStrengthUseEquip():boolean {
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
         if(canUseEquip) {
@@ -331,7 +308,7 @@ export class Actor extends ActorBase implements IActorInput {
         if(this._data.changed_strength) return;
         if(this._data.is_dead) return;
         if(!this._data.is_ground) return;
-        if(this._data.isrun) return;
+        if(this._data.is_run) return;
         if(this._data.strength >= this._data.max_strength) return;
         this._data.strength += this._data.recover_ground_strength * game.deltaTime;
         if(this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
@@ -356,8 +333,8 @@ export class Actor extends ActorBase implements IActorInput {
         }
 
         if(this._move.z > 0) {
-            this._velocity.z = -Math.cos(Math.PI / 180.0 * this._angle_head) * this._data.move_speed.z;
-            this._velocity.x = Math.sin(Math.PI / 180.0 * this._angle_head) * this._data.move_speed.z;
+            this._velocity.z = -Math.cos(Math.PI / 180.0 * this._angleHead) * this._data.move_speed.z;
+            this._velocity.x = Math.sin(Math.PI / 180.0 * this._angleHead) * this._data.move_speed.z;
         }else if(this._move.z < 0) {
 
         } else{
@@ -385,6 +362,6 @@ export class Actor extends ActorBase implements IActorInput {
 
         */
 
-        //this._animg?.play('move_speed',this._velocity_local.z/this._data.run_speed);
+        //this._animationGraph?.play('move_speed',this._velocityLocal.z/this._data.run_speed);
 
         

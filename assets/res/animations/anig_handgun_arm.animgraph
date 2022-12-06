@@ -243,8 +243,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -99.81944161402083,
-      "centerY": 27.443142449561833,
+      "centerX": -35.625433054819666,
+      "centerY": 26.42418993274913,
       "id": "16695266932020.545369376377945"
     },
     "name": "Arm_M1911_Fire",
@@ -427,7 +427,7 @@
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "interruptionSource": 0,
-    "_exitCondition": 1
+    "_exitCondition": 0.03
   },
   {
     "__type__": "cc.animation.AnimationTransition",
@@ -442,7 +442,7 @@
         "__id__": 26
       }
     ],
-    "duration": 0.1,
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": false,
     "destinationStart": 0,
@@ -488,13 +488,13 @@
       "__id__": 10
     },
     "conditions": [],
-    "duration": 0.3,
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "interruptionSource": 0,
-    "_exitCondition": 1
+    "_exitCondition": 0.67
   },
   {
     "__type__": "cc.animation.AnimationTransition",

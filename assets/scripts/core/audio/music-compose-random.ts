@@ -2,8 +2,8 @@ import { _decorator, Component, Node, AudioClip, AudioSource, random, randomRang
 import { Sound } from './sound';
 const { ccclass, property } = _decorator;
 
-@ccclass('music_compose_random')
-export class music_compose_random extends Component {
+@ccclass('MusicComposeRandom')
+export class MusicComposeRandom extends Component {
 
     @property([AudioClip])
     clips:AudioClip[] = [];
@@ -21,11 +21,8 @@ export class music_compose_random extends Component {
     smooth:number = 0.1;
 
     _selects:number[] = [];
-
     _curs:number[] = [];
-
     _t:number = 0;
-
     _audios:AudioSource[] = [];
 
     start() {
@@ -77,7 +74,7 @@ export class music_compose_random extends Component {
             this._selects[select_one] = 1;
         }
 
-        //console.log('play select:', this._selects);
+        
 
     }
 }

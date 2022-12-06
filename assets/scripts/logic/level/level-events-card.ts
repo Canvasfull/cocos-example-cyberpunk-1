@@ -10,7 +10,7 @@ export class LevelEventsCard extends Component {
 
     probability:any;
     counter = 0;
-    groupCounter:Array<number>;
+    groupCounter:Array<number> | undefined;
 
     nextCounter = 2;
 
@@ -21,13 +21,10 @@ export class LevelEventsCard extends Component {
         this.groupCounter = new Array(Level.Instance._data.cards.length);
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
         this.nextCounter = 2;
-        Msg.onbind('kill_enmey', this.checkNextEvent, this);
+        Msg.bind('kill_enemy', this.checkNextEvent, this);
     }
 
     nextEvent() {
-
-        //this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
-        //if(this.counter >= this.probability.max) return;
 
         this.counterCard++;
         this.nextCounter += this.counterCard * 2;
@@ -47,7 +44,7 @@ export class LevelEventsCard extends Component {
             throw new Error(`Error calculate weight level events card. value:${odds}`);
         }
 
-        const currentMax = this.groupCounter[excludeGroupIndex];
+        const currentMax = this.groupCounter![excludeGroupIndex];
         const weightMax = this.probability.weights_max;
 
         if(currentMax >= weightMax[excludeGroupIndex]) {
@@ -58,10 +55,10 @@ export class LevelEventsCard extends Component {
         const excludeIndex = this.probability.weights_group[excludeGroupIndex];
         const res = Level.Instance._data.items[excludeIndex];
         
-        Msg.emit('push', 'upgradecards');
+        Msg.emit('push', 'upgrade_cards');
 
         this.counter++;
-        this.groupCounter[excludeGroupIndex]++;    
+        this.groupCounter![excludeGroupIndex]++;    
 
     }
 

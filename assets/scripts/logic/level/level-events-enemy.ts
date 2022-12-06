@@ -11,7 +11,7 @@ export class LevelEventsEnemy extends Component {
 
     probability:any;
     counter = 0;
-    groupCounter:Array<number>;
+    groupCounter:Array<number> | undefined;
 
     killCounter = 0;
 
@@ -19,7 +19,7 @@ export class LevelEventsEnemy extends Component {
         this.probability = Level.Instance._data.probability_drop_enemy;
         this.groupCounter = new Array(Level.Instance._data.enemies.length);
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
-        Msg.onbind('msg_remove_enemy', this.remove, this);
+        Msg.bind('msg_remove_enemy', this.remove, this);
     }
 
     onDestroy() {
@@ -47,7 +47,7 @@ export class LevelEventsEnemy extends Component {
             throw new Error(`Error calculate weight on Level events enemy. value:${odds}`);
         }
 
-        const currentMax = this.groupCounter[occurGroupIndex];
+        const currentMax = this.groupCounter![occurGroupIndex];
 
         const weightMax = this.probability.weights_max;
 
@@ -61,16 +61,16 @@ export class LevelEventsEnemy extends Component {
         const actor = enmey.getComponent(ActorBase);
         actor._groupIndex = occurGroupIndex;
         this.counter++;
-        this.groupCounter[occurGroupIndex]++;
+        this.groupCounter![occurGroupIndex]++;
 
     }
 
     public remove(groupIndex:number) {
         this.killCounter++;
-        Msg.emit('kill_enmey', this.killCounter);
-        this.groupCounter[groupIndex]--;
-        if(this.groupCounter[groupIndex] < 0) {
-            throw new Error(`Mutiply remove enemy. group index = ${groupIndex}`);
+        Msg.emit('kill_enemy', this.killCounter);
+        this.groupCounter![groupIndex]--;
+        if(this.groupCounter![groupIndex] < 0) {
+            throw new Error(`Multiply remove enemy. group index = ${groupIndex}`);
         }
     }
 

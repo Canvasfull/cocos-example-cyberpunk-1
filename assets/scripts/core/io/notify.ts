@@ -34,7 +34,6 @@ export class Notify extends Singleton {
         if(this.counter == 0) return;
 
         if(this.queue.empty()) {
-            //Msg.emit('back', 'notify');
             this.counter = 0;
             this.cur = null;
         }else{

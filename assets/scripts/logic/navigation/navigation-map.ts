@@ -2,9 +2,9 @@ import { _decorator, Component, Node, Renderer, Line, v3, Vec2, Vec3, Graphics, 
 import { EDITOR } from 'cc/env';
 const { ccclass, property, executeInEditMode } = _decorator;
 
-@ccclass('navigation_map')
+@ccclass('NavigationMap')
 @executeInEditMode
-export class navigation_map extends Component {
+export class NavigationMap extends Component {
 
     points:Vec3[] = [];
 
@@ -52,7 +52,7 @@ export class Navigation {
     static calculateRandomPoint(curPos:Vec3) {
 
         // find closet point.
-        var closet:Node = this.findChildren(this.node, curPos);
+        var closet:Node | undefined = this.findChildren(this.node, curPos);
 
         if(closet === undefined) {
             console.error('closet not find', curPos, this.node);
@@ -73,17 +73,16 @@ export class Navigation {
     }
 
     static findChildren(node:Node, curPos:Vec3) {
-        let mindistance = Number.MAX_VALUE;
+        let minDistance = Number.MAX_VALUE;
         const children = node.children;
-        let minNode:Node = undefined;
+        let minNode:Node | undefined = undefined;
         for(let i = 0; i < children.length; i++) {
-            const cnode = children[i];
-            if(node === cnode) continue;
-            const wpos = children[i].worldPosition;
-            const distance = Vec3.distance(curPos, wpos);
-            if(distance < mindistance) {
-                minNode = cnode;
-                mindistance = distance;
+            const child = children[i];
+            if(node === child) continue;
+            const distance = Vec3.distance(curPos, child.worldPosition);
+            if(distance < minDistance) {
+                minNode = child;
+                minDistance = distance;
             }
         }
         return minNode;
@@ -95,8 +94,8 @@ export class Navigation {
     }
 
     static findTargetNode(paths:Vec3[], node:Node, target:Node) {
-
-        const children = node.parent?.children;
+        const children = node.parent?.children ?? undefined;
+        if(children === undefined) return;
         for(let i = 0; i < children.length; i++) {
             paths.push(children[i].worldPosition);
             if(children[i] == node) {

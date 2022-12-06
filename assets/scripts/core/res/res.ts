@@ -4,28 +4,9 @@ import { waitFor } from '../util/util';
 import { ResCache } from './res-cache';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = res
- * DateTime = Fri Jan 14 2022 10:19:35 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = res.ts
- * FileBasenameNoExtension = res
- * URL = db://assets/scripts/core/res/res.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class Res {
 
     public static count: number = 0;
-
-    /*
-    public static inst(prefab: Prefab, node: Node): Node {
-        var obj = instantiate(prefab);
-        obj.parent = node;
-        return obj;
-    }
-    */
 
     public static load<T extends Asset>(path: string, type: Constructor<T> | null, cb?: (err: Error | null, asset?: T | null)=>void) {
         this.count++;

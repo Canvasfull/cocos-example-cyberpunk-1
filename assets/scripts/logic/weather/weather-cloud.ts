@@ -15,8 +15,8 @@ const { ccclass, property } = _decorator;
  *
  */
  
-@ccclass('weather_cloud')
-export class weather_cloud extends Component {
+@ccclass('WeatherCloud')
+export class WeatherCloud extends Component {
     // [1]
     // dummy = '';
 

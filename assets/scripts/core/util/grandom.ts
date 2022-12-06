@@ -4,10 +4,10 @@ const { ccclass, property } = _decorator;
 /*
  *  Xn+1 =( A * Xn + C ) mod M
  */
-@ccclass('grandom')
-export class grandom {
+@ccclass('GRandom')
+export class GRandom {
 
-    prand: number = 0;
+    preValue: number = 0;
     seed: number = 0;
     c = 49297;
     a = 9301;
@@ -16,16 +16,16 @@ export class grandom {
     constructor (seed: number = -1) {
         this.seed = seed;
         if (this.seed == -1) this.seed = randomRangeInt(0, 0xffffffff);
-        this.prand = this.seed;
+        this.preValue = this.seed;
     }
 
     reset () {
-        this.prand = this.seed;
+        this.preValue = this.seed;
     }
 
     value () {
-        this.prand = (this.a * this.prand + this.c) % this.m;
-        return this.prand
+        this.preValue = (this.a * this.preValue + this.c) % this.m;
+        return this.preValue
     }
 
     get value1000 () {

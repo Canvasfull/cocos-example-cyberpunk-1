@@ -6,23 +6,10 @@ import { Level } from '../level/level';
 import { Save } from '../../core/data/save';
 import { Msg } from '../../core/msg/msg';
 
-/**
- * Predefined variables
- * Name = actor-input
- * DateTime = Fri Jan 21 2022 15:09:30 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = actor-input.ts
- * FileBasenameNoExtension = actor-inpu
- * URL = db://assets/scripts/logic/actor/actor-input.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
-
 @ccclass('ActorInput')
 export class ActorInput extends Component implements IActorInput {
 
-    _actor:IActorInput = null;
-
+    _actor:IActorInput | undefined | null;
     _isPause = false;
 
     start () {
@@ -45,8 +32,8 @@ export class ActorInput extends Component implements IActorInput {
         this._actor?.onJump();
     }
 
-    onRun(isrun:boolean) {
-        this._actor?.onRun(isrun);
+    onRun(isRun:boolean) {
+        this._actor?.onRun(isRun);
     }
 
     onCrouch() {
@@ -77,16 +64,19 @@ export class ActorInput extends Component implements IActorInput {
         this._actor?.onDrop();
     }
 
-    onPasue() {
+    onDir(x: number, y: number) {
+    }
+
+    onPause() {
 
         this._isPause = !this._isPause;
 
         if(this._isPause) {
             console.log('push level pause');
-            Msg.emit('push', 'levelpause');
+            Msg.emit('push', 'level_pause');
         }else{
             Msg.emit('back');
-            console.log('back level pasue.')
+            console.log('back level pause.')
         }
 
     }

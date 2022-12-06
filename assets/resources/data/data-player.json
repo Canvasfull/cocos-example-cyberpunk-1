@@ -36,6 +36,7 @@
     "is_prone": false,
     "is_jump": false,
     "is_attack": false,
+    "in_water": false,
     "cards":[],
     "items":[],
     "items_index":[],

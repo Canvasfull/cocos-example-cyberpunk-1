@@ -41,7 +41,7 @@ export class FxActorFallPoint extends Component {
         } else {
             this._height = 0;
         }
-        //console.log(' height ----- :', this._height);
+        
         var isShow = this._height > 0.3;
         this._line.active = isShow;
         this._fxHit.active = isShow;

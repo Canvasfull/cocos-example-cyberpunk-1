@@ -7,6 +7,6 @@ const { ccclass, property } = _decorator;
 export class ActorPart extends Component {
 
     @property(ActorBase)
-    actor:ActorBase;
+    actor:ActorBase | undefined;
 }
 

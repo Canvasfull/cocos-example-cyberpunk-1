@@ -82,7 +82,7 @@ export class ActorBuff {
         for(let i = 0; i < sound.length; i++) {
             let sfx = sound[i];
             if(sfx.loop) {
-                var idx = Sound.oning(sfx.res, sfx.volume);
+                var idx = Sound.playLoop(sfx.res, sfx.volume);
                 buff.sound.push(idx);
             }else{
                 Sound.on(sfx.res, sfx.volume)

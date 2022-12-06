@@ -13,24 +13,29 @@ const { ccclass, property } = _decorator;
 @ccclass('ActorEquipBase')
 export class ActorEquipBase extends Component {
 
-    point_shoot:Node;
+    point_shoot:Node | undefined;
 
-    _animg:ActorAnimationGraphGroup;
+    _animationGraph:ActorAnimationGraphGroup | undefined;
 
-    _view:Node;
+    _view:Node | undefined;
 
-    _bagData:BagItems;
+    _bagData:BagItems | undefined;
 
-    _data = Object.create(null);
+    _data:{ [key:string]:any } = {};
 
-    _action: ActionActorEquip;
+    _action: ActionActorEquip | undefined;
 
-    _actor: Actor;
+    _actor: Actor | undefined;
 
     __preload() {
-        this.point_shoot = this.node.getChildByName('point_shoot');
-        this._animg = this.addComponent(ActorAnimationGraphGroup);
-        this._view = this.node.getChildByName('view');
+        this.point_shoot = this.node.getChildByName('point_shoot')!;
+        this._animationGraph = this.addComponent(ActorAnimationGraphGroup)!;
+        this._view = this.node.getChildByName('view')!;
+
+        if(this.point_shoot === undefined || this._animationGraph === undefined || this._view === undefined) {
+            throw new Error(`${this.node.name} ActorEquipBase preload init error: may be lose point_shoot or animation graph or view node.`);
+        }
+
         this.node.on('do', this.do, this);
         this.node.on('init', this.init, this);
     }
@@ -56,17 +61,18 @@ export class ActorEquipBase extends Component {
     }
 
     update(deltaTime: number) {
-        this._action.update(deltaTime);
+        this._action!.update(deltaTime);
     }
 
     setActive (data: key_type_boolean) {
-        var active_node = this.node.getChildByName(data.key);
-        active_node.active = data.value;
+        const activeNode = this.node.getChildByName(data.key);
+        if(activeNode) activeNode.active = data.value;
+        else console.warn(` You want set undefined node active. ${this.node?.name}/${data.key}`);
     }
 
     setFx (data: key_type_boolean) {
-        var pnode = this.node.getChildByName(data.key);
-        var particles = pnode?.getComponentsInChildren(ParticleSystem);
+        var pNode = this.node.getChildByName(data.key);
+        var particles = pNode?.getComponentsInChildren(ParticleSystem);
         if(particles === undefined) {
             console.warn(` effect can not find ${data}`);
             return;
@@ -80,8 +86,8 @@ export class ActorEquipBase extends Component {
 
     onFx (data: string) {
         console.log(' ------ on fx', data);
-        var pnode = this.node.getChildByName(data);
-        var particles = pnode?.getComponentsInChildren(ParticleSystem);
+        var pNode = this.node.getChildByName(data);
+        var particles = pNode?.getComponentsInChildren(ParticleSystem);
         if(particles === undefined) {
             console.warn(` effect can not find ${data}`);
             return;
@@ -98,18 +104,18 @@ export class ActorEquipBase extends Component {
 
     checkUse():boolean {
         // Check bullet count.
-        if(this._bagData.bulletCount <= 0 && this._bagData.data.bullet_count !== -1) {
+        if(this._bagData!.bulletCount <= 0 && this._bagData!.data.bullet_count !== -1) {
             this.do('fire_empty');
             return false;
         }
-        const lastUseTime = this._bagData.lastUseTime;
+        const lastUseTime = this._bagData!.lastUseTime;
         const timeSpace = (game.totalTime - lastUseTime)/1000;
         return timeSpace >= this._data.damage.cooling;
 
     }
 
     updateCooding() {
-        this._bagData.lastUseTime = game.totalTime;
+        this._bagData!.lastUseTime = game.totalTime;
     }
 
     onUse() {}

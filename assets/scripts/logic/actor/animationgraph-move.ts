@@ -2,8 +2,8 @@ import { _decorator, Component, Node, animation, CCFloat, CCString } from "cc";
 import { Msg } from "../../core/msg/msg";
 const { ccclass, property } = _decorator;
 
-@ccclass("animationgraph_move")
-export class animationgraph_move extends animation.StateMachineComponent {
+@ccclass("AnimationGraphMove")
+export class AnimationGraphMove extends animation.StateMachineComponent {
 
 
     @property

@@ -1,17 +1,5 @@
-import { path, sys } from "cc";
+import { sys } from "cc";
 
-
-/**
- * Predefined variables
- * Name = io
- * DateTime = Tue Jan 11 2022 23:46:28 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = io.ts
- * FileBasenameNoExtension = io
- * URL = db://assets/scripts/core/util/io.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class IO {
     
     public static getNum (name: string): number {
@@ -63,7 +51,7 @@ export class IO {
         sys.localStorage.removeItem(name);
     }
 
-    public static exsit (path: string): boolean {
+    public static exist (path: string): boolean {
         let item = sys.localStorage.getItem(path)
         return item && item.length > 0;
     }

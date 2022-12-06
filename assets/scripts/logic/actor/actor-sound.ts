@@ -22,8 +22,8 @@ export class ActorSound extends Component {
 
         var data = this.actor._data;
         if(data.cur_speed < 0.1) return;
-        if (data.is_ingrass) {
-            Sound.on(data.sfx_walk_grass, data.cur_speed);
+        if (data.in_water) {
+            Sound.on(data.sfx_walk_water, data.cur_speed);
         } else {
             Sound.on(data.sfx_walk_ground, data.cur_speed);
         }

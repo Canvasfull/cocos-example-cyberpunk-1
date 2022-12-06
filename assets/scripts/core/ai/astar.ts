@@ -3,7 +3,7 @@ import { Singleton } from "../pattern/singleton";
 import { Stack } from "../util/data-structure";
 
 
-export class Astar extends Singleton {
+export class AStar extends Singleton {
 
     map:any[];
     start_pos;
@@ -21,7 +21,7 @@ export class Astar extends Singleton {
         [-1, -1], [0, -1], [1, -1]
     ]
 
-    _tnode:Node;
+    _tempNode:Node;
 
     _stop = true;
 
@@ -49,12 +49,12 @@ export class Astar extends Singleton {
     }
 
     setTestNode(node) {
-        this._tnode = node;
+        this._tempNode = node;
     }
 
     testNode(pos) {
-        var inst = instantiate(this._tnode);
-        inst.parent = this._tnode.parent;
+        var inst = instantiate(this._tempNode);
+        inst.parent = this._tempNode.parent;
         inst.setPosition(pos[0],0,pos[1]);
     }
 
@@ -84,7 +84,7 @@ export class Astar extends Singleton {
 
     checkCurrent(pos) {
 
-        //console.log('check current pos:', pos);
+        
 
         // Check is end pos.
         if(pos.x == this.end_pos.x && pos.z == this.end_pos.z) {
@@ -101,7 +101,7 @@ export class Astar extends Singleton {
         this.closeTable[pos.x][pos.z] = 1;
 
         var min_index = -1;
-        // Caculate around
+        // Calculate around
         for(var i = 0; i < this.dir.length; i++) {
 
             var nx = pos.x + this.dir[i][0];
@@ -119,7 +119,7 @@ export class Astar extends Singleton {
             var f = this.f_cost({'x': nx, 'z': nz}, this.end_pos);
             this.map[nx][nz].cost = f;
 
-            // Push new check point into opentable.
+            // Push new check point into open table.
             this.openTable.push([nx, nz]);
 
         }
@@ -174,7 +174,7 @@ export class Astar extends Singleton {
 
         var min_cost_pos = { 'x': -1, 'z': -1 };
 
-        // Caculate f_cost
+        // Calculate f_cost
         for(var i = 0; i < this.dir.length; i++) {
             var nx = cur_pos.x + this.dir[i][0];
             var nz = cur_pos.z + this.dir[i][1];

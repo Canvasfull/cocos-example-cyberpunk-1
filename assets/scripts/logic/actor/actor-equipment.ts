@@ -54,8 +54,8 @@ export class ActorEquipment {
                     newEquip.active = true;
                 }else{
                     const prefab = ResCache.Instance.getPrefab(curEquipName + '_fps');
-                    const bindNdoe = this.equipBoneNode[this.curData.data.bind_bone];
-                    const nodePrefab = Res.inst(prefab, bindNdoe);
+                    const bindNode = this.equipBoneNode[this.curData.data.bind_bone];
+                    const nodePrefab = Res.inst(prefab, bindNode);
                     nodePrefab.setPosition(0, 0, 0);
                     this.equipPool[curEquipName] = nodePrefab;
                 }

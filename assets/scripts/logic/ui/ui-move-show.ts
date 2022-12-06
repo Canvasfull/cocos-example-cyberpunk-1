@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, input, Input, EventMouse, Sprite, SpriteComponent, Color, color, Button, ButtonComponent, EventTouch } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('ui_move_show')
-export class ui_move_show extends Component {
+@ccclass('UIMoveShow')
+export class UIMoveShow extends Component {
 
     @property
     hiddenTime:number = 1;
@@ -58,7 +58,7 @@ export class ui_move_show extends Component {
                 var delta = deltaTime * this.hiddenSpeed;
                 this._color.a -= delta;
                 this._sprite.color = this._color.clone();
-                //console.log('start hidden:', delta, this._color.a);
+                
                 this._btn.enabled = false;
             }
             
@@ -68,7 +68,7 @@ export class ui_move_show extends Component {
                 var delta = deltaTime * this.showSpeed;
                 this._color.a += delta;
                 this._sprite.color = this._color.clone();
-                //console.log('start show:', delta, this._color.a);
+                
                 this._btn.enabled = true;
             }
             

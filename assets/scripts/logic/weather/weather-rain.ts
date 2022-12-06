@@ -15,8 +15,8 @@ const { ccclass, property } = _decorator;
  *
  */
  
-@ccclass('weather_rain')
-export class weather_rain extends Component {
+@ccclass('WeatherRain')
+export class WeatherRain extends Component {
     // [1]
     // dummy = '';
 
@@ -61,7 +61,7 @@ export class weather_rain extends Component {
         this._refresh_time -= deltaTime;
         if(this._refresh_time <= 0) {
             var wind = World.Instance._data.wind;
-            //console.log(wind);
+            
             this.setDirection(wind.x,wind.z);
             this._refresh_time = 1;
         }

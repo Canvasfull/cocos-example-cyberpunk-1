@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, SpriteComponent, Color, math } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('joystick_auto_hidden')
-export class joystick_auto_hidden extends Component {
+@ccclass('JoystickAutoHidden')
+export class JoystickAutoHidden extends Component {
 
 
     @property

@@ -1,20 +1,8 @@
 
-import { _decorator, Component, Node, JsonAsset, Prefab, TextAsset, SpriteFrame } from 'cc';
+import { _decorator, JsonAsset, Prefab, TextAsset, SpriteFrame } from 'cc';
 import { Singleton } from '../pattern/singleton';
 import { Res } from './res';
 const { ccclass, property } = _decorator;
-
-/**
- * Predefined variables
- * Name = res_cache
- * DateTime = Mon Jan 17 2022 09:49:35 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = res-cache.ts
- * FileBasenameNoExtension = res-cache
- * URL = db://assets/scripts/core/res/res-cache.ts
- * ManualUrl = https://docs.cocos.com/creator/3.6.1/manual/en/
- *
- */
 
 @ccclass('ResCache')
 export class ResCache extends Singleton {
@@ -24,9 +12,6 @@ export class ResCache extends Singleton {
     private _txt: { [name: string]: TextAsset } = {};
     private _sprite: { [name: string]: SpriteFrame } = {};
     private _callback: Function = null;
-
-    public init (): void {
-    }
 
     public load (callback: Function): void {
         this._callback = callback;
@@ -87,14 +72,12 @@ export class ResCache extends Singleton {
 
     public setPrefab (asset) {
         asset.forEach(element => {
-            //console.log(element.data.name);
             this._prefab[element.data.name] = element;
         });
     }
 
     public setText (asset) {
         asset.forEach(element => {
-            //console.log(element.name);
             this._txt[element.name] = element;
         });
     }
@@ -109,7 +92,6 @@ export class ResCache extends Singleton {
         paths.forEach(element => {
             Res.loadDirJson(element, (err, asset) => {
                 if (asset) {
-                    //console.log(asset);
                     ResCache.Instance.setJson(asset);
                 }
             });
@@ -120,7 +102,6 @@ export class ResCache extends Singleton {
         paths.forEach(element => {
             Res.loadDirPrefab(element, (err, asset) => {
                 if (asset) {
-                    //console.log('-------', asset);
                     ResCache.Instance.setPrefab(asset);
                 }
             });
@@ -131,7 +112,6 @@ export class ResCache extends Singleton {
         paths.forEach(element => {
             Res.loadDirText(element, (err, asset) => {
                 if (asset) {
-                    //console.log('------', asset);
                     ResCache.Instance.setText(asset);
                 }
             })

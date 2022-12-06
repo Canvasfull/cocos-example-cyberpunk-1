@@ -59,7 +59,7 @@ export class force_buoyance extends Component {
                 this._partical!.setLoop(false);
 
             var depth = this.sea_level - this._center.worldPosition.y;
-            //console.log(depth);
+            
             var v = depth;
             if( v > 1) v = 1;
             var force_up = v3(0, this.p * this.g * v * deltaTime);

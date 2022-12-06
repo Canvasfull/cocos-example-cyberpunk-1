@@ -6,7 +6,7 @@ export class Singleton {
     public static get Instance() {
         if(!this._instance) {
             this._instance = new this();
-            //console.log('Instance new.', this._instance);
+            
         }
         return this._instance;
     }

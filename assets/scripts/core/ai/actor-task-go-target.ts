@@ -5,11 +5,8 @@ import { ActorBase } from "../actor/actor-base";
 export class ActorTaskGoTarget extends TaskBase {
 
     name = 'ActorActionWay';
-
-    actor:ActorBase;
-
+    actor:ActorBase | undefined;
     index = 0;
-
     waypoints = [];
 
     isStart = false;
@@ -27,7 +24,7 @@ export class ActorTaskGoTarget extends TaskBase {
         if(!this.isStart) return;
         if(!this.isWait) return;
         // check arrived
-        if(Vec3.distance(this.actor._data.pos, this.waypoints[this.index].pos) < 0.1) {
+        if(Vec3.distance(this.actor!._data.pos, this.waypoints[this.index].pos) < 0.1) {
             
             if(this.index >= this.waypoints.length) {
                 this.end();
@@ -36,8 +33,8 @@ export class ActorTaskGoTarget extends TaskBase {
 
             // check actor direction.
             var dir = this.waypoints[this.index + 1].clone();
-            dir.subtract(this.actor._data.pos);
-            this.actor.setDir(dir);
+            dir.subtract(this.actor!._data.pos);
+            this.actor!.setDir(dir);
 
             // check action.
             this.onAction(this.waypoints[this.index].action);
@@ -46,8 +43,8 @@ export class ActorTaskGoTarget extends TaskBase {
 
     }
 
-    onAction(action) {
-        this.actor.do(action);
+    onAction(action: string) {
+        this.actor!.do(action);
     }
 
 }

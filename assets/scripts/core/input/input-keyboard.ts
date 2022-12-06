@@ -2,23 +2,11 @@
 import { _decorator, Component, Node, EventKeyboard, input, Input, KeyCode, game, v3, math } from 'cc';
 import { Msg } from '../msg/msg';
 import { u3 } from '../util/util';
-import { input_base } from './input-base';
+import { InputBase } from './input-base';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = joystick_keyboard
- * DateTime = Sun Jan 16 2022 19:53:41 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = joystick-keyboard.ts
- * FileBasenameNoExtension = joystick-keyboard
- * URL = db://assets/scripts/logic/input/joystick-keyboard.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
- 
 @ccclass('InputKeyboard')
-export class InputKeyboard extends input_base {
+export class InputKeyboard extends InputBase {
 
     @property
     key_jump = KeyCode.SPACE;

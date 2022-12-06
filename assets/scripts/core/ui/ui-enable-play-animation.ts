@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, CCObject, animation, AnimationComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('ui_enable_play_animation')
-export class ui_enable_play_anim extends Component {
+@ccclass('UIEnablePlayAnimation')
+export class UIEnablePlayAnimation extends Component {
 
     _anim: AnimationComponent;
 

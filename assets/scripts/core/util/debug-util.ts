@@ -42,6 +42,8 @@ export class DebugUtil extends Singleton {
     public getShowName() {
         var gdata = Game.Instance._data;
         return Local.Instance.get(gdata.debug_info[this.index]);
-    } 
+    }
+
+    
 
 }

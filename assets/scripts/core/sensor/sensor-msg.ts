@@ -1,28 +1,9 @@
-
 import { _decorator, Component, Node, Collider, ITriggerEvent, ICollisionEvent, director, game } from 'cc';
 import { Msg } from '../msg/msg';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = sensor_msg
- * DateTime = Mon Jan 24 2022 14:31:22 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = sensor-msg.ts
- * FileBasenameNoExtension = sensor-msg
- * URL = db://assets/scripts/core/sensor/sensor-msg.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
-
-@ccclass('sensor_msg')
-export class sensor_msg extends Component {
-    // [1]
-    // dummy = '';
-
-    // [2]
-    // @property
-    // serializableDummy = 0;
+@ccclass('SensorMsg')
+export class SensorMsg extends Component {
 
     _collider: Collider = null;
 
@@ -81,9 +62,7 @@ export class sensor_msg extends Component {
     onTriggerEnter (event: ITriggerEvent) {
 
         if(this.checkFilter(event.otherCollider.name)) return;
-
-        //if (this.unSafeEnter()) return;
-        //console.log('-------sensor:', this.msg, ' data:', this.data);
+        
         if (this.msg == "actor_event") {
             event.otherCollider.node.emit('do', this.data);
         } else {
@@ -133,9 +112,9 @@ export class sensor_msg extends Component {
     }
 
     unSafeEnter (): boolean {
-        const detalTime = game.totalTime - this._curTime;
+        const deltaTime = game.totalTime - this._curTime;
         if (game.totalTime - this._curTime > this._safeTime) {
-            //console.log('---------', detalTime, '-', this._safeTime);
+            
             this._curTime = game.totalTime;
             return false;
         } else {

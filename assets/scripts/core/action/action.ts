@@ -1,4 +1,4 @@
-import { randomRange, randomRangeInt, _decorator } from 'cc';
+import { randomRangeInt, _decorator } from 'cc';
 import { UI } from '../ui/ui';
 import { Sound } from '../audio/sound';
 import { Msg } from '../msg/msg';
@@ -11,24 +11,13 @@ import { ActorBase } from '../actor/actor-base';
 import { fun } from '../util/fun';
 import { ActorEquipBase } from '../../logic/actor/actor-equip-base';
 
-/**
- * Predefined variables
- * Name = action
- * DateTime = Mon Jan 17 2022 13:54:47 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = action.ts
- * FileBasenameNoExtension = action
- * URL = db://assets/scripts/core/action/action.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class Action {
 
-    _data: {} = Object.create(null);
+    _data : { [key:string]: any } = {};
     _time: number = 0;
     _index: number = 0;
     _queue: Queue<ActionGroup> = Object.create(null);
-    _act: ActionGroup = null;
+    _act: ActionGroup | undefined;
 
     constructor (name: string) {
         this._data = ResCache.Instance.getJson(name).json;
@@ -45,7 +34,6 @@ export class Action {
     }
 
     public push (name: string, state: string) {
-        //console.log('push ----------- action:', name, ' state:', state);
         var action = this._data[name];
         if (action == undefined) {
             console.warn('Undefined action:', name);
@@ -58,19 +46,21 @@ export class Action {
 
     public pop () {
         this._act = this._queue.pop();
-        //console.log('pop -------- action:', this._act);
     }
 
     public update (deltaTime: number) {
-        if (GScene.isloadScene) return;
+        if (GScene.isLoadScene) return;
         if (this._act) {
             this._act.time += deltaTime;
-            var cur = this._act.data[this._act.idx];
+            const cur = this._act?.data[this._act.idx]!;
+            if(cur === undefined || this._act === undefined) {
+                throw new Error(`Error actor action index: ${this._act?.idx}`);
+            }
             if (this._act.time >= cur.time) {
                 UtilAction.do(cur.name, cur.data);
                 this._act.idx += 1;
                 if (this._act.idx >= this._act.data.length) {
-                    this._act = null;
+                    this._act = undefined;
                 }
             }
         } else {
@@ -81,10 +71,10 @@ export class Action {
 
 export class ActionParallel {
 
-    _data: {} = Object.create(null);
+    _data : { [key:string]: any } = {};
     _time: number = 0;
     _index: number = 0;
-    _act: ActionGroup = null;
+    _act: ActionGroup | undefined;
     _actions: ActionGroup[] = [];
 
     constructor (name: string) {
@@ -142,7 +132,7 @@ export class ActionActor extends Action {
     }
 
     public update (deltaTime: number) {
-        if (GScene.isloadScene) return;
+        if (GScene.isLoadScene) return;
         if (this._act) {
             this._act.time += deltaTime;
             var length = this._act.data.length;
@@ -154,7 +144,10 @@ export class ActionActor extends Action {
     }
 
     public checkRunAction () {
-        let cur = this._act.data[this._act.idx];
+        const cur = this._act?.data[this._act.idx]!;
+        if(cur === undefined || this._act === undefined) {
+            throw new Error(`Error actor action index: ${this._act?.idx}`);
+        }
         if (this._act.time >= cur.time) {
             if (cur.delay > 0) {
                 fun.delay(() => { UtilAction.do(cur.name, cur.data, this._actor); }, cur.delay);
@@ -163,7 +156,7 @@ export class ActionActor extends Action {
             }
             this._act.idx += 1;
             if (this._act.idx >= this._act.data.length) {
-                this._act = null;
+                this._act = undefined;
             }
             this._actor.actionEnd();
             return true;
@@ -187,7 +180,7 @@ export class ActionActorEquip extends Action {
     }
 
     public update (deltaTime: number) {
-        if (GScene.isloadScene) return;
+        if (GScene.isLoadScene) return;
         if (this._act) {
             this._act.time += deltaTime;
             var length = this._act.data.length;
@@ -199,7 +192,10 @@ export class ActionActorEquip extends Action {
     }
 
     public checkRunAction () {
-        let cur = this._act.data[this._act.idx];
+        const cur = this._act?.data[this._act.idx]!;
+        if(cur === undefined || this._act === undefined) {
+            throw new Error(`Error actor action index: ${this._act?.idx}`);
+        }
         if (this._act.time >= cur.time) {
             if (cur.delay > 0) {
                 fun.delay(() => { UtilActionEquip.do(cur.name, cur.data, this._actor); }, cur.delay);
@@ -208,7 +204,7 @@ export class ActionActorEquip extends Action {
             }
             this._act.idx += 1;
             if (this._act.idx >= this._act.data.length) {
-                this._act = null;
+                this._act = undefined;
             }
             this._actor.actionEnd();
             return true;
@@ -221,7 +217,7 @@ export class ActionActorEquip extends Action {
 export class ActionQueue extends Action {
 
     public update (deltaTime: number) {
-        if (GScene.isloadScene) return;
+        if (GScene.isLoadScene) return;
         if (this._act) {
             this._act.time += deltaTime;
             let cur = this._act.data[this._act.idx];
@@ -229,7 +225,7 @@ export class ActionQueue extends Action {
                 UtilAction.do(cur.name, cur.data);
                 this._act.idx += 1;
                 if (this._act.idx >= this._act.data.length) {
-                    this._act = null;
+                    this._act = undefined;
                 }
             }
         } else {
@@ -246,7 +242,7 @@ interface ActionInfo {
 }
 
 export class ActionGroup {
-    public data: ActionInfo[] = null;
+    public data: ActionInfo[];
     public time: number = 0;
     public idx: number = 0;
 
@@ -263,8 +259,7 @@ export type action_type = number | boolean | string | key_type_boolean | key_typ
 
 export class UtilAction {
 
-    public static do (name: string, key: action_type, actor: ActorBase = null) {
-        //console.log('actor:',actor?.node.name,' --- do action:' + name + ' key:' + key);
+    public static do (name: string, key: action_type, actor: ActorBase | undefined = undefined) {
         var action = this[name];
         if (action) {
             action(key, actor);
@@ -275,16 +270,16 @@ export class UtilAction {
 
     public static on_check_preload() {
         if(GScene.isPreload)
-            GScene.isloadScene = true;
+            GScene.isLoadScene = true;
     }
 
     public static on_scene (key: string) {
-        //console.log('on_scene:' + key);
+        
         GScene.Load(key, () => { });
     }
 
     public static off_scene (key: string) {
-        //console.log('off_scene:' + key);
+        
     }
 
     public static on_ui (key: string) {
@@ -304,7 +299,7 @@ export class UtilAction {
     }
 
     public static on_sfxing(key: string, volume = 1) {
-        Sound.oning(key, volume);
+        Sound.playLoop(key, volume);
     }
 
     public static off_sfxing(key:number) {
@@ -346,8 +341,6 @@ export class UtilAction {
             obj.setPosition(0, 0, 0);
         }
 
-        //console.log('on inst key:', key, obj.parent.name, obj.scale, obj.position, obj.angle);
-
         /*
         Res.loadPrefab(key, (err, asset) => {
             if (asset) {
@@ -383,7 +376,7 @@ export class UtilAction {
         var res = data.res;
         var bone = data.bone;
         if (actor != undefined && actor._view != null) {
-            var off_fx = actor.node.getChildByName(bone).getChildByName(res);
+            var off_fx = actor.node.getChildByName(bone)?.getChildByName(res);
             if(off_fx) off_fx.emit('setDestroy'); 
         } 
     }
@@ -408,20 +401,17 @@ export class UtilAction {
         if (actor._anim)
             actor._anim.play(key);
         else
-            console.log('Not register SkeletalAniamtion');
+            console.log('Not register SkeletalAnimation');
     }
 
     public static on_anig (data: any, actor: ActorBase) {
-        if (actor._animg) {
-            var _graph = actor._animg._graph;
-            //console.log('on anig do:', data.key, data.value, _graph.getCurrentStateStatus(0));
-            actor._animg.play(data.key, data.value);
+        if (actor._animationGraph) {
+            actor._animationGraph.play(data.key, data.value);
         } else
             console.log('Not register animationGraph.');
     }
 
     public static on_set (data: key_type, actor: ActorBase) {
-        //console.log('on set ------------- ',data.key,data.value);
         actor._data[data.key] = data.value;
     }
 
@@ -452,8 +442,7 @@ export class UtilAction {
 
 export class UtilActionEquip {
 
-    public static do (name: string, key: action_type, actor: ActorEquipBase = null) {
-        //console.log('actor:',actor?.node.name,' --- do action:' + name + ' key:' + key);
+    public static do (name: string, key: action_type, actor: ActorEquipBase | undefined = undefined) {
         var action = this[name];
         if (action) {
             action(key, actor);
@@ -463,17 +452,14 @@ export class UtilActionEquip {
     }
 
     public static on_check_preload() {
-        if(GScene.isPreload)
-            GScene.isloadScene = true;
+        if(GScene.isPreload) GScene.isLoadScene = true;
     }
 
     public static on_scene (key: string) {
-        //console.log('on_scene:' + key);
         GScene.Load(key, () => { });
     }
 
     public static off_scene (key: string) {
-        //console.log('off_scene:' + key);
     }
 
     public static on_ui (key: string) {
@@ -501,7 +487,7 @@ export class UtilActionEquip {
     }
 
     public static on_sfxing(key: string, volume = 1) {
-        Sound.oning(key, volume);
+        Sound.playLoop(key, volume);
     }
 
     public static off_sfxing(key:number) {
@@ -565,7 +551,7 @@ export class UtilActionEquip {
         var res = data.res;
         var bone = data.bone;
         if (actor != undefined && actor._view != null) {
-            var off_fx = actor.node.getChildByName(bone).getChildByName(res);
+            var off_fx = actor.node.getChildByName(bone)?.getChildByName(res);
             if(off_fx) off_fx.emit('setDestroy'); 
         } 
     }
@@ -587,15 +573,11 @@ export class UtilActionEquip {
     }
 
     public static on_anig (data: any, actor: ActorEquipBase) {
-        if (actor._animg) {
-            //console.log('on anig do:', data.key, data.value, _graph.getCurrentStateStatus(0));
-            actor._animg.play(data.key, data.value);
-        } else
-            console.log('Not register animationGraph.');
+        if (actor._animationGraph) actor._animationGraph.play(data.key, data.value);
+        else console.log('Not register animationGraph.');
     }
 
     public static on_set (data: key_type, actor: ActorEquipBase) {
-        //console.log('on set ------------- ',data.key,data.value);
         actor._data[data.key] = data.value;
     }
 

@@ -2,14 +2,19 @@ import { _decorator, Component, Node, SpriteComponent } from 'cc';
 import { Msg } from '../../core/msg/msg';
 const { ccclass, property } = _decorator;
 
-@ccclass('UiAimRange')
-export class UiAimRange extends Component {
+@ccclass('UIAimRange')
+export class UIAimRange extends Component {
 
-    sprite:SpriteComponent;
+    sprite:SpriteComponent | undefined | null;
 
     start() {
         this.sprite = this.getComponent(SpriteComponent);
-        Msg.onbind('msg_update_aim', this.updateAim, this);
+
+        if(this.sprite == undefined) {
+            throw new Error(`${this.node.name} node UIAimRange can not find sprite component.`);
+        }
+
+        Msg.bind('msg_update_aim', this.updateAim, this);
         this.updateAim(0);
     }
   

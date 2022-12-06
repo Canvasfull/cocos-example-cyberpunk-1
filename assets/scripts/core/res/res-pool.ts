@@ -5,8 +5,8 @@ import { Res } from './res';
 import { ResCache } from './res-cache';
 const { ccclass, property } = _decorator;
 
-@ccclass('res_pool')
-export class res_pool extends Singleton {
+@ccclass('ResPool')
+export class ResPool extends Singleton {
 
     _root:Node = null;
 
@@ -15,7 +15,7 @@ export class res_pool extends Singleton {
     public init() {
     }
 
-    public initpool(root:Node) {
+    public initPool(root:Node) {
         this._root = root;
         Msg.on('pool_recycle', this.pool_recycle.bind(this));
     }
@@ -110,7 +110,7 @@ export class pool {
     }
 
     public push(obj:Node) {
-        //console.log('push node:', obj.name, obj['pool_index']);
+        
         obj.active = false;
         var poolindex = obj['pool_index'];
         this._state[poolindex] = 1;

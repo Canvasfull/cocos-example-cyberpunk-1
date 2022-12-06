@@ -1,10 +1,10 @@
 import { _decorator, Component, Node, find, Camera, input, Input, EventTouch, director, PhysicsSystem, EventMouse, geometry, v2 } from 'cc';
 import { Msg } from '../msg/msg';
-import { input_base } from './input-base';
+import { InputBase } from './input-base';
 const { ccclass, property } = _decorator;
 
-@ccclass('input_mouse')
-export class input_mouse extends input_base {
+@ccclass('InputMouse')
+export class InputMouse extends InputBase {
 
     _ray: geometry.Ray = new geometry.Ray();
     _screenPos = v2(0, 0);
@@ -18,7 +18,7 @@ export class input_mouse extends input_base {
         if (cameraCtr) {
             this._camera = cameraCtr.children[0].children[0].getComponent(Camera);
         } else {
-            console.warn('Can not find camera-contorller.');
+            console.warn('Can not find camera-controller.');
         }
         input.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
         input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -36,7 +36,7 @@ export class input_mouse extends input_base {
     }
 
     onTouchStart (event: EventTouch) {
-        this._actor_input?.onStart(); 
+        //this._actorInput?.onStart(); 
     }
 
     onTouchMove (event: EventTouch) {
@@ -49,7 +49,7 @@ export class input_mouse extends input_base {
             var hit = res.hitPoint;
             hit.subtract(res.collider.node.worldPosition);
             hit.y = 0;
-            this._actor_input?.onMove(hit, undefined);
+            //this._actorInput?.onMove(hit, undefined);
         }
     }
 
@@ -63,16 +63,16 @@ export class input_mouse extends input_base {
             var hit = res.hitPoint;
             hit.subtract(res.collider.node.worldPosition);
             hit.y = 0;
-            this._actor_input?.onMove(hit, undefined);
+            //this._actorInput?.onMove(hit, undefined);
         }
     }
 
     onTouchEnd (event: EventTouch) {
-        this._actor_input?.onEnd();
+        //this._actorInput?.onEnd();
     }
 
     onTouchCancel(event: EventTouch) {
-        this._actor_input?.onEnd();
+        //this._actorInput?.onEnd();
     }
 
 }

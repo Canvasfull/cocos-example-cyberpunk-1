@@ -10,31 +10,20 @@ import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = level
- * DateTime = Wed Feb 16 2022 16:07:08 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = level.ts
- * FileBasenameNoExtension = level
- * URL = db://assets/scripts/logic/game-car/level.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class Level extends Singleton {
 
-    _player: Node = null;
-    _enmeys:Node = null;
-    _action: Action = null;
-    _data = null;
+    _player: Node | undefined;
+    _enemyList:Node | undefined;
+    _action: Action | undefined;
+    _data:{[key:string]:any} = {};
     _time: number = 0;
     _score: number = 0;
-    _actor:Actor = null;
+    _actor:Actor | undefined;
     _isStart = false;
     _spawns = [];
     _cur_spawn_idx = 0;
     _update = null;
-    _node:Node = null;
+    _node:Node | undefined;
     _spawn_pos = v3(0, 0, 0);
 
     public init (): void {
@@ -64,7 +53,7 @@ export class Level extends Singleton {
         console.log(this._spawns);
     }
 
-    public randomSpwans() {
+    public randomSpawns() {
         this._cur_spawn_idx = randomRangeInt(0, this._spawns.length);
         var spawn = this._spawns[this._cur_spawn_idx]; 
         u3.c(this._spawn_pos, spawn.position);
@@ -77,14 +66,17 @@ export class Level extends Singleton {
         console.log('-----------------on level event:', name)
         this._isStart = true;
         this._time = 0;
-        this._action.on(name);
+        this._action!.on(name);
     }
 
     public addPlayer () {
-        this.randomSpwans();
+        this.randomSpawns();
         const prefab = ResCache.Instance.getPrefab('player');
-        this._player = Res.inst(prefab, null, this._spawn_pos);
-        this._actor = this._player.getComponent(Actor);
+        this._player = Res.inst(prefab, undefined, this._spawn_pos);
+        this._actor = this._player.getComponent(Actor)!;
+        if (this._actor === null ) {
+            throw new Error(`Level add player can not bind Actor Component.`);
+        }
     }
 
     public addEnemy(name:string) {
@@ -93,26 +85,31 @@ export class Level extends Singleton {
 
     public addDrop(res:string, pos:Vec3 | undefined) {
         if(pos == undefined) {
-            this.randomSpwans();
+            this.randomSpawns();
             pos = this._spawn_pos;
         } 
         const prefab = ResCache.Instance.getPrefab('drop_item');
-        const dropNode = Res.inst(prefab, null, pos);
+        const dropNode = Res.inst(prefab, undefined, pos);
         const drop = dropNode.getComponent(DropItem);
+
+        if(drop === null) {
+            throw new Error(`Drop node can not add component Drop Item.`);
+        }
+
         drop.init(res);
 
     }
 
     public addObj(res:string) {
-        this.randomSpwans();
+        this.randomSpawns();
         var prefab = ResCache.Instance.getPrefab(res);
-        var objNode = Res.inst(prefab, null, this._spawn_pos);
+        var objNode = Res.inst(prefab, undefined, this._spawn_pos);
         return objNode;
     }
 
     public update (deltaTime: number): void {
         if(!this._isStart) return;
-        this._action.update(deltaTime);
+        this._action!.update(deltaTime);
     }
 
     public saveWin () {

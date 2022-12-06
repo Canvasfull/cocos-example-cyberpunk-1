@@ -1,8 +1,8 @@
 import { _decorator, Component, Collider, ITriggerEvent, ICollisionEvent, animation } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('sensor_anig')
-export class sensor_anig extends Component {
+@ccclass('SensorAnig')
+export class SensorAnig extends Component {
 
     _collider: Collider = null;
 

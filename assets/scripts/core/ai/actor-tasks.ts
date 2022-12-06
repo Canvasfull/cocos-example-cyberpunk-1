@@ -7,7 +7,7 @@ export class TaskBase implements ITask {
     isWait: boolean = false;
     tasks:ITask[] = [];
     
-    onComplateFun:Function = null;
+    onCompleteFun:Function | undefined = undefined;
 
     add(...tasks:ITask[]) {
         for(let i = 0; i < tasks.length; i++) {
@@ -42,11 +42,11 @@ export class TaskBase implements ITask {
     end() {
         this.isStart = false
         this.isWait = false;
-        if(this.onComplateFun != null) {
-            this.onComplateFun();
-            console.log('on complate:', this);
+        if(this.onCompleteFun != null) {
+            this.onCompleteFun();
+            console.log('on complete:', this);
         }
-        this.onComplateFun = null;
+        this.onCompleteFun = undefined;
 
         console.log('on end:', this.name, game.frameTime);
     }
@@ -57,8 +57,8 @@ export class TaskBase implements ITask {
         }
     }
 
-    onComplate(call:Function) {
-        this.onComplateFun = call;
+    onComplete(call:Function) {
+        this.onCompleteFun = call;
     }
 }
 

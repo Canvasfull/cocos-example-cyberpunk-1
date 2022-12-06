@@ -5,15 +5,15 @@ import { Local } from '../../core/local/local';
 import { Msg } from '../../core/msg/msg';
 import { ActorEquipBase } from './actor-equip-base';
 import { ActorPart } from './actor-part';
-import { calculateDamage } from './damge-core';
+import { calculateDamage } from './damage-core';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorHandgun')
 export class ActorHandgun extends ActorEquipBase {
 
     onFire() {
-        this._bagData.bulletCount--;
-        const forwardNode = this._actor._forwardNode;
+        this._bagData!.bulletCount--;
+        const forwardNode = this._actor!._forwardNode;
         const origin = forwardNode.worldPosition;
         const dir = forwardNode.forward;
         let ray = new geometry.Ray(origin.x, origin.y, origin.z, dir.x, dir.y , dir.z);

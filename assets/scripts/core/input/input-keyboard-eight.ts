@@ -1,11 +1,11 @@
 import { _decorator, EventKeyboard, input, Input, KeyCode, game, v3, clamp, EventMouse, EventTouch, Canvas, v2, sys } from 'cc';
 import { Msg } from '../msg/msg';
 import { u3 } from '../util/util';
-import { input_base } from './input-base';
+import { InputBase } from './input-base';
 const { ccclass, property } = _decorator;
 
-@ccclass('input_keyboard_eight')
-export class input_keyboard_eight extends input_base {
+@ccclass('InputKeyboardEight')
+export class InputKeyboardEight extends InputBase {
 
     move_a = 50;
     move_speed = 50;
@@ -67,7 +67,7 @@ export class input_keyboard_eight extends input_base {
         this._key_count++;
 
         if(event.keyCode == KeyCode.KEY_Q) {
-            Msg.emit('push', "selectequips");
+            Msg.emit('push', "select_equips");
             this._pressQ = true;
             return;
         }
@@ -78,14 +78,14 @@ export class input_keyboard_eight extends input_base {
         if(event.keyCode == KeyCode.KEY_D || event.keyCode == KeyCode.ARROW_RIGHT) this.onMove(1, 0);
 
 
-        if(event.keyCode == KeyCode.SPACE) this._actor_input?.onJump();
-        if(event.keyCode == KeyCode.KEY_C) this._actor_input?.onCrouch();
-        if(event.keyCode == KeyCode.KEY_Z) this._actor_input?.onProne();
-        if(event.keyCode == KeyCode.KEY_E) this._actor_input?.onPick();
-        if(event.keyCode == KeyCode.KEY_G) this._actor_input?.onDrop();
-        if(event.keyCode == KeyCode.KEY_R) this._actor_input?.onReload();
+        if(event.keyCode == KeyCode.SPACE) this._actorInput?.onJump();
+        if(event.keyCode == KeyCode.KEY_C) this._actorInput?.onCrouch();
+        if(event.keyCode == KeyCode.KEY_Z) this._actorInput?.onProne();
+        if(event.keyCode == KeyCode.KEY_E) this._actorInput?.onPick();
+        if(event.keyCode == KeyCode.KEY_G) this._actorInput?.onDrop();
+        if(event.keyCode == KeyCode.KEY_R) this._actorInput?.onReload();
 
-        if(event.keyCode == KeyCode.SHIFT_LEFT) this._actor_input?.onRun(true);
+        if(event.keyCode == KeyCode.SHIFT_LEFT) this._actorInput?.onRun(true);
 
     }
 
@@ -116,7 +116,7 @@ export class input_keyboard_eight extends input_base {
 
 
         if(this._dir.x == 0 && this._dir.z == 0) this.onMoveEnd();
-        if(event.keyCode == KeyCode.SHIFT_LEFT) this._actor_input?.onRun(false);
+        if(event.keyCode == KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
         if(event.keyCode == KeyCode.ESCAPE) {
             if(document.pointerLockElement && sys.isBrowser) {
                 document.exitPointerLock();
@@ -124,7 +124,7 @@ export class input_keyboard_eight extends input_base {
                 this.onMoveEnd();
             }
             console.log('on key up:', event.keyCode, this.node.uuid);
-            this._actor_input?.onPasue();
+            this._actorInput?.onPause();
         }
 
     }
@@ -138,7 +138,7 @@ export class input_keyboard_eight extends input_base {
         }
        
         if(event.getButton() == 0) {
-            this._actor_input?.onFire();
+            this._actorInput?.onFire();
         }
         
     }
@@ -152,12 +152,12 @@ export class input_keyboard_eight extends input_base {
             return;
         }
         //console.log(event.movementX, event.movementY, event.getDeltaX(), event.getDeltaY());
-        this._actor_input?.onRotation(event.movementX / 5, event.movementY / 10);
+        this._actorInput?.onRotation(event.movementX / 5, event.movementY / 10);
     }
 
     onTouchMove(event: EventTouch) {
-        //this._actor_input?.onRotation(event.getDeltaX() / 5, event.getDeltaY()/ 5);
-        this._actor_input?.onRotation(event.getDeltaX() / 5, event.getDeltaY() / 10);
+        //this._actorInput?.onRotation(event.getDeltaX() / 5, event.getDeltaY()/ 5);
+        this._actorInput?.onRotation(event.getDeltaX() / 5, event.getDeltaY() / 10);
     }
 
     onMove(x:number, z:number) {
@@ -187,7 +187,7 @@ export class input_keyboard_eight extends input_base {
         this._move_v3.normalize().multiplyScalar(this._move);
 
         if(this._move_v3.length() != 0) u3.c(this._move_dir, this._move_v3);
-        this._actor_input?.onMove(this._move_v3);
+        this._actorInput?.onMove(this._move_v3);
     }
 
     update(deltaTime:number) {

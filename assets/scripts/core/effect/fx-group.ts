@@ -2,54 +2,56 @@ import { _decorator, Component, Node, ParticleSystem } from 'cc';
 import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
 
-@ccclass('fx_group')
-export class fx_group extends Component {
+@ccclass('FxGroup')
+export class FxGroup extends Component {
 
-    _particals:ParticleSystem[];
+    _particles:ParticleSystem[] | undefined;
 
     _loop:boolean = true;
 
     @property
-    delay_time = 1.3
+    delayTime = 3;
 
     start() {
 
-        this._particals = this.node.getComponentsInChildren(ParticleSystem);
-
+        this._particles = this.node.getComponentsInChildren(ParticleSystem);
         this.node.on('setDestroy', this.setDestroy, this);
-
         this.play(true);
+
+        if(this._particles === undefined || this._particles.length <= 0) {
+            throw new Error(`This node ${this.node.name} can not find particles.`);
+        }
 
     }
 
     onDestroy() {
-        this.node.off('setDestory', this.setDestroy, this);
+        this.node.off('setDestroy', this.setDestroy, this);
     }
 
     setLoop(value:boolean) {
 
-        for(var i = 0; i < this._particals.length; i++) {
-            this._particals[i].loop = value;
+        for(var i = 0; i < this._particles!.length; i++) {
+            this._particles![i].loop = value;
         }
         this._loop = value
     }
 
     setEnable(value:boolean) {
-        for(var i = 0; i < this._particals.length; i++) {
-            this._particals[i].enabled = value;
+        for(var i = 0; i < this._particles!.length; i++) {
+            this._particles![i].enabled = value;
         }
     }
 
 
     stop(value:boolean) {
-        for(var i = 0; i < this._particals.length; i++) {
-            this._particals[i].stop();
+        for(var i = 0; i < this._particles!.length; i++) {
+            this._particles![i].stop();
         }
     }
 
     play(value:boolean) {
-        for(var i = 0; i < this._particals.length; i++) {
-            this._particals[i].play();
+        for(var i = 0; i < this._particles!.length; i++) {
+            this._particles![i].play();
         }
     }
 
@@ -58,7 +60,7 @@ export class fx_group extends Component {
         this.setLoop(false);
         fun.delay(()=>{
             this.node?.destroy();
-        }, this.delay_time);
+        }, this.delayTime);
 
     }
 

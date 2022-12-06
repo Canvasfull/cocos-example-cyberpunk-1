@@ -7,7 +7,7 @@ export interface IActorEquip {
 }
 
 export class DamageData {
-    hitPart:string;
-    hitDistance:number;
+    hitPart:string | undefined;
+    hitDistance:number | undefined;
     fireData:any;
 }

@@ -1,27 +1,9 @@
 
 import { _decorator, Component, Node, EventKeyboard, EventMouse, EventTouch, input, Input, KeyCode } from 'cc';
 const { ccclass, property } = _decorator;
-
-/**
- * Predefined variables
- * Name = joystick
- * DateTime = Fri Jan 14 2022 19:16:30 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = joystick.ts
- * FileBasenameNoExtension = joystick
- * URL = db://assets/scripts/core/input/joysitck.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
  
 @ccclass('Joystick')
 export class Joystick extends Component {
-    // [1]
-    // dummy = '';
-
-    // [2]
-    // @property
-    // serializableDummy = 0;
 
     start () {
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);

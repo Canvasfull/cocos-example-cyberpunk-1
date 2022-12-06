@@ -7,8 +7,8 @@ import { GScene } from '../../core/scene/g-scene';
 const { ccclass, type, property } = _decorator;
 
 
-@ccclass('preload')
-export class preload extends Component {
+@ccclass('Preload')
+export class Preload extends Component {
     @property
     initGame = false
 
@@ -137,7 +137,7 @@ export class preload extends Component {
         }
 
         GScene.isPreload = false;
-        GScene.isloadScene = false;
+        GScene.isLoadScene = false;
 
         await new Promise(resolve => {
             setTimeout(() => {

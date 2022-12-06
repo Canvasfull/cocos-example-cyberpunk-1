@@ -1,7 +1,7 @@
 
 import { _decorator, Component, Node, find, Vec3, v3 } from 'cc';
 import { Msg } from '../../core/msg/msg';
-import { GVec3 } from '../../core/util/gmath';
+import { GVec3 } from '../../core/util/g-math';
 import { u3 } from '../../core/util/util';
 import { SmoothLocalZ } from './smooth-local-z';
 const { ccclass, property } = _decorator;
@@ -45,8 +45,8 @@ export class CameraController extends Component {
         u3.c(this._pos, this._target);
         this.node.setWorldPosition(this._target);
         this.controlZ = this.node.children[0].children[0].getComponent(SmoothLocalZ);
-        Msg.onbind('set_camera_len', this.setLen, this);
-        Msg.onbind('set_offset_scale', this.setOffsetScale, this);
+        Msg.bind('set_camera_len', this.setLen, this);
+        Msg.bind('set_offset_scale', this.setOffsetScale, this);
 
         console.log('camera controller:', this.node.worldPosition);
     }
@@ -57,12 +57,12 @@ export class CameraController extends Component {
     }
 
     setLen (offset: number) {
-        //console.log(' -------- offset ---------  :', offset);
+        
         this.controlZ.setOffset(offset);
     }
 
     setOffsetScale (scale: number) {
-        //console.log(' -------- scale ---------  :', scale);
+        
         //this._offsetZScale = 1 - scale;
     }
 

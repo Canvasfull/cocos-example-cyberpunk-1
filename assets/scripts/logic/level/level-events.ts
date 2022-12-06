@@ -2,10 +2,10 @@ import { _decorator, Component, Node } from 'cc';
 import { Level } from './level';
 const { ccclass, property } = _decorator;
 
-@ccclass('level_events')
-export class level_events extends Component {
+@ccclass('LevelEvents')
+export class LevelEvents extends Component {
 
-    _events = null
+    _events:{ [key:string]:any } = {};
     _time = 0;
     _index = 0;
 

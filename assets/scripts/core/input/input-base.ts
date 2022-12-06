@@ -4,13 +4,21 @@ import { IActorInput } from './IActorInput';
 
 const { ccclass, property } = _decorator;
 
-@ccclass('input_base')
-export class input_base extends Component {
+@ccclass('InputBase')
+export class InputBase extends Component {
 
-    _actor_input:IActorInput;
+    _actorInput:IActorInput | undefined | null;
+
+    onStart() {
+    }
+
+    onEnd() {}
 
     onEnable() {
-        this._actor_input = this.node.parent.getComponent(ActorInput);
+        this._actorInput = this.node.parent?.getComponent(ActorInput);
+        if(this._actorInput == undefined || this._actorInput == null) {
+            throw new Error(`Not find Actor Input. node is : ${this.node.name}`);
+        }
     }
 
 }

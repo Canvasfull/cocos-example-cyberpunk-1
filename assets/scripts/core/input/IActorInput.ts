@@ -11,7 +11,7 @@ export interface IActorInput {
     onReload();
     onPick();
     onDrop();
-    onRun(isrun:boolean);
+    onRun(isRun:boolean);
     onEquip(index:number);
-    onPasue();
+    onPause();
 }

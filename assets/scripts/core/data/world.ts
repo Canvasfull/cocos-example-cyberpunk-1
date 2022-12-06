@@ -1,4 +1,4 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator } from 'cc';
 import { Action } from '../action/action';
 import { Singleton } from '../pattern/singleton';
 import { ResCache } from '../res/res-cache';
@@ -11,10 +11,8 @@ export class World extends Singleton {
     _action: Action = null;
     
     public init(): void {
-        
         this._data = ResCache.Instance.getJson('data-actor-world').json;
         this._action = new Action(this._data['action']);
-
     }
 
     do(name: string) {

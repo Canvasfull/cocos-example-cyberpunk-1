@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, tween, Color, SpriteComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('UIFadein')
-export class UIFadein extends Component {
+@ccclass('UIFadeIn')
+export class UIFadeIn extends Component {
 
     @property
     time = 1;
@@ -15,7 +15,7 @@ export class UIFadein extends Component {
 
     _sprite: SpriteComponent = Object.create(null);
 
-    onEable () {
+    onEnable () {
         this.tweenUpdateColor();
     }
 

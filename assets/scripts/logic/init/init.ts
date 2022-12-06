@@ -17,7 +17,7 @@ export class Init extends Component {
 
     start () {
         // [3]
-        Log.info('init game start');
+        Log.info('init game start.');
         director.addPersistRootNode(this.node);
         ResCache.Instance.load(Game.Instance.init.bind(Game.Instance));
 

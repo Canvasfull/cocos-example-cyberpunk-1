@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, game } from 'cc';
+import { _decorator, game } from 'cc';
 import { DataEquipInst, Game } from '../../core/data/game';
 import { Msg } from '../../core/msg/msg';
 import { Level } from '../level/level';
@@ -21,7 +21,6 @@ export class ActorBag {
         for(let i = 0; i < bags.length; i++) {
             this.pickedItem(bags[i]);
         }
-
     }
 
     public checkIsFull():number {
@@ -53,7 +52,7 @@ export class ActorBag {
         const curIndex = this._actor._data.cur_equip_bag_index;
         const data = this._actor._data.items_index;
         if(curIndex != -1) {
-            this._actor._actorEquipment.unEquip();
+            this._actor._actorEquipment?.unEquip();
             const name = data[curIndex];
             this._actor._data.items[name] = undefined;
             const pos = this._actor.node.worldPosition;

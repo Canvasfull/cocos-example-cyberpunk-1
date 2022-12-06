@@ -22,7 +22,7 @@ export class ActorPhysicalSkin extends Component {
     lateUpdate(deltaTime:number) {
         if(this.sensor.checked) {
             this.rigid.getLinearVelocity(this.velocity); 
-            // change move diretion.
+            // change move direction.
             const position = this.node.worldPosition;
             this.dir.x = this.sensor.hitPoint.x - position.x;
             this.dir.z = this.sensor.hitPoint.z - position.z;

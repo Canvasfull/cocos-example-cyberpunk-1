@@ -6,19 +6,12 @@ import { Res } from "../res/res";
 import { find } from "cc";
 import { Msg } from '../msg/msg';
 import { Game } from '../../core/data/game';
-import { TaskRuner } from '../task/task';
 
-/**
- * 
- */
 export class UI extends Singleton {
-
     private _map: { [name: string]: UIBase } = {};
     public node: Node = null;
-
     public init() {
-        //Log.info('init ui.');
-        this.node = find('canvas');
+        this.node = find('init/canvas');
         director.addPersistRootNode(this.node);
         Msg.on('refresh_ui', this.refresh.bind(this));
     }
@@ -30,7 +23,6 @@ export class UI extends Singleton {
     }
 
     public on(name: string) {
-        
         var load = async ()=>{
             const panel = this._map[name];
             if(panel) {
@@ -38,45 +30,32 @@ export class UI extends Singleton {
             }else{
                 Res.loadPrefab('ui/'+name,(err, asset)=>{
                     if(asset) {
-                        var objpanel = Res.inst(asset, UI.Instance.node);
-                        //console.log(Game.Instance._data.ui_order);
-                        var order = Game.Instance._data.ui_order[name];
-                        objpanel.setPosition(0, 0, order);
-    
-                        // Insert ui.
+                        const panel = Res.inst(asset, UI.Instance.node);
+                        const order = Game.Instance._data.ui_order[name];
+                        panel.setPosition(0, 0, order);
                         let set = false;
                         var count = UI.Instance.node.children.length;
                         for(let i = 1; i < count; i++) {
-                            let tui = this.node.children[i];
-                            //console.log('ui order log:', tui.name, tui.position.z, order);
-                            if(tui.position.z > order) {
+                            let child = this.node.children[i];
+                            if(child.position.z > order) {
                                 let ui_order = i;
-                                objpanel.setSiblingIndex(ui_order);
-                                //console.log('ui order set:', tui.position.z, objpanel.position.z, ui_order, this.node.children);
+                                panel.setSiblingIndex(ui_order); 
                                 set = true;
                                 break;
                             }
                         }
-    
-                        if(!set) {
-                            objpanel.setSiblingIndex(count);
-                        }
-    
-                        //console.log('ui order:', this.node.children);
-    
-                        var uipanel = new UIBase(objpanel);
-                        uipanel.on();
-                        this._map[name] = uipanel;
+                        if(!set) panel.setSiblingIndex(count);
+                        const uiBase = new UIBase(panel);
+                        uiBase.on();
+                        this._map[name] = uiBase;
                         
                     }else{
-                        Log.warn('Can not load res. - ' + name);
+                        Log.warn('Can not load res : ' + name);
                     }
                 });
             }
         };
-
         load();
-        
     }
 
     public off(name: string) {
@@ -84,7 +63,7 @@ export class UI extends Singleton {
         if(panel) {
             panel.off();
         }else{
-            Log.warn('You want off a ui object that does not exist. - ' + name);
+            Log.warn('You want off a ui object that does not exist : ' + name);
         }
     }
     

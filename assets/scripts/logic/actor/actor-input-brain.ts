@@ -5,18 +5,21 @@ import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
 import { Save } from '../../core/data/save';
 import { Msg } from '../../core/msg/msg';
-import { ActorEnemy } from './actor-enmey';
+import { ActorEnemy } from './actor-enemy';
 
 
 @ccclass('ActorInputBrain')
 export class ActorInputBrain extends Component implements IActorInput {
 
-    _actor:IActorInput = null;
+    _actor:IActorInput | undefined | null;
 
     _isPause = false;
 
     start () {
-        this._actor = this.getComponent(ActorEnemy)
+        this._actor = this.getComponent(ActorEnemy);
+        if(this._actor === null) {
+            throw new Error(`${this.node.name} node can not find ActorEnemy`);
+        }
     }
 
     onMove(move:Vec3) {
@@ -35,8 +38,8 @@ export class ActorInputBrain extends Component implements IActorInput {
         this._actor?.onJump();
     }
 
-    onRun(isrun:boolean) {
-        this._actor?.onRun(isrun);
+    onRun(isRun:boolean) {
+        this._actor?.onRun(isRun);
     }
 
     onCrouch() {
@@ -67,16 +70,16 @@ export class ActorInputBrain extends Component implements IActorInput {
         this._actor?.onDrop();
     }
 
-    onPasue() {
+    onPause() {
 
         this._isPause = !this._isPause;
 
         if(this._isPause) {
             console.log('push level pause');
-            Msg.emit('push', 'levelpause');
+            Msg.emit('push', 'level_pause');
         }else{
             Msg.emit('back');
-            console.log('back level pasue.')
+            console.log('back level pause.')
         }
 
     }

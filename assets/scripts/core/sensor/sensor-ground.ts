@@ -3,26 +3,9 @@ import { Actor } from '../../logic/actor/actor';
 import { u3 } from '../util/util';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = sensor_ground
- * DateTime = Tue Mar 08 2022 19:18:21 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = sensor-ground.ts
- * FileBasenameNoExtension = sensor-ground
- * URL = db://assets/scripts/core/sensor/sensor-ground.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
-
-@ccclass('sensor_ground')
+@ccclass('SensorGround')
 export class SensorGround extends Component {
-    // [1]
-    // dummy = '';
 
-    // [2]
-    // @property
-    // serializableDummy = 0;
     _collider: Collider = Object.create(null);
     _actor: Actor;
     _isGround = false;

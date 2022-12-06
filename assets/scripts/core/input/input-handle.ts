@@ -4,17 +4,6 @@ import { Msg } from '../msg/msg';
 import { Res } from '../res/res';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = input-handle
- * DateTime = Fri Jan 14 2022 19:16:30 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = RoleController.ts
- * FileBasenameNoExtension = RoleController
- * URL = db://assets/scripts/core/input/RoleController.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class InputHandle {
 
     static _map = Object.create(null);

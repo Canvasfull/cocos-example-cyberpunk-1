@@ -17,7 +17,7 @@ export class GM {
             Save.Instance.clear_data(data[1]);
         }
         this._dic['delete_all'] = (data: string) => {
-            Save.Instance.deletaAllArchive();
+            Save.Instance.deleteAllArchive();
         }
         this._dic['clear_by_key'] = (data: string) => {
             Save.Instance.clearByKey(data[1]);
@@ -27,21 +27,21 @@ export class GM {
         }
         this._dic['app'] = (data: string) => {
             var info = data[1].split(':');
-            Electron.sendAsyn(info[0], info[1]);
+            Electron.sendAsync(info[0], info[1]);
         }
 
     }
 
     static deleteAll () {
-        Save.Instance.deletaAllArchive();
+        Save.Instance.deleteAllArchive();
     }
 
     public static run (data: string) {
-        const cmds = data.split(' ');
-        const cmd = cmds[0];
+        const cmdList = data.split(' ');
+        const cmd = cmdList[0];
         let cmdFun = this._dic[cmd];
         if (cmdFun) {
-            cmdFun(cmds);
+            cmdFun(cmdList);
         }
     }
 

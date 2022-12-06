@@ -1,11 +1,10 @@
 import { Singleton } from "../pattern/singleton"
-import { GMath } from '../util/gmath';
+import { GMath } from '../util/g-math';
 import { IO } from "../io/io";
 import { UtilArray } from "../util/util";
 import { JsonTool } from "../io/json-tool";
 import { Msg } from "../msg/msg";
 import { Achievement } from "./achievement";
-import Electron from "../app/Electron";
 import { Game } from "./game";
 import { JsonAsset } from "cc";
 import { Notify } from "../io/notify";
@@ -34,23 +33,23 @@ export class Save extends Singleton {
     _archiveKey = 'archive_list';
     _archiveList: string[] = null;
 
-    _savejson = null;
+    _saveJson = null;
     _backup_counter = 0;
 
     get PlayerID() {
-        if(this._cur.playerid == undefined) this._cur.playerid = 27;
-        return this._cur.playerid;
+        if(this._cur.player_id == undefined) this._cur.player_id = 27;
+        return this._cur.player_id;
     }
 
     public init (): void {
 
-        this._savejson = ResCache.Instance.getJson('data-save').json;
-        console.log(this._savejson);
+        this._saveJson = ResCache.Instance.getJson('data-save').json;
+        console.log(this._saveJson);
 
-        if (!IO.exsit(this._archiveKey + '.json')) {
+        if (!IO.exist(this._archiveKey + '.json')) {
             console.log('************ create new _archive key');
             this._archiveList = [];
-            this.newArchive(this._savejson);
+            this.newArchive(this._saveJson);
         } else {
             console.log('read archive.');
             this._archiveList = JsonTool.toIOObject(this._archiveKey);
@@ -58,7 +57,7 @@ export class Save extends Singleton {
             this.loadArchive(this._uuid);
             console.log('read uuid key:', this._uuidKey);
             this._uuid = IO.read(this._uuidKey + '.json');
-            console.log('load arcive:', this._uuid);
+            console.log('load archive:', this._uuid);
         }
         Msg.on('msg_stat_times', this.statisticsTimes.bind(this));
         Msg.on('msg_stat_time', this.statisticsTime.bind(this));
@@ -94,8 +93,8 @@ export class Save extends Singleton {
         return this._archiveList.length > 0;
     }
 
-    public newArchive (savejson) {
-        this._cur = savejson.json;
+    public newArchive (saveJson) {
+        this._cur = saveJson.json;
         this._uuid = GMath.uuid();
         this._archiveList.push(this._uuid);
         IO.write(this._uuidKey + '.json', this._uuid);
@@ -109,8 +108,8 @@ export class Save extends Singleton {
         let read_data = IO.read(name + '.json');
         console.log(name, read_data);
         if(read_data == undefined) {
-            console.error('can not read data uuidkey:', this._uuid);
-            this._cur = Object.assign(this._savejson);
+            console.error('can not read data uuid key:', this._uuid);
+            this._cur = Object.assign(this._saveJson);
         }else{
             this._cur = JsonTool.toObject(read_data) as IArchive;
         }
@@ -132,7 +131,7 @@ export class Save extends Singleton {
         IO.delete(name + '.json');
     }
 
-    public deletaAllArchive () {
+    public deleteAllArchive () {
         if (this._archiveList) {
             this._archiveList.forEach(element => {
                 IO.delete(element + '.json');
@@ -186,17 +185,17 @@ export class Save extends Singleton {
     }
 
     public getModeMaps() {
-        var modelname = Game.Instance._data.modes[this._cur.mapModeIndex];
+        var modelName = Game.Instance._data.modes[this._cur.mapModeIndex];
         var index = this._cur.mapIndex;
-        var maps = this._cur[modelname];
-        var mapindex = 0;
+        var maps = this._cur[modelName];
+        var mapIndex = 0;
         for(let i = 0; i < maps.length; i++) {
             if(maps[i].name == this._cur.mapName) {
-                mapindex = i;
+                mapIndex = i;
                 break;
             }
         }
-        return maps[mapindex];
+        return maps[mapIndex];
     }
 
     public saveWin (star: number, time: number) {
@@ -208,29 +207,6 @@ export class Save extends Singleton {
             console.log(' ----- undefined map Index.');
             return;
         }
-        var map = this.getModeMaps();
-        if(map.score == undefined || (star > 0 && map.score <= star)) {
-            map.score = star;
-            map.state = MapStateEnum.pass;
-            if(map.wintimes == undefined) map.wintimes = 0;
-            map.wintimes++;
-            this._cur.select_level = index;
-            this.unlockConnect(index);
-            this.calculateStar();
-        }
-
-        // Caculate best time that full star.
-        if(map.score >= 3 && (map.bestfullstartime == undefined || map.bestfullstartime > time)) {
-            map.bestfullstartime = time;
-            Msg.emit('update_leader_board',{'name':map.name, 'time': map.bestfullstartime});
-        }
-
-        if(map.time == undefined || (time < map.time)) {
-            map.time = time;
-        }
-
-        if(map.totaltime == undefined) map.totaltime = 0;
-        map.totaltime += time;
     }
 
     public saveLose(time: number) {
@@ -239,13 +215,6 @@ export class Save extends Singleton {
             console.log(' ----- undefined map Index.');
             return;
         }
-
-        var map = this.getModeMaps();
-        if(map.losetimes == undefined) map.losetimes = 0;
-        map.losetimes++;
-
-        if(map.totaltime == undefined) map.totaltime = 0;
-        map.totaltime += time;
     }
 
     public calculateStar() {
@@ -259,30 +228,6 @@ export class Save extends Singleton {
 
         this.setStatisticsTimes('star', star);
     }
-
-    public nextMap () {
-        if (this.isLastMap()) return;
-        var maps = this._cur.maps;
-        this._cur.mapIndex++;
-        this.saveArchive();
-    }
-
-    public isLastMap () {
-        return this._cur.mapIndex >= (this._cur.maps.length - 1);
-    }
-
-    public saveWorldMap(landdata:any) {
-
-        var maps = this._cur.maps;
-        for(var i = 0; i < maps.length; i++) {
-            maps[i].connect = landdata[i].connect;
-            maps[i].pre_connect = landdata[i].pre_connect;
-            maps[i].pos = landdata[i].pos;
-        }
-        //console.log(maps);
-        this.saveArchive();
-    }
-
 
     // State == 0 lock.
     // State == 1 first unlock.
@@ -309,11 +254,6 @@ export class Save extends Singleton {
 
     }
 
-    public passFirstUnlcok(index:number) {
-        var maps = this._cur.maps;
-        maps[index].state = MapStateEnum.not_pass;
-    }
-
     public clearByKey(key) {
         this._cur[key] = {};
         this.saveArchive();
@@ -325,7 +265,6 @@ export class Save extends Singleton {
         if(this._cur.statistics == undefined) this._cur.statistics = {};
         if(this._cur.statistics[statKey] == undefined) this._cur.statistics[statKey] = 0;
         this._cur.statistics[statKey] = times; 
-        Electron.send('setStat', { 'name': statKey, 'value': times } );
     }
 
     public statisticsTimes(key:string) {
@@ -334,7 +273,6 @@ export class Save extends Singleton {
         if(this._cur.statistics == undefined) this._cur.statistics = {};
         if(this._cur.statistics[statKey] == undefined) this._cur.statistics[statKey] = 0;
         this._cur.statistics[statKey] += 1;
-        Electron.send('setStat', { 'name': statKey, 'value': this._cur.statistics[statKey] } );
     }
 
     public statisticsTime(key:string, time:number) {
@@ -343,7 +281,6 @@ export class Save extends Singleton {
         if(this._cur.statistics == undefined) this._cur.statistics = {};
         if(this._cur.statistics[statKey] == undefined) this._cur.statistics[statKey] = 0; 
         this._cur.statistics[statKey] += time;
-        Electron.send('setStat', { 'name': statKey, 'value': this._cur.statistics[statKey] } );
     }
 
     public statisticsValue(key:string): number {

@@ -3,8 +3,8 @@ import { Msg } from '../msg/msg';
 import { Sound } from './sound';
 const { ccclass, property } = _decorator;
 
-@ccclass('music_compose_value')
-export class music_compose_vaue extends Component {
+@ccclass('MusicComposeValue')
+export class MusicComposeValue extends Component {
 
     @property([AudioClip])
     clips:AudioClip[] = [];
@@ -52,7 +52,7 @@ export class music_compose_vaue extends Component {
             if(this.weight[i] <= this._value) this._selects[i] = 1;
             else this._selects[i] = 0;
         }
-        //console.log('level select:', this._value, this._selects);
+        
     }
 
     update(deltaTime: number) {

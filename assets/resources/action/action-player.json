@@ -17,7 +17,7 @@
             { "time": 0, "name": "on_set", "data": { "key":"is_dead", "value":true } }
         ] 
     },
-    "hitgun": {
+    "hit_gun": {
         "start":[
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_hit", "value":true } }
         ]

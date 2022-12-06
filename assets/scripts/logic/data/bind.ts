@@ -36,16 +36,16 @@ export class Bind extends Singleton {
 
     }
 
-    public initData (data: [{ name: string, event: string, data: string }]) {
+    public initData (data: [{ name: string, event: string, data: string | undefined }]) {
         data.forEach(events => {
-            let n = events.name;
-            let e = events.event;
-            let d = events.data;
-            if (!events.data) d = null;
-            //console.log(n, e, d);
-            this._map[n] = () => {
-                console.log(n, e, d);
-                Msg.emit(e, d);
+            let name = events.name;
+            let event = events.event;
+            let data = events.data;
+            if (!events.data) data = undefined;
+            
+            this._map[name] = () => {
+                console.log(name, event, data);
+                Msg.emit(event, data);
             }
         });
     }
@@ -140,9 +140,9 @@ export class BindUI {
     public static get (node: Node): UICom[] {
 
         var children = UtilNode.getChildren(node);
-        var coms: UICom[] = [];
+        var comList: UICom[] = [];
 
-        //console.log('-------- children:', children);
+        
         for (var i = 0; i < children.length; i++) {
             const tempi = children[i];
 
@@ -156,21 +156,21 @@ export class BindUI {
                 const key = tempi.name;
                 const com = this._map[key];
                 if (com) {
-                    coms.push(this._map[key](tempi));
+                    comList.push(this._map[key](tempi));
                     continue;
                 }
             }
             if (Bind.Instance.hasBind(tempi.name)) {
                 // Bind type
                 const type = tempi.name.slice(0, 3);
-                const comtype = this._map[type];
-                if (comtype) {
-                    coms.push(comtype(tempi));
+                const comType = this._map[type];
+                if (comType) {
+                    comList.push(comType(tempi));
                 }
             }
         }
 
-        return coms;
+        return comList;
     }
 
 }

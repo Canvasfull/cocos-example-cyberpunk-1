@@ -1,5 +1,6 @@
 
-import { _decorator, UITransform, Node, Button, Toggle, EditBox, Label, Sprite, game, Slider, math, SpriteComponent, SpriteFrame, v3, Vec3, v2, Vec2, } from 'cc';
+import { _decorator, UITransform, Node, Button, Toggle, EditBox,
+    Label, Sprite, Slider, math, SpriteComponent, SpriteFrame, v3, v2, Vec2, } from 'cc';
 import { GM } from '../../gm/gm';
 import { BagItems } from '../../logic/actor/actor-bag';
 import { Bind, BindUI } from '../../logic/data/bind';
@@ -13,17 +14,6 @@ import { ResCache } from '../res/res-cache';
 import { Queue } from '../util/data-structure';
 import { FilSmooth } from './fil-smooth';
 
-/**
- * Predefined variables
- * Name = ui_base
- * DateTime = Tue Jan 11 2022 18:09:33 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = ui-base.ts
- * FileBasenameNoExtension = ui-base
- * URL = db://assets/scripts/gameframe/ui/ui-base.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class UIBase {
 
     public uiTran: UITransform;
@@ -35,11 +25,9 @@ export class UIBase {
     public _map: UICom[] = Object.create(null);
 
     constructor (node: Node) {
-        //Log.info('constructor uibase:' + node.name);
         this.node = node;
         this.uiTran = this.node.getComponent(UITransform);
         this._map = BindUI.get(this.node);
-        //Log.info(this._map + ' node:' + this.node);
     }
 
     public refresh (): void {
@@ -85,13 +73,11 @@ export class BtnBase extends UICom {
     private _name: string = '';
     private _btn: Button = null;
     constructor (node: Node) {
-        //Log.info('init button:' + node.name);
         super(node);
         let self = this;
         this._name = node.name;
         this._btn = self._node.getComponent(Button);
         this._node.on(Button.EventType.CLICK, () => {
-            //Log.info('on click button:' + self._name);
             Bind.Instance.on(self._name);
             Sound.on('sfx_click');
         }, this);
@@ -184,7 +170,7 @@ export class GrpGM extends GrpBase {
         this.btn_gm = this._node.getChildByName('btn_gm');
         this.inp_gm = this._node.getChildByName('inp_gm').getComponent(EditBox);
         this.btn_gm.on(Button.EventType.CLICK, () => {
-            //console.log('btn_gm', this.inp_gm.string);
+            
             GM.run(this.inp_gm.string);
         })
     }
@@ -196,7 +182,7 @@ export class TglBase extends UICom {
         super(node);
         this._toggle = this._node.getComponent(Toggle);
         this._node.on(Toggle.EventType.TOGGLE, () => {
-            //console.log('on toggle click:' + this._toggle.isChecked);
+            
             Bind.Instance.on(this._node.name);
         })
     }
@@ -222,7 +208,7 @@ export class GrpSelectEquips extends UICom {
         const radius = item.position.x;
         const offset = angle / 2;
 
-        const V2FORWORD = v2(1, 0);
+        const V2FORWARD = v2(1, 0);
 
         const getPosFromAngle = (angle: number)=>{
             const x = Math.cos(angle) * radius;
@@ -242,14 +228,14 @@ export class GrpSelectEquips extends UICom {
         Msg.on('msg_select_equip', (dir:Vec2)=> {
 
             if(dir.length() <= Game.Instance._data.sensitivity_select_weapon) return;
-            let curAngle = math.toDegree(Vec2.angle(dir, V2FORWORD));
+            let curAngle = math.toDegree(Vec2.angle(dir, V2FORWARD));
             const projOrigin = v2(0, 1);
             const dot = Vec2.dot(projOrigin, dir);
             if(dot < 0) curAngle = 360 - curAngle;
             this._curIndex = Math.round(curAngle / angle);
 
             if(this._curIndex >= Game.Instance._data.count_bag_count) {
-                console.error(` Caculate euqip error current index: ${this._curIndex}, currrent Angle: ${curAngle}, dir: ${dir}`);
+                console.error(` Calculate equip error current index: ${this._curIndex}, current Angle: ${curAngle}, dir: ${dir}`);
                 this._curIndex = -1;
                 return;
             }
@@ -295,9 +281,9 @@ class GrpSelectItem {
         this.img_icon = this._node.getChildByName('img_icon').getComponent(SpriteComponent);
     }
 
-    setDisplay(isshow:boolean) {
-        this.txt_nun.node.active = isshow;
-        this.img_icon.node.active = isshow;
+    setDisplay(isShow:boolean) {
+        this.txt_nun.node.active = isShow;
+        this.img_icon.node.active = isShow;
     }
 
     setInfo(item:BagItems) {
@@ -320,14 +306,14 @@ export class GrpEquipInfo extends UICom {
             const cur_equip_bag_index = _player._data.cur_equip_bag_index;
             const hasHighLight = cur_equip_bag_index !== -1;
             if(hasHighLight) {
-                // Get currnt data.
+                // Get current data.
                 const itemName = items_index[cur_equip_bag_index];
-                const itemdata = items[itemName];
+                const itemData = items[itemName];
                 if(itemName != '') {
-                    const isShow = itemdata.data.bullet_count > 1;
+                    const isShow = itemData.data.bullet_count > 1;
                     Msg.emit('msg_grp_equip_info', isShow ? 255 : 0);
                     if (isShow) {
-                        this.txt_equip_info.string = `${Local.Instance.get('reload')}\n(${itemdata.bulletCount})`;
+                        this.txt_equip_info.string = `${Local.Instance.get('reload')}\n(${itemData.bulletCount})`;
                     }
                 }
             }
@@ -343,11 +329,11 @@ export class GrpBag extends UICom {
         this.img_highlight = this._node.getChildByName('img_highlight');
         const count = Game.Instance._data.count_bag_count;
         this.list = new Array<GrpBagItem>(count);
-        const itemsroot = this._node.getChildByName('itemsroot');
+        const itemRoot = this._node.getChildByName('itemsroot');
         this.img_highlight.active = false;
 
-        for(let i = 0; i < itemsroot.children.length; i++) {
-            this.list[i] = new GrpBagItem(itemsroot.children[i], i + 1);
+        for(let i = 0; i < itemRoot.children.length; i++) {
+            this.list[i] = new GrpBagItem(itemRoot.children[i], i + 1);
         }
 
         Msg.on('msg_update_bag', ()=>{
@@ -397,13 +383,11 @@ class GrpBagItem {
         this.setDisplay(false);
     }
 
-    setDisplay(isshow:boolean) {
-        //this.txt_nun.node.active = isshow;
-        this.img_icon.node.active = isshow;
+    setDisplay(isShow:boolean) {
+        this.img_icon.node.active = isShow;
     }
 
     setInfo(item:BagItems) {
-        //this.txt_nun.string = item.count.toString();
         this.img_icon.spriteFrame = ResCache.Instance.getSprite(`img_icon_${item.name}`);
     }
 }

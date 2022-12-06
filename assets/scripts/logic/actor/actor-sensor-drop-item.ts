@@ -1,13 +1,13 @@
 import { _decorator, Component, Node } from 'cc';
 import { Msg } from '../../core/msg/msg';
-import { sensor_rays } from '../../core/sensor/sensor-rays';
+import { SensorRays } from '../../core/sensor/sensor-rays';
 import { Actor } from './actor';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorSensorDropItem')
 export class ActorSensorDropItem extends Component {
 
-    sensor:sensor_rays;
+    sensor:SensorRays;
 
     @property(Actor)
     actor:Actor = null;
@@ -18,7 +18,7 @@ export class ActorSensorDropItem extends Component {
     pickedNode:Node = null;
 
     start() {
-        this.sensor = this.getComponent(sensor_rays);
+        this.sensor = this.getComponent(SensorRays);
     }
 
     update(deltaTime: number) {

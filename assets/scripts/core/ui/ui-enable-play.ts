@@ -2,8 +2,8 @@ import { _decorator, Component, Node, Animation, Sprite, SpriteComponent, Color,
 import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
 
-@ccclass('ui_enable_play')
-export class ui_enable_play extends Component {
+@ccclass('UIEnablePlay')
+export class UIEnablePlay extends Component {
 
     @property
     speed = 1;

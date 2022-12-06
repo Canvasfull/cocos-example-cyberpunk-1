@@ -21,7 +21,7 @@ export class camera_fps extends Component {
     updateAngle() {
         
         u3.c(this.angle, this.node.eulerAngles);
-        this.angle.x = this._actor._angle_vertical;
+        this.angle.x = this._actor._angleVertical;
         this.node.setRotationFromEuler(this.angle);
 
     }

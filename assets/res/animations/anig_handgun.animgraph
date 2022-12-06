@@ -40,9 +40,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 1,
-        "top": 0,
-        "left": 0
+        "scale": 0.9971999999999999,
+        "top": 0.0032241119087705666,
+        "left": 0.06347486668033742
       }
     },
     "_states": [
@@ -243,7 +243,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -2,
+      "centerX": -3.00280786201364,
       "centerY": 30.5,
       "id": "16695266932020.545369376377945"
     },
@@ -444,11 +444,11 @@
     ],
     "duration": 0,
     "relativeDuration": false,
-    "exitConditionEnabled": false,
+    "exitConditionEnabled": true,
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "interruptionSource": 0,
-    "_exitCondition": 1
+    "_exitCondition": 0
   },
   {
     "__type__": "cc.animation.TriggerCondition",
@@ -488,13 +488,13 @@
       "__id__": 10
     },
     "conditions": [],
-    "duration": 0.3,
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "interruptionSource": 0,
-    "_exitCondition": 1
+    "_exitCondition": 0.67
   },
   {
     "__type__": "cc.animation.AnimationTransition",
@@ -641,7 +641,7 @@
   },
   {
     "__type__": "cc.animation.TriggerVariable",
-    "_flags": 2
+    "_flags": 0
   },
   {
     "__type__": "cc.animation.TriggerVariable",

@@ -10,7 +10,7 @@ export class LevelEventsItems extends Component {
 
     probability:any;
     counter = 0;
-    groupCounter:Array<number>;
+    groupCounter:Array<number> | undefined;
 
     start() {
         this.probability = Level.Instance._data.probability_drop_enemy;
@@ -44,7 +44,7 @@ export class LevelEventsItems extends Component {
             throw new Error(`Error calculate weight on Level Infinite Events. value:${odds}`);
         }
 
-        const currentMax = this.groupCounter[occurGroupIndex];
+        const currentMax = this.groupCounter![occurGroupIndex];
 
         const weightMax = this.probability.weights_max;
 
@@ -57,13 +57,13 @@ export class LevelEventsItems extends Component {
         const res = Level.Instance._data.items[currentIndex];
         Level.Instance.addDrop(res);
         this.counter++;
-        this.groupCounter[occurGroupIndex]++;     
+        this.groupCounter![occurGroupIndex]++;     
 
     }
 
     public remove(groupIndex:number) {
-        this.groupCounter[groupIndex]--;
-        if(this.groupCounter[groupIndex] < 0) {
+        this.groupCounter![groupIndex]--;
+        if(this.groupCounter![groupIndex] < 0) {
             throw new Error(`Mutiply remove enemy. group index = ${groupIndex}`);
         }
     }

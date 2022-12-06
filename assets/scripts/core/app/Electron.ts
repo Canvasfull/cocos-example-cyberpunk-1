@@ -1,5 +1,3 @@
-import { UI } from '../../core/ui/ui';
-
 export default class Electron {
 
     static is_steam = false;
@@ -14,19 +12,15 @@ export default class Electron {
         return globalThis.remote ? globalThis.remote.app.getPath('userData') : '';
     }
 
-    static async sendAsyn (name: string, data: any = undefined, call: Function = undefined) {
-        //console.log('sendAsyn', name, data);
+    static async sendAsync (name: string, data: any = undefined, call: Function = undefined) {
         var call_data = await (window as any).electron?.ipcRenderer.invoke(name, data);
         if (call != undefined) {
             call(call_data);
-            //console.log(call_data);
         }
     }
 
     static send (name: string, data: any = undefined) {
-        //console.log('send', name, data);
         var call_data = (window as any).electron?.ipcRenderer.invoke(name, data);
-        //console.log(call_data);
         return call_data;
     }
 

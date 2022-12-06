@@ -1,31 +1,18 @@
-
 import { _decorator, Component, Node, random } from 'cc';
 import { ResCache } from '../res/res-cache';
 import { ActorBase } from '../actor/actor-base';
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = brain
- * DateTime = Thu Jan 13 2022 18:27:58 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = brain.ts
- * FileBasenameNoExtension = brain
- * URL = db://assets/scripts/core/ai/brain.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
- 
 export class Brain {
 
     data = {};
 
     actor:ActorBase;
 
-    constructor(data_path, _actor:ActorBase) {
+    constructor(dataPath:string, actor:ActorBase) {
 
-        this.data = ResCache.Instance.getJson(data_path).json;
-        this.actor = _actor;
+        this.data = ResCache.Instance.getJson(dataPath).json;
+        this.actor = actor;
 
     }
 
@@ -69,7 +56,7 @@ export class Brain {
             }
         }
 
-        console.log('bad logic desgin:', data);
+        console.log('bad logic design:', data);
 
     }
 

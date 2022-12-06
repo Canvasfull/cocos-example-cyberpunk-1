@@ -3,11 +3,11 @@ import { Msg } from '../msg/msg';
 import { Sound } from './sound';
 const { ccclass, property } = _decorator;
 
-@ccclass('sound_enable_play')
+@ccclass('SoundEnablePlay')
 export class SoundEnablePlay extends Component {
 
     @property(String)
-    sfx_name: string;
+    sfx_name: string | undefined;
 
     @property
     enable_distance: boolean = false;
@@ -35,7 +35,7 @@ export class SoundEnablePlay extends Component {
 
     __preload () {
         this._audioSource = this.node.addComponent(AudioSource);
-        Sound.addSfx(this.node, this.sfx_name);
+        Sound.addSfx(this.node, this.sfx_name!);
         if (this.relate_height) {
             var height = this.node.worldPosition.y;
             if (height > this.max_height) height = this.max_height;
@@ -53,7 +53,7 @@ export class SoundEnablePlay extends Component {
         this._audioSource.stop();
     }
 
-    update (detalTime: number) {
+    update (deltaTime: number) {
 
         /*
         if (actor_main.target && actor_main.target.worldPosition) {

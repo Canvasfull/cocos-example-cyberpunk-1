@@ -52,7 +52,7 @@ export class SmoothLocalZ extends Component {
     setOffset (offset: number) {
         this.offset = offset;
         this.pos.z = this.offset + this.original.z;
-        //console.log(' set offset:', offset, this.pos);
+        
     }
 
     setOffsetX (offset: number) {

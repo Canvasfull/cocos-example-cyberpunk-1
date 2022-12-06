@@ -2,11 +2,11 @@ import { _decorator, Component, Node, find } from 'cc';
 import { UtilNode } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
-@ccclass('ActorLookat')
-export class ActorLookat extends Component {
+@ccclass('ActorLookAt')
+export class ActorLookAt extends Component {
 
     @property
-    bone_name = 'bone_ head_zhuandong';
+    bone_name = 'bone_root';
 
     @property(Node)
     bone_head: Node = Object.create(null);

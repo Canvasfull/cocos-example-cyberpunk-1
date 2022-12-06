@@ -3,8 +3,8 @@ import { ActorBase } from '../../core/actor/actor-base';
 import { Brain } from '../../core/ai/brain';
 const { ccclass, property } = _decorator;
 
-@ccclass('actor_piranha')
-export class actor_piranha extends ActorBase {
+@ccclass('ActorPiranha')
+export class ActorPiranha extends ActorBase {
 
     _brain:Brain;
 

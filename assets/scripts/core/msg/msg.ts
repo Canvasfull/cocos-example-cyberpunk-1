@@ -14,7 +14,7 @@ export class Msg<T> {
         this._map[key].push(fun);
     }
 
-    public static onbind (key: string, fun: (data: any) => void, target:any ): void {
+    public static bind (key: string, fun: (data: any) => void, target:any ): void {
 
         fun = fun.bind(target);
 
@@ -37,7 +37,7 @@ export class Msg<T> {
     public static emit (key: string, data?: any): void {
         var info = this._map[key];
         if (info) {
-            //console.log(key, 'count:', info.length);
+            
             info.forEach(item => {
                 item(data);
             })

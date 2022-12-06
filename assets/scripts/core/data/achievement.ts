@@ -34,7 +34,7 @@ export class Achievement extends Singleton {
 
         this.updateData();
 
-        //console.log('achievement:', achi_save);
+        
 
     }
 

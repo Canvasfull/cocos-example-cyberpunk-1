@@ -8,8 +8,7 @@ const { ccclass } = _decorator;
 export class ActorItem extends Component {
 
     data:BagItems | undefined;
-
-    item:IActorEquip;
+    item:IActorEquip | undefined;
 
     start() {
 

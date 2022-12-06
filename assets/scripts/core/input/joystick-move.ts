@@ -1,10 +1,10 @@
 import { _decorator, Component, Node, Vec3, input, Input, EventTouch, v3, Vec2, v2, Rect, math, UITransform, game } from 'cc';
 import { Msg } from '../msg/msg';
-import { input_joystick } from './input-joystick';
+import { InputJoystick } from './input-joystick';
 const { ccclass, property } = _decorator;
 
-@ccclass('joystick_move')
-export class joystick_move extends Component {
+@ccclass('JoystickMove')
+export class JoystickMove extends Component {
 
     @property(Number)
     radius = 20;
@@ -53,13 +53,13 @@ export class joystick_move extends Component {
 
     _t = 0;
 
-    _input:input_joystick;
+    _input:InputJoystick;
 
     start() {
 
         //bind input joystick
 
-        this._input = this.node.parent.getComponent(input_joystick);
+        this._input = this.node.parent.getComponent(InputJoystick);
 
         this._moveNode = this.node.children[1];
         this._bgNode = this.node.children[0];
