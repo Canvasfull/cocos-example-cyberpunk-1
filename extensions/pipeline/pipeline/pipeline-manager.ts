@@ -122,18 +122,15 @@ export class CustomPipelineBuilder {
 
         let cameraSetting = camera.node.getComponent(CameraSetting);
 
-        let pipelineName = 'main';
-        if (forceMain) { }
-        else if (EDITOR) {
-            if (EditorCameras.includes(camera.name)) {
-                pipelineName = 'editor';
-            }
-            else if (camera.name !== 'Editor Camera' && camera.name !== 'PrivatePreview') {
-                return;
-            }
-        }
-        else if (cameraSetting) {
+        let pipelineName = 'forward';
+        if (cameraSetting) {
             pipelineName = cameraSetting.pipeline;
+        }
+        else if (camera.name === 'Editor Camera' || forceMain) {
+            pipelineName = 'main';
+        }
+        else if (EDITOR && !EditorCameras.includes(camera.name)) {
+            return;
         }
 
         if (!EDITOR && TAASetting.instance && pipelineName === 'main') {

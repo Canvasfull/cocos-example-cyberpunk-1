@@ -1,5 +1,6 @@
 import { Camera, game, gfx, Mat4, Material, renderer, rendering, settings, Vec2, Vec4, _decorator } from "cc";
 import { EDITOR } from "cc/env";
+import { CameraSetting } from "../camera-setting";
 import { TAASetting } from "../components/taa";
 import { Editor } from "../utils/npm";
 import { passUtils } from "../utils/pass-utils";
@@ -20,8 +21,13 @@ export class TAAStage extends BaseStage {
     @property
     name = 'TAAStage'
 
+    ignoreTAA (camera: renderer.scene.Camera) {
+        return EDITOR || !TAASetting.instance ||
+            (CameraSetting.mainCamera && CameraSetting.mainCamera.camera !== camera);
+    }
+
     slotName (camera: renderer.scene.Camera, index = 0) {
-        if (EDITOR || !TAASetting.instance) {
+        if (this.ignoreTAA(camera)) {
             return this.lastStage.slotName(camera, index);
         }
 
@@ -41,7 +47,7 @@ export class TAAStage extends BaseStage {
 
     firstRender = true;
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
-        if (EDITOR || !TAASetting.instance) {
+        if (this.ignoreTAA(camera)) {
             return;
         }
         let taa = TAASetting.instance;
@@ -52,7 +58,7 @@ export class TAAStage extends BaseStage {
         const height = area.height;
 
         passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
-        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 0);
 
         // material
         let material = this.materialMap.get(camera);

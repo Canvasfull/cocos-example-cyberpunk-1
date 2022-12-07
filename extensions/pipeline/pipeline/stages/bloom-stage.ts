@@ -39,7 +39,7 @@ export class BloomStage extends BaseStage {
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         passUtils.clearFlag = gfx.ClearFlagBit.NONE;
         // passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
-        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 0);
 
         let material = PipelineAssets.instance.getMaterial('bloom')
         passUtils.material = material;

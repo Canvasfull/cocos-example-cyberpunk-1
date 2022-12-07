@@ -29,7 +29,7 @@ export class DeferredPostStage extends BaseStage {
         const input0 = this.lastStage.slotName(camera, 0);
         const slot0 = this.slotName(camera, 0);
 
-        passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
+        passUtils.clearFlag = camera.clearFlag & gfx.ClearFlagBit.COLOR;
         Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
 
         let material = this.materialMap.get(camera);

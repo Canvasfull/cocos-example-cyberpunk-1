@@ -3,35 +3,6 @@ export default {
     "last_link_id": 54,
     "nodes": [
         {
-            "id": 15,
-            "type": "pipeline/Pipeline",
-            "pos": [
-                123,
-                144
-            ],
-            "size": {
-                "0": 210,
-                "1": 82
-            },
-            "flags": {},
-            "order": 0,
-            "mode": 0,
-            "outputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "links": [
-                        34
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "Name": "editor",
-                "Enable": true
-            }
-        },
-        {
             "id": 16,
             "type": "pipeline/RenderToScreen",
             "pos": [
@@ -312,6 +283,7 @@ export default {
                 "enable": true,
                 "name": "FSR",
                 "shadingScale": 1,
+                "sharpness": 0.2,
                 "Name": "FSRStage",
                 "Enable": true,
                 "CameraOutputType": "Color",
@@ -484,6 +456,35 @@ export default {
                 "clampHistoryTexture": true,
                 "forceRender": true,
                 "dirty": false
+            }
+        },
+        {
+            "id": 15,
+            "type": "pipeline/Pipeline",
+            "pos": [
+                123,
+                144
+            ],
+            "size": {
+                "0": 210,
+                "1": 82
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "links": [
+                        34
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Name": "forward",
+                "Enable": true
             }
         }
     ],

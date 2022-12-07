@@ -178,6 +178,8 @@ CCProgram lighting-fs %{
     vec4 fogColor = calculateHeightFog(position.xyz - cc_cameraPos.xyz);
     color.rgb = color.rgb * fogColor.a + fogColor.rgb;
 
+    color.a = 0.;
+
     #if CLEAR_LIGHTING
       color = vec4(0.);
     #endif

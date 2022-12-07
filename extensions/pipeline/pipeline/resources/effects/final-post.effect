@@ -13,12 +13,12 @@ CCEffect %{
       blendState:
         targets:
         - blend: true
-          blendSrc: one
-          blendDst: zero
-          # blendSrc: src_alpha
-          # blendDst: one_minus_src_alpha
-          # blendSrcAlpha: src_alpha
-          # blendDstAlpha: one_minus_src_alpha
+          # blendSrc: one
+          # blendDst: zero
+          blendSrc: src_alpha
+          blendDst: one_minus_src_alpha
+          blendSrcAlpha: src_alpha
+          blendDstAlpha: one_minus_src_alpha
 }%
 
 

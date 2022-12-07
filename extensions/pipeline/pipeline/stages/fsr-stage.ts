@@ -38,7 +38,7 @@ export class FSRStage extends BaseStage {
         const outHeight = Math.floor(inputHeight / shadingScale);
 
         passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
-        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 0);
 
         let material = this.materialMap.get(camera);
         if (!material || material.parent !== this.material) {
