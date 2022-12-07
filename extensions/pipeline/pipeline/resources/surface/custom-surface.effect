@@ -380,10 +380,18 @@ CCProgram standard-fs %{
                                                                     
     void main () {
       StandardSurface s; surf(s);
-      fragColor0 = s.albedo;                                         
-      fragColor1 = vec4(float32x3_to_oct(s.normal), s.roughness, s.metallic);
-      fragColor2 = vec4(s.emissive, s.occlusion);                    
-      fragColor3 = vec4(s.position, 0.);                    
+
+      
+      if (cc_fogBase.x == 0.) {   // forward
+        fragColor0 = CCFragOutput(CCStandardShadingBase(s, CC_SHADOW_POSITION));     
+      }
+      else if (cc_fogBase.x == 1.) { // deferred
+        fragColor0 = s.albedo;                                         
+        fragColor1 = vec4(float32x3_to_oct(s.normal), s.roughness, s.metallic);
+        fragColor2 = vec4(s.emissive, s.occlusion);                    
+        fragColor3 = vec4(s.position, 0.);   
+      }
+                       
     }                                                                
                                                                     
   #endif  

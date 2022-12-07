@@ -1,11 +1,8 @@
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material } from "cc";
-import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
-import { EDITOR } from "cc/env";
-import { PipelineAssets } from "../resources/pipeline-assets";
+import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
-import { TAASetting } from "../components/taa";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -13,12 +10,12 @@ const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 
 @ccclass('DeferredPostStage')
 export class DeferredPostStage extends BaseStage {
-    _name = 'DeferredPostStage'
     _materialName = 'final-post';
-
     materialMap: Map<renderer.scene.Camera, Material> = new Map
-
     // uniqueStage = true;
+
+    @property
+    name = 'DeferredPostStage'
 
     @property({ override: true, type: CCString })
     outputNames = ['DeferredPostColor', 'DeferredPostDS']
@@ -32,7 +29,7 @@ export class DeferredPostStage extends BaseStage {
         const input0 = this.lastStage.slotName(camera, 0);
         const slot0 = this.slotName(camera, 0);
 
-        passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
+        passUtils.clearFlag = camera.clearFlag & gfx.ClearFlagBit.COLOR;
         Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
 
         let material = this.materialMap.get(camera);
@@ -49,7 +46,8 @@ export class DeferredPostStage extends BaseStage {
         material.setProperty('inputViewPort',
             new Vec4(
                 width / Math.floor(game.canvas.width * shadingScale), height / Math.floor(game.canvas.height * shadingScale),
-                settings.OUTPUT_RGBE ? 1 : 0, 0
+                settings.outputRGBE ? 1 : 0,
+                settings.tonemapped ? 0 : 1
             )
         );
 

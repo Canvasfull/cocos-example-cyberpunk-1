@@ -1,6 +1,6 @@
 import { gfx, js, Material, path, Vec2 } from 'cc';
 import { LGraphNode } from '../@types/litegraph';
-import { BaseStage, InputType } from '../../stages/base-stage';
+import { BaseStage, } from '../../stages/base-stage';
 import { BlitStage } from '../../stages/blit-stage';
 import { liteGraph } from '../graph';
 import { readPixels } from '../../utils/utils';
@@ -11,9 +11,10 @@ import { DeferredGBufferStage } from '../../stages/deferred-gbuffer-stage';
 import { DeferredLightingStage } from '../../stages/deferred-lighting-stage';
 import { PipelineAssets } from '../../resources/pipeline-assets';
 import { DeferredPostStage } from '../../stages/deferred-post-stage';
-import { DeferredTransparentStage } from '../../stages/deferred-transparent-stage';
 import { BloomStage } from '../../stages/bloom-stage';
 import { TAAStage } from '../../stages/taa-stage';
+import { FSRStage } from '../../stages/fsr-stage';
+import { ForwardPostStage } from '../../stages/forward-post-stage';
 
 export function createStageGraph (sclass: typeof BaseStage) {
     let name = js.getClassName(sclass);
@@ -33,36 +34,6 @@ export function createStageGraph (sclass: typeof BaseStage) {
         let onPropertyChanges: Map<string, Function> = new Map;
 
         let stage = new sclass();
-        // CameraOutputType
-        {
-            let Types = ['Color', 'Depth'];
-            let widget = self.addWidget('combo', 'CameraOutputType', 'Color', 'CameraOutputType', { values: Types })
-            self.addProperty('CameraOutputType', widget.value, widget.type);
-        }
-
-        // Name
-        {
-            let widget = self.addWidget('text', 'Name', name, 'Name')
-            self.addProperty('Name', widget.value, widget.type);
-
-            onPropertyChanges.set('Name', (value) => {
-                stage._name = value;
-            })
-        }
-
-        // Texture Format
-        {
-            let Types = ['RGBA8', 'RGBA16F', 'RGBA32F', 'R16F', 'R32F'];
-            let value = Types.find(t => gfx.Format[t] === stage.textureFormat) || Types[0];
-
-            let widget = self.addWidget('combo', 'Format', value, 'Format', { values: Types })
-            self.addProperty('Format', widget.value, widget.type);
-
-            onPropertyChanges.set('Format', value => {
-                stage.textureFormat = gfx.Format[value] as any;
-            })
-        }
-
         this.stage = stage;
 
         self.addProperty('showResult', false, 'bool');
@@ -160,32 +131,28 @@ export function createStageGraph (sclass: typeof BaseStage) {
             // stage.outputName = ''
 
             let isFirst = stages.length === 0
-            if (isFirst) {
-                if (self.properties.CameraOutputType === 'Color') {
-                    stage.inputType = InputType.CameraColorTexture;
-                }
-                else {
-                    stage.inputType = InputType.CameraDepthTexture;
-                }
-            }
-            else {
-                stage.inputType = InputType.LastStageOutput;
+            if (!isFirst) {
                 stage.lastStage = (prev as any).stage;
             }
 
-            let customSize = self.getInputData(2);
-            if (customSize) {
-                stage.useCustomSize = true;
-                stage.customSize.x = customSize[0];
-                stage.customSize.y = customSize[1];
+            if (stage.checkEnable()) {
+                let customSize = self.getInputData(2);
+                if (customSize) {
+                    stage.useCustomSize = true;
+                    stage.customSize.x = customSize[0];
+                    stage.customSize.y = customSize[1];
+                }
+                else {
+                    stage.useCustomSize = false;
+                }
+
+                stages.push(stage);
+                updateNextNodes(self, stages);
             }
             else {
-                stage.useCustomSize = false;
+                updateNextNodes(prev, stages, 0, self.getOutputNodes(0));
             }
 
-            stages.push(stage);
-
-            updateNextNodes(self, stages);
         }
 
         function createDrawFunc (index = 0) {
@@ -294,9 +261,10 @@ export function createStageGraph (sclass: typeof BaseStage) {
 createStageGraph(BaseStage);
 createStageGraph(BlitStage);
 createStageGraph(ForwardStage);
+createStageGraph(ForwardPostStage);
 createStageGraph(DeferredGBufferStage);
 createStageGraph(DeferredLightingStage);
 createStageGraph(DeferredPostStage);
-createStageGraph(DeferredTransparentStage);
 createStageGraph(BloomStage);
 createStageGraph(TAAStage);
+createStageGraph(FSRStage);

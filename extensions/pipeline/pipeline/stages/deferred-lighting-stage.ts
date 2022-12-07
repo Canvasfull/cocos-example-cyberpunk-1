@@ -1,5 +1,5 @@
 
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbeManager, ReflectionProbe } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
@@ -23,19 +23,20 @@ let tempVec4 = new Vec4
 
 @ccclass('DeferredLightingStage')
 export class DeferredLightingStage extends BaseStage {
-    _name = 'DeferredLightingStage'
     _materialName = 'blit-screen';
-
-    @property({ override: true, type: CCString })
-    outputNames = ['DeferredLightingColor', 'gBufferDS']
-
+    materialMap: Map<renderer.scene.Camera, Material> = new Map
     tempMat: Material
     clearMat: renderer.MaterialInstance
-    materialMap: Map<renderer.scene.Camera, Material> = new Map
 
     uniqueStage = true;
 
     probes: ReflectionProbe[] = []
+
+    @property
+    name = 'DeferredLightingStage'
+
+    @property({ override: true, type: CCString })
+    outputNames = ['DeferredLightingColor', 'gBufferDS']
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
@@ -124,12 +125,15 @@ export class DeferredLightingStage extends BaseStage {
                 material.recompileShaders({ CLEAR_LIGHTING: true })
             }
             else {
-                director.root.pipeline.macros.CC_USE_IBL = 0;
+                // director.root.pipeline.macros.CC_USE_IBL = 0;
 
                 material = new renderer.MaterialInstance({
                     parent: sharedMaterial,
                 })
-                material.recompileShaders({ CC_USE_IBL: 0, REFLECTION_PROBE_COUNT: probes.length })
+                material.recompileShaders({
+                    // CC_USE_IBL: 0,
+                    REFLECTION_PROBE_COUNT: probes.length
+                })
             }
             this.materialMap.set(camera, material);
         }

@@ -1,8 +1,8 @@
-import { LGraphNode } from "../../../../../@types/litegraph";
+import { LGraphNode } from "../@types/litegraph";
 import { BaseStage } from "../../stages/base-stage";
 
-export function updateNextNodes (node: LGraphNode, stages: BaseStage[], outSlotID = 0) {
-    let nexts = node.getOutputNodes(outSlotID);
+export function updateNextNodes (node: LGraphNode, stages: BaseStage[], outSlotID = 0, nexts?: LGraphNode[]) {
+    nexts = nexts || node.getOutputNodes(outSlotID);
     if (!nexts) {
         return;
     }

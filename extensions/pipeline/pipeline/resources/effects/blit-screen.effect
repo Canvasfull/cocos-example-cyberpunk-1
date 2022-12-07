@@ -32,12 +32,15 @@ CCProgram fs %{
 
   in vec2 v_uv;
   
-  uniform sampler2D inputTexture;
+  uniform UBO {
+    vec4 inputViewPort;
+  };
+  uniform sampler2D outputResultMap;
 
   layout(location = 0) out vec4 fragColor;
 
   void main () {
-    fragColor = texture(inputTexture, v_uv);
+    fragColor = texture(outputResultMap, v_uv * inputViewPort.xy);
   }
   
 }%

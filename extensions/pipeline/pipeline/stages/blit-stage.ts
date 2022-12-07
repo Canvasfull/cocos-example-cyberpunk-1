@@ -1,4 +1,4 @@
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag } from "../utils/utils";
 import { EDITOR } from "cc/env";
@@ -9,17 +9,22 @@ const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 
 @ccclass('BlitStage')
 export class BlitStage extends BaseStage {
-    _name = 'BlitStage'
     _materialName = 'blit-screen';
+
+    @property
+    name = 'BlitStage'
+
+    @property
+    textureFormat = gfx.Format.RGBA8
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         if (!this.material) {
             return;
         }
 
-        const size = this.finalShadingSize(camera)
-        const width = size.x;
-        const height = size.y;
+        const area = this.getRenderArea(camera)
+        const width = area.width;
+        const height = area.height;
 
         let isOffScreen = !this.renderToScreen;
 

@@ -1,5 +1,5 @@
 
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Vec4, Material, CCString, input } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { PipelineAssets } from "../resources/pipeline-assets";
@@ -27,10 +27,11 @@ const tempVec4 = new Vec4();
 
 @ccclass('custom.BloomStage')
 export class BloomStage extends BaseStage {
-    _name = 'BloomStage'
     _materialName = 'blit-screen';
-
     uniqueStage = true;
+
+    @property
+    name = 'BloomStage'
 
     @property({ override: true, type: CCString })
     outputNames = ['BloomPassCombineColor']
@@ -38,7 +39,7 @@ export class BloomStage extends BaseStage {
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         passUtils.clearFlag = gfx.ClearFlagBit.NONE;
         // passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
-        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 0);
 
         let material = PipelineAssets.instance.getMaterial('bloom')
         passUtils.material = material;

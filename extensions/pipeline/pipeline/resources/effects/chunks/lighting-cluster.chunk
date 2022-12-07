@@ -6,8 +6,7 @@
 vec4 lightingAdd (in StandardSurface s, in vec4 shadowPos) {
   vec3 finalColor = vec3(0.);
   
-  vec3 position;
-  HIGHP_VALUE_FROM_STRUCT_DEFINED(position, s.position);
+  vec3 position = s.position;
 
   vec3 cellCoords = floor((position - light_cluster_BoundsMin.xyz) * light_cluster_CellsCountByBoundsSizeAndPixelsPerCell.xyz);
   if ((cellCoords.x < 0.) || (cellCoords.y < 0.) || (cellCoords.z < 0.) ||

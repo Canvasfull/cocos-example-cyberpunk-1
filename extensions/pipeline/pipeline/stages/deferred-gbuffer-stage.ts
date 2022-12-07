@@ -1,5 +1,5 @@
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys, director } from "cc";
 import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
 
 const { type, property, ccclass } = _decorator;
@@ -17,6 +17,9 @@ export class DeferredGBufferStage extends BaseStage {
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
+        // hack: use fog uniform to set deferred pipeline
+        director.root.pipeline.pipelineSceneData.fog.fogStart = 1;
+
         const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;
@@ -29,10 +32,15 @@ export class DeferredGBufferStage extends BaseStage {
         if (!ppl.containsResource(slot0)) {
             const colFormat = Format.RGBA16F;
 
+            let posFormat = colFormat;
+            if (!sys.isMobile) {
+                posFormat = Format.RGBA32F
+            }
+
             ppl.addRenderTarget(slot0, colFormat, width, height, ResourceResidency.MANAGED);
             ppl.addRenderTarget(slot1, colFormat, width, height, ResourceResidency.MANAGED);
             ppl.addRenderTarget(slot2, colFormat, width, height, ResourceResidency.MANAGED);
-            ppl.addRenderTarget(slot3, Format.RGBA32F, width, height, ResourceResidency.MANAGED);
+            ppl.addRenderTarget(slot3, posFormat, width, height, ResourceResidency.MANAGED);
             ppl.addDepthStencil(slot4, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         else {

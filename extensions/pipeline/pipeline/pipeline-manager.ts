@@ -7,6 +7,7 @@ import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
 import { TAASetting } from './components/taa';
 import { PipelineAssets } from './resources/pipeline-assets';
+import { HrefSetting } from './settings/href-setting';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -32,6 +33,8 @@ export class CustomPipelineBuilder {
             return;
         }
 
+        director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
+
         // if (EDITOR) {
         //     excludes.push('Main Camera')
         // }
@@ -43,7 +46,7 @@ export class CustomPipelineBuilder {
             let probe = probes[i];
 
             if (probe.needRender) {
-                settings.OUTPUT_RGBE = true;
+                settings.outputRGBE = true;
 
                 let originCameraNode = probe.cameraNode;
                 let originCamera = probe.camera;
@@ -91,7 +94,7 @@ export class CustomPipelineBuilder {
                 probe.cameraNode = originCameraNode;
 
                 probe.needRender = false;
-                settings.OUTPUT_RGBE = false;
+                settings.outputRGBE = false;
             }
         }
 
@@ -115,21 +118,20 @@ export class CustomPipelineBuilder {
         // const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
         // || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
 
+        settings.tonemapped = false;
+
         let cameraSetting = camera.node.getComponent(CameraSetting);
 
-        let pipelineName = 'main';
-        if (forceMain) { }
-        else if (EDITOR) {
-            if (EditorCameras.includes(camera.name)) {
-                pipelineName = 'editor';
-            }
-            else if (camera.name !== 'Editor Camera' && camera.name !== 'PrivatePreview') {
-                return;
-            }
-        }
-        else if (cameraSetting) {
+        let pipelineName = 'forward';
+        if (cameraSetting) {
             pipelineName = cameraSetting.pipeline;
         }
+        else if (camera.name === 'Editor Camera' || forceMain) {
+            pipelineName = 'main';
+        }
+        // else if (EDITOR && !EditorCameras.includes(camera.name)) {
+        //     return;
+        // }
 
         if (!EDITOR && TAASetting.instance && pipelineName === 'main') {
             (camera as any)._isProjDirty = true
