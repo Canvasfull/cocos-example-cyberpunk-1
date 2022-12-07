@@ -129,9 +129,9 @@ export class CustomPipelineBuilder {
         else if (camera.name === 'Editor Camera' || forceMain) {
             pipelineName = 'main';
         }
-        else if (EDITOR && !EditorCameras.includes(camera.name)) {
-            return;
-        }
+        // else if (EDITOR && !EditorCameras.includes(camera.name)) {
+        //     return;
+        // }
 
         if (!EDITOR && TAASetting.instance && pipelineName === 'main') {
             (camera as any)._isProjDirty = true

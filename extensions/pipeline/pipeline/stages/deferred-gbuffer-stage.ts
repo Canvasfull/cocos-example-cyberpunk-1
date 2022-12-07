@@ -1,5 +1,5 @@
 import { BaseStage, InputType } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys, director } from "cc";
 import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
 
 const { type, property, ccclass } = _decorator;
@@ -17,6 +17,9 @@ export class DeferredGBufferStage extends BaseStage {
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
+        // hack: use fog uniform to set deferred pipeline
+        director.root.pipeline.pipelineSceneData.fog.fogStart = 1;
+
         const area = this.getRenderArea(camera);
         const width = area.width;
         const height = area.height;

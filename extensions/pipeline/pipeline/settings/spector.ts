@@ -15,8 +15,10 @@ if (!EDITOR && !JSB && HrefSetting.spector) {
 
             useDist = true
 
-            const host = 'http://' + location.host.split(':')[0]
-            // const host = 'http://127.0.0.1'
+            let host = 'http://' + location.host.split(':')[0]
+            if (EDITOR) {
+                host = 'http://127.0.0.1'
+            }
 
             function Loader () {
                 queue = [];

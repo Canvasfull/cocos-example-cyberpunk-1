@@ -1,4 +1,4 @@
-import { CCString, geometry, gfx, pipeline, renderer, rendering, _decorator } from "cc";
+import { CCString, director, geometry, gfx, pipeline, renderer, rendering, _decorator } from "cc";
 import { CameraInfo, getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea, validPunctualLightsCulling } from "../utils/utils";
 import { BaseStage } from "./base-stage";
 
@@ -15,7 +15,7 @@ export class ForwardStage extends BaseStage {
     _materialName = 'blit-screen';
 
     @property
-    name = 'ForwardStage'
+    name = 'custom.ForwardStage'
     @property({ override: true, type: CCString })
     outputNames = ['ForwardColor', 'ForwardDepth']
 
@@ -104,6 +104,9 @@ export class ForwardStage extends BaseStage {
     }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
+        // hack: use fog uniform to set forward pipeline
+        director.root.pipeline.pipelineSceneData.fog.fogStart = 0;
+
         const cameraID = getCameraUniqueID(camera);
         const cameraName = `Camera${cameraID}`;
 
@@ -112,7 +115,7 @@ export class ForwardStage extends BaseStage {
         const width = area.width;
         const height = area.height;
 
-        let isOffScreen = !this.renderToScreen;
+        let isOffScreen = true;//director.root.mainWindow !== camera.window;
 
         const slot0 = this.slotName(camera, 0);
         const slot1 = this.slotName(camera, 1);
@@ -123,6 +126,13 @@ export class ForwardStage extends BaseStage {
                 ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
             }
             ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
+        }
+
+        if (!isOffScreen) {
+            ppl.updateRenderWindow(slot0, camera.window);
+        } else {
+            ppl.updateRenderTarget(slot0, width, height);
+            ppl.updateDepthStencil(slot1, width, height);
         }
 
         const pass = ppl.addRasterPass(width, height, 'default');
@@ -147,7 +157,7 @@ export class ForwardStage extends BaseStage {
             isOffScreen ? LoadOp.CLEAR : getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.RENDER_TARGET),
             StoreOp.STORE,
             camera.clearFlag,
-            new Color(camera.clearColor.x, camera.clearColor.y, camera.clearColor.z, camera.clearColor.w));
+            new Color(0, 0, 0, 0));
         const passDSView = new RasterView('_',
             AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
             isOffScreen ? LoadOp.CLEAR : getLoadOpOfClearFlag(camera.clearFlag, AttachmentType.DEPTH_STENCIL),

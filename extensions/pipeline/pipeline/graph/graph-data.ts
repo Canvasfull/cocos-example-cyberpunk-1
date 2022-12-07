@@ -1,84 +1,7 @@
 export default {
-    "last_node_id": 18,
-    "last_link_id": 54,
+    "last_node_id": 19,
+    "last_link_id": 56,
     "nodes": [
-        {
-            "id": 16,
-            "type": "pipeline/RenderToScreen",
-            "pos": [
-                716,
-                133
-            ],
-            "size": {
-                "0": 140,
-                "1": 26
-            },
-            "flags": {},
-            "order": 4,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": 35
-                }
-            ],
-            "properties": {}
-        },
-        {
-            "id": 5,
-            "type": "pipeline/custom.ForwardStage",
-            "pos": [
-                402,
-                133
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 146
-            },
-            "flags": {},
-            "order": 2,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": 34
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": null
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        35
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "showResult": false,
-                "enable": true,
-                "name": "BaseStage",
-                "shadingScale": 1,
-                "Name": "custom.ForwardStage",
-                "Enable": true,
-                "CameraOutputType": "Color",
-                "Format": "RGBA8",
-                "material": "blit-screen",
-                "outputName": "ForwardStage"
-            }
-        },
         {
             "id": 1,
             "type": "pipeline/Pipeline",
@@ -91,7 +14,7 @@ export default {
                 "1": 82
             },
             "flags": {},
-            "order": 1,
+            "order": 0,
             "mode": 0,
             "outputs": [
                 {
@@ -120,7 +43,7 @@ export default {
                 "1": 26
             },
             "flags": {},
-            "order": 10,
+            "order": 11,
             "mode": 0,
             "inputs": [
                 {
@@ -143,7 +66,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 3,
+            "order": 2,
             "mode": 0,
             "inputs": [
                 {
@@ -196,7 +119,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 5,
+            "order": 4,
             "mode": 0,
             "inputs": [
                 {
@@ -249,7 +172,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 8,
+            "order": 9,
             "mode": 0,
             "inputs": [
                 {
@@ -302,7 +225,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 9,
+            "order": 10,
             "mode": 0,
             "inputs": [
                 {
@@ -412,7 +335,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 7,
+            "order": 8,
             "mode": 0,
             "inputs": [
                 {
@@ -470,7 +393,7 @@ export default {
                 "1": 82
             },
             "flags": {},
-            "order": 0,
+            "order": 1,
             "mode": 0,
             "outputs": [
                 {
@@ -485,6 +408,131 @@ export default {
             "properties": {
                 "Name": "forward",
                 "Enable": true
+            }
+        },
+        {
+            "id": 16,
+            "type": "pipeline/RenderToScreen",
+            "pos": [
+                951,
+                134
+            ],
+            "size": {
+                "0": 140,
+                "1": 26
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 56
+                }
+            ],
+            "properties": {}
+        },
+        {
+            "id": 5,
+            "type": "pipeline/custom.ForwardStage",
+            "pos": [
+                402,
+                133
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 146
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": 34
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": null
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        55
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "BaseStage",
+                "shadingScale": 1,
+                "Name": "custom.ForwardStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
+                "material": "blit-screen",
+                "outputName": "ForwardStage"
+            }
+        },
+        {
+            "id": 19,
+            "type": "pipeline/ForwardPostStage",
+            "pos": [
+                689,
+                145
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 146
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 55
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        56
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "ForwardPostStage",
+                "shadingScale": 1
             }
         }
     ],
@@ -522,14 +570,6 @@ export default {
             "Camera Output"
         ],
         [
-            35,
-            5,
-            0,
-            16,
-            0,
-            "RenderTexture"
-        ],
-        [
             51,
             11,
             0,
@@ -559,6 +599,22 @@ export default {
             0,
             12,
             1,
+            "RenderTexture"
+        ],
+        [
+            55,
+            5,
+            0,
+            19,
+            1,
+            "RenderTexture"
+        ],
+        [
+            56,
+            19,
+            0,
+            16,
+            0,
             "RenderTexture"
         ]
     ],
