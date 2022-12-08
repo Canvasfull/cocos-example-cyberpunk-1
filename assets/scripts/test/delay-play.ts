@@ -1,8 +1,8 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('delay_play')
-export class delay_play extends Component {
+@ccclass('DelayPlay')
+export class DelayPlay extends Component {
 
 
     @property([Animation])

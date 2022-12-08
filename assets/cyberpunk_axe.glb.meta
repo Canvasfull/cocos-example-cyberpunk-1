@@ -1,0 +1,134 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "79262": {
+      "importer": "gltf-mesh",
+      "uuid": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@79262",
+      "displayName": "",
+      "id": "79262",
+      "name": "FireAxe.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9e475": {
+      "importer": "gltf-animation",
+      "uuid": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@9e475",
+      "displayName": "",
+      "id": "9e475",
+      "name": "FireAxe_Root|FireAxe_Hold.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.06666667014360428
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "7d7fc": {
+      "importer": "gltf-skeleton",
+      "uuid": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@7d7fc",
+      "displayName": "",
+      "id": "7d7fc",
+      "name": "FireAxe_Root.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 1
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "683ce": {
+      "importer": "gltf-material",
+      "uuid": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@683ce",
+      "displayName": "",
+      "id": "683ce",
+      "name": "OldFireAxe.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7ae7f": {
+      "importer": "gltf-scene",
+      "uuid": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@7ae7f",
+      "displayName": "",
+      "id": "7ae7f",
+      "name": "cyberpunk_axe.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "animationImportSettings": [
+      {
+        "name": "FireAxe_Root|FireAxe_Hold",
+        "duration": 0.06666667014360428,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "FireAxe_Root|FireAxe_Hold",
+            "from": 0,
+            "to": 0.06666667014360428,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@7ae7f",
+    "assetFinder": {
+      "meshes": [
+        "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@79262"
+      ],
+      "skeletons": [
+        "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@7d7fc"
+      ],
+      "textures": [],
+      "materials": [
+        "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@683ce"
+      ],
+      "scenes": [
+        "dc1fb2c0-4e72-4444-b5d1-35a40a1dffa9@7ae7f"
+      ]
+    }
+  }
+}

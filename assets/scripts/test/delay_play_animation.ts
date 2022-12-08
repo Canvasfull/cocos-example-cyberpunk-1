@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, Animation, input, Input, EventKeyboard, KeyCode } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('delay_play_animation')
-export class delay_play_animation extends Component {
+@ccclass('DelayPlayAnimation')
+export class DelayPlayAnimation extends Component {
 
 
     @property
@@ -14,15 +14,14 @@ export class delay_play_animation extends Component {
     start() {
 
         input.on(Input.EventType.KEY_UP, (event:EventKeyboard)=>{
-            if(event.keyCode == KeyCode.SPACE) this.delayPlay();
+            if (event.keyCode === KeyCode.SPACE) this.delayPlay();
         }, this)
 
     }
 
     delayPlay() {
-        setTimeout(()=>{
-            
-            this.node.getComponent(Animation).play(this.anim_name);
+        setTimeout(()=>{ 
+            this.node.getComponent(Animation)?.play(this.anim_name);
             var anim = this.node.getComponent(Animation);
         }, this.delay * 1000);
     }

@@ -5,6 +5,17 @@ import { Singleton } from "../pattern/singleton";
 import { Res } from "../res/res";
 import { ResCache } from "../res/res-cache";
 
+/**
+ * Predefined variables
+ * Name = local
+ * DateTime = Mon Jan 17 2022 16:01:37 GMT+0800 (China Standard Time)
+ * Author = canvas
+ * FileBasename = local.ts
+ * FileBasenameNoExtension = local
+ * URL = db://assets/scripts/core/local/local.ts
+ * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
+ *
+ */
 export class Local extends Singleton {
 
     index: number = 1;

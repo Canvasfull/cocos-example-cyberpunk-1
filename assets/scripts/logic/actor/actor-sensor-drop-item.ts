@@ -7,8 +7,11 @@ const { ccclass, property } = _decorator;
 @ccclass('ActorSensorDropItem')
 export class ActorSensorDropItem extends Component {
 
-    @property(Actor)
-    actor:Actor | undefined | null;
+    //@property(Actor)
+    //actor:Actor | undefined | null;
+
+    @property
+    num = 3;
 
     sensor:SensorRays | undefined | null;
     pickedNode:Node | undefined

@@ -326,7 +326,7 @@ export class GrpBag extends UICom {
         if (this.img_highlight == undefined && this.img_highlight === null) throw new Error(`${this._node.name}`)
         const count = Game.Instance._data.count_bag_count;
         this.list = new Array<GrpBagItem>(count);
-        const itemRoot = UtilNode.getChildByName(this._node, 'itemsroot');
+        const itemRoot = UtilNode.getChildByName(this._node, 'items_root');
         this.img_highlight.active = false;
         for(let i = 0; i < itemRoot.children.length; i++) {
             this.list[i] = new GrpBagItem(itemRoot.children[i], i + 1);
