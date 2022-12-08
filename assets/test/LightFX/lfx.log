@@ -1,36 +1,79 @@
-2022-10-25 11:20:37 Version 36
-2022-10-25 11:20:37 D:\workspace\fireball\editor\CocosCreator-v3.7.0-win-093014\resources\tools\lightmap-tools/LightFX http://127.0.0.1:8000 
-2022-10-25 11:20:37 -:Building meshes
-2022-10-25 11:20:37 -:Building terrain
-2022-10-25 11:20:37 -:Building scene
-2022-10-25 11:20:37 -: Starting thread 0
-2022-10-25 11:20:37 -: Starting thread 1
-2022-10-25 11:20:37 -: Starting thread 2
-2022-10-25 11:20:37 -: Starting thread 3
-2022-10-25 11:20:37 -: Starting thread 4
-2022-10-25 11:20:37 -: Starting thread 5
-2022-10-25 11:20:37 -: Starting thread 6
-2022-10-25 11:20:37 -: Starting thread 7
-2022-10-25 11:20:37 -: Starting thread 8
-2022-10-25 11:20:37 -: Starting thread 9
-2022-10-25 11:20:37 -: Starting thread 10
-2022-10-25 11:20:37 -: Starting thread 11
-2022-10-25 11:20:37 -: Starting thread 12
-2022-10-25 11:20:37 -: Starting thread 13
-2022-10-25 11:20:38 Start 0
+2022-12-08 17:10:44 Version 370
+2022-12-08 17:10:44 CmdLine: C:\workspace\fireball\CocosCreator-v3.7.0-win-120501\resources\tools\lightmap-tools/LightFX http://127.0.0.1:8000 
+2022-12-08 17:10:44 Texture 'D:\workspace\fireball\projects\cyberpunk\assets\res\textures\T_CornerBuilding01_BC.png' loaded
+2022-12-08 17:10:44 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
+2022-12-08 17:10:44 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
+2022-12-08 17:10:44 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
+2022-12-08 17:10:44 -:Building meshes
+2022-12-08 17:10:44 -:Building terrain
+2022-12-08 17:10:44 -:Building embree scene
+2022-12-08 17:10:44 -: Starting thread 0
+2022-12-08 17:10:44 -: Starting thread 1
+2022-12-08 17:10:44 -: Starting thread 2
+2022-12-08 17:10:44 -: Starting thread 3
+2022-12-08 17:10:44 -: Starting thread 4
+2022-12-08 17:10:44 -: Starting thread 5
+2022-12-08 17:10:44 -: Starting thread 6
+2022-12-08 17:10:44 -: Starting thread 7
+2022-12-08 17:10:44 -: Starting thread 8
+2022-12-08 17:10:44 -: Starting thread 9
+2022-12-08 17:10:44 -: Starting thread 10
+2022-12-08 17:10:44 -: Starting thread 11
+2022-12-08 17:10:44 -: Starting thread 12
+2022-12-08 17:10:44 -: Starting thread 13
+2022-12-08 17:10:45 Start 0
 
-2022-10-25 11:20:38 Build lighting 50
+2022-12-08 17:10:45 Build lighting 6
 
-2022-10-25 11:20:38 Build lighting 100
+2022-12-08 17:10:45 Build lighting 13
 
-2022-10-25 11:20:38 Save world...
-2022-10-25 11:20:38 Writing lfx file 'output/lfx.o'
-2022-10-25 11:20:38 Pack mesh 0
-2022-10-25 11:20:38 Save lighting map output/LFX_Mesh_0000.png
-2022-10-25 11:20:39 Writing lfx file end.
-2022-10-25 11:20:39 Save world end.
-2022-10-25 11:20:39 Clear world...
-2022-10-25 11:20:39 Clear world end.
-2022-10-25 11:20:39 Emit finished
-2022-10-25 11:20:39 Delete world
-2022-10-25 11:20:39 Wait to stop
+2022-12-08 17:10:46 Build lighting 20
+
+2022-12-08 17:10:46 Build lighting 26
+
+2022-12-08 17:10:46 Build lighting 33
+
+2022-12-08 17:10:46 Build lighting 40
+
+2022-12-08 17:10:46 Build lighting 46
+
+2022-12-08 17:10:46 Build lighting 53
+
+2022-12-08 17:10:47 Build lighting 60
+
+2022-12-08 17:10:47 Build lighting 66
+
+2022-12-08 17:10:47 Build lighting 73
+
+2022-12-08 17:10:47 Build lighting 80
+
+2022-12-08 17:10:47 Build lighting 86
+
+2022-12-08 17:10:47 Build lighting 93
+
+2022-12-08 17:10:48 Build lighting 100
+
+2022-12-08 17:10:48 Save world...
+2022-12-08 17:10:48 Writing lfx file 'output/lfx.out'
+2022-12-08 17:10:48 Pack mesh 0
+2022-12-08 17:10:48 Pack mesh 1
+2022-12-08 17:10:48 Pack mesh 2
+2022-12-08 17:10:48 Pack mesh 3
+2022-12-08 17:10:48 Pack mesh 4
+2022-12-08 17:10:48 Pack mesh 5
+2022-12-08 17:10:48 Pack mesh 6
+2022-12-08 17:10:48 Pack mesh 7
+2022-12-08 17:10:48 Pack mesh 8
+2022-12-08 17:10:48 Pack mesh 9
+2022-12-08 17:10:48 Pack mesh 10
+2022-12-08 17:10:48 Pack mesh 11
+2022-12-08 17:10:48 Pack mesh 12
+2022-12-08 17:10:48 Pack mesh 13
+2022-12-08 17:10:48 Save lighting map output/LFX_Mesh_0000.png
+2022-12-08 17:10:48 Writing lfx file end.
+2022-12-08 17:10:48 Save world end.
+2022-12-08 17:10:48 Clear world...
+2022-12-08 17:10:48 Clear world end.
+2022-12-08 17:10:48 Emit finished
+2022-12-08 17:10:48 Delete world
+2022-12-08 17:10:48 Wait to stop
