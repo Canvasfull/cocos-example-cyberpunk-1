@@ -1,6 +1,6 @@
 import { game, math, PhysicsSystem } from "cc";
 import { Save } from "../data/save";
-import { Local } from "../local/local";
+import { Local } from "../localization/local";
 import { Msg } from "../msg/msg";
 import { Singleton } from "../pattern/singleton";
 import { ResCache } from "../res/res-cache";
@@ -51,7 +51,7 @@ export class GameQuality extends Singleton {
 
     public checkChange () {
 
-        if (this._default != this.index) {
+        if (this._default !== this.index) {
             // Restart game.
             globalThis.window.location.reload();
         }

@@ -35,7 +35,7 @@ export class Action {
 
     public push (name: string, state: string) {
         var action = this._data[name];
-        if (action == undefined) {
+        if (action === undefined) {
             console.warn('Undefined action:', name);
             return;
         }
@@ -53,7 +53,7 @@ export class Action {
         if (this._act) {
             this._act.time += deltaTime;
             const cur = this._act?.data[this._act.idx]!;
-            if(cur === undefined || this._act === undefined) {
+            if (cur === undefined || this._act === undefined) {
                 throw new Error(`Error actor action index: ${this._act?.idx}`);
             }
             if (this._act.time >= cur.time) {
@@ -91,7 +91,7 @@ export class ActionParallel {
 
     public push (name: string, state: string) {
         var action = this._data[name];
-        if (action == undefined) {
+        if (action === undefined) {
             console.error('Undefined action:', name);
             return;
         }
@@ -145,7 +145,7 @@ export class ActionActor extends Action {
 
     public checkRunAction () {
         const cur = this._act?.data[this._act.idx]!;
-        if(cur === undefined || this._act === undefined) {
+        if (cur === undefined || this._act === undefined) {
             throw new Error(`Error actor action index: ${this._act?.idx}`);
         }
         if (this._act.time >= cur.time) {
@@ -193,7 +193,7 @@ export class ActionActorEquip extends Action {
 
     public checkRunAction () {
         const cur = this._act?.data[this._act.idx]!;
-        if(cur === undefined || this._act === undefined) {
+        if (cur === undefined || this._act === undefined) {
             throw new Error(`Error actor action index: ${this._act?.idx}`);
         }
         if (this._act.time >= cur.time) {
@@ -269,7 +269,7 @@ export class UtilAction {
     }
 
     public static on_check_preload() {
-        if(GScene.isPreload)
+        if (GScene.isPreload)
             GScene.isLoadScene = true;
     }
 
@@ -336,7 +336,7 @@ export class UtilAction {
 
         var asset = ResCache.Instance.getPrefab(key);
         var obj = Res.inst(asset);
-        if (actor != undefined && actor._view != null) {
+        if (actor !== undefined && actor._view !== null) {
             obj.parent = actor._view;
             obj.setPosition(0, 0, 0);
         }
@@ -345,7 +345,7 @@ export class UtilAction {
         Res.loadPrefab(key, (err, asset) => {
             if (asset) {
                 var obj = Res.inst(asset);
-                if (actor != undefined && actor._view != null) {
+                if (actor !== undefined && actor._view !== null) {
                     obj.parent = actor._view;
                     obj.setPosition(0, 0, 0);
                 }
@@ -364,7 +364,7 @@ export class UtilAction {
         var bone = data.bone;
         var asset = ResCache.Instance.getPrefab(res);
         var obj = Res.inst(asset);
-        if (actor != undefined && actor._view != null) {
+        if (actor !== undefined && actor._view !== null) {
             var bone_node = actor.node.getChildByName(bone);
             obj.parent = bone_node;
             obj.setPosition(0, 0, 0);
@@ -375,9 +375,9 @@ export class UtilAction {
     public static off_inst_fx(data:any, actor: ActorBase) {
         var res = data.res;
         var bone = data.bone;
-        if (actor != undefined && actor._view != null) {
+        if (actor !== undefined && actor._view !== null) {
             var off_fx = actor.node.getChildByName(bone)?.getChildByName(res);
-            if(off_fx) off_fx.emit('setDestroy'); 
+            if (off_fx) off_fx.emit('setDestroy'); 
         } 
     }
 
@@ -452,7 +452,7 @@ export class UtilActionEquip {
     }
 
     public static on_check_preload() {
-        if(GScene.isPreload) GScene.isLoadScene = true;
+        if (GScene.isPreload) GScene.isLoadScene = true;
     }
 
     public static on_scene (key: string) {
@@ -524,7 +524,7 @@ export class UtilActionEquip {
 
         var asset = ResCache.Instance.getPrefab(key);
         var obj = Res.inst(asset);
-        if (actor != undefined && actor._view != null) {
+        if (actor !== undefined && actor._view !== null) {
             obj.parent = actor._view;
             obj.setPosition(0, 0, 0);
         }
@@ -539,7 +539,7 @@ export class UtilActionEquip {
         var bone = data.bone;
         var asset = ResCache.Instance.getPrefab(res);
         var obj = Res.inst(asset);
-        if (actor != undefined && actor._view != null) {
+        if (actor !== undefined && actor._view !== null) {
             var bone_node = actor.node.getChildByName(bone);
             obj.parent = bone_node;
             obj.setPosition(0, 0, 0);
@@ -550,9 +550,9 @@ export class UtilActionEquip {
     public static off_inst_fx(data:any, actor: ActorEquipBase) {
         var res = data.res;
         var bone = data.bone;
-        if (actor != undefined && actor._view != null) {
+        if (actor !== undefined && actor._view !== null) {
             var off_fx = actor.node.getChildByName(bone)?.getChildByName(res);
-            if(off_fx) off_fx.emit('setDestroy'); 
+            if (off_fx) off_fx.emit('setDestroy'); 
         } 
     }
 

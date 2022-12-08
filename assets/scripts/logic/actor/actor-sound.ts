@@ -21,7 +21,7 @@ export class ActorSound extends Component {
     walkSfx (name: string) {
 
         var data = this.actor._data;
-        if(data.cur_speed < 0.1) return;
+        if (data.cur_speed < 0.1) return;
         if (data.in_water) {
             Sound.on(data.sfx_walk_water, data.cur_speed);
         } else {

@@ -26,14 +26,14 @@ export class LevelEvents extends Component {
 
     updateEvent(deltaTime: number) {
 
-        if(this._index >= this._max) return;
+        if (this._index >= this._max) return;
 
         this._time += deltaTime;
 
-        if(this._time > this._cur.time) {
+        if (this._time > this._cur.time) {
             Level.Instance.addEnemy(this._cur.res);
             this._index++;
-            if(this._index < this._max)
+            if (this._index < this._max)
                 this._cur = this._events[this._index];
         }
 

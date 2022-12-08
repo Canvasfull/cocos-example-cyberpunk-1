@@ -8,7 +8,7 @@ export class SpawnsGroup extends Component {
     onEnable() {
         this.node.children.forEach(child => {
             const meshRender = child.getComponent(MeshRenderer);
-            if(meshRender) meshRender.enabled = false;
+            if (meshRender) meshRender.enabled = false;
         });
     }
 

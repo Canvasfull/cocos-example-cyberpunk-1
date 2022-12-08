@@ -10,7 +10,7 @@ export class InputHandle {
 
     public static Init () {
         Res.loadJson('data/input', (err, asset)=>{
-            if(asset) {
+            if (asset) {
                 this._map = asset.json;
                 console.log(this._map);
             }
@@ -23,7 +23,7 @@ export class InputHandle {
 
     public static do(key:string, id:number, data?: null | any) {
         const sendKey = id + this._map[key];
-        if(sendKey) {
+        if (sendKey) {
             Msg.emit(sendKey, data);
         }else{
             console.log('Not defined key' + key)

@@ -49,7 +49,7 @@ export class light_flash extends Component {
          // [4]
          /*
          this._curLuminance = this._curLuminance + deltaTime * this.speed;
-         if(this._curLuminance > this.max || this._curLuminance < this.min) {
+         if (this._curLuminance > this.max || this._curLuminance < this.min) {
              this.speed *= -1;
          }
          this._light.luminance = this._curLuminance;

@@ -8,8 +8,7 @@
       "__id__": 1
     },
     "optimizationPolicy": 0,
-    "persistent": false,
-    "asyncLoadAssets": false
+    "persistent": false
   },
   {
     "__type__": "cc.Node",
@@ -56,6 +55,7 @@
       "y": 1,
       "z": 1
     },
+    "_mobility": 0,
     "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
@@ -101,7 +101,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 565.28,
-      "y": -281.298,
+      "y": -296.298,
       "z": 0
     },
     "_lrot": {
@@ -117,6 +117,7 @@
       "y": 1,
       "z": 1
     },
+    "_mobility": 0,
     "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
@@ -165,6 +166,7 @@
       "y": 1,
       "z": 1
     },
+    "_mobility": 0,
     "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
@@ -253,7 +255,10 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "55vQjY6OBK4JYfyCkr2Ebv"
+    "fileId": "55vQjY6OBK4JYfyCkr2Ebv",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.Node",
@@ -294,6 +299,7 @@
       "y": 1,
       "z": 1
     },
+    "_mobility": 0,
     "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
@@ -382,7 +388,10 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "00jt21V4hKH4X8T7alooJ/"
+    "fileId": "00jt21V4hKH4X8T7alooJ/",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.UITransform",
@@ -567,7 +576,10 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "0dUFqppQVKgoXysRkcQgrY"
+    "fileId": "0dUFqppQVKgoXysRkcQgrY",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.UITransform",
@@ -583,7 +595,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1334,
-      "height": 720
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -603,7 +615,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 27
     },
@@ -683,6 +695,8 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "bcrtPBprNFlZZ4m1Jgv5jL"
+    "fileId": "bcrtPBprNFlZZ4m1Jgv5jL",
+    "instance": null,
+    "targetOverrides": null
   }
 ]

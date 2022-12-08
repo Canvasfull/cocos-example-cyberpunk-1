@@ -2632,7 +2632,7 @@
     "fileId": "25YlnjAllQl44SlxgO58+D"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -2750,7 +2750,7 @@
     "fileId": "58G7EdloxZbJm5mkGQMqGc"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -2864,7 +2864,7 @@
     "fileId": "c6w8K5lelf7prLsSKbS0mu"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -2978,7 +2978,7 @@
     "fileId": "32KIxeU1xQnbboIEz/7zxx"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -3096,7 +3096,7 @@
     "fileId": "b1JnC8gCtTPpKlQ5J9kNHo"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -3214,7 +3214,7 @@
     "fileId": "e7qdoDBENcPKKbxaQoB8cE"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -3332,7 +3332,7 @@
     "fileId": "84vUoatoZbYIk86GMZqo74"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -3450,7 +3450,7 @@
     "fileId": "4bvWwuzbpcoLCbN//G7wVC"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",

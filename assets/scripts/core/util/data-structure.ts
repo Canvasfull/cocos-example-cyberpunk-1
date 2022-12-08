@@ -13,7 +13,7 @@ export class Stack<T> {
 
     public push(o:T) {
         var len = this._elements.length;
-        if(this._size > len) {
+        if (this._size > len) {
             let temp = new Array<T>(len);
             this._elements = this._elements.concat(temp);
         }
@@ -37,7 +37,7 @@ export class Stack<T> {
     }
 
     public empty():boolean {
-        return this._size == 0;
+        return this._size === 0;
     }
     
     public clear(capacity:number = CAPACITY) {
@@ -58,12 +58,12 @@ export class Queue<T> {
     }
 
     public push(o:T) {
-        if(o == null) {
+        if (o === null) {
             return false;
         }
 
-        if(this._size != undefined && !isNaN(this._size)) {
-            if(this._elements.length == this._size) {
+        if (this._size !== undefined && !isNaN(this._size)) {
+            if (this._elements.length === this._size) {
                 this.pop();
             }
         }
@@ -81,7 +81,7 @@ export class Queue<T> {
     }
     
     public empty():boolean {
-        return this.size() == 0;
+        return this.size() === 0;
     } 
 
     public clear() {

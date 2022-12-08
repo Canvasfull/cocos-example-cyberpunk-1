@@ -23,7 +23,7 @@ export class Brain {
     runNode(data) {
 
         // find action.
-        if(data.children == undefined) {
+        if (data.children === undefined) {
             this.action(data.action);
         }else{
             console.log('run node:', data.node);
@@ -36,7 +36,7 @@ export class Brain {
         var rand = random();
         for(let i = 0; i < data.length; i++) {
             let info = data[i];
-            if(info.value < rand) {
+            if (info.value < rand) {
                 this.runNode(info);
                 return;
             }
@@ -50,7 +50,7 @@ export class Brain {
 
         for(let i = 0; i < data.length; i++) {
             let info = data[i];
-            if(info.value == 'canEatPlayer') {
+            if (info.value === 'canEatPlayer') {
                 this.runNode(info);
                 return;
             }

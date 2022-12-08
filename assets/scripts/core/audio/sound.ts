@@ -31,7 +31,7 @@ export class Sound {
 
         // Init sound volume.
         var v = Save.Instance.get('sfx_volume');
-        if (v == null) v = 1;
+        if (v === null) v = 1;
         this.volume = v;
         this.Refresh();
 
@@ -61,23 +61,23 @@ export class Sound {
         //find unused.
         let index = -1;
         for(var i = 0; i < this._pool.length; i++) {
-            if(this._pool[i].clip == null) {
+            if (this._pool[i].clip === null) {
                 index = i;
                 break;
             }
         }
 
         // add new one.
-        if(index == -1) {
+        if (index === -1) {
             this.addPool();
             index = this._pool.length - 1;
         }
 
         Res.loadAudio(`sound/${key}`, (err, asset) => {
-            if(err) {
+            if (err) {
                 throw new Error(`Can not find sound resource : sound/${key}`);
             }
-            if(asset) {
+            if (asset) {
                 this._pool[index].clip = asset;
                 this._pool[index].volume = this.volume * volumeMultiply;
                 this._pool[index].loop = true;
@@ -97,7 +97,7 @@ export class Sound {
 
     public static on (key: string, volumeMultiply: number = 1): void {
         Res.loadAudio(`sound/${key}`, (err, asset) => {
-            if(asset) {
+            if (asset) {
                 this._sfxAudio.playOneShot(asset, this.volume * volumeMultiply);
             }
         });
@@ -105,10 +105,10 @@ export class Sound {
 
     public static addSfx (node: Node, key: string, volume: number = 1) {
         Res.loadAudio(`sound/${key}`, (err, asset) => {
-            if(err) {
+            if (err) {
                 throw new Error(`Can not find sound resource : sound/${key}`);
             }
-            if(asset) {
+            if (asset) {
                 if (!node.isValid) return;
                 let source = node.getComponent(AudioSource)!;
                 source.clip = asset;
@@ -124,10 +124,10 @@ export class Sound {
 
     public static onBGM (key: string): void {
         Res.loadAudio(`sound/${key}`, (err, asset) => {
-            if(err) {
+            if (err) {
                 throw new Error(`Can not find sound resource : sound/${key}`);
             }
-            if(asset) {
+            if (asset) {
                 this._bgmAudio.stop();
                 this._bgmAudio.clip = asset;
                 this._bgmAudio.loop = true;

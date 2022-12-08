@@ -15,7 +15,7 @@ export class GRandom {
 
     constructor (seed: number = -1) {
         this.seed = seed;
-        if (this.seed == -1) this.seed = randomRangeInt(0, 0xffffffff);
+        if (this.seed === -1) this.seed = randomRangeInt(0, 0xffffffff);
         this.preValue = this.seed;
     }
 

@@ -50,18 +50,18 @@ export class force_buoyance extends Component {
     update(deltaTime: number) {
 
         this._delay -= deltaTime;
-        if(this._delay > 0) return;
+        if (this._delay > 0) return;
         this._rigid.useGravity = true;
 
-        if(this._center.worldPosition.y < 0.5) {
+        if (this._center.worldPosition.y < 0.5) {
             // stop dirty
-            if(this._partical && this._partical!._loop)
+            if (this._partical && this._partical!._loop)
                 this._partical!.setLoop(false);
 
             var depth = this.sea_level - this._center.worldPosition.y;
             
             var v = depth;
-            if( v > 1) v = 1;
+            if ( v > 1) v = 1;
             var force_up = v3(0, this.p * this.g * v * deltaTime);
             this._rigid.applyForce(force_up);
 

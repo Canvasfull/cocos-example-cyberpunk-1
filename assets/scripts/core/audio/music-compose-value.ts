@@ -49,7 +49,7 @@ export class MusicComposeValue extends Component {
 
         this._value = speed;
         for(var i = 0; i < this.clips.length; i++) {
-            if(this.weight[i] <= this._value) this._selects[i] = 1;
+            if (this.weight[i] <= this._value) this._selects[i] = 1;
             else this._selects[i] = 0;
         }
         

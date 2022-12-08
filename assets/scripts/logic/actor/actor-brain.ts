@@ -28,7 +28,7 @@ export class ActorBrain extends Component {
         const sensorNode = Res.inst(prefab, this.node);
         this.sensorRays = sensorNode.getComponent(SensorRaysAngle)!;
 
-        if(this._actor === undefined || this.input === undefined || this.sensorRays) {
+        if (this._actor === undefined || this.input === undefined || this.sensorRays === undefined) {
             throw new Error(`${this.node.name} node lose components : ActorBase or ActorInputBrain.`);
         }        
     }
@@ -52,20 +52,20 @@ export class ActorBrain extends Component {
     }
 
     checkFire() {
-        if(this.sensorRays!.checkedNode) {
+        if (this.sensorRays!.checkedNode) {
             //this.input.onFire();
         }
     }
 
     update(deltaTime:Number) {
 
-        if(this.is_waypoints_move) {
+        if (this.is_waypoints_move) {
             const wpos = this._actor!.node.worldPosition;
             const target = this._wayPoints[this.waypointsIndex];
-            if(Vec3.distance(wpos, target) <= 0.1) {
+            if (Vec3.distance(wpos, target) <= 0.1) {
                 // Next way
                 this.waypointsIndex++;
-                if(this.waypointsIndex >= this._wayPoints.length) this.is_waypoints_move = false;
+                if (this.waypointsIndex >= this._wayPoints.length) this.is_waypoints_move = false;
             }else{
                 this._rotation.x = target.x - wpos.x;
                 this._rotation.y = target.z - wpos.z;
@@ -73,7 +73,7 @@ export class ActorBrain extends Component {
                 this._moveDir.y = 0;
                 this._moveDir.z = -1;
                 this.onMove();
-                if(random() < 0.1) this.onJump();
+                if (random() < 0.1) this.onJump();
             }
         }else{
             this.calculateNextPosition();

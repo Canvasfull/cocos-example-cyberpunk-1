@@ -20,20 +20,20 @@ export class Notify extends Singleton {
         
         this.counter++;
         
-        if(Game.Instance._isInit) this.check_notify();
+        if (Game.Instance._isInit) this.check_notify();
 
         Msg.on('msg_check_notify', this.check_notify.bind(this));
     }
 
     public check_notify() {
 
-        if(this.cur != null && this.cur.call != null) {
+        if (this.cur !== null && this.cur.call !== null) {
             this.cur.call();
         }
 
-        if(this.counter == 0) return;
+        if (this.counter === 0) return;
 
-        if(this.queue.empty()) {
+        if (this.queue.empty()) {
             this.counter = 0;
             this.cur = null;
         }else{

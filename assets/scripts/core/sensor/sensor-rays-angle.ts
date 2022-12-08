@@ -69,10 +69,10 @@ export class SensorRaysAngle extends Component {
 
     update(deltaTime: number) {
         this._time -= deltaTime;
-        if(this._time < 0) {
+        if (this._time < 0) {
             this._time = this.check_time; 
             for(let i = 0; i < this._dirs.length; i++) {
-                if(this._dirs[i] == undefined) {
+                if (this._dirs[i] === undefined) {
                     console.log(this._dirs[i]);
                 }
                 Vec3.transformMat4(this._curDir, this._dirs[i], this.node.worldMatrix);

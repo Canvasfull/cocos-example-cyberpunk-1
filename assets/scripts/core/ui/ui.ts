@@ -25,11 +25,11 @@ export class UI extends Singleton {
     public on(name: string) {
         var load = async ()=>{
             const panel = this._map[name];
-            if(panel) {
+            if (panel) {
                 panel.on();
             }else{
                 Res.loadPrefab('ui/'+name,(err, asset)=>{
-                    if(asset) {
+                    if (asset) {
                         const panel = Res.inst(asset, UI.Instance.node);
                         const order = Game.Instance._data.ui_order[name];
                         panel.setPosition(0, 0, order);
@@ -37,14 +37,14 @@ export class UI extends Singleton {
                         var count = UI.Instance.node.children.length;
                         for(let i = 1; i < count; i++) {
                             let child = this.node.children[i];
-                            if(child.position.z > order) {
+                            if (child.position.z > order) {
                                 let ui_order = i;
                                 panel.setSiblingIndex(ui_order); 
                                 set = true;
                                 break;
                             }
                         }
-                        if(!set) panel.setSiblingIndex(count);
+                        if (!set) panel.setSiblingIndex(count);
                         const uiBase = new UIBase(panel);
                         uiBase.on();
                         this._map[name] = uiBase;
@@ -60,7 +60,7 @@ export class UI extends Singleton {
 
     public off(name: string) {
         const panel = this._map[name];
-        if(panel) {
+        if (panel) {
             panel.off();
         }else{
             Log.warn('You want off a ui object that does not exist : ' + name);
@@ -69,7 +69,7 @@ export class UI extends Singleton {
     
     public destroy(name: string) {
         const panel = this._map[name];
-        if(panel) {
+        if (panel) {
             panel.destroy();
             this._map[name] = null;
         }else{

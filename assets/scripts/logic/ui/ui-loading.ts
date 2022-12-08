@@ -19,7 +19,7 @@ export class UILoading extends Component {
     start() {
         this._time = this.delay;
         this._txtLoading = this.getComponent(Label);
-        if(this._txtLoading === undefined || this._txtLoading === null) {
+        if (this._txtLoading === undefined || this._txtLoading === null) {
             throw new Error(`${this.node.name} node not find component Label.`);
         }
     }
@@ -28,10 +28,10 @@ export class UILoading extends Component {
 
         this._time -= deltaTime;
 
-        if(this._time < 0) {
+        if (this._time < 0) {
             this._time += 1;
             this._idx++;
-            if(this._idx > this.pointList.length) this._idx = 0;
+            if (this._idx > this.pointList.length) this._idx = 0;
             this._txtLoading!.string = this.pointList[this._idx];
         }
         

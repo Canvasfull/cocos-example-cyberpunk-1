@@ -4,7 +4,7 @@ export class Singleton {
     private static _instance: any = null;
 
     public static get Instance() {
-        if(!this._instance) {
+        if (!this._instance) {
             this._instance = new this();
             
         }

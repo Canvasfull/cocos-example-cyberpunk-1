@@ -2713,7 +2713,7 @@
     "fileId": "5dd6RbHVBJX7XDxj9mLIpH"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -2827,7 +2827,7 @@
     "fileId": "54HmwLfSpEsKiZoUSi/BqH"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -3047,7 +3047,7 @@
     "fileId": "e7QGAT/m1MVLZJ91UI0IfW"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -3161,7 +3161,7 @@
     "fileId": "e2Fl7Ui9VEApN+uNUFSN1g"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",

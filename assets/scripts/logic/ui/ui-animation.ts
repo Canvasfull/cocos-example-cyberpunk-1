@@ -9,7 +9,7 @@ export class ui_animation extends Component {
     onEnable () {
         this._graph = this.getComponent(animation.AnimationController);
         
-        if(this._graph === null) {
+        if (this._graph === null) {
             throw new Error(`${this.node.name} node can not find AnimationController.`);
         }
 

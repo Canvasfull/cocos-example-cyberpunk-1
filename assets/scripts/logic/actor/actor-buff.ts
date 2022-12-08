@@ -18,7 +18,7 @@ export class ActorBuff {
 
         for(var key in this.buff) {
             var b = this.buff[key];
-            if(b.sound)
+            if (b.sound)
                 this.offSfx(b.sound);
         }
         this.buff = {};
@@ -28,16 +28,16 @@ export class ActorBuff {
     public add(key) {
 
         var new_buff = Buff.Instance.get(key);
-        if(this.buff[key] != null) {
+        if (this.buff[key] !== null) {
             this.buff[key].time = new_buff.time;
         }else{
             this.buff[key] = {};
             this.buff[key].time = new_buff.time;
-            if(new_buff.start.properties)
+            if (new_buff.start.properties)
                 this.setProperties(new_buff.start.properties);
-            if(new_buff.start.fx)
+            if (new_buff.start.fx)
                 this.setFx(new_buff.start.fx);
-            if(new_buff.start.sound)
+            if (new_buff.start.sound)
                 this.onSfx(this.buff[key], new_buff.start.sound);
         }
        
@@ -45,11 +45,11 @@ export class ActorBuff {
 
     public remove(key) {
         var removeBuff = Buff.Instance.get(key);
-        if(removeBuff.start.properties)
+        if (removeBuff.start.properties)
             this.setProperties(removeBuff.start.properties, -1);
-        if(removeBuff.start.fx)
+        if (removeBuff.start.fx)
             this.setFx(removeBuff.start.fx, 'off');
-        if(removeBuff.start.sound)
+        if (removeBuff.start.sound)
             this.offSfx(this.buff[key].sound);
         delete this.buff[key];
     }
@@ -57,7 +57,7 @@ export class ActorBuff {
     update(deltaTime: number) {
         for(let key in this.buff) {
             this.buff[key].time -= deltaTime;
-            if(this.buff[key].time <= 0) {
+            if (this.buff[key].time <= 0) {
                 this.remove(key)
             }
         } 
@@ -81,7 +81,7 @@ export class ActorBuff {
         buff.sound = [];
         for(let i = 0; i < sound.length; i++) {
             let sfx = sound[i];
-            if(sfx.loop) {
+            if (sfx.loop) {
                 var idx = Sound.playLoop(sfx.res, sfx.volume);
                 buff.sound.push(idx);
             }else{

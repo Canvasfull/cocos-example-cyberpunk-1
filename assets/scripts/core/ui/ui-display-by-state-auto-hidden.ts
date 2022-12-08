@@ -19,11 +19,11 @@ export class UIDisplayByStateAutoHidden extends UIDisplayByState {
 
         super.update(deltaTime);
 
-        if(this._hiddenTime < 0) return;
+        if (this._hiddenTime < 0) return;
 
         this._hiddenTime -= deltaTime;
 
-        if(this._hiddenTime < 0) {
+        if (this._hiddenTime < 0) {
             this._color_a = 0;
         }
 

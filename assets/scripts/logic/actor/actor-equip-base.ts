@@ -32,7 +32,7 @@ export class ActorEquipBase extends Component {
         this._animationGraph = this.addComponent(ActorAnimationGraphGroup)!;
         this._view = this.node.getChildByName('view')!;
 
-        if(this.point_shoot === undefined || this._animationGraph === undefined || this._view === undefined) {
+        if (this.point_shoot === undefined || this._animationGraph === undefined || this._view === undefined) {
             throw new Error(`${this.node.name} ActorEquipBase preload init error: may be lose point_shoot or animation graph or view node.`);
         }
 
@@ -55,7 +55,7 @@ export class ActorEquipBase extends Component {
 
     do (name: string) {
         if (this._action) {
-            if(name === 'fire' && !this.checkUse()) return;
+            if (name === 'fire' && !this.checkUse()) return;
             this._action.on(name);
         } 
     }
@@ -66,14 +66,14 @@ export class ActorEquipBase extends Component {
 
     setActive (data: key_type_boolean) {
         const activeNode = this.node.getChildByName(data.key);
-        if(activeNode) activeNode.active = data.value;
+        if (activeNode) activeNode.active = data.value;
         else console.warn(` You want set undefined node active. ${this.node?.name}/${data.key}`);
     }
 
     setFx (data: key_type_boolean) {
         var pNode = this.node.getChildByName(data.key);
         var particles = pNode?.getComponentsInChildren(ParticleSystem);
-        if(particles === undefined) {
+        if (particles === undefined) {
             console.warn(` effect can not find ${data}`);
             return;
         }
@@ -88,7 +88,7 @@ export class ActorEquipBase extends Component {
         console.log(' ------ on fx', data);
         var pNode = this.node.getChildByName(data);
         var particles = pNode?.getComponentsInChildren(ParticleSystem);
-        if(particles === undefined) {
+        if (particles === undefined) {
             console.warn(` effect can not find ${data}`);
             return;
         }
@@ -104,7 +104,7 @@ export class ActorEquipBase extends Component {
 
     checkUse():boolean {
         // Check bullet count.
-        if(this._bagData!.bulletCount <= 0 && this._bagData!.data.bullet_count !== -1) {
+        if (this._bagData!.bulletCount <= 0 && this._bagData!.data.bullet_count !== -1) {
             this.do('fire_empty');
             return false;
         }

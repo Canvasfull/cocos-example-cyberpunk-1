@@ -38,7 +38,7 @@ export class CameraActor extends Component {
 
     update (deltaTime: number) {
 
-        if(this.isload) return;
+        if (this.isload) return;
 
     }
 }

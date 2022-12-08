@@ -15,13 +15,13 @@ export class UIMoveShow extends Component {
 
     _curTime = 0;
 
-    _sprite:SpriteComponent = Object.create(null);
+    _sprite:SpriteComponent | undefined | null;
 
     _color:Color = new Color(255, 255, 255, 0);
 
     _a:number = 0;
 
-    _btn:Button = Object.create(null);
+    _btn:Button | undefined | null;
     
     start() {
 
@@ -29,9 +29,9 @@ export class UIMoveShow extends Component {
         input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
 
         this._sprite = this.getComponent(SpriteComponent);
-        this._sprite.color = this._color;
+        this._sprite!.color = this._color;
         this._curTime = this.hiddenTime;
-        this._btn = this.getComponent(ButtonComponent);
+        this._btn = this.getComponent(Button);
 
     }
 
@@ -52,24 +52,19 @@ export class UIMoveShow extends Component {
 
         this._curTime += deltaTime;
 
-        if(this._curTime > this.hiddenTime) {
-
-            if(this._color.a > 0) {
+        if (this._curTime > this.hiddenTime) {
+            if (this._color.a > 0) {
                 var delta = deltaTime * this.hiddenSpeed;
                 this._color.a -= delta;
-                this._sprite.color = this._color.clone();
-                
-                this._btn.enabled = false;
+                this._sprite!.color = this._color.clone();
+                this._btn!.enabled = false;
             }
-            
-             
         }else{
-            if(this._color.a < 255) {
+            if (this._color.a < 255) {
                 var delta = deltaTime * this.showSpeed;
                 this._color.a += delta;
-                this._sprite.color = this._color.clone();
-                
-                this._btn.enabled = true;
+                this._sprite!.color = this._color.clone();
+                this._btn!.enabled = true;
             }
             
         }

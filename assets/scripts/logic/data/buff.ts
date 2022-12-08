@@ -13,7 +13,7 @@ export class Buff extends Singleton {
     }
 
     public get(key) {
-        if(this._data[key]) {
+        if (this._data[key]) {
             return this._data[key];
         }else{
             console.error('can not find buff:', key);

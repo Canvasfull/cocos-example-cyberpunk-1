@@ -31,14 +31,14 @@
         "logo": { "next":"menu"},
         "menu": {},
         "level": {},
-        "levelend": {},
-        "level_pause":{ "ispop": 1},
-        "upgrade_cards": { "ispop": 1},
-        "select_equips": { "ispop": 1},
-        "tips": { "ispop":1 },
-        "settings": { "ispop":1 },
-        "credits": { "ispop": 1 },
-        "notify": { "ispop": 1}
+        "level_end": {},
+        "level_pause":{ "is_pop": 1},
+        "upgrade_cards": { "is_pop": 1},
+        "select_equips": { "is_pop": 1},
+        "tips": { "is_pop":1 },
+        "settings": { "is_pop":1 },
+        "credits": { "is_pop": 1 },
+        "notify": { "is_pop": 1}
     },
     "roles":[
         { "name": "actor-hen" }

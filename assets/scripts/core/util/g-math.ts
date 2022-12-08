@@ -6,7 +6,7 @@ export class GMath {
 
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0,
-                v = c == 'x' ? r : (r & 0x3 | 0x8);
+                v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
 
@@ -56,6 +56,12 @@ export class GMath {
 
     static lerpSmooth (value: number, target: number, rate: number, dt: number) {
         return lerp(target, value, Math.exp(-rate * dt))
+    }
+
+    static range(max:number, min:number, value:number) {
+        if(value > max) return max;
+        if(value < min) return min;
+        return value;
     }
 
 }

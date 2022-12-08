@@ -20,7 +20,7 @@ export class UIFadeIn extends Component {
     }
 
     tweenUpdateColor () {
-        if (this._sprite == null)
+        if (this._sprite === null)
             this._sprite = this.getComponent(SpriteComponent);
 
         let bindTarget = new BindTarget();

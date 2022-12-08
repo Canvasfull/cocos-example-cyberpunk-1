@@ -31,14 +31,14 @@ export class ActorEquipment {
     public equip(index:number):boolean {
 
         const curIndex = this._actor._data.cur_equip_bag_index;
-        if(curIndex !== index) {
+        if (curIndex !== index) {
             const items_index = this._actor._data.items_index;
             const items = this._actor._data.items;
 
             // unEquip
-            if(curIndex !== -1) this.unEquip();
+            if (curIndex !== -1) this.unEquip();
 
-            if(index == -1) {
+            if (index === -1) {
                 this._actor._data.cur_equip_bag_index = -1;
                 this.curData = undefined;
                 // show hand.
@@ -47,10 +47,10 @@ export class ActorEquipment {
 
             // Change new weapon.
             const curEquipName = items_index[index];
-            if(curEquipName.length > 0) {
+            if (curEquipName.length > 0) {
                 var newEquip = this.equipPool[curEquipName];
                 this.curData = items[curEquipName];
-                if(newEquip != undefined) {
+                if (newEquip !== undefined) {
                     newEquip.active = true;
                 }else{
                     const prefab = ResCache.Instance.getPrefab(curEquipName + '_fps');
@@ -74,7 +74,7 @@ export class ActorEquipment {
 
     public unEquip() {
         const curIndex = this._actor._data.cur_equip_bag_index;
-        if(curIndex != -1) {
+        if (curIndex !== -1) {
             const items_index = this._actor._data.items_index; 
             const curNode = this.equipPool[items_index[curIndex]];
             if (curNode !== undefined) {
@@ -89,15 +89,15 @@ export class ActorEquipment {
 
     public updateAim(stable:number) {
         
-        if(this.curData === undefined) {
-            if(this.stableValue != 0){
+        if (this.curData === undefined) {
+            if (this.stableValue !== 0){
                 this.stableValue = 0;
                 Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
             const equipStable = this.curData.data.stable_value;
             let curStable = 0;
-            if(equipStable !== 0) {
+            if (equipStable !== 0) {
                 curStable = Math.abs(stable) <= 0.001 ? 1 : equipStable;
             }
             this.stableValue = math.lerp(this.stableValue, curStable, game.deltaTime * 2);

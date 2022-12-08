@@ -16,7 +16,7 @@ export class World extends Singleton {
     }
 
     do(name: string) {
-        if(this._action) this._action.on(name);
+        if (this._action) this._action.on(name);
     }
 
     worldLogic() {

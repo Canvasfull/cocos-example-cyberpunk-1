@@ -20,7 +20,7 @@ export class FilSmooth extends Component {
 
     update(deltaTime: number) {
         var delta = Math.abs(this.fil_value.fillRange - this.value);
-        if (delta != 0) {
+        if (delta !== 0) {
             this.fil_value.fillRange = math.lerp(this.fil_value.fillRange, this.value, game.deltaTime * this.smooth);
             if (delta < 0.0001) this.fil_value.fillRange = this.value;
         }

@@ -4,7 +4,7 @@ export class IO {
     
     public static getNum (name: string): number {
         var val = this.read(name);
-        if (val.search('.') == -1) {
+        if (val.search('.') === -1) {
             var num = Number.parseInt(val);
         } else {
             var num = Number.parseFloat(val);
@@ -18,7 +18,7 @@ export class IO {
     public static write (path: string, data: string): void {
         try { 
             console.log('is native:', sys.isNative);
-            if(sys.isNative) {
+            if (sys.isNative) {
                 jsb.fileUtils.writeStringToFile(data, path);
             }else{
                 console.log('set item start', path, data);
@@ -33,7 +33,7 @@ export class IO {
 
     public static read (path: string): string {
         try {
-            if(sys.isNative) {
+            if (sys.isNative) {
                 return jsb.fileUtils.getStringFromFile(path);
             }else{
                 console.log('get items:', path);

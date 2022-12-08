@@ -13,7 +13,7 @@ export class JsonTool {
 
     public static toIOObject(path: any): any{
         var str = IO.read(path+'.json');
-        if(str) {
+        if (str) {
             return this.toObject(str);
         }
     }

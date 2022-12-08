@@ -12,11 +12,11 @@ export class Res {
         this.count++;
         resources.load(path, type, function(err, res){
             Res.count--;
-            if(err){
+            if (err){
                 error(path,err.message || err);
                 Msg.emit('msg_res_error');
             }
-            if(cb) {
+            if (cb) {
                 cb(err, res);
             }
             ResCache.Instance.checkEnd();
@@ -82,7 +82,7 @@ export class Res {
 
     public static inst(asset: Prefab, root:Node = null,  pos:Vec3 = Vec3.ZERO) : Node {
         var instObj = instantiate(asset);
-        if(root == null) {
+        if (root === null) {
             director.getScene().addChild(instObj);
         }else{
             instObj.parent = root;
@@ -94,7 +94,7 @@ export class Res {
 
     public static instNode(node:Node, root:Node = null, pos:Vec3 = Vec3.ZERO) : Node {
         var instObj = instantiate(node);
-        if(root == null) {
+        if (root === null) {
             director.getScene().addChild(instObj);
         }else{
             instObj.parent = root;
@@ -107,11 +107,11 @@ export class Res {
     public static loadDir<T extends Asset>(path: string, type: Constructor<T> | null, cb?: (err: Error | null, asset?: T[] | null)=>void) {
         this.count++;
         resources.loadDir(path, type, function(err, res){
-            if(err){
+            if (err){
                 error(err.message || err);
                 Msg.emit('msg_res_error');
             }
-            if(cb) {
+            if (cb) {
                 cb(err, res);
             }
             Res.count--;

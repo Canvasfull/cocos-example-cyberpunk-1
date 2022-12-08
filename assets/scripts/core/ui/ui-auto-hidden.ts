@@ -29,7 +29,7 @@ export class UiAutoHidden extends Component {
 
     setDisplay(value:number) {
         
-        if(value == 255) {
+        if (value === 255) {
             this._color.a = value;
             this._sprite.color = this._color;
             this._color_a = 0;
@@ -41,12 +41,12 @@ export class UiAutoHidden extends Component {
     update(deltaTime: number) {
 
         this._wait -= deltaTime;
-        if(this._wait > 0) return;
+        if (this._wait > 0) return;
 
         this._color.a = math.lerp(this._color.a, this._color_a, deltaTime * this.smooth);
         this._sprite.color = this._color;
 
-        if(this._color.a <= 0.01) {
+        if (this._color.a <= 0.01) {
             this.node.active = false;
         }
         

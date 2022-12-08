@@ -11,12 +11,12 @@ export class LightFlowCamera extends Component {
     _waitFind = 1;
 
     update(deltaTime: number) {
-        if (this._camera == null) {
+        if (this._camera === null) {
             this._waitFind -= deltaTime;
             if (this._waitFind < 0) {
                 this._waitFind = 1;
                 var camera = find('camera_controller/camera_main');
-                if (camera != null) {
+                if (camera !== null) {
                     this._camera = camera;
                 }
             }

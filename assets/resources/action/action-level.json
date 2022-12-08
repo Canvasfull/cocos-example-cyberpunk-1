@@ -1,13 +1,13 @@
 {
     "start":{
         "start":[
-            { "time": 0.1, "name": "on_inst", "data": "level"},
+            { "time": 0.1, "name": "on_inst", "data": "level_events"},
             { "time": 0.13, "name": "on_msg_str", "data": { "key":"level_do", "value":"initSpawn" } },
             { "time": 0.3, "name": "on_msg_str", "data": { "key":"level_do", "value":"addPlayer" } },
             { "time": 0.5, "name": "on_inst", "data": "level_events_enemy" },
             { "time": 0.6, "name": "on_inst", "data": "level_events_items" }, 
             { "time": 0.7, "name": "on_inst", "data": "level_events_card" },
-            { "time": 6000, "name": "on_msg_str", "data": { "key":"push", "value":"levelend" } }
+            { "time": 6000, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
         ]
     },
     "end":{

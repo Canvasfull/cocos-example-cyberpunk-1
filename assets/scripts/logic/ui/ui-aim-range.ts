@@ -10,7 +10,7 @@ export class UIAimRange extends Component {
     start() {
         this.sprite = this.getComponent(SpriteComponent);
 
-        if(this.sprite == undefined) {
+        if (this.sprite === undefined) {
             throw new Error(`${this.node.name} node UIAimRange can not find sprite component.`);
         }
 

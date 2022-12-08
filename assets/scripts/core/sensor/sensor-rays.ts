@@ -23,11 +23,11 @@ export class SensorRays extends Component {
 
     checked = false;
 
-    checkedNode = null;
+    checkedNode: Node | undefined;
 
     _time = 0;
 
-    _mask:number;
+    _mask:number = 0;
 
     _curDir = v3(0, 0, 0);
 
@@ -38,7 +38,7 @@ export class SensorRays extends Component {
 
     update(deltaTime: number) {
         this._time -= deltaTime;
-        if(this._time < 0) {
+        if (this._time < 0) {
             this._time = this.check_time;
             
             for(let i = 0; i < this.dir.length; i++) {
@@ -60,7 +60,7 @@ export class SensorRays extends Component {
                     this.checkedNode = res.collider.node;
                     return;
                 }else{
-                    this.checkedNode = null;
+                    this.checkedNode = undefined;
                 }
             }
             this.checked = false;

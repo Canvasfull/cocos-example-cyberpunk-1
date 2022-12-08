@@ -15,7 +15,7 @@ export class JumpPoints extends Component {
 
     onEnable () {
         this.label = this.node.getComponent(Label);
-        if(this.label === null) {
+        if (this.label === null) {
             throw new Error(`Jump Points not get component Label.`);
         }
         this.node.on('set_points', (points: number, str: string = 's') => {

@@ -60,7 +60,7 @@ export class SmoothLocalZ extends Component {
     }
 
     lateUpdate (deltaTime: number) {
-        if(this.wait > 0) {
+        if (this.wait > 0) {
             this.wait -= deltaTime;
             return;
         }

@@ -14,7 +14,7 @@ export class NavigationMap extends Component {
 
     update(deltaTime: number) {
 
-        if(EDITOR) {
+        if (EDITOR) {
             //this.updateEditModel();
         } 
     }
@@ -54,7 +54,7 @@ export class Navigation {
         // find closet point.
         var closet:Node | undefined = this.findChildren(this.node, curPos);
 
-        if(closet === undefined) {
+        if (closet === undefined) {
             console.error('closet not find', curPos, this.node);
             return [];
         }
@@ -78,9 +78,9 @@ export class Navigation {
         let minNode:Node | undefined = undefined;
         for(let i = 0; i < children.length; i++) {
             const child = children[i];
-            if(node === child) continue;
+            if (node === child) continue;
             const distance = Vec3.distance(curPos, child.worldPosition);
-            if(distance < minDistance) {
+            if (distance < minDistance) {
                 minNode = child;
                 minDistance = distance;
             }
@@ -95,10 +95,10 @@ export class Navigation {
 
     static findTargetNode(paths:Vec3[], node:Node, target:Node) {
         const children = node.parent?.children ?? undefined;
-        if(children === undefined) return;
+        if (children === undefined) return;
         for(let i = 0; i < children.length; i++) {
             paths.push(children[i].worldPosition);
-            if(children[i] == node) {
+            if (children[i] === node) {
                 break;
             }
         }

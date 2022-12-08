@@ -16,8 +16,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "handgun_1":{
@@ -37,8 +49,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "machine_gun_0":{
@@ -58,8 +82,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "machine_gun_1":{
@@ -79,8 +115,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "shotgun_0":{
@@ -101,8 +149,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "shotgun_1":{
@@ -122,8 +182,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "grenade_0":{
@@ -144,8 +216,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "grenade_1":{
@@ -166,8 +250,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "crossbow_0":{
@@ -188,8 +284,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "crossbow_1":{
@@ -210,8 +318,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "axe_0":{
@@ -230,10 +350,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall",
-            "sfx_hit_body":"sfx_axe_body_hit",
-            "sfx_hit_wall":"sfx_axe_wall_hit"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_axe_hit_metal",
+                "sfx": "sfx_axe_hit_metal"
+            }
         }
     },
     "stick_0":{
@@ -251,8 +381,20 @@
             "hand": 10,
             "leg": 10,
             "other": 5,
-            "fx_hit_body":"fx_hit_body",
-            "fx_hit_wall":"fx_hit_wall"
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal"
+            }
         }
     },
     "bullet_0":{

@@ -97,17 +97,17 @@ export class JoystickMove extends Component {
         this._center.x = event.getLocationX() + this.centerOffset.x;
         this._center.y = event.getLocationY() + this.centerOffset.y;
 
-        if(this._center.x < this.range.x) this._center.x = this.range.x;
-        if(this._center.x > (this.range.x + this.range.width)) this._center.x = this.range.x + this.range.width;
-        if(this._center.y < this.range.y) this._center.y = this.range.y;
-        if(this._center.y > this.range.y + this.range.height) this._center.y = this.range.y + this.range.height;
+        if (this._center.x < this.range.x) this._center.x = this.range.x;
+        if (this._center.x > (this.range.x + this.range.width)) this._center.x = this.range.x + this.range.width;
+        if (this._center.y < this.range.y) this._center.y = this.range.y;
+        if (this._center.y > this.range.y + this.range.height) this._center.y = this.range.y + this.range.height;
 
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._movePos, this._center);
         this._bgNode.setWorldPosition(this._center.x, this._center.y, 0);
         this._moveNode.setPosition(0, 0, 0);
 
-        if(this.autoHidden) this.node.emit('autoHidden', false);
+        if (this.autoHidden) this.node.emit('autoHidden', false);
 
     }
 
@@ -121,7 +121,7 @@ export class JoystickMove extends Component {
         
         this._tempMove.z = 0;
         var len = this._tempMove.length();
-        if(len > this.radius) {
+        if (len > this.radius) {
             this._tempMove.normalize().multiplyScalar(this.radius).add(this._center);
             this._tempMove.z = 0;
             this._pos.x = this._tempMove.x;
@@ -154,7 +154,7 @@ export class JoystickMove extends Component {
 
         this._input?.onMove(this._tempMove.multiplyScalar(1/1000));
 
-        if(this.autoHidden) this.node.emit('autoHidden', true);
+        if (this.autoHidden) this.node.emit('autoHidden', true);
 
     }
 
@@ -171,13 +171,13 @@ export class JoystickMove extends Component {
 
         this._input?.onMove(this._tempMove.multiplyScalar(1/1000));
 
-        if(this.autoHidden) this.node.emit('autoHidden', true);
+        if (this.autoHidden) this.node.emit('autoHidden', true);
 
     }
 
     update(deltaTime: number) {
 
-        if(this._start) {
+        if (this._start) {
             Vec3.lerp(this._movePos, this._pos, this._movePos, deltaTime * this.smooth);
             this._moveNode.setWorldPosition(this._movePos.x, this._movePos.y, 0);
         }else{

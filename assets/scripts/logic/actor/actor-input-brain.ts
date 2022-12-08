@@ -17,7 +17,7 @@ export class ActorInputBrain extends Component implements IActorInput {
 
     start () {
         this._actor = this.getComponent(ActorEnemy);
-        if(this._actor === null) {
+        if (this._actor === null) {
             throw new Error(`${this.node.name} node can not find ActorEnemy`);
         }
     }
@@ -74,7 +74,7 @@ export class ActorInputBrain extends Component implements IActorInput {
 
         this._isPause = !this._isPause;
 
-        if(this._isPause) {
+        if (this._isPause) {
             console.log('push level pause');
             Msg.emit('push', 'level_pause');
         }else{

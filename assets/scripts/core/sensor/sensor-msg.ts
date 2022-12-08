@@ -36,14 +36,14 @@ export class SensorMsg extends Component {
     onDisable() {
         this._collider.off('onTriggerEnter', this.onCollisionEnter, this);
         this._collider.off('onCollisionEnter', this.onCollisionEnter, this);
-        if(this.exit_msg.length > 0) {
+        if (this.exit_msg.length > 0) {
             this._collider.off('onTriggerExit', this.onTriggerExit, this);
             this._collider.off('onCollisionExit', this.onCollisionExit, this);
         }
     }
 
     init() {
-        if (this.msg == '') {
+        if (this.msg === '') {
             const array = this.node.name.split('#');
             this.msg = array[0];
             if (array.length >= 2) this.data = array[1];
@@ -51,7 +51,7 @@ export class SensorMsg extends Component {
         this._collider.on('onTriggerEnter', this.onTriggerEnter, this);
         this._collider.on('onCollisionEnter', this.onCollisionEnter, this);
 
-        if(this.exit_msg.length > 0) {
+        if (this.exit_msg.length > 0) {
             this._collider.on('onTriggerExit', this.onTriggerExit, this);
             this._collider.on('onCollisionExit', this.onCollisionExit, this);
         }
@@ -61,9 +61,9 @@ export class SensorMsg extends Component {
 
     onTriggerEnter (event: ITriggerEvent) {
 
-        if(this.checkFilter(event.otherCollider.name)) return;
+        if (this.checkFilter(event.otherCollider.name)) return;
         
-        if (this.msg == "actor_event") {
+        if (this.msg === "actor_event") {
             event.otherCollider.node.emit('do', this.data);
         } else {
             Msg.emit(this.msg, this.data);
@@ -76,9 +76,9 @@ export class SensorMsg extends Component {
 
     onTriggerExit(event: ITriggerEvent) {
 
-        if(this.checkFilter(event.otherCollider.name)) return;
+        if (this.checkFilter(event.otherCollider.name)) return;
 
-        if (this.exit_msg == "actor_event") {
+        if (this.exit_msg === "actor_event") {
             event.otherCollider.node.emit('do', this.exit_data);
         } else {
             Msg.emit(this.exit_msg, this.exit_data);
@@ -88,9 +88,9 @@ export class SensorMsg extends Component {
 
     onCollisionEnter (event: ICollisionEvent) {
 
-        if(this.checkFilter(event.otherCollider.name)) return;
+        if (this.checkFilter(event.otherCollider.name)) return;
 
-        if (this.msg == "actor_event") {
+        if (this.msg === "actor_event") {
             event.otherCollider.node.emit('do', this.data);
         } else {
             Msg.emit(this.msg, this.data);
@@ -102,9 +102,9 @@ export class SensorMsg extends Component {
 
     onCollisionExit(event: ICollisionEvent) {
 
-        if(this.checkFilter(event.otherCollider.name)) return;
+        if (this.checkFilter(event.otherCollider.name)) return;
 
-        if (this.exit_msg == "actor_event") {
+        if (this.exit_msg === "actor_event") {
             event.otherCollider.node.emit('do', this.exit_data);
         } else {
             Msg.emit(this.exit_msg, this.exit_data);
@@ -126,7 +126,7 @@ export class SensorMsg extends Component {
 
         for(let i = 0; i < this.filter.length; i++) {
             var f = this.filter[i];
-            if(hit.includes(f)) return true;
+            if (hit.includes(f)) return true;
         }
 
         return false;

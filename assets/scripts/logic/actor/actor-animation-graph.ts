@@ -14,7 +14,7 @@ export class ActorAnimationGraph extends Component {
         this._graph = this.getComponent(animation.AnimationController);
         //this._actor = this.node.parent.parent.getComponent(Actor);
 
-        if(this._graph === undefined || this._graph === null) {
+        if (this._graph === undefined || this._graph === null) {
             throw new Error(`${this.node.name} can not find AnimationController`);
         }
     }

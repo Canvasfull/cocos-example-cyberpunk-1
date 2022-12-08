@@ -16,7 +16,7 @@ export class ResCache extends Singleton {
     public load (callback: Function): void {
         this._callback = callback;
         Res.loadJson('data/data-res-cache', (err, asset) => {
-            if(err) {
+            if (err) {
                 console.error('Load cache res error:', err);
                 return;
             }
@@ -121,7 +121,7 @@ export class ResCache extends Singleton {
     public loadSprite(paths: string[]) {
         paths.forEach(element => {
             Res.loadDirSprite(element, (err, asset) => {
-                if(asset) {
+                if (asset) {
                     ResCache.Instance.setSprite(asset);
                 }
             })

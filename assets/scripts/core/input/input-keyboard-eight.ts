@@ -40,58 +40,58 @@ export class InputKeyboardEight extends InputBase {
     }
 
     hasKey(event: EventKeyboard): boolean {
-        return (event.keyCode == KeyCode.KEY_W || 
-            event.keyCode == KeyCode.KEY_S || 
-            event.keyCode == KeyCode.KEY_A ||
-            event.keyCode == KeyCode.KEY_D ||
-            event.keyCode == KeyCode.KEY_E ||
-            event.keyCode == KeyCode.KEY_G ||
-            event.keyCode == KeyCode.KEY_Q ||
-            event.keyCode == KeyCode.KEY_C ||
-            event.keyCode == KeyCode.KEY_Z ||
-            event.keyCode == KeyCode.KEY_R ||
-            event.keyCode == KeyCode.SPACE ||
-            event.keyCode == KeyCode.ARROW_UP ||
-            event.keyCode == KeyCode.ARROW_LEFT ||
-            event.keyCode == KeyCode.ARROW_RIGHT || 
-            event.keyCode == KeyCode.ARROW_DOWN ||
-            event.keyCode == KeyCode.SHIFT_LEFT ||
-            event.keyCode == KeyCode.ESCAPE
+        return (event.keyCode === KeyCode.KEY_W || 
+            event.keyCode === KeyCode.KEY_S || 
+            event.keyCode === KeyCode.KEY_A ||
+            event.keyCode === KeyCode.KEY_D ||
+            event.keyCode === KeyCode.KEY_E ||
+            event.keyCode === KeyCode.KEY_G ||
+            event.keyCode === KeyCode.KEY_Q ||
+            event.keyCode === KeyCode.KEY_C ||
+            event.keyCode === KeyCode.KEY_Z ||
+            event.keyCode === KeyCode.KEY_R ||
+            event.keyCode === KeyCode.SPACE ||
+            event.keyCode === KeyCode.ARROW_UP ||
+            event.keyCode === KeyCode.ARROW_LEFT ||
+            event.keyCode === KeyCode.ARROW_RIGHT || 
+            event.keyCode === KeyCode.ARROW_DOWN ||
+            event.keyCode === KeyCode.SHIFT_LEFT ||
+            event.keyCode === KeyCode.ESCAPE
             );
     }
 
     onKeyDown(event: EventKeyboard) {
 
-        if(!this.hasKey(event)) return;
+        if (!this.hasKey(event)) return;
 
         this._key_count++;
 
-        if(event.keyCode == KeyCode.KEY_Q) {
+        if (event.keyCode === KeyCode.KEY_Q) {
             Msg.emit('push', "select_equips");
             this._pressQ = true;
             return;
         }
         
-        if(event.keyCode == KeyCode.KEY_W || event.keyCode == KeyCode.ARROW_UP) this.onMove(0, -1);
-        if(event.keyCode == KeyCode.KEY_S || event.keyCode == KeyCode.ARROW_DOWN) this.onMove(0, 1);
-        if(event.keyCode == KeyCode.KEY_A || event.keyCode == KeyCode.ARROW_LEFT) this.onMove(-1, 0);
-        if(event.keyCode == KeyCode.KEY_D || event.keyCode == KeyCode.ARROW_RIGHT) this.onMove(1, 0);
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.onMove(0, -1);
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.onMove(0, 1);
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.onMove(-1, 0);
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.onMove(1, 0);
 
 
-        if(event.keyCode == KeyCode.SPACE) this._actorInput?.onJump();
-        if(event.keyCode == KeyCode.KEY_C) this._actorInput?.onCrouch();
-        if(event.keyCode == KeyCode.KEY_Z) this._actorInput?.onProne();
-        if(event.keyCode == KeyCode.KEY_E) this._actorInput?.onPick();
-        if(event.keyCode == KeyCode.KEY_G) this._actorInput?.onDrop();
-        if(event.keyCode == KeyCode.KEY_R) this._actorInput?.onReload();
+        if (event.keyCode === KeyCode.SPACE) this._actorInput?.onJump();
+        if (event.keyCode === KeyCode.KEY_C) this._actorInput?.onCrouch();
+        if (event.keyCode === KeyCode.KEY_Z) this._actorInput?.onProne();
+        if (event.keyCode === KeyCode.KEY_E) this._actorInput?.onPick();
+        if (event.keyCode === KeyCode.KEY_G) this._actorInput?.onDrop();
+        if (event.keyCode === KeyCode.KEY_R) this._actorInput?.onReload();
 
-        if(event.keyCode == KeyCode.SHIFT_LEFT) this._actorInput?.onRun(true);
+        if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(true);
 
     }
 
     onKeyUp(event: EventKeyboard) {
         
-        if(event.keyCode == 0 || this._key_count <= 0) {
+        if (event.keyCode === 0 || this._key_count <= 0) {
             this._pressQ = false;
             this.onMoveEnd();
             this.onUpdateMove();
@@ -99,26 +99,26 @@ export class InputKeyboardEight extends InputBase {
             return;
         }
 
-        if(!this.hasKey(event)) return;
+        if (!this.hasKey(event)) return;
 
         this._key_count--;
 
-        if(event.keyCode == KeyCode.KEY_Q) {
+        if (event.keyCode === KeyCode.KEY_Q) {
             this._pressQ = false;
             Msg.emit('back');
             return;
         }
 
-        if(event.keyCode == KeyCode.KEY_W || event.keyCode == KeyCode.ARROW_UP)  this.onMove(0, 1);
-        if(event.keyCode == KeyCode.KEY_S || event.keyCode == KeyCode.ARROW_DOWN)  this.onMove(0, -1);
-        if(event.keyCode == KeyCode.KEY_A || event.keyCode == KeyCode.ARROW_LEFT) this.onMove(1, 0);
-        if(event.keyCode == KeyCode.KEY_D || event.keyCode == KeyCode.ARROW_RIGHT) this.onMove(-1, 0);
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP)  this.onMove(0, 1);
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.onMove(0, -1);
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.onMove(1, 0);
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.onMove(-1, 0);
 
 
-        if(this._dir.x == 0 && this._dir.z == 0) this.onMoveEnd();
-        if(event.keyCode == KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
-        if(event.keyCode == KeyCode.ESCAPE) {
-            if(document.pointerLockElement && sys.isBrowser) {
+        if (this._dir.x === 0 && this._dir.z === 0) this.onMoveEnd();
+        if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
+        if (event.keyCode === KeyCode.ESCAPE) {
+            if (document.pointerLockElement && sys.isBrowser) {
                 document.exitPointerLock();
                 this._isPointerLock = false;
                 this.onMoveEnd();
@@ -131,13 +131,13 @@ export class InputKeyboardEight extends InputBase {
 
     onMouseDown(event: EventMouse) {
 
-        if(!document.pointerLockElement && sys.isBrowser) {
+        if (!document.pointerLockElement && sys.isBrowser) {
             game.canvas.requestPointerLock();
             this._isPointerLock = true;
             return;
         }
        
-        if(event.getButton() == 0) {
+        if (event.getButton() === 0) {
             this._actorInput?.onFire();
         }
         
@@ -145,9 +145,9 @@ export class InputKeyboardEight extends InputBase {
     
     onMouseMove(event: EventMouse) {
 
-        if(!document.pointerLockElement && sys.isBrowser) return;
+        if (!document.pointerLockElement && sys.isBrowser) return;
 
-        if(this._pressQ) {
+        if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());
             return;
         }
@@ -162,7 +162,7 @@ export class InputKeyboardEight extends InputBase {
 
     onMove(x:number, z:number) {
         
-        if(!document.pointerLockElement && sys.isBrowser) return;
+        if (!document.pointerLockElement && sys.isBrowser) return;
 
         this._dir.x = clamp(this._dir.x + x, -1, 1);
         this._dir.z = clamp(this._dir.z + z, -1, 1);
@@ -183,17 +183,17 @@ export class InputKeyboardEight extends InputBase {
     onUpdateMove() {
         this._v_increase_move += this.move_a * game.deltaTime;
         this._move += (this.move_speed + this._v_increase_move) * game.deltaTime;
-        if(this._move > 1) this._move = 1;
+        if (this._move > 1) this._move = 1;
         this._move_v3.normalize().multiplyScalar(this._move);
 
-        if(this._move_v3.length() != 0) u3.c(this._move_dir, this._move_v3);
+        if (this._move_v3.length() !== 0) u3.c(this._move_dir, this._move_v3);
         this._actorInput?.onMove(this._move_v3);
     }
 
     update(deltaTime:number) {
         
         /*
-        if(!document.pointerLockElement && this._isPointerLock) {
+        if (!document.pointerLockElement && this._isPointerLock) {
             document.exitPointerLock();
             this._isPointerLock = false;
         }

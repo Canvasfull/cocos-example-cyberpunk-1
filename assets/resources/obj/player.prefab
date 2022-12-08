@@ -763,7 +763,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "lightmapSettings": {
+      "__id__": 41
+    },
     "_mesh": {
       "__uuid__": "58bef193-6a8a-46f1-a868-28d46ce2366c@e9f9d",
       "__expectedType__": "cc.Mesh"
@@ -773,17 +775,14 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_enableMorph": true,
-    "_id": "",
-    "bakeSettings": {
-      "__id__": 41
-    }
+    "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "c42GtMrlFC2YBLv4XUg8QH"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1091,7 +1090,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "lightmapSettings": {
+      "__id__": 58
+    },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
       "__expectedType__": "cc.Mesh"
@@ -1101,17 +1102,14 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_enableMorph": true,
-    "_id": "",
-    "bakeSettings": {
-      "__id__": 58
-    }
+    "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "cauCTa9n5PML683p8sCkoh"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -1553,7 +1551,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "lightmapSettings": {
+      "__id__": 81
+    },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@801ec",
       "__expectedType__": "cc.Mesh"
@@ -1563,17 +1563,14 @@
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
     "_enableMorph": true,
-    "_id": "",
-    "bakeSettings": {
-      "__id__": 81
-    }
+    "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "1fFAxsAgBPeoVTENoKCeXU"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",

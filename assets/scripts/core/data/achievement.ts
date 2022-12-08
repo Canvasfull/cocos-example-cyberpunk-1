@@ -1,5 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
-import { Local } from '../local/local';
+import { Local } from '../localization/local';
 import { Singleton } from '../pattern/singleton';
 import { UtilTime } from '../util/util';
 import { Save } from './save';
@@ -19,7 +19,7 @@ export class Achievement extends Singleton {
         
         var achi_save = Save.Instance.get('achievement');
 
-        //if(achi_save == undefined) {
+        //if (achi_save === undefined) {
             Save.Instance._cur['achievement'] = {};
             achi_save = Save.Instance.get('achievement');
         //} 
@@ -27,7 +27,7 @@ export class Achievement extends Singleton {
         for(var i = 0; i < achievement.length; i++) {
             var arch = achievement[i];
             var arch_save = achi_save[arch.name];
-            if(arch_save == undefined) achi_save[arch.name] = { "name":arch.name,"condition":arch.condition,"value":arch.value,"percent":0,"stat_value":0 };
+            if (arch_save === undefined) achi_save[arch.name] = { "name":arch.name,"condition":arch.condition,"value":arch.value,"percent":0,"stat_value":0 };
         }
 
         Save.Instance._cur['achievement'] = achi_save;
@@ -40,7 +40,7 @@ export class Achievement extends Singleton {
 
     public totalTime():string {
         var time = Save.Instance.statisticsValue('level_playTime');
-        if(time == undefined) time = 0;
+        if (time === undefined) time = 0;
         time = UtilTime.toHours(time);
         return `${time}`;
     }
@@ -59,7 +59,7 @@ export class Achievement extends Singleton {
         var achi_save = Save.Instance.get('achievement');
         var statistics = Save.Instance.get('statistics');
 
-        if(Save.Instance.get('achi_percent') == 1) return;
+        if (Save.Instance.get('achi_percent') === 1) return;
 
         var count = 1;
 
@@ -69,13 +69,13 @@ export class Achievement extends Singleton {
 
             var achi = achi_save[key];
 
-            if(achi['percent'] != 1) {
+            if (achi['percent'] !== 1) {
 
                 var stat_value = statistics[achi.value];
 
-                if(stat_value == undefined) continue;
+                if (stat_value === undefined) continue;
 
-                if(stat_value > achi.condition) stat_value = achi.condition;
+                if (stat_value > achi.condition) stat_value = achi.condition;
     
                 achi['stat_value'] = stat_value;
     

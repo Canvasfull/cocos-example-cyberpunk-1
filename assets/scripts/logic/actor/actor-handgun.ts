@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, geometry, PhysicsSystem, game, PhysicsRayResult } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { fx } from '../../core/effect/fx';
-import { Local } from '../../core/local/local';
+import { Local } from '../../core/localization/local';
 import { Msg } from '../../core/msg/msg';
 import { ActorEquipBase } from './actor-equip-base';
 import { ActorPart } from './actor-part';

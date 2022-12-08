@@ -5,7 +5,7 @@ import { Msg } from '../../core/msg/msg';
 import { Singleton } from '../../core/pattern/singleton';
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
-import { u3 } from '../../core/util/util';
+import { u3, UtilNode } from '../../core/util/util';
 import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 const { ccclass, property } = _decorator;
@@ -20,10 +20,10 @@ export class Level extends Singleton {
     _score: number = 0;
     _actor:Actor | undefined;
     _isStart = false;
-    _spawns = [];
+    _spawns:{ position:Vec3, size:number }[] = [];
     _cur_spawn_idx = 0;
     _update = null;
-    _node:Node | undefined;
+    _node:Node | null | undefined;
     _spawn_pos = v3(0, 0, 0);
 
     public init (): void {
@@ -41,15 +41,16 @@ export class Level extends Singleton {
     }
 
     public initSpawn() {
-        this._node = find('level');
-        var spawns = this._node.getChildByName('spawns');
-        spawns.children.forEach(child => {
+        this._node = find(this._data.level_events);
+        if(this._node === null) throw new Error(`Not find level ${this._data.level_events} node.`);
+        const spawns = UtilNode.getChildByName(this._node, 'spawns');
+        for(let i = 0; i < spawns.children.length; i++ ) {
+            const child = spawns.children[i];
             this._spawns.push({
-                'position':child.getPosition(),
-                'size':child.getWorldScale().x/2
+                'position': child.getPosition(),
+                'size': child.getWorldScale().x/2
             })
-        });
-        
+        }  
         console.log(this._spawns);
     }
 
@@ -84,7 +85,7 @@ export class Level extends Singleton {
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
-        if(pos == undefined) {
+        if (pos === undefined) {
             this.randomSpawns();
             pos = this._spawn_pos;
         } 
@@ -92,7 +93,7 @@ export class Level extends Singleton {
         const dropNode = Res.inst(prefab, undefined, pos);
         const drop = dropNode.getComponent(DropItem);
 
-        if(drop === null) {
+        if (drop === null) {
             throw new Error(`Drop node can not add component Drop Item.`);
         }
 
@@ -108,7 +109,7 @@ export class Level extends Singleton {
     }
 
     public update (deltaTime: number): void {
-        if(!this._isStart) return;
+        if (!this._isStart) return;
         this._action!.update(deltaTime);
     }
 

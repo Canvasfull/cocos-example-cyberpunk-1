@@ -37,19 +37,19 @@ export class InputGamepad extends InputBase {
 
         var key_jump = event.gamepad.buttonR1.getValue();
 
-        if(key_jump == 1) this.onStart();
+        if (key_jump === 1) this.onStart();
         else this.onEnd();
 
     }
 
     onStart() {
-        if(this._curKeyJump == 1) return;
+        if (this._curKeyJump === 1) return;
         this._curKeyJump = 1;
         this._actorInput?.onStart();
     }
 
     onEnd() {
-        if(this._curKeyJump == 0) return;
+        if (this._curKeyJump === 0) return;
         this._curKeyJump = 0;
         this._actorInput?.onEnd();
     }
@@ -65,7 +65,7 @@ export class InputGamepad extends InputBase {
     onUpdateMove() {
         u3.c(this._move_v3, this._dir);
         Vec3.rotateY(this._move_v3, this._move_v3, Vec3.ZERO, this.offset_euler);
-        if(this._move_v3.length() != 0) u3.c(this._move_dir, this._move_v3);
+        if (this._move_v3.length() !== 0) u3.c(this._move_dir, this._move_v3);
         this._actorInput?.onMove(this._move_v3);
     }
 

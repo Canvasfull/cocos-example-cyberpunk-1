@@ -30,7 +30,7 @@ export class SensorGround extends Component {
 
     onCollisionEnter (event: ICollisionEvent) {
         if (this._isGround) return;
-        if (event.otherCollider.node.layer == 1 << 2) {
+        if (event.otherCollider.node.layer === 1 << 2) {
             this._actor.onGround();
             this._isGround = true;
         }
@@ -38,7 +38,7 @@ export class SensorGround extends Component {
 
     onCollisionExit (event: ICollisionEvent) {
         if (!this._isGround) return;
-        if (event.otherCollider.node.layer == 1 << 2) {
+        if (event.otherCollider.node.layer === 1 << 2) {
             this._actor.offGround();
             this._isGround = false;
         }
@@ -68,7 +68,7 @@ export class SensorGround extends Component {
 
         this._actor._rigid.getLinearVelocity(this._velocity);
 
-        if(this._velocity.y > 0) return;
+        if (this._velocity.y > 0) return;
 
         const mask = (1 << this.maskNum);
         for(let i = 0; i < this.original.length; i++) {
@@ -88,7 +88,7 @@ export class SensorGround extends Component {
 
         }
 
-        if(this._isGround) {
+        if (this._isGround) {
             this._isGround = false;
             this._actor.offGround();
         }

@@ -27,7 +27,7 @@ export class ResPool extends Singleton {
     }
 
     public pop(name:string)  {
-        if(!this._pool.has(name)) {
+        if (!this._pool.has(name)) {
             this.newPool(name);
         }
         return this._pool.get(name).pop();
@@ -88,7 +88,7 @@ export class pool {
         
         for(var i = 0; i < this._max; i++) {
             var state = this._state[this._index];
-            if(state == 1) {
+            if (state === 1) {
                 var n = this._items[this._index];
                 this._state[this._index] = 2;
                 n.active = true;
@@ -106,7 +106,7 @@ export class pool {
 
     public next() {
         this._index++;
-        if(this._index >= this._max) this._index = 0;
+        if (this._index >= this._max) this._index = 0;
     }
 
     public push(obj:Node) {
@@ -125,7 +125,7 @@ export class pool {
         var newnode = Res.inst(this._prefab, this._root);
         this._index = this._max;
         this._max++;
-        if(newnode['pool_index'] != undefined) {
+        if (newnode['pool_index'] !== undefined) {
             console.log('pool create error.');
         }
         newnode['pool_index'] = this._index;
@@ -140,7 +140,7 @@ export class pool {
         // Check the size is full.
         // Judge last items is not null.
         var last = this._items.length - 1;
-        if(this._items[last] == null)
+        if (this._items[last] === null)
             return;
 
         // Increase size.

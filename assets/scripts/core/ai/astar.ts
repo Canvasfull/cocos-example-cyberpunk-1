@@ -71,9 +71,9 @@ export class AStar extends Singleton {
 
     update() {
 
-        if(this._stop) return;
+        if (this._stop) return;
 
-        if(this.openTable.size() > 0) {
+        if (this.openTable.size() > 0) {
             var np = this.openTable.pop();
             this.testNode(np);
             this.checkCurrent({'x': np[0], 'z': np[1] });
@@ -87,7 +87,7 @@ export class AStar extends Singleton {
         
 
         // Check is end pos.
-        if(pos.x == this.end_pos.x && pos.z == this.end_pos.z) {
+        if (pos.x === this.end_pos.x && pos.z === this.end_pos.z) {
             console.log('find end pos.');
             this._stop = true;
             return;
@@ -108,12 +108,12 @@ export class AStar extends Singleton {
             var nz = pos.z + this.dir[i][1];
 
             // Check bounder.
-            if(nx < 0 || nz < 0 || nx >= this.max_x || nz >= this.max_z) {
+            if (nx < 0 || nz < 0 || nx >= this.max_x || nz >= this.max_z) {
                 continue;
             }
 
             // Check is not close table.
-            if(this.closeTable[nx][nz] == 1) continue;
+            if (this.closeTable[nx][nz] === 1) continue;
 
             // Check is dir cost.
             var f = this.f_cost({'x': nx, 'z': nz}, this.end_pos);
@@ -180,18 +180,18 @@ export class AStar extends Singleton {
             var nz = cur_pos.z + this.dir[i][1];
 
             // Check bounder.
-            if(nx < 0 || nz < 0 || nx >= this.max_x || nz >= this.max_z) {
+            if (nx < 0 || nz < 0 || nx >= this.max_x || nz >= this.max_z) {
                 continue;
             }
 
             // Check is not close table.
-            if(this.closeTable[nx][nz] == 1) continue;
+            if (this.closeTable[nx][nz] === 1) continue;
 
             // Check is 
 
         }
 
-        if(min_cost_pos.x == -1) {
+        if (min_cost_pos.x === -1) {
             console.error(' can not find min cost pos:', cur_pos);
         }
 

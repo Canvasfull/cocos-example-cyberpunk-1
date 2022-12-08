@@ -102,10 +102,10 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         super.updateAttribute();
         //update size.
         var size = this._data.size * this._data.size_percent;
-        if(this._data.size > this._data.max_size) size = this._data.max_size;
-        if(this._data.size < this._data.min_size) size = this._data.min_size;
+        if (this._data.size > this._data.max_size) size = this._data.max_size;
+        if (this._data.size < this._data.min_size) size = this._data.min_size;
         this.node.setScale(v3(1, 1, 1).multiplyScalar(size));
-        if(this._data.size_percent != 1) this._size_scale = this._data.size_percent * 0.6;
+        if (this._data.size_percent !== 1) this._size_scale = this._data.size_percent * 0.6;
     }
 
     onUpdate () {
@@ -135,9 +135,9 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime); 
 
-        if(this._move.z > 0) this._velocity_local.z = this._data.move_speed.y;
-        if(this._move.z < 0) this._velocity_local.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
-        if(this._move.x != 0) this._velocity_local.x = this._data.move_speed.x * this._move.x;
+        if (this._move.z > 0) this._velocity_local.z = this._data.move_speed.y;
+        if (this._move.z < 0) this._velocity_local.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
+        if (this._move.x !== 0) this._velocity_local.x = this._data.move_speed.x * this._move.x;
 
         this._animationGraph.play('move_speed', this._velocity_local.z);
 
@@ -157,7 +157,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
             this._rigid!.setAngularVelocity(angleVel);
         }
 
-        if(this._data.is_ground) {
+        if (this._data.is_ground) {
             this.recoverStrength();
         }
 
@@ -201,7 +201,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     jump () {
 
-        if(this._data.strength >= this._data.cost_jump_strength) {
+        if (this._data.strength >= this._data.cost_jump_strength) {
             this._data.strength -= this._data.cost_jump_strength;
             this._rigid!.applyImpulse(v3(0, this._data.jump_force_y * this._size_scale, 0));
         }
@@ -210,13 +210,13 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     onMove (move: Vec3) {
 
-        if(this._data.is_dead) u3.c(this._move, Vec3.ZERO);
+        if (this._data.is_dead) u3.c(this._move, Vec3.ZERO);
         else u3.c(this._move, move);
     }
 
     onRotation (x: number, y: number) {
 
-        if(this._data.is_dead) return;
+        if (this._data.is_dead) return;
 
         this._angleHead += x;
         this._dir.z = -Math.cos(Math.PI / 180.0 * this._angleHead);
@@ -234,7 +234,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     onDir(x:number, z:number) {
 
-        if(this._data.is_dead) return;
+        if (this._data.is_dead) return;
 
         this._dir.z = z;
         this._dir.x = x;
@@ -258,7 +258,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
     
     onFire() {
         const canUseEquip = this.calculateStrengthUseEquip();
-        if(canUseEquip) {
+        if (canUseEquip) {
             console.log(' Use equip. --------- ');
             this._actorEquipment!.do('fire');
         }
@@ -269,7 +269,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
     }
 
     onEquip(index:number) {
-        if(this._actorEquipment!.equip(index)) {
+        if (this._actorEquipment!.equip(index)) {
             this._viewNoWeapon.active = false;
         }else{
             this._viewNoWeapon.active = true;
@@ -279,7 +279,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
     calculateStrengthUseEquip():boolean {
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
 
-        if(canUseEquip) {
+        if (canUseEquip) {
             this._data.strength -= this._data.cost_use_equip_strength;
         }
 
@@ -289,7 +289,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
     calculateRunStrength(deltaTime:number):boolean {
         const canRun = this._data.is_run && this._data.strength >= this._data.cost_run_strength;
 
-        if(canRun) {
+        if (canRun) {
             this._data.strength -= this._data.cost_run_strength * deltaTime;
         }
 
@@ -298,10 +298,10 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     recoverStrength () {
 
-        if(this._data.is_jump || this._data.is_run) return;
-        if(this._data.strength >= this._data.max_strength) return;
+        if (this._data.is_jump || this._data.is_run) return;
+        if (this._data.strength >= this._data.max_strength) return;
         this._data.strength += this._data.recover_ground_strength;
-        if(this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
+        if (this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
     }
 }
 

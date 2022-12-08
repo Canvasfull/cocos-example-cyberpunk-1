@@ -3,7 +3,7 @@ import { _decorator, RigidBody, Vec3, v3, game, Node, math } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { Guide } from '../../core/guide/guide';
 import { IActorInput } from '../../core/input/IActorInput';
-import { Local } from '../../core/local/local';
+import { Local } from '../../core/localization/local';
 import { Msg } from '../../core/msg/msg';
 import { Res } from '../../core/res/res';
 import { u3, UtilNode } from '../../core/util/util';
@@ -60,7 +60,7 @@ export class Actor extends ActorBase implements IActorInput {
                     this._animationGraph = this._view.addComponent(ActorAnimationGraph);
                     const actorSound = this._view.addComponent(ActorSound);
                     actorSound.init(this);
-                    if(!Guide.Instance._has_guide) this.do('play');
+                    if (!Guide.Instance._has_guide) this.do('play');
                 }
             });
         }
@@ -121,9 +121,9 @@ export class Actor extends ActorBase implements IActorInput {
 
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
-        if(this._move.z > 0) this._velocityLocal.z = this._data.move_speed.y;
-        if(this._move.z < 0) this._velocityLocal.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
-        if(this._move.x != 0) this._velocityLocal.x = this._data.move_speed.x * this._move.x;
+        if (this._move.z > 0) this._velocityLocal.z = this._data.move_speed.y;
+        if (this._move.z < 0) this._velocityLocal.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
+        if (this._move.x !== 0) this._velocityLocal.x = this._data.move_speed.x * this._move.x;
 
         //rotate y.
         Vec3.rotateY(this._velocityLocal, this._velocityLocal, Vec3.ZERO, this.node.eulerAngles.y * Math.PI / 180);
@@ -143,7 +143,7 @@ export class Actor extends ActorBase implements IActorInput {
         }
 
         this.recoverStrength();
-        if(this._data.changed_strength) this.updateStrengthInfo();
+        if (this._data.changed_strength) this.updateStrengthInfo();
     }
 
     onBuff(key:string) {
@@ -184,7 +184,7 @@ export class Actor extends ActorBase implements IActorInput {
 
     jump () {
 
-        if(this._data.strength >= this._data.cost_jump_strength) {
+        if (this._data.strength >= this._data.cost_jump_strength) {
             this._data.strength -= this._data.cost_jump_strength;
             this._rigid.applyImpulse(v3(0, this._data.jump_force_y, 0));
             this._data.changed_strength = true;
@@ -193,13 +193,13 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onMove (move: Vec3) {
-        if(this._data.is_dead) u3.c(this._move, Vec3.ZERO);
+        if (this._data.is_dead) u3.c(this._move, Vec3.ZERO);
         else u3.c(this._move, move);
     }
 
     onRotation (x: number, y: number) {
 
-        if(this._data.is_dead) return;
+        if (this._data.is_dead) return;
 
         this._angleHead += x;
         this._dir.z = -Math.cos(Math.PI / 180.0 * this._angleHead);
@@ -230,8 +230,8 @@ export class Actor extends ActorBase implements IActorInput {
     onPick() {
 
         var pickedNode = this._actorSensorDropItem?.getPicked();
-        if(pickedNode != null) {
-            if(this._actorBag?.pickedItem(pickedNode.name)) {
+        if (pickedNode !== undefined) {
+            if (this._actorBag?.pickedItem(pickedNode.name)) {
                 console.log('picked item:', pickedNode.name);
                 pickedNode.emit('picked');
                 Msg.emit(
@@ -240,10 +240,9 @@ export class Actor extends ActorBase implements IActorInput {
                 );
                 Msg.emit('msg_update_bag');
             }else{
-                console.log('My bag is full');
                 Msg.emit(
                     'msg_tips', 
-                    `${Local.Instance.get('Bag is full.')}`
+                    `${Local.Instance.get('bag_is_full')}`
                 );
             }
         }
@@ -251,7 +250,7 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onDrop() {
-        if(this._actorBag?.dropItem()) {
+        if (this._actorBag?.dropItem()) {
             Msg.emit('msg_update_bag');
         }
     }
@@ -266,7 +265,7 @@ export class Actor extends ActorBase implements IActorInput {
     
     onFire() {
         const canUseEquip = this.calculateStrengthUseEquip();
-        if(canUseEquip) {
+        if (canUseEquip) {
             console.log(' Use equip. --------- ');
             this._actorEquipment?.do('fire');
         }
@@ -277,7 +276,7 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onEquip(index:number) {
-        if(this._actorEquipment?.equip(index)) {
+        if (this._actorEquipment?.equip(index)) {
             this._viewNoWeapon.active = false;
         }else{
             this._viewNoWeapon.active = true;
@@ -287,7 +286,7 @@ export class Actor extends ActorBase implements IActorInput {
     calculateStrengthUseEquip():boolean {
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
-        if(canUseEquip) {
+        if (canUseEquip) {
             this._data.strength -= this._data.cost_use_equip_strength;
             this._data.changed_strength = true;
         }
@@ -297,7 +296,7 @@ export class Actor extends ActorBase implements IActorInput {
 
     calculateRunStrength(deltaTime:number):boolean {
         const canRun = this._data.is_run && this._data.strength >= this._data.cost_run_strength;
-        if(canRun) {
+        if (canRun) {
             this._data.strength -= this._data.cost_run_strength * deltaTime;
             this._data.changed_strength = true;
         }
@@ -305,13 +304,13 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     recoverStrength () {
-        if(this._data.changed_strength) return;
-        if(this._data.is_dead) return;
-        if(!this._data.is_ground) return;
-        if(this._data.is_run) return;
-        if(this._data.strength >= this._data.max_strength) return;
+        if (this._data.changed_strength) return;
+        if (this._data.is_dead) return;
+        if (!this._data.is_ground) return;
+        if (this._data.is_run) return;
+        if (this._data.strength >= this._data.max_strength) return;
         this._data.strength += this._data.recover_ground_strength * game.deltaTime;
-        if(this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
+        if (this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
         this._data.changed_strength = true;
     }
 
@@ -332,10 +331,10 @@ export class Actor extends ActorBase implements IActorInput {
             Msg.emit('update_angle', this.node.eulerAngles.y + 90);
         }
 
-        if(this._move.z > 0) {
+        if (this._move.z > 0) {
             this._velocity.z = -Math.cos(Math.PI / 180.0 * this._angleHead) * this._data.move_speed.z;
             this._velocity.x = Math.sin(Math.PI / 180.0 * this._angleHead) * this._data.move_speed.z;
-        }else if(this._move.z < 0) {
+        }else if (this._move.z < 0) {
 
         } else{
             this._velocity.z = 0;
@@ -351,10 +350,10 @@ export class Actor extends ActorBase implements IActorInput {
         this._force.x = 0;
         this._force.z = 0;
 
-        if(this._move.z > 0) this._force.z = this._data.move_force.z * this._move.z;
-        if(this._move.z < 0) this._force.z = this._data.move_force.y * this._move.z;
+        if (this._move.z > 0) this._force.z = this._data.move_force.z * this._move.z;
+        if (this._move.z < 0) this._force.z = this._data.move_force.y * this._move.z;
 
-        if(this._move.x != 0) this._force.x = this._data.move_force.x * this._move.x;
+        if (this._move.x !== 0) this._force.x = this._data.move_force.x * this._move.x;
 
         console.log(this._force);
 

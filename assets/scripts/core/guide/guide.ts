@@ -38,10 +38,10 @@ export class Guide extends Singleton {
     public set_guide(name:string) {
         this._guide_name = name;
 
-        if(Save.Instance._cur.guide_info == undefined) 
+        if (Save.Instance._cur.guide_info === undefined) 
             Save.Instance._cur.guide_info = {};
 
-        if(Save.Instance._cur.guide_info[this._guide_name]){
+        if (Save.Instance._cur.guide_info[this._guide_name]){
             console.log('has guide:', this._guide_name);
             return;
         }
@@ -63,13 +63,13 @@ export class Guide extends Singleton {
 
     public next() {
         this._cur_index++;
-        if(this._cur_index >= (this._cur.length - 1)) {
+        if (this._cur_index >= (this._cur.length - 1)) {
             // Close guide ui.
             UI.Instance.off('uiguide');
             Save.Instance._cur.guide_info[this._guide_name] = true;
             this._has_guide = false;
             var guide_end_event = this._cur[this._cur_index];
-            if(guide_end_event != '')
+            if (guide_end_event !== '')
                 Msg.emit(guide_end_event);
             Msg.emit('msg_save_archive');
         }else{

@@ -34,15 +34,15 @@ export class TaskBase implements ITask {
     }
 
     update() {
-        if(!this.isStart) return;
-        if(this.isWait) return;
+        if (!this.isStart) return;
+        if (this.isWait) return;
         this.end();
     }
 
     end() {
         this.isStart = false
         this.isWait = false;
-        if(this.onCompleteFun != null) {
+        if (this.onCompleteFun !== null) {
             this.onCompleteFun();
             console.log('on complete:', this);
         }
@@ -73,9 +73,9 @@ export class TaskSequence extends TaskBase {
     }
 
     update() {
-        if(!this.isStart) return;
-        if(this.isWait) return;
-        if(!this.tasks[this.index].isStart) {
+        if (!this.isStart) return;
+        if (this.isWait) return;
+        if (!this.tasks[this.index].isStart) {
             this.next();
         }else{
             this.tasks[this.index].update();
@@ -84,7 +84,7 @@ export class TaskSequence extends TaskBase {
 
     next() {
         this.index++;
-        if(this.index >= this.tasks.length) {
+        if (this.index >= this.tasks.length) {
             this.end();
         }else{
             this.tasks[this.index].start();
@@ -107,8 +107,8 @@ export class TaskParallel extends TaskBase {
     }
 
     update() {
-        if(!this.isStart) return;
-        if(this.isWait) return;
+        if (!this.isStart) return;
+        if (this.isWait) return;
         
         for(let i = 0; i < this.tasks.length; i++) {
             this.tasks[i].update();
@@ -116,7 +116,7 @@ export class TaskParallel extends TaskBase {
 
         // check all task is end.
         for(let i = 0; i < this.tasks.length; i++) {
-            if(this.tasks[i].isStart) return;
+            if (this.tasks[i].isStart) return;
         }
         this.end();
     }

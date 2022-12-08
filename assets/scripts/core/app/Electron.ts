@@ -14,7 +14,7 @@ export default class Electron {
 
     static async sendAsync (name: string, data: any = undefined, call: Function = undefined) {
         var call_data = await (window as any).electron?.ipcRenderer.invoke(name, data);
-        if (call != undefined) {
+        if (call !== undefined) {
             call(call_data);
         }
     }

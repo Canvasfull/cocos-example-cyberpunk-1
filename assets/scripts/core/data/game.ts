@@ -2,7 +2,7 @@ import { Action } from "../action/action";
 import { Singleton } from "../pattern/singleton";
 import { UI } from '../../core/ui/ui';
 import { Bind } from '../../logic/data/bind'
-import { Local } from "../local/local";
+import { Local } from "../localization/local";
 import { Save } from "./save";
 import { Msg } from "../msg/msg";
 import { Stack } from "../util/data-structure";
@@ -18,11 +18,11 @@ export const DataEquipInst = new DataEquip();
 
 export class Game extends Singleton {
 
-    _action: Action = null;
+    _action: Action | undefined;
     _stack: Stack<string> = new Stack(5);
 
-    _nodes: {} = Object.create(null);
-    _data: {} = {};
+    _nodes: { [key:string]:any } = {};
+    _data: { [key:string]:any } = {};
 
     _isInit = false;
     
@@ -40,7 +40,7 @@ export class Game extends Singleton {
         Save.Instance.init();
 
         this._data = ResCache.Instance.getJson('data-game').json;
-        this._action = new Action(this._data['action_data']);
+        this._action = new Action(this._data.action_data);
         this._nodes = this._data['nodes'];
 
         DataEquipInst.init();
@@ -81,29 +81,26 @@ export class Game extends Singleton {
     }
 
     public back (): void {
-        var prenode = this._stack.pop();
-        this._action.off(prenode);
+        const preNode = this._stack.pop();
+        this._action!.off(preNode);
     }
 
     public root (name: string): void {
         var size = this._stack.size() - 1;
         for (var i = 0; i < size - 1; i++) {
             let pre = this._stack.pop();
-            this._action.off(pre);
+            this._action!.off(pre);
         }
     }
 
     public push (name: string) {
-
         this._cur_name = name;
-
-        console.log('---push:', name, this._nodes[name]);
-        if (!this._nodes[name].ispop && this._stack.size() > 0) {
+        if (!this._nodes[name].is_pop && this._stack.size() > 0) {
             var pre = this._stack.pop();
-            this._action.off(pre);
+            this._action!.off(pre);
         }
         this._stack.push(name);
-        this._action.on(name);
+        this._action!.on(name);
     }
 
 
@@ -113,9 +110,10 @@ export class Game extends Singleton {
         Game.Instance._action.update(deltaTime);
         Level.Instance.update(deltaTime);
         Bind.Instance.update(deltaTime);
-        if(this._start_auto_save) {
+        
+        if (this._start_auto_save) {
             this._game_time += deltaTime;
-            if(this._game_time > this._next_save_time) {
+            if (this._game_time > this._next_save_time) {
                 Save.Instance.statisticsTime('game', Math.floor(this._game_time));
                 this._next_save_time = 20; 
                 this._game_time = 0;

@@ -44,7 +44,7 @@ export class MusicComposeRandom extends Component {
 
     update(deltaTime: number) {
 
-        if(this._t > this.time) {
+        if (this._t > this.time) {
             this._t -= this.time;
             this.randomPlay();
         }
@@ -61,7 +61,7 @@ export class MusicComposeRandom extends Component {
 
         var count = 0;
         for(var i = 0; i < this.clips.length; i++) {
-            if(Math.random() < this.probability[i]) {
+            if (Math.random() < this.probability[i]) {
                 this._selects[i] = 1;
                 count++;
             }else{
@@ -69,7 +69,7 @@ export class MusicComposeRandom extends Component {
             }
         }
 
-        if(count == 0) {
+        if (count === 0) {
             var select_one = randomRangeInt(0, this.clips.length);
             this._selects[select_one] = 1;
         }

@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, SkeletalAnimation, ParticleSystem, Vec3 } from 'cc';
 import { ActorAnimationGraph } from '../../logic/actor/actor-animation-graph';
 import { ActionActor, key_type_boolean } from '../action/action';
-import { Local } from '../local/local';
+import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { ResCache } from '../res/res-cache';
 import { u3 } from '../util/util';
@@ -62,14 +62,14 @@ export class ActorBase extends Component {
 
     setActive (data: key_type_boolean) {
         const activeNode = this.node.getChildByName(data.key);
-        if(activeNode) activeNode.active = data.value;
+        if (activeNode) activeNode.active = data.value;
         else console.warn(` You want set undefined node active. ${this.node?.name}/${data.key}`);
     }
 
     setFx (data: key_type_boolean) {
         const pNode = this.node.getChildByName(data.key);
         const particles = pNode?.getComponentsInChildren(ParticleSystem);
-        if(particles == undefined) return;
+        if (particles === undefined) return;
         for (var i = 0; i < particles.length; i++) {
             let p = particles[i];
             p.loop = data.value;
@@ -80,7 +80,7 @@ export class ActorBase extends Component {
     onFx (data: string) {
         const pNode = this.node.getChildByName(data);
         const particles = pNode?.getComponentsInChildren(ParticleSystem);
-        if(particles == undefined) return;
+        if (particles === undefined) return;
         for (var i = 0; i < particles.length; i++) {
             let p = particles[i];
             p.play();
@@ -96,11 +96,11 @@ export class ActorBase extends Component {
 
     onDead() {
 
-        if(this._groupIndex != -1) {
+        if (this._groupIndex !== -1) {
             Msg.emit('msg_remove_enemy', this._groupIndex);
             Msg.emit(
                 'msg_tips', 
-                `${Local.Instance.get('killed one.')}`
+                `${Local.Instance.get('killed_one')}`
             );
         }
 

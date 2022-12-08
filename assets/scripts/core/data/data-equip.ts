@@ -17,7 +17,7 @@ export class DataEquip {
 
         const item = this._data[name];
 
-        if(item == undefined) {
+        if (item === undefined) {
             throw new Error(` Can not find ${name} equips data.`);
         }
 

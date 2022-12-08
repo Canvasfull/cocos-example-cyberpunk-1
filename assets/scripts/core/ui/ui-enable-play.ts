@@ -20,7 +20,7 @@ export class UIEnablePlay extends Component {
 
     onEnable () {
 
-        if(this.animation == undefined)
+        if (this.animation === undefined)
             this.animation = this.getComponent(Animation);
 
         this.animation.stop();
@@ -28,10 +28,10 @@ export class UIEnablePlay extends Component {
         if (this.enable_opacity)
         this.node.getComponent(SpriteComponent).color = new Color(1, 1, 1, 0);
 
-        if(this.btn == undefined)
+        if (this.btn === undefined)
             this.btn = this.getComponent(Button);
 
-        if(this.btn) this.btn.enabled = false;
+        if (this.btn) this.btn.enabled = false;
 
         fun.delay(() => {
             this.animation.defaultClip.speed = this.speed;
@@ -39,7 +39,7 @@ export class UIEnablePlay extends Component {
         }, this.delay_time);
 
         fun.delay(() => {
-            if(this.btn) this.btn.enabled = true;
+            if (this.btn) this.btn.enabled = true;
         }, 2);
 
     }

@@ -18,7 +18,7 @@ export class FxGroup extends Component {
         this.node.on('setDestroy', this.setDestroy, this);
         this.play(true);
 
-        if(this._particles === undefined || this._particles.length <= 0) {
+        if (this._particles === undefined || this._particles.length <= 0) {
             throw new Error(`This node ${this.node.name} can not find particles.`);
         }
 

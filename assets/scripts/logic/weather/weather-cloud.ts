@@ -45,7 +45,7 @@ export class WeatherCloud extends Component {
     }
     
     setDirection(x:number, z:number) {
-        if(this.x == x && this.z == z) return;
+        if (this.x === x && this.z === z) return;
         for(var i = 0; i < this.particles.length; i++) {
             var pi = this.particles[i];
             pi.renderer.useGPU = false;
@@ -60,7 +60,7 @@ export class WeatherCloud extends Component {
 
     update (deltaTime: number) {
         this._refresh_time -= deltaTime;
-        if(this._refresh_time <= 0) {
+        if (this._refresh_time <= 0) {
             var wind = World.Instance._data.wind;
             this.setDirection(wind.x,wind.z);
             this._refresh_time = 1;

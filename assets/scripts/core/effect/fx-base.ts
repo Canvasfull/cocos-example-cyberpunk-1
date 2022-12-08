@@ -17,7 +17,7 @@ export class FxBase extends Component {
 
         this.destroyTime -= deltaTime;
 
-        if(this.destroyTime < 0) {
+        if (this.destroyTime < 0) {
             this.node.destroy();
         }
         

@@ -39,7 +39,7 @@ export class JoystickAutoHidden extends Component {
     update(deltaTime: number) {
 
         this._delay -= deltaTime;
-        if(this._delay < 0) {
+        if (this._delay < 0) {
             this._cur_alpha = math.lerp(this._cur_alpha, this._alpha, deltaTime * this.smooth);
             this._color.a = this._cur_alpha;
             this._sprite.color = this._color;

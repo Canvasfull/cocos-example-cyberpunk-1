@@ -162,7 +162,7 @@
     "fileId": "2bFWLH27NTo5OldOPHHIlt"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",
@@ -276,7 +276,7 @@
     "fileId": "baXL0Jgy5VoIwVNkFoTkfI"
   },
   {
-    "__type__": "cc.ModelBakeSettings",
+    "__type__": "cc.ModelLightmapSettings",
     "texture": null,
     "uvParam": {
       "__type__": "cc.Vec4",

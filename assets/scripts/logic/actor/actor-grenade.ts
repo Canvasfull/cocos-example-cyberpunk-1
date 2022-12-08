@@ -19,22 +19,22 @@ export class ActorGrenade extends ActorEquipBase {
             const res = PhysicsSystem.instance.raycastClosestResult;
             const hitName = res.collider.node.name;
             console.log(`handgun fire hit ${hitName}`);
-            if(hitName.concat('actor')) {
+            if (hitName.concat('actor')) {
                 const actorPart = res.collider.node.getComponent(ActorPart);
-                if(!actorPart) {
+                if (!actorPart) {
                     console.error(` damage part can not add actor part component. ${actorPart}`);
                 }
                 const actor = actorPart.actor;
                 const damage = this._data.damage[hitName];
-                if(damage == undefined) {
+                if (damage === undefined) {
                     console.error(`hit part undefind ${hitName}`);
                 }
                 actor._data.hp -= damage;
-                if(actor._data.hp <= 0) {
+                if (actor._data.hp <= 0) {
                     this._actor._data.hp = 1;
                     actor.do('dead'); 
                 }
-            }else if(hitName === 'col_brick') {
+            }else if (hitName === 'col_brick') {
 
             }else if (hitName === 'col_metal') {
 

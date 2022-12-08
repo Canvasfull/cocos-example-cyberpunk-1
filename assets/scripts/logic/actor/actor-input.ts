@@ -71,7 +71,7 @@ export class ActorInput extends Component implements IActorInput {
 
         this._isPause = !this._isPause;
 
-        if(this._isPause) {
+        if (this._isPause) {
             console.log('push level pause');
             Msg.emit('push', 'level_pause');
         }else{

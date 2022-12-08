@@ -34,20 +34,20 @@ export class LevelEventsCard extends Component {
         let excludeGroupIndex = -1;
 
         for(let iWeight = 0; iWeight < weights.length; iWeight++) {
-            if(odds <= weights[iWeight]) {
+            if (odds <= weights[iWeight]) {
                 excludeGroupIndex = iWeight;
                 break;
             }
         }
 
-        if(excludeGroupIndex == -1) {
+        if (excludeGroupIndex === -1) {
             throw new Error(`Error calculate weight level events card. value:${odds}`);
         }
 
         const currentMax = this.groupCounter![excludeGroupIndex];
         const weightMax = this.probability.weights_max;
 
-        if(currentMax >= weightMax[excludeGroupIndex]) {
+        if (currentMax >= weightMax[excludeGroupIndex]) {
             this._interval = this.probability.interval_weight_max;
             return;
         }
@@ -63,7 +63,7 @@ export class LevelEventsCard extends Component {
     }
 
     checkNextEvent(counter:number) {
-        if(counter > this.nextCounter) {
+        if (counter > this.nextCounter) {
             this.nextEvent();
         }
     }
@@ -71,9 +71,9 @@ export class LevelEventsCard extends Component {
     /*
     update(deltaTime: number) {
 
-        if(!Level.Instance._isStart) return;
+        if (!Level.Instance._isStart) return;
         this._interval -= deltaTime;
-        if(this._interval <= 0) {
+        if (this._interval <= 0) {
             this.nextEvent();
         }
         

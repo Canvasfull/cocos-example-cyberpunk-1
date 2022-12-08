@@ -1,7 +1,7 @@
 import { setDisplayStats } from "cc";
 import { Game } from "../data/game";
 import { Save } from "../data/save";
-import { Local } from "../local/local";
+import { Local } from "../localization/local";
 import { Msg } from "../msg/msg";
 import { Singleton } from "../pattern/singleton";
 
@@ -11,7 +11,7 @@ export class DebugUtil extends Singleton {
 
     public init (): void {
 
-        if(Save.Instance._cur.debugIndex == undefined) 
+        if (Save.Instance._cur.debugIndex === undefined) 
             Save.Instance._cur.debugIndex = 0;
 
         this.index = Save.Instance._cur.debugIndex;
@@ -21,14 +21,14 @@ export class DebugUtil extends Singleton {
 
         Msg.on('next_debug', () => {
             this.index++;
-            if(this.index >= gdata.debug_info.length) this.index = 0;
+            if (this.index >= gdata.debug_info.length) this.index = 0;
             Save.Instance._cur.debugIndex = this.index;
             this.CheckDisplayStats();
         });
 
         Msg.on('pre_debug', () => {
             this.index--;
-            if(this.index < 0) this.index = gdata.debug_info.length - 1;
+            if (this.index < 0) this.index = gdata.debug_info.length - 1;
             Save.Instance._cur.debugIndex = this.index;
             this.CheckDisplayStats();
         });
@@ -36,7 +36,7 @@ export class DebugUtil extends Singleton {
     }
 
     public CheckDisplayStats() {
-        setDisplayStats(this.index == 1);
+        setDisplayStats(this.index === 1);
     }
 
     public getShowName() {

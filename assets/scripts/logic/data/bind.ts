@@ -1,5 +1,5 @@
 import { Node } from "cc";
-import { LocalLabel } from "../../core/local/local-label";
+import { LocalLabel } from "../../core/localization/local-label";
 import { Msg } from "../../core/msg/msg";
 import { Singleton } from "../../core/pattern/singleton";
 import { BtnBase, FilBase, GrpBag, GrpBase, GrpEquipInfo, 
@@ -66,7 +66,7 @@ export class Bind extends Singleton {
     }
 
     public hasBind (key: string): boolean {
-        return this._map[key] != null;
+        return this._map[key] !== undefined;
     }
 
     public doEvent () {
@@ -155,7 +155,7 @@ export class BindUI {
                 // Bind key
                 const key = tempi.name;
                 const com = this._map[key];
-                if (com) {
+                if (com !== undefined) {
                     comList.push(this._map[key](tempi));
                     continue;
                 }

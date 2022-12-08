@@ -40,21 +40,21 @@ export class ActorPushBox extends Component {
         this._actor._rigid.getLinearVelocity(this.velocity);
         var v_length = this.velocity.length();
 
-        if(this._actor._data.is_sokoban && v_length > 0.05) {
+        if (this._actor._data.is_sokoban && v_length > 0.05) {
             this._actor._animationGraph.play(this.pushAnimationName, true);
-            if(!this._audio.loop) {
+            if (!this._audio.loop) {
                 this._audio.play();
                 this._audio.loop = true;
             }
         }else{
-            if(this._audio.loop) {
+            if (this._audio.loop) {
                 this._audio.loop = false;
             }
             this._actor._animationGraph.play(this.pushAnimationName, false);
         }
 
         var volume = Sound.volume * v_length * 2;
-        if(volume > 1) volume = 1;
+        if (volume > 1) volume = 1;
         this._audio.volume = math.lerp(this._audio.volume, volume, deltaTime);
  
     }
@@ -63,17 +63,17 @@ export class ActorPushBox extends Component {
 
         
         this._actor._rigid.getLinearVelocity(this.velocity);
-        if(Math.abs(this.velocity.y) > 0.1) return false;
+        if (Math.abs(this.velocity.y) > 0.1) return false;
 
         u3.c(this._ray.d, this._actor._dir);
         
-        if(!this._actor._data.is_ground) return false;
+        if (!this._actor._data.is_ground) return false;
         const mask = (1 << 0);
         u3.c(this._ray.o, this.node.worldPosition);
         this._ray.o.y += 0.5;
-        if(PhysicsSystem.instance.raycastClosest(this._ray, mask, 1)) {
+        if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 1)) {
             var res = PhysicsSystem.instance.raycastClosestResult;
-            if(res.collider.name.includes('wooden_box1')) {
+            if (res.collider.name.includes('wooden_box1')) {
                 return true;
             }
         }

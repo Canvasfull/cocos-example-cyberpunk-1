@@ -25,7 +25,7 @@ export class ActorBag {
 
     public checkIsFull():number {
         for(let i = 0; i < this._actor._data.items_index.length; i++) {
-            if(this._actor._data.items_index[i].length <= 0) return i;
+            if (this._actor._data.items_index[i].length <= 0) return i;
         }
         return -1;
     }
@@ -33,12 +33,12 @@ export class ActorBag {
     public pickedItem(name:string):boolean {
 
         var index = this.checkIsFull();
-        if(index == -1) return false;
+        if (index === -1) return false;
 
         this._actor._data.items_index[index] = name;
         let bagItems = this._actor._data.items[name];
 
-        if(bagItems == undefined) {
+        if (bagItems === undefined) {
             this.createItem(name);
         }else{
             this.getSameItem(bagItems);
@@ -51,7 +51,7 @@ export class ActorBag {
 
         const curIndex = this._actor._data.cur_equip_bag_index;
         const data = this._actor._data.items_index;
-        if(curIndex != -1) {
+        if (curIndex !== -1) {
             this._actor._actorEquipment?.unEquip();
             const name = data[curIndex];
             this._actor._data.items[name] = undefined;
@@ -75,7 +75,7 @@ export class ActorBag {
         let newItems = {
             'name':name,
             'actor':this._actor,
-            'stackable':bagData.stackable == undefined ? false : true,
+            'stackable':bagData.stackable === undefined ? false : true,
             'count':1,
             'data':bagData,
             'bulletCount': bagData.bullet_count,
@@ -89,7 +89,7 @@ export class ActorBag {
 
     public getSameItem(bagItems:BagItems) {
         
-        if(bagItems.stackable == true) {
+        if (bagItems.stackable === true) {
             bagItems.count++;
             let state = {
                 'bulletCount':bagItems.data.bullet_count 

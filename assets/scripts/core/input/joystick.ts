@@ -26,7 +26,7 @@ export class Joystick extends Component {
     }
 
     onKeyPRESSING(event: EventKeyboard) {
-        if(event.keyCode == KeyCode.KEY_A) {
+        if (event.keyCode === KeyCode.KEY_A) {
             console.log('press right.');
         }
     }

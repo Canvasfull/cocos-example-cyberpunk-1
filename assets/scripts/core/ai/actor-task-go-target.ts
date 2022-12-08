@@ -21,12 +21,12 @@ export class ActorTaskGoTarget extends TaskBase {
     }
 
     public update() {
-        if(!this.isStart) return;
-        if(!this.isWait) return;
+        if (!this.isStart) return;
+        if (!this.isWait) return;
         // check arrived
-        if(Vec3.distance(this.actor!._data.pos, this.waypoints[this.index].pos) < 0.1) {
+        if (Vec3.distance(this.actor!._data.pos, this.waypoints[this.index].pos) < 0.1) {
             
-            if(this.index >= this.waypoints.length) {
+            if (this.index >= this.waypoints.length) {
                 this.end();
                 return;
             }

@@ -20,7 +20,7 @@ export class ui_roller extends Component {
     }
 
     onEnable() {
-        if(this._orignal == undefined) {
+        if (this._orignal === undefined) {
             this._orignal = this.node.position.clone();
         }
 
@@ -30,7 +30,7 @@ export class ui_roller extends Component {
 
     update(deltaTime: number) {
 
-        if(this._pos.y < this.final.y) {
+        if (this._pos.y < this.final.y) {
             this._pos.y += deltaTime * this.speed;
             this.node.setPosition(this._pos.x, this._pos.y, this._pos.z);
         }

@@ -1,4 +1,5 @@
-import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director } from 'cc';
+import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component } from 'cc';
+import { ComponentType, ComponentTypes, Constructor } from '../data/game-type';
 import { Log } from '../io/log';
 import { GRandom } from './grandom';
 const { ccclass, property } = _decorator;
@@ -22,7 +23,7 @@ export class Util {
         var max = 0;
 
         for (let i = 0; i < renders.length; i++) {
-            if(!renders[i].node.active) continue;
+            if (!renders[i].node.active) continue;
             let x = renders[i].model!.worldBounds.halfExtents.x * renders[i].node.scale.x;
             if (x > max_x) {
                 max_x = x;
@@ -47,7 +48,7 @@ export class UtilStr {
         const count = items.length;
         for (var i = 0; i < count; i++) {
             var t = items[i]
-            if (str == t) {
+            if (str === t) {
                 return true;
             }
         }
@@ -66,7 +67,7 @@ export class UtilStr {
     }
 
     public static selectFromItems (items: string[], len: number = -1): string {
-        var count = len == -1 ? items.length : len;
+        var count = len === -1 ? items.length : len;
         var idx = randomRangeInt(0, count);
         return items[idx];
     }
@@ -129,7 +130,7 @@ export class UtilArray {
 
     public static remove<T> (array: T[], key: T): void {
         const index = array.indexOf(key, 0);
-        if (index != -1) {
+        if (index !== -1) {
             array.splice(index, 0);
         }
     }
@@ -180,6 +181,23 @@ export class UtilArray {
 
 export class UtilNode {
 
+    public static getChildByName(node:Node, name:string): Node {
+        const child = node.getChildByName(name);
+        if (child === null) throw new Error(`${node.name} node children not find '${name}'`);
+        return child;
+    }
+
+    public static getComponent<T extends Component>(node:Node, type:{ new () : T }): T{
+        const component = node.getComponent(type) as T;
+        if(component === null) throw new Error(`${node.name} node not find '${name}'`);
+        return component;
+    }
+
+    public static getChildComponent<T extends Component>(node:Node, name:string, type:{ new () : T }): T  {
+        const child = this.getChildByName(node, name);
+        return this.getComponent(child, type);
+    }
+
     public static getChildren (node: Node): Node[] {
         let ls: Node[] = [];
         var find = (node: Node) => {
@@ -198,7 +216,7 @@ export class UtilNode {
 
         let n: Node = Object.create(null);
         var find = (node: Node, name: string) => {
-            if (node.name == name) {
+            if (node.name === name) {
                 n = node
                 return;
             }
@@ -216,7 +234,7 @@ export class UtilNode {
     public static getChildrenByNameBlur (node: Node, blurName:string): {[key:string]:Node} {
         let map: {[key:string]:Node} = {};
         var find = (node: Node) => {
-            if(node.name.concat(blurName)) {
+            if (node.name.concat(blurName)) {
                 map[node.name] = node; 
             }
             map[node.name] = node;
@@ -363,10 +381,10 @@ export class UtilTime {
         var y = date.getFullYear().toString();
 
         var m = date.getMonth().toString();
-        if(m.length < 2) m = `0${m}`;
+        if (m.length < 2) m = `0${m}`;
 
         var d = date.getDate().toString();
-        if(d.length < 2) d = `0${d}`;
+        if (d.length < 2) d = `0${d}`;
 
         var h = date.getHours().toString();
 

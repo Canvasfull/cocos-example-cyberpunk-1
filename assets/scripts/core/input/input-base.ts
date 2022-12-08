@@ -16,7 +16,7 @@ export class InputBase extends Component {
 
     onEnable() {
         this._actorInput = this.node.parent?.getComponent(ActorInput);
-        if(this._actorInput == undefined || this._actorInput == null) {
+        if (this._actorInput === undefined || this._actorInput === null) {
             throw new Error(`Not find Actor Input. node is : ${this.node.name}`);
         }
     }
