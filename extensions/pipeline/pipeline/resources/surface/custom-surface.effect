@@ -251,10 +251,7 @@ CCProgram standard-fs %{
     #endif
 
     #if CC_USE_LIGHTMAP && !CC_FORWARD_ADD
-      vec4 lightColor = texture(cc_lightingMap, v_luv.xy);
-      s.lightmap.a = lightColor.a;
-      s.lightmap.rgb = lightColor.xyz * v_luv.z;
-      s.lightmap_test = v_luv.z; /*lum*/
+      SampleAndDecodeLightMapColor(s.lightmap.rgb, s.lightmap.a, s.lightmap_test, cc_lightingMap, v_luv.xy, v_luv.z, s.normal);
     #endif
 
     s.normal = v_normal;
@@ -381,17 +378,20 @@ CCProgram standard-fs %{
     void main () {
       StandardSurface s; surf(s);
 
-      
-      if (cc_fogBase.x == 0.) {   // forward
-        fragColor0 = CCFragOutput(CCStandardShadingBase(s, CC_SHADOW_POSITION));     
+      if (cc_fogBase.x == 0.) {       // forward
+        fragColor0 = CCFragOutput(CCStandardShadingBase(s, CC_SHADOW_POSITION));
       }
-      else if (cc_fogBase.x == 1.) { // deferred
-        fragColor0 = s.albedo;                                         
+      else if (cc_fogBase.x == 1.) {  // deferred
+        vec3 diffuse = s.albedo.rgb * (1.0 - s.metallic);
+        vec3 lightmapColor = diffuse * s.lightmap.rgb;
+        float occlusion = s.occlusion * s.lightmap_test;
+
+        fragColor0 = s.albedo;
         fragColor1 = vec4(float32x3_to_oct(s.normal), s.roughness, s.metallic);
-        fragColor2 = vec4(s.emissive, s.occlusion);                    
-        fragColor3 = vec4(s.position, 0.);   
+        fragColor2 = vec4(s.emissive + lightmapColor, occlusion);
+        fragColor3 = vec4(s.position, 0.);
       }
-                       
+
     }                                                                
                                                                     
   #endif  

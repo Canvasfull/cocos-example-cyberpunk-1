@@ -1,11 +1,11 @@
-import { director, geometry, renderer, SphereLight, SpotLight, Vec4, _decorator } from "cc";
+import { director, geometry, MobilityMode, Node, renderer, SphereLight, SpotLight, Vec3, Vec4, _decorator } from "cc";
 import { PipelineAssets } from "../../resources/pipeline-assets";
 import { ClusterObject, WorldCluster } from "./world-cluster";
 
 const { ccclass, executeInEditMode, property } = _decorator
 
 let _sphere = new geometry.Sphere();
-let tempVec4 = new Vec4
+let tempVec3 = new Vec3
 
 @ccclass('LightWorldCluster')
 @executeInEditMode
@@ -44,7 +44,7 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
             let spot = (light as renderer.scene.SpotLight);
 
             const clampedInnerConeAngle = Math.clamp(spot.size, 0.0, 89.0) * Math.PI / 180.0;
-            const clampedOuterConeAngle = Math.clamp(spot.angle, clampedInnerConeAngle + 0.001, 89.0 * Math.PI / 180.0 + 0.001);
+            const clampedOuterConeAngle = Math.clamp(spot.angle / 2, clampedInnerConeAngle + 0.001, 89.0 * Math.PI / 180.0 + 0.001);
 
             let cosOuterCone = Math.cos(clampedOuterConeAngle);
             let cosInnerCone = Math.cos(clampedInnerConeAngle);
@@ -59,14 +59,19 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
             dataInfoFloat[dataInfoFloatIndex++] = light.size;
             dataInfoFloat[dataInfoFloatIndex++] = 0;
         }
+        dataInfoFloat[dataInfoFloatIndex++] = 0;
 
 
         // 3
         if (isSpotLight) {
             let dir = (light as renderer.scene.SpotLight).direction;
+            // Vec3.rotateX(tempVec3, dir, Vec3.ZERO, Math.PI * 0.5)
+            // Vec3.rotateY(tempVec3, dir, Vec3.ZERO, Math.PI * 0.5)
+            // tempVec3.normalize()
             dataInfoFloat[dataInfoFloatIndex++] = dir.x;
             dataInfoFloat[dataInfoFloatIndex++] = dir.y;
             dataInfoFloat[dataInfoFloatIndex++] = dir.z;
+            dataInfoFloat[dataInfoFloatIndex++] = 0;
         }
 
     }
@@ -86,13 +91,13 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
         for (let i = 0; i < director.root.scenes.length; i++) {
             let sphereLights = director.root.scenes[i].sphereLights;
             for (let ii = 0; ii < sphereLights.length; ii++) {
-                if (sphereLights[ii].node.activeInHierarchy) {
+                if (sphereLights[ii].node.activeInHierarchy && sphereLights[ii].node.mobility !== MobilityMode.Static) {
                     lights.push(sphereLights[ii])
                 }
             }
             let spotLights = director.root.scenes[i].spotLights;
             for (let ii = 0; ii < spotLights.length; ii++) {
-                if (spotLights[ii].node.activeInHierarchy) {
+                if (spotLights[ii].node.activeInHierarchy && spotLights[ii].node.mobility !== MobilityMode.Static) {
                     lights.push(spotLights[ii])
                 }
             }
