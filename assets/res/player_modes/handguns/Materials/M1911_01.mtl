@@ -4,7 +4,7 @@
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
-    "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319",
+    "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
     "__expectedType__": "cc.EffectAsset"
   },
   "_techIdx": 0,
@@ -46,6 +46,8 @@
   ],
   "_props": [
     {
+      "roughness": 0.5,
+      "metallic": 0,
       "mainTexture": {
         "__uuid__": "fe26ea50-e108-4a2e-818d-8d63e2c57335@6c48a",
         "__expectedType__": "cc.Texture2D"

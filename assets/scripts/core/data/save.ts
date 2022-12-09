@@ -4,9 +4,7 @@ import { IO } from "../io/io";
 import { UtilArray } from "../util/util";
 import { JsonTool } from "../io/json-tool";
 import { Msg } from "../msg/msg";
-import { Achievement } from "./achievement";
 import { Game } from "./game";
-import { JsonAsset } from "cc";
 import { Notify } from "../io/notify";
 import { ResCache } from "../res/res-cache";
 

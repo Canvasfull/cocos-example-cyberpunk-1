@@ -66,7 +66,7 @@ export class ActorBag {
 
     public createItem(name:string) {
 
-        const bagData = DataEquipInst.getItem(name);
+        const bagData = DataEquipInst.get(name);
 
         let state = {
             'bulletCount':bagData.bullet_count

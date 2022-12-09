@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, SkeletalAnimation, ParticleSystem, Vec3 } from 'cc';
 import { ActorAnimationGraph } from '../../logic/actor/actor-animation-graph';
 import { ActionActor, key_type_boolean } from '../action/action';
+import { KeyAnyType } from '../data/game-type';
 import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { ResCache } from '../res/res-cache';
@@ -13,7 +14,7 @@ export class ActorBase extends Component {
     _anim: SkeletalAnimation = Object.create(null);
     _animationGraph: ActorAnimationGraph = Object.create(null);
     _action: ActionActor | undefined;
-    _data = Object.create(null);
+    _data:KeyAnyType = {};
     _updates: Function[] = [];
     _dir = new Vec3(0, 0, 0);
     _curDir = new Vec3(0, 0, 0);
@@ -24,7 +25,7 @@ export class ActorBase extends Component {
     _actionUpdate = () => { };
 
     init (actionName: string) {
-        Object.assign(this._data, ResCache.Instance.getJson(actionName).json);
+        Object.assign(this._data!, ResCache.Instance.getJson(actionName).json);
         this._action = new ActionActor(this._data.action, this);
         this.onBind();
     }

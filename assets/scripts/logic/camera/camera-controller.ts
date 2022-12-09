@@ -5,19 +5,6 @@ import { GVec3 } from '../../core/util/g-math';
 import { u3 } from '../../core/util/util';
 import { SmoothLocalZ } from './smooth-local-z';
 const { ccclass, property } = _decorator;
-
-/**
- * Predefined variables
- * Name = camera_controller
- * DateTime = Fri Jan 21 2022 16:15:01 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = camera-cantroller.ts
- * FileBasenameNoExtension = camera-controller
- * URL = db://assets/scripts/logic/game-car/camera-controller.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
-
 @ccclass('CameraController')
 export class CameraController extends Component {
 

@@ -55,7 +55,7 @@ export class SensorRays extends Component {
                 this._ray.o.z = this.origin[i].z + this.node.worldPosition.z;
 
                 if (PhysicsSystem.instance.raycastClosest(this._ray, this._mask, this.distance)) {
-                    var res = PhysicsSystem.instance.raycastClosestResult;
+                    const res = PhysicsSystem.instance.raycastClosestResult;
                     this.checked = true;
                     this.checkedNode = res.collider.node;
                     return;

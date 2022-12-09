@@ -12,9 +12,11 @@ import { Sound } from "../audio/sound";
 import { Notify } from "../io/notify";
 import { GameQuality as GameQuality } from "../render/GameQuality";
 import { DataEquip } from "./data-equip";
+import { DataSound } from "./data-sound";
 
 
 export const DataEquipInst = new DataEquip();
+export const DataSoundInst = new DataSound();
 
 export class Game extends Singleton {
 
@@ -43,7 +45,9 @@ export class Game extends Singleton {
         this._action = new Action(this._data.action_data);
         this._nodes = this._data['nodes'];
 
-        DataEquipInst.init();
+        //Init data.
+        DataEquipInst.init('data-equips');
+        DataSoundInst.init('data-sound');
         
         GameQuality.Instance.init();
         //GM.init();

@@ -8,6 +8,10 @@ export type type_x_y = {
     y: number,
 }
 
+export type KeyAnyType = {
+    [key:string]:any;
+}
+
 export type ComponentTypes = 
 { new () : Label } | 
 { new () : Sprite } | 
@@ -15,9 +19,3 @@ export type ComponentTypes =
 { new () : Toggle } |
 { new () : Slider } |
 { new () : FilSmooth }
-
-export type ComponentType = Constructor | AbstractedConstructor;
-
-export type Constructor<T = unknown> = new (...args: any[]) => T;
-
-export type AbstractedConstructor<T = unknown> = abstract new (...args: any[]) => T;

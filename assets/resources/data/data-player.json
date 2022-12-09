@@ -37,6 +37,7 @@
     "is_jump": false,
     "is_attack": false,
     "in_water": false,
+    "walk_in_type":"ground",
     "cards":[],
     "items":[],
     "items_index":[],

@@ -26,7 +26,7 @@ export class Action {
 
     public on (name: string): void {
         this.push(name, 'start');
-        Msg.emit('msg_stat_times', name);
+        //Msg.emit('msg_stat_times', name);
     }
 
     public off (name: string): void {

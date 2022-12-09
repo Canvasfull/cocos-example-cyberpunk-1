@@ -63,7 +63,6 @@
     "_globals": {
       "__id__": 47
     },
-    "_reflectionProbeId": 0,
     "_id": "fa3f03f2-0c85-424d-81b0-1c385a3ff51a"
   },
   {
@@ -145,6 +144,8 @@
     "_csmLevel": 4,
     "_csmLayerLambda": 0.75,
     "_csmOptimizationMode": 2,
+    "_csmAdvancedOptions": false,
+    "_csmLayersTransition": false,
     "_shadowFixedArea": false,
     "_shadowNear": 0.1,
     "_shadowFar": 10,
@@ -420,7 +421,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 11
+    },
     "_mesh": {
       "__uuid__": "1d655240-57bc-46c2-b2d7-67bc065d29ca@d1dca",
       "__expectedType__": "cc.Mesh"
@@ -429,15 +432,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "a7ChLcyU1PoavbikikK2oG",
-    "bakeSettings": {
-      "__id__": 11
-    }
+    "_id": "a7ChLcyU1PoavbikikK2oG"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -453,7 +449,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -515,7 +516,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 14
+    },
     "_mesh": {
       "__uuid__": "de3cc8ed-dd42-4845-a504-c15b8dea984a@78519",
       "__expectedType__": "cc.Mesh"
@@ -524,15 +527,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "faABK5fy1LKoM8Ar6NHRLc",
-    "bakeSettings": {
-      "__id__": 14
-    }
+    "_id": "faABK5fy1LKoM8Ar6NHRLc"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -548,7 +544,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -610,7 +611,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 17
+    },
     "_mesh": {
       "__uuid__": "7e8220d4-f9b9-46a4-b676-0b27553d69f8@c8860",
       "__expectedType__": "cc.Mesh"
@@ -619,15 +622,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "2amkMJUHFOqLi1hUgdWYGV",
-    "bakeSettings": {
-      "__id__": 17
-    }
+    "_id": "2amkMJUHFOqLi1hUgdWYGV"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -643,7 +639,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -705,7 +706,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 20
+    },
     "_mesh": {
       "__uuid__": "464996e5-a57b-42d1-9012-b3a847fba522@c04de",
       "__expectedType__": "cc.Mesh"
@@ -714,15 +717,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "0fCI5c6shLU7AMOCTJjs2U",
-    "bakeSettings": {
-      "__id__": 20
-    }
+    "_id": "0fCI5c6shLU7AMOCTJjs2U"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -738,7 +734,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -800,7 +801,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 23
+    },
     "_mesh": {
       "__uuid__": "d3e34a27-fa48-4b9f-9cf7-b5f35a2eaed4@55fdb",
       "__expectedType__": "cc.Mesh"
@@ -809,15 +812,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "19bXUrzhxAy7nbn4cQ0aFl",
-    "bakeSettings": {
-      "__id__": 23
-    }
+    "_id": "19bXUrzhxAy7nbn4cQ0aFl"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -833,7 +829,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -895,7 +896,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 26
+    },
     "_mesh": {
       "__uuid__": "4780c41e-e86d-4385-b0a8-901a79c224db@1589f",
       "__expectedType__": "cc.Mesh"
@@ -904,15 +907,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "727JEu2x5Hn7DPQM0tr/Af",
-    "bakeSettings": {
-      "__id__": 26
-    }
+    "_id": "727JEu2x5Hn7DPQM0tr/Af"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -928,7 +924,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -990,7 +991,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 29
+    },
     "_mesh": {
       "__uuid__": "11f7b0f2-027e-48b7-9c2d-066974c211d1@de577",
       "__expectedType__": "cc.Mesh"
@@ -999,15 +1002,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "12pNyzeEZO9bsuTi1VcS/O",
-    "bakeSettings": {
-      "__id__": 29
-    }
+    "_id": "12pNyzeEZO9bsuTi1VcS/O"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -1023,7 +1019,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -1093,7 +1094,9 @@
       }
     ],
     "_visFlags": 0,
-    "lightmapSettings": null,
+    "bakeSettings": {
+      "__id__": 32
+    },
     "_mesh": {
       "__uuid__": "ef4c1d4e-6b62-4e6b-898a-33af40ce8066@0332a",
       "__expectedType__": "cc.Mesh"
@@ -1102,15 +1105,8 @@
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
-    "_useLightProbe": false,
-    "_bakeToReflectionProbe": true,
-    "_reflectionProbeType": 0,
-    "_probeCubemap": null,
     "_enableMorph": true,
-    "_id": "b1ldeQrNpM/6iLfpmTwSlU",
-    "bakeSettings": {
-      "__id__": 32
-    }
+    "_id": "b1ldeQrNpM/6iLfpmTwSlU"
   },
   {
     "__type__": "cc.ModelBakeSettings",
@@ -1126,7 +1122,12 @@
     "_castShadow": false,
     "_receiveShadow": false,
     "_recieveShadow": false,
-    "_lightmapSize": 64
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
   },
   {
     "__type__": "cc.Node",
@@ -1251,6 +1252,8 @@
     "_csmLevel": 4,
     "_csmLayerLambda": 0.75,
     "_csmOptimizationMode": 2,
+    "_csmAdvancedOptions": false,
+    "_csmLayersTransition": false,
     "_shadowFixedArea": false,
     "_shadowNear": 0.1,
     "_shadowFar": 10,
@@ -1423,7 +1426,8 @@
     },
     "lightProbeInfo": {
       "__id__": 53
-    }
+    },
+    "bakedWithStationaryMainLight": false
   },
   {
     "__type__": "cc.AmbientInfo",
