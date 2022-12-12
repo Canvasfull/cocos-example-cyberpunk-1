@@ -85,7 +85,7 @@
         "__id__": 20
       },
       {
-        "__id__": 21
+        "__id__": 22
       },
       {
         "__id__": 23
@@ -158,8 +158,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 104,
-      "centerY": -118.5,
+      "centerX": 108,
+      "centerY": -138.5,
       "id": "16695266668610.0318723345148515"
     },
     "name": "FireAxe_Idle",
@@ -187,8 +187,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -73,
-      "centerY": -82.5,
+      "centerX": -128,
+      "centerY": -65.5,
       "id": "16695266741550.5328885400382095"
     },
     "name": "FireAxe_Hold",
@@ -245,8 +245,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 204,
-      "centerY": 22.5,
+      "centerX": 190,
+      "centerY": 42.5,
       "id": "16695267998020.47117114798329784"
     },
     "name": "FireAxe_Holster",
@@ -290,13 +290,13 @@
       "__id__": 8
     },
     "conditions": [],
-    "duration": 0,
+    "duration": 0.3,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "interruptionSource": 0,
-    "_exitCondition": 0.03
+    "_exitCondition": 1
   },
   {
     "__type__": "cc.animation.AnimationTransition",
@@ -326,23 +326,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 12
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 5
     },
     "to": {
@@ -350,7 +333,7 @@
     },
     "conditions": [
       {
-        "__id__": 22
+        "__id__": 21
       }
     ],
     "duration": 0,
@@ -397,7 +380,24 @@
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "interruptionSource": 0,
-    "_exitCondition": 1.07
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 12
+    },
+    "to": {
+      "__id__": 10
+    },
+    "conditions": [],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
   },
   {
     "__type__": "cc.animation.TriggerVariable",
