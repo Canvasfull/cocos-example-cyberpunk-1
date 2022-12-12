@@ -1,22 +1,18 @@
-import { Action } from "../action/action";
-import { Singleton } from "../pattern/singleton";
+import { Action } from "../../core/action/action";
+import { Singleton } from "../../core/pattern/singleton";
 import { UI } from '../../core/ui/ui';
-import { Bind } from '../../logic/data/bind'
-import { Local } from "../localization/local";
+import { Bind } from './bind'
+import { Local } from "../../core/localization/local";
 import { Save } from "./save";
-import { Msg } from "../msg/msg";
-import { Stack } from "../util/data-structure";
-import { ResCache } from "../res/res-cache";
-import { Level } from "../../logic/level/level";
-import { Sound } from "../audio/sound";
-import { Notify } from "../io/notify";
-import { GameQuality as GameQuality } from "../render/GameQuality";
-import { DataEquip } from "./data-equip";
-import { DataSound } from "./data-sound";
+import { Msg } from "../../core/msg/msg";
+import { Stack } from "../../core/util/data-structure";
+import { ResCache } from "../../core/res/res-cache";
+import { Level } from "../level/level";
+import { Sound } from "../../core/audio/sound";
+import { Notify } from "../../core/io/notify";
+import { GameQuality as GameQuality } from "./GameQuality";
 
-
-export const DataEquipInst = new DataEquip();
-export const DataSoundInst = new DataSound();
+import * as dataCore from "./data-core";
 
 export class Game extends Singleton {
 
@@ -34,9 +30,6 @@ export class Game extends Singleton {
 
     _start_auto_save = false;
 
-    /**
-     * init 
-     */
     public init (): void {
 
         Save.Instance.init();
@@ -45,10 +38,8 @@ export class Game extends Singleton {
         this._action = new Action(this._data.action_data);
         this._nodes = this._data['nodes'];
 
-        //Init data.
-        DataEquipInst.init('data-equips');
-        DataSoundInst.init('data-sound');
-        
+        dataCore.Init();
+
         GameQuality.Instance.init();
         //GM.init();
         Sound.init();

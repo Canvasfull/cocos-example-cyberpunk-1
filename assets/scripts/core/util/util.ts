@@ -1,6 +1,4 @@
 import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component } from 'cc';
-import { ComponentType, ComponentTypes, Constructor } from '../data/game-type';
-import { Log } from '../io/log';
 import { GRandom } from './grandom';
 const { ccclass, property } = _decorator;
 
@@ -247,6 +245,17 @@ export class UtilNode {
         find(node); 
 
         return map;
+    }
+
+    public static getParentComponent<T extends Component>(node:Node | null, type:{ new () : T }) : T | undefined {
+        if(node === null) {
+            return undefined;
+        }
+        const component = node?.getComponent(type) as T;
+        if(component !== null)
+            return component;
+        
+        return this.getParentComponent(node.parent, type);
     }
 
 }

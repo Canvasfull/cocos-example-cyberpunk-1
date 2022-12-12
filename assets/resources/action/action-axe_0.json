@@ -20,7 +20,7 @@
             {"time": 0.3, "name": "on_sfx_random", "data":{ "key":"sfx_woosh", "value":4 }},
             {"time": 0.7, "name": "on_call", "data": "onFire" },
             {"time": 0.7, "name": "on_fx", "data": "fx_bullet"},
-            {"time": 1.2, "name": "on_call", "data": "updateCooding" }
+            {"time": 1.2, "name": "on_call", "data": "updateCooling" }
         ]
     },
     "reload": {

@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Label, Sprite, Button, EditBox, Toggle, Slider } from 'cc';
-import { FilSmooth } from '../ui/fil-smooth';
+import { FilSmooth } from '../../core/ui/fil-smooth';
 const { ccclass, property } = _decorator;
 
 

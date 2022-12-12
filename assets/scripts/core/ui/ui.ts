@@ -5,7 +5,7 @@ import { UIBase } from "./ui-base";
 import { Res } from "../res/res";
 import { find } from "cc";
 import { Msg } from '../msg/msg';
-import { Game } from '../../core/data/game';
+import { Game } from '../../logic/data/game';
 
 export class UI extends Singleton {
     private _map: { [name: string]: UIBase } = {};

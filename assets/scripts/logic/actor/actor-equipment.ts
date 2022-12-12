@@ -1,11 +1,10 @@
-import { _decorator, Component, Node, game, math } from 'cc';
+import { _decorator, Node, game, math } from 'cc';
 import { Msg } from "../../core/msg/msg";
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { UtilNode } from '../../core/util/util';
 import { Actor } from "./actor";
 import { BagItems } from './actor-bag';
-import { ActorEquipBase } from './actor-equip-base';
 
 
 export class ActorEquipment {

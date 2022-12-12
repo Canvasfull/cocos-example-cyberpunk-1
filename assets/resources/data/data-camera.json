@@ -1,0 +1,13 @@
+{
+    "bind_camera":true,
+    "camera_main":{
+        "pipeline":"main",
+        "is_main_camera":true,
+        "is_bind_occlusion":true
+    },
+    "camera_fps":{
+        "pipeline":"forward",
+        "is_main_camera":false,
+        "is_bind_occlusion":false
+    }
+}

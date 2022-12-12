@@ -1,7 +1,7 @@
-import { Save } from "../data/save";
+import { Save } from "../../logic/data/save";
 import { Singleton } from "../pattern/singleton";
 import { ResCache } from "../res/res-cache";
-import { Game } from "../data/game";
+import { Game } from "../../logic/data/game";
 import { UI } from "../ui/ui";
 import { Msg } from "../msg/msg";
 import { Sound } from "../audio/sound";

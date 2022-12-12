@@ -1,6 +1,6 @@
 
 import { _decorator, Component, Node, find, ParticleAsset, ParticleSystem, Vec3, Vec2 } from 'cc';
-import { World } from '../../core/data/world';
+import { World } from '../data/world';
 const { ccclass, property } = _decorator;
 
 /**

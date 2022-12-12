@@ -1,5 +1,5 @@
 import { _decorator} from 'cc';
-import { Game } from '../data/game';
+import { Game } from '../../logic/data/game';
 import { Msg } from '../msg/msg';
 import { Singleton } from '../pattern/singleton';
 import { Queue } from '../util/data-structure';

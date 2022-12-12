@@ -21,6 +21,9 @@ export class InputKeyboardEight extends InputBase {
     _pressQ = false;
 
     start () {
+
+        console.log('init input keyboard.', this.node.name);
+
         // [3]
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
@@ -132,7 +135,7 @@ export class InputKeyboardEight extends InputBase {
     onMouseDown(event: EventMouse) {
 
         if (!document.pointerLockElement && sys.isBrowser) {
-            game.canvas.requestPointerLock();
+            game.canvas?.requestPointerLock();
             this._isPointerLock = true;
             return;
         }

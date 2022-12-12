@@ -1,6 +1,6 @@
 import { _decorator, Component, animation } from 'cc';
 import { Level } from '../level/level';
-import { Game } from './../../core/data/game';
+import { Game } from '../data/game';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelEnablePlay')

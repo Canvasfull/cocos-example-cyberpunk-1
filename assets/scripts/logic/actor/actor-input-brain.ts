@@ -3,7 +3,7 @@ import { _decorator, Component, find, Vec2, PhysicsSystem, input, Input, EventMo
 const { ccclass, property } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
-import { Save } from '../../core/data/save';
+import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
 import { ActorEnemy } from './actor-enemy';
 

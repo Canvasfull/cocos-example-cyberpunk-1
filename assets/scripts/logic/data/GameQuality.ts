@@ -1,9 +1,9 @@
 import { game, math, PhysicsSystem } from "cc";
-import { Save } from "../data/save";
-import { Local } from "../localization/local";
-import { Msg } from "../msg/msg";
-import { Singleton } from "../pattern/singleton";
-import { ResCache } from "../res/res-cache";
+import { Save } from "./save";
+import { Local } from "../../core/localization/local";
+import { Msg } from "../../core/msg/msg";
+import { Singleton } from "../../core/pattern/singleton";
+import { ResCache } from "../../core/res/res-cache";
 
 export class GameQuality extends Singleton {
 

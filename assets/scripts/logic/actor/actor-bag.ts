@@ -1,6 +1,7 @@
-import { _decorator, game } from 'cc';
-import { DataEquipInst, Game } from '../../core/data/game';
+import { game, _decorator } from 'cc';
 import { Msg } from '../../core/msg/msg';
+import { DataEquipInst } from '../data/data-core';
+import { Game } from '../data/game';
 import { Level } from '../level/level';
 import { Actor } from './actor';
 

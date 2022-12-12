@@ -1,7 +1,7 @@
 import { _decorator } from 'cc';
-import { Action } from '../action/action';
-import { Singleton } from '../pattern/singleton';
-import { ResCache } from '../res/res-cache';
+import { Action } from '../../core/action/action';
+import { Singleton } from '../../core/pattern/singleton';
+import { ResCache } from '../../core/res/res-cache';
 const { ccclass, property } = _decorator;
 
 @ccclass('World')

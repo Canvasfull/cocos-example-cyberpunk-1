@@ -1,6 +1,6 @@
 import { DEV } from 'cc/env';
 import Electron from "../core/app/Electron";
-import { Save } from "../core/data/save";
+import { Save } from "../logic/data/save";
 import { ResCache } from "../core/res/res-cache";
 
 export class GM {

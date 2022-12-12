@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Prefab, instantiate, game, JsonAsset, director, ProgressBar, Label, UITransform, lerp, setDisplayStats, isDisplayStats, Light, profiler, resources, sys } from 'cc';
-import { Game } from '../../core/data/game';
-import { Save } from '../../core/data/save';
+import { Game } from '../data/game';
+import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
 import { ResCache } from '../../core/res/res-cache';
 import { GScene } from '../../core/scene/g-scene';

@@ -75,7 +75,6 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         }
         
         load();
-
         this.do('play');
 
     }

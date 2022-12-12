@@ -1,4 +1,4 @@
-import { Save } from "../data/save";
+import { Save } from "../../logic/data/save";
 import { Log } from "../io/log";
 import { Msg } from "../msg/msg";
 import { Singleton } from "../pattern/singleton";

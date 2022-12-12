@@ -1,6 +1,6 @@
 import { setDisplayStats } from "cc";
-import { Game } from "../data/game";
-import { Save } from "../data/save";
+import { Game } from "../../logic/data/game";
+import { Save } from "../../logic/data/save";
 import { Local } from "../localization/local";
 import { Msg } from "../msg/msg";
 import { Singleton } from "../pattern/singleton";

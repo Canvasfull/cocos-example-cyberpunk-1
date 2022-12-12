@@ -1,17 +1,17 @@
 import { Vec3 } from "cc"
 
 export interface IActorInput {
-    onMove(move:Vec3);
-    onRotation(x:number, y:number);
-    onDir(x:number, y:number);
-    onJump();
-    onCrouch();
-    onProne();
-    onFire();
-    onReload();
-    onPick();
-    onDrop();
-    onRun(isRun:boolean);
-    onEquip(index:number);
-    onPause();
+    onMove(move:Vec3):void;
+    onRotation(x:number, y:number):void;
+    onDir(x:number, y:number):void;
+    onJump():void;
+    onCrouch():void;
+    onProne():void;
+    onFire():void;
+    onReload():void;
+    onPick():void;
+    onDrop():void;
+    onRun(isRun:boolean):void;
+    onEquip(index:number):void;
+    onPause():void;
 }

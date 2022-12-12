@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, find, utils, Vec3, debug, math, v3, randomRangeInt, randomRange, RigidBody } from 'cc';
 import { Action, ActionParallel } from '../../core/action/action';
-import { Save } from '../../core/data/save';
+import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
 import { Singleton } from '../../core/pattern/singleton';
 import { Res } from '../../core/res/res';

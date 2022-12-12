@@ -1,5 +1,5 @@
 import { ResCache } from "../res/res-cache";
-import { KeyAnyType } from "./game-type";
+import { KeyAnyType } from "../../logic/data/game-type";
 
 export class DataBase {
 
@@ -11,7 +11,10 @@ export class DataBase {
     public init(name:string) {
         this._name = name;
         this._data = ResCache.Instance.getJson(name).json;
+        this.bind();
     }
+
+    public bind() {}
 
     public get(name:string) {
         const item = this._data[name];

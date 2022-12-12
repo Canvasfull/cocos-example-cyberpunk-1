@@ -1,13 +1,8 @@
 import { _decorator, Component, Node, ParticleSystem, game, Vec3 } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
-import { fx } from '../../core/effect/fx';
-import { Msg } from '../../core/msg/msg';
-import { ResCache } from '../../core/res/res-cache';
 import { Actor } from './actor';
 import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
 import { BagItems } from './actor-bag';
-import { IActorEquip } from './actor-interface';
-import { ActorPart } from './actor-part';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorEquipBase')
@@ -48,7 +43,7 @@ export class ActorEquipBase extends Component {
         this._bagData.lastUseTime = game.totalTime/1000;
     }
 
-    onDesttoy() {
+    onDestroy() {
         this.node.off('do', this.do, this);
         this.node.off('init', this.init, this);
     }
@@ -114,7 +109,7 @@ export class ActorEquipBase extends Component {
 
     }
 
-    updateCooding() {
+    updateCooling() {
         this._bagData!.lastUseTime = game.totalTime;
     }
 

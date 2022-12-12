@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, SkeletalAnimation, ParticleSystem, Vec3 } from 'cc';
 import { ActorAnimationGraph } from '../../logic/actor/actor-animation-graph';
 import { ActionActor, key_type_boolean } from '../action/action';
-import { KeyAnyType } from '../data/game-type';
+import { KeyAnyType } from '../../logic/data/game-type';
 import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { ResCache } from '../res/res-cache';

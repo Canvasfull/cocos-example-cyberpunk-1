@@ -1,10 +1,9 @@
-import { _decorator, Component, Node, game, random, randomRange, randomRangeInt } from 'cc';
+import { _decorator, Component, randomRangeInt } from 'cc';
 import { Sound } from '../../core/audio/sound';
-import { DataSoundInst } from '../../core/data/game';
-import { KeyAnyType } from '../../core/data/game-type';
+import { KeyAnyType } from '../data/game-type';
 import { Msg } from '../../core/msg/msg';
-import { SubstanceType } from '../item/substance-core';
 import { Actor } from './actor';
+import { DataSoundInst } from '../data/data-core';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorSound')

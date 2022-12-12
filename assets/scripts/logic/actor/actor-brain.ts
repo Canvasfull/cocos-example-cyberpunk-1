@@ -46,6 +46,7 @@ export class ActorBrain extends Component {
     calculateNextPosition() {
 
         this._wayPoints = Navigation.calculateRandomPoint(this._actor!.node.worldPosition);
+        console.log('this._wayPoints:', this._wayPoints);
         this.is_waypoints_move = true;
         this.waypointsIndex = 0;
 
@@ -60,15 +61,15 @@ export class ActorBrain extends Component {
     update(deltaTime:Number) {
 
         if (this.is_waypoints_move) {
-            const wpos = this._actor!.node.worldPosition;
+            const worldPosition = this._actor!.node.worldPosition;
             const target = this._wayPoints[this.waypointsIndex];
-            if (Vec3.distance(wpos, target) <= 0.1) {
+            if (Vec3.distance(worldPosition, target) <= 10) {
                 // Next way
                 this.waypointsIndex++;
                 if (this.waypointsIndex >= this._wayPoints.length) this.is_waypoints_move = false;
             }else{
-                this._rotation.x = target.x - wpos.x;
-                this._rotation.y = target.z - wpos.z;
+                this._rotation.x = target.x - worldPosition.x;
+                this._rotation.y = target.z - worldPosition.z;
                 this._moveDir.x = 0;
                 this._moveDir.y = 0;
                 this._moveDir.z = -1;

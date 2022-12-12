@@ -1,5 +1,5 @@
 import { Node, AudioSource, game, director } from "cc";
-import { Save } from "../data/save";
+import { Save } from "../../logic/data/save";
 import { Msg } from "../msg/msg";
 import { Res } from "../res/res";
 import { ResCache } from "../res/res-cache";

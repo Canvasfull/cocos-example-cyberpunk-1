@@ -1,9 +1,8 @@
 import { _decorator, Component, Node } from 'cc';
-import { Local } from '../localization/local';
-import { Singleton } from '../pattern/singleton';
-import { UtilTime } from '../util/util';
+import { UtilTime } from '../../core/util/util';
 import { Save } from './save';
 import { Game } from './game';
+import { Singleton } from '../../core/pattern/singleton';
 const { ccclass, property } = _decorator;
 
 @ccclass('Achievement')

@@ -1,12 +1,12 @@
-import { Singleton } from "../pattern/singleton"
-import { GMath } from '../util/g-math';
-import { IO } from "../io/io";
-import { UtilArray } from "../util/util";
-import { JsonTool } from "../io/json-tool";
-import { Msg } from "../msg/msg";
+import { Singleton } from "../../core/pattern/singleton"
+import { GMath } from '../../core/util/g-math';
+import { IO } from "../../core/io/io";
+import { UtilArray } from "../../core/util/util";
+import { JsonTool } from "../../core/io/json-tool";
+import { Msg } from "../../core/msg/msg";
 import { Game } from "./game";
-import { Notify } from "../io/notify";
-import { ResCache } from "../res/res-cache";
+import { Notify } from "../../core/io/notify";
+import { ResCache } from "../../core/res/res-cache";
 
 interface key_any {
     [key: string]: any

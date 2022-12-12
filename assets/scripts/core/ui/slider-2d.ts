@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Vec3, v3, v2, Vec2, UITransform, EventTouch, random, math } from 'cc';
-import { type_x_y } from '../data/game-type';
+import { type_x_y } from '../../logic/data/game-type';
 const { ccclass, property } = _decorator;
 
 @ccclass('Slider2D')

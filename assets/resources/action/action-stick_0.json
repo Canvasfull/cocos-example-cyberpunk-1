@@ -20,7 +20,7 @@
             {"time": 0.2, "name": "on_call", "data": "onFire" },
             {"time": 0.3, "name": "on_fx", "data": "fx_bullet"},
             {"time": 0.3, "name": "on_sfx", "data": "sfx_handgun_fire" },
-            {"time": 0.4, "name": "on_call", "data": "updateCooding" }
+            {"time": 0.4, "name": "on_call", "data": "updateCooling" }
         ]
     },
     "reload": {

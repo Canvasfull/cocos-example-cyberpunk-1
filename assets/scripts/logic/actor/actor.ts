@@ -33,6 +33,7 @@ export class Actor extends ActorBase implements IActorInput {
     _actorSensorDropItem: ActorSensorDropItem | undefined;
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node = Object.create(null);
+    _viewRoot:Node | undefined;
     _fps = 0;
 
     get noAction () {
@@ -51,6 +52,7 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
         this._forwardNode = UtilNode.find(this.node, 'camera_root');
+        this._viewRoot = UtilNode.getChildByName(this.node, 'view_root');
 
         var load = async ()=> {
             Res.loadPrefab(this._data['res'], (err, asset) => {
@@ -60,13 +62,12 @@ export class Actor extends ActorBase implements IActorInput {
                     this._animationGraph = this._view.addComponent(ActorAnimationGraph);
                     const actorSound = this._view.addComponent(ActorSound);
                     actorSound.init(this);
-                    if (!Guide.Instance._has_guide) this.do('play');
+                    this.do('play');
+                    //if (!Guide.Instance._has_guide) this.do('play');
                 }
             });
         }
-        
         load();
-        this.do('play');
     }
 
     addAreaForce (force: Vec3) {
@@ -257,10 +258,31 @@ export class Actor extends ActorBase implements IActorInput {
 
     onCrouch() {
 
+        this._data.is_crouch = !this._data.is_crouch;
+
+        // set view height.
+        // set physic collider height.
+        // set hit part height.
+        if (this._data.is_crouch === true) {
+            this._viewRoot?.setPosition(0, this._data.crouch_height, 0);
+        }else{
+            this._viewRoot?.setPosition(0, this._data.normal_height, 0);
+        }
+
+
     }
 
     onProne() {
+        this._data.is_prone = !this._data.is_prone;
 
+        // set view height.
+        // set physic collider height.
+        // set hit part height.
+        if (this._data.is_prone === true) {
+            this._viewRoot?.setPosition(0, this._data.prone_height, 0); 
+        }else{
+            this._viewRoot?.setPosition(0, this._data.normal_height, 0);
+        }
     }
     
     onFire() {

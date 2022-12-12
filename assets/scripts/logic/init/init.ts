@@ -1,6 +1,6 @@
 import { _decorator, Component, game, screen, director } from 'cc';
 import { Log } from '../../core/io/log';
-import { Game } from '../../core/data/game'
+import { Game } from '../data/game'
 import { ResCache } from '../../core/res/res-cache';
 
 const { ccclass, property } = _decorator;

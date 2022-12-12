@@ -6,7 +6,7 @@ import { BagItems } from '../../logic/actor/actor-bag';
 import { Bind, BindUI } from '../../logic/data/bind';
 import { Level } from '../../logic/level/level';
 import { Sound } from '../audio/sound';
-import { Game } from '../data/game';
+import { Game } from '../../logic/data/game';
 import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { Res } from '../res/res';

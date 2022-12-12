@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Vec3, Collider, ITriggerEvent, v3, math, game } from 'cc';
-import { Game } from '../data/game';
+import { Game } from '../../logic/data/game';
 import { u3 } from './util';
 const { ccclass, property } = _decorator;
 
