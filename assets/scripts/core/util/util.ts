@@ -1,4 +1,5 @@
-import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component } from 'cc';
+import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry } from 'cc';
+import { fun } from './fun';
 import { GRandom } from './grandom';
 const { ccclass, property } = _decorator;
 
@@ -368,11 +369,22 @@ export class UtilRandom {
 
 }
 
-export class UtilGeometry {
+export namespace Gizmo {
 
-    public static drawLine (p0: Vec3, p1: Vec3, color: Color = Color.GREEN) {
+    export function drawLine (p0: Vec3, p1: Vec3, color: Color = Color.GREEN) {
         let geometryRenderer = director.root?.pipeline.geometryRenderer;
         geometryRenderer?.addLine(p0, p1, color, undefined);
+    }
+
+    export function drawCircle(center:Vec3, radius:number, color:Color = Color.YELLOW) {
+        let geometryRenderer = director.root?.pipeline.geometryRenderer;
+        geometryRenderer?.addCircle(center, radius, color, 10, true, undefined, undefined);
+    }
+
+    export function drawBox(center:Vec3, size:Vec3, color:Color = Color.BLUE) {
+        let border = new geometry.AABB(center.x, center.y, center.z, size.x, size.y, size.z);
+        let geometryRenderer = director.root?.pipeline.geometryRenderer;
+        geometryRenderer?.addBoundingBox(border, color, true, false);
     }
 
 }

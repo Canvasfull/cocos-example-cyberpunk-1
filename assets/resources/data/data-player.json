@@ -51,5 +51,6 @@
     "hp":20,
     "hp_percent":0,
     "defense":1,
-    "defense_percent":0
+    "defense_percent":0,
+    "nearest_node":-1
 }

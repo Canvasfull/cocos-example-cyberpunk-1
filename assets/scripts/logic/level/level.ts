@@ -8,6 +8,9 @@ import { ResCache } from '../../core/res/res-cache';
 import { u3, UtilNode } from '../../core/util/util';
 import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
+import { NavPoints } from '../navigation/navigation-system';
+import { DataNavigationInst } from '../data/data-core';
+import { ActorBase } from '../../core/actor/actor-base';
 const { ccclass, property } = _decorator;
 
 export class Level extends Singleton {
@@ -43,24 +46,7 @@ export class Level extends Singleton {
     public initSpawn() {
         this._node = find(this._data.level_events);
         if(this._node === null) throw new Error(`Not find level ${this._data.level_events} node.`);
-        const spawns = UtilNode.getChildByName(this._node, 'spawns');
-        for(let i = 0; i < spawns.children.length; i++ ) {
-            const child = spawns.children[i];
-            this._spawns.push({
-                'position': child.getPosition(),
-                'size': child.getWorldScale().x/2
-            })
-        }  
-        console.log(this._spawns);
-    }
-
-    public randomSpawns() {
-        this._cur_spawn_idx = randomRangeInt(0, this._spawns.length);
-        var spawn = this._spawns[this._cur_spawn_idx]; 
-        u3.c(this._spawn_pos, spawn.position);
-        this._spawn_pos.x += randomRange(-spawn.size, spawn.size);
-        this._spawn_pos.z += randomRange(-spawn.size, spawn.size);
-        this._spawn_pos.y += 1;
+        NavPoints.Init(DataNavigationInst._data);
     }
 
     public levelAction (name: string) {
@@ -71,23 +57,28 @@ export class Level extends Singleton {
     }
 
     public addPlayer () {
-        this.randomSpawns();
+        const point = NavPoints.randomPoint();
         const prefab = ResCache.Instance.getPrefab('player');
-        this._player = Res.inst(prefab, undefined, this._spawn_pos);
+        this._player = Res.inst(prefab, undefined, point.position);
         this._actor = this._player.getComponent(Actor)!;
         if (this._actor === null ) {
             throw new Error(`Level add player can not bind Actor Component.`);
         }
     }
 
-    public addEnemy(name:string) {
-        
+    public addEnemy(res:string, groupID:number) {
+        const point = NavPoints.randomPoint();
+        var prefab = ResCache.Instance.getPrefab(res);
+        var enemy = Res.inst(prefab, undefined, point.position);
+        const actor = enemy.getComponent(ActorBase);
+        actor!._groupIndex = groupID;
+        return enemy;
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
         if (pos === undefined) {
-            this.randomSpawns();
-            pos = this._spawn_pos;
+            const point = NavPoints.randomPoint();
+            pos = point.position;
         } 
         const prefab = ResCache.Instance.getPrefab('drop_item');
         const dropNode = Res.inst(prefab, undefined, pos);
@@ -102,9 +93,9 @@ export class Level extends Singleton {
     }
 
     public addObj(res:string) {
-        this.randomSpawns();
+        const point = NavPoints.randomPoint();
         var prefab = ResCache.Instance.getPrefab(res);
-        var objNode = Res.inst(prefab, undefined, this._spawn_pos);
+        var objNode = Res.inst(prefab, undefined, point.position);
         return objNode;
     }
 

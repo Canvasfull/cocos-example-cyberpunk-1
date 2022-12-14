@@ -149,7 +149,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         this._rigid!.setLinearVelocity(this._velocity);
         u3.c(this._curDir, this._dir);
         var angle = Vec3.angle(this._curDir, this.node.forward);
-        var angleAbs = Math.abs(angle);
+        var angleAbs = Math.abs(angle) * 5;
         if (angleAbs > 0.01) {
             var side = Math.sign(-this._curDir.clone().cross(this.node.forward).y);
             var angleVel = new Vec3(0, side * angleAbs, 0);
@@ -232,9 +232,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
     }
 
     onDir(x:number, z:number) {
-
         if (this._data.is_dead) return;
-
         this._dir.z = z;
         this._dir.x = x;
     }

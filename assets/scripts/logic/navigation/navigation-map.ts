@@ -1,5 +1,6 @@
-import { _decorator, Component, Node, Renderer, Line, v3, Vec2, Vec3, Graphics, gfx, debug, geometry, randomRangeInt, path } from 'cc';
+import { _decorator, Component, Node, Renderer, Line, v3, Vec2, Vec3, Graphics, gfx, debug, geometry, randomRangeInt, path, IVec3Like, math } from 'cc';
 import { EDITOR } from 'cc/env';
+import { DataNavigationInst } from '../data/data-core';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 @ccclass('NavigationMap')
@@ -9,7 +10,7 @@ export class NavigationMap extends Component {
     points:Vec3[] = [];
 
     __preload() {
-        Navigation.init(this.node);
+        //Navigation.init(this.node);
     }
 
     update(deltaTime: number) {
@@ -40,6 +41,8 @@ export class NavigationMap extends Component {
         
     }
 }
+
+/*
 
 export class Navigation {
 
@@ -106,3 +109,5 @@ export class Navigation {
     } 
 
 }
+
+*/
