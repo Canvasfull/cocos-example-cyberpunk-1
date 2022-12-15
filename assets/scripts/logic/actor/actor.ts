@@ -164,18 +164,19 @@ export class Actor extends ActorBase implements IActorInput {
     onJump () {
 
         if (this._data.is_win || this._data.is_dead) return;
-
-        if (this._data.is_ground && !this._data.is_jump) {
+        //console.log('is jump:', this._data.is_jump, 'is ground:', this._data.is_ground);
+        if (this._data.is_ground) {
+            console.log('do jump action');
             this.do('jump');
         }
     }
 
     onGround () {
-        this.do('on_ground');
+        if(!this._data.is_ground) this.do('on_ground');
     }
 
     offGround () {
-        this.do('off_ground');
+        if(this._data.is_ground) this.do('off_ground');
     }
 
     onWin () {
@@ -184,7 +185,8 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     jump () {
-
+        
+        console.log(this._data.strength, this._data.cost_jump_strength);
         if (this._data.strength >= this._data.cost_jump_strength) {
             this._data.strength -= this._data.cost_jump_strength;
             this._rigid.applyImpulse(v3(0, this._data.jump_force_y, 0));

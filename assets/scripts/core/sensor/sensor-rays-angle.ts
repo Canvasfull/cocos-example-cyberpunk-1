@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, PhysicsSystem, Vec3, geometry, debug, Graphics, RenderPipeline, v3 } from 'cc';
+import { _decorator, Component, Node, PhysicsSystem, Vec3, geometry, debug, Graphics, RenderPipeline, v3, math } from 'cc';
 import { u3 } from '../util/util';
 const { ccclass, property } = _decorator;
 
@@ -57,14 +57,12 @@ export class SensorRaysAngle extends Component {
             for(let j = 0; j < this.segment; j++) {
                 curAngle += each_angle;
                 let newDir = v3(d.x, d.y, d.z);
-                Vec3.rotateY(newDir, newDir, rotationOrignl, curAngle);
+                Vec3.rotateY(newDir, newDir, rotationOrignl, math.toRadian(curAngle));
                 const index = i * this.segment + j;
                 this._dirs[index] = newDir;
                 this._origins[index] = this.origin[i];
             }
         }
-
-        console.log(this._dirs);
     }
 
     update(deltaTime: number) {

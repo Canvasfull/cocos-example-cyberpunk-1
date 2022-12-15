@@ -1,7 +1,7 @@
-import { _decorator, Component, Collider, ICollisionEvent, geometry, Node, PhysicsSystem, Vec3, v3, Mesh, Layers } from 'cc';
+import { _decorator, Component, Collider, ICollisionEvent, geometry, Node, PhysicsSystem, Vec3, v3, Color } from 'cc';
 import { Actor } from '../../logic/actor/actor';
 import { SubstanceCore } from '../../logic/item/substance-core';
-import { u3 } from '../util/util';
+import { Gizmo, u3 } from '../util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('SensorGround')
@@ -28,6 +28,7 @@ export class SensorGround extends Component {
         this._actor = this.node.parent?.getComponent(Actor);
     }
 
+    /*
     onCollisionEnter (event: ICollisionEvent) {
         if (this._isGround) return;
         if (event.otherCollider.node.layer === 1 << 2) {
@@ -43,11 +44,13 @@ export class SensorGround extends Component {
             this._isGround = false;
         }
     }
+    */
 
     update (deltaTime: number) {
         this.checkGroundRays();
     }
 
+    /*
     checkGroundOneRay() {
         const mask = (1 << this.maskNum);
         u3.c(this._ray.o, this.node.worldPosition);
@@ -63,20 +66,20 @@ export class SensorGround extends Component {
             }
         }
     }
+    */
 
     checkGroundRays() {
 
         this._actor!._rigid.getLinearVelocity(this._velocity);
-
         if (this._velocity.y > 0) return;
-
+        //this._isGround = this._actor?._data.is_ground;
         const mask = (1 << this.maskNum);
         for(let i = 0; i < this.original.length; i++) {
             u3.c(this._ray.o, this.node.worldPosition);
             let o = this.original[i];
-            this._ray.o.x += (o.x * this.node.worldScale.x / 2);
-            this._ray.o.z += (o.z * this.node.worldScale.z / 2);
-            if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.2)) {
+            this._ray.o.x = o.x;
+            this._ray.o.z = o.z;
+            if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.1)) {
                 const res = PhysicsSystem.instance.raycastClosestResult;
                 this._actor!._data.walk_in_type = SubstanceCore.Instance.checkNodeType(res.collider.node);
                 if (!this._isGround) {

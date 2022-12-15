@@ -69,9 +69,7 @@ export namespace NavPoints {
         }
 
         let minDistance = Number.MAX_VALUE;
-
-        console.log(blockNodes);
-
+        //console.log(blockNodes);
         for (let i = 0; i < blockNodes.length; i++) {
             const nodeID = blockNodes[i]
             const nodePosition = data.nodes[nodeID];

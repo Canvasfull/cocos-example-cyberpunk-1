@@ -1,0 +1,122 @@
+{
+  "ver": "2.3.1",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd",
+  "files": [],
+  "subMetas": {
+    "435a1": {
+      "importer": "gltf-mesh",
+      "uuid": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@435a1",
+      "displayName": "",
+      "id": "435a1",
+      "name": "mesh_handgun_cc.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e1421": {
+      "importer": "gltf-embeded-image",
+      "uuid": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@e1421",
+      "displayName": "",
+      "id": "e1421",
+      "name": "2020-CYBER-GUN-low_c-gun_BaseColor.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "e39f7": {
+      "importer": "texture",
+      "uuid": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@e39f7",
+      "displayName": "",
+      "id": "e39f7",
+      "name": "UnnamedTexture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@e1421"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c5fac": {
+      "importer": "gltf-material",
+      "uuid": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@c5fac",
+      "displayName": "",
+      "id": "c5fac",
+      "name": "mat_handgun_cc.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3a370": {
+      "importer": "gltf-scene",
+      "uuid": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@3a370",
+      "displayName": "",
+      "id": "3a370",
+      "name": "handgun_cc.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "2020-CYBER-GUN-low_c-gun_BaseColor",
+        "uri": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@e1421"
+      }
+    ],
+    "redirect": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@3a370",
+    "assetFinder": {
+      "meshes": [
+        "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@435a1"
+      ],
+      "skeletons": [],
+      "textures": [
+        "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@e39f7"
+      ],
+      "materials": [
+        "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@c5fac"
+      ],
+      "scenes": [
+        "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@3a370"
+      ]
+    }
+  }
+}

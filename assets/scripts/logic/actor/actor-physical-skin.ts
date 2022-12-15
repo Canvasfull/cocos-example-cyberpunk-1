@@ -34,7 +34,7 @@ export class ActorPhysicalSkin extends Component {
             if (Vec3.angle(this.dir, this.velocityPlane) < 10) {
                 //this.velocity.x = 0;
                 //this.velocity.z = 0;
-                this.velocity = this.velocity.normalize().multiplyScalar(1);
+                this.velocity = this.velocity.normalize().multiplyScalar(3);
                 this.rigid!.setLinearVelocity(this.velocity);
                 // add inverse force.
                 //this.inverseForce.x = -this.velocity.x;
