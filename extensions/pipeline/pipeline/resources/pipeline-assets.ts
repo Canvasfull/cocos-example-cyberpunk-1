@@ -6,7 +6,6 @@ const { ccclass, property, executeInEditMode } = _decorator;
 @ccclass('PipelineAssets')
 @executeInEditMode
 export class PipelineAssets extends Component {
-    static instance: PipelineAssets
 
     @property(Material)
     _materials: Material[] = []
@@ -42,15 +41,13 @@ export class PipelineAssets extends Component {
     }
 
     onEnable () {
-        PipelineAssets.instance = this
+        globalThis.pipelineAssets = this
         this.updateMaterials();
         loadGraph()
     }
     onDisable () {
-        if (PipelineAssets.instance === this) {
-            PipelineAssets.instance = undefined
+        if (globalThis.pipelineAssets === this) {
+            globalThis.pipelineAssets = undefined
         }
     }
 }
-
-

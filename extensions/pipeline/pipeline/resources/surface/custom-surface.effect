@@ -250,6 +250,7 @@ CCProgram standard-fs %{
       if (s.albedo.ALPHA_TEST_CHANNEL < albedoScaleAndCutoff.w) discard;
     #endif
 
+    s.lightmap = vec4(0.);
     #if CC_USE_LIGHTMAP && !CC_FORWARD_ADD
       SampleAndDecodeLightMapColor(s.lightmap.rgb, s.lightmap.a, s.lightmap_test, cc_lightingMap, v_luv.xy, v_luv.z, s.normal);
     #endif

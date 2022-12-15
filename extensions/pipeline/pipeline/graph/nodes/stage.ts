@@ -56,11 +56,11 @@ export function createStageGraph (sclass: typeof BaseStage) {
         onPropertyChanges.set('material', (v: string) => {
         })
 
-        // if (PipelineAssets.instance) {
-        //     let names = PipelineAssets.instance.materialNames;
+        // if (globalThis.pipelineAssets) {
+        //     let names = globalThis.pipelineAssets.materialNames;
 
         //     function setMaterial (effectName: string) {
-        //         stage.material = PipelineAssets.instance.materialMap.get(effectName)
+        //         stage.material = globalThis.pipelineAssets.materialMap.get(effectName)
         //     }
 
         //     let name = 'material';

@@ -2,7 +2,6 @@
 import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbeManager, ReflectionProbe } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
-import { PipelineAssets } from "../resources/pipeline-assets";
 import { EDITOR } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
 import { ReflectionProbes } from "../components/reflection-probe-utils";
@@ -115,7 +114,7 @@ export class DeferredLightingStage extends BaseStage {
             return p.enabledInHierarchy
         })
 
-        let sharedMaterial = PipelineAssets.instance.getMaterial('deferred-lighting')
+        let sharedMaterial = globalThis.pipelineAssets.getMaterial('deferred-lighting')
         let material = this.materialMap.get(camera);
         if (!material || material.parent !== sharedMaterial) {
             if (EDITOR && EditorCameras.includes(camera.name)) {
