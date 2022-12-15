@@ -118,7 +118,7 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
 
         super.update(dt)
 
-        let material = globalThis.pipelineAssets.getMaterial('deferred-lighting')
+        let material = globalThis.pipelineAssets && globalThis.pipelineAssets.getMaterial('deferred-lighting')
         if (material) {
             material.setProperty('light_cluster_BoundsMin', new Vec4(this.boundsMin.x, this.boundsMin.y, this.boundsMin.z, 1))
             material.setProperty('light_cluster_BoundsDelta', new Vec4(this.boundsDelta.x, this.boundsDelta.y, this.boundsDelta.z, 1))
