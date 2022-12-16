@@ -40,9 +40,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 0.9813999999999996,
-        "top": 1.3566347002887893,
-        "left": -4.1383625221829075
+        "scale": 0.9913999999999993,
+        "top": 1.9347426187723784,
+        "left": -2.871400438566081
       }
     },
     "_states": [
@@ -91,25 +91,25 @@
         "__id__": 24
       },
       {
-        "__id__": 25
+        "__id__": 26
       },
       {
-        "__id__": 27
-      },
-      {
-        "__id__": 29
+        "__id__": 28
       },
       {
         "__id__": 30
       },
       {
-        "__id__": 31
+        "__id__": 32
       },
       {
-        "__id__": 33
+        "__id__": 34
       },
       {
         "__id__": 35
+      },
+      {
+        "__id__": 36
       },
       {
         "__id__": 37
@@ -156,8 +156,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -235.28428775219075,
-      "centerY": -115.08752802119423,
+      "centerX": -274.6225972135585,
+      "centerY": -85.83596457556172,
       "id": "16695264804710.05372123042056276"
     },
     "name": "Arm_M1911_Draw",
@@ -185,8 +185,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 104,
-      "centerY": -118.5,
+      "centerX": 12.210611256808477,
+      "centerY": -93.2831349606617,
       "id": "16695266668610.0318723345148515"
     },
     "name": "Arm_M1911_Idle",
@@ -214,8 +214,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -108.66333808844507,
-      "centerY": -116.4810474831873,
+      "centerX": -225.6695918709749,
+      "centerY": -199.19236481221705,
       "id": "16695266741550.5328885400382095"
     },
     "name": "Arm_M1911_Hold",
@@ -243,8 +243,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -35.625433054819666,
-      "centerY": 26.42418993274913,
+      "centerX": -10.408568015481364,
+      "centerY": 24.406840729602038,
       "id": "16695266932020.545369376377945"
     },
     "name": "Arm_M1911_Fire",
@@ -272,7 +272,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 7,
+      "centerX": 24.14746822675005,
       "centerY": -239.5,
       "id": "16695266951540.8559239778875569"
     },
@@ -398,23 +398,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 6
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 10
     },
     "to": {
@@ -439,7 +422,7 @@
     },
     "conditions": [
       {
-        "__id__": 26
+        "__id__": 25
       }
     ],
     "duration": 0,
@@ -464,7 +447,7 @@
     },
     "conditions": [
       {
-        "__id__": 28
+        "__id__": 27
       }
     ],
     "duration": 0.3,
@@ -482,40 +465,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 12
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.67
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
-      "__id__": 14
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 5
     },
     "to": {
@@ -523,7 +472,7 @@
     },
     "conditions": [
       {
-        "__id__": 32
+        "__id__": 29
       }
     ],
     "duration": 0,
@@ -548,7 +497,7 @@
     },
     "conditions": [
       {
-        "__id__": 34
+        "__id__": 31
       }
     ],
     "duration": 0,
@@ -573,7 +522,7 @@
     },
     "conditions": [
       {
-        "__id__": 36
+        "__id__": 33
       }
     ],
     "duration": 0,
@@ -632,6 +581,57 @@
     },
     "conditions": [],
     "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 6
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 14
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 12
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,

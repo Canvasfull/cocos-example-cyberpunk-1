@@ -45,7 +45,6 @@ export class ActorSound extends Component {
         const type = `walk_${this._data.walk_in_type}`;
         const soundList = DataSoundInst.get(type);
         const index = randomRangeInt(0, soundList.length);
-        console.log(type, index,  soundList[index]);
         Sound.on(soundList[index]);
 
     }

@@ -40,9 +40,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 0.9971999999999999,
-        "top": 0.0032241119087705666,
-        "left": 0.06347486668033742
+        "scale": 1.2224000000000004,
+        "top": 31.28507416689264,
+        "left": -5.690410096182709
       }
     },
     "_states": [
@@ -91,25 +91,25 @@
         "__id__": 24
       },
       {
-        "__id__": 25
+        "__id__": 26
       },
       {
-        "__id__": 27
-      },
-      {
-        "__id__": 29
+        "__id__": 28
       },
       {
         "__id__": 30
       },
       {
-        "__id__": 31
+        "__id__": 32
       },
       {
-        "__id__": 33
+        "__id__": 34
       },
       {
         "__id__": 35
+      },
+      {
+        "__id__": 36
       },
       {
         "__id__": 37
@@ -156,8 +156,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -210,
-      "centerY": -108.5,
+      "centerX": -170.73298429319374,
+      "centerY": -110.13612565445027,
       "id": "16695264804710.05372123042056276"
     },
     "name": "M1911_Draw",
@@ -185,8 +185,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 104,
-      "centerY": -118.5,
+      "centerX": 60.642670157068096,
+      "centerY": -121.77225130890054,
       "id": "16695266668610.0318723345148515"
     },
     "name": "M1911_Idle",
@@ -214,8 +214,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -73,
-      "centerY": -117.5,
+      "centerX": -171.16753926701563,
+      "centerY": -229.5746073298429,
       "id": "16695266741550.5328885400382095"
     },
     "name": "M1911_Hold",
@@ -243,7 +243,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -3.00280786201364,
+      "centerX": -40.633697914369634,
       "centerY": 30.5,
       "id": "16695266932020.545369376377945"
     },
@@ -301,8 +301,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 220,
-      "centerY": 28.5,
+      "centerX": 211.00130890052355,
+      "centerY": 39.134816753926714,
       "id": "16695267908860.02381196724680823"
     },
     "name": "M1911_Reload",
@@ -359,7 +359,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 109,
+      "centerX": 97.54712041884818,
       "centerY": 44.5,
       "id": "16695267998020.47117114798329784"
     },
@@ -398,23 +398,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 6
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 10
     },
     "to": {
@@ -439,7 +422,7 @@
     },
     "conditions": [
       {
-        "__id__": 26
+        "__id__": 25
       }
     ],
     "duration": 0,
@@ -464,7 +447,7 @@
     },
     "conditions": [
       {
-        "__id__": 28
+        "__id__": 27
       }
     ],
     "duration": 0.3,
@@ -482,40 +465,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 12
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.67
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
-      "__id__": 14
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 5
     },
     "to": {
@@ -523,7 +472,7 @@
     },
     "conditions": [
       {
-        "__id__": 32
+        "__id__": 29
       }
     ],
     "duration": 0,
@@ -548,7 +497,7 @@
     },
     "conditions": [
       {
-        "__id__": 34
+        "__id__": 31
       }
     ],
     "duration": 0,
@@ -573,7 +522,7 @@
     },
     "conditions": [
       {
-        "__id__": 36
+        "__id__": 33
       }
     ],
     "duration": 0,
@@ -632,6 +581,57 @@
     },
     "conditions": [],
     "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 6
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 12
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 14
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,

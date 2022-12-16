@@ -3,6 +3,7 @@ import { Msg } from "../../core/msg/msg";
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { UtilNode } from '../../core/util/util';
+import { Level } from '../level/level';
 import { Actor } from "./actor";
 import { BagItems } from './actor-bag';
 
@@ -24,7 +25,7 @@ export class ActorEquipment {
     constructor(actor:Actor) {
         this._actor = actor;
         this.equipBoneNode = UtilNode.getChildrenByNameBlur(this._actor.node, 'bone_point_');
-        this.equip(1);
+        this.equip(Level.Instance._data.default_equip_index);
     }
 
     public equip(index:number):boolean {
@@ -53,7 +54,7 @@ export class ActorEquipment {
                     newEquip.active = true;
                 }else{
                     const prefab = ResCache.Instance.getPrefab(curEquipName + '_fps');
-                    const bindNode = this.equipBoneNode[this.curData.data.bind_bone];
+                    const bindNode = this.equipBoneNode[this.curData!.data.bind_bone];
                     const nodePrefab = Res.inst(prefab, bindNode);
                     nodePrefab.setPosition(0, 0, 0);
                     this.equipPool[curEquipName] = nodePrefab;
