@@ -1,5 +1,4 @@
-import { _decorator, Component, Node, Material, path } from 'cc';
-import { EDITOR } from 'cc/env';
+import { _decorator, Component, Material, path } from 'cc';
 import { loadGraph } from '../graph/graph';
 const { ccclass, property, executeInEditMode } = _decorator;
 
