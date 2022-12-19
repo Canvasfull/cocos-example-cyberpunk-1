@@ -11,19 +11,19 @@
     ],
     "_variables": {
       "trigger_fire": {
-        "__id__": 40
+        "__id__": 39
       },
       "trigger_holster": {
-        "__id__": 41
+        "__id__": 40
       },
       "trigger_reload": {
-        "__id__": 42
+        "__id__": 41
       },
       "trigger_reload_empty": {
-        "__id__": 43
+        "__id__": 42
       },
       "triiger_aim_fire": {
-        "__id__": 44
+        "__id__": 43
       }
     }
   },
@@ -40,9 +40,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 1,
-        "top": 0,
-        "left": 0
+        "scale": 0.9909999999999995,
+        "top": -0.7097320794118636,
+        "left": 0.22154348959658063
       }
     },
     "_states": [
@@ -88,9 +88,6 @@
         "__id__": 23
       },
       {
-        "__id__": 24
-      },
-      {
         "__id__": 25
       },
       {
@@ -100,25 +97,25 @@
         "__id__": 29
       },
       {
-        "__id__": 30
-      },
-      {
         "__id__": 31
       },
       {
         "__id__": 33
       },
       {
+        "__id__": 34
+      },
+      {
         "__id__": 35
+      },
+      {
+        "__id__": 36
       },
       {
         "__id__": 37
       },
       {
         "__id__": 38
-      },
-      {
-        "__id__": 39
       }
     ],
     "_entryState": {
@@ -134,8 +131,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -381,
-      "centerY": -61,
+      "centerX": -311,
+      "centerY": -98,
       "id": "16695264450140.8504986316639074"
     },
     "name": "Entry"
@@ -156,7 +153,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -210,
+      "centerX": -153,
       "centerY": -108.5,
       "id": "16695264804710.05372123042056276"
     },
@@ -214,8 +211,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -73,
-      "centerY": -117.5,
+      "centerX": -200,
+      "centerY": -21.5,
       "id": "16695266741550.5328885400382095"
     },
     "name": "AKM_Hold",
@@ -243,7 +240,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -1,
+      "centerX": -66,
       "centerY": 30.5,
       "id": "16695266932020.545369376377945"
     },
@@ -398,40 +395,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 6
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
-      "__id__": 10
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 8
     },
     "to": {
@@ -439,7 +402,7 @@
     },
     "conditions": [
       {
-        "__id__": 26
+        "__id__": 24
       }
     ],
     "duration": 0,
@@ -464,10 +427,10 @@
     },
     "conditions": [
       {
-        "__id__": 28
+        "__id__": 26
       }
     ],
-    "duration": 0.3,
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,
@@ -482,40 +445,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 12
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
-      "__id__": 14
-    },
-    "to": {
-      "__id__": 10
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 5
     },
     "to": {
@@ -523,7 +452,7 @@
     },
     "conditions": [
       {
-        "__id__": 32
+        "__id__": 28
       }
     ],
     "duration": 0,
@@ -548,7 +477,7 @@
     },
     "conditions": [
       {
-        "__id__": 34
+        "__id__": 30
       }
     ],
     "duration": 0,
@@ -573,7 +502,7 @@
     },
     "conditions": [
       {
-        "__id__": 36
+        "__id__": 32
       }
     ],
     "duration": 0,
@@ -632,6 +561,57 @@
     },
     "conditions": [],
     "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 6
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 12
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 14
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [],
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,

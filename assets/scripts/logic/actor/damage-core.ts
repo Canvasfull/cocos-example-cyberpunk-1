@@ -14,7 +14,9 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
         return;
     }
     const node:Node = hit.collider.node;
-    let hitTag = `hit_${node.name}`;
+    const hitName = node.name.split('_')[0];
+    let hitTag = `hit_${hitName}`;
+    console.log(`hit tag: ------- ${hitTag}`);
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
     if (actorPart) {
@@ -39,8 +41,8 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
 
 function calculateDamageView(damage:Record<string, any> | undefined, hitPoint:Vec3) {
     if (damage === undefined) return;
-    if (damage.fx_hit_wall) fx.on(damage.fx_hit_wall, hitPoint);
-    if (damage.sfx_hit_wall) Sound.on(damage.sfx_hit_wall);
+    if (damage.fx) fx.on(damage.fx, hitPoint);
+    if (damage.sfx) Sound.on(damage.sfx);
     if (damage.notify === undefined) {
         Msg.emit(
             'msg_tips', 

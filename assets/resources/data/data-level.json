@@ -3,7 +3,7 @@
     "total_time":300,
     "level_events":"level_events",
     "default_equip_index": 0,
-    "bags":["handgun_0", "axe_0"],
+    "bags":["machine_gun_0","handgun_0","axe_0"],
     "enemies":["enemy_0", "enemy_1", "enemy_2", "boss_0"],
     "items":[
         "handgun_0","handgun_1",

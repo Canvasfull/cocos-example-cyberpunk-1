@@ -28,7 +28,8 @@
             },
             "hit_metal":{
                 "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
+                "sfx": "sfx_hit_metal",
+                "notify": "Hit_Metal"
             }
         }
     },
@@ -352,12 +353,12 @@
             "other": 5,
             "hit_body":{
                 "fx": "fx_hit_body",
-                "sfx": "sfx_hit_body",
+                "sfx": "sfx_axe_hit_body",
                 "notify": "Hit body"
             },
             "hit_wall":{
                 "fx": "fx_hit_wall",
-                "sfx": "sfx_hit_wall",
+                "sfx": "sfx_axe_hit_wall",
                 "notify": "Hit_wall"
             },
             "hit_metal":{

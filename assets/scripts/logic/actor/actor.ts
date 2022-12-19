@@ -308,6 +308,8 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     calculateStrengthUseEquip():boolean {
+
+        return true;
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
         if (canUseEquip) {

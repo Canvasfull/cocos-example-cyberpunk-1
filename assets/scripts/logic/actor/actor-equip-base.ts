@@ -113,6 +113,10 @@ export class ActorEquipBase extends Component {
         this._bagData!.lastUseTime = game.totalTime;
     }
 
+    onReload() {
+        this._bagData!.bulletCount = 10;
+    }
+
     onUse() {}
 
 }

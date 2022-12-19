@@ -408,7 +408,6 @@ export class GrpPickedTips extends UICom {
         }
 
         item.active = false;
-        
         Msg.on('msg_tips', (msg:string)=>{
             this._node.children[0].setSiblingIndex(count);
             this.list[this.index].refresh(msg);

@@ -9,7 +9,7 @@ export class ActorAnimationGraphGroup extends Component {
 
     _groups:ActorAnimationGraph[] | undefined;
 
-    start () {
+    __preload () {
         this._groups = this.getComponentsInChildren(ActorAnimationGraph);
         if (this._groups === undefined || this._groups === null) {
             throw new Error(`${this.node.name} node not find ActorAnimationGraph`);

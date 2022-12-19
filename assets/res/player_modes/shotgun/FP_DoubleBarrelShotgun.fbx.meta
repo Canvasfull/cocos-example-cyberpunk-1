@@ -65,7 +65,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.800000011920929
         },
         "events": []
@@ -88,7 +88,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 3.9666666984558105
         },
         "events": []
@@ -111,7 +111,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.800000011920929
         },
         "events": []
@@ -134,7 +134,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.800000011920929
         },
         "events": []
@@ -157,7 +157,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 2.5
         },
         "events": []
@@ -180,7 +180,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 2.5999999046325684
         },
         "events": []
@@ -203,7 +203,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.699999988079071
         },
         "events": []
@@ -336,7 +336,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_Draw",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.800000011920929,
             "wrapMode": 2
           }
@@ -349,7 +349,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_Idle",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 3.9666666984558105,
             "wrapMode": 2
           }
@@ -362,7 +362,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_AimFire",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.800000011920929,
             "wrapMode": 2
           }
@@ -375,7 +375,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_Fire",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.800000011920929,
             "wrapMode": 2
           }
@@ -388,7 +388,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_ReloadEmpty",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 2.5,
             "wrapMode": 2
           }
@@ -401,7 +401,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_Reload",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 2.5999999046325684,
             "wrapMode": 2
           }
@@ -414,7 +414,7 @@
         "splits": [
           {
             "name": "DoubleBarrelShotgun_Holster",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.699999988079071,
             "wrapMode": 2
           }

@@ -21,6 +21,7 @@ export class ActorPhysicalSkin extends Component {
     }
 
     lateUpdate(deltaTime:number) {
+        /*
         if (this.sensor!.checked) {
             this.rigid!.getLinearVelocity(this.velocity); 
             // change move direction.
@@ -44,6 +45,7 @@ export class ActorPhysicalSkin extends Component {
             }
 
         }
+        */
     }
 
 }
