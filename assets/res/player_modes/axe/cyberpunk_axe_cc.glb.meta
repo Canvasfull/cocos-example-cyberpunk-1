@@ -536,6 +536,12 @@
               "b": 255,
               "a": 255
             },
+            "emissiveScale": {
+              "__type__": "cc.Vec3",
+              "x": 5,
+              "y": 5,
+              "z": 5
+            },
             "mainTexture": {
               "__uuid__": "ed5351ee-809f-4ad2-8c73-0e466764e9f7@9b633",
               "__expectedType__": "cc.Texture2D"

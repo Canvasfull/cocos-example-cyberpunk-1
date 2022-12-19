@@ -131,7 +131,10 @@
         "_techIdx": 0,
         "_defines": [
           {
-            "USE_ALBEDO_MAP": true
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_EMISSIVE_MAP": true
           },
           {},
           {}
@@ -167,10 +170,41 @@
         ],
         "_props": [
           {
-            "roughness": 0.5,
+            "albedoScale": {
+              "__type__": "cc.Vec3",
+              "x": 5,
+              "y": 5,
+              "z": 5
+            },
+            "roughness": 0.717,
             "metallic": 0,
+            "emissive": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 255
+            },
+            "emissiveScale": {
+              "__type__": "cc.Vec3",
+              "x": 10,
+              "y": 10,
+              "z": 10
+            },
             "mainTexture": {
               "__uuid__": "cd99ec30-30b2-42c3-a0ee-9d22be0198fd@e39f7",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "e38d5268-491d-4039-a7b4-dc6a07e5710c@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "9141dbf0-6a23-4743-8a02-16f8aea5cb16@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "emissiveMap": {
+              "__uuid__": "8693cc56-e0f3-47dd-a3d1-6794c5f35e9a@6c48a",
               "__expectedType__": "cc.Texture2D"
             }
           },
