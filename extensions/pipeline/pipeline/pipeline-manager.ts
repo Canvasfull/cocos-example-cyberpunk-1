@@ -29,7 +29,7 @@ export class CustomPipelineBuilder {
     }
 
     public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
-        if (!PipelineAssets.instance) {
+        if (!globalThis.pipelineAssets) {
             return;
         }
 
@@ -136,8 +136,10 @@ export class CustomPipelineBuilder {
         if (!EDITOR && TAASetting.instance && pipelineName === 'main') {
             (camera as any)._isProjDirty = true
             camera._onCalcProjMat = function () {
-                this.matProj.m12 += TAASetting.instance.sampleOffset.x;
-                this.matProj.m13 += TAASetting.instance.sampleOffset.y;
+                if (TAASetting.instance.enable) {
+                    this.matProj.m12 += TAASetting.instance.sampleOffset.x;
+                    this.matProj.m13 += TAASetting.instance.sampleOffset.y;
+                }
             }
             camera.update(true)
             // camera.matProj.m12 += TAASetting.instance.sampleOffset.x;
@@ -159,6 +161,8 @@ export class CustomPipelineBuilder {
         if (!stages) {
             return;
         }
+
+        camera._submitInfo = null;
 
         for (let i = 0; i < stages.length; i++) {
             stages[i].render(camera, ppl);
@@ -185,13 +189,15 @@ game.on(Game.EVENT_GAME_INITED, () => {
     }
 })
 
-let orirunSceneImmediate = director.runSceneImmediate
+if (!director.__runSceneImmediate) {
+    director.__runSceneImmediate = director.runSceneImmediate
+}
 director.runSceneImmediate = function (scene, onBeforeLoadScene, onLaunched) {
     globalThis.__pipeline__.parent = null;
 
-    orirunSceneImmediate.call(this, scene, onBeforeLoadScene, onLaunched)
+    director.__runSceneImmediate.call(this, scene, onBeforeLoadScene, onLaunched)
 
-    if (!PipelineAssets.instance && globalThis.__pipeline__) {
+    if (!globalThis.pipelineAssets && globalThis.__pipeline__) {
         globalThis.__pipeline__.parent = director.getScene()
     }
 }

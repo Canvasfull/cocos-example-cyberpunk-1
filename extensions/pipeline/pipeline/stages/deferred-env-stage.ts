@@ -2,7 +2,6 @@ import { BaseStage, InputType } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { EDITOR } from "cc/env";
-import { PipelineAssets } from "../resources/pipeline-assets";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
 

@@ -1,12 +1,10 @@
-import { _decorator, Component, Node, Material, path } from 'cc';
-import { EDITOR } from 'cc/env';
+import { _decorator, Component, Material, path } from 'cc';
 import { loadGraph } from '../graph/graph';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 @ccclass('PipelineAssets')
 @executeInEditMode
 export class PipelineAssets extends Component {
-    static instance: PipelineAssets
 
     @property(Material)
     _materials: Material[] = []
@@ -42,15 +40,13 @@ export class PipelineAssets extends Component {
     }
 
     onEnable () {
-        PipelineAssets.instance = this
+        globalThis.pipelineAssets = this
         this.updateMaterials();
         loadGraph()
     }
     onDisable () {
-        if (PipelineAssets.instance === this) {
-            PipelineAssets.instance = undefined
+        if (globalThis.pipelineAssets === this) {
+            globalThis.pipelineAssets = undefined
         }
     }
 }
-
-

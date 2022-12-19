@@ -76,6 +76,9 @@ export class TAASetting extends Component {
     static instance: TAASetting | undefined
 
     @property
+    enable = true
+
+    @property
     sampleScale = 1;
     @property
     feedback = 0.95;

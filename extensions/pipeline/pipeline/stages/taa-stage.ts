@@ -22,7 +22,8 @@ export class TAAStage extends BaseStage {
     name = 'TAAStage'
 
     ignoreTAA (camera: renderer.scene.Camera) {
-        return EDITOR || !TAASetting.instance ||
+        return EDITOR ||
+            (!TAASetting.instance || !TAASetting.instance.enable) ||
             (CameraSetting.mainCamera && CameraSetting.mainCamera.camera !== camera);
     }
 
@@ -58,7 +59,7 @@ export class TAAStage extends BaseStage {
         const height = area.height;
 
         passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
-        Vec4.set(passUtils.clearColor, 0, 0, 0, 0);
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
 
         // material
         let material = this.materialMap.get(camera);

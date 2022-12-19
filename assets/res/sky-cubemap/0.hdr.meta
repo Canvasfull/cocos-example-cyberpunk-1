@@ -22,7 +22,8 @@
         "mipfilter": "linear",
         "anisotropy": 0,
         "isRGBE": true,
-        "imageDatabaseUri": "fc44ed2e-5ba5-47dc-8cbb-b8abac9d65cf"
+        "imageDatabaseUri": "fc44ed2e-5ba5-47dc-8cbb-b8abac9d65cf",
+        "mipBakeMode": 2
       },
       "ver": "1.0.10",
       "imported": true,

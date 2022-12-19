@@ -5,6 +5,7 @@ export const HrefSetting = {
     spector: 0,
     shadingScale: 1,
     graph: 0,
+    pauseGraphAfterLoad: 1
 }
 globalThis.HrefSetting = HrefSetting
 

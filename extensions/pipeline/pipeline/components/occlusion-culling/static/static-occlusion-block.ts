@@ -76,6 +76,7 @@ export class CullingBlock {
         }
     }
 
+    @property
     blockIdx = 0;
 
     bakingTotalCount = 0;

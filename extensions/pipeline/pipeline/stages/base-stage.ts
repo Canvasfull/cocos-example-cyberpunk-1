@@ -1,6 +1,5 @@
 import { director, game, gfx, Material, PipelineStateManager, renderer, RenderStage, RenderTexture, Vec2, _decorator, pipeline, Enum, Node, ForwardStage, rendering, CCString } from 'cc';
 import { getCameraUniqueID, getQuadIA, getRenderArea } from '../utils/utils';
-import { PipelineAssets } from '../resources/pipeline-assets';
 
 const { ccclass, type, property } = _decorator;
 
@@ -25,7 +24,7 @@ export class BaseStage {
     }
 
     get material () {
-        return PipelineAssets.instance.getMaterial(this._materialName);
+        return globalThis.pipelineAssets.getMaterial(this._materialName);
     }
 
 

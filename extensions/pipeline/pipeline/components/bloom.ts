@@ -8,6 +8,9 @@ export class BloomSetting extends Component {
     static instance: BloomSetting | undefined
 
     @property
+    enable = true
+
+    @property
     threshold = 1
 
     @property

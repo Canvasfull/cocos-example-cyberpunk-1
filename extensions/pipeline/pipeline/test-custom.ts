@@ -173,7 +173,7 @@ export function buildLightingPass (camera: renderer.scene.Camera, ppl: rendering
         lightingClearColor);
     lightingPass.addRasterView(deferredLightingPassRTName, lightingPassView);
 
-    let material = PipelineAssets.instance.getMaterial('deferred-lighting') || lightingInfo.deferredLightingMaterial
+    let material = globalThis.pipelineAssets.getMaterial('deferred-lighting') || lightingInfo.deferredLightingMaterial
     if (EDITOR && EditorCameras.includes(camera.name)) {
         if (!clearMat) {
             clearMat = new renderer.MaterialInstance({
