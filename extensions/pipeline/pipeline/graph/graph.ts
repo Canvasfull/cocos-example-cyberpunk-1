@@ -35,11 +35,11 @@ export async function loadGraph () {
     graph.configure(graphData);
     graph.start();
 
-    if (!EDITOR && HrefSetting.pauseGraphAfterLoad) {
-        setTimeout(() => {
-            graph.stop();
-        }, 2000)
-    }
+    // if (!EDITOR && HrefSetting.pauseGraphAfterLoad) {
+    //     setTimeout(() => {
+    //         graph.stop();
+    //     }, 2000)
+    // }
 }
 
 export function showGraph (show = true, onclose?: Function) {

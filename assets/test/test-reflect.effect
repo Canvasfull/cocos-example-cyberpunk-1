@@ -7,7 +7,7 @@ CCEffect %{
     - vert: unlit-vs:vert # builtin header
       frag: unlit-fs
       properties: &props
-        mainTexture:    { value: white }
+        mainTexture:    { value: black }
         mainColor:      { value: [1, 1, 1, 1], editor: { type: color } }
   - name: transparent
     passes:
@@ -169,20 +169,20 @@ CCProgram unlit-fs %{
         return t;
     }
                                                                     
-    void main () {                
+    void main () {
       fragColor0 = vec4(vec3(0.), 1.);
       fragColor1 = vec4(vec3(0.), 1.);
 
       vec3 V = normalize(cc_cameraPos.xyz - v_position);
       vec3 ref = normalize(reflect(-V, v_normal));
 
-      vec4 cubePosRadius = vec4(5.27, 1.512, -6.648, 30.);
+      // vec4 cubePosRadius = vec4(5.27, 1.512, -6.648, 30.);
       // float DistanceAlpha = 1.;
       // ref = GetLookupVectorForSphereCapture(ref, v_position, cubePosRadius, length(v_position - cubePosRadius.xyz) / cubePosRadius.w, vec3(0.), DistanceAlpha);
 
-      float t = raySphere(v_position, ref, cubePosRadius.xyz, cubePosRadius.w);
-      vec3 intersectionPos = v_position + ref * t;
-      ref = normalize(intersectionPos - cubePosRadius.xyz);
+      // float t = raySphere(v_position, ref, cubePosRadius.xyz, cubePosRadius.w);
+      // vec3 intersectionPos = v_position + ref * t;
+      // ref = normalize(intersectionPos - cubePosRadius.xyz);
 
       vec4 col = texture(mainTexture, ref);
       col.rgb = unpackRGBE(col);

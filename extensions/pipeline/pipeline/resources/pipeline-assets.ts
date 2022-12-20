@@ -42,7 +42,13 @@ export class PipelineAssets extends Component {
     onEnable () {
         globalThis.pipelineAssets = this
         this.updateMaterials();
-        loadGraph()
+
+        try {
+            loadGraph()
+        }
+        catch (err) {
+
+        }
     }
     onDisable () {
         if (globalThis.pipelineAssets === this) {
