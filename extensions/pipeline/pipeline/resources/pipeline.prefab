@@ -103,6 +103,10 @@
       {
         "__uuid__": "bea9a417-de83-428e-8ecf-ed1d51884dd6",
         "__expectedType__": "cc.Material"
+      },
+      {
+        "__uuid__": "b6f87a56-c9e2-40cd-b3fb-e09f2e0e3f7b",
+        "__expectedType__": "cc.Material"
       }
     ],
     "_id": ""
@@ -150,6 +154,7 @@
     "__prefab": {
       "__id__": 7
     },
+    "enable": true,
     "threshold": 0.3,
     "iterations": 2,
     "intensity": 0.15,
@@ -172,6 +177,7 @@
     "__prefab": {
       "__id__": 9
     },
+    "enable": true,
     "sampleScale": 1,
     "feedback": 0.95,
     "shaowHistoryTexture": false,
@@ -193,6 +199,7 @@
       "__id__": 0
     },
     "fileId": "0bqTTsnTJNUZZ5mo88slW0",
+    "instance": null,
     "targetOverrides": null
   }
 ]

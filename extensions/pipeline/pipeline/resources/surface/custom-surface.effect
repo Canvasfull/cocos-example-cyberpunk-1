@@ -390,7 +390,7 @@ CCProgram standard-fs %{
         fragColor0 = s.albedo;
         fragColor1 = vec4(float32x3_to_oct(s.normal), s.roughness, s.metallic);
         fragColor2 = vec4(s.emissive + lightmapColor, occlusion);
-        fragColor3 = vec4(s.position, 0.);
+        fragColor3 = vec4(s.position, 1.);
       }
 
     }                                                                

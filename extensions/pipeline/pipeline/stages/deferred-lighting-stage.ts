@@ -95,7 +95,7 @@ export class DeferredLightingStage extends BaseStage {
             lightingPass.addComputeView(input3, computeDepthView);
         }
 
-        const lightingClearColor = new Color(0, 0, 0, 0);
+        const lightingClearColor = new Color(0, 0, 0, 1);
         const slot0View = new RasterView('_',
             AccessType.WRITE, AttachmentType.RENDER_TARGET,
             LoadOp.CLEAR, StoreOp.STORE,
