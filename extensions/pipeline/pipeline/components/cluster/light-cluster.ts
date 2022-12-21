@@ -1,4 +1,5 @@
 import { director, geometry, MobilityMode, Node, renderer, SphereLight, SpotLight, Vec3, Vec4, _decorator } from "cc";
+import { EDITOR } from "cc/env";
 import { PipelineAssets } from "../../resources/pipeline-assets";
 import { ClusterObject, WorldCluster } from "./world-cluster";
 
@@ -112,7 +113,7 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
     forceUpdate = false;
 
     update (dt) {
-        if (!this.dirty && !this.forceUpdate) {
+        if (!EDITOR && !this.dirty && !this.forceUpdate) {
             return;
         }
 
