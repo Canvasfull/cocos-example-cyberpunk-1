@@ -46,8 +46,8 @@ export class DeferredPostStage extends BaseStage {
         material.setProperty('inputViewPort',
             new Vec4(
                 // width / Math.floor(game.canvas.width * shadingScale), height / Math.floor(game.canvas.height * shadingScale),
-                width / camera.window.width,
-                height / camera.window.height,
+                // width / camera.window.width, height / camera.window.height,
+                1, 1,
                 settings.outputRGBE ? 1 : 0,
                 settings.tonemapped ? 0 : 1
             )

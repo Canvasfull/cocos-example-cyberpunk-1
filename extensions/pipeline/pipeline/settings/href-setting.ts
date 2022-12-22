@@ -6,7 +6,9 @@ export const HrefSetting = {
     shadingScale: 1,
     graph: 0,
     pauseGraphAfterLoad: 1,
-    zoomScreen: 0
+    zoomScreen: 0,
+    taa: 1,
+    bloom: 1,
 }
 globalThis.HrefSetting = HrefSetting
 

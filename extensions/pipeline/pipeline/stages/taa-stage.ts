@@ -2,6 +2,7 @@ import { Camera, game, gfx, Mat4, Material, renderer, rendering, settings, Vec2,
 import { EDITOR } from "cc/env";
 import { CameraSetting } from "../camera-setting";
 import { TAASetting } from "../components/taa";
+import { HrefSetting } from "../settings/href-setting";
 import { Editor } from "../utils/npm";
 import { passUtils } from "../utils/pass-utils";
 import { getCameraUniqueID, getRenderArea } from "../utils/utils";
@@ -23,7 +24,8 @@ export class TAAStage extends BaseStage {
 
     checkEnable (): boolean {
         return this.enable &&
-            TAASetting.instance && TAASetting.instance.enable;
+            globalThis.TAASetting.instance && globalThis.TAASetting.instance.enable &&
+            !!HrefSetting.taa;
     }
 
     slotName (camera: renderer.scene.Camera, index = 0) {
@@ -31,7 +33,7 @@ export class TAAStage extends BaseStage {
             return this.lastStage.slotName(camera, index);
         }
 
-        let taa = TAASetting.instance;
+        let taa = globalThis.TAASetting.instance;
 
         if (taa.taaTextureIndex < 0) {
             return slotNames[0];
@@ -50,7 +52,7 @@ export class TAAStage extends BaseStage {
         if (!this.checkEnable()) {
             return;
         }
-        let taa = TAASetting.instance;
+        let taa = globalThis.TAASetting.instance;
 
         const cameraID = getCameraUniqueID(camera);
         const area = this.getRenderArea(camera);

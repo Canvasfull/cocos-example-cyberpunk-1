@@ -5,6 +5,7 @@ import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils
 import { BloomSetting } from "../components/bloom";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
+import { HrefSetting } from "../settings/href-setting";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -39,7 +40,7 @@ export class BloomStage extends BaseStage {
 
     checkEnable () {
         let setting = BloomSetting.instance || defaultSetting;
-        return this.enable && setting.enable && !settings.bakingReflection;
+        return this.enable && setting.enable && !settings.bakingReflection && !!HrefSetting.bloom;
     }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {

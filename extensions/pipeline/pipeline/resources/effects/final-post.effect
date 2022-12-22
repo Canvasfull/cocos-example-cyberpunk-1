@@ -45,7 +45,7 @@ CCProgram fs %{
   layout(location = 0) out vec4 fragColor;
 
   void main () {
-    fragColor = texture(outputResultMap, v_uv * inputViewPort.xy);
+    fragColor = texture(outputResultMap, v_uv);
     
     if (inputViewPort.z == 1.) {
       // need blend one zero 

@@ -5,7 +5,6 @@ import { EDITOR } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
-import { TAASetting } from './components/taa';
 import { HrefSetting } from './settings/href-setting';
 import { TAAStage } from './stages/taa-stage';
 
@@ -154,8 +153,8 @@ export class CustomPipelineBuilder {
             (camera as any)._isProjDirty = true
             if (!camera._onCalcProjMat) {
                 camera._onCalcProjMat = function () {
-                    this.matProj.m12 += TAASetting.instance.sampleOffset.x;
-                    this.matProj.m13 += TAASetting.instance.sampleOffset.y;
+                    this.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
+                    this.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
                 }
             }
             camera.update(true)
