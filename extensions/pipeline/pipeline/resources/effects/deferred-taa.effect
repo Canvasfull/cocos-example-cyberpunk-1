@@ -245,13 +245,13 @@ CCProgram fs %{
         vec2 weights = WeightedLerpFactors(historyWeight, currentWeight, blendFinal);
         resultColor = prevColor.rgb * weights.x + color.rgb * weights.y;
   
-          // resultColor = lerp(prevColor.rgb, colorMin.rgb, 1.0 / 16.0);
+        // resultColor = mix(color.rgb, prevColor.rgb, blendFinal);
       }
   
       // clip
       // {
-      //     prevColor = clip_aabb(colorMin.xyz, colorMax.xyz, colorAvg, prevColor);
-      //     resultColor = lerp(color.rgb, prevColor.rgb, cc_view_taa_params2.y);
+      //   prevColor = clip_aabb(colorMin.xyz, colorMax.xyz, colorAvg, prevColor);
+      //   resultColor = lerp(color.rgb, prevColor.rgb, cc_view_taa_params2.y);
       // }
   
       // if (cc_view_taa_params2.y != 0.) {

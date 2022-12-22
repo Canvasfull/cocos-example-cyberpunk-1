@@ -96,7 +96,7 @@ export class TAASetting extends Component {
     sampleOffset = new Vec2;
 
     taaTextureIndex = -2;
-    samples = SampleOffsets.x4;
+    samples = SampleOffsets.halton8;
     sampleIndex = -1;
 
     onEnable () {

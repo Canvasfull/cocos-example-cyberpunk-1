@@ -1,5 +1,5 @@
 import { BaseStage, } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, Vec4, game, Material, director } from "cc";
 import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
@@ -43,18 +43,12 @@ export class ForwardPostStage extends BaseStage {
         passUtils.material = material;
 
         let shadingScale = this.finalShadingScale()
-        material.setProperty('inputViewPort',
-            new Vec4(
-                width / Math.floor(game.canvas.width * shadingScale), height / Math.floor(game.canvas.height * shadingScale),
-                settings.outputRGBE ? 1 : 0,
-                settings.tonemapped ? 0 : 1
-            )
-        );
+        let isOffScreen = director.root.mainWindow !== camera.window;
 
         passUtils.addRasterPass(width, height, 'Postprocess', `CameraPostprocessPass${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
             .setPassInput(input0, 'outputResultMap')
-            .addRasterView(slot0, Format.RGBA8, false)
+            .addRasterView(slot0, Format.RGBA8, isOffScreen)
             .blitScreen(0)
         // ppl.updateRenderWindow(slot0, camera.window);
 

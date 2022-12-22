@@ -21,14 +21,13 @@ export class TAAStage extends BaseStage {
     @property
     name = 'TAAStage'
 
-    ignoreTAA (camera: renderer.scene.Camera) {
-        return EDITOR ||
-            (!TAASetting.instance || !TAASetting.instance.enable) ||
-            (CameraSetting.mainCamera && CameraSetting.mainCamera.camera !== camera);
+    checkEnable (): boolean {
+        return this.enable &&
+            TAASetting.instance && TAASetting.instance.enable;
     }
 
     slotName (camera: renderer.scene.Camera, index = 0) {
-        if (this.ignoreTAA(camera)) {
+        if (!this.checkEnable()) {
             return this.lastStage.slotName(camera, index);
         }
 
@@ -48,7 +47,7 @@ export class TAAStage extends BaseStage {
 
     firstRender = true;
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
-        if (this.ignoreTAA(camera)) {
+        if (!this.checkEnable()) {
             return;
         }
         let taa = TAASetting.instance;

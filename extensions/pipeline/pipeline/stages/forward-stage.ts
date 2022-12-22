@@ -137,7 +137,7 @@ export class ForwardStage extends BaseStage {
 
         const pass = ppl.addRasterPass(width, height, 'default');
         pass.name = `${this.name}_${cameraID}`;
-        pass.setViewport(new Viewport(area.x, area.y, width, height));
+        // pass.setViewport(new Viewport(area.x, area.y, width, height));
 
         // for (const dirShadowName of shadowInfo.mainLightShadowNames) {
         //     if (ppl.containsResource(dirShadowName)) {
