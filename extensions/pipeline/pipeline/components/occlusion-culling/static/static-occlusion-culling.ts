@@ -344,6 +344,9 @@ export class StaticOcclusionCulling extends Component {
         this.renderers = this.renderers.filter(r => {
             return r.enabledInHierarchy;
         });
+        this.renderers.sort((a, b) => {
+            return a.name.localeCompare(b.name)
+        })
 
         this.models = this.renderers.map(r => r.model!);
         this.modelNames = this.renderers.map(r => r.node.name);
@@ -456,7 +459,7 @@ export class StaticOcclusionCulling extends Component {
                         console.timeEnd('do raycasting')
 
                         let totalProcess = (index + block.bakingProcess) / totalCount;
-                        console.log(`baking process : block - ${block.bakingProcess}, total - ${totalProcess}`)
+                        console.log(`baking process : area - ${i},  block ${index} - ${block.bakingProcess}, total - ${totalProcess}`)
 
                         let costTime = (Date.now() - this._startTime) / 1000;
                         let leftTime = (costTime / totalProcess) * (1 - totalProcess);
