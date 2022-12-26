@@ -1,0 +1,540 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6",
+  "files": [],
+  "subMetas": {
+    "50743": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@50743",
+      "displayName": "",
+      "id": "50743",
+      "name": "UnnamedTexture-5.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/Energy_emissive.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fa53a": {
+      "importer": "gltf-mesh",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@fa53a",
+      "displayName": "",
+      "id": "fa53a",
+      "name": "mesh_handgun_1_body.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7890e": {
+      "importer": "gltf-mesh",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@7890e",
+      "displayName": "",
+      "id": "7890e",
+      "name": "mesh_handgun_1_energy.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/WaterGun_emissive.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/WaterGun_transmission.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0089c": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@0089c",
+      "displayName": "",
+      "id": "0089c",
+      "name": "UnnamedTexture-2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/WaterGun_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b633": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b633",
+      "displayName": "",
+      "id": "9b633",
+      "name": "UnnamedTexture-3.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/WaterGun_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b782": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b782",
+      "displayName": "",
+      "id": "9b782",
+      "name": "UnnamedTexture-4.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/WaterGun_baseColor.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99ea5": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@99ea5",
+      "displayName": "",
+      "id": "99ea5",
+      "name": "UnnamedTexture-6.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/Energy_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "006bd": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@006bd",
+      "displayName": "",
+      "id": "006bd",
+      "name": "UnnamedTexture-7.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/Energy_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "531b0": {
+      "importer": "texture",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@531b0",
+      "displayName": "",
+      "id": "531b0",
+      "name": "UnnamedTexture-8.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/handgun1/Energy_baseColor.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9e09f": {
+      "importer": "gltf-material",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9e09f",
+      "displayName": "",
+      "id": "9e09f",
+      "name": "WaterGun.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "231dd": {
+      "importer": "gltf-material",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@231dd",
+      "displayName": "",
+      "id": "231dd",
+      "name": "Energy.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d0b37": {
+      "importer": "gltf-scene",
+      "uuid": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@d0b37",
+      "displayName": "",
+      "id": "d0b37",
+      "name": "handgun_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "WaterGun_emissive",
+        "uri": "db://assets/res/player_modes/handgun1/WaterGun_emissive.png"
+      },
+      {
+        "name": "WaterGun_transmission",
+        "uri": "db://assets/res/player_modes/handgun1/WaterGun_transmission.png"
+      },
+      {
+        "name": "WaterGun_normal",
+        "uri": "db://assets/res/player_modes/handgun1/WaterGun_normal.png"
+      },
+      {
+        "name": "WaterGun_metallicRoughness",
+        "uri": "db://assets/res/player_modes/handgun1/WaterGun_metallicRoughness.png"
+      },
+      {
+        "name": "WaterGun_baseColor",
+        "uri": "db://assets/res/player_modes/handgun1/WaterGun_baseColor.png"
+      },
+      {
+        "name": "Energy_emissive",
+        "uri": "db://assets/res/player_modes/handgun1/Energy_emissive.png"
+      },
+      {
+        "name": "Energy_normal",
+        "uri": "db://assets/res/player_modes/handgun1/Energy_normal.png"
+      },
+      {
+        "name": "Energy_metallicRoughness",
+        "uri": "db://assets/res/player_modes/handgun1/Energy_metallicRoughness.png"
+      },
+      {
+        "name": "Energy_baseColor",
+        "uri": "db://assets/res/player_modes/handgun1/Energy_baseColor.png"
+      }
+    ],
+    "redirect": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@d0b37",
+    "assetFinder": {
+      "meshes": [
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@fa53a",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@7890e"
+      ],
+      "skeletons": [],
+      "textures": [
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@3effa",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@221a5",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@0089c",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b633",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b782",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@50743",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@99ea5",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@006bd",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@531b0"
+      ],
+      "materials": [
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9e09f",
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@231dd"
+      ],
+      "scenes": [
+        "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@d0b37"
+      ]
+    },
+    "materials": {
+      "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9e09f": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true,
+            "USE_EMISSIVE_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "occlusion": 0.2947879731655121,
+            "roughness": 1,
+            "metallic": 1,
+            "emissive": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 255
+            },
+            "mainTexture": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b782",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@0089c",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b633",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@9b633",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "emissiveMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@3effa",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@231dd": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true,
+            "USE_EMISSIVE_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "occlusion": 0.30000001192092896,
+            "roughness": 1,
+            "metallic": 1,
+            "emissive": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 255
+            },
+            "mainTexture": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@531b0",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@99ea5",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@006bd",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@006bd",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "emissiveMap": {
+              "__uuid__": "3c0e9e25-9ef6-45d5-b003-13c4c8d56bb6@50743",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

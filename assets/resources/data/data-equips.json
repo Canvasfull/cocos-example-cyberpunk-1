@@ -35,11 +35,11 @@
     },
     "handgun_1":{
         "type":"range",
-        "bullet_count":10,
+        "bullet_count":9,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",
-        "action":"action-handgun_1",
+        "action":"action-handgun_0",
         "stable_value":1.5,
         "damage":{
             "distance": 50,
@@ -62,7 +62,8 @@
             },
             "hit_metal":{
                 "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
+                "sfx": "sfx_hit_metal",
+                "notify": "Hit_Metal"
             }
         }
     },

@@ -1,0 +1,232 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32",
+  "files": [],
+  "subMetas": {
+    "0ef90": {
+      "importer": "gltf-mesh",
+      "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32@0ef90",
+      "displayName": "",
+      "id": "0ef90",
+      "name": "mesh_grenade_1_cc.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/grenade_1/Scene_-_Root_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/grenade_1/Scene_-_Root_baseColor.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0089c": {
+      "importer": "texture",
+      "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32@0089c",
+      "displayName": "",
+      "id": "0089c",
+      "name": "UnnamedTexture-2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/grenade_1/Scene_-_Root_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "829e9": {
+      "importer": "gltf-material",
+      "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32@829e9",
+      "displayName": "",
+      "id": "829e9",
+      "name": "mat_grenade_1_cc.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5abeb": {
+      "importer": "gltf-scene",
+      "uuid": "2aae5191-cb7f-4ea6-9951-b9a309341c32@5abeb",
+      "displayName": "",
+      "id": "5abeb",
+      "name": "obj_grenade_1_cc.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "Scene_-_Root_normal",
+        "uri": "db://assets/res/player_modes/grenade_1/Scene_-_Root_normal.png"
+      },
+      {
+        "name": "Scene_-_Root_baseColor",
+        "uri": "db://assets/res/player_modes/grenade_1/Scene_-_Root_baseColor.png"
+      },
+      {
+        "name": "Scene_-_Root_metallicRoughness",
+        "uri": "db://assets/res/player_modes/grenade_1/Scene_-_Root_metallicRoughness.png"
+      }
+    ],
+    "redirect": "2aae5191-cb7f-4ea6-9951-b9a309341c32@5abeb",
+    "assetFinder": {
+      "meshes": [
+        "2aae5191-cb7f-4ea6-9951-b9a309341c32@0ef90"
+      ],
+      "skeletons": [],
+      "textures": [
+        "2aae5191-cb7f-4ea6-9951-b9a309341c32@3effa",
+        "2aae5191-cb7f-4ea6-9951-b9a309341c32@221a5",
+        "2aae5191-cb7f-4ea6-9951-b9a309341c32@0089c"
+      ],
+      "materials": [
+        "2aae5191-cb7f-4ea6-9951-b9a309341c32@829e9"
+      ],
+      "scenes": [
+        "2aae5191-cb7f-4ea6-9951-b9a309341c32@5abeb"
+      ]
+    },
+    "materials": {
+      "2aae5191-cb7f-4ea6-9951-b9a309341c32@829e9": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 0,
+            "mainTexture": {
+              "__uuid__": "2aae5191-cb7f-4ea6-9951-b9a309341c32@221a5",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "2aae5191-cb7f-4ea6-9951-b9a309341c32@3effa",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "2aae5191-cb7f-4ea6-9951-b9a309341c32@0089c",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}
