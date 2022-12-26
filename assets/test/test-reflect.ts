@@ -33,7 +33,7 @@ export class test_reflect extends Component {
         let mr = this.getComponent(MeshRenderer)
 
         let mat = new renderer.MaterialInstance({ parent: this.material })
-        mat.setProperty('mainTexture', mr._probeCubemap);
+        mat.setProperty('mainTexture', mr.bakeSettings._probeCubemap);
 
         mr.setMaterialInstance(mat, 0)
     }

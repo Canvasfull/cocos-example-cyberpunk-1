@@ -13,12 +13,12 @@ CCEffect %{
       blendState:
         targets:
         - blend: true
-          # blendSrc: one
-          # blendDst: zero
-          blendSrc: src_alpha
-          blendDst: one_minus_src_alpha
-          blendSrcAlpha: src_alpha
-          blendDstAlpha: one_minus_src_alpha
+          blendSrc: one
+          blendDst: zero
+          # blendSrc: src_alpha
+          # blendDst: one_minus_src_alpha
+          # blendSrcAlpha: src_alpha
+          # blendDstAlpha: one_minus_src_alpha
 }%
 
 
@@ -45,9 +45,10 @@ CCProgram fs %{
   layout(location = 0) out vec4 fragColor;
 
   void main () {
-    fragColor = texture(outputResultMap, v_uv * inputViewPort.xy);
+    fragColor = texture(outputResultMap, v_uv);
     
     if (inputViewPort.z == 1.) {
+      // need blend one zero 
       // fragColor = vec4(vec3(0.5), 0.5);
       fragColor = packRGBE(fragColor.rgb);
       // fragColor = vec4(unpackRGBE(fragColor), 1.);

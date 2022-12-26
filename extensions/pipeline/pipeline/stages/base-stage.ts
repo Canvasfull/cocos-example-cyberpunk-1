@@ -61,7 +61,7 @@ export class BaseStage {
 
     uniqueStage = false
     slotName (camera: renderer.scene.Camera, index = 0) {
-        let name = this.outputNames[index] || this.name
+        let name = this.outputNames[index] + this.name
         if (this.uniqueStage) {
             return name
         }

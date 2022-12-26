@@ -5,9 +5,8 @@ import { EDITOR } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
-import { TAASetting } from './components/taa';
-import { PipelineAssets } from './resources/pipeline-assets';
 import { HrefSetting } from './settings/href-setting';
+import { TAAStage } from './stages/taa-stage';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -47,6 +46,7 @@ export class CustomPipelineBuilder {
 
             if (probe.needRender) {
                 settings.outputRGBE = true;
+                settings.bakingReflection = true;
 
                 let originCameraNode = probe.cameraNode;
                 let originCamera = probe.camera;
@@ -62,18 +62,17 @@ export class CustomPipelineBuilder {
                         let camera = probe._createCamera(tempNode);
                         camera._name = originName + faceIdx;
                         probe.cameras.push(camera);
-
-                        // let faceIdx = 4;
-                        const window = probe.bakedCubeTextures[faceIdx].window;
-                        camera.changeTargetWindow(window);
-                        camera.setFixedSize(window.width, window.height);
-                        camera.update();
                     }
                 }
 
                 for (let faceIdx = 0; faceIdx < 6; faceIdx++) {
                     let camera = probe.cameras[faceIdx];
                     camera.attachToScene(probe.node.scene.renderScene);
+
+                    const window = probe.bakedCubeTextures[faceIdx].window;
+                    camera.changeTargetWindow(window);
+                    camera.setFixedSize(window.width, window.height);
+                    camera.update();
 
                     passUtils.camera = camera;
                     probe._camera = camera;
@@ -82,7 +81,7 @@ export class CustomPipelineBuilder {
                     //update camera dirction
                     probe.updateCameraDir(faceIdx);
 
-                    this.renderCamera(camera, ppl, true)
+                    this.renderCamera(camera, ppl, 'reflection-probe')
 
                     let index = cameras.indexOf(camera);
                     if (index !== -1) {
@@ -95,6 +94,7 @@ export class CustomPipelineBuilder {
 
                 probe.needRender = false;
                 settings.outputRGBE = false;
+                settings.bakingReflection = false;
             }
         }
 
@@ -108,61 +108,57 @@ export class CustomPipelineBuilder {
             }
             // buildDeferred(camera, ppl);
 
-            camera.culled = false;
 
             passUtils.camera = camera;
             this.renderCamera(camera, ppl)
         }
     }
-    renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline, forceMain = false) {
+    renderCamera (camera: renderer.scene.Camera, ppl: rendering.Pipeline, pipelineName = '') {
         // const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
         // || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
 
-        settings.tonemapped = false;
+        // if (EditorCameras.includes(camera.name)) {
+        //     return
+        // }
+
+        // reset states
+        {
+            settings.tonemapped = false;
+            camera._submitInfo = null;
+            camera.culled = false;
+        }
 
         let cameraSetting = camera.node.getComponent(CameraSetting);
 
-        let pipelineName = 'forward';
-        if (cameraSetting) {
-            pipelineName = cameraSetting.pipeline;
-        }
-        else if (camera.name === 'Editor Camera' || forceMain) {
-            pipelineName = 'main';
+        if (!pipelineName) {
+            pipelineName = 'forward';
+            if (cameraSetting) {
+                pipelineName = cameraSetting.pipeline;
+            }
+            else if (camera.name === 'Editor Camera') {
+                pipelineName = 'main';
+            }
         }
         // else if (EDITOR && !EditorCameras.includes(camera.name)) {
         //     return;
         // }
-
-        if (!EDITOR && TAASetting.instance && pipelineName === 'main') {
-            (camera as any)._isProjDirty = true
-            camera._onCalcProjMat = function () {
-                if (TAASetting.instance.enable) {
-                    this.matProj.m12 += TAASetting.instance.sampleOffset.x;
-                    this.matProj.m13 += TAASetting.instance.sampleOffset.y;
-                }
-            }
-            camera.update(true)
-            // camera.matProj.m12 += TAASetting.instance.sampleOffset.x;
-            // camera.matProj.m13 += TAASetting.instance.sampleOffset.y;
-            // // console.log(TAASetting.instance.sampleOffset)
-            // // console.log(camera.matProj)
-
-            // Mat4.invert(camera.matProjInv, camera.matProj);
-
-            // Mat4.multiply(camera.matViewProj, camera.matProj, camera.matView);
-            // // console.log(camera.matProj)
-            // // console.log(camera.matViewProj)
-
-            // Mat4.invert(camera.matViewProjInv, camera.matViewProj);
-            // camera.frustum.update(camera.matViewProj, camera.matViewProjInv);
-        }
 
         let stages = CustomPipelineBuilder.pipelines.get(pipelineName);
         if (!stages) {
             return;
         }
 
-        camera._submitInfo = null;
+        let taaStage = stages.find(s => s instanceof TAAStage) as TAAStage;
+        if (taaStage && taaStage.checkEnable()) {
+            (camera as any)._isProjDirty = true
+            if (!camera._onCalcProjMat) {
+                camera._onCalcProjMat = function () {
+                    this.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
+                    this.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
+                }
+            }
+            camera.update(true)
+        }
 
         for (let i = 0; i < stages.length; i++) {
             stages[i].render(camera, ppl);

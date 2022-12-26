@@ -6,10 +6,16 @@ CCEffect %{
     - vert: lighting-vs
       frag: lighting-fs
       phase: deferred-lighting
+      rasterizerState:
+        cullMode: none
       depthStencilState:
-        depthFunc: greater
-        depthTest: true
+        depthTest: false
         depthWrite: false
+      blendState:
+        targets:
+        - blend: true
+          blendSrc: one
+          blendDst: zero
 }%
 
 CCProgram UBO %{
@@ -178,11 +184,13 @@ CCProgram lighting-fs %{
     vec4 fogColor = calculateHeightFog(position.xyz - cc_cameraPos.xyz);
     color.rgb = color.rgb * fogColor.a + fogColor.rgb;
 
-    // color.a = 0.;
-
     #if CLEAR_LIGHTING
       color = vec4(0.);
     #endif
+
+    // color.rgb = s.position;
+    // color.a = 1.;
+
 
     // #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
     //   #if __VERSION__ >= 450
