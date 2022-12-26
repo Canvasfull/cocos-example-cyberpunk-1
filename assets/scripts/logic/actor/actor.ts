@@ -7,7 +7,6 @@ import { Local } from '../../core/localization/local';
 import { Msg } from '../../core/msg/msg';
 import { Res } from '../../core/res/res';
 import { u3, UtilNode } from '../../core/util/util';
-import { Level } from '../level/level';
 import { ActorAnimationGraph } from './actor-animation-graph';
 import { ActorBag } from './actor-bag';
 import { ActorBuff } from './actor-buff';
@@ -27,7 +26,7 @@ export class Actor extends ActorBase implements IActorInput {
     _force = v3(0, 0, 0);
     _areaForce = v3(0, 0, 0);
     
-    _actorBuff: ActorBuff | undefined;
+    //_actorBuff: ActorBuff | undefined;
     _actorBag: ActorBag | undefined;
     _actorEquipment: ActorEquipment | undefined;
     _actorSensorDropItem: ActorSensorDropItem | undefined;
@@ -40,14 +39,12 @@ export class Actor extends ActorBase implements IActorInput {
         return this._data.is_dead || this._data.is_win;
     }
 
-    start () {
-        
-        this.init('data-player');
+    initView() {
+        super.initView();
         this.node.setScale(v3(1, 1, 1).multiplyScalar(this._data.size));
         this._rigid = this.node.getComponent(RigidBody)!;
         this._rigid.useCCD = true;
-        Level.Instance.actor = this;
-        this._actorBuff = new ActorBuff(this);
+        //this._actorBuff = new ActorBuff(this);
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
@@ -60,8 +57,8 @@ export class Actor extends ActorBase implements IActorInput {
                     let role_node = UtilNode.find(this.node, 'view_point');
                     this._view = Res.inst(asset, role_node);
                     this._animationGraph = this._view.addComponent(ActorAnimationGraph);
-                    const actorSound = this._view.addComponent(ActorSound);
-                    actorSound.init(this);
+                    //const actorSound = this._view.addComponent(ActorSound);
+                    //actorSound.init(this);
                     this.do('play');
                     //if (!Guide.Instance._has_guide) this.do('play');
                 }
@@ -87,8 +84,8 @@ export class Actor extends ActorBase implements IActorInput {
         super.offBind();
         Msg.off('guide_end', this.guide_end);
         this.node.off('addAreaForce', this.addAreaForce, this);
-        this._actorBuff?.clear();
-        this._actorBuff = undefined;
+        //this._actorBuff?.clear();
+        //this._actorBuff = undefined;
     }
 
     public guide_end() {
@@ -115,7 +112,7 @@ export class Actor extends ActorBase implements IActorInput {
 
         this._data.changed_strength = false;
 
-        this._actorBuff?.update(deltaTime);
+        //this._actorBuff?.update(deltaTime);
         this._fps = game.frameRate as number;
         this._rigid.getLinearVelocity(this._velocity);
         u3.c(this._velocityLocal, Vec3.ZERO);
@@ -139,7 +136,7 @@ export class Actor extends ActorBase implements IActorInput {
         var angleAbs = Math.abs(angle);
         if (angleAbs > 0.01) {
             var side = Math.sign(-this._curDir.clone().cross(this.node.forward).y);
-            var angleVel = new Vec3(0, side * angleAbs, 0);
+            var angleVel = new Vec3(0, side * angleAbs * 5, 0);
             this._rigid.setAngularVelocity(angleVel);
         }
 
@@ -148,7 +145,7 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onBuff(key:string) {
-        this._actorBuff?.add(key);
+        //this._actorBuff?.add(key);
     }
 
     updateGlide (deltaTime: number) {
@@ -300,16 +297,15 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onEquip(index:number) {
+
         if (this._actorEquipment?.equip(index)) {
-            this._viewNoWeapon.active = false;
+            if(this._data.has_multi_res) this._viewNoWeapon.active = false;
         }else{
-            this._viewNoWeapon.active = true;
+            if(this._data.has_multi_res) this._viewNoWeapon.active = true;
         }
     }
 
     calculateStrengthUseEquip():boolean {
-
-        return true;
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
         if (canUseEquip) {

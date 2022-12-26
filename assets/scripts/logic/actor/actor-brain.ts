@@ -96,7 +96,7 @@ export class ActorBrain extends Component {
 
     checkFire() {
         if (this.sensorRays!.checkedNode) {
-            //this.input.onFire();
+            this.onFire();
         }
     }
 

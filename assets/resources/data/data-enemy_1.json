@@ -47,5 +47,7 @@
     "hp_percent":0,
     "defense":1,
     "defense_percent":0,
-    "nearest_node":-1
+    "nearest_node":-1,
+    "default_equip_index": 0,
+    "bags":["laser_gun_0"]
 }

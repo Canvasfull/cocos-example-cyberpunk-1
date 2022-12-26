@@ -5,12 +5,13 @@ import { Msg } from '../../core/msg/msg';
 import { Singleton } from '../../core/pattern/singleton';
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
-import { u3, UtilNode } from '../../core/util/util';
 import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 import { NavPoints } from '../navigation/navigation-system';
 import { DataNavigationInst } from '../data/data-core';
 import { ActorBase } from '../../core/actor/actor-base';
+import { ActorInputBrain } from '../actor/actor-input-brain';
+import { ActorBrain } from '../actor/actor-brain';
 const { ccclass, property } = _decorator;
 
 export class Level extends Singleton {
@@ -61,6 +62,7 @@ export class Level extends Singleton {
         const prefab = ResCache.Instance.getPrefab('player');
         this._player = Res.inst(prefab, undefined, point.position);
         this._actor = this._player.getComponent(Actor)!;
+        this._actor.init('data-player');
         if (this._actor === null ) {
             throw new Error(`Level add player can not bind Actor Component.`);
         }
@@ -68,10 +70,13 @@ export class Level extends Singleton {
 
     public addEnemy(res:string, groupID:number) {
         const point = NavPoints.randomPoint();
-        var prefab = ResCache.Instance.getPrefab(res);
+        var prefab = ResCache.Instance.getPrefab('enemy');
         var enemy = Res.inst(prefab, undefined, point.position);
         const actor = enemy.getComponent(ActorBase);
+        enemy.addComponent(ActorInputBrain);
+        enemy.addComponent(ActorBrain);
         actor!._groupIndex = groupID;
+        actor!.init(`data-${res}`);
         return enemy;
     }
 

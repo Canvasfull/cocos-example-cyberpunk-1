@@ -13,7 +13,8 @@ export class ActorInput extends Component implements IActorInput {
     _isPause = false;
 
     start () {
-        this._actor = Level.Instance.actor;
+        // bind level actor.
+        this._actor = Level.Instance._actor;
         var input_index = Save.Instance.get('input_index');
         input_index = 0;
         this.node.children[input_index].active = true;

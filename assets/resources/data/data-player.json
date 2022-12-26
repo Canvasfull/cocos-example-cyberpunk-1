@@ -40,6 +40,8 @@
     "is_jump": false,
     "is_attack": false,
     "in_water": false,
+    "has_multi_res": true,
+    "need_update_aim_hud": true,
     "walk_in_type":"ground",
     "cards":[],
     "items":[],
@@ -52,5 +54,7 @@
     "hp_percent":0,
     "defense":1,
     "defense_percent":0,
-    "nearest_node":-1
+    "nearest_node":-1,
+    "default_equip_index": 0,
+    "bags":["machine_gun_0","handgun_0", "axe_0"]
 }

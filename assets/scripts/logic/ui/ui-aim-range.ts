@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SpriteComponent } from 'cc';
+import { _decorator, Component, Node, SpriteComponent, v3 } from 'cc';
 import { Msg } from '../../core/msg/msg';
 const { ccclass, property } = _decorator;
 
@@ -6,6 +6,10 @@ const { ccclass, property } = _decorator;
 export class UIAimRange extends Component {
 
     sprite:SpriteComponent | undefined | null;
+
+    dirs = [[1,0],[0,1],[-1,0],[0,-1]];
+
+    baseSize = 40;
 
     start() {
         this.sprite = this.getComponent(SpriteComponent);
@@ -19,7 +23,15 @@ export class UIAimRange extends Component {
     }
   
     updateAim(size:number) {
-        this.node.setWorldScale(size, size, size);
+        //this.node.setWorldScale(size, size, size);
+
+        const currentSize = size * this.baseSize;
+        for(let i = 0; i < this.node.children.length; i++) {
+            const child = this.node.children[i];
+            const dir = this.dirs[i];
+            child.setPosition(dir[0] * currentSize, dir[1] * currentSize, 0);
+        }
+
     }
 }
 

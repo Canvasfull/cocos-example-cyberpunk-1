@@ -28,7 +28,10 @@ export class ActorBase extends Component {
         Object.assign(this._data!, ResCache.Instance.getJson(actionName).json);
         this._action = new ActionActor(this._data.action, this);
         this.onBind();
+        this.initView();
     }
+
+    initView() {}
 
     onBind () {
         this.node.on('do', this.do, this);

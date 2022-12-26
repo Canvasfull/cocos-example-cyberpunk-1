@@ -6,6 +6,7 @@ import { Level } from '../level/level';
 import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
 import { ActorEnemy } from './actor-enemy';
+import { Actor } from './actor';
 
 
 @ccclass('ActorInputBrain')
@@ -16,7 +17,7 @@ export class ActorInputBrain extends Component implements IActorInput {
     _isPause = false;
 
     start () {
-        this._actor = this.getComponent(ActorEnemy);
+        this._actor = this.getComponent(Actor);
         if (this._actor === null) {
             throw new Error(`${this.node.name} node can not find ActorEnemy`);
         }

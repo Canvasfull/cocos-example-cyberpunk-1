@@ -18,7 +18,7 @@ export class ActorBag {
             this._actor._data.items_index[i] = '';
 
         // picked default bags
-        const bags = Level.Instance._data.bags;
+        const bags = actor._data.bags;
         for(let i = 0; i < bags.length; i++) {
             this.pickedItem(bags[i]);
         }

@@ -1,15 +1,13 @@
 import { _decorator, RigidBody, Vec3, Vec2, v3, game, Quat, Node } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { IActorInput } from '../../core/input/IActorInput';
-import { Msg } from '../../core/msg/msg';
 import { Res } from '../../core/res/res';
 import { u3, UtilNode } from '../../core/util/util';
 import { Level } from '../level/level';
 import { ActorAnimationGraph } from './actor-animation-graph';
-import { ActorBrain } from './actor-brain';
 import { ActorBuff } from './actor-buff';
 import { ActorEquipment } from './actor-equipment';
-import { ActorInputBrain } from './actor-input-brain';
+import { ActorEquipBase } from './actor-equip-base';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorEnemy')
@@ -42,6 +40,9 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     _actorBuff: ActorBuff | undefined;
     _actorEquipment: ActorEquipment | undefined;
+
+    _actorEquip:ActorEquipBase | undefined;
+
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node = Object.create(null);
     _fps = 0;
@@ -59,9 +60,6 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         Level.Instance.actor = this;
         this._actorBuff = new ActorBuff(this);
         this._forwardNode = UtilNode.find(this.node, 'view_point');
-        
-        this.addComponent(ActorInputBrain);
-        this.addComponent(ActorBrain);
 
         var load = async ()=> {
             Res.loadPrefab(this._data['res'], (err, asset) => {
@@ -152,7 +150,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         var angleAbs = Math.abs(angle) * 5;
         if (angleAbs > 0.01) {
             var side = Math.sign(-this._curDir.clone().cross(this.node.forward).y);
-            var angleVel = new Vec3(0, side * angleAbs, 0);
+            var angleVel = new Vec3(0, side * angleAbs * 5, 0);
             this._rigid!.setAngularVelocity(angleVel);
         }
 

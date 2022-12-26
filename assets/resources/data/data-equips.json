@@ -413,5 +413,39 @@
     "bullet_3":{
         "type":"bullet",
         "stackable":true
+    },
+    "laser_gun_0":{
+        "type":"range",
+        "bullet_count":9,
+        "bind_bone":"bone_point_hand",
+        "bullet_type":"bullet_0",
+        "bullet_check_type":"physic_ray",
+        "action":"action-handgun_0",
+        "stable_value":1.5,
+        "damage":{
+            "distance": 50,
+            "range":1,
+            "cooling": 0.4,
+            "head": 20,
+            "body": 20,
+            "hand": 10,
+            "leg": 10,
+            "other": 5,
+            "hit_body":{
+                "fx": "fx_hit_body",
+                "sfx": "sfx_hit_body",
+                "notify": "Hit body"
+            },
+            "hit_wall":{
+                "fx": "fx_hit_wall",
+                "sfx": "sfx_hit_wall",
+                "notify": "Hit_wall"
+            },
+            "hit_metal":{
+                "fx": "fx_hit_metal",
+                "sfx": "sfx_hit_metal",
+                "notify": "Hit_Metal"
+            }
+        }
     }
 }

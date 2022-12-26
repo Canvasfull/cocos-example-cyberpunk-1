@@ -25,7 +25,7 @@ export class ActorEquipment {
     constructor(actor:Actor) {
         this._actor = actor;
         this.equipBoneNode = UtilNode.getChildrenByNameBlur(this._actor.node, 'bone_point_');
-        this.equip(Level.Instance._data.default_equip_index);
+        this.equip(actor._data.default_equip_index);
     }
 
     public equip(index:number):boolean {
@@ -92,7 +92,7 @@ export class ActorEquipment {
         if (this.curData === undefined) {
             if (this.stableValue !== 0){
                 this.stableValue = 0;
-                Msg.emit('msg_update_aim',  this.stableValue);
+                if(this._actor._data.need_update_aim_hud) Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
             const equipStable = this.curData.data.stable_value;
@@ -101,7 +101,7 @@ export class ActorEquipment {
                 curStable = Math.abs(stable) <= 0.001 ? 1 : equipStable;
             }
             this.stableValue = math.lerp(this.stableValue, curStable, game.deltaTime * 2);
-            Msg.emit('msg_update_aim', this.stableValue);
+            if(this._actor._data.need_update_aim_hud) Msg.emit('msg_update_aim', this.stableValue);
         }
     }
 
