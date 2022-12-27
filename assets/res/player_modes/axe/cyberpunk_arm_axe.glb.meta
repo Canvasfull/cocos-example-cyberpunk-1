@@ -1,8 +1,8 @@
 {
-  "ver": "2.3.2",
+  "ver": "2.3.1",
   "importer": "gltf",
   "imported": true,
-  "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525",
+  "uuid": "f332db22-60d6-456e-8855-2c11633910fb",
   "files": [
     "__original-animation-0.cconb",
     "__original-animation-1.cconb",
@@ -13,7 +13,7 @@
   "subMetas": {
     "3b1a0": {
       "importer": "gltf-mesh",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@3b1a0",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@3b1a0",
       "displayName": "",
       "id": "3b1a0",
       "name": "Arm_Standard,r.mesh",
@@ -30,7 +30,7 @@
     },
     "8fd10": {
       "importer": "gltf-mesh",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@8fd10",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@8fd10",
       "displayName": "",
       "id": "8fd10",
       "name": "Arm_Standard.l.mesh",
@@ -47,7 +47,7 @@
     },
     "adfa5": {
       "importer": "gltf-animation",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@adfa5",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@adfa5",
       "displayName": "",
       "id": "adfa5",
       "name": "Arms_Root|Arm_FireAxe_Draw.animation",
@@ -56,7 +56,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 1.100000023841858
         },
         "events": []
@@ -70,7 +70,7 @@
     },
     "792e2": {
       "importer": "gltf-animation",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@792e2",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@792e2",
       "displayName": "",
       "id": "792e2",
       "name": "Arms_Root|Arm_FireAxe_Hold.animation",
@@ -93,16 +93,16 @@
     },
     "ed7b5": {
       "importer": "gltf-animation",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@ed7b5",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@ed7b5",
       "displayName": "",
       "id": "ed7b5",
       "name": "Arms_Root|Arm_FireAxe_Holster.animation",
       "userData": {
         "gltfIndex": 2,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.800000011920929
         },
         "events": []
@@ -116,7 +116,7 @@
     },
     "cc39f": {
       "importer": "gltf-animation",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@cc39f",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@cc39f",
       "displayName": "",
       "id": "cc39f",
       "name": "Arms_Root|Arm_FireAxe_Idle.animation",
@@ -125,7 +125,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.06666666666666667,
           "to": 5.0333333015441895
         },
         "events": []
@@ -139,7 +139,7 @@
     },
     "5a5b1": {
       "importer": "gltf-animation",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@5a5b1",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@5a5b1",
       "displayName": "",
       "id": "5a5b1",
       "name": "Arms_Root|Arm_FireAxe_StrongAttack.animation",
@@ -148,7 +148,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 2.0333333015441895
         },
         "events": []
@@ -162,7 +162,7 @@
     },
     "ed32c": {
       "importer": "gltf-skeleton",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@ed32c",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@ed32c",
       "displayName": "",
       "id": "ed32c",
       "name": "Arms_Root.skeleton",
@@ -179,7 +179,7 @@
     },
     "34d69": {
       "importer": "gltf-material",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@34d69",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@34d69",
       "displayName": "",
       "id": "34d69",
       "name": "Arm_Standard.material",
@@ -195,7 +195,7 @@
     },
     "a1ff9": {
       "importer": "gltf-scene",
-      "uuid": "2f2d9340-d63c-43c3-865d-bb052fe0f525@a1ff9",
+      "uuid": "f332db22-60d6-456e-8855-2c11633910fb@a1ff9",
       "displayName": "",
       "id": "a1ff9",
       "name": "cyberpunk_arm_axe.prefab",
@@ -220,7 +220,7 @@
         "splits": [
           {
             "name": "Arms_Root|Arm_FireAxe_Draw",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 1.100000023841858,
             "wrapMode": 2
           }
@@ -246,9 +246,9 @@
         "splits": [
           {
             "name": "Arms_Root|Arm_FireAxe_Holster",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.800000011920929,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       },
@@ -259,7 +259,7 @@
         "splits": [
           {
             "name": "Arms_Root|Arm_FireAxe_Idle",
-            "from": 0,
+            "from": 0.06666666666666667,
             "to": 5.0333333015441895,
             "wrapMode": 2
           }
@@ -272,84 +272,29 @@
         "splits": [
           {
             "name": "Arms_Root|Arm_FireAxe_StrongAttack",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 2.0333333015441895,
             "wrapMode": 2
           }
         ]
       }
     ],
-    "redirect": "2f2d9340-d63c-43c3-865d-bb052fe0f525@a1ff9",
+    "redirect": "f332db22-60d6-456e-8855-2c11633910fb@a1ff9",
     "assetFinder": {
       "meshes": [
-        "2f2d9340-d63c-43c3-865d-bb052fe0f525@3b1a0",
-        "2f2d9340-d63c-43c3-865d-bb052fe0f525@8fd10"
+        "f332db22-60d6-456e-8855-2c11633910fb@3b1a0",
+        "f332db22-60d6-456e-8855-2c11633910fb@8fd10"
       ],
       "skeletons": [
-        "2f2d9340-d63c-43c3-865d-bb052fe0f525@ed32c"
+        "f332db22-60d6-456e-8855-2c11633910fb@ed32c"
       ],
       "textures": [],
       "materials": [
-        "2f2d9340-d63c-43c3-865d-bb052fe0f525@34d69"
+        "f332db22-60d6-456e-8855-2c11633910fb@34d69"
       ],
       "scenes": [
-        "2f2d9340-d63c-43c3-865d-bb052fe0f525@a1ff9"
+        "f332db22-60d6-456e-8855-2c11633910fb@a1ff9"
       ]
-    },
-    "materials": {
-      "2f2d9340-d63c-43c3-865d-bb052fe0f525@34d69": {
-        "__type__": "cc.Material",
-        "_name": "",
-        "_objFlags": 0,
-        "_native": "",
-        "_effectAsset": {
-          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
-          "__expectedType__": "cc.EffectAsset"
-        },
-        "_techIdx": 0,
-        "_defines": [
-          {},
-          {},
-          {}
-        ],
-        "_states": [
-          {
-            "rasterizerState": {},
-            "depthStencilState": {},
-            "blendState": {
-              "targets": [
-                {}
-              ]
-            }
-          },
-          {
-            "rasterizerState": {},
-            "depthStencilState": {},
-            "blendState": {
-              "targets": [
-                {}
-              ]
-            }
-          },
-          {
-            "rasterizerState": {},
-            "depthStencilState": {},
-            "blendState": {
-              "targets": [
-                {}
-              ]
-            }
-          }
-        ],
-        "_props": [
-          {
-            "roughness": 0.5,
-            "metallic": 0
-          },
-          {},
-          {}
-        ]
-      }
     }
   }
 }

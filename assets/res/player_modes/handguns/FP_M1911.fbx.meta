@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.2",
+  "ver": "2.3.1",
   "importer": "fbx",
   "imported": true,
   "uuid": "27a25ca2-ec40-40f1-a846-0d8e11e58410",
@@ -200,7 +200,7 @@
       "name": "M1911_Holster.animation",
       "userData": {
         "gltfIndex": 7,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0.03333333333333333,
@@ -371,7 +371,7 @@
             "name": "M1911_Holster",
             "from": 0.03333333333333333,
             "to": 0.4333333373069763,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       }
@@ -399,7 +399,7 @@
         "_objFlags": 0,
         "_native": "",
         "_effectAsset": {
-          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319",
           "__expectedType__": "cc.EffectAsset"
         },
         "_techIdx": 0,
@@ -450,7 +450,6 @@
               "b": 231,
               "a": 255
             },
-            "roughness": 0.5,
             "metallic": 0,
             "mainTexture": {
               "__uuid__": "fe26ea50-e108-4a2e-818d-8d63e2c57335@6c48a",

@@ -37,7 +37,7 @@
     },
     "take_back": {
         "start": [
-            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_take_back", "value":true } }
+            {"time": 0.7, "name": "on_anig", "data":{ "key":"trigger_holster", "value":true } }
         ]
     }
 }

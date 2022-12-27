@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.2",
+  "ver": "2.3.1",
   "importer": "fbx",
   "imported": true,
   "uuid": "eb5aba7f-295a-47cd-a818-2abd25571a09",
@@ -250,7 +250,7 @@
       "name": "Arm_AKM_Holster.animation",
       "userData": {
         "gltfIndex": 7,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0.03333333333333333,
@@ -450,7 +450,7 @@
             "name": "Arm_AKM_Holster",
             "from": 0.03333333333333333,
             "to": 0.7666666507720947,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       }

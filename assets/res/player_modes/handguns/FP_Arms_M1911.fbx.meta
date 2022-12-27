@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.2",
+  "ver": "2.3.1",
   "importer": "fbx",
   "imported": true,
   "uuid": "c1c70ddd-7913-4760-850f-68b8bc0024c3",
@@ -234,7 +234,7 @@
       "name": "Arm_M1911_Holster.animation",
       "userData": {
         "gltfIndex": 7,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0.03333333333333333,
@@ -405,7 +405,7 @@
             "name": "Arm_M1911_Holster",
             "from": 0.03333333333333333,
             "to": 0.4333333373069763,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       }
@@ -435,7 +435,7 @@
         "_objFlags": 0,
         "_native": "",
         "_effectAsset": {
-          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__uuid__": "c8f66d17-351a-48da-a12c-0212d28575c4",
           "__expectedType__": "cc.EffectAsset"
         },
         "_techIdx": 0,
@@ -475,7 +475,6 @@
         ],
         "_props": [
           {
-            "roughness": 0.5,
             "metallic": 0
           },
           {},

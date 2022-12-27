@@ -1,7 +1,7 @@
 {
     "take_out": {
        "start": [
-            {"time": 0, "name": "on_anig", "data":{ "key":"", "value":true } }
+            {"time": 0.77, "name": "on_anig", "data":{ "key":"trigger_draw", "value":true } }
        ] 
     },
     "idle": {
@@ -30,7 +30,8 @@
     },
     "take_back": {
         "start": [
-            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_take_back", "value":true } }
+            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_holster", "value":true } },
+            {"time": 0.7, "name": "on_call", "data": "hiddenNode"}
         ]
     }
 }

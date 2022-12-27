@@ -11,19 +11,22 @@
     ],
     "_variables": {
       "trigger_fire": {
-        "__id__": 25
-      },
-      "trigger_aim_fire": {
         "__id__": 26
       },
-      "trigger_holster": {
+      "trigger_aim_fire": {
         "__id__": 27
       },
-      "trigger_reload": {
+      "trigger_holster": {
         "__id__": 28
       },
-      "trigger_reload_empty": {
+      "trigger_reload": {
         "__id__": 29
+      },
+      "trigger_reload_empty": {
+        "__id__": 30
+      },
+      "trigger_draw": {
+        "__id__": 31
       }
     }
   },
@@ -43,9 +46,7 @@
         "scale": 0.9783999999999996,
         "top": 1.5502029015067527,
         "left": -3.679576381093201
-      },
-      "id": "16710883702850.27328272142348364",
-      "clone": null
+      }
     },
     "_states": [
       {
@@ -111,39 +112,29 @@
     "__editorExtras__": {
       "centerX": -385.871815773385,
       "centerY": -46.4124719788058,
-      "id": "16695264450140.8504986316639074",
-      "clone": null
+      "id": "16695264450140.8504986316639074"
     },
     "name": "Entry"
   },
   {
     "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.15752690090992516",
-      "clone": null,
-      "centerX": 125,
-      "centerY": 0
-    },
     "name": "Exit"
   },
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 235.2783866590704,
-      "centerY": 100.13143554329673,
-      "id": "16695266884120.9218600131717307",
-      "clone": null
+      "centerX": -314.59896411770825,
+      "centerY": 137.94827936995256,
+      "id": "16695266884120.9218600131717307"
     },
     "name": "Any"
   },
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -174.18178093175766,
-      "centerY": -154.64762282902905,
-      "id": "16695264804710.05372123042056276",
-      "clone": null
+      "centerX": -175.20385779193754,
+      "centerY": -139.31646992633077,
+      "id": "16695264804710.05372123042056276"
     },
     "name": "Arms_Root|Arm_FireAxe_Draw",
     "_components": [],
@@ -160,8 +151,7 @@
       "id": "16695264804680.5991782402977694",
       "centerX": 0,
       "centerY": 0,
-      "name": "",
-      "clone": null
+      "name": ""
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@adfa5",
@@ -171,10 +161,9 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 30.41046606704822,
-      "centerY": -108.27923139820115,
-      "id": "16695266668610.0318723345148515",
-      "clone": null
+      "centerX": 215.4063777596076,
+      "centerY": -56.15331152902695,
+      "id": "16695266668610.0318723345148515"
     },
     "name": "Arms_Root|Arm_FireAxe_Idle",
     "_components": [],
@@ -191,8 +180,7 @@
       "id": "16695266668560.05249025035446131",
       "centerX": 0,
       "centerY": 0,
-      "name": "",
-      "clone": null
+      "name": ""
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@cc39f",
@@ -202,10 +190,9 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -154.76968777469472,
+      "centerX": -57.672386057605536,
       "centerY": -36.83265790068549,
-      "id": "16695266741550.5328885400382095",
-      "clone": null
+      "id": "16695266741550.5328885400382095"
     },
     "name": "Arms_Root|Arm_FireAxe_Hold",
     "_components": [],
@@ -222,8 +209,7 @@
       "id": "16695266741530.7928822511244964",
       "centerX": 0,
       "centerY": 0,
-      "name": "",
-      "clone": null
+      "name": ""
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@792e2",
@@ -233,10 +219,9 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 4.183047882498329,
-      "centerY": 35.59977074716079,
-      "id": "16695266932020.545369376377945",
-      "clone": null
+      "centerX": 2.1388941621385698,
+      "centerY": 115.3217658411919,
+      "id": "16695266932020.545369376377945"
     },
     "name": "Arms_Root|Arm_FireAxe_StrongAttack",
     "_components": [],
@@ -253,8 +238,7 @@
       "id": "16695266931980.19889953160583573",
       "centerX": 0,
       "centerY": 0,
-      "name": "",
-      "clone": null
+      "name": ""
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@5a5b1",
@@ -264,10 +248,9 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 279.55858976971683,
-      "centerY": 0.6326676176890373,
-      "id": "16695267998020.47117114798329784",
-      "clone": null
+      "centerX": -151.757845226195,
+      "centerY": 234.68826859888293,
+      "id": "16695267998020.47117114798329784"
     },
     "name": "Arms_Root|Arm_FireAxe_Holster",
     "_components": [],
@@ -284,8 +267,7 @@
       "id": "16695267998000.7257442857957366",
       "centerX": 0,
       "centerY": 0,
-      "name": "",
-      "clone": null
+      "name": ""
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@ed7b5",
@@ -294,11 +276,6 @@
   },
   {
     "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.09857123560088499",
-      "clone": null
-    },
     "from": {
       "__id__": 3
     },
@@ -309,11 +286,6 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.6661542187818392",
-      "clone": null
-    },
     "from": {
       "__id__": 10
     },
@@ -331,11 +303,6 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.40372774978466097",
-      "clone": null
-    },
     "from": {
       "__id__": 8
     },
@@ -361,11 +328,6 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.10611830231449737",
-      "clone": null
-    },
     "from": {
       "__id__": 5
     },
@@ -391,33 +353,6 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.018022116704776048",
-      "clone": null
-    },
-    "from": {
-      "__id__": 14
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.5553713522883159",
-      "clone": null
-    },
     "from": {
       "__id__": 6
     },
@@ -435,11 +370,6 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16710883702850.308745357077691",
-      "clone": null
-    },
     "from": {
       "__id__": 12
     },
@@ -456,12 +386,41 @@
     "_exitCondition": 1
   },
   {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [
+      {
+        "__id__": 25
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_draw"
+  },
+  {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 2
   },
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 2
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
   },
   {
     "__type__": "cc.animation.TriggerVariable",

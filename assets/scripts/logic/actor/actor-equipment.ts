@@ -61,6 +61,7 @@ export class ActorEquipment {
                 }
                 this.curEquip = this.equipPool[curEquipName];
                 this.curEquip.emit('init',this.curData);
+                this.curEquip.emit('do', 'take_out');
                 this._actor._data.cur_equip_bag_index = index;
                 Msg.emit('msg_change_equip');
                 Msg.emit('msg_update_equip_info');
@@ -77,8 +78,10 @@ export class ActorEquipment {
         if (curIndex !== -1) {
             const items_index = this._actor._data.items_index; 
             const curNode = this.equipPool[items_index[curIndex]];
+            //this.do('take_back');
             if (curNode !== undefined) {
-                curNode.active = false;
+                curNode.emit('do', 'take_back');
+                //curNode.active = false;
             }
         }
     }

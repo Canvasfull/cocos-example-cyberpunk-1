@@ -11,19 +11,22 @@
     ],
     "_variables": {
       "trigger_fire": {
-        "__id__": 39
-      },
-      "trigger_aim_fire": {
         "__id__": 40
       },
-      "trigger_holster": {
+      "trigger_aim_fire": {
         "__id__": 41
       },
-      "trigger_reload": {
+      "trigger_holster": {
         "__id__": 42
       },
-      "trigger_reload_empty": {
+      "trigger_reload": {
         "__id__": 43
+      },
+      "trigger_reload_empty": {
+        "__id__": 44
+      },
+      "trigger_draw": {
+        "__id__": 45
       }
     }
   },
@@ -144,8 +147,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 102.39902180558374,
-      "centerY": 243.73812920317926,
+      "centerX": -61.39944387967449,
+      "centerY": 137.99481591269614,
       "id": "16695266884120.9218600131717307"
     },
     "name": "Any"
@@ -211,8 +214,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -255.39250050947632,
-      "centerY": -2.3583656001629834,
+      "centerX": -352.8422206007059,
+      "centerY": 67.10047744358576,
       "id": "16695266741550.5328885400382095"
     },
     "name": "Arm_AKM_Hold",
@@ -240,8 +243,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -13.208477684939908,
-      "centerY": -10.258100672508704,
+      "centerX": 225.23232679360046,
+      "centerY": -219.67132895366157,
       "id": "16695266932020.545369376377945"
     },
     "name": "Arm_F1_Fire",
@@ -298,8 +301,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 410.9331567148971,
-      "centerY": 44.377318116975744,
+      "centerX": 310.37333917394744,
+      "centerY": 43.34061896706902,
       "id": "16695267908860.02381196724680823"
     },
     "name": "Arm_F1_Reload",
@@ -327,8 +330,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 256.3122070511514,
-      "centerY": 47.05960872223352,
+      "centerX": 71.77975836775931,
+      "centerY": -2.7019504732879795,
       "id": "16695267941400.12132827568098725"
     },
     "name": "Arm_F1_ReloadEmpty",
@@ -356,8 +359,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 98.18504177705324,
-      "centerY": 50.561340941512185,
+      "centerX": -247.035775141877,
+      "centerY": 136.60737038376806,
       "id": "16695267998020.47117114798329784"
     },
     "name": "Arm_F1_Holster",
@@ -520,23 +523,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 20
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 18
     },
     "to": {
@@ -620,12 +606,41 @@
     "_exitCondition": 1
   },
   {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [
+      {
+        "__id__": 39
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_draw"
+  },
+  {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 2
   },
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 2
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
   },
   {
     "__type__": "cc.animation.TriggerVariable",

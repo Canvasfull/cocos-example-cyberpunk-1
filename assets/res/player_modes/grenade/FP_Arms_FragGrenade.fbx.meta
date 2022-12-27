@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.2",
+  "ver": "2.3.1",
   "importer": "fbx",
   "imported": true,
   "uuid": "b4e014fe-a30e-4467-82d7-312e81cb80d5",
@@ -186,7 +186,7 @@
       "name": "Arm_FragGrenade_Holster.animation",
       "userData": {
         "gltfIndex": 5,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0,
@@ -376,7 +376,7 @@
             "name": "Arm_FragGrenade_Holster",
             "from": 0,
             "to": 0.6666666865348816,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       }

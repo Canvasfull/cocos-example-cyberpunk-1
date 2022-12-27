@@ -56,13 +56,17 @@ export class ActorEquipBase extends Component {
     }
 
     update(deltaTime: number) {
-        this._action!.update(deltaTime);
+        this._action?.update(deltaTime);
     }
 
     setActive (data: key_type_boolean) {
         const activeNode = this.node.getChildByName(data.key);
         if (activeNode) activeNode.active = data.value;
         else console.warn(` You want set undefined node active. ${this.node?.name}/${data.key}`);
+    }
+
+    hiddenNode() {
+        this.node.active = false;
     }
 
     setFx (data: key_type_boolean) {

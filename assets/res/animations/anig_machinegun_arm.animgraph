@@ -11,19 +11,22 @@
     ],
     "_variables": {
       "trigger_fire": {
-        "__id__": 39
-      },
-      "trigger_aim_fire": {
         "__id__": 40
       },
-      "trigger_holster": {
+      "trigger_aim_fire": {
         "__id__": 41
       },
-      "trigger_reload": {
+      "trigger_holster": {
         "__id__": 42
       },
-      "trigger_reload_empty": {
+      "trigger_reload": {
         "__id__": 43
+      },
+      "trigger_reload_empty": {
+        "__id__": 44
+      },
+      "trigger_draw": {
+        "__id__": 45
       }
     }
   },
@@ -144,8 +147,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 102.39902180558374,
-      "centerY": 243.73812920317926,
+      "centerX": -127.88424699409029,
+      "centerY": 186.67678826166718,
       "id": "16695266884120.9218600131717307"
     },
     "name": "Any"
@@ -153,8 +156,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -268.9097208070104,
-      "centerY": -111.01171795394336,
+      "centerX": -180.260851844304,
+      "centerY": -109.99276543713066,
       "id": "16695264804710.05372123042056276"
     },
     "name": "Arm_AKM_Draw",
@@ -211,8 +214,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -255.39250050947632,
-      "centerY": -2.3583656001629834,
+      "centerX": -265.5820256776035,
+      "centerY": -217.35734664764627,
       "id": "16695266741550.5328885400382095"
     },
     "name": "Arm_AKM_Hold",
@@ -356,8 +359,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 98.18504177705324,
-      "centerY": 50.561340941512185,
+      "centerX": -316.52863256572255,
+      "centerY": 120.86906460158963,
       "id": "16695267998020.47117114798329784"
     },
     "name": "Arm_AKM_Holster",
@@ -520,23 +523,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 20
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 18
     },
     "to": {
@@ -620,8 +606,29 @@
     "_exitCondition": 1
   },
   {
-    "__type__": "cc.animation.TriggerVariable",
-    "_flags": 2
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [
+      {
+        "__id__": 39
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_draw"
   },
   {
     "__type__": "cc.animation.TriggerVariable",
@@ -629,7 +636,7 @@
   },
   {
     "__type__": "cc.animation.TriggerVariable",
-    "_flags": 0
+    "_flags": 2
   },
   {
     "__type__": "cc.animation.TriggerVariable",
@@ -638,5 +645,13 @@
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 2
   }
 ]

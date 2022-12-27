@@ -11,19 +11,22 @@
     ],
     "_variables": {
       "trigger_fire": {
-        "__id__": 25
-      },
-      "trigger_aim_fire": {
         "__id__": 26
       },
-      "trigger_holster": {
+      "trigger_aim_fire": {
         "__id__": 27
       },
-      "trigger_reload": {
+      "trigger_holster": {
         "__id__": 28
       },
-      "trigger_reload_empty": {
+      "trigger_reload": {
         "__id__": 29
+      },
+      "trigger_reload_empty": {
+        "__id__": 30
+      },
+      "trigger_draw": {
+        "__id__": 31
       }
     }
   },
@@ -91,7 +94,7 @@
         "__id__": 23
       },
       {
-        "__id__": 24
+        "__id__": 25
       }
     ],
     "_entryState": {
@@ -120,8 +123,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 99.34216425514558,
-      "centerY": 78.66782147951915,
+      "centerX": -272.35556255214516,
+      "centerY": 105.29079915717631,
       "id": "16695266884120.9218600131717307"
     },
     "name": "Any"
@@ -129,8 +132,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -181.27980436111667,
-      "centerY": -190.49001426533528,
+      "centerX": -228.38199563697168,
+      "centerY": -106.52523851272412,
       "id": "16695264804710.05372123042056276"
     },
     "name": "Arm_FireAxe_Draw",
@@ -187,8 +190,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -145.57099603307574,
-      "centerY": -69.53911742644183,
+      "centerX": 216.911084655026,
+      "centerY": 8.281894246709953,
       "id": "16695266741550.5328885400382095"
     },
     "name": "Arm_FireAxe_Hold",
@@ -216,8 +219,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -23.41302734235859,
-      "centerY": 35.59977074716079,
+      "centerX": -7.029656463800336,
+      "centerY": 48.91125958598934,
       "id": "16695266932020.545369376377945"
     },
     "name": "Arm_FireAxe_StrongAttack",
@@ -245,8 +248,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 279.55858976971683,
-      "centerY": 0.6326676176890373,
+      "centerX": -167.91222735090594,
+      "centerY": 189.04143272110912,
       "id": "16695267998020.47117114798329784"
     },
     "name": "Arm_FireAxe_Holster",
@@ -351,23 +354,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 14
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 6
     },
     "to": {
@@ -385,10 +371,35 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [
+      {
+        "__id__": 24
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_draw"
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
       "__id__": 12
     },
     "to": {
-      "__id__": 10
+      "__id__": 8
     },
     "conditions": [],
     "duration": 0.3,
@@ -406,6 +417,10 @@
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 2
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
   },
   {
     "__type__": "cc.animation.TriggerVariable",

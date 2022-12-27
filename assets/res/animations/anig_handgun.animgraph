@@ -11,19 +11,22 @@
     ],
     "_variables": {
       "trigger_fire": {
-        "__id__": 40
-      },
-      "trigger_holster": {
         "__id__": 41
       },
-      "trigger_reload": {
+      "trigger_holster": {
         "__id__": 42
       },
-      "trigger_reload_empty": {
+      "trigger_reload": {
         "__id__": 43
       },
-      "triiger_aim_fire": {
+      "trigger_reload_empty": {
         "__id__": 44
+      },
+      "triiger_aim_fire": {
+        "__id__": 45
+      },
+      "trigger_draw": {
+        "__id__": 46
       }
     }
   },
@@ -40,9 +43,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 1.2224000000000004,
-        "top": 31.28507416689264,
-        "left": -5.690410096182709
+        "scale": 1.0831683026671408,
+        "top": 30.168353296402405,
+        "left": -9.088447082331811
       }
     },
     "_states": [
@@ -134,8 +137,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -386,
-      "centerY": -67,
+      "centerX": -328.76051113448,
+      "centerY": -6.067640885091635,
       "id": "16695264450140.8504986316639074"
     },
     "name": "Entry"
@@ -147,8 +150,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 216,
-      "centerY": 181,
+      "centerX": -12.957955462079951,
+      "centerY": 168.99817168948766,
       "id": "16695266884120.9218600131717307"
     },
     "name": "Any"
@@ -156,8 +159,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -170.73298429319374,
-      "centerY": -110.13612565445027,
+      "centerX": -127.34175886288017,
+      "centerY": -109.21290809210316,
       "id": "16695264804710.05372123042056276"
     },
     "name": "M1911_Draw",
@@ -243,8 +246,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -40.633697914369634,
-      "centerY": 30.5,
+      "centerX": 150.47233749147938,
+      "centerY": -239.07952820535223,
       "id": "16695266932020.545369376377945"
     },
     "name": "M1911_Fire",
@@ -359,8 +362,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 97.54712041884818,
-      "centerY": 44.5,
+      "centerX": -196.03606440752856,
+      "centerY": 164.51828310512263,
       "id": "16695267998020.47117114798329784"
     },
     "name": "M1911_Holster",
@@ -557,23 +560,6 @@
   {
     "__type__": "cc.animation.AnimationTransition",
     "from": {
-      "__id__": 20
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "from": {
       "__id__": 16
     },
     "to": {
@@ -640,8 +626,29 @@
     "_exitCondition": 1
   },
   {
-    "__type__": "cc.animation.TriggerVariable",
-    "_flags": 0
+    "__type__": "cc.animation.AnimationTransition",
+    "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [
+      {
+        "__id__": 40
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_draw"
   },
   {
     "__type__": "cc.animation.TriggerVariable",
@@ -654,6 +661,14 @@
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 2
   },
   {
     "__type__": "cc.animation.TriggerVariable",
