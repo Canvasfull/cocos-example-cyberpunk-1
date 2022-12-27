@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "36f18245-0fa1-4716-99a7-9977b75202d3",
+  "files": [],
+  "subMetas": {
+    "26ff7": {
+      "importer": "gltf-mesh",
+      "uuid": "36f18245-0fa1-4716-99a7-9977b75202d3@26ff7",
+      "displayName": "",
+      "id": "26ff7",
+      "name": "-1_-1_-2_M_Car.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "98a3a": {
+      "importer": "gltf-scene",
+      "uuid": "36f18245-0fa1-4716-99a7-9977b75202d3@98a3a",
+      "displayName": "",
+      "id": "98a3a",
+      "name": "-1_-1_-2_M_Car.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "36f18245-0fa1-4716-99a7-9977b75202d3@98a3a",
+    "assetFinder": {
+      "meshes": [
+        "36f18245-0fa1-4716-99a7-9977b75202d3@26ff7"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "36f18245-0fa1-4716-99a7-9977b75202d3@98a3a"
+      ]
+    }
+  }
+}

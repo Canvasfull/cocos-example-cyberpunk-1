@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "369bd21b-ead2-4586-af52-5ee37d992abf",
+  "files": [],
+  "subMetas": {
+    "d88d2": {
+      "importer": "gltf-mesh",
+      "uuid": "369bd21b-ead2-4586-af52-5ee37d992abf@d88d2",
+      "displayName": "",
+      "id": "d88d2",
+      "name": "Play_Signboard_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "369bd21b-ead2-4586-af52-5ee37d992abf@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "369bd21b-ead2-4586-af52-5ee37d992abf@f0843",
+    "assetFinder": {
+      "meshes": [
+        "369bd21b-ead2-4586-af52-5ee37d992abf@d88d2"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "369bd21b-ead2-4586-af52-5ee37d992abf@f0843"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "043ffe6f-db15-485e-b821-91de115828e8",
+  "files": [],
+  "subMetas": {
+    "a149f": {
+      "importer": "gltf-mesh",
+      "uuid": "043ffe6f-db15-485e-b821-91de115828e8@a149f",
+      "displayName": "",
+      "id": "a149f",
+      "name": "SM_BaseGate.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "043ffe6f-db15-485e-b821-91de115828e8@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "043ffe6f-db15-485e-b821-91de115828e8@f0843",
+    "assetFinder": {
+      "meshes": [
+        "043ffe6f-db15-485e-b821-91de115828e8@a149f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "043ffe6f-db15-485e-b821-91de115828e8@f0843"
+      ]
+    }
+  }
+}

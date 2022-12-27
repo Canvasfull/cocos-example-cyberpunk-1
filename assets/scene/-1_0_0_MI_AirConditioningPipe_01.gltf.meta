@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "022da5f4-e43a-4208-946d-602305760bc4",
+  "files": [],
+  "subMetas": {
+    "bd24a": {
+      "importer": "gltf-mesh",
+      "uuid": "022da5f4-e43a-4208-946d-602305760bc4@bd24a",
+      "displayName": "",
+      "id": "bd24a",
+      "name": "-1_0_0_MI_AirConditioningPipe_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "076f9": {
+      "importer": "gltf-scene",
+      "uuid": "022da5f4-e43a-4208-946d-602305760bc4@076f9",
+      "displayName": "",
+      "id": "076f9",
+      "name": "-1_0_0_MI_AirConditioningPipe_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "022da5f4-e43a-4208-946d-602305760bc4@076f9",
+    "assetFinder": {
+      "meshes": [
+        "022da5f4-e43a-4208-946d-602305760bc4@bd24a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "022da5f4-e43a-4208-946d-602305760bc4@076f9"
+      ]
+    }
+  }
+}

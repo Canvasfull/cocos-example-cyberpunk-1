@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f30a6542-e4a7-4805-af00-b5f75404d741",
+  "files": [],
+  "subMetas": {
+    "0d571": {
+      "importer": "gltf-mesh",
+      "uuid": "f30a6542-e4a7-4805-af00-b5f75404d741@0d571",
+      "displayName": "",
+      "id": "0d571",
+      "name": "0_-1_-1_MI_PavementTile02_cull_front.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5d25f": {
+      "importer": "gltf-scene",
+      "uuid": "f30a6542-e4a7-4805-af00-b5f75404d741@5d25f",
+      "displayName": "",
+      "id": "5d25f",
+      "name": "0_-1_-1_MI_PavementTile02_cull_front.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f30a6542-e4a7-4805-af00-b5f75404d741@5d25f",
+    "assetFinder": {
+      "meshes": [
+        "f30a6542-e4a7-4805-af00-b5f75404d741@0d571"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f30a6542-e4a7-4805-af00-b5f75404d741@5d25f"
+      ]
+    }
+  }
+}

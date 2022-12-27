@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "829c054c-6c90-4fe6-9926-6093bdf051c0",
+  "files": [],
+  "subMetas": {
+    "a9e6a": {
+      "importer": "gltf-mesh",
+      "uuid": "829c054c-6c90-4fe6-9926-6093bdf051c0@a9e6a",
+      "displayName": "",
+      "id": "a9e6a",
+      "name": "-3_1_0_MI_PowderStorage_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c0fe3": {
+      "importer": "gltf-scene",
+      "uuid": "829c054c-6c90-4fe6-9926-6093bdf051c0@c0fe3",
+      "displayName": "",
+      "id": "c0fe3",
+      "name": "-3_1_0_MI_PowderStorage_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "829c054c-6c90-4fe6-9926-6093bdf051c0@c0fe3",
+    "assetFinder": {
+      "meshes": [
+        "829c054c-6c90-4fe6-9926-6093bdf051c0@a9e6a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "829c054c-6c90-4fe6-9926-6093bdf051c0@c0fe3"
+      ]
+    }
+  }
+}

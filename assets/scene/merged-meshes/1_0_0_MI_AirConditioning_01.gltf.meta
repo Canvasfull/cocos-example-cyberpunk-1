@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "1fcf3cd4-dcfe-4962-8e28-f45204ab13f7",
+  "files": [],
+  "subMetas": {
+    "30867": {
+      "importer": "gltf-mesh",
+      "uuid": "1fcf3cd4-dcfe-4962-8e28-f45204ab13f7@30867",
+      "displayName": "",
+      "id": "30867",
+      "name": "1_0_0_MI_AirConditioning_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e3e79": {
+      "importer": "gltf-scene",
+      "uuid": "1fcf3cd4-dcfe-4962-8e28-f45204ab13f7@e3e79",
+      "displayName": "",
+      "id": "e3e79",
+      "name": "1_0_0_MI_AirConditioning_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "1fcf3cd4-dcfe-4962-8e28-f45204ab13f7@e3e79",
+    "assetFinder": {
+      "meshes": [
+        "1fcf3cd4-dcfe-4962-8e28-f45204ab13f7@30867"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "1fcf3cd4-dcfe-4962-8e28-f45204ab13f7@e3e79"
+      ]
+    }
+  }
+}

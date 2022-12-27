@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "3bc85126-10e1-4658-b410-99e2df2ffe24",
+  "files": [],
+  "subMetas": {
+    "47016": {
+      "importer": "gltf-scene",
+      "uuid": "3bc85126-10e1-4658-b410-99e2df2ffe24@47016",
+      "displayName": "",
+      "id": "47016",
+      "name": "1_1_0_MI_SignboardText02.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e37ee": {
+      "importer": "gltf-mesh",
+      "uuid": "3bc85126-10e1-4658-b410-99e2df2ffe24@e37ee",
+      "displayName": "",
+      "id": "e37ee",
+      "name": "1_1_0_MI_SignboardText02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "3bc85126-10e1-4658-b410-99e2df2ffe24@47016",
+    "assetFinder": {
+      "meshes": [
+        "3bc85126-10e1-4658-b410-99e2df2ffe24@e37ee"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "3bc85126-10e1-4658-b410-99e2df2ffe24@47016"
+      ]
+    }
+  }
+}

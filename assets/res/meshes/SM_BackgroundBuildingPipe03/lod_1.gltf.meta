@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "5f9ffa00-c919-47fa-84de-2d29c44fec06",
+  "files": [],
+  "subMetas": {
+    "787ee": {
+      "importer": "gltf-mesh",
+      "uuid": "5f9ffa00-c919-47fa-84de-2d29c44fec06@787ee",
+      "displayName": "",
+      "id": "787ee",
+      "name": "SM_BackgroundBuildingPipe03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "5f9ffa00-c919-47fa-84de-2d29c44fec06@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "5f9ffa00-c919-47fa-84de-2d29c44fec06@f0843",
+    "assetFinder": {
+      "meshes": [
+        "5f9ffa00-c919-47fa-84de-2d29c44fec06@787ee"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "5f9ffa00-c919-47fa-84de-2d29c44fec06@f0843"
+      ]
+    }
+  }
+}

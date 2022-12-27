@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "253dadfd-a3a8-4615-8768-e0ce17c311ca",
+  "files": [],
+  "subMetas": {
+    "98e48": {
+      "importer": "gltf-mesh",
+      "uuid": "253dadfd-a3a8-4615-8768-e0ce17c311ca@98e48",
+      "displayName": "",
+      "id": "98e48",
+      "name": "SM_Banner_03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "253dadfd-a3a8-4615-8768-e0ce17c311ca@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "253dadfd-a3a8-4615-8768-e0ce17c311ca@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "253dadfd-a3a8-4615-8768-e0ce17c311ca@98e48"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "253dadfd-a3a8-4615-8768-e0ce17c311ca@53b6b"
+      ]
+    }
+  }
+}

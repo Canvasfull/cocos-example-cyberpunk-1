@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "5cb059d1-5d4d-4a16-a13d-d0330606f324",
+  "files": [],
+  "subMetas": {
+    "cb1e5": {
+      "importer": "gltf-mesh",
+      "uuid": "5cb059d1-5d4d-4a16-a13d-d0330606f324@cb1e5",
+      "displayName": "",
+      "id": "cb1e5",
+      "name": "-2_-1_-1_MI_WGS_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d4754": {
+      "importer": "gltf-scene",
+      "uuid": "5cb059d1-5d4d-4a16-a13d-d0330606f324@d4754",
+      "displayName": "",
+      "id": "d4754",
+      "name": "-2_-1_-1_MI_WGS_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "5cb059d1-5d4d-4a16-a13d-d0330606f324@d4754",
+    "assetFinder": {
+      "meshes": [
+        "5cb059d1-5d4d-4a16-a13d-d0330606f324@cb1e5"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "5cb059d1-5d4d-4a16-a13d-d0330606f324@d4754"
+      ]
+    }
+  }
+}

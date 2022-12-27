@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c5979b13-703b-47bc-b2e9-b4cd1435e9d0",
+  "files": [],
+  "subMetas": {
+    "a32c6": {
+      "importer": "gltf-mesh",
+      "uuid": "c5979b13-703b-47bc-b2e9-b4cd1435e9d0@a32c6",
+      "displayName": "",
+      "id": "a32c6",
+      "name": "SM_Beam_2m_G01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "c5979b13-703b-47bc-b2e9-b4cd1435e9d0@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "c5979b13-703b-47bc-b2e9-b4cd1435e9d0@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "c5979b13-703b-47bc-b2e9-b4cd1435e9d0@a32c6"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c5979b13-703b-47bc-b2e9-b4cd1435e9d0@53b6b"
+      ]
+    }
+  }
+}

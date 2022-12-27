@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "9a4ab4a9-fbb2-4285-9937-88d120073df1",
+  "files": [],
+  "subMetas": {
+    "237ff": {
+      "importer": "gltf-mesh",
+      "uuid": "9a4ab4a9-fbb2-4285-9937-88d120073df1@237ff",
+      "displayName": "",
+      "id": "237ff",
+      "name": "SM_Handrail_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "9a4ab4a9-fbb2-4285-9937-88d120073df1@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "9a4ab4a9-fbb2-4285-9937-88d120073df1@9d156",
+    "assetFinder": {
+      "meshes": [
+        "9a4ab4a9-fbb2-4285-9937-88d120073df1@237ff"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "9a4ab4a9-fbb2-4285-9937-88d120073df1@9d156"
+      ]
+    }
+  }
+}
