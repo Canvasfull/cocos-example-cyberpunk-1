@@ -21,7 +21,7 @@
     "max_move_rate": 1,
     "min_move_rate": 0.1,
     "mass": 1,
-    "move_force": { "x":10, "y":10, "z":20 },
+    "move_force": { "x":10, "y":10, "z":40 },
     "jump_force_y": 4,
     "cur_speed": 0,
     "move_speed": { "x": 2, "y": 2, "z": 4 },

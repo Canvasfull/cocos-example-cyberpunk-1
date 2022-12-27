@@ -185,8 +185,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 104,
-      "centerY": -118.5,
+      "centerX": 109.18349574953345,
+      "centerY": -110.20640680074644,
       "id": "16695266668610.0318723345148515"
     },
     "name": "Arm_F1_Idle",
@@ -243,8 +243,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 225.23232679360046,
-      "centerY": -219.67132895366157,
+      "centerX": 149.5532888504115,
+      "centerY": -222.78142640338166,
       "id": "16695266932020.545369376377945"
     },
     "name": "Arm_F1_Fire",
@@ -272,7 +272,7 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 104.81944161402089,
+      "centerX": 24.99360707120519,
       "centerY": -213.00723456286937,
       "id": "16695266951540.8559239778875569"
     },
@@ -330,8 +330,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 71.77975836775931,
-      "centerY": -2.7019504732879795,
+      "centerX": 44.82558047018517,
+      "centerY": -49.353412219089364,
       "id": "16695267941400.12132827568098725"
     },
     "name": "Arm_F1_ReloadEmpty",
@@ -597,7 +597,7 @@
       "__id__": 8
     },
     "conditions": [],
-    "duration": 0.3,
+    "duration": 0,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "destinationStart": 0,

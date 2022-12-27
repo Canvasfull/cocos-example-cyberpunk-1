@@ -78,7 +78,7 @@
         "damage":{
             "distance": 50,
             "range":1,
-            "cooling": 0.4,
+            "cooling": 0.2,
             "head": 100,
             "body": 20,
             "hand": 10,
@@ -111,7 +111,7 @@
         "damage":{
             "distance": 50,
             "range":1,
-            "cooling": 0.4,
+            "cooling": 0.2,
             "head": 100,
             "body": 20,
             "hand": 10,
@@ -208,6 +208,8 @@
         "stackable":true,
         "action":"action-grenade_0",
         "stable_value":0,
+        "projectile_res":"projectile_grenade_0",
+        "sound_explode":"sfx_grenade_explode",
         "damage":{
             "distance":15,
             "range": 5,
@@ -242,6 +244,8 @@
         "stackable":true,
         "action":"action-grenade_1",
         "stable_value":0,
+        "projectile_res":"projectile_grenade_1",
+        "sound_explode":"sfx_grenade_explode",
         "damage":{
             "distance": 15,
             "range": 5,

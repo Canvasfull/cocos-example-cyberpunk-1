@@ -80,10 +80,10 @@ export class Res {
     }
 
 
-    public static inst(asset: Prefab, root:Node = null,  pos:Vec3 = Vec3.ZERO) : Node {
+    public static inst(asset: Prefab, root:Node | undefined = undefined,  pos:Vec3 = Vec3.ZERO) : Node {
         var instObj = instantiate(asset);
-        if (root === null) {
-            director.getScene().addChild(instObj);
+        if (root === undefined) {
+            director.getScene()?.addChild(instObj);
         }else{
             instObj.parent = root;
         }
@@ -92,10 +92,10 @@ export class Res {
         return instObj;
     }
 
-    public static instNode(node:Node, root:Node = null, pos:Vec3 = Vec3.ZERO) : Node {
+    public static instNode(node:Node, root:Node | undefined = undefined, pos:Vec3 = Vec3.ZERO) : Node {
         var instObj = instantiate(node);
-        if (root === null) {
-            director.getScene().addChild(instObj);
+        if (root === undefined) {
+            director.getScene()?.addChild(instObj);
         }else{
             instObj.parent = root;
         }
@@ -119,19 +119,19 @@ export class Res {
         });
     }
 
-    public static loadDirJson(path, cb?: (err: Error | null, asset?: JsonAsset[] | null)=>void) {
+    public static loadDirJson(path:string, cb?: (err: Error | null, asset?: JsonAsset[] | null)=>void) {
         this.loadDir(path, JsonAsset, cb);
     }
 
-    public static loadDirPrefab(path, cb?: (err: Error | null, asset?: Prefab[] | null)=>void) {
+    public static loadDirPrefab(path:string, cb?: (err: Error | null, asset?: Prefab[] | null)=>void) {
         this.loadDir(path, Prefab, cb);
     }
 
-    public static loadDirText(path, cb?: (err: Error | null, asset?: TextAsset[] | null)=>void) {
+    public static loadDirText(path:string, cb?: (err: Error | null, asset?: TextAsset[] | null)=>void) {
         this.loadDir(path, TextAsset, cb);
     }
 
-    public static loadDirSprite(path, cb?: (err: Error | null, asset?: SpriteFrame[] | null)=>void) {
+    public static loadDirSprite(path:string, cb?: (err: Error | null, asset?: SpriteFrame[] | null)=>void) {
         this.loadDir(path, SpriteFrame, cb);
     }
 

@@ -4,11 +4,11 @@ const { ccclass, property } = _decorator;
 
 @ccclass('SensorProbe')
 export class SensorProbe extends Component {
-    _collider:Collider = Object.create(null);
+    _collider:Collider | undefined | null;
 
     start() {
         this._collider = this.getComponent(Collider);
-        this._collider.on('onCollisionEnter', this.onCollisionEnter, this);
+        this._collider!.on('onCollisionEnter', this.onCollisionEnter, this);
     }
     
     onCollisionEnter(event: ICollisionEvent) {
