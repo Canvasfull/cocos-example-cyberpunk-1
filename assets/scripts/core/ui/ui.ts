@@ -9,10 +9,13 @@ import { Game } from '../../logic/data/game';
 
 export class UI extends Singleton {
     private _map: { [name: string]: UIBase } = {};
-    public node: Node = null;
+    public node: Node | undefined | null;
     public init() {
         this.node = find('init/canvas');
-        director.addPersistRootNode(this.node);
+        if(this.node === undefined || this.node == null) {
+            throw new Error(`can not find canvas ui root.`);
+        }
+        director.addPersistRootNode(this.node!);
         Msg.on('refresh_ui', this.refresh.bind(this));
     }
 
@@ -36,7 +39,7 @@ export class UI extends Singleton {
                         let set = false;
                         var count = UI.Instance.node.children.length;
                         for(let i = 1; i < count; i++) {
-                            let child = this.node.children[i];
+                            let child = this.node!.children[i];
                             if (child.position.z > order) {
                                 let ui_order = i;
                                 panel.setSiblingIndex(ui_order); 
@@ -71,7 +74,7 @@ export class UI extends Singleton {
         const panel = this._map[name];
         if (panel) {
             panel.destroy();
-            this._map[name] = null;
+            this._map[name] = undefined;
         }else{
             Log.warn('You want destroy a ui object that does not exist. - ' + name);
         }

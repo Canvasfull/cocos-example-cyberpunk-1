@@ -213,10 +213,11 @@ export class GrpSelectEquips extends UICom {
         }
 
         for(let i = 0; i < count; i++) {
-            const iAngle = math.toRadian(angle * i + offset);
+            const currentAngle = angle * i + offset;
+            const iAngle = math.toRadian(currentAngle);
             const pos = getPosFromAngle(iAngle);
             const newItem = Res.instNode(item, this._node, v3(pos.x, pos.y, 0));
-            this.list[i] = new GrpSelectItem(newItem);
+            this.list[i] = new GrpSelectItem(newItem, currentAngle - 90);
         }
 
         item.active = false;
@@ -239,6 +240,7 @@ export class GrpSelectEquips extends UICom {
             const selectAngle = math.toRadian(this._curIndex * angle + offset)
             const pos = getPosFromAngle(selectAngle);
             this.img_select_highlight!.setPosition(pos.x, pos.y, 0);
+            this.img_select_highlight.setRotationFromEuler(0, 0, this.list[this._curIndex]._angle);
 
         })
     }
@@ -271,8 +273,13 @@ class GrpSelectItem {
     txt_nun:Label;
     img_icon:Sprite;
     _node:Node;
-    constructor(node: Node) {
+    _angle:number;
+    constructor(node: Node, angle:number) {
+        this._angle = angle;
         this._node = node;
+        const img_bg = UtilNode.getChildByName(this._node, 'img_bg');
+        img_bg.setRotationFromEuler(0, 0, angle);
+        console.log(`item angle : ${angle}`);
         this.txt_nun = UtilNode.getChildComponent(this._node, 'txt_num', Label);
         this.img_icon = UtilNode.getChildComponent(this._node, 'img_icon', Sprite);
     }
