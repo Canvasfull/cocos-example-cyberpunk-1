@@ -6,6 +6,9 @@ import { BtnBase, FilBase, GrpBag, GrpBase, GrpEquipInfo,
     GrpGM, GrpMap, GrpPickedTips, GrpSelectEquips, SliBase, 
     TglBase, TxtBase, UICom } from "../../core/ui/ui-base";
 import { UtilNode } from "../../core/util/util";
+import { Local } from "../../core/localization/local";
+import { GameQuality } from "./GameQuality";
+import { Sound } from "../../core/audio/sound";
 
 export class Bind extends Singleton {
 
@@ -33,6 +36,10 @@ export class Bind extends Singleton {
             Msg.emit('back'); 
         }
 
+        this._map['txt_language'] = () => Local.Instance.getShowName();
+        this._map['txt_game_quality'] = () => GameQuality.Instance.getShowName();
+        this._map['sli_sound'] = () => Sound.volumeSound;
+        this._map['sli_music'] = () => Sound.volumeMusic;
 
     }
 

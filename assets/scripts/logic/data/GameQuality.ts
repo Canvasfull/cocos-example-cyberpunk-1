@@ -29,7 +29,7 @@ export class GameQuality extends Singleton {
         PhysicsSystem.instance.maxSubSteps = 10;
         game.frameRate = this.cur.fps;
 
-        Msg.on('next_performance', () => {
+        Msg.on('next_quality', () => {
             this.index++;
             if (this.index >= this._data.set.length) this.index = 0;
             this.cur = this._data.set[this.index];
@@ -37,7 +37,7 @@ export class GameQuality extends Singleton {
             Local.Instance.refresh();
         });
 
-        Msg.on('pre_performance', () => {
+        Msg.on('pre_quality', () => {
             this.index--;
             if (this.index < 0) this.index = this._data.set.length - 1;
             this.cur = this._data.set[this.index];

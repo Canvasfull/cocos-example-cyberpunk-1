@@ -9,7 +9,10 @@ export class Sound {
     private static _sfxAudio: AudioSource;
     private static _bgmAudio: AudioSource;
 
-    public static volume: number = 0.5;
+    public static volumeSound: number = 0.5;
+
+    public static volumeMusic: number = 1;
+
     public static _volumeLoad = 1;
     public static _sourcePoolCount = 30;
     public static _pool:AudioSource[] = [];
@@ -30,12 +33,20 @@ export class Sound {
         for(var i = 0; i < this._sourcePoolCount; i++) this.addPool();
 
         // Init sound volume.
-        var v = Save.Instance.get('sfx_volume');
-        if (v === null) v = 1;
-        this.volume = v;
+        let volume = Save.Instance.get('sfx_volume');
+        if (volume === undefined) volume = 1;
+        this.volumeSound = volume;
+
+        // Init sound music.
+        let volumeMusic = Save.Instance.get('sfx_volume_music');
+        if(volumeMusic === undefined) volumeMusic = 1;
+        this.volumeMusic = volumeMusic;
+
         this.Refresh();
 
         Msg.on('sli_sound', this.setVolume.bind(this));
+        Msg.on('sli_music', this.setVolumeMusic.bind(this));
+
         Msg.bind('sound_load', this.onLoad, this);
         Msg.bind('sound_load_end', this.onLoadEnd, this);
     }
@@ -46,14 +57,20 @@ export class Sound {
     }
 
     public static setVolume (volume: number) {
-        this.volume = volume;
-        this.Refresh();
+        this.volumeSound = volume;
+        this._sfxAudio.volume = this.volumeSound;
         Save.Instance.set('sfx_volume', volume);
     }
 
+    public static setVolumeMusic (volume: number) {
+        this.volumeSound = volume;
+        this._bgmAudio.volume = this.volumeMusic;
+        Save.Instance.set('sfx_volume_music', volume); 
+    }
+
     private static Refresh () {
-        this._sfxAudio.volume = this.volume;
-        this._bgmAudio.volume = this.volume;
+        this._sfxAudio.volume = this.volumeSound;
+        this._bgmAudio.volume = this.volumeMusic;
     }
 
     public static playLoop (key: string, volumeMultiply: number = 1): number {
@@ -79,7 +96,7 @@ export class Sound {
             }
             if (asset) {
                 this._pool[index].clip = asset;
-                this._pool[index].volume = this.volume * volumeMultiply;
+                this._pool[index].volume = this.volumeSound * volumeMultiply;
                 this._pool[index].loop = true;
                 this._pool[index].play();
             }
@@ -98,7 +115,7 @@ export class Sound {
     public static on (key: string, volumeMultiply: number = 1): void {
         Res.loadAudio(`sound/${key}`, (err, asset) => {
             if (asset) {
-                this._sfxAudio.playOneShot(asset, this.volume * volumeMultiply);
+                this._sfxAudio.playOneShot(asset, this.volumeSound * volumeMultiply);
             }
         });
     }
@@ -131,7 +148,7 @@ export class Sound {
                 this._bgmAudio.stop();
                 this._bgmAudio.clip = asset;
                 this._bgmAudio.loop = true;
-                this._bgmAudio.volume = this.volume;
+                this._bgmAudio.volume = this.volumeMusic;
                 this._bgmAudio.play();
             }
         });

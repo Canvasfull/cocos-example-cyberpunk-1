@@ -27,10 +27,10 @@
     },
     "level_pause": {
         "start": [
-            { "time": 0, "name": "on_ui", "data": "ui_level_pause" }
+            { "time": 0, "name": "on_ui", "data": "ui_settings" }
         ],
         "end": [
-            { "time": 0.1, "name": "off_ui", "data": "ui_level_pause" }
+            { "time": 0.1, "name": "off_ui", "data": "ui_settings" }
         ]
     },
     "upgrade_cards": {

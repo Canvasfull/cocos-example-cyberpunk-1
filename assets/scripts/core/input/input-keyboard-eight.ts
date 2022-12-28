@@ -2,7 +2,10 @@ import { _decorator, EventKeyboard, input, Input, KeyCode, game, v3, clamp, Even
 import { Msg } from '../msg/msg';
 import { u3 } from '../util/util';
 import { InputBase } from './input-base';
+import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
+
+let _pointerLock = false;
 
 @ccclass('InputKeyboardEight')
 export class InputKeyboardEight extends InputBase {
@@ -17,12 +20,15 @@ export class InputKeyboardEight extends InputBase {
     _move_dir = v3(0, 0, 0);
 
     _isPointerLock = false;
-
     _pressQ = false;
+
+    _waitPointerTime = 2;
 
     start () {
 
         console.log('init input keyboard.', this.node.name);
+
+        this._isPointerLock = false;
 
         // [3]
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
@@ -30,7 +36,18 @@ export class InputKeyboardEight extends InputBase {
 
         input.on(Input.EventType.MOUSE_DOWN, this.onMouseDown, this);
         input.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
-        //input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+
+        document.addEventListener('pointerlockchange', this.onPointerChange, false);
+    }
+
+    onPointerChange() {
+        if(document.pointerLockElement === game.canvas) {
+            _pointerLock = true;
+        }else{
+            fun.delay(()=>{
+                _pointerLock = false;
+            }, 2);
+        }
     }
 
     onDestroy() {
@@ -39,7 +56,8 @@ export class InputKeyboardEight extends InputBase {
 
         input.off(Input.EventType.MOUSE_DOWN, this.onMouseDown, this);
         input.off(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
-        //input.off(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+
+        document.removeEventListener('pointerlockchange', this.onPointerChange, false);
     }
 
     hasKey(event: EventKeyboard): boolean {
@@ -121,22 +139,35 @@ export class InputKeyboardEight extends InputBase {
         if (this._dir.x === 0 && this._dir.z === 0) this.onMoveEnd();
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
         if (event.keyCode === KeyCode.ESCAPE) {
-            if (document.pointerLockElement && sys.isBrowser) {
-                document.exitPointerLock();
-                this._isPointerLock = false;
-                this.onMoveEnd();
+            /*
+            console.log('ESCAPE:', document.pointerLockElement, this._isPointerLock);
+            if (document.pointerLockElement !== null && this._isPointerLock) {
+                try {
+                    console.log('enter event mouse pointer lock. exitPointerLock.');
+                    //document.exitPointerLock();
+                    //this._isPointerLock = false;
+                    this.onMoveEnd();
+                }catch (error) {
+                    console.warn(error);
+                }
+
             }
             console.log('on key up:', event.keyCode, this.node.uuid);
+            */
             this._actorInput?.onPause();
         }
 
     }
 
     onMouseDown(event: EventMouse) {
-
-        if (!document.pointerLockElement && sys.isBrowser) {
-            game.canvas?.requestPointerLock();
-            this._isPointerLock = true;
+        if (!_pointerLock) {
+            try {
+                if(game.canvas?.requestPointerLock) {
+                    game.canvas?.requestPointerLock();
+                }
+            }catch (error) {
+                console.warn(error);
+            }            
             return;
         }
        
@@ -148,7 +179,7 @@ export class InputKeyboardEight extends InputBase {
     
     onMouseMove(event: EventMouse) {
 
-        if (!document.pointerLockElement && sys.isBrowser) return;
+        if (document.pointerLockElement === null && sys.isBrowser) return;
 
         if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());
@@ -158,14 +189,9 @@ export class InputKeyboardEight extends InputBase {
         this._actorInput?.onRotation(event.movementX / 5, event.movementY / 10);
     }
 
-    onTouchMove(event: EventTouch) {
-        //this._actorInput?.onRotation(event.getDeltaX() / 5, event.getDeltaY()/ 5);
-        this._actorInput?.onRotation(event.getDeltaX() / 5, event.getDeltaY() / 10);
-    }
-
     onMove(x:number, z:number) {
         
-        if (!document.pointerLockElement && sys.isBrowser) return;
+        if (document.pointerLockElement === null && sys.isBrowser) return;
 
         this._dir.x = clamp(this._dir.x + x, -1, 1);
         this._dir.z = clamp(this._dir.z + z, -1, 1);
@@ -194,13 +220,15 @@ export class InputKeyboardEight extends InputBase {
     }
 
     update(deltaTime:number) {
-        
+       
         /*
-        if (!document.pointerLockElement && this._isPointerLock) {
+        if(document.pointerLockElement === null && this._isPointerLock) {
+            console.log('enter event mouse pointer lock. exitPointerLock.');
             document.exitPointerLock();
             this._isPointerLock = false;
         }
         */
+
     }
 }
 

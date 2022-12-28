@@ -16,7 +16,7 @@
         "ui_warning":4,
         "ui_upgrade":5,
         "ui_select_equip":6,
-        "ui_level_pause":7,
+        "ui_settings":7,
         "ui_level_end":8
     },
     "events":[
@@ -24,6 +24,10 @@
         { "name": "btn_start_level", "event": "push", "data": "level"},
         { "name": "btn_home", "event": "push", "data": "menu"},
         { "name": "btn_settings", "event": "", "data": "settings"},
+        { "name": "btn_next_language", "event": "next_language" },
+        { "name": "btn_pre_language", "event": "pre_language" },
+        { "name": "btn_next_quality", "event": "next_quality" },
+        { "name": "btn_pre_quality", "event": "pre_quality" },
         { "name": "fil_strength" },
         { "name": "fil_bag" }
     ],
