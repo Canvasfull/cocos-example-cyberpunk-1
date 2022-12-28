@@ -3,7 +3,7 @@ import { LocalLabel } from "../../core/localization/local-label";
 import { Msg } from "../../core/msg/msg";
 import { Singleton } from "../../core/pattern/singleton";
 import { BtnBase, FilBase, GrpBag, GrpBase, GrpEquipInfo, 
-    GrpGM, GrpPickedTips, GrpSelectEquips, SliBase, 
+    GrpGM, GrpMap, GrpPickedTips, GrpSelectEquips, SliBase, 
     TglBase, TxtBase, UICom } from "../../core/ui/ui-base";
 import { UtilNode } from "../../core/util/util";
 
@@ -134,6 +134,10 @@ export class BindUI {
 
         this._map['grp_bag'] = (node:Node) => {
             return new GrpBag(node);
+        }
+
+        this._map['grp_map'] = (node:Node) => {
+            return new GrpMap(node);
         }
     }
 

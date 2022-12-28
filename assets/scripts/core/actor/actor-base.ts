@@ -6,6 +6,7 @@ import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { ResCache } from '../res/res-cache';
 import { u3 } from '../util/util';
+import { Level } from '../../logic/level/level';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorBase')
@@ -101,6 +102,7 @@ export class ActorBase extends Component {
     onDead() {
 
         if (this._groupIndex !== -1) {
+            Level.Instance.removeEnemy(this.node);
             Msg.emit('msg_remove_enemy', this._groupIndex);
             Msg.emit(
                 'msg_tips', 

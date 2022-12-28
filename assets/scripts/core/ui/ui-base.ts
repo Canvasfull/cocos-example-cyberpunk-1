@@ -13,7 +13,7 @@ import { Res } from '../res/res';
 import { ResCache } from '../res/res-cache';
 import { Queue } from '../util/data-structure';
 import { GMath } from '../util/g-math';
-import { UtilNode } from '../util/util';
+import { UtilNode, u3 } from '../util/util';
 import { FilSmooth } from './fil-smooth';
 
 export class UIBase {
@@ -421,6 +421,74 @@ export class GrpPickedTips extends UICom {
             this.index++;
             if (this.index >= count) this.index = 0;
         })
+    }
+
+}
+
+export class GrpMap extends UICom {
+
+    list:Array<Node>;
+
+    map:Node;
+
+    constructor (node: Node) {
+        super(node);
+
+        this.map = UtilNode.find(this._node, 'map');
+        const img_enemy_point = UtilNode.find(this._node, 'img_enemy_point');
+        const count = 20;
+        this.list = new Array(count);
+        this.list[0] = img_enemy_point;
+
+        for(let i = 1; i < count; i++) {
+            let newPoint = Res.instNode(img_enemy_point, img_enemy_point.parent!, v3(10000, 0, 0));
+            this.list[i] = newPoint;
+        }
+
+        let position = v3(0, 0, 0);
+
+        const map_width = 1158;
+        const map_height = 1172;
+
+        const world_map_width = 110;
+        const world_map_height = 110;
+
+        const offset_x = 61.846;
+        const offset_y = 95.363;
+
+        const scale_x = map_width / world_map_width;
+        const scale_y = map_height / world_map_height;
+
+        Msg.on('msg_update_map', ()=>{
+
+            u3.c(position, Level.Instance._actor.node.position);
+            const y = position.x * scale_x;
+            const x = position.z * scale_y;
+            position.z = 0;
+            position.x = -x;
+            position.y = -y;
+            
+            this.map.setPosition(position);
+
+            const enemies = Level.Instance._enemies;
+            const enemyCount = enemies.length;
+            for(let i = 0; i < count; i++) {
+                const hasEnemy = i < enemyCount
+                const currentNode = this.list[i];
+                if(!hasEnemy) {
+                    currentNode.setPosition(10000, 0, 0);
+                    continue;
+                }
+                u3.c(position, enemies[i].position);
+                const y = position.x * scale_x;
+                const x = position.z * scale_y;
+                position.z = 0;
+                position.x = x;
+                position.y = y;
+                this.list[i].setPosition(position.x, position.y, position.z);
+            }
+
+        });
     }
 
 }

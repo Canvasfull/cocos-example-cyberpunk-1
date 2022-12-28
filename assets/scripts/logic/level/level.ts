@@ -30,6 +30,8 @@ export class Level extends Singleton {
     _node:Node | null | undefined;
     _spawn_pos = v3(0, 0, 0);
 
+    _enemies:Node[] = [];
+
     public init (): void {
 
         this._action = new Action('action-level');
@@ -77,7 +79,17 @@ export class Level extends Singleton {
         enemy.addComponent(ActorBrain);
         actor!._groupIndex = groupID;
         actor!.init(`data-${res}`);
+        this._enemies.push(enemy);
         return enemy;
+    }
+
+    public removeEnemy(node:Node) {
+        for(let i = 0; i < this._enemies.length; i++) {
+            if(this._enemies[i] === node) {
+                this._enemies.splice(i, 1);
+                break;
+            }
+        }
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
@@ -107,6 +119,7 @@ export class Level extends Singleton {
     public update (deltaTime: number): void {
         if (!this._isStart) return;
         this._action!.update(deltaTime);
+        Msg.emit('msg_update_map');
     }
 
     public saveWin () {
