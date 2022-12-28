@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cde4d13a-52ac-4bcf-a4b5-4282f5fb9603",
+  "files": [],
+  "subMetas": {
+    "8dec5": {
+      "importer": "gltf-mesh",
+      "uuid": "cde4d13a-52ac-4bcf-a4b5-4282f5fb9603@8dec5",
+      "displayName": "",
+      "id": "8dec5",
+      "name": "0_0_-1_MI_BrokenAsphalt01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5ebfe": {
+      "importer": "gltf-scene",
+      "uuid": "cde4d13a-52ac-4bcf-a4b5-4282f5fb9603@5ebfe",
+      "displayName": "",
+      "id": "5ebfe",
+      "name": "0_0_-1_MI_BrokenAsphalt01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "cde4d13a-52ac-4bcf-a4b5-4282f5fb9603@5ebfe",
+    "assetFinder": {
+      "meshes": [
+        "cde4d13a-52ac-4bcf-a4b5-4282f5fb9603@8dec5"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "cde4d13a-52ac-4bcf-a4b5-4282f5fb9603@5ebfe"
+      ]
+    }
+  }
+}

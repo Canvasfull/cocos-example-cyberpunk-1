@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "9bdfd90b-fd5b-4bb5-914e-65f1ae7fcad2",
+  "files": [],
+  "subMetas": {
+    "82989": {
+      "importer": "gltf-mesh",
+      "uuid": "9bdfd90b-fd5b-4bb5-914e-65f1ae7fcad2@82989",
+      "displayName": "",
+      "id": "82989",
+      "name": "-3_1_0_M_WindowsEmissive01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b8995": {
+      "importer": "gltf-scene",
+      "uuid": "9bdfd90b-fd5b-4bb5-914e-65f1ae7fcad2@b8995",
+      "displayName": "",
+      "id": "b8995",
+      "name": "-3_1_0_M_WindowsEmissive01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "9bdfd90b-fd5b-4bb5-914e-65f1ae7fcad2@b8995",
+    "assetFinder": {
+      "meshes": [
+        "9bdfd90b-fd5b-4bb5-914e-65f1ae7fcad2@82989"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "9bdfd90b-fd5b-4bb5-914e-65f1ae7fcad2@b8995"
+      ]
+    }
+  }
+}

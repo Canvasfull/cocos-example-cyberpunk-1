@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "0a9f31d2-f247-42e5-95b0-f759e3229b66",
+  "files": [],
+  "subMetas": {
+    "920bd": {
+      "importer": "gltf-mesh",
+      "uuid": "0a9f31d2-f247-42e5-95b0-f759e3229b66@920bd",
+      "displayName": "",
+      "id": "920bd",
+      "name": "-1_0_-1_MI_TrashBox01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e7ffe": {
+      "importer": "gltf-scene",
+      "uuid": "0a9f31d2-f247-42e5-95b0-f759e3229b66@e7ffe",
+      "displayName": "",
+      "id": "e7ffe",
+      "name": "-1_0_-1_MI_TrashBox01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "0a9f31d2-f247-42e5-95b0-f759e3229b66@e7ffe",
+    "assetFinder": {
+      "meshes": [
+        "0a9f31d2-f247-42e5-95b0-f759e3229b66@920bd"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "0a9f31d2-f247-42e5-95b0-f759e3229b66@e7ffe"
+      ]
+    }
+  }
+}

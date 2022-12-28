@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "d542aef9-8b5e-4ced-b97c-2d94595af668",
+  "files": [],
+  "subMetas": {
+    "2939f": {
+      "importer": "gltf-mesh",
+      "uuid": "d542aef9-8b5e-4ced-b97c-2d94595af668@2939f",
+      "displayName": "",
+      "id": "2939f",
+      "name": "4_1_-1_MI_CarsEmissive.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d1bfe": {
+      "importer": "gltf-scene",
+      "uuid": "d542aef9-8b5e-4ced-b97c-2d94595af668@d1bfe",
+      "displayName": "",
+      "id": "d1bfe",
+      "name": "4_1_-1_MI_CarsEmissive.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "d542aef9-8b5e-4ced-b97c-2d94595af668@d1bfe",
+    "assetFinder": {
+      "meshes": [
+        "d542aef9-8b5e-4ced-b97c-2d94595af668@2939f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "d542aef9-8b5e-4ced-b97c-2d94595af668@d1bfe"
+      ]
+    }
+  }
+}

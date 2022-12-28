@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "70defda6-111e-4895-b931-ab84adfc5293",
+  "files": [],
+  "subMetas": {
+    "b98bd": {
+      "importer": "gltf-mesh",
+      "uuid": "70defda6-111e-4895-b931-ab84adfc5293@b98bd",
+      "displayName": "",
+      "id": "b98bd",
+      "name": "0_0_-1_MI_Pipes_square_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3e75a": {
+      "importer": "gltf-scene",
+      "uuid": "70defda6-111e-4895-b931-ab84adfc5293@3e75a",
+      "displayName": "",
+      "id": "3e75a",
+      "name": "0_0_-1_MI_Pipes_square_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "70defda6-111e-4895-b931-ab84adfc5293@3e75a",
+    "assetFinder": {
+      "meshes": [
+        "70defda6-111e-4895-b931-ab84adfc5293@b98bd"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "70defda6-111e-4895-b931-ab84adfc5293@3e75a"
+      ]
+    }
+  }
+}

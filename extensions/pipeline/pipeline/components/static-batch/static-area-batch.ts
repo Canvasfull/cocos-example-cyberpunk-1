@@ -1,4 +1,4 @@
-import { BatchingUtility, Component, director, geometry, gfx, Material, Mesh, MeshRenderer, Node, renderer, utils, Vec3, _decorator } from "cc";
+import { BatchingUtility, Component, director, geometry, gfx, Mat4, Material, Mesh, MeshRenderer, Node, renderer, utils, Vec3, Vec4, _decorator } from "cc";
 import { MeshData, saveGltf, toGltfMesh } from "./save-gltf";
 import { StaticBatchComp } from "./static-batch-comp";
 
@@ -84,6 +84,16 @@ export class StaticAreaBatch extends Component {
     @property
     lightMapSize = 512
 
+
+    @property
+    get totalBatch () {
+        let count = 0
+        this.blocks.forEach(b => {
+            count += b.materialCount
+        })
+        return count
+    }
+
     blockMap: Map<string, StaticAreaBatchBlock> = new Map
 
     @property(StaticAreaBatchBlock)
@@ -105,13 +115,26 @@ export class StaticAreaBatch extends Component {
 
     totalRenderers: MeshRenderer[] = []
 
+    @property
+    _totalCount = 0;
+    @property
+    get totalCount () {
+        return this._totalCount;
+    }
+
     async doMerge () {
         await this.doSearch();
 
         let processedCount = 0;
-        let toProcessCount = this.totalRenderers.length;
+        let toProcessCount = this._totalCount;
 
         let startTime = Date.now()
+
+
+        let tempMin = new Vec3
+        let tempMax = new Vec3
+        let tempNormal = new Vec4
+        let tempMat4 = new Mat4
 
         this.node.removeAllChildren();
         for (let blockPair of this.blockMap) {
@@ -128,26 +151,38 @@ export class StaticAreaBatch extends Component {
                 let startVerticeIdx = 0
                 let meshData = new MeshData
 
-                meshData.min.set(this.blockSize).multiplyScalar(-0.5);
-                meshData.max.set(this.blockSize).multiplyScalar(0.5);
-
                 let countPerRow = Math.ceil(Math.pow(renderers.length, 0.5));
 
+                let min = new Vec3(Infinity, Infinity, Infinity)
+                let max = new Vec3(-Infinity, -Infinity, -Infinity)
                 for (let i = 0; i < renderers.length; i++) {
                     let mr = renderers[i].mr
                     let idx = renderers[i].index
 
-                    let pos = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_POSITION);
                     let uv0 = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_TEX_COORD);
-                    let uv1 = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_TEX_COORD1);
-                    let normals = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_NORMAL);
+                    meshData.uv.push(...uv0);
 
+                    let pos = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_POSITION);
                     for (let pi = 0; pi < pos.length; pi += 3) {
                         tempVec3.set(pos[pi], pos[pi + 1], pos[pi + 2])
                         Vec3.transformMat4(tempVec3, tempVec3, mr.node.worldMatrix)
                         meshData.vertices.push(tempVec3.x - center.x, tempVec3.y - center.y, tempVec3.z - center.z);
                     }
 
+                    Mat4.inverseTranspose(tempMat4, mr.node.worldMatrix);
+                    let normals = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_NORMAL);
+                    for (let ni = 0; ni < normals.length; ni += 3) {
+                        tempNormal.set(normals[ni], normals[ni + 1], normals[ni + 2], 0)
+                        Vec4.transformMat4(tempNormal, tempNormal, tempMat4)
+                        tempNormal.normalize();
+                        meshData.normals.push(tempNormal.x, tempNormal.y, tempNormal.z)
+                    }
+
+                    mr.model.worldBounds.getBoundary(tempMin, tempMax);
+                    Vec3.min(min, min, tempMin)
+                    Vec3.max(max, max, tempMax)
+
+                    let uv1 = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_TEX_COORD1);
                     let uv1OffsetX = i % countPerRow;
                     let uv1OffsetY = Math.floor(i / countPerRow);
                     for (let uvi = 0; uvi < uv1.length; uvi += 2) {
@@ -157,8 +192,6 @@ export class StaticAreaBatch extends Component {
                         );
                     }
 
-                    meshData.uv.push(...uv0);
-                    meshData.normals.push(...normals);
 
                     let indices = mr.mesh.readIndices(idx);
                     for (let i = 0; i < indices.length; i++) {
@@ -174,6 +207,9 @@ export class StaticAreaBatch extends Component {
 
                     console.log(`static merge progress : ${totalProcess}, leftTime: ${leftTime}s`)
                 }
+
+                meshData.min.set(min).subtract(center);
+                meshData.max.set(max).subtract(center);
 
                 let mat = rendPair[0]
                 let name = block.name + '_' + mat.name;
@@ -200,6 +236,8 @@ export class StaticAreaBatch extends Component {
         }
 
         this.doRevert()
+
+        console.log(`finished static merge progress.`)
     }
 
     async doSearch () {
@@ -254,6 +292,7 @@ export class StaticAreaBatch extends Component {
                     block.renderers.set(mr.sharedMaterials[idx], renderers);
                 }
                 block._totalCount++;
+                this._totalCount++;
                 renderers.push(smr);
             })
         })

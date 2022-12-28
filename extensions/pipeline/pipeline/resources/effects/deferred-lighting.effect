@@ -188,7 +188,8 @@ CCProgram lighting-fs %{
       color = vec4(0.);
     #endif
 
-    // color.rgb = s.position;
+    // color.rgb = vec3(s.albedo);
+    // color.rgb = s.normal;
     // color.a = 1.;
 
 

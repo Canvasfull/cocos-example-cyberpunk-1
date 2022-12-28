@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "9d4d08b5-1814-4e23-a6c5-bdc574aa885b",
+  "files": [],
+  "subMetas": {
+    "6a3cd": {
+      "importer": "gltf-mesh",
+      "uuid": "9d4d08b5-1814-4e23-a6c5-bdc574aa885b@6a3cd",
+      "displayName": "",
+      "id": "6a3cd",
+      "name": "0_0_-1_MI_ladderT01_cull_front.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "80bce": {
+      "importer": "gltf-scene",
+      "uuid": "9d4d08b5-1814-4e23-a6c5-bdc574aa885b@80bce",
+      "displayName": "",
+      "id": "80bce",
+      "name": "0_0_-1_MI_ladderT01_cull_front.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "9d4d08b5-1814-4e23-a6c5-bdc574aa885b@80bce",
+    "assetFinder": {
+      "meshes": [
+        "9d4d08b5-1814-4e23-a6c5-bdc574aa885b@6a3cd"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "9d4d08b5-1814-4e23-a6c5-bdc574aa885b@80bce"
+      ]
+    }
+  }
+}
