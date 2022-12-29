@@ -3,8 +3,8 @@ import { Msg } from '../msg/msg';
 import { InputJoystick } from './input-joystick';
 const { ccclass, property } = _decorator;
 
-@ccclass('JoystickPad')
-export class JoystickPad extends Component {
+@ccclass('JoystickPadAction')
+export class JoystickPadAction extends Component {
 
     _input:InputJoystick | undefined;
 

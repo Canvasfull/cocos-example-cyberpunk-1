@@ -14,4 +14,5 @@ export interface IActorInput {
     onRun(isRun:boolean):void;
     onEquip(index:number):void;
     onPause():void;
+    onChangeEquips():boolean;
 }

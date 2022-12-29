@@ -214,7 +214,6 @@ export class InputKeyboardEight extends InputBase {
         this._move += (this.move_speed + this._v_increase_move) * game.deltaTime;
         if (this._move > 1) this._move = 1;
         this._move_v3.normalize().multiplyScalar(this._move);
-
         if (this._move_v3.length() !== 0) u3.c(this._move_dir, this._move_v3);
         this._actorInput?.onMove(this._move_v3);
     }

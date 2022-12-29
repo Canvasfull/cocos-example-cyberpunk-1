@@ -44,8 +44,8 @@ export class JoystickMove extends Component {
 
     _tempMove:Vec3 = v3(0, 0, 0);
 
-    _moveNode:Node;
-    _bgNode:Node;
+    _moveNode:Node | undefined;
+    _bgNode:Node | undefined;
 
     _value = 0;
 
@@ -53,13 +53,13 @@ export class JoystickMove extends Component {
 
     _t = 0;
 
-    _input:InputJoystick;
+    _input:InputJoystick | undefined;
 
     start() {
 
         //bind input joystick
 
-        this._input = this.node.parent.getComponent(InputJoystick);
+        this._input = this.node.parent!.getComponent(InputJoystick)!;
 
         this._moveNode = this.node.children[1];
         this._bgNode = this.node.children[0];
@@ -72,12 +72,12 @@ export class JoystickMove extends Component {
         this.node.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
         this.node.on(Input.EventType.TOUCH_CANCEL, this.onTouchCancel, this);
 
-        var bgHalfSize = this._bgNode.getComponent(UITransform).contentSize.width/2;
-        var uitran = this.node.getComponent(UITransform);
+        var bgHalfSize = this._bgNode.getComponent(UITransform)!.contentSize.width/2;
+        let uiTransform = this.node.getComponent(UITransform)!;
         this.range.x = bgHalfSize;
         this.range.y = bgHalfSize;
-        this.range.width = uitran.contentSize.width - bgHalfSize;
-        this.range.height = uitran.contentSize.height - bgHalfSize;
+        this.range.width = uiTransform.contentSize.width - bgHalfSize;
+        this.range.height = uiTransform.contentSize.height - bgHalfSize;
 
         this.offset_euler *= Math.PI / 180;
 
@@ -104,8 +104,8 @@ export class JoystickMove extends Component {
 
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._movePos, this._center);
-        this._bgNode.setWorldPosition(this._center.x, this._center.y, 0);
-        this._moveNode.setPosition(0, 0, 0);
+        this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
+        this._moveNode!.setPosition(0, 0, 0);
 
         if (this.autoHidden) this.node.emit('autoHidden', false);
 
@@ -135,7 +135,8 @@ export class JoystickMove extends Component {
         this._tempMove.z = -this._tempMove.y;
         this._tempMove.y = 0;
         this._tempMove.multiplyScalar(1/this.radius);
-        Vec3.rotateY(this._tempMove, this._tempMove, Vec3.ZERO, this.offset_euler);
+
+        //Vec3.rotateY(this._tempMove, this._tempMove, Vec3.ZERO, this.offset_euler);
 
         this._input?.onMove(this._tempMove);
 
@@ -152,7 +153,7 @@ export class JoystickMove extends Component {
 
         this._t = 0;
 
-        this._input?.onMove(this._tempMove.multiplyScalar(1/1000));
+        this._input?.onMove(Vec3.ZERO);
 
         if (this.autoHidden) this.node.emit('autoHidden', true);
 
@@ -169,7 +170,7 @@ export class JoystickMove extends Component {
 
         this._t = 0;
 
-        this._input?.onMove(this._tempMove.multiplyScalar(1/1000));
+        this._input?.onMove(Vec3.ZERO);
 
         if (this.autoHidden) this.node.emit('autoHidden', true);
 
@@ -179,12 +180,12 @@ export class JoystickMove extends Component {
 
         if (this._start) {
             Vec3.lerp(this._movePos, this._pos, this._movePos, deltaTime * this.smooth);
-            this._moveNode.setWorldPosition(this._movePos.x, this._movePos.y, 0);
+            this._moveNode!.setWorldPosition(this._movePos.x, this._movePos.y, 0);
         }else{
             this._t += deltaTime;
             var x = this.math_Damping(this._movePos.x - this._pos.x, this._t * this.damping_smooth);
             var y = this.math_Damping(this._movePos.y - this._pos.y, this._t * this.damping_smooth);
-            this._moveNode.setWorldPosition(x + this._pos.x, y + this._pos.y, 0);
+            this._moveNode!.setWorldPosition(x + this._pos.x, y + this._pos.y, 0);
         }
         
     }

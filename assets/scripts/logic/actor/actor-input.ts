@@ -1,5 +1,5 @@
 
-import { _decorator, Component, find, Vec2, PhysicsSystem, input, Input, EventMouse, geometry, Camera, game, EventTouch, director, Vec3 } from 'cc';
+import { _decorator, Component, find, Vec2, PhysicsSystem, input, Input, EventMouse, geometry, Camera, game, EventTouch, director, Vec3, sys } from 'cc';
 const { ccclass, property } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
@@ -12,11 +12,20 @@ export class ActorInput extends Component implements IActorInput {
     _actor:IActorInput | undefined | null;
     _isPause = false;
 
+    _isOpenEquips = false;
+
     start () {
         // bind level actor.
         this._actor = Level.Instance._actor;
-        var input_index = Save.Instance.get('input_index');
-        input_index = 0;
+        //var input_index = Save.Instance.get('input_index');
+        let input_index = 0;
+
+        if(sys.platform === sys.Platform.MOBILE_BROWSER) {
+            input_index = 1;
+        }else {
+            input_index = 0;
+        }
+
         this.node.children[input_index].active = true;
         console.log('init actor input:', input_index);
     }
@@ -80,6 +89,16 @@ export class ActorInput extends Component implements IActorInput {
             console.log('back level pause.')
         }
 
+    }
+
+    onChangeEquips() {
+        this._isOpenEquips = !this._isOpenEquips;
+        if(this._isOpenEquips)
+            Msg.emit('push', 'select_equips');
+        else
+            Msg.emit('back');
+
+        return this._isOpenEquips;
     }
     
 
