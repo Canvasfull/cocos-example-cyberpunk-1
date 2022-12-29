@@ -23,16 +23,22 @@
       },
       {
         "__id__": 6
+      },
+      {
+        "__id__": 178
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 178
+        "__id__": 182
+      },
+      {
+        "__id__": 184
       }
     ],
     "_prefab": {
-      "__id__": 180
+      "__id__": 186
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -3869,6 +3875,78 @@
     "fileId": "2eDahgOxBJIYE1INwBEXV9"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "gamepad",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 179
+      }
+    ],
+    "_prefab": {
+      "__id__": 181
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "fb3b2deZNZGCKdwamug0YI8",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 178
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 180
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "55HcLI03NHDLbKnCPb2tkf"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "f2ZAD3b/lGe7iKD54qkhm7"
+  },
+  {
     "__type__": "01c09MbFBBOMaVVPRCTuZwT",
     "_name": "",
     "_objFlags": 0,
@@ -3877,13 +3955,30 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 179
+      "__id__": 183
     },
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "4d+gqmiVpHgI2HGp2yVCOT"
+  },
+  {
+    "__type__": "cd5bdYQYg9MhL56D3JEXVzi",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 185
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "9cYf36BFJJXaivGG1bC4kT"
   },
   {
     "__type__": "cc.PrefabInfo",

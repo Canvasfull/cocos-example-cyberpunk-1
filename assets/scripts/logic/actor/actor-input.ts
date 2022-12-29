@@ -15,19 +15,13 @@ export class ActorInput extends Component implements IActorInput {
     _isOpenEquips = false;
 
     start () {
-        // bind level actor.
         this._actor = Level.Instance._actor;
-        //var input_index = Save.Instance.get('input_index');
-        let input_index = 0;
-
         if(sys.platform === sys.Platform.MOBILE_BROWSER) {
-            input_index = 1;
+            this.node.children[1].active = true;
         }else {
-            input_index = 0;
+            this.node.children[2].active = true;
+            this.node.children[0].active = true;
         }
-
-        this.node.children[input_index].active = true;
-        console.log('init actor input:', input_index);
     }
 
     onMove(move:Vec3) {
