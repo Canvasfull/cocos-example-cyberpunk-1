@@ -1,4 +1,5 @@
 import { BatchingUtility, Component, director, geometry, gfx, Mat4, Material, Mesh, MeshRenderer, Node, renderer, utils, Vec3, Vec4, _decorator } from "cc";
+import { powerOfTwo } from "../../utils/math";
 import { MeshData, saveGltf, toGltfMesh } from "./save-gltf";
 import { StaticBatchComp } from "./static-batch-comp";
 
@@ -82,7 +83,7 @@ export class StaticAreaBatch extends Component {
     offset = new Vec3(-15, -15, -15)
 
     @property
-    lightMapSize = 512
+    maxLightMapSize = 1024
 
 
     @property
@@ -148,26 +149,66 @@ export class StaticAreaBatch extends Component {
             for (let rendPair of block.renderers) {
                 let renderers = rendPair[1]
 
-                let startVerticeIdx = 0
-                let meshData = new MeshData
-
                 let countPerRow = Math.ceil(Math.pow(renderers.length, 0.5));
 
+                let startVerticeIdx = 0
+                let meshData = new MeshData
                 let min = new Vec3(Infinity, Infinity, Infinity)
                 let max = new Vec3(-Infinity, -Infinity, -Infinity)
+                let lightMapSize = 0;
+
+                let subfix = 0;
+                let end = async () => {
+                    meshData.min.set(min).subtract(center);
+                    meshData.max.set(max).subtract(center);
+
+                    let mat = rendPair[0]
+                    let name = block.name + '_' + mat.name;
+                    let gltf = toGltfMesh(name, meshData);
+                    let gltfUrl = `db://assets/${director.getScene().name}/merged-meshes/${name}.gltf`;
+                    let meshUrl = gltfUrl + `/${name}.mesh`
+                    let mesh = await saveGltf(gltf, gltfUrl, meshUrl)
+
+                    let sub = new Node(mat.name + (subfix++));
+
+                    let mr = sub.addComponent(MeshRenderer);
+                    mr.mesh = mesh
+                    mr.material = mat
+
+                    sub.addComponent(StaticBatchComp);
+
+                    mr.bakeSettings.bakeable = true;
+                    mr.bakeSettings.castShadow = true;
+                    mr.bakeSettings.receiveShadow = true;
+                    mr.bakeSettings.lightmapSize = Math.min(this.maxLightMapSize, powerOfTwo(lightMapSize));
+
+                    sub.parent = node;
+                }
+
                 for (let i = 0; i < renderers.length; i++) {
                     let mr = renderers[i].mr
                     let idx = renderers[i].index
 
-                    let uv0 = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_TEX_COORD);
-                    meshData.uv.push(...uv0);
-
                     let pos = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_POSITION);
+                    let mergedVertexCount = (meshData.vertices.length + pos.length) / 3
+                    if (mergedVertexCount > 65535) {
+                        console.warn(`${block.name}-${rendPair[0].name} vertex count overflow 65535`)
+
+                        await end();
+
+                        startVerticeIdx = 0
+                        meshData = new MeshData
+                        min = new Vec3(Infinity, Infinity, Infinity)
+                        max = new Vec3(-Infinity, -Infinity, -Infinity)
+                    }
                     for (let pi = 0; pi < pos.length; pi += 3) {
                         tempVec3.set(pos[pi], pos[pi + 1], pos[pi + 2])
                         Vec3.transformMat4(tempVec3, tempVec3, mr.node.worldMatrix)
                         meshData.vertices.push(tempVec3.x - center.x, tempVec3.y - center.y, tempVec3.z - center.z);
                     }
+
+                    let uv0 = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_TEX_COORD);
+                    meshData.uv.push(...uv0);
 
                     Mat4.inverseTranspose(tempMat4, mr.node.worldMatrix);
                     let normals = mr.mesh.readAttribute(idx, gfx.AttributeName.ATTR_NORMAL);
@@ -200,6 +241,7 @@ export class StaticAreaBatch extends Component {
 
                     startVerticeIdx += pos.length / 3;
 
+                    lightMapSize += mr.bakeSettings.lightmapSize;
 
                     let totalProcess = ++processedCount / toProcessCount;
                     let costTime = (Date.now() - startTime) / 1000;
@@ -208,30 +250,8 @@ export class StaticAreaBatch extends Component {
                     console.log(`static merge progress : ${totalProcess}, leftTime: ${leftTime}s`)
                 }
 
-                meshData.min.set(min).subtract(center);
-                meshData.max.set(max).subtract(center);
+                await end();
 
-                let mat = rendPair[0]
-                let name = block.name + '_' + mat.name;
-                let gltf = toGltfMesh(name, meshData);
-                let gltfUrl = `db://assets/${director.getScene().name}/merged-meshes/${name}.gltf`;
-                let meshUrl = gltfUrl + `/${name}.mesh`
-                let mesh = await saveGltf(gltf, gltfUrl, meshUrl)
-
-                let sub = new Node(mat.name);
-
-                let mr = sub.addComponent(MeshRenderer);
-                mr.mesh = mesh
-                mr.material = mat
-
-                sub.addComponent(StaticBatchComp);
-
-                mr.bakeSettings.bakeable = true;
-                mr.bakeSettings.castShadow = true;
-                mr.bakeSettings.receiveShadow = true;
-                mr.bakeSettings.lightmapSize = this.lightMapSize;
-
-                sub.parent = node;
             }
         }
 
