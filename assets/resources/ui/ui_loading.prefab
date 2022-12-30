@@ -966,6 +966,12 @@
     "__prefab": {
       "__id__": 47
     },
+    "txtLoading": {
+      "__id__": 21
+    },
+    "img_loading_bar": {
+      "__id__": 15
+    },
     "_id": ""
   },
   {
@@ -981,6 +987,6 @@
       "__id__": 0
     },
     "fileId": "bcrtPBprNFlZZ4m1Jgv5jL",
-    "targetOverrides": null
+    "targetOverrides": []
   }
 ]
