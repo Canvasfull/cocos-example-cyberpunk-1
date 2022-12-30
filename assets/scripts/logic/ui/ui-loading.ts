@@ -1,40 +1,83 @@
-import { _decorator, Component, Node, Label } from 'cc';
+import { _decorator, Component, Node, Label, math, Sprite } from 'cc';
 import { Msg } from '../../core/msg/msg';
+import { UtilNode } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('UILoading')
 export class UILoading extends Component {
 
-    @property([String])
-    pointList:string[] = [];
+    @property(Label)
+    txtLoading:Label | undefined;
 
-    @property
-    delay = 1;
+    @property(Sprite)
+    img_loading_bar:Sprite | undefined;
 
-    _time = 1;
-    _idx = 0;
+    _percent = 0;
+    _realPercent = 0;
+    waitList:Record<number, ILoadMsg> = {};
+    viewNode:Node | undefined;
 
-    _txtLoading:Label | undefined | null;
+    count = 0;
+    wait_count = 0;
+    current_msg = '';
+
+    isLoading = false;
 
     start() {
-        this._time = this.delay;
-        this._txtLoading = this.getComponent(Label);
-        if (this._txtLoading === undefined || this._txtLoading === null) {
-            throw new Error(`${this.node.name} node not find component Label.`);
-        }
+        Msg.on('msg_loading', this.onWaitList.bind(this));
+        this.viewNode = this.node.children[0];
+    }
+
+    onWaitList(data:ILoadMsg) {
+        this.waitList[data.id] = data;
+        this.isLoading = true;
+        this.viewNode!.active = true;
+        this._percent = 0;
+        console.log('start wait list:', this.waitList);
     }
 
     update(deltaTime: number) {
 
-        this._time -= deltaTime;
+        if(!this.isLoading) return;
 
-        if (this._time < 0) {
-            this._time += 1;
-            this._idx++;
-            if (this._idx > this.pointList.length) this._idx = 0;
-            this._txtLoading!.string = this.pointList[this._idx];
+        this.calculateLoading();
+        this._percent = math.lerp(this._percent, this._realPercent, deltaTime);
+        this.txtLoading!.string = this.current_msg;
+
+        this.img_loading_bar!.fillRange = this._percent;
+
+        if(this._percent >= 0.9999) {
+            this.onLoadFinished();
         }
         
     }
+
+    onLoadFinished() {
+        this.isLoading = false;
+        this.viewNode!.active = false;
+    }
+
+    calculateLoading() {
+        this.count = 0;
+        this.wait_count = 0;
+        this.current_msg = '';
+        for(let k in this.waitList) {
+            const waitMsg = this.waitList[k];
+            this.count += waitMsg.count;
+            this.wait_count += this.wait_count;
+            if(this.wait_count > 0) {
+                this.current_msg = `${waitMsg.action} ${waitMsg.current}`;
+            }
+        }
+        this._realPercent = (this.count - this.wait_count)/this.count;
+    }
+
 }
 
+export interface ILoadMsg {
+    id:number,
+    action:string,
+    current:string,
+    wait_count:number,
+    count:number,
+}

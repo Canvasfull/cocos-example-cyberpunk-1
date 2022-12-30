@@ -4,11 +4,14 @@ import { Msg } from "../../core/msg/msg";
 import { Singleton } from "../../core/pattern/singleton";
 import { BtnBase, FilBase, GrpBag, GrpBase, GrpEquipInfo, 
     GrpGM, GrpMap, GrpPickedTips, GrpSelectEquips, SliBase, 
+    SprBase, 
     TglBase, TxtBase, UICom } from "../../core/ui/ui-base";
 import { UtilNode } from "../../core/util/util";
 import { Local } from "../../core/localization/local";
 import { GameQuality } from "./GameQuality";
 import { Sound } from "../../core/audio/sound";
+import { ResCache } from "../../core/res/res-cache";
+import { Level } from "../level/level";
 
 export class Bind extends Singleton {
 
@@ -40,6 +43,12 @@ export class Bind extends Singleton {
         this._map['txt_game_quality'] = () => GameQuality.Instance.getShowName();
         this._map['sli_sound'] = () => Sound.volumeSound;
         this._map['sli_music'] = () => Sound.volumeMusic;
+
+        this._map['spr_score'] = () => {
+            const imgSrc= `txt_score_${Level.Instance.getLevelScore()}`;
+            console.log(imgSrc);
+            return ResCache.Instance.getSprite(imgSrc);
+        }
 
     }
 
@@ -99,53 +108,32 @@ export class BindUI {
 
     public static init () {
 
-        this._map['btn'] = (node: Node) => {
-            return new BtnBase(node);
-        }
+        this._map['btn'] = (node: Node) => new BtnBase(node);
 
-        this._map['txt'] = (node: Node) => {
-            return new TxtBase(node);
-        }
+        this._map['txt'] = (node: Node) => new TxtBase(node);
 
-        this._map['grp'] = (node: Node) => {
-            return new GrpBase(node);
-        }
+        this._map['grp'] = (node: Node) => new GrpBase(node);
 
-        this._map['tgl'] = (node: Node) => {
-            return new TglBase(node);
-        }
+        this._map['spr'] = (node: Node) => new SprBase(node);
 
-        this._map['grp_gm'] = (node: Node) => {
-            return new GrpGM(node);
-        }
+        this._map['tgl'] = (node: Node) => new TglBase(node);
 
-        this._map['sli'] = (node: Node) => {
-            return new SliBase(node);
-        }
+        this._map['grp_gm'] = (node: Node) => new GrpGM(node);
 
-        this._map['fil'] = (node: Node) => {
-            return new FilBase(node);
-        }
+        this._map['sli'] = (node: Node) => new SliBase(node);
 
-        this._map['grp_picked_tips'] = (node:Node) => {
-            return new GrpPickedTips(node);
-        }
+        this._map['fil'] = (node: Node) => new FilBase(node);
 
-        this._map['grp_select_equips'] = (node:Node) => {
-            return new GrpSelectEquips(node);
-        }
+        this._map['grp_picked_tips'] = (node:Node) => new GrpPickedTips(node);
 
-        this._map['grp_equip_info'] = (node:Node) => {
-            return new GrpEquipInfo(node);
-        }
+        this._map['grp_select_equips'] = (node:Node) => new GrpSelectEquips(node);
 
-        this._map['grp_bag'] = (node:Node) => {
-            return new GrpBag(node);
-        }
+        this._map['grp_equip_info'] = (node:Node) => new GrpEquipInfo(node);
 
-        this._map['grp_map'] = (node:Node) => {
-            return new GrpMap(node);
-        }
+        this._map['grp_bag'] = (node:Node) => new GrpBag(node);
+
+        this._map['grp_map'] = (node:Node) => new GrpMap(node);
+
     }
 
     public static get (node: Node): UICom[] {

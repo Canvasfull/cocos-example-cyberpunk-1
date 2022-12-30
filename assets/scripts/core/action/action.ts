@@ -10,6 +10,7 @@ import { Actor } from '../../logic/actor/actor';
 import { ActorBase } from '../actor/actor-base';
 import { fun } from '../util/fun';
 import { ActorEquipBase } from '../../logic/actor/actor-equip-base';
+import { Level } from '../../logic/level/level';
 
 export class Action {
 
@@ -26,7 +27,7 @@ export class Action {
 
     public on (name: string): void {
         this.push(name, 'start');
-        //Msg.emit('msg_stat_times', name);
+        Msg.emit('msg_stat_times', name);
     }
 
     public off (name: string): void {
@@ -83,6 +84,7 @@ export class ActionParallel {
 
     public on (name: string): void {
         this.push(name, 'start');
+        Msg.emit('msg_stat_times', name);
     }
 
     public off (name: string): void {
@@ -129,6 +131,7 @@ export class ActionActor extends Action {
 
     public on (name: string): void {
         super.on(name);
+        Msg.emit('msg_stat_times', name);
     }
 
     public update (deltaTime: number) {
@@ -177,6 +180,9 @@ export class ActionActorEquip extends Action {
 
     public on (name: string): void {
         super.on(name);
+        if(this._actor.isPlayer) {
+            Msg.emit('msg_stat_times', name); 
+        }
     }
 
     public update (deltaTime: number) {
@@ -328,31 +334,19 @@ export class UtilAction {
 
     public static on_inst_scene (key: string ) {
         var asset = ResCache.Instance.getPrefab(key);
-        var obj = Res.inst(asset);
+        var obj = Res.inst(asset, Level.Instance._objectNode);
         obj.setPosition(0, 0, 0);
     }
 
     public static on_inst (key: string, actor: Actor) {
 
         var asset = ResCache.Instance.getPrefab(key);
-        var obj = Res.inst(asset);
+        var obj = Res.inst(asset, Level.Instance._objectNode);
         if (actor !== undefined && actor._view !== null) {
             obj.parent = actor._view;
             obj.setPosition(0, 0, 0);
         }
 
-        /*
-        Res.loadPrefab(key, (err, asset) => {
-            if (asset) {
-                var obj = Res.inst(asset);
-                if (actor !== undefined && actor._view !== null) {
-                    obj.parent = actor._view;
-                    obj.setPosition(0, 0, 0);
-                }
-                console.log('inst:', obj.name);
-            }
-        });
-        */
     }
 
     public static off_inst (key: string, actor: ActorBase) {
@@ -363,7 +357,7 @@ export class UtilAction {
         var res = data.res;
         var bone = data.bone;
         var asset = ResCache.Instance.getPrefab(res);
-        var obj = Res.inst(asset);
+        var obj = Res.inst(asset, Level.Instance._objectNode);
         if (actor !== undefined && actor._view !== null) {
             var bone_node = actor.node.getChildByName(bone);
             obj.parent = bone_node;
@@ -412,6 +406,7 @@ export class UtilAction {
     }
 
     public static on_set (data: key_type, actor: ActorBase) {
+        console.log(`on set key:${data.key}  value:${data.value}`);
         actor._data[data.key] = data.value;
     }
 
@@ -433,6 +428,10 @@ export class UtilAction {
             console.log(k);
             actor._data[k] *= data[k];
         }
+    }
+
+    public static on_com (key:string, actor: ActorBase) {
+        actor.node.addComponent(key);
     }
 
     public static on_call (key: string, actor: ActorBase) {
@@ -516,14 +515,14 @@ export class UtilActionEquip {
 
     public static on_inst_scene (key: string ) {
         var asset = ResCache.Instance.getPrefab(key);
-        var obj = Res.inst(asset);
+        var obj = Res.inst(asset, Level.Instance._objectNode);
         obj.setPosition(0, 0, 0);
     }
 
     public static on_inst (key: string, actor: Actor) {
 
         var asset = ResCache.Instance.getPrefab(key);
-        var obj = Res.inst(asset);
+        var obj = Res.inst(asset, Level.Instance._objectNode);
         if (actor !== undefined && actor._view !== null) {
             obj.parent = actor._view;
             obj.setPosition(0, 0, 0);
@@ -538,7 +537,7 @@ export class UtilActionEquip {
         var res = data.res;
         var bone = data.bone;
         var asset = ResCache.Instance.getPrefab(res);
-        var obj = Res.inst(asset);
+        var obj = Res.inst(asset, Level.Instance._objectNode);
         if (actor !== undefined && actor._view !== null) {
             var bone_node = actor.node.getChildByName(bone);
             obj.parent = bone_node;

@@ -1,8 +1,19 @@
 {
-    "name":"Cyber Scene",
+    "name":"Cyberpunk Scene",
     "total_time":300,
     "level_events":"level_events",
     "enemies":["enemy_0", "enemy_1", "enemy_2", "boss_0"],
+    "score_level":[
+        { "score":"a+", "playTime": 500 },
+        { "score":"a", "playTime": 200 },
+        { "score":"a-", "playTime": 120 },
+        { "score":"b+", "playTime": 90 },
+        { "score":"b", "playTime": 90 },
+        { "score":"b-", "playTime": 70 },
+        { "score":"c+", "playTime": 50 },
+        { "score":"c", "playTime": 20 },
+        { "score":"c-", "playTime": 0 }
+    ],
     "items":[
         "handgun_0","handgun_1",
         "machine_gun_0","machine_gun_1",

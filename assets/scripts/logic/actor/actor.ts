@@ -17,6 +17,9 @@ const { ccclass } = _decorator;
 
 @ccclass('Actor')
 export class Actor extends ActorBase implements IActorInput {
+    onChangeEquips(): boolean {
+        throw new Error('Method not implemented.');
+    }
 
     _velocity = v3(0, 0, 0);
     _velocityLocal = v3(0, 0, 0);
@@ -342,47 +345,4 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
 }
-
-
-        /*
-
-        updateRadar () {
-            // Update radar pos.
-            Msg.emit('update_pos', this.node.position);
-            // Update radar angle.
-            Msg.emit('update_angle', this.node.eulerAngles.y + 90);
-        }
-
-        if (this._move.z > 0) {
-            this._velocity.z = -Math.cos(Math.PI / 180.0 * this._angleHead) * this._data.move_speed.z;
-            this._velocity.x = Math.sin(Math.PI / 180.0 * this._angleHead) * this._data.move_speed.z;
-        }else if (this._move.z < 0) {
-
-        } else{
-            this._velocity.z = 0;
-            this._velocity.x = 0;
-        }
-
-        this._rigid.setLinearVelocity(this._velocity);
-
-        */
-
-        /* force move.
-
-        this._force.x = 0;
-        this._force.z = 0;
-
-        if (this._move.z > 0) this._force.z = this._data.move_force.z * this._move.z;
-        if (this._move.z < 0) this._force.z = this._data.move_force.y * this._move.z;
-
-        if (this._move.x !== 0) this._force.x = this._data.move_force.x * this._move.x;
-
-        console.log(this._force);
-
-        this._rigid.applyLocalForce(this._force);
-
-        */
-
-        //this._animationGraph?.play('move_speed',this._velocityLocal.z/this._data.run_speed);
-
         

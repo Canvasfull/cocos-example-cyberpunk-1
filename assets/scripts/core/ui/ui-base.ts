@@ -154,6 +154,12 @@ export class SprBase extends UICom {
             this.sprite!.spriteFrame = value;
         })
     }
+
+    public on(): void {
+        super.on();
+        const src = Bind.Instance.get(this._node.name);
+        this.sprite.spriteFrame = src;
+    }
 }
 
 export class GrpBase extends UICom {

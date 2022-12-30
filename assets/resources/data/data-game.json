@@ -6,6 +6,7 @@
     "version":"version:202210131800",
     "count_picked_info": 10,
     "count_bag_count": 8,
+    "max_history_statistics":100,
     "sensitivity_select_weapon":3,
     "res_ui_root":"ui/",
     "ui_order":{
@@ -17,7 +18,8 @@
         "ui_upgrade":6,
         "ui_select_equip":7,
         "ui_settings":8,
-        "ui_level_end":9
+        "ui_level_end":9,
+        "ui_loading": 20
     },
     "events":[
         { "name": "btn_start", "event": "next" },

@@ -1654,7 +1654,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "img_score",
+    "_name": "spr_score",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -2041,7 +2041,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_HSP",
+    "_name": "txt_hsp",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -2299,7 +2299,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_doge",
+    "_name": "txt_dodge",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1

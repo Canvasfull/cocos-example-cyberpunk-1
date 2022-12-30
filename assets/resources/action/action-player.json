@@ -2,7 +2,8 @@
     "play":{
         "start":[
             { "time": 1.5, "name": "on_call", "data": "onUpdate"},
-            { "time": 1.5, "name": "on_inst_scene", "data": "actor_input"}
+            { "time": 1.5, "name": "on_inst_scene", "data": "actor_input"},
+            { "time": 1.5, "name": "on_com", "data":"ActorStatistics"}
         ]
     },
     "jump": {

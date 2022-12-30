@@ -22,6 +22,8 @@ export class ActorEquipBase extends Component {
 
     _actor: Actor | undefined;
 
+    isPlayer = false;
+
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
         this._animationGraph = this.addComponent(ActorAnimationGraphGroup)!;
@@ -41,6 +43,7 @@ export class ActorEquipBase extends Component {
         this._data = this._bagData.data;
         this._action = new ActionActorEquip(this._data.action, this);
         this._bagData.lastUseTime = game.totalTime/1000;
+        this.isPlayer = this._actor.isPlayer;
     }
 
     onDestroy() {

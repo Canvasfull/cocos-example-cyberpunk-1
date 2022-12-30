@@ -4,9 +4,8 @@ import { IO } from "../../core/io/io";
 import { UtilArray } from "../../core/util/util";
 import { JsonTool } from "../../core/io/json-tool";
 import { Msg } from "../../core/msg/msg";
-import { Game } from "./game";
-import { Notify } from "../../core/io/notify";
 import { ResCache } from "../../core/res/res-cache";
+import { Game } from "./game";
 
 interface key_any {
     [key: string]: any
@@ -22,6 +21,8 @@ export class Save extends Singleton {
 
     _saveJson:any;
     _backup_counter = 0;
+
+    _currentStatistics:key_any = {};
 
     get PlayerID() {
         if (this._cur.player_id === undefined) this._cur.player_id = 27;
@@ -45,9 +46,10 @@ export class Save extends Singleton {
             this._uuid = IO.read(this._uuidKey + '.json');
             console.log('load archive:', this._uuid);
         }
-        //Msg.on('msg_stat_times', this.statisticsTimes.bind(this));
-        //Msg.on('msg_stat_time', this.statisticsTime.bind(this));
-        //Msg.on('msg_save_archive', this.saveArchive.bind(this));
+        Msg.on('msg_stat_times', this.statisticsTimes.bind(this));
+        Msg.on('msg_stat_time', this.statisticsTime.bind(this));
+        Msg.on('msg_stat_distance', this.statisticsDistance.bind(this));
+        Msg.on('msg_save_archive', this.saveArchive.bind(this));
 
     }
 
@@ -100,7 +102,6 @@ export class Save extends Singleton {
             this._cur = JsonTool.toObject(read_data) as IArchive;
         }
         
-
         // Add new data input index.
         if (this._cur.input_index === undefined) this._cur.input_index = 0;
     }
@@ -142,102 +143,11 @@ export class Save extends Singleton {
         this.saveArchive();
     }
 
-    public getCurMap () {
-        var index = this._cur.mapIndex;
-        return this._cur.maps[index];
-    }
-
-    public getSelectIndex():number {
-        if (this._cur.select_level === undefined)
-            this._cur.select_level = 0;
-        return this._cur.select_level; 
-    }
-
-    public getSelectedPos() {
-        if (this._cur.select_level === undefined)
-            this._cur.select_level = 0;
-        return this._cur.maps[this._cur.select_level].pos;
-    }
-
-    public setMap (index: number, name: string) {
-        this._cur.mapIndex = index;
-        this._cur.mapName = name;
-        this._cur.select_level = index;
-        if (this._cur.select_index === undefined) {
-            this._cur.select_index = [0,0,0];
-        }
-        this._cur.select_index[this._cur.mapModelIndex] = index;
-        this.saveArchive();
-    }
-
-    public getModeMaps() {
-        var modelName = Game.Instance._data.modes[this._cur.mapModeIndex];
-        var index = this._cur.mapIndex;
-        var maps = this._cur[modelName];
-        var mapIndex = 0;
-        for(let i = 0; i < maps.length; i++) {
-            if (maps[i].name === this._cur.mapName) {
-                mapIndex = i;
-                break;
-            }
-        }
-        return maps[mapIndex];
-    }
-
-    public saveWin (star: number, time: number) {
-
-        time = Number(time.toFixed(4));
-
-        var index = this._cur.mapIndex;
-        if (index === undefined) {
-            console.log(' ----- undefined map Index.');
-            return;
-        }
-    }
-
-    public saveLose(time: number) {
-        var index = this._cur.mapIndex;
-        if (index === undefined) {
-            console.log(' ----- undefined map Index.');
-            return;
-        }
-    }
-
-    public calculateStar() {
-        if (this._cur.mapModeIndex !== 0) return;
-        var star = 0;
-        for(var i = 0; i < this._cur.maps.length; i++) {
-            var m = this._cur.maps[i];
-            if (m.score !== undefined)
-                star += m.score;
-        }
-
-        this.setStatisticsTimes('star', star);
-    }
-
-    // State === 0 lock.
-    // State === 1 first unlock.
-    // State === 2 unlock but not pass.
-    // State === 3 pass level.
-    public unlockConnect(index:number) {
-        var maps = this._cur.maps;
-        var connect = maps[index].connect; 
-        for(var i = 0; i < connect.length; i++) {
-            var c_idx = connect[i];
-            var c_map = maps[c_idx];
-            if (c_map.state !== undefined) continue;
-            var pre_connect = c_map.pre_connect;
-            var state_count = 0;
-            for(var j = 0; j < pre_connect.length; j++) {
-                var p_idx = pre_connect[j];
-                if (maps[p_idx].state === MapStateEnum.pass) state_count++;
-            }
-            // Check new unlock.
-            if (state_count === pre_connect.length) {
-                c_map.state = MapStateEnum.first_unlock;
-            }
-        }
-
+    public saveGameOver (score:number) {
+        if(this._currentStatistics['score'] == undefined) this._currentStatistics['score'] = 6;
+        this._currentStatistics['score'] = score;
+        this.statisticsFinalScore();
+        console.log(this._cur);
     }
 
     public clearByKey(key:string) {
@@ -245,43 +155,55 @@ export class Save extends Singleton {
         this.saveArchive();
     }
 
-    public setStatisticsTimes(key:string, times:number) {
-        if (this._cur.mapModeIndex !== 0) return;
-        var statKey = key + 'Times'
-        if (this._cur.statistics === undefined) this._cur.statistics = {};
-        if (this._cur.statistics[statKey] === undefined) this._cur.statistics[statKey] = 0;
-        this._cur.statistics[statKey] = times; 
-    }
-
     public statisticsTimes(key:string) {
-        if (this._cur.mapModeIndex !== 0) return;
         var statKey = key + 'Times'
-        if (this._cur.statistics === undefined) this._cur.statistics = {};
-        if (this._cur.statistics[statKey] === undefined) this._cur.statistics[statKey] = 0;
-        this._cur.statistics[statKey] += 1;
+        if (this._currentStatistics[statKey] === undefined) this._currentStatistics[statKey] = 0;
+        this._currentStatistics[statKey] += 1;
     }
 
-    public statisticsTime(key:string, time:number) {
-        if (this._cur.mapModeIndex !== 0) return;
-        var statKey = key + 'Time';
-        if (this._cur.statistics === undefined) this._cur.statistics = {};
-        if (this._cur.statistics[statKey] === undefined) this._cur.statistics[statKey] = 0; 
-        this._cur.statistics[statKey] += time;
+    public statisticsTime(data:{key:string, time:number}) {
+        var statKey = data.key + 'Time';
+        if (this._currentStatistics[statKey] === undefined) this._currentStatistics[statKey] = 0; 
+        this._currentStatistics[statKey] += data.time;
+    }
+
+    public statisticsDistance(data:{key:string, distance:number}) {
+        var statKey = data.key + 'Distance';
+        if (this._currentStatistics[statKey] === undefined) this._currentStatistics[statKey] = 0; 
+        this._currentStatistics[statKey] += data.distance;
     }
 
     public statisticsValue(key:string): number {
-        return this._cur.statistics[key];
+        return this._currentStatistics[key];
+    }
+
+    public statisticsFinalScore() {
+        for(let k in this._currentStatistics) {
+            this._cur.statistics[k] += this._currentStatistics[k];
+        }
+    }
+
+    public nextStatistics() {
+        if(this._cur.history_index === undefined) this._cur.history_index = -1;
+
+        this._cur.history_index++;
+
+        console.log('history index:', this._cur.history_index);
+
+        if(this._cur.history_index > Game.Instance._data.max_history_statistics)
+            this._cur.history_index = 0;
+
+        if(this._cur.history === undefined) this._cur.history = [];
+
+        if(this._cur.history_index >= this._cur.history.length) {
+            this._cur.history.push({});
+        }
+
+        this._currentStatistics = this._cur.history[this._cur.history_index];
+
     }
 
 }
-
-enum MapStateEnum {
-    lock = 0,
-    first_unlock = 1,
-    not_pass = 2,
-    pass = 3,
-}
-
 
 export interface IArchive {
 
@@ -293,11 +215,4 @@ export interface IArchive {
     money: number;
     guideIndex: 0;
     mapAutoIndex: 10;
-}
-
-export interface IMap {
-    name: string;
-    score: number;
-    path: string;
-    verify: boolean;
 }

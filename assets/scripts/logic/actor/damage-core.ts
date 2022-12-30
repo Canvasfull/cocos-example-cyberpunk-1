@@ -19,6 +19,14 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
         const actor = actorPart.actor;
         if (actor === undefined) throw new Error(`${node.name} node hit part '${actorBodyName}' undefine actor`);
 
+        if(data.isPlayer) {
+            Msg.emit('msg_stat_times', `hit_${actorBodyName}`);
+        }
+
+        if(actor.isPlayer) {
+            Msg.emit('msg_stat_times', `be_hit_${actorBodyName}`);
+        }
+
         actor._data.hp -= part_damage;
         if (actor._data.hp <= 0) {
             actor._data.hp = 1;
@@ -52,6 +60,14 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
 
         const actor = actorPart.actor;
         if (actor === undefined) throw new Error(`${node.name} node hit part '${actorBodyName}' undefine actor`);
+
+        if(data.isPlayer) {
+            Msg.emit('msg_stat_times', `hit_${actorBodyName}`);
+        }
+
+        if(actor.isPlayer) {
+            Msg.emit('msg_stat_times', `be_hit_${actorBodyName}`);
+        }
 
         actor._data.hp -= part_damage;
         if (actor._data.hp <= 0) {

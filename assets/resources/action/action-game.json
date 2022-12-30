@@ -51,10 +51,13 @@
     },
     "level_end":{
         "start":[
-            { "time": 0, "name": "on_ui", "data": "ui_level_end" }
+            { "time": 0, "name": "on_msg_str", "data": { "key":"level_do", "value":"gameOver" } },
+            { "time": 0.3, "name": "on_ui", "data": "ui_level_end" },
+            { "time": 0.4, "name": "on_msg", "data": "msg_save_archive"}
         ],
         "end":[
-            { "time": 0.1, "name": "off_ui", "data": "ui_level_end" }
+            { "time": 0.1, "name": "off_ui", "data": "ui_level_end" },
+            { "time": 0.2, "name": "on_msg", "data": "msg_destroy_res" }
         ]
     },
     "settings":{

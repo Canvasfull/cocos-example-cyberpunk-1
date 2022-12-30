@@ -23,6 +23,9 @@ export class ActorBase extends Component {
     _angleHead = 0;
     _angleVertical = 0;
     _groupIndex = -1;
+
+    isPlayer = false;
+
     _actionUpdate = () => { };
 
     init (actionName: string) {

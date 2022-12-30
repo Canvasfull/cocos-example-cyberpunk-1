@@ -6,12 +6,16 @@ import { Res } from "../res/res";
 import { find } from "cc";
 import { Msg } from '../msg/msg';
 import { Game } from '../../logic/data/game';
+import { UtilNode } from '../util/util';
 
 export class UI extends Singleton {
     private _map: { [name: string]: UIBase } = {};
     public node: Node | undefined | null;
+    public panelRoot: Node | undefined;
+
     public init() {
         this.node = find('init/canvas');
+        this.panelRoot = UtilNode.getChildByName(this.node!, 'panels');
         if(this.node === undefined || this.node == null) {
             throw new Error(`can not find canvas ui root.`);
         }
@@ -33,13 +37,13 @@ export class UI extends Singleton {
             }else{
                 Res.loadPrefab('ui/'+name,(err, asset)=>{
                     if (asset) {
-                        const panel = Res.inst(asset, UI.Instance.node);
+                        const panel = Res.inst(asset, UI.Instance.panelRoot);
                         const order = Game.Instance._data.ui_order[name];
                         panel.setPosition(0, 0, order);
                         let set = false;
-                        var count = UI.Instance.node.children.length;
+                        var count = UI.Instance.panelRoot.children.length;
                         for(let i = 1; i < count; i++) {
-                            let child = this.node!.children[i];
+                            let child = this.panelRoot!.children[i];
                             if (child.position.z > order) {
                                 let ui_order = i;
                                 panel.setSiblingIndex(ui_order); 
