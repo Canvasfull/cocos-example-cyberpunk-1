@@ -311,6 +311,7 @@ export class Actor extends ActorBase implements IActorInput {
     calculateStrengthUseEquip():boolean {
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
+        console.log(this._data.strength, this._data.cost_use_equip_strength);
         if (canUseEquip) {
             this._data.strength -= this._data.cost_use_equip_strength;
             this._data.changed_strength = true;
@@ -341,7 +342,9 @@ export class Actor extends ActorBase implements IActorInput {
 
     updateStrengthInfo() {
         const percent_value = this._data.strength / this._data.max_strength;
-        Msg.emit('fil_strength', percent_value); 
+        if(this.isPlayer) {
+            Msg.emit('fil_strength', percent_value); 
+        }
     }
 
 }

@@ -9,7 +9,7 @@
             { "time": 0.5, "name": "on_inst", "data": "level_events_enemy" },
             { "time": 0.6, "name": "on_inst", "data": "level_events_items" }, 
             { "time": 0.7, "name": "on_inst", "data": "level_events_card" },
-            { "time": 10, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
+            { "time": 1000, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
         ]
     },
     "end":{
