@@ -85,7 +85,7 @@ export class Res {
         if (root === undefined) {
             director.getScene()?.addChild(instObj);
         }else{
-            instObj.parent = root;
+            instObj.setParent(root);
         }
         instObj.setPosition(pos);
         instObj.setScale(Vec3.ONE);
@@ -97,7 +97,7 @@ export class Res {
         if (root === undefined) {
             director.getScene()?.addChild(instObj);
         }else{
-            instObj.parent = root;
+            instObj.setParent(root);
         }
         instObj.setPosition(pos);
         instObj.setScale(Vec3.ONE);
