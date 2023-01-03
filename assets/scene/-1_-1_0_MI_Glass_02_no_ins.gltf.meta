@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "0327945b-5978-4d62-b80a-8e4d5474fa43",
+  "files": [],
+  "subMetas": {
+    "15131": {
+      "importer": "gltf-scene",
+      "uuid": "0327945b-5978-4d62-b80a-8e4d5474fa43@15131",
+      "displayName": "",
+      "id": "15131",
+      "name": "-1_-1_0_MI_Glass_02_no_ins.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "50e45": {
+      "importer": "gltf-mesh",
+      "uuid": "0327945b-5978-4d62-b80a-8e4d5474fa43@50e45",
+      "displayName": "",
+      "id": "50e45",
+      "name": "-1_-1_0_MI_Glass_02_no_ins.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "0327945b-5978-4d62-b80a-8e4d5474fa43@15131",
+    "assetFinder": {
+      "meshes": [
+        "0327945b-5978-4d62-b80a-8e4d5474fa43@50e45"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "0327945b-5978-4d62-b80a-8e4d5474fa43@15131"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "8fcb19fe-29ef-486f-9258-a24361f6f102",
+  "files": [],
+  "subMetas": {
+    "34185": {
+      "importer": "gltf-mesh",
+      "uuid": "8fcb19fe-29ef-486f-9258-a24361f6f102@34185",
+      "displayName": "",
+      "id": "34185",
+      "name": "-2_0_-1_MI_WallTile01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "47348": {
+      "importer": "gltf-scene",
+      "uuid": "8fcb19fe-29ef-486f-9258-a24361f6f102@47348",
+      "displayName": "",
+      "id": "47348",
+      "name": "-2_0_-1_MI_WallTile01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "8fcb19fe-29ef-486f-9258-a24361f6f102@47348",
+    "assetFinder": {
+      "meshes": [
+        "8fcb19fe-29ef-486f-9258-a24361f6f102@34185"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "8fcb19fe-29ef-486f-9258-a24361f6f102@47348"
+      ]
+    }
+  }
+}

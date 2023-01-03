@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "13fd6fdc-a941-4ffa-9238-f2c5dca87dc7",
+  "files": [],
+  "subMetas": {
+    "93a33": {
+      "importer": "gltf-mesh",
+      "uuid": "13fd6fdc-a941-4ffa-9238-f2c5dca87dc7@93a33",
+      "displayName": "",
+      "id": "93a33",
+      "name": "0_-1_0_MI_PlatformRailing_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "75c7c": {
+      "importer": "gltf-scene",
+      "uuid": "13fd6fdc-a941-4ffa-9238-f2c5dca87dc7@75c7c",
+      "displayName": "",
+      "id": "75c7c",
+      "name": "0_-1_0_MI_PlatformRailing_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "13fd6fdc-a941-4ffa-9238-f2c5dca87dc7@75c7c",
+    "assetFinder": {
+      "meshes": [
+        "13fd6fdc-a941-4ffa-9238-f2c5dca87dc7@93a33"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "13fd6fdc-a941-4ffa-9238-f2c5dca87dc7@75c7c"
+      ]
+    }
+  }
+}

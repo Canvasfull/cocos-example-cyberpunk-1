@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "86e5d8ee-5f20-4d6a-b02f-421550e44615",
+  "files": [],
+  "subMetas": {
+    "3ea18": {
+      "importer": "gltf-mesh",
+      "uuid": "86e5d8ee-5f20-4d6a-b02f-421550e44615@3ea18",
+      "displayName": "",
+      "id": "3ea18",
+      "name": "SM_BG_Parking01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "86e5d8ee-5f20-4d6a-b02f-421550e44615@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "86e5d8ee-5f20-4d6a-b02f-421550e44615@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "86e5d8ee-5f20-4d6a-b02f-421550e44615@3ea18"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "86e5d8ee-5f20-4d6a-b02f-421550e44615@53b6b"
+      ]
+    }
+  }
+}

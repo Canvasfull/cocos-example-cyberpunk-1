@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "00997ebf-6882-49f1-a5c7-3cb7e55b9729",
+  "files": [],
+  "subMetas": {
+    "8b2d7": {
+      "importer": "gltf-mesh",
+      "uuid": "00997ebf-6882-49f1-a5c7-3cb7e55b9729@8b2d7",
+      "displayName": "",
+      "id": "8b2d7",
+      "name": "-2_0_-1_MI_Roof01_BC.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e0c6c": {
+      "importer": "gltf-scene",
+      "uuid": "00997ebf-6882-49f1-a5c7-3cb7e55b9729@e0c6c",
+      "displayName": "",
+      "id": "e0c6c",
+      "name": "-2_0_-1_MI_Roof01_BC.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "00997ebf-6882-49f1-a5c7-3cb7e55b9729@e0c6c",
+    "assetFinder": {
+      "meshes": [
+        "00997ebf-6882-49f1-a5c7-3cb7e55b9729@8b2d7"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "00997ebf-6882-49f1-a5c7-3cb7e55b9729@e0c6c"
+      ]
+    }
+  }
+}

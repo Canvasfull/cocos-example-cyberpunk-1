@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c7bbe4f0-1abd-4e34-a0c6-791f14085781",
+  "files": [],
+  "subMetas": {
+    "7b124": {
+      "importer": "gltf-mesh",
+      "uuid": "c7bbe4f0-1abd-4e34-a0c6-791f14085781@7b124",
+      "displayName": "",
+      "id": "7b124",
+      "name": "-1_0_0_MI_Stair_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cac4b": {
+      "importer": "gltf-scene",
+      "uuid": "c7bbe4f0-1abd-4e34-a0c6-791f14085781@cac4b",
+      "displayName": "",
+      "id": "cac4b",
+      "name": "-1_0_0_MI_Stair_02.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "c7bbe4f0-1abd-4e34-a0c6-791f14085781@cac4b",
+    "assetFinder": {
+      "meshes": [
+        "c7bbe4f0-1abd-4e34-a0c6-791f14085781@7b124"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c7bbe4f0-1abd-4e34-a0c6-791f14085781@cac4b"
+      ]
+    }
+  }
+}

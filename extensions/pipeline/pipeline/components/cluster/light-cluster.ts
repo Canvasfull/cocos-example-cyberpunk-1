@@ -1,6 +1,7 @@
 import { director, geometry, MobilityMode, Node, renderer, SphereLight, SpotLight, Vec3, Vec4, _decorator } from "cc";
 import { EDITOR } from "cc/env";
 import { PipelineAssets } from "../../resources/pipeline-assets";
+import { cce, repaintInEditMode } from "../../utils/editor";
 import { ClusterObject, WorldCluster } from "./world-cluster";
 
 const { ccclass, executeInEditMode, property } = _decorator
@@ -65,6 +66,7 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
 
         // 3
         if (isSpotLight) {
+            light.update();
             let dir = (light as renderer.scene.SpotLight).direction;
             // Vec3.rotateX(tempVec3, dir, Vec3.ZERO, Math.PI * 0.5)
             // Vec3.rotateY(tempVec3, dir, Vec3.ZERO, Math.PI * 0.5)
@@ -112,9 +114,14 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
     @property
     forceUpdate = false;
 
+    _dirtyTimeout: NodeJS.Timeout | null;
     update (dt) {
-        if (!EDITOR && !this.dirty && !this.forceUpdate) {
+        if (!this.dirty && !this.forceUpdate) {
             return;
+        }
+
+        if (EDITOR) {
+            repaintInEditMode()
         }
 
         super.update(dt)
@@ -140,8 +147,12 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
             pass.bindSampler(binding, pointSampler)
         }
 
-        setTimeout(() => {
-            this.dirty = false;
-        }, 1000)
+        if (!this._dirtyTimeout) {
+            this._dirtyTimeout = setTimeout(() => {
+                this.dirty = false;
+                this._dirtyTimeout = null
+            }, 500)
+        }
+
     }
 }

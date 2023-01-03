@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2e774c4c-cb89-40a1-b06b-08fe0807505d",
+  "files": [],
+  "subMetas": {
+    "e482f": {
+      "importer": "gltf-mesh",
+      "uuid": "2e774c4c-cb89-40a1-b06b-08fe0807505d@e482f",
+      "displayName": "",
+      "id": "e482f",
+      "name": "GirlClub02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "2e774c4c-cb89-40a1-b06b-08fe0807505d@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "2e774c4c-cb89-40a1-b06b-08fe0807505d@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "2e774c4c-cb89-40a1-b06b-08fe0807505d@e482f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "2e774c4c-cb89-40a1-b06b-08fe0807505d@53b6b"
+      ]
+    }
+  }
+}

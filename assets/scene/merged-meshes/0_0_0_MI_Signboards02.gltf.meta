@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "ffb22463-46ed-44f4-80de-e4b5b2052397",
+  "files": [],
+  "subMetas": {
+    "3c3b0": {
+      "importer": "gltf-mesh",
+      "uuid": "ffb22463-46ed-44f4-80de-e4b5b2052397@3c3b0",
+      "displayName": "",
+      "id": "3c3b0",
+      "name": "0_0_0_MI_Signboards02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fb5b7": {
+      "importer": "gltf-scene",
+      "uuid": "ffb22463-46ed-44f4-80de-e4b5b2052397@fb5b7",
+      "displayName": "",
+      "id": "fb5b7",
+      "name": "0_0_0_MI_Signboards02.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "ffb22463-46ed-44f4-80de-e4b5b2052397@fb5b7",
+    "assetFinder": {
+      "meshes": [
+        "ffb22463-46ed-44f4-80de-e4b5b2052397@3c3b0"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "ffb22463-46ed-44f4-80de-e4b5b2052397@fb5b7"
+      ]
+    }
+  }
+}

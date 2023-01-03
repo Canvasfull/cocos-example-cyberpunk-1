@@ -24,7 +24,7 @@ export class TAAStage extends BaseStage {
 
     checkEnable (): boolean {
         return this.enable &&
-            globalThis.TAASetting.instance && globalThis.TAASetting.instance.enable &&
+            globalThis.TAASetting && globalThis.TAASetting.instance && globalThis.TAASetting.instance.enable &&
             !!HrefSetting.taa;
     }
 

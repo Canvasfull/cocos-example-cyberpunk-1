@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "97b14506-6f52-4d01-a8bc-302347655553",
+  "files": [],
+  "subMetas": {
+    "88954": {
+      "importer": "gltf-mesh",
+      "uuid": "97b14506-6f52-4d01-a8bc-302347655553@88954",
+      "displayName": "",
+      "id": "88954",
+      "name": "0_0_-1_MI_PavementTile01_cull_front.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "658fb": {
+      "importer": "gltf-scene",
+      "uuid": "97b14506-6f52-4d01-a8bc-302347655553@658fb",
+      "displayName": "",
+      "id": "658fb",
+      "name": "0_0_-1_MI_PavementTile01_cull_front.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "97b14506-6f52-4d01-a8bc-302347655553@658fb",
+    "assetFinder": {
+      "meshes": [
+        "97b14506-6f52-4d01-a8bc-302347655553@88954"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "97b14506-6f52-4d01-a8bc-302347655553@658fb"
+      ]
+    }
+  }
+}

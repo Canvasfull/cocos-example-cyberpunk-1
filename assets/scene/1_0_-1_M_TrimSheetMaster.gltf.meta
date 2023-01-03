@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "e6b0a5a6-8792-47a3-9949-c10c0fd5dbce",
+  "files": [],
+  "subMetas": {
+    "dfd1e": {
+      "importer": "gltf-mesh",
+      "uuid": "e6b0a5a6-8792-47a3-9949-c10c0fd5dbce@dfd1e",
+      "displayName": "",
+      "id": "dfd1e",
+      "name": "1_0_-1_M_TrimSheetMaster.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "00da0": {
+      "importer": "gltf-scene",
+      "uuid": "e6b0a5a6-8792-47a3-9949-c10c0fd5dbce@00da0",
+      "displayName": "",
+      "id": "00da0",
+      "name": "1_0_-1_M_TrimSheetMaster.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "e6b0a5a6-8792-47a3-9949-c10c0fd5dbce@00da0",
+    "assetFinder": {
+      "meshes": [
+        "e6b0a5a6-8792-47a3-9949-c10c0fd5dbce@dfd1e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "e6b0a5a6-8792-47a3-9949-c10c0fd5dbce@00da0"
+      ]
+    }
+  }
+}

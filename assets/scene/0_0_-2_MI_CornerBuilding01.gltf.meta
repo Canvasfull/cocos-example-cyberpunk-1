@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f5349508-4078-4156-a6e6-415a2ec9bfdc",
+  "files": [],
+  "subMetas": {
+    "f629e": {
+      "importer": "gltf-mesh",
+      "uuid": "f5349508-4078-4156-a6e6-415a2ec9bfdc@f629e",
+      "displayName": "",
+      "id": "f629e",
+      "name": "0_0_-2_MI_CornerBuilding01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "314ae": {
+      "importer": "gltf-scene",
+      "uuid": "f5349508-4078-4156-a6e6-415a2ec9bfdc@314ae",
+      "displayName": "",
+      "id": "314ae",
+      "name": "0_0_-2_MI_CornerBuilding01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f5349508-4078-4156-a6e6-415a2ec9bfdc@314ae",
+    "assetFinder": {
+      "meshes": [
+        "f5349508-4078-4156-a6e6-415a2ec9bfdc@f629e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f5349508-4078-4156-a6e6-415a2ec9bfdc@314ae"
+      ]
+    }
+  }
+}

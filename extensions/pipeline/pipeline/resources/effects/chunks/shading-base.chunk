@@ -53,7 +53,7 @@ vec4 CCCustomShadingBase (StandardSurface s, vec4 shadowPos, out vec3 specular) 
     finalColor *= dirlightContrib;
   #endif
 
-  float fAmb = 0.5 - N.y * 0.5;
+  float fAmb = max(0.5 - N.y * 0.5, 0.001);
   vec3 ambDiff = mix(cc_ambientSky.rgb, cc_ambientGround.rgb, fAmb);
     
   specular = cc_ambientSky.w * specular * s.occlusion;

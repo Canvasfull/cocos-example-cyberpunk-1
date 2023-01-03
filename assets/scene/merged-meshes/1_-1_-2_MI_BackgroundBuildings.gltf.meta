@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "385f3a0f-1696-45ce-9bbb-69d07aeab7a2",
+  "files": [],
+  "subMetas": {
+    "40610": {
+      "importer": "gltf-mesh",
+      "uuid": "385f3a0f-1696-45ce-9bbb-69d07aeab7a2@40610",
+      "displayName": "",
+      "id": "40610",
+      "name": "1_-1_-2_MI_BackgroundBuildings.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1ea55": {
+      "importer": "gltf-scene",
+      "uuid": "385f3a0f-1696-45ce-9bbb-69d07aeab7a2@1ea55",
+      "displayName": "",
+      "id": "1ea55",
+      "name": "1_-1_-2_MI_BackgroundBuildings.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "385f3a0f-1696-45ce-9bbb-69d07aeab7a2@1ea55",
+    "assetFinder": {
+      "meshes": [
+        "385f3a0f-1696-45ce-9bbb-69d07aeab7a2@40610"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "385f3a0f-1696-45ce-9bbb-69d07aeab7a2@1ea55"
+      ]
+    }
+  }
+}

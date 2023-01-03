@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c7b6acb5-9313-4bd5-867d-997ccc0b82d9",
+  "files": [],
+  "subMetas": {
+    "2ba3f": {
+      "importer": "gltf-mesh",
+      "uuid": "c7b6acb5-9313-4bd5-867d-997ccc0b82d9@2ba3f",
+      "displayName": "",
+      "id": "2ba3f",
+      "name": "-1_0_0_MI_Stair_01_Painted_cull_front.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b6ee6": {
+      "importer": "gltf-scene",
+      "uuid": "c7b6acb5-9313-4bd5-867d-997ccc0b82d9@b6ee6",
+      "displayName": "",
+      "id": "b6ee6",
+      "name": "-1_0_0_MI_Stair_01_Painted_cull_front.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "c7b6acb5-9313-4bd5-867d-997ccc0b82d9@b6ee6",
+    "assetFinder": {
+      "meshes": [
+        "c7b6acb5-9313-4bd5-867d-997ccc0b82d9@2ba3f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c7b6acb5-9313-4bd5-867d-997ccc0b82d9@b6ee6"
+      ]
+    }
+  }
+}

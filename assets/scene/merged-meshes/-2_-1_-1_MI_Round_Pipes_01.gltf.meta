@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "64133c40-4faa-45b4-93fd-8bcdadde01c9",
+  "files": [],
+  "subMetas": {
+    "f8a0c": {
+      "importer": "gltf-mesh",
+      "uuid": "64133c40-4faa-45b4-93fd-8bcdadde01c9@f8a0c",
+      "displayName": "",
+      "id": "f8a0c",
+      "name": "-2_-1_-1_MI_Round_Pipes_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "adbb7": {
+      "importer": "gltf-scene",
+      "uuid": "64133c40-4faa-45b4-93fd-8bcdadde01c9@adbb7",
+      "displayName": "",
+      "id": "adbb7",
+      "name": "-2_-1_-1_MI_Round_Pipes_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "64133c40-4faa-45b4-93fd-8bcdadde01c9@adbb7",
+    "assetFinder": {
+      "meshes": [
+        "64133c40-4faa-45b4-93fd-8bcdadde01c9@f8a0c"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "64133c40-4faa-45b4-93fd-8bcdadde01c9@adbb7"
+      ]
+    }
+  }
+}

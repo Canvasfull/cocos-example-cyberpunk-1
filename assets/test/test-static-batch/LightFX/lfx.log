@@ -1,0 +1,33 @@
+2022-12-27 17:06:25 Version 370
+2022-12-27 17:06:25 CmdLine: C:\workspace\fireball\CocosCreator-v3.7.0-win-121413\resources\tools\lightmap-tools/LightFX http://127.0.0.1:8000 
+2022-12-27 17:06:25 -: Building meshes 1
+2022-12-27 17:06:25 -: Building terrain 0
+2022-12-27 17:06:25 -: Building embree scene
+2022-12-27 17:06:25 -: Mesh tasks 1
+2022-12-27 17:06:25 -: Terrain tasks 0
+2022-12-27 17:06:25 -: Starting thread 0
+2022-12-27 17:06:25 -: Starting thread 1
+2022-12-27 17:06:25 -: Starting thread 2
+2022-12-27 17:06:25 -: Starting thread 3
+2022-12-27 17:06:25 -: Starting thread 4
+2022-12-27 17:06:25 -: Starting thread 5
+2022-12-27 17:06:25 -: Starting thread 6
+2022-12-27 17:06:25 -: Starting thread 7
+2022-12-27 17:06:26 Start 0
+
+2022-12-27 17:06:26 Build lighting 50
+
+2022-12-27 17:06:26 Baking Mesh 0, 64x
+2022-12-27 17:06:26 Build lighting 100
+
+2022-12-27 17:06:26 Save world...
+2022-12-27 17:06:26 Writing lfx file 'output/lfx.out'
+2022-12-27 17:06:26 Pack mesh 0
+2022-12-27 17:06:26 Save lighting map output/LFX_Mesh_0000.png
+2022-12-27 17:06:26 Writing lfx file end.
+2022-12-27 17:06:26 Save world end.
+2022-12-27 17:06:26 Clear world...
+2022-12-27 17:06:26 Clear world end.
+2022-12-27 17:06:26 Emit finished
+2022-12-27 17:06:26 Delete world
+2022-12-27 17:06:26 Wait to stop

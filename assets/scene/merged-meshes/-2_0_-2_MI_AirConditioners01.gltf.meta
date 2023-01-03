@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "d928ba3a-6734-4220-93cf-304708c67ead",
+  "files": [],
+  "subMetas": {
+    "e9c73": {
+      "importer": "gltf-mesh",
+      "uuid": "d928ba3a-6734-4220-93cf-304708c67ead@e9c73",
+      "displayName": "",
+      "id": "e9c73",
+      "name": "-2_0_-2_MI_AirConditioners01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c50d3": {
+      "importer": "gltf-scene",
+      "uuid": "d928ba3a-6734-4220-93cf-304708c67ead@c50d3",
+      "displayName": "",
+      "id": "c50d3",
+      "name": "-2_0_-2_MI_AirConditioners01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "d928ba3a-6734-4220-93cf-304708c67ead@c50d3",
+    "assetFinder": {
+      "meshes": [
+        "d928ba3a-6734-4220-93cf-304708c67ead@e9c73"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "d928ba3a-6734-4220-93cf-304708c67ead@c50d3"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c276a7ab-2629-44ad-87b6-c19261d3fa52",
+  "files": [],
+  "subMetas": {
+    "42c71": {
+      "importer": "gltf-mesh",
+      "uuid": "c276a7ab-2629-44ad-87b6-c19261d3fa52@42c71",
+      "displayName": "",
+      "id": "42c71",
+      "name": "0_-1_0_M_PaperBoxes_03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7db18": {
+      "importer": "gltf-scene",
+      "uuid": "c276a7ab-2629-44ad-87b6-c19261d3fa52@7db18",
+      "displayName": "",
+      "id": "7db18",
+      "name": "0_-1_0_M_PaperBoxes_03.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "c276a7ab-2629-44ad-87b6-c19261d3fa52@7db18",
+    "assetFinder": {
+      "meshes": [
+        "c276a7ab-2629-44ad-87b6-c19261d3fa52@42c71"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c276a7ab-2629-44ad-87b6-c19261d3fa52@7db18"
+      ]
+    }
+  }
+}

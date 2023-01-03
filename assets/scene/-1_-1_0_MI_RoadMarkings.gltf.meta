@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "806c9bcb-c74d-41ba-ad84-045c6f185ad8",
+  "files": [],
+  "subMetas": {
+    "c1978": {
+      "importer": "gltf-mesh",
+      "uuid": "806c9bcb-c74d-41ba-ad84-045c6f185ad8@c1978",
+      "displayName": "",
+      "id": "c1978",
+      "name": "-1_-1_0_MI_RoadMarkings.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "537df": {
+      "importer": "gltf-scene",
+      "uuid": "806c9bcb-c74d-41ba-ad84-045c6f185ad8@537df",
+      "displayName": "",
+      "id": "537df",
+      "name": "-1_-1_0_MI_RoadMarkings.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "806c9bcb-c74d-41ba-ad84-045c6f185ad8@537df",
+    "assetFinder": {
+      "meshes": [
+        "806c9bcb-c74d-41ba-ad84-045c6f185ad8@c1978"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "806c9bcb-c74d-41ba-ad84-045c6f185ad8@537df"
+      ]
+    }
+  }
+}

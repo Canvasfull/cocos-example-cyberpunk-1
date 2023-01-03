@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "224546b6-3ac8-4eab-ae5f-8f1248e3ba96",
+  "files": [],
+  "subMetas": {
+    "90fac": {
+      "importer": "gltf-mesh",
+      "uuid": "224546b6-3ac8-4eab-ae5f-8f1248e3ba96@90fac",
+      "displayName": "",
+      "id": "90fac",
+      "name": "0_-1_0_MI_MetalWallPart_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6307c": {
+      "importer": "gltf-scene",
+      "uuid": "224546b6-3ac8-4eab-ae5f-8f1248e3ba96@6307c",
+      "displayName": "",
+      "id": "6307c",
+      "name": "0_-1_0_MI_MetalWallPart_01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "224546b6-3ac8-4eab-ae5f-8f1248e3ba96@6307c",
+    "assetFinder": {
+      "meshes": [
+        "224546b6-3ac8-4eab-ae5f-8f1248e3ba96@90fac"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "224546b6-3ac8-4eab-ae5f-8f1248e3ba96@6307c"
+      ]
+    }
+  }
+}

@@ -47,7 +47,9 @@ export default class OrbitCamera extends Component {
             systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onTouchEnd, this)
         }
 
-        this.resetRotation()
+        this._targetRotation.set(this.node.eulerAngles);
+        this._rotation.set(this.node.rotation);
+
         this.limitRotation()
     }
 
@@ -84,10 +86,6 @@ export default class OrbitCamera extends Component {
         rotation.z = 0;
     }
 
-    resetRotation () {
-        let targetRotation = this._targetRotation.set(this._startRotation);
-        Quat.fromEuler(this._rotation, targetRotation.x, targetRotation.y, targetRotation.z);
-    }
 
     update (dt: number) {
         let targetRotation = this._targetRotation;

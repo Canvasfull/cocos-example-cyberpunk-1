@@ -1,89 +1,107 @@
-2022-12-14 15:44:04 Version 370
-2022-12-14 15:44:04 CmdLine: C:\workspace\fireball\CocosCreator-v3.7.0-win-120501\resources\tools\lightmap-tools/LightFX http://127.0.0.1:8000 
-2022-12-14 15:44:04 Texture 'C:\workspace\fireball\projects\cyberpunk\assets\res\textures\T_CornerBuilding01_BC.png' loaded
-2022-12-14 15:44:04 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
-2022-12-14 15:44:04 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
-2022-12-14 15:44:04 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
-2022-12-14 15:44:04 -: Building meshes 14
-2022-12-14 15:44:04 -: Building terrain 0
-2022-12-14 15:44:04 -: Building embree scene
-2022-12-14 15:44:04 -: Mesh tasks 14
-2022-12-14 15:44:04 -: Terrain tasks 0
-2022-12-14 15:44:04 -: Starting thread 0
-2022-12-14 15:44:04 -: Starting thread 1
-2022-12-14 15:44:04 -: Starting thread 2
-2022-12-14 15:44:04 -: Starting thread 3
-2022-12-14 15:44:04 -: Starting thread 4
-2022-12-14 15:44:04 -: Starting thread 5
-2022-12-14 15:44:04 -: Starting thread 6
-2022-12-14 15:44:04 -: Starting thread 7
-2022-12-14 15:44:05 Start 0
+2022-12-29 18:06:58 Version 370
+2022-12-29 18:06:58 CmdLine: C:\workspace\fireball\CocosCreator-v3.7.0-win-122901\resources\tools\lightmap-tools/LightFX http://127.0.0.1:8001 
+2022-12-29 18:06:58 Texture 'C:\workspace\fireball\projects\cyberpunk\assets\res\textures\T_CornerBuilding01_BC.png' loaded
+2022-12-29 18:06:58 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
+2022-12-29 18:06:58 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
+2022-12-29 18:06:58 Load Texture 'd468af81-28df-4044-9338-4e042e60da59' failed
+2022-12-29 18:06:58 Texture 'C:\workspace\fireball\projects\cyberpunk\assets\res\textures\T_CyberSignBoards_BC_sRGB.png' loaded
+2022-12-29 18:06:58 Load Texture '0f390db4-8c40-4b38-a8e1-f81b275c3dbf' failed
+2022-12-29 18:06:58 -: Building meshes 18
+2022-12-29 18:06:58 -: Building terrain 0
+2022-12-29 18:06:58 -: Building embree scene
+2022-12-29 18:06:58 -: Mesh tasks 18
+2022-12-29 18:06:58 -: Terrain tasks 0
+2022-12-29 18:06:58 -: Starting thread 0
+2022-12-29 18:06:58 -: Starting thread 1
+2022-12-29 18:06:58 -: Starting thread 2
+2022-12-29 18:06:58 -: Starting thread 3
+2022-12-29 18:06:58 -: Starting thread 4
+2022-12-29 18:06:58 -: Starting thread 5
+2022-12-29 18:06:58 -: Starting thread 6
+2022-12-29 18:06:58 -: Starting thread 7
+2022-12-29 18:06:59 Start 0
 
-2022-12-14 15:44:05 Build lighting 6
+2022-12-29 18:06:59 Build lighting 5
 
-2022-12-14 15:44:05 Baking Mesh 3, 128x
-2022-12-14 15:44:05 Baking Mesh 0, 64x
-2022-12-14 15:44:05 Baking Mesh 1, 64x
-2022-12-14 15:44:05 Baking Mesh 7, 128x
-2022-12-14 15:44:05 Baking Mesh 6, 128x
-2022-12-14 15:44:05 Baking Mesh 5, 128x
-2022-12-14 15:44:05 Baking Mesh 4, 128x
-2022-12-14 15:44:05 Baking Mesh 2, 64x
-2022-12-14 15:44:05 Build lighting 13
+2022-12-29 18:06:59 Baking Mesh 6, 64x
+2022-12-29 18:06:59 Baking Mesh 3, 128x
+2022-12-29 18:06:59 Baking Mesh 1, 64x
+2022-12-29 18:06:59 Baking Mesh 2, 64x
+2022-12-29 18:06:59 Baking Mesh 0, 64x
+2022-12-29 18:06:59 Baking Mesh 4, 128x
+2022-12-29 18:06:59 Baking Mesh 7, 128x
+2022-12-29 18:06:59 Baking Mesh 5, 128x
+2022-12-29 18:06:59 Build lighting 10
 
-2022-12-14 15:44:05 Baking Mesh 8, 128x
-2022-12-14 15:44:05 Build lighting 20
+2022-12-29 18:06:59 Baking Mesh 8, 128x
+2022-12-29 18:06:59 Baking Mesh 9, 128x
+2022-12-29 18:06:59 Build lighting 15
 
-2022-12-14 15:44:05 Baking Mesh 9, 128x
-2022-12-14 15:44:05 Build lighting 26
+2022-12-29 18:06:59 Build lighting 21
 
-2022-12-14 15:44:05 Baking Mesh 10, 128x
-2022-12-14 15:44:06 Baking Mesh 11, 64x
-2022-12-14 15:44:06 Build lighting 33
+2022-12-29 18:06:59 Baking Mesh 10, 128x
+2022-12-29 18:06:59 Build lighting 26
 
-2022-12-14 15:44:06 Build lighting 40
+2022-12-29 18:06:59 Baking Mesh 11, 64x
+2022-12-29 18:07:00 Baking Mesh 12, 64x
+2022-12-29 18:07:00 Build lighting 31
 
-2022-12-14 15:44:06 Baking Mesh 12, 64x
-2022-12-14 15:44:06 Baking Mesh 13, 64x
-2022-12-14 15:44:06 Build lighting 46
+2022-12-29 18:07:00 Build lighting 36
 
-2022-12-14 15:44:06 Build lighting 53
+2022-12-29 18:07:00 Baking Mesh 13, 64x
+2022-12-29 18:07:00 Baking Mesh 14, 64x
+2022-12-29 18:07:00 Build lighting 42
 
-2022-12-14 15:44:06 Build lighting 60
+2022-12-29 18:07:00 Build lighting 47
 
-2022-12-14 15:44:06 Build lighting 66
+2022-12-29 18:07:00 Baking Mesh 15, 64x
+2022-12-29 18:07:00 Baking Mesh 16, 64x
+2022-12-29 18:07:00 Build lighting 52
 
-2022-12-14 15:44:07 Build lighting 73
+2022-12-29 18:07:00 Baking Mesh 17, 64x
+2022-12-29 18:07:00 Build lighting 57
 
-2022-12-14 15:44:07 Build lighting 80
+2022-12-29 18:07:01 Build lighting 63
 
-2022-12-14 15:44:07 Build lighting 86
+2022-12-29 18:07:01 Build lighting 68
 
-2022-12-14 15:44:08 Build lighting 93
+2022-12-29 18:07:01 Build lighting 73
 
-2022-12-14 15:44:08 Build lighting 100
+2022-12-29 18:07:01 Build lighting 78
 
-2022-12-14 15:44:08 Save world...
-2022-12-14 15:44:08 Writing lfx file 'output/lfx.out'
-2022-12-14 15:44:08 Pack mesh 0
-2022-12-14 15:44:08 Pack mesh 1
-2022-12-14 15:44:08 Pack mesh 2
-2022-12-14 15:44:08 Pack mesh 3
-2022-12-14 15:44:08 Pack mesh 4
-2022-12-14 15:44:08 Pack mesh 5
-2022-12-14 15:44:08 Pack mesh 6
-2022-12-14 15:44:08 Pack mesh 7
-2022-12-14 15:44:08 Pack mesh 8
-2022-12-14 15:44:08 Pack mesh 9
-2022-12-14 15:44:08 Pack mesh 10
-2022-12-14 15:44:08 Pack mesh 11
-2022-12-14 15:44:08 Pack mesh 12
-2022-12-14 15:44:08 Pack mesh 13
-2022-12-14 15:44:08 Save lighting map output/LFX_Mesh_0000.png
-2022-12-14 15:44:08 Writing lfx file end.
-2022-12-14 15:44:08 Save world end.
-2022-12-14 15:44:08 Clear world...
-2022-12-14 15:44:08 Clear world end.
-2022-12-14 15:44:08 Emit finished
-2022-12-14 15:44:08 Delete world
-2022-12-14 15:44:08 Wait to stop
+2022-12-29 18:07:02 Build lighting 84
+
+2022-12-29 18:07:02 Build lighting 89
+
+2022-12-29 18:07:02 Build lighting 94
+
+2022-12-29 18:07:02 Build lighting 100
+
+2022-12-29 18:07:02 Save world...
+2022-12-29 18:07:02 Writing lfx file 'output/lfx.out'
+2022-12-29 18:07:02 Pack mesh 0
+2022-12-29 18:07:02 Pack mesh 1
+2022-12-29 18:07:02 Pack mesh 2
+2022-12-29 18:07:02 Pack mesh 3
+2022-12-29 18:07:02 Pack mesh 4
+2022-12-29 18:07:02 Pack mesh 5
+2022-12-29 18:07:02 Pack mesh 6
+2022-12-29 18:07:02 Pack mesh 7
+2022-12-29 18:07:02 Pack mesh 8
+2022-12-29 18:07:02 Pack mesh 9
+2022-12-29 18:07:02 Pack mesh 10
+2022-12-29 18:07:02 Pack mesh 11
+2022-12-29 18:07:02 Pack mesh 12
+2022-12-29 18:07:02 Pack mesh 13
+2022-12-29 18:07:02 Pack mesh 14
+2022-12-29 18:07:02 Pack mesh 15
+2022-12-29 18:07:02 Pack mesh 16
+2022-12-29 18:07:02 Pack mesh 17
+2022-12-29 18:07:02 Save lighting map output/LFX_Mesh_0000.png
+2022-12-29 18:07:02 Writing lfx file end.
+2022-12-29 18:07:02 Save world end.
+2022-12-29 18:07:02 Clear world...
+2022-12-29 18:07:02 Clear world end.
+2022-12-29 18:07:02 Emit finished
+2022-12-29 18:07:02 Delete world
+2022-12-29 18:07:02 Wait to stop

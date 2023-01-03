@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "1d9bbf21-6306-4233-84cb-ad1ef96ef483",
+  "files": [],
+  "subMetas": {
+    "c78a4": {
+      "importer": "gltf-mesh",
+      "uuid": "1d9bbf21-6306-4233-84cb-ad1ef96ef483@c78a4",
+      "displayName": "",
+      "id": "c78a4",
+      "name": "0_-1_0_M_AnimBoard01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0538a": {
+      "importer": "gltf-scene",
+      "uuid": "1d9bbf21-6306-4233-84cb-ad1ef96ef483@0538a",
+      "displayName": "",
+      "id": "0538a",
+      "name": "0_-1_0_M_AnimBoard01.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "1d9bbf21-6306-4233-84cb-ad1ef96ef483@0538a",
+    "assetFinder": {
+      "meshes": [
+        "1d9bbf21-6306-4233-84cb-ad1ef96ef483@c78a4"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "1d9bbf21-6306-4233-84cb-ad1ef96ef483@0538a"
+      ]
+    }
+  }
+}
