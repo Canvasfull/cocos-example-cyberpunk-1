@@ -41,9 +41,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": 1.768,
       "y": 0,
-      "z": 0
+      "z": 3
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -92,7 +92,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -0.245,
       "z": 0
     },
     "_lrot": {
@@ -139,7 +139,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": -0.004
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -289,16 +289,16 @@
     "_mode": 0,
     "color": {
       "__type__": "cc.Color",
-      "r": 245,
-      "g": 193,
-      "b": 103,
-      "a": 255
+      "r": 196,
+      "g": 245,
+      "b": 134,
+      "a": 117
     }
   },
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 1,
+    "constant": 0.5,
     "multiplier": 1
   },
   {
@@ -358,7 +358,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 2,
+    "constant": 1.5,
     "multiplier": 1
   },
   {
@@ -465,14 +465,14 @@
     "__type__": "cc.RealCurve",
     "_times": [
       0,
-      1
+      0.9923076923076923
     ],
     "_values": [
       {
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 2,
         "tangentWeightMode": 0,
-        "value": 0.5333333333333333,
+        "value": 0,
         "rightTangent": 0,
         "rightTangentWeight": 0,
         "leftTangent": 0,
@@ -484,10 +484,10 @@
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 2,
         "tangentWeightMode": 0,
-        "value": 0.8296296296296296,
-        "rightTangent": 0.035230352303522575,
+        "value": 0.6703703703703704,
+        "rightTangent": 0.4702842377260986,
         "rightTangentWeight": 0,
-        "leftTangent": 0.035230352303522575,
+        "leftTangent": 0.4702842377260986,
         "leftTangentWeight": 0,
         "easingMethod": 0,
         "__editorExtras__": null
@@ -812,7 +812,7 @@
     "__type__": "cc.ParticleSystemRenderer",
     "_renderMode": 1,
     "_velocityScale": 0.5,
-    "_lengthScale": 10,
+    "_lengthScale": 5,
     "_mesh": null,
     "_cpuMaterial": {
       "__uuid__": "4a75b833-c0b8-47b3-87be-d24885a345d4",
@@ -964,16 +964,16 @@
     "_mode": 0,
     "color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 186,
-      "b": 65,
-      "a": 255
+      "r": 200,
+      "g": 245,
+      "b": 103,
+      "a": 123
     }
   },
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 1,
+    "constant": 0.3,
     "multiplier": 1
   },
   {
@@ -1147,7 +1147,7 @@
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 2,
         "tangentWeightMode": 0,
-        "value": 0.5333333333333333,
+        "value": 0.8814814814814815,
         "rightTangent": 0,
         "rightTangentWeight": 0,
         "leftTangent": 0,
@@ -1159,7 +1159,7 @@
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 2,
         "tangentWeightMode": 0,
-        "value": 1,
+        "value": 0.9111111111111111,
         "rightTangent": 0,
         "rightTangentWeight": 0,
         "leftTangent": 0,
@@ -1487,7 +1487,7 @@
     "__type__": "cc.ParticleSystemRenderer",
     "_renderMode": 1,
     "_velocityScale": 1,
-    "_lengthScale": 3,
+    "_lengthScale": 1,
     "_mesh": null,
     "_cpuMaterial": {
       "__uuid__": "4a75b833-c0b8-47b3-87be-d24885a345d4",
@@ -1644,7 +1644,6 @@
       "__id__": 0
     },
     "fileId": "04vDo5KTFNqaKiMRsepCU7",
-    "instance": null,
-    "targetOverrides": null
+    "targetOverrides": []
   }
 ]

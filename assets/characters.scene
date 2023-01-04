@@ -146,6 +146,7 @@
     "_csmOptimizationMode": 2,
     "_csmAdvancedOptions": false,
     "_csmLayersTransition": false,
+    "_csmTransitionRange": 0.05,
     "_shadowFixedArea": false,
     "_shadowNear": 0.1,
     "_shadowFar": 10,
@@ -1270,6 +1271,7 @@
     "_csmOptimizationMode": 2,
     "_csmAdvancedOptions": false,
     "_csmLayersTransition": false,
+    "_csmTransitionRange": 0.05,
     "_shadowFixedArea": false,
     "_shadowNear": 0.1,
     "_shadowFar": 10,
@@ -1332,11 +1334,7 @@
         "__id__": 46
       }
     ],
-    "removedComponents": [],
-    "ids": [
-      "50lYy2kcJILpB+v9ZEUHHx",
-      "55FzExKOtOtaYjihrZQQuO"
-    ]
+    "removedComponents": []
   },
   {
     "__type__": "CCPropertyOverrideInfo",

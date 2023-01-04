@@ -43,7 +43,7 @@
       "__type__": "cc.Vec3",
       "x": 0.95,
       "y": 0,
-      "z": 0
+      "z": 5.972
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -258,7 +258,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "ea31fdcf-64d6-4232-a4d4-b620f6d138b6",
+        "__uuid__": "44fbcc16-d908-4ac5-8e7d-84dc40ec38a9",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -4411,7 +4411,6 @@
       "__id__": 0
     },
     "fileId": "a6wzy+q6FSrru7/sj2PTM6",
-    "instance": null,
     "targetOverrides": null
   }
 ]

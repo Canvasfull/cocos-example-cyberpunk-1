@@ -7,12 +7,11 @@
     "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
     "__expectedType__": "cc.EffectAsset"
   },
-  "_techIdx": 0,
+  "_techIdx": 1,
   "_defines": [
     {
-      "USE_NORMAL_MAP": true,
       "USE_ALBEDO_MAP": true,
-      "USE_OCCLUSION_MAP": true
+      "USE_EMISSIVE_MAP": true
     },
     {},
     {}
@@ -48,19 +47,21 @@
   ],
   "_props": [
     {
-      "roughness": 0.625,
+      "mainColor": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 193
+      },
+      "roughness": 0.5,
       "metallic": 0,
-      "specularIntensity": 0.587,
       "mainTexture": {
-        "__uuid__": "5011c491-0edd-4cc5-92c0-ac0aa09ee38f@6c48a",
+        "__uuid__": "a78bb229-471a-4e27-82ae-6bc735586738@6c48a",
         "__expectedType__": "cc.Texture2D"
       },
-      "normalMap": {
-        "__uuid__": "de4b5f5f-0fe2-4bd0-a201-d02e9464443b@6c48a",
-        "__expectedType__": "cc.Texture2D"
-      },
-      "occlusionMap": {
-        "__uuid__": "a0777af7-7344-4617-b998-e1152a7a464f@6c48a",
+      "emissiveMap": {
+        "__uuid__": "a78bb229-471a-4e27-82ae-6bc735586738@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },

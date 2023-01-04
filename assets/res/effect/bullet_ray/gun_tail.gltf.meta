@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "89c1bfff-a857-47cc-a15d-c4487491539c",
+  "files": [],
+  "subMetas": {
+    "3175e": {
+      "importer": "gltf-mesh",
+      "uuid": "89c1bfff-a857-47cc-a15d-c4487491539c@3175e",
+      "displayName": "",
+      "id": "3175e",
+      "name": "mesh_gun_trail.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0e389": {
+      "importer": "gltf-scene",
+      "uuid": "89c1bfff-a857-47cc-a15d-c4487491539c@0e389",
+      "displayName": "",
+      "id": "0e389",
+      "name": "gun_tail.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "89c1bfff-a857-47cc-a15d-c4487491539c@0e389",
+    "assetFinder": {
+      "meshes": [
+        "89c1bfff-a857-47cc-a15d-c4487491539c@3175e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "89c1bfff-a857-47cc-a15d-c4487491539c@0e389"
+      ]
+    }
+  }
+}
