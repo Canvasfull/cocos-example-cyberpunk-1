@@ -307,6 +307,8 @@ CCProgram standard-fs %{
 
   #include <../effects/chunks/shading-base>
 
+  #pragma define-meta CC_FORCE_FORWARD_SHADING
+
   #if CC_FORWARD_ADD                                                 
     #include <legacy/shading-standard-additive>                             
     #if CC_ENABLE_CLUSTERED_LIGHT_CULLING == 1                       
@@ -327,20 +329,20 @@ CCProgram standard-fs %{
     }                                                                
 
 
-  #elif (CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD ) 
+  #elif (CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_FORWARD)
                                                                     
     layout(location = 0) out vec4 fragColorX;                        
                                                                     
     void main () {                                                   
       StandardSurface s; surf(s);                                    
       vec4 color = CCFragOutput(CCStandardShadingBase(s, CC_SHADOW_POSITION));     
-      #if CC_USE_FOG != CC_FOG_NONE                                  
-        CC_APPLY_FOG(color, s.position.xyz);                         
-      #endif                                                         
-      #if CC_USE_RGBE_OUTPUT                                         
-        color = packRGBE(color.rgb);                                 
-      #endif                                                         
-      fragColorX = color;                                            
+      // #if CC_USE_FOG != CC_FOG_NONE                                  
+      //   CC_APPLY_FOG(color, s.position.xyz);                         
+      // #endif                                                         
+      // #if CC_USE_RGBE_OUTPUT                                         
+      //   color = packRGBE(color.rgb);                                 
+      // #endif                                                         
+      fragColorX = color;
     }                                                                
                                                                     
   #elif CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED                
@@ -379,8 +381,13 @@ CCProgram standard-fs %{
     void main () {
       StandardSurface s; surf(s);
 
+      #if CC_FORCE_FORWARD_SHADING
+        fragColor0 = CCStandardShadingBase(s, CC_SHADOW_POSITION);
+        return;
+      #endif
+
       if (cc_fogBase.x == 0.) {       // forward
-        fragColor0 = CCFragOutput(CCStandardShadingBase(s, CC_SHADOW_POSITION));
+        fragColor0 = CCStandardShadingBase(s, CC_SHADOW_POSITION);
       }
       else if (cc_fogBase.x == 1.) {  // deferred
         vec3 diffuse = s.albedo.rgb * (1.0 - s.metallic);
