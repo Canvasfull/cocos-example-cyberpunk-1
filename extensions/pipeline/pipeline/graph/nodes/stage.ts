@@ -9,7 +9,6 @@ import { loadResources } from '../../utils/npm';
 import { ForwardStage } from '../../stages/forward-stage';
 import { DeferredGBufferStage } from '../../stages/deferred-gbuffer-stage';
 import { DeferredLightingStage } from '../../stages/deferred-lighting-stage';
-import { PipelineAssets } from '../../resources/pipeline-assets';
 import { DeferredPostStage } from '../../stages/deferred-post-stage';
 import { BloomStage } from '../../stages/bloom-stage';
 import { TAAStage } from '../../stages/taa-stage';

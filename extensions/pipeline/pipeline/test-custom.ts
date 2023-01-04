@@ -1,6 +1,5 @@
 import { gfx, Material, renderer, rendering } from "cc";
 import { EDITOR } from "cc/env";
-import { PipelineAssets } from "./resources/pipeline-assets";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea, SRGBToLinear } from "./utils/utils";
 
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;

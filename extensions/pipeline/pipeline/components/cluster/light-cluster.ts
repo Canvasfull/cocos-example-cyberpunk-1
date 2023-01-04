@@ -1,6 +1,5 @@
 import { director, geometry, MobilityMode, Node, renderer, SphereLight, SpotLight, Vec3, Vec4, _decorator } from "cc";
 import { EDITOR } from "cc/env";
-import { PipelineAssets } from "../../resources/pipeline-assets";
 import { cce, repaintInEditMode } from "../../utils/editor";
 import { ClusterObject, WorldCluster } from "./world-cluster";
 
