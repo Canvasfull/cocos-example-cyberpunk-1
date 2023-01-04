@@ -1,6 +1,5 @@
 import { clamp, Color, Component, Material, Vec4, _decorator } from 'cc';
 import { CameraSetting } from '../../camera-setting';
-import { PipelineAssets } from '../../resources/pipeline-assets';
 
 const { ccclass, property, type, executeInEditMode } = _decorator;
 
