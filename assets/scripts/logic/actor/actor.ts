@@ -172,11 +172,13 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onGround () {
-        if(!this._data.is_ground) this.do('on_ground');
+        //if(!this._data.is_ground) 
+        this.do('on_ground');
     }
 
     offGround () {
-        if(this._data.is_ground) this.do('off_ground');
+        //if(this._data.is_ground) 
+        this.do('off_ground');
     }
 
     onWin () {

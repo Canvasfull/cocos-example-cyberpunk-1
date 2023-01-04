@@ -71,15 +71,16 @@ export class SensorGround extends Component {
     checkGroundRays() {
 
         this._actor!._rigid.getLinearVelocity(this._velocity);
-        if (this._velocity.y > 0) return;
-        //this._isGround = this._actor?._data.is_ground;
+        //if (this._velocity.y > 0) return;
         const mask = (1 << this.maskNum);
+        let pos = v3(0, 0, 0);
+        u3.c(pos, this.node.worldPosition);
         for(let i = 0; i < this.original.length; i++) {
-            u3.c(this._ray.o, this.node.worldPosition);
             let o = this.original[i];
-            this._ray.o.x = o.x;
-            this._ray.o.z = o.z;
-            if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.1)) {
+            this._ray.o.x = pos.x + o.x;
+            this._ray.o.z = pos.z + o.z;
+            this._ray.o.y = pos.y;
+            if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.3)) {
                 const res = PhysicsSystem.instance.raycastClosestResult;
                 this._actor!._data.walk_in_type = SubstanceCore.Instance.checkNodeType(res.collider.node);
                 if (!this._isGround) {

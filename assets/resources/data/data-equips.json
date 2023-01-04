@@ -349,7 +349,7 @@
         "damage":{
             "distance": 3,
             "range": 5,
-            "cooling": 1,
+            "cooling": 0.8,
             "fire_count":5,
             "head": 100,
             "body": 20,
