@@ -3,6 +3,7 @@ import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
 import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
 import { BagItems } from './actor-bag';
+import { UtilNode } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorEquipBase')
@@ -73,7 +74,7 @@ export class ActorEquipBase extends Component {
     }
 
     setFx (data: key_type_boolean) {
-        var pNode = this.node.getChildByName(data.key);
+        const pNode = UtilNode.find(this.node, data.key);
         var particles = pNode?.getComponentsInChildren(ParticleSystem);
         if (particles === undefined) {
             console.warn(` effect can not find ${data}`);
@@ -88,7 +89,7 @@ export class ActorEquipBase extends Component {
 
     onFx (data: string) {
         console.log(' ------ on fx', data);
-        var pNode = this.node.getChildByName(data);
+        const pNode = UtilNode.find(this.node, data);
         var particles = pNode?.getComponentsInChildren(ParticleSystem);
         if (particles === undefined) {
             console.warn(` effect can not find ${data}`);

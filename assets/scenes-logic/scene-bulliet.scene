@@ -36,7 +36,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 44
+      "__id__": 42
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -67,7 +67,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 45
+      "__id__": 43
     },
     "_id": "733c0338-21ff-48d7-b550-37de730c13b1"
   },
@@ -679,97 +679,48 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "gun_tracer_pool",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
-    "_children": [
-      {
-        "__id__": 35
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 43
-      }
-    ],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_mobility": 0,
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "062q3ifCVE+rx72nATu5Om"
-  },
-  {
-    "__type__": "cc.Node",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 34
-    },
     "_prefab": {
-      "__id__": 36
+      "__id__": 35
     },
     "__editorExtras__": {}
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 35
+      "__id__": 34
     },
     "asset": {
-      "__uuid__": "12b5403a-8440-4c0a-98fe-f20c236ca944",
+      "__uuid__": "bf736185-5e09-4e83-85f9-d8fd1ebc64be",
       "__expectedType__": "cc.Prefab"
     },
-    "fileId": "f8dBLfJEJNqq6Q74qAalIJ",
+    "fileId": "062q3ifCVE+rx72nATu5Om",
     "instance": {
-      "__id__": 37
+      "__id__": 36
     },
-    "targetOverrides": null,
-    "nestedPrefabInstanceRoots": null
+    "targetOverrides": null
   },
   {
     "__type__": "cc.PrefabInstance",
-    "fileId": "90IyW8R5pEGrgUyfCFuM1Q",
+    "fileId": "56ZWk2Wf9OfbsF6sSjkn7N",
     "prefabRootNode": null,
     "mountedChildren": [],
     "mountedComponents": [],
     "propertyOverrides": [
       {
-        "__id__": 38
+        "__id__": 37
+      },
+      {
+        "__id__": 39
       },
       {
         "__id__": 40
       },
       {
         "__id__": 41
-      },
-      {
-        "__id__": 42
       }
     ],
     "removedComponents": []
@@ -777,23 +728,23 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 39
+      "__id__": 38
     },
     "propertyPath": [
       "_name"
     ],
-    "value": "gun_ray_0"
+    "value": "gun_tracer_pool"
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "f8dBLfJEJNqq6Q74qAalIJ"
+      "062q3ifCVE+rx72nATu5Om"
     ]
   },
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 39
+      "__id__": 38
     },
     "propertyPath": [
       "_lpos"
@@ -808,7 +759,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 39
+      "__id__": 38
     },
     "propertyPath": [
       "_lrot"
@@ -824,7 +775,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 39
+      "__id__": 38
     },
     "propertyPath": [
       "_euler"
@@ -835,18 +786,6 @@
       "y": 0,
       "z": 0
     }
-  },
-  {
-    "__type__": "b3707XGtb1OgI4JAKVGo7zf",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 34
-    },
-    "_enabled": true,
-    "__prefab": null,
-    "poolCount": 20,
-    "_id": "3490CfqvFNM4SH+9zZ3Ftk"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -860,29 +799,29 @@
         "__id__": 8
       },
       {
-        "__id__": 35
+        "__id__": 34
       }
     ]
   },
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 46
+      "__id__": 44
     },
     "shadows": {
-      "__id__": 47
+      "__id__": 45
     },
     "_skybox": {
-      "__id__": 48
+      "__id__": 46
     },
     "fog": {
-      "__id__": 49
+      "__id__": 47
     },
     "octree": {
-      "__id__": 50
+      "__id__": 48
     },
     "lightProbeInfo": {
-      "__id__": 51
+      "__id__": 49
     },
     "bakedWithStationaryMainLight": false
   },

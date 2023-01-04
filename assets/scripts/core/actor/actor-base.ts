@@ -5,7 +5,7 @@ import { KeyAnyType } from '../../logic/data/game-type';
 import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { ResCache } from '../res/res-cache';
-import { u3 } from '../util/util';
+import { UtilNode, u3 } from '../util/util';
 import { Level } from '../../logic/level/level';
 const { ccclass, property } = _decorator;
 
@@ -75,7 +75,7 @@ export class ActorBase extends Component {
     }
 
     setFx (data: key_type_boolean) {
-        const pNode = this.node.getChildByName(data.key);
+        const pNode = UtilNode.find(this.node, data.key);//this.node.getChildByName(data.key);
         const particles = pNode?.getComponentsInChildren(ParticleSystem);
         if (particles === undefined) return;
         for (var i = 0; i < particles.length; i++) {
@@ -86,7 +86,7 @@ export class ActorBase extends Component {
     }
 
     onFx (data: string) {
-        const pNode = this.node.getChildByName(data);
+        const pNode = UtilNode.find(this.node, data);//this.node.getChildByName(data);
         const particles = pNode?.getComponentsInChildren(ParticleSystem);
         if (particles === undefined) return;
         for (var i = 0; i < particles.length; i++) {

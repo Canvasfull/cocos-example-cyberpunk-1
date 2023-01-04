@@ -1,7 +1,8 @@
 {
     "logo": {
         "start": [
-            { "time": 1.0, "name": "on_ui", "data": "ui_logo" }
+            { "time": 0.5, "name": "on_ui", "data": "ui_logo" },
+            { "time": 0.6, "name": "on_inst", "data": "gun_tracer_pool"}
         ],
         "end": [
             { "time": 0.01, "name": "off_ui", "data": "ui_logo" },
