@@ -1,7 +1,7 @@
 {
     "take_out": {
        "start": [
-            {"time": 0.77, "name": "on_anig", "data":{ "key":"trigger_draw", "value":true } }
+            {"time": 1, "name": "on_anig", "data":{ "key":"trigger_draw", "value":true } }
        ] 
     },
     "idle": {

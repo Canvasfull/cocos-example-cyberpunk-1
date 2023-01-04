@@ -370,10 +370,10 @@
     },
     "_projection": 1,
     "_priority": 0,
-    "_fov": 70,
+    "_fov": 45,
     "_fovAxis": 0,
     "_orthoHeight": 10,
-    "_near": 0.01,
+    "_near": 0.1,
     "_far": 1000,
     "_color": {
       "__type__": "cc.Color",
@@ -396,7 +396,7 @@
     "_shutter": 7,
     "_iso": 0,
     "_screenScale": 1,
-    "_visibility": 1083179008,
+    "_visibility": 1083179009,
     "_targetTexture": null,
     "_cameraType": -1,
     "_trackingType": 0,
@@ -638,7 +638,7 @@
       "__id__": 3
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 25

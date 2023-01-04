@@ -145,7 +145,7 @@
       "name": "Arms_Root|Arm_FireAxe_StrongAttack.animation",
       "userData": {
         "gltfIndex": 4,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0.03333333333333333,
@@ -274,7 +274,7 @@
             "name": "Arms_Root|Arm_FireAxe_StrongAttack",
             "from": 0.03333333333333333,
             "to": 2.0333333015441895,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       }

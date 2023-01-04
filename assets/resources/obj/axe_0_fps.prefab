@@ -37,7 +37,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": -1
+      "z": -0.462
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -272,7 +272,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "ed5351ee-809f-4ad2-8c73-0e466764e9f7@22dcd",
+        "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@22dcd",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -281,7 +281,7 @@
       "__id__": 8
     },
     "_mesh": {
-      "__uuid__": "ed5351ee-809f-4ad2-8c73-0e466764e9f7@7a57c",
+      "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@7a57c",
       "__expectedType__": "cc.Mesh"
     },
     "_shadowCastingMode": 0,
@@ -290,7 +290,7 @@
     "_shadowNormalBias": 0,
     "_enableMorph": true,
     "_skeleton": {
-      "__uuid__": "ed5351ee-809f-4ad2-8c73-0e466764e9f7@7d7fc",
+      "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@7d7fc",
       "__expectedType__": "cc.Skeleton"
     },
     "_skinningRoot": {
@@ -636,7 +636,7 @@
       "__id__": 23
     },
     "_mesh": {
-      "__uuid__": "2f2d9340-d63c-43c3-865d-bb052fe0f525@3b1a0",
+      "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@3b1a0",
       "__expectedType__": "cc.Mesh"
     },
     "_shadowCastingMode": 0,
@@ -645,7 +645,7 @@
     "_shadowNormalBias": 0,
     "_enableMorph": true,
     "_skeleton": {
-      "__uuid__": "2f2d9340-d63c-43c3-865d-bb052fe0f525@ed32c",
+      "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@ed32c",
       "__expectedType__": "cc.Skeleton"
     },
     "_skinningRoot": {
@@ -762,7 +762,7 @@
       "__id__": 28
     },
     "_mesh": {
-      "__uuid__": "2f2d9340-d63c-43c3-865d-bb052fe0f525@8fd10",
+      "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@8fd10",
       "__expectedType__": "cc.Mesh"
     },
     "_shadowCastingMode": 0,
@@ -771,7 +771,7 @@
     "_shadowNormalBias": 0,
     "_enableMorph": true,
     "_skeleton": {
-      "__uuid__": "2f2d9340-d63c-43c3-865d-bb052fe0f525@ed32c",
+      "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@ed32c",
       "__expectedType__": "cc.Skeleton"
     },
     "_skinningRoot": {

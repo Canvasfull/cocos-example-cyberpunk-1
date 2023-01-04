@@ -43,10 +43,12 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 1,
-        "top": 0,
-        "left": 0
-      }
+        "scale": 0.9791999999999997,
+        "top": -1.8323429503189337,
+        "left": 0.2733910773500598
+      },
+      "id": "16728119884340.2895152101044183",
+      "clone": null
     },
     "_states": [
       {
@@ -112,20 +114,29 @@
     "__editorExtras__": {
       "centerX": -386,
       "centerY": -67,
-      "id": "16695264450140.8504986316639074"
+      "id": "16695264450140.8504986316639074",
+      "clone": null
     },
     "name": "Entry"
   },
   {
     "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.8039710392445312",
+      "clone": null,
+      "centerX": 125,
+      "centerY": 0
+    },
     "name": "Exit"
   },
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -212,
-      "centerY": 158,
-      "id": "16695266884120.9218600131717307"
+      "centerX": -147.66176470588232,
+      "centerY": 30.344771241830017,
+      "id": "16695266884120.9218600131717307",
+      "clone": null
     },
     "name": "Any"
   },
@@ -134,7 +145,8 @@
     "__editorExtras__": {
       "centerX": -263,
       "centerY": -96.5,
-      "id": "16695264804710.05372123042056276"
+      "id": "16695264804710.05372123042056276",
+      "clone": null
     },
     "name": "FireAxe_Root|FireAxe_Draw",
     "_components": [],
@@ -151,7 +163,8 @@
       "id": "16695264804680.5991782402977694",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@b512f",
@@ -161,9 +174,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 55,
-      "centerY": -138.5,
-      "id": "16695266668610.0318723345148515"
+      "centerX": 50.91503267973849,
+      "centerY": -126.24509803921569,
+      "id": "16695266668610.0318723345148515",
+      "clone": null
     },
     "name": "FireAxe_Root|FireAxe_Idle",
     "_components": [],
@@ -180,7 +194,8 @@
       "id": "16695266668560.05249025035446131",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@54075",
@@ -192,7 +207,8 @@
     "__editorExtras__": {
       "centerX": -81,
       "centerY": -265.5,
-      "id": "16695266741550.5328885400382095"
+      "id": "16695266741550.5328885400382095",
+      "clone": null
     },
     "name": "FireAxe_Root|FireAxe_Hold",
     "_components": [],
@@ -209,7 +225,8 @@
       "id": "16695266741530.7928822511244964",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@9e475",
@@ -219,9 +236,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 154,
+      "centerX": 209.1470588235294,
       "centerY": -266.5,
-      "id": "16695266932020.545369376377945"
+      "id": "16695266932020.545369376377945",
+      "clone": null
     },
     "name": "FireAxe_Root|FireAxe_StrongAttack",
     "_components": [],
@@ -238,7 +256,8 @@
       "id": "16695266931980.19889953160583573",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@b61ac",
@@ -248,9 +267,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -24,
-      "centerY": 55.5,
-      "id": "16695267998020.47117114798329784"
+      "centerX": 44.42320261437908,
+      "centerY": -11.901960784313758,
+      "id": "16695267998020.47117114798329784",
+      "clone": null
     },
     "name": "FireAxe_Root|FireAxe_Holster",
     "_components": [],
@@ -267,7 +287,8 @@
       "id": "16695267998000.7257442857957366",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@84cb3",
@@ -276,6 +297,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.5146962423164121",
+      "clone": null
+    },
     "from": {
       "__id__": 3
     },
@@ -286,6 +312,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.6862346985128422",
+      "clone": null
+    },
     "from": {
       "__id__": 10
     },
@@ -303,6 +334,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.05069614973816927",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -328,6 +364,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.4529418724793113",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -353,6 +394,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.7452025123861572",
+      "clone": null
+    },
     "from": {
       "__id__": 6
     },
@@ -370,6 +416,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884340.04275057082075118",
+      "clone": null
+    },
     "from": {
       "__id__": 12
     },
@@ -387,6 +438,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728119884350.39487145148852454",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },

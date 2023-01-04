@@ -39,7 +39,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 1.2666666507720947
         },
         "events": []
@@ -102,7 +102,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.7333333492279053
         },
         "events": []
@@ -125,7 +125,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 5
         },
         "events": []
@@ -148,7 +148,7 @@
         "wrapMode": 2,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 1.2666666507720947
         },
         "events": []
@@ -171,7 +171,7 @@
         "wrapMode": 1,
         "sample": 30,
         "span": {
-          "from": 0,
+          "from": 0.03333333333333333,
           "to": 0.6666666865348816
         },
         "events": []
@@ -243,7 +243,7 @@
         "splits": [
           {
             "name": "FragGrenade_Draw",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.7333333492279053,
             "wrapMode": 2
           }
@@ -256,7 +256,7 @@
         "splits": [
           {
             "name": "FragGrenade_Idle",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 5,
             "wrapMode": 2
           }
@@ -269,7 +269,7 @@
         "splits": [
           {
             "name": "FragGrenade_ShortThrow",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 1.2666666507720947,
             "wrapMode": 2
           }
@@ -282,7 +282,7 @@
         "splits": [
           {
             "name": "FragGrenade_LongThrow",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 1.2666666507720947,
             "wrapMode": 2
           }
@@ -295,7 +295,7 @@
         "splits": [
           {
             "name": "FragGrenade_Holster",
-            "from": 0,
+            "from": 0.03333333333333333,
             "to": 0.6666666865348816,
             "wrapMode": 1
           }

@@ -457,7 +457,7 @@
           "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
           "__expectedType__": "cc.EffectAsset"
         },
-        "_techIdx": 0,
+        "_techIdx": 1,
         "_defines": [
           {
             "USE_NORMAL_MAP": true,
@@ -500,9 +500,17 @@
         ],
         "_props": [
           {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 117
+            },
             "occlusion": 0.30000001192092896,
             "roughness": 1,
-            "metallic": 1,
+            "metallic": 0,
+            "specularIntensity": 0.049,
             "emissive": {
               "__type__": "cc.Color",
               "r": 255,

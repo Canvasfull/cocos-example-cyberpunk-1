@@ -46,7 +46,9 @@
         "scale": 0.9783999999999996,
         "top": 1.5502029015067527,
         "left": -3.679576381093201
-      }
+      },
+      "id": "16728120685040.8697767224479833",
+      "clone": null
     },
     "_states": [
       {
@@ -112,20 +114,29 @@
     "__editorExtras__": {
       "centerX": -385.871815773385,
       "centerY": -46.4124719788058,
-      "id": "16695264450140.8504986316639074"
+      "id": "16695264450140.8504986316639074",
+      "clone": null
     },
     "name": "Entry"
   },
   {
     "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.2627016445483188",
+      "clone": null,
+      "centerX": 125,
+      "centerY": 0
+    },
     "name": "Exit"
   },
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -314.59896411770825,
-      "centerY": 137.94827936995256,
-      "id": "16695266884120.9218600131717307"
+      "centerX": -228.74450786259783,
+      "centerY": 104.2197429840163,
+      "id": "16695266884120.9218600131717307",
+      "clone": null
     },
     "name": "Any"
   },
@@ -134,7 +145,8 @@
     "__editorExtras__": {
       "centerX": -175.20385779193754,
       "centerY": -139.31646992633077,
-      "id": "16695264804710.05372123042056276"
+      "id": "16695264804710.05372123042056276",
+      "clone": null
     },
     "name": "Arms_Root|Arm_FireAxe_Draw",
     "_components": [],
@@ -151,7 +163,8 @@
       "id": "16695264804680.5991782402977694",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@adfa5",
@@ -161,9 +174,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 215.4063777596076,
-      "centerY": -56.15331152902695,
-      "id": "16695266668610.0318723345148515"
+      "centerX": 214.38430089942767,
+      "centerY": -51.042927228127525,
+      "id": "16695266668610.0318723345148515",
+      "clone": null
     },
     "name": "Arms_Root|Arm_FireAxe_Idle",
     "_components": [],
@@ -180,7 +194,8 @@
       "id": "16695266668560.05249025035446131",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@cc39f",
@@ -190,9 +205,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -57.672386057605536,
+      "centerX": -28.03215711238886,
       "centerY": -36.83265790068549,
-      "id": "16695266741550.5328885400382095"
+      "id": "16695266741550.5328885400382095",
+      "clone": null
     },
     "name": "Arms_Root|Arm_FireAxe_Hold",
     "_components": [],
@@ -209,7 +225,8 @@
       "id": "16695266741530.7928822511244964",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@792e2",
@@ -219,9 +236,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 2.1388941621385698,
-      "centerY": 115.3217658411919,
-      "id": "16695266932020.545369376377945"
+      "centerX": 215.75295793973476,
+      "centerY": -214.8090599969113,
+      "id": "16695266932020.545369376377945",
+      "clone": null
     },
     "name": "Arms_Root|Arm_FireAxe_StrongAttack",
     "_components": [],
@@ -238,7 +256,8 @@
       "id": "16695266931980.19889953160583573",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@5a5b1",
@@ -248,9 +267,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -151.757845226195,
-      "centerY": 234.68826859888293,
-      "id": "16695267998020.47117114798329784"
+      "centerX": -21.95408398334945,
+      "centerY": 111.01696851711677,
+      "id": "16695267998020.47117114798329784",
+      "clone": null
     },
     "name": "Arms_Root|Arm_FireAxe_Holster",
     "_components": [],
@@ -267,7 +287,8 @@
       "id": "16695267998000.7257442857957366",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "f332db22-60d6-456e-8855-2c11633910fb@ed7b5",
@@ -276,6 +297,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.06448883443201359",
+      "clone": null
+    },
     "from": {
       "__id__": 3
     },
@@ -286,6 +312,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.6185047391705278",
+      "clone": null
+    },
     "from": {
       "__id__": 10
     },
@@ -303,6 +334,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.42965899555271414",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -328,6 +364,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.7991074618080767",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -353,6 +394,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.5325945807637809",
+      "clone": null
+    },
     "from": {
       "__id__": 6
     },
@@ -370,6 +416,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.7013330418867376",
+      "clone": null
+    },
     "from": {
       "__id__": 12
     },
@@ -387,6 +438,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728120685040.6458797001011138",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },

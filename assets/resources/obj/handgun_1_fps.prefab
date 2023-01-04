@@ -43,7 +43,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 3.629
+      "z": 0.517
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -76,7 +76,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 3
@@ -1056,8 +1056,7 @@
         "__id__": 79
       }
     ],
-    "removedComponents": [],
-    "ids": []
+    "removedComponents": []
   },
   {
     "__type__": "CCPropertyOverrideInfo",

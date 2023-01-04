@@ -129,7 +129,7 @@
       "name": "FireAxe_Root|FireAxe_StrongAttack.animation",
       "userData": {
         "gltfIndex": 4,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0.03333333333333333,
@@ -435,7 +435,7 @@
             "name": "FireAxe_Root|FireAxe_StrongAttack",
             "from": 0.03333333333333333,
             "to": 2.0333333015441895,
-            "wrapMode": 2
+            "wrapMode": 1
           }
         ]
       },
@@ -473,6 +473,89 @@
       "scenes": [
         "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@bcc51"
       ]
+    },
+    "materials": {
+      "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@22dcd": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_OCCLUSION_MAP": true,
+            "USE_EMISSIVE_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "emissive": {
+              "__type__": "cc.Color",
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 255
+            },
+            "mainTexture": {
+              "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@9b633",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@221a5",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@0089c",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "emissiveMap": {
+              "__uuid__": "c48e8c8e-babf-49d7-bd1f-623a3bd187dc@3effa",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
     }
   }
 }
