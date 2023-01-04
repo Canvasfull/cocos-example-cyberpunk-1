@@ -15,6 +15,7 @@ import { TAAStage } from '../../stages/taa-stage';
 import { FSRStage } from '../../stages/fsr-stage';
 import { ForwardPostStage } from '../../stages/forward-post-stage';
 import { ZoomScreenStage } from '../../stages/zoom-screen-stage';
+import { CustomShadowStage } from '../../stages/shadow-stage';
 
 export function createStageGraph (sclass: typeof BaseStage) {
     let name = js.getClassName(sclass);
@@ -269,3 +270,4 @@ createStageGraph(BloomStage);
 createStageGraph(TAAStage);
 createStageGraph(FSRStage);
 createStageGraph(ZoomScreenStage);
+createStageGraph(CustomShadowStage);
