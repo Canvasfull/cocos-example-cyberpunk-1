@@ -5,6 +5,7 @@ import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils
 import { EDITOR } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
 import { ReflectionProbes } from "../components/reflection-probe-utils";
+import { DeferredGBufferStage } from "./deferred-gbuffer-stage";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -46,13 +47,19 @@ export class DeferredLightingStage extends BaseStage {
         const height = area.height;
 
         const slot0 = this.slotName(camera, 0);
-        const slot1 = this.slotName(camera, 1);
         if (!ppl.containsResource(slot0)) {
             ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
-            ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
         else {
             ppl.updateRenderTarget(slot0, width, height);
+        }
+
+        let slot1 = this.slotName(camera, 1);
+        if (this.lastStage instanceof DeferredGBufferStage) {
+            slot1 = this.lastStage.slotName(camera, 4);
+        }
+        if (!ppl.containsResource(slot1)) {
+            ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
 
         // lighting pass
