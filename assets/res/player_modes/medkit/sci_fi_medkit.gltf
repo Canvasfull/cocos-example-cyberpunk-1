@@ -75,15 +75,15 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 23550,
+            "count" : 24419,
             "max" : [
                 0.25,
-                0.022494077682495117,
+                0.5001174211502075,
                 0.25057321786880493
             ],
             "min" : [
                 -0.25,
-                -0.5001174211502075,
+                -0.02249409444630146,
                 -0.25057321786880493
             ],
             "type" : "VEC3"
@@ -91,19 +91,19 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 23550,
+            "count" : 24419,
             "type" : "VEC2"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 23550,
+            "count" : 24419,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5126,
-            "count" : 23550,
+            "count" : 24419,
             "type" : "VEC3"
         },
         {
@@ -116,32 +116,32 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 282600,
+            "byteLength" : 293028,
             "byteOffset" : 0,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 188400,
-            "byteOffset" : 282600,
+            "byteLength" : 195352,
+            "byteOffset" : 293028,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 188400,
-            "byteOffset" : 471000,
+            "byteLength" : 195352,
+            "byteOffset" : 488380,
             "target" : 34962
         },
         {
             "buffer" : 0,
-            "byteLength" : 282600,
-            "byteOffset" : 659400,
+            "byteLength" : 293028,
+            "byteOffset" : 683732,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 159288,
-            "byteOffset" : 942000,
+            "byteOffset" : 976760,
             "target" : 34963
         }
     ],
@@ -153,7 +153,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 1101288,
+            "byteLength" : 1136048,
             "uri" : "sci_fi_medkit.bin"
         }
     ]
