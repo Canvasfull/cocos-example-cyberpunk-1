@@ -23,8 +23,6 @@ export class UIAimRange extends Component {
     }
   
     updateAim(size:number) {
-        //this.node.setWorldScale(size, size, size);
-
         const currentSize = size * this.baseSize;
         for(let i = 0; i < this.node.children.length; i++) {
             const child = this.node.children[i];

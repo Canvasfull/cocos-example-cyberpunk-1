@@ -113,6 +113,14 @@ export class Actor extends ActorBase implements IActorInput {
 
     run (deltaTime: number) {
 
+        if(this._data.hit_recover > 0) {
+            this._data.hit_recover -= deltaTime;
+            this._rigid.getLinearVelocity(this._velocity);
+            this._velocity.x = 0;
+            this._velocity.z = 0;
+            this._rigid.setLinearVelocity(this._velocity);
+        }
+
         this._data.changed_strength = false;
 
         //this._actorBuff?.update(deltaTime);

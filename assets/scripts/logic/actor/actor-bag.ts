@@ -102,7 +102,7 @@ export class ActorBag {
 }
 
 export interface BagItems {
-
+    fov: number;
     name:string,
     actor:Actor,
     stackable:boolean,

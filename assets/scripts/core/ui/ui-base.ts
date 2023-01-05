@@ -231,6 +231,7 @@ export class GrpSelectEquips extends UICom {
         Msg.on('msg_select_equip', (dir:Vec2)=> {
 
             if (dir.length() <= Game.Instance._data.sensitivity_select_weapon) return;
+            
             let curAngle = math.toDegree(Vec2.angle(dir, V2FORWARD));
             const projOrigin = v2(0, 1);
             const dot = Vec2.dot(projOrigin, dir);
@@ -238,9 +239,8 @@ export class GrpSelectEquips extends UICom {
             this._curIndex = Math.round(curAngle / angle);
 
             if (this._curIndex >= Game.Instance._data.count_bag_count) {
-                console.error(` Calculate equip error current index: ${this._curIndex}, current Angle: ${curAngle}, dir: ${dir}`);
-                this._curIndex = -1;
-                return;
+                //console.error(` Calculate equip error current index: ${this._curIndex}, current Angle: ${curAngle}, dir: ${dir}`);
+                this._curIndex = Game.Instance._data.count_bag_count - 1;
             }
 
             const selectAngle = math.toRadian(this._curIndex * angle + offset)

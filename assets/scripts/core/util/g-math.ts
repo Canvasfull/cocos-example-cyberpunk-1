@@ -1,4 +1,4 @@
-import { lerp, Vec2, Vec3 } from "cc";
+import { lerp, Quat, Vec2, Vec3 } from "cc";
 
 export class GMath {
 
@@ -62,6 +62,22 @@ export class GMath {
         if(value > max) return max;
         if(value < min) return min;
         return value;
+    }
+
+    public static StretchedBillboardAngle(rightward:Vec3, current:Vec3, target:Vec3):number | undefined {
+       
+        const forward = current.clone().subtract(target);
+
+        const costValue = Vec3.dot(rightward, forward);
+
+        if(Math.abs(costValue) >= 0.9999) return undefined;
+
+        rightward.multiplyScalar(costValue);
+
+        forward.subtract(rightward);
+
+        if(costValue > 0) return 0;
+        
     }
 
 }

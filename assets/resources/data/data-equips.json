@@ -7,6 +7,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-handgun_0",
         "stable_value":1.5,
+        "stable_min_value": 0.5,
         "fov":45,
         "damage":{
             "distance": 50,
@@ -42,6 +43,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-handgun_0",
         "stable_value":1.5,
+        "stable_min_value":0.5,
         "fov":45,
         "damage":{
             "distance": 50,
@@ -77,6 +79,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-machine_gun_0",
         "stable_value":2,
+        "stable_min_value":1,
         "fov":48,
         "damage":{
             "distance": 50,
@@ -111,78 +114,12 @@
         "bullet_check_type":"physic_ray",
         "action":"action-machine_gun_1", 
         "stable_value":2,
+        "stable_min_value":1,
         "fov":60,
         "damage":{
             "distance": 50,
             "range":1,
             "cooling": 0.2,
-            "head": 100,
-            "body": 20,
-            "hand": 10,
-            "leg": 10,
-            "other": 5,
-            "hit_body":{
-                "fx": "fx_hit_body",
-                "sfx": "sfx_hit_body",
-                "notify": "Hit body"
-            },
-            "hit_wall":{
-                "fx": "fx_hit_wall",
-                "sfx": "sfx_hit_wall",
-                "notify": "Hit_wall"
-            },
-            "hit_metal":{
-                "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
-            }
-        }
-    },
-    "shotgun_0":{
-        "type":"range",
-        "bullet_count":12,
-        "bind_bone":"bone_point_hand",
-        "bullet_type":"bullet_2",
-        "bullet_check_type":"physic_multiple_rays",
-        "action":"action-shotgun_0",
-        "stable_value":2,
-        "damage":{
-            "distance": 50,
-            "range":1,
-            "cooling": 0.4,
-            "fire_count":5,
-            "head": 100,
-            "body": 20,
-            "hand": 10,
-            "leg": 10,
-            "other": 5,
-            "hit_body":{
-                "fx": "fx_hit_body",
-                "sfx": "sfx_hit_body",
-                "notify": "Hit body"
-            },
-            "hit_wall":{
-                "fx": "fx_hit_wall",
-                "sfx": "sfx_hit_wall",
-                "notify": "Hit_wall"
-            },
-            "hit_metal":{
-                "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
-            }
-        }
-    },
-    "shotgun_1":{
-        "type":"range",
-        "bullet_count":10,
-        "bind_bone":"bone_point_hand",
-        "bullet_type":"bullet_2",
-        "bullet_check_type":"physic_multiple_rays",
-        "action":"action-shotgun_1",
-        "stable_value":2, 
-        "damage":{
-            "distance": 50,
-            "cooling": 1,
-            "fire_count":5,
             "head": 100,
             "body": 20,
             "hand": 10,
@@ -278,74 +215,6 @@
             }
         }
     },
-    "crossbow_0":{
-        "type":"range",
-        "bullet_count":30,
-        "bind_bone":"bone_point_hand",
-        "bullet_type":"bullet_3",
-        "bullet_check_type":"projectile",
-        "action":"action-crossbow_0",
-        "stable_value":2,
-        "damage":{
-            "distance": 10,
-            "range": 1,
-            "cooling": 1,
-            "fire_count":5,
-            "head": 100,
-            "body": 20,
-            "hand": 10,
-            "leg": 10,
-            "other": 5,
-            "hit_body":{
-                "fx": "fx_hit_body",
-                "sfx": "sfx_hit_body",
-                "notify": "Hit body"
-            },
-            "hit_wall":{
-                "fx": "fx_hit_wall",
-                "sfx": "sfx_hit_wall",
-                "notify": "Hit_wall"
-            },
-            "hit_metal":{
-                "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
-            }
-        }
-    },
-    "crossbow_1":{
-        "type":"range",
-        "bullet_count":16,
-        "bind_bone":"bone_point_hand",
-        "bullet_type":"bullet_3",
-        "bullet_check_type":"projectile",
-        "action":"action-crossbow_1",
-        "stable_value":2,
-        "damage":{
-            "distance": 30,
-            "range": 1,
-            "cooling": 1,
-            "fire_count":5,
-            "head": 100,
-            "body": 20,
-            "hand": 10,
-            "leg": 10,
-            "other": 5,
-            "hit_body":{
-                "fx": "fx_hit_body",
-                "sfx": "sfx_hit_body",
-                "notify": "Hit body"
-            },
-            "hit_wall":{
-                "fx": "fx_hit_wall",
-                "sfx": "sfx_hit_wall",
-                "notify": "Hit_wall"
-            },
-            "hit_metal":{
-                "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
-            }
-        }
-    },
     "axe_0":{
         "type":"melee",
         "bind_bone":"bone_point_hand",
@@ -376,37 +245,6 @@
             "hit_metal":{
                 "fx": "fx_axe_hit_metal",
                 "sfx": "sfx_axe_hit_metal"
-            }
-        }
-    },
-    "stick_0":{
-        "type":"melee",
-        "bind_bone":"bone_point_hand",
-        "action":"action-stick_0",
-        "stable_value":0,
-        "damage":{
-            "distance": 3,
-            "range": 5,
-            "cooling": 2,
-            "fire_count":5,
-            "head": 30,
-            "body": 20,
-            "hand": 10,
-            "leg": 10,
-            "other": 5,
-            "hit_body":{
-                "fx": "fx_hit_body",
-                "sfx": "sfx_hit_body",
-                "notify": "Hit body"
-            },
-            "hit_wall":{
-                "fx": "fx_hit_wall",
-                "sfx": "sfx_hit_wall",
-                "notify": "Hit_wall"
-            },
-            "hit_metal":{
-                "fx": "fx_hit_metal",
-                "sfx": "sfx_hit_metal"
             }
         }
     },

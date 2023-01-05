@@ -106,7 +106,7 @@ export class ActorEquipment {
             const equipStable = this.curData.data.stable_value;
             let curStable = 0;
             if (equipStable !== 0) {
-                curStable = Math.abs(stable) <= 0.001 ? 1 : equipStable;
+                curStable = Math.abs(stable) <= 0.001 ? this.curData.data.stable_min_value : equipStable;
             }
             this.stableValue = math.lerp(this.stableValue, curStable, game.deltaTime * 2);
             if(this._actor._data.need_update_aim_hud) Msg.emit('msg_update_aim', this.stableValue);
