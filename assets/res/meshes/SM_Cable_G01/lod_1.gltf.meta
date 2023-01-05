@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f207b2bb-8a43-4385-acfb-5a9559e1773b",
+  "files": [],
+  "subMetas": {
+    "e141a": {
+      "importer": "gltf-mesh",
+      "uuid": "f207b2bb-8a43-4385-acfb-5a9559e1773b@e141a",
+      "displayName": "",
+      "id": "e141a",
+      "name": "SM_Cable_G01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "f207b2bb-8a43-4385-acfb-5a9559e1773b@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f207b2bb-8a43-4385-acfb-5a9559e1773b@f0843",
+    "assetFinder": {
+      "meshes": [
+        "f207b2bb-8a43-4385-acfb-5a9559e1773b@e141a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f207b2bb-8a43-4385-acfb-5a9559e1773b@f0843"
+      ]
+    }
+  }
+}

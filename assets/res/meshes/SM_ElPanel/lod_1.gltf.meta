@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c097f2e5-9550-4d76-8fff-1c0e65449c76",
+  "files": [],
+  "subMetas": {
+    "c5664": {
+      "importer": "gltf-mesh",
+      "uuid": "c097f2e5-9550-4d76-8fff-1c0e65449c76@c5664",
+      "displayName": "",
+      "id": "c5664",
+      "name": "SM_ElPanel.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "c097f2e5-9550-4d76-8fff-1c0e65449c76@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "c097f2e5-9550-4d76-8fff-1c0e65449c76@f0843",
+    "assetFinder": {
+      "meshes": [
+        "c097f2e5-9550-4d76-8fff-1c0e65449c76@c5664"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c097f2e5-9550-4d76-8fff-1c0e65449c76@f0843"
+      ]
+    }
+  }
+}

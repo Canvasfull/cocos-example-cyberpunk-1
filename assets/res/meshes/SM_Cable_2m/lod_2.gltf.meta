@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "92befdf1-09bd-4024-9368-13634fbed35e",
+  "files": [],
+  "subMetas": {
+    "ff17a": {
+      "importer": "gltf-mesh",
+      "uuid": "92befdf1-09bd-4024-9368-13634fbed35e@ff17a",
+      "displayName": "",
+      "id": "ff17a",
+      "name": "SM_Cable_2m.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "92befdf1-09bd-4024-9368-13634fbed35e@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "92befdf1-09bd-4024-9368-13634fbed35e@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "92befdf1-09bd-4024-9368-13634fbed35e@ff17a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "92befdf1-09bd-4024-9368-13634fbed35e@53b6b"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "84926f86-cc79-4a1a-b480-8195972ff035",
+  "files": [],
+  "subMetas": {
+    "1c16d": {
+      "importer": "gltf-mesh",
+      "uuid": "84926f86-cc79-4a1a-b480-8195972ff035@1c16d",
+      "displayName": "",
+      "id": "1c16d",
+      "name": "SM_SolarPanel.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "84926f86-cc79-4a1a-b480-8195972ff035@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "84926f86-cc79-4a1a-b480-8195972ff035@9d156",
+    "assetFinder": {
+      "meshes": [
+        "84926f86-cc79-4a1a-b480-8195972ff035@1c16d"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "84926f86-cc79-4a1a-b480-8195972ff035@9d156"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "37fd029f-6df8-4b4c-bbb5-1ff8025d1c0d",
+  "files": [],
+  "subMetas": {
+    "91bdb": {
+      "importer": "gltf-mesh",
+      "uuid": "37fd029f-6df8-4b4c-bbb5-1ff8025d1c0d@91bdb",
+      "displayName": "",
+      "id": "91bdb",
+      "name": "SM_Stair_Painted_03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "37fd029f-6df8-4b4c-bbb5-1ff8025d1c0d@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "37fd029f-6df8-4b4c-bbb5-1ff8025d1c0d@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "37fd029f-6df8-4b4c-bbb5-1ff8025d1c0d@91bdb"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "37fd029f-6df8-4b4c-bbb5-1ff8025d1c0d@53b6b"
+      ]
+    }
+  }
+}

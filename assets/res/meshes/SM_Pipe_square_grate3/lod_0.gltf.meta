@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "4c133614-51e1-4e39-89a2-f68e1419bce0",
+  "files": [],
+  "subMetas": {
+    "3a407": {
+      "importer": "gltf-mesh",
+      "uuid": "4c133614-51e1-4e39-89a2-f68e1419bce0@3a407",
+      "displayName": "",
+      "id": "3a407",
+      "name": "SM_Pipe_square_grate3.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "4c133614-51e1-4e39-89a2-f68e1419bce0@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "4c133614-51e1-4e39-89a2-f68e1419bce0@9d156",
+    "assetFinder": {
+      "meshes": [
+        "4c133614-51e1-4e39-89a2-f68e1419bce0@3a407"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "4c133614-51e1-4e39-89a2-f68e1419bce0@9d156"
+      ]
+    }
+  }
+}

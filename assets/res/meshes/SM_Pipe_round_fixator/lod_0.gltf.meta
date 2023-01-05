@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "d9e5d86f-44b7-4db4-a907-dbe10eccf872",
+  "files": [],
+  "subMetas": {
+    "54700": {
+      "importer": "gltf-mesh",
+      "uuid": "d9e5d86f-44b7-4db4-a907-dbe10eccf872@54700",
+      "displayName": "",
+      "id": "54700",
+      "name": "SM_Pipe_round_fixator.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "d9e5d86f-44b7-4db4-a907-dbe10eccf872@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "d9e5d86f-44b7-4db4-a907-dbe10eccf872@9d156",
+    "assetFinder": {
+      "meshes": [
+        "d9e5d86f-44b7-4db4-a907-dbe10eccf872@54700"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "d9e5d86f-44b7-4db4-a907-dbe10eccf872@9d156"
+      ]
+    }
+  }
+}

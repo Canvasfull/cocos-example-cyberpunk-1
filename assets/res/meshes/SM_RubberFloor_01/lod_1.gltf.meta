@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "a6f8a666-5d8a-468f-9203-3a11f28997cf",
+  "files": [],
+  "subMetas": {
+    "e12ea": {
+      "importer": "gltf-mesh",
+      "uuid": "a6f8a666-5d8a-468f-9203-3a11f28997cf@e12ea",
+      "displayName": "",
+      "id": "e12ea",
+      "name": "SM_RubberFloor_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "a6f8a666-5d8a-468f-9203-3a11f28997cf@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "a6f8a666-5d8a-468f-9203-3a11f28997cf@f0843",
+    "assetFinder": {
+      "meshes": [
+        "a6f8a666-5d8a-468f-9203-3a11f28997cf@e12ea"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "a6f8a666-5d8a-468f-9203-3a11f28997cf@f0843"
+      ]
+    }
+  }
+}

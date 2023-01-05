@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2eadf951-c500-40aa-b8fa-c60c54abb390",
+  "files": [],
+  "subMetas": {
+    "c25ab": {
+      "importer": "gltf-mesh",
+      "uuid": "2eadf951-c500-40aa-b8fa-c60c54abb390@c25ab",
+      "displayName": "",
+      "id": "c25ab",
+      "name": "SM_Pipe_round_cross_transition1.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "2eadf951-c500-40aa-b8fa-c60c54abb390@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "2eadf951-c500-40aa-b8fa-c60c54abb390@f0843",
+    "assetFinder": {
+      "meshes": [
+        "2eadf951-c500-40aa-b8fa-c60c54abb390@c25ab"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "2eadf951-c500-40aa-b8fa-c60c54abb390@f0843"
+      ]
+    }
+  }
+}

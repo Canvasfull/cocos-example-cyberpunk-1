@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "0695744d-2520-47c8-8ea1-15b1f2da3b3d",
+  "files": [],
+  "subMetas": {
+    "044be": {
+      "importer": "gltf-mesh",
+      "uuid": "0695744d-2520-47c8-8ea1-15b1f2da3b3d@044be",
+      "displayName": "",
+      "id": "044be",
+      "name": "SM_Pipe_round_short.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "0695744d-2520-47c8-8ea1-15b1f2da3b3d@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "0695744d-2520-47c8-8ea1-15b1f2da3b3d@9d156",
+    "assetFinder": {
+      "meshes": [
+        "0695744d-2520-47c8-8ea1-15b1f2da3b3d@044be"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "0695744d-2520-47c8-8ea1-15b1f2da3b3d@9d156"
+      ]
+    }
+  }
+}

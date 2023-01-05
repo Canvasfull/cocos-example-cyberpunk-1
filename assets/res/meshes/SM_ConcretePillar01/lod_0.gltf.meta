@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cd5dcf4b-7a4b-4fdc-b8d3-14377dbbd37b",
+  "files": [],
+  "subMetas": {
+    "a8886": {
+      "importer": "gltf-mesh",
+      "uuid": "cd5dcf4b-7a4b-4fdc-b8d3-14377dbbd37b@a8886",
+      "displayName": "",
+      "id": "a8886",
+      "name": "SM_ConcretePillar01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "cd5dcf4b-7a4b-4fdc-b8d3-14377dbbd37b@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "cd5dcf4b-7a4b-4fdc-b8d3-14377dbbd37b@9d156",
+    "assetFinder": {
+      "meshes": [
+        "cd5dcf4b-7a4b-4fdc-b8d3-14377dbbd37b@a8886"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "cd5dcf4b-7a4b-4fdc-b8d3-14377dbbd37b@9d156"
+      ]
+    }
+  }
+}

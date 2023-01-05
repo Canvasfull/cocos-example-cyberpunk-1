@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "d92ab113-cb62-4f5a-8d49-ff4612403a3e",
+  "files": [],
+  "subMetas": {
+    "bb33b": {
+      "importer": "gltf-mesh",
+      "uuid": "d92ab113-cb62-4f5a-8d49-ff4612403a3e@bb33b",
+      "displayName": "",
+      "id": "bb33b",
+      "name": "SM_Fence09.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "d92ab113-cb62-4f5a-8d49-ff4612403a3e@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "d92ab113-cb62-4f5a-8d49-ff4612403a3e@f0843",
+    "assetFinder": {
+      "meshes": [
+        "d92ab113-cb62-4f5a-8d49-ff4612403a3e@bb33b"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "d92ab113-cb62-4f5a-8d49-ff4612403a3e@f0843"
+      ]
+    }
+  }
+}
