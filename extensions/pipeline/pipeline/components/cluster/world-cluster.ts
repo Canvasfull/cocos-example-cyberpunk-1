@@ -1,6 +1,5 @@
 import { Color, Component, director, geometry, GeometryRenderer, gfx, Mat4, Quat, Vec3, Vec4, _decorator } from 'cc';
-import { EDITOR } from 'cc/env';
-import { CameraSetting } from '../../camera-setting';
+import { getGeometryRenderer } from '../../utils/debug';
 import { roundUp, vec3_min, vec3_max, vec3_floor, vec3_ceil } from '../../utils/math';
 
 const { ccclass, property, executeInEditMode } = _decorator;
@@ -409,24 +408,7 @@ export class WorldCluster<T extends Component> extends Component {
             return;
         }
 
-        let camera;
-        if (EDITOR) {
-            director.root.scenes.forEach(s => {
-                s.cameras.forEach(c => {
-                    if (c.name === 'Editor UIGizmoCamera') {
-                        camera = c;
-                    }
-                })
-            })
-        }
-        else {
-            camera = CameraSetting.mainCamera && CameraSetting.mainCamera.camera;
-        }
-
-        if (camera) {
-            camera.initGeometryRenderer();
-        }
-        let geometryRenderer: GeometryRenderer = camera && camera.geometryRenderer || director.root.pipeline.geometryRenderer;
+        let geometryRenderer = getGeometryRenderer()
         if (!geometryRenderer) {
             return;
         }
