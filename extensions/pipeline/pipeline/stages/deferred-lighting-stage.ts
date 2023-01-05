@@ -137,6 +137,7 @@ export class DeferredLightingStage extends BaseStage {
                 })
                 material.recompileShaders({
                     // CC_USE_IBL: 0,
+                    CC_RECEIVE_SHADOW: 1,
                     REFLECTION_PROBE_COUNT: probes.length
                 })
             }
