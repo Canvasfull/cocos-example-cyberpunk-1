@@ -161,14 +161,22 @@ export class CustomPipelineBuilder {
 
         let taaStage = stages.find(s => s instanceof TAAStage) as TAAStage;
         if (taaStage && taaStage.checkEnable()) {
-            (camera as any)._isProjDirty = true
-            if (!camera._onCalcProjMat) {
-                camera._onCalcProjMat = function () {
-                    this.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
-                    this.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
-                }
-            }
-            camera.update(true)
+            // (camera as any)._isProjDirty = true
+            // if (!camera._onCalcProjMat) {
+            //     camera._onCalcProjMat = function () {
+            //         this.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
+            //         this.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
+            //     }
+            // }
+            // camera.update(true)
+
+            camera.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
+            camera.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
+
+            Mat4.invert(camera.matProjInv, camera.matProj);
+            Mat4.multiply(camera.matViewProj, camera.matProj, camera.matView);
+            Mat4.invert(camera.matViewProjInv, camera.matViewProj);
+            camera.frustum.update(camera.matViewProj, camera.matViewProjInv);
         }
 
         for (let i = 0; i < stages.length; i++) {
