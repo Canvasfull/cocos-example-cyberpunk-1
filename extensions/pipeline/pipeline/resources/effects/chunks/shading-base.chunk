@@ -1,5 +1,5 @@
 
-vec4 CCCustomShadingBase (StandardSurface s, vec4 shadowPos, out vec3 specular) {
+vec4 CCCustomShadingBase (StandardSurface s, vec4 shadowPos, out vec3 specular, out float shadow) {
   // Calculate diffuse & specular
   vec3 diffuse = s.albedo.rgb * (1.0 - s.metallic);
  
@@ -13,7 +13,7 @@ vec4 CCCustomShadingBase (StandardSurface s, vec4 shadowPos, out vec3 specular) 
   vec3 L = normalize(-cc_mainLitDir.xyz);
   float NL = max(dot(N, L), 0.0);
 
-  float shadow = 1.0;
+  shadow = 1.0;
   #if CC_RECEIVE_SHADOW && CC_SHADOW_TYPE == CC_SHADOW_MAP
     if (NL > 0.0 && cc_mainLitDir.w > 0.0) {
       if (cc_shadowLPNNInfo.w > 0.0) {

@@ -176,8 +176,9 @@ CCProgram lighting-fs %{
     CC_TRANSFER_SHADOW_BASE(vec4(position, 1), shadowPos);
 
     vec3 specular;
-    vec4 color = CCCustomShadingBase(s, shadowPos, specular);
-    color += lightingAdd(s, shadowPos);
+    float shadow;
+    vec4 color = CCCustomShadingBase(s, shadowPos, specular, shadow);
+    color += lightingAdd(s, shadowPos) * shadow;
 
     color.rgb += lightingIbl(s, specular);
 

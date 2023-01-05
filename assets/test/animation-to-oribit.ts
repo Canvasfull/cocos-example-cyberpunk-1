@@ -38,7 +38,6 @@ export class animation_to_oribit extends Component {
         }
         this.orbit.enabled = false;
         this.timeoutID = setTimeout(() => {
-            this.orbit.resetRotation();
             this.touched = false;
             this.ani.enabled = true;
             this.timeoutID = undefined;
