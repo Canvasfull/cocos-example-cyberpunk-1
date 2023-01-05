@@ -1,6 +1,6 @@
 {
   "__type__": "cc.Material",
-  "_name": "MI_Gun02Riffles",
+  "_name": "",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
@@ -11,31 +11,12 @@
   "_defines": [
     {
       "HAS_SECOND_UV": true,
-      "USE_ALBEDO_MAP": true,
-      "USE_PBR_MAP": true,
       "USE_NORMAL_MAP": true,
-      "USE_EMISSIVE_MAP": false,
-      "USE_INSTANCING": true,
-      "USE_ALPHA_TEST": false
+      "USE_ALBEDO_MAP": true,
+      "USE_PBR_MAP": true
     },
-    {
-      "HAS_SECOND_UV": true,
-      "USE_ALBEDO_MAP": true,
-      "USE_PBR_MAP": true,
-      "USE_NORMAL_MAP": true,
-      "USE_EMISSIVE_MAP": false,
-      "USE_INSTANCING": true,
-      "USE_ALPHA_TEST": false
-    },
-    {
-      "HAS_SECOND_UV": true,
-      "USE_ALBEDO_MAP": true,
-      "USE_PBR_MAP": true,
-      "USE_NORMAL_MAP": true,
-      "USE_EMISSIVE_MAP": false,
-      "USE_INSTANCING": true,
-      "USE_ALPHA_TEST": false
-    }
+    {},
+    {}
   ],
   "_states": [
     {
@@ -68,22 +49,21 @@
   ],
   "_props": [
     {
+      "occlusion": 1,
+      "roughness": 1,
+      "metallic": 1,
       "mainTexture": {
         "__uuid__": "6cca4d79-0feb-4405-affb-841003507b73@6c48a",
-        "__expectedType__": "cc.Texture2D"
-      },
-      "pbrMap": {
-        "__uuid__": "7dba8342-a472-4848-b6af-662082343d8c@6c48a",
         "__expectedType__": "cc.Texture2D"
       },
       "normalMap": {
         "__uuid__": "c6389f62-e2d7-4366-ae00-24768d6524c8@6c48a",
         "__expectedType__": "cc.Texture2D"
       },
-      "occlusion": 1,
-      "roughness": 1,
-      "metallic": 1,
-      "specularIntensity": 0.5
+      "pbrMap": {
+        "__uuid__": "7dba8342-a472-4848-b6af-662082343d8c@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      }
     },
     {},
     {}

@@ -1,9 +1,10 @@
-import { _decorator, Component, Node, ParticleSystem, game, Vec3 } from 'cc';
+import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
 import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
 import { BagItems } from './actor-bag';
 import { UtilNode } from '../../core/util/util';
+import { Msg } from '../../core/msg/msg';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorEquipBase')
@@ -25,11 +26,13 @@ export class ActorEquipBase extends Component {
 
     isPlayer = false;
 
+    _muzzleNode:Node | undefined;
+
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
         this._animationGraph = this.addComponent(ActorAnimationGraphGroup)!;
+        this._muzzleNode = UtilNode.find(this.node, 'fx_muzzle');
         this._view = this.node.getChildByName('view')!;
-
         if (this.point_shoot === undefined || this._animationGraph === undefined || this._view === undefined) {
             throw new Error(`${this.node.name} ActorEquipBase preload init error: may be lose point_shoot or animation graph or view node.`);
         }
@@ -99,6 +102,18 @@ export class ActorEquipBase extends Component {
             let p = particles[i];
             p.play();
         }
+    }
+
+    setWeaponTracer(hit:PhysicsRayResult | undefined, dir:Vec3) {
+        const origin = this._muzzleNode!.worldPosition;
+        let hitPosition:Vec3 | undefined;
+        if(hit?.hitPoint !== undefined) {
+            hitPosition = hit.hitPoint;
+        }else{
+            hitPosition = origin.clone();
+            hitPosition.add3f(dir.x * 100, dir.y * 100, dir.z * 100);
+        }
+        Msg.emit('msg_set_tracer', { start:origin, end:hitPosition});
     }
 
     actionEnd () {

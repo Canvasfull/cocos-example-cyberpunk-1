@@ -1,0 +1,42 @@
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "ccc8dc0d-bbd7-4fcb-96a3-c557a2e5c6d9",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "ccc8dc0d-bbd7-4fcb-96a3-c557a2e5c6d9@6c48a",
+      "displayName": "flash11",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ccc8dc0d-bbd7-4fcb-96a3-c557a2e5c6d9",
+        "visible": true
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": true,
+    "type": "texture",
+    "redirect": "ccc8dc0d-bbd7-4fcb-96a3-c557a2e5c6d9@6c48a",
+    "fixAlphaTransparencyArtifacts": false
+  }
+}

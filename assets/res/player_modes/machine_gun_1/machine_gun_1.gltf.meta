@@ -1,0 +1,1287 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e",
+  "files": [],
+  "subMetas": {
+    "10486": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@10486",
+      "displayName": "",
+      "id": "10486",
+      "name": "UnnamedTexture-16.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1004_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "14738": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@14738",
+      "displayName": "",
+      "id": "14738",
+      "name": "UnnamedTexture-20.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1002_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "50743": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@50743",
+      "displayName": "",
+      "id": "50743",
+      "name": "UnnamedTexture-5.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1007_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "55257": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@55257",
+      "displayName": "",
+      "id": "55257",
+      "name": "UnnamedTexture-12.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1005_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "98962": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@98962",
+      "displayName": "",
+      "id": "98962",
+      "name": "UnnamedTexture-19.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1002_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "be633": {
+      "importer": "gltf-mesh",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@be633",
+      "displayName": "",
+      "id": "be633",
+      "name": "mesh_machine_gun_1.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1003_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1003_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0089c": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@0089c",
+      "displayName": "",
+      "id": "0089c",
+      "name": "UnnamedTexture-2.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1003_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b633": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b633",
+      "displayName": "",
+      "id": "9b633",
+      "name": "UnnamedTexture-3.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1007_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b782": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b782",
+      "displayName": "",
+      "id": "9b782",
+      "name": "UnnamedTexture-4.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1007_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99ea5": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@99ea5",
+      "displayName": "",
+      "id": "99ea5",
+      "name": "UnnamedTexture-6.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1001_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "006bd": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@006bd",
+      "displayName": "",
+      "id": "006bd",
+      "name": "UnnamedTexture-7.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1001_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "531b0": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@531b0",
+      "displayName": "",
+      "id": "531b0",
+      "name": "UnnamedTexture-8.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1001_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9c3d2": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9c3d2",
+      "displayName": "",
+      "id": "9c3d2",
+      "name": "UnnamedTexture-9.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1006_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f7e17": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@f7e17",
+      "displayName": "",
+      "id": "f7e17",
+      "name": "UnnamedTexture-10.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1006_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a2905": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@a2905",
+      "displayName": "",
+      "id": "a2905",
+      "name": "UnnamedTexture-11.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1006_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "809d9": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@809d9",
+      "displayName": "",
+      "id": "809d9",
+      "name": "UnnamedTexture-13.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1005_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b4841": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@b4841",
+      "displayName": "",
+      "id": "b4841",
+      "name": "UnnamedTexture-14.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1005_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3c999": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@3c999",
+      "displayName": "",
+      "id": "3c999",
+      "name": "UnnamedTexture-15.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1004_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d4524": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@d4524",
+      "displayName": "",
+      "id": "d4524",
+      "name": "UnnamedTexture-17.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1004_baseColor.jpg"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d932b": {
+      "importer": "texture",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@d932b",
+      "displayName": "",
+      "id": "d932b",
+      "name": "UnnamedTexture-18.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/machine_gun_1/1002_normal.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "65f95": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@65f95",
+      "displayName": "",
+      "id": "65f95",
+      "name": "1003.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "57c63": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@57c63",
+      "displayName": "",
+      "id": "57c63",
+      "name": "1007.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1e8e0": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@1e8e0",
+      "displayName": "",
+      "id": "1e8e0",
+      "name": "1001.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a0f8c": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@a0f8c",
+      "displayName": "",
+      "id": "a0f8c",
+      "name": "1006.material",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "14e91": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@14e91",
+      "displayName": "",
+      "id": "14e91",
+      "name": "1005.material",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5bbb4": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@5bbb4",
+      "displayName": "",
+      "id": "5bbb4",
+      "name": "1004.material",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bbe69": {
+      "importer": "gltf-material",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@bbe69",
+      "displayName": "",
+      "id": "bbe69",
+      "name": "1002.material",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ca497": {
+      "importer": "gltf-scene",
+      "uuid": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@ca497",
+      "displayName": "",
+      "id": "ca497",
+      "name": "machine_gun_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "1003_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1003_normal.png"
+      },
+      {
+        "name": "1003_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1003_metallicRoughness.png"
+      },
+      {
+        "name": "1003_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1003_baseColor.jpg"
+      },
+      {
+        "name": "1007_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1007_normal.png"
+      },
+      {
+        "name": "1007_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1007_metallicRoughness.png"
+      },
+      {
+        "name": "1007_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1007_baseColor.jpg"
+      },
+      {
+        "name": "1001_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1001_normal.png"
+      },
+      {
+        "name": "1001_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1001_metallicRoughness.png"
+      },
+      {
+        "name": "1001_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1001_baseColor.jpg"
+      },
+      {
+        "name": "1006_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1006_normal.png"
+      },
+      {
+        "name": "1006_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1006_metallicRoughness.png"
+      },
+      {
+        "name": "1006_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1006_baseColor.jpg"
+      },
+      {
+        "name": "1005_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1005_normal.png"
+      },
+      {
+        "name": "1005_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1005_metallicRoughness.png"
+      },
+      {
+        "name": "1005_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1005_baseColor.jpg"
+      },
+      {
+        "name": "1004_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1004_normal.png"
+      },
+      {
+        "name": "1004_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1004_metallicRoughness.png"
+      },
+      {
+        "name": "1004_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1004_baseColor.jpg"
+      },
+      {
+        "name": "1002_normal",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1002_normal.png"
+      },
+      {
+        "name": "1002_metallicRoughness",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1002_metallicRoughness.png"
+      },
+      {
+        "name": "1002_baseColor",
+        "uri": "db://assets/res/player_modes/machine_gun_1/1002_baseColor.jpg"
+      }
+    ],
+    "redirect": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@ca497",
+    "assetFinder": {
+      "meshes": [
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@be633"
+      ],
+      "skeletons": [],
+      "textures": [
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@3effa",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@221a5",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@0089c",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b633",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b782",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@50743",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@99ea5",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@006bd",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@531b0",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9c3d2",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@f7e17",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@a2905",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@55257",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@809d9",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@b4841",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@3c999",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@10486",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@d4524",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@d932b",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@98962",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@14738"
+      ],
+      "materials": [
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@65f95",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@57c63",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@1e8e0",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@a0f8c",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@14e91",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@5bbb4",
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@bbe69"
+      ],
+      "scenes": [
+        "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@ca497"
+      ]
+    },
+    "materials": {
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@65f95": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@0089c",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@3effa",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@221a5",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@221a5",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@57c63": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@50743",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b633",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b782",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9b782",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@1e8e0": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@531b0",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@99ea5",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@006bd",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@006bd",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@a0f8c": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@a2905",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@9c3d2",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@f7e17",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@f7e17",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@14e91": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@b4841",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@55257",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@809d9",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@809d9",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@5bbb4": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@d4524",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@3c999",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@10486",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@10486",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      },
+      "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@bbe69": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true,
+            "USE_OCCLUSION_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@14738",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@d932b",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@98962",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "occlusionMap": {
+              "__uuid__": "49e7f8f0-9ee9-4f9e-bed6-39c09c88aa2e@98962",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}

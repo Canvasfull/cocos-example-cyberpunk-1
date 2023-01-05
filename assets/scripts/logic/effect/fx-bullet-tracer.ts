@@ -57,7 +57,7 @@ export class FxBulletTracer extends Component {
             console.log(startPosition);
             currentNode.setPosition(startPosition);
             currentNode.lookAt(end);
-            currentNode.setScale(1, 1, randomRange(0.3, currentLength));
+            currentNode.setScale(0.3, 1, randomRange(0.3, currentLength));
             startPosition.add(direction.clone().multiplyScalar(currentLength));
         }
 

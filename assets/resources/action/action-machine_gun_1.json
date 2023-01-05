@@ -1,7 +1,7 @@
 {
     "take_out": {
        "start": [
-            {"time": 0, "name": "on_anig", "data":{ "key":"", "value":true } }
+            {"time": 1, "name": "on_anig", "data":{ "key":"trigger_draw", "value":true } }
        ] 
     },
     "idle": {
@@ -17,17 +17,34 @@
     "fire": {
         "start": [
             {"time": 0, "name": "on_anig", "data":{ "key":"trigger_fire", "value":true } },
-            { "time": 0, "name": "on_sfx", "data": "sfx_handgun_fire" }
+            {"time": 0.1, "name": "on_sfx_random", "data": {"key": "sfx_handgun_shoot", "value": 1 } },
+            {"time": 0.2, "name": "on_call", "data": "onFire" },
+            {"time": 0.2, "name": "on_msg", "data": "msg_update_equip_info" },
+            {"time": 0.3, "name": "on_fx", "data": "fx_muzzle"},
+            {"time": 0.3, "name": "on_sfx", "data": "sfx_handgun_fire" },
+            {"time": 0.4, "name": "on_call", "data": "updateCooling" },
+            {"time": 0.5, "name": "on_sfx_random", "data": {"key": "sfx_cassing_drop", "value": 5 } }
         ]
+    },
+    "fire_empty": {
+        "start": [
+            {"time": 0.1, "name": "on_sfx_random", "data": {"key": "sfx_empty_fire", "value": 2 } },
+            {"time": 0.2, "name": "on_msg_str", "data": {"key": "msg_tips", "value": "bullet_is_empty" } }
+        ] 
     },
     "reload": {
         "start": [
-            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_reload", "value":true } }
+            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_reload", "value":true } },
+            {"time": 0.1, "name": "on_sfx_random", "data": {"key": "sfx_reload", "value": 5 } },
+            {"time": 0.3, "name": "on_call", "data": "onReload" },
+            {"time": 0.7, "name": "on_sfx_random", "data": {"key": "sfx_reload", "value": 5 } },
+            {"time": 1.1, "name": "on_sfx_random", "data": {"key": "sfx_reload", "value": 5 } }
         ]
     },
     "take_back": {
         "start": [
-            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_take_back", "value":true } }
+            {"time": 0, "name": "on_anig", "data":{ "key":"trigger_holster", "value":true } },
+            {"time": 0.3, "name": "on_call", "data": "hiddenNode"}
         ]
     }
 }

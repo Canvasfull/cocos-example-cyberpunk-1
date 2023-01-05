@@ -345,7 +345,7 @@ export class Actor extends ActorBase implements IActorInput {
     updateStrengthInfo() {
         const percent_value = this._data.strength / this._data.max_strength;
         if(this.isPlayer) {
-            Msg.emit('fil_strength', percent_value); 
+            Msg.emit('fil_strength', percent_value);
         }
     }
 

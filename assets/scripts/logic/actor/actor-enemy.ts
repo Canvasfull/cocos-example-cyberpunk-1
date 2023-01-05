@@ -12,6 +12,10 @@ const { ccclass, property } = _decorator;
 
 @ccclass('ActorEnemy')
 export class ActorEnemy extends ActorBase implements IActorInput {
+    
+    onChangeEquips(): boolean {
+        throw new Error('Method not implemented.');
+    }
 
     onPick() {
         //throw new Error('Method not implemented.');

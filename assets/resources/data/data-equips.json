@@ -7,6 +7,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-handgun_0",
         "stable_value":1.5,
+        "fov":45,
         "damage":{
             "distance": 50,
             "range":1,
@@ -41,6 +42,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-handgun_0",
         "stable_value":1.5,
+        "fov":45,
         "damage":{
             "distance": 50,
             "range":1,
@@ -75,6 +77,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-machine_gun_0",
         "stable_value":2,
+        "fov":48,
         "damage":{
             "distance": 50,
             "range":1,
@@ -108,6 +111,7 @@
         "bullet_check_type":"physic_ray",
         "action":"action-machine_gun_1", 
         "stable_value":2,
+        "fov":60,
         "damage":{
             "distance": 50,
             "range":1,
@@ -210,6 +214,7 @@
         "stable_value":0,
         "projectile_res":"projectile_grenade_0",
         "sound_explode":"sfx_grenade_explode",
+        "fov":45,
         "damage":{
             "distance":15,
             "range": 5,
@@ -246,6 +251,7 @@
         "stable_value":0,
         "projectile_res":"projectile_grenade_1",
         "sound_explode":"sfx_grenade_explode",
+        "fov":45,
         "damage":{
             "distance": 15,
             "range": 5,
@@ -346,6 +352,7 @@
         "bullet_count":-1,
         "action":"action-axe_0",
         "stable_value":0,
+        "fov":45,
         "damage":{
             "distance": 3,
             "range": 5,

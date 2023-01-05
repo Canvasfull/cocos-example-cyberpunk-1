@@ -46,7 +46,9 @@
         "scale": 0.9813999999999996,
         "top": 1.3566347002887893,
         "left": -4.1383625221829075
-      }
+      },
+      "id": "16728982363100.26447380927266817",
+      "clone": null
     },
     "_states": [
       {
@@ -136,20 +138,29 @@
     "__editorExtras__": {
       "centerX": -385.871815773385,
       "centerY": -29.090279192989613,
-      "id": "16695264450140.8504986316639074"
+      "id": "16695264450140.8504986316639074",
+      "clone": null
     },
     "name": "Entry"
   },
   {
     "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.5128229430304618",
+      "clone": null,
+      "centerX": 125,
+      "centerY": 0
+    },
     "name": "Exit"
   },
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -127.88424699409029,
-      "centerY": 186.67678826166718,
-      "id": "16695266884120.9218600131717307"
+      "centerX": 35.14815569594441,
+      "centerY": 113.31220705115157,
+      "id": "16695266884120.9218600131717307",
+      "clone": null
     },
     "name": "Any"
   },
@@ -158,7 +169,8 @@
     "__editorExtras__": {
       "centerX": -180.260851844304,
       "centerY": -109.99276543713066,
-      "id": "16695264804710.05372123042056276"
+      "id": "16695264804710.05372123042056276",
+      "clone": null
     },
     "name": "Arm_AKM_Draw",
     "_components": [],
@@ -175,7 +187,8 @@
       "id": "16695264804680.5991782402977694",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@ea7d2",
@@ -187,7 +200,8 @@
     "__editorExtras__": {
       "centerX": 104,
       "centerY": -118.5,
-      "id": "16695266668610.0318723345148515"
+      "id": "16695266668610.0318723345148515",
+      "clone": null
     },
     "name": "Arm_AKM_Idle",
     "_components": [],
@@ -204,7 +218,8 @@
       "id": "16695266668560.05249025035446131",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@eb322",
@@ -216,7 +231,8 @@
     "__editorExtras__": {
       "centerX": -265.5820256776035,
       "centerY": -217.35734664764627,
-      "id": "16695266741550.5328885400382095"
+      "id": "16695266741550.5328885400382095",
+      "clone": null
     },
     "name": "Arm_AKM_Hold",
     "_components": [],
@@ -233,7 +249,8 @@
       "id": "16695266741530.7928822511244964",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@d886b",
@@ -243,9 +260,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -13.208477684939908,
-      "centerY": -10.258100672508704,
-      "id": "16695266932020.545369376377945"
+      "centerX": 227.26431628286127,
+      "centerY": -216.08650906867754,
+      "id": "16695266932020.545369376377945",
+      "clone": null
     },
     "name": "Arm_AKM_Fire",
     "_components": [],
@@ -262,7 +280,8 @@
       "id": "16695266931980.19889953160583573",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@b16e2",
@@ -272,9 +291,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 104.81944161402089,
-      "centerY": -213.00723456286937,
-      "id": "16695266951540.8559239778875569"
+      "centerX": 63.04238842469954,
+      "centerY": -214.02618707968207,
+      "id": "16695266951540.8559239778875569",
+      "clone": null
     },
     "name": "Arm_AKM_FireAim",
     "_components": [],
@@ -291,7 +311,8 @@
       "id": "16695266951520.4273989556026343",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@7e42e",
@@ -301,9 +322,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 410.9331567148971,
-      "centerY": 44.377318116975744,
-      "id": "16695267908860.02381196724680823"
+      "centerX": 387.49724882820465,
+      "centerY": 11.77083757896878,
+      "id": "16695267908860.02381196724680823",
+      "clone": null
     },
     "name": "Arm_AKM_Reload",
     "_components": [],
@@ -320,7 +342,8 @@
       "id": "16695267908800.5543211550940197",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@16bc5",
@@ -330,9 +353,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 256.3122070511514,
-      "centerY": 47.05960872223352,
-      "id": "16695267941400.12132827568098725"
+      "centerX": 189.06134094151207,
+      "centerY": 30.75636845323004,
+      "id": "16695267941400.12132827568098725",
+      "clone": null
     },
     "name": "Arm_AKM_EmptyReload",
     "_components": [],
@@ -349,7 +373,8 @@
       "id": "16695267941350.7442408695293885",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@c62e0",
@@ -359,9 +384,10 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -316.52863256572255,
-      "centerY": 120.86906460158963,
-      "id": "16695267998020.47117114798329784"
+      "centerX": -131.07927450580803,
+      "centerY": 48.52343590788672,
+      "id": "16695267998020.47117114798329784",
+      "clone": null
     },
     "name": "Arm_AKM_Holster",
     "_components": [],
@@ -378,7 +404,8 @@
       "id": "16695267998000.7257442857957366",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "eb5aba7f-295a-47cd-a818-2abd25571a09@1808b",
@@ -387,6 +414,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.5275967456039412",
+      "clone": null
+    },
     "from": {
       "__id__": 3
     },
@@ -397,6 +429,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.49462383742389604",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -422,6 +459,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.00817644391028205",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -447,6 +489,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.7121599665121097",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -472,6 +519,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.012749518740882593",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -497,6 +549,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.8891776011786223",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -522,6 +579,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.8630963843629327",
+      "clone": null
+    },
     "from": {
       "__id__": 18
     },
@@ -539,6 +601,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.2859517887245291",
+      "clone": null
+    },
     "from": {
       "__id__": 16
     },
@@ -556,6 +623,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.06163544673629895",
+      "clone": null
+    },
     "from": {
       "__id__": 12
     },
@@ -573,6 +645,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.3027221018208244",
+      "clone": null
+    },
     "from": {
       "__id__": 14
     },
@@ -590,6 +667,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.16843419226419143",
+      "clone": null
+    },
     "from": {
       "__id__": 6
     },
@@ -607,6 +689,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16728982363110.3571175621137819",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },

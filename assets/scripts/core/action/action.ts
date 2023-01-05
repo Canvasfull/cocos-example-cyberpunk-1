@@ -399,7 +399,7 @@ export class UtilAction {
     }
 
     public static on_anig (data: any, actor: ActorBase) {
-        if (actor._animationGraph) {
+        if (actor._animationGraph && actor._animationGraph.play) {
             actor._animationGraph.play(data.key, data.value);
         } else
             console.log('Not register animationGraph.');

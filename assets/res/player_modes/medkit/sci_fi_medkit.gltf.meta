@@ -1,0 +1,200 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "c6335096-8882-48d9-9126-4ea232120a54",
+  "files": [],
+  "subMetas": {
+    "971fb": {
+      "importer": "gltf-mesh",
+      "uuid": "c6335096-8882-48d9-9126-4ea232120a54@971fb",
+      "displayName": "",
+      "id": "971fb",
+      "name": "mesh_sci_fi_medkit.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3effa": {
+      "importer": "texture",
+      "uuid": "c6335096-8882-48d9-9126-4ea232120a54@3effa",
+      "displayName": "",
+      "id": "3effa",
+      "name": "UnnamedTexture-0.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/medkit/diffuse_baseColor.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "221a5": {
+      "importer": "texture",
+      "uuid": "c6335096-8882-48d9-9126-4ea232120a54@221a5",
+      "displayName": "",
+      "id": "221a5",
+      "name": "UnnamedTexture-1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/res/player_modes/medkit/diffuse_metallicRoughness.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e16db": {
+      "importer": "gltf-material",
+      "uuid": "c6335096-8882-48d9-9126-4ea232120a54@e16db",
+      "displayName": "",
+      "id": "e16db",
+      "name": "mat_sci_fi_medkit.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "73ce9": {
+      "importer": "gltf-scene",
+      "uuid": "c6335096-8882-48d9-9126-4ea232120a54@73ce9",
+      "displayName": "",
+      "id": "73ce9",
+      "name": "sci_fi_medkit.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "diffuse_baseColor",
+        "uri": "db://assets/res/player_modes/medkit/diffuse_baseColor.png"
+      },
+      {
+        "name": "diffuse_metallicRoughness",
+        "uri": "db://assets/res/player_modes/medkit/diffuse_metallicRoughness.png"
+      }
+    ],
+    "redirect": "c6335096-8882-48d9-9126-4ea232120a54@73ce9",
+    "assetFinder": {
+      "meshes": [
+        "c6335096-8882-48d9-9126-4ea232120a54@971fb"
+      ],
+      "skeletons": [],
+      "textures": [
+        "c6335096-8882-48d9-9126-4ea232120a54@3effa",
+        "c6335096-8882-48d9-9126-4ea232120a54@221a5"
+      ],
+      "materials": [
+        "c6335096-8882-48d9-9126-4ea232120a54@e16db"
+      ],
+      "scenes": [
+        "c6335096-8882-48d9-9126-4ea232120a54@73ce9"
+      ]
+    },
+    "materials": {
+      "c6335096-8882-48d9-9126-4ea232120a54@e16db": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "a143bc18-8bab-4157-a97d-07b4a55e69fe",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "HAS_SECOND_UV": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_METALLIC_ROUGHNESS_MAP": true
+          },
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "roughness": 1,
+            "metallic": 1,
+            "mainTexture": {
+              "__uuid__": "c6335096-8882-48d9-9126-4ea232120a54@3effa",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "metallicRoughnessMap": {
+              "__uuid__": "c6335096-8882-48d9-9126-4ea232120a54@221a5",
+              "__expectedType__": "cc.Texture2D"
+            }
+          },
+          {},
+          {}
+        ]
+      }
+    }
+  }
+}
