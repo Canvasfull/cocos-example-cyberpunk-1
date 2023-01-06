@@ -49,6 +49,12 @@
   ],
   "_props": [
     {
+      "albedoScale": {
+        "__type__": "cc.Vec3",
+        "x": 4,
+        "y": 4,
+        "z": 4
+      },
       "occlusion": 1,
       "roughness": 1,
       "metallic": 1,

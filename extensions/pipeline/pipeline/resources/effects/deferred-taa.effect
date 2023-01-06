@@ -217,7 +217,7 @@ CCProgram fs %{
       // scaledUnjittedUV = min(vec2(cc_view_pr_parameters.x - taaInputTexSize()*2.), scaledUnjittedUV);
   
       float depth = 0.;
-      vec2 velocity = getVelocity(depthBuffer, scaledUnjittedUV, uv, depth);
+      vec2 velocity = vec2(0.);//getVelocity(depthBuffer, scaledUnjittedUV, uv, depth);
       // bool isSky = depth > 0.9;
   
       vec4 prevColor = taaSampleTex(taaPrevTexture, uv + velocity);

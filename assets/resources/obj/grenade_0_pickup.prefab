@@ -28,9 +28,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": 2,
       "y": 0,
-      "z": 0
+      "z": -1
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -180,7 +180,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 0.3,
       "z": 0
     }
   },
@@ -252,7 +252,6 @@
       "__id__": 0
     },
     "fileId": "d02dSOLUxFHLEuaGW7q7uZ",
-    "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {

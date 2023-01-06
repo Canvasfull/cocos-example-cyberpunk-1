@@ -1,4 +1,5 @@
-import { lerp, Quat, Vec2, Vec3 } from "cc";
+import { Color, lerp, math, Quat, v3, Vec2, Vec3 } from "cc";
+import { Gizmo } from "./util";
 
 export class GMath {
 
@@ -64,19 +65,39 @@ export class GMath {
         return value;
     }
 
-    public static StretchedBillboardAngle(rightward:Vec3, current:Vec3, target:Vec3):number | undefined {
+    public static StretchedBillboardAngle(upward:Vec3, current:Vec3, target:Vec3, nodeForward:Vec3):number | undefined {
+
+        const targetForward = target.clone().subtract(current);
        
-        const forward = current.clone().subtract(target);
+        const costValue = Vec3.dot(targetForward, nodeForward);
 
-        const costValue = Vec3.dot(rightward, forward);
+        const projectPoint = nodeForward.clone().multiplyScalar(costValue);
 
-        if(Math.abs(costValue) >= 0.9999) return undefined;
+        const projectForward = target.clone().subtract(projectPoint);
 
-        rightward.multiplyScalar(costValue);
+        Gizmo.drawLine(Vec3.ZERO, upward.clone().multiplyScalar(4), Color.RED);
 
-        forward.subtract(rightward);
+        Gizmo.drawLine(Vec3.ZERO, targetForward.clone().multiplyScalar(4), Color.YELLOW);
 
-        if(costValue > 0) return 0;
+        Gizmo.drawLine(Vec3.ZERO, nodeForward.clone().multiplyScalar(4), Color.YELLOW);
+
+        Gizmo.drawBox(projectPoint, v3(0.1, 0.1, 0.1), Color.BLUE);
+
+        Gizmo.drawLine(projectPoint, projectForward.clone().add(projectPoint), Color.GREEN);
+
+        Gizmo.drawLine(Vec3.ZERO, projectForward, Color.GREEN);
+
+        const angleForward = v3(1, 0, 0);
+
+        Gizmo.drawLine(Vec3.ZERO, angleForward, Color.MAGENTA);
+
+        ///const side = -Math.sign(targetForward.clone().cross(upward).x);
+
+        const angle = math.toDegree(Vec3.angle(projectForward, angleForward));
+
+        console.log(angle);
+
+        return target.y > current.y ? angle - 90 :  - angle - 90;
         
     }
 

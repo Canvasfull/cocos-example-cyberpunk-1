@@ -20,6 +20,10 @@
     "max_strength": 30,
     "max_move_rate": 1,
     "min_move_rate": 0.1,
+    "range_weapon_atk_percent":0,
+    "melee_weapon_atk_percent":0,
+    "damage_to_hp_percent":0,
+    "damage_to_strength_percent":0,
     "mass": 1,
     "move_force": { "x":10, "y":10, "z":40 },
     "jump_force_y": 4,
@@ -57,5 +61,5 @@
     "defense_percent":0,
     "nearest_node":-1,
     "default_equip_index": 0,
-    "bags":["machine_gun_1","axe_0", "handgun_1","grenade_0","grenade_1","machine_gun_0","handgun_0"]
+    "bags":["axe_0", "machine_gun_1","handgun_1","grenade_0","grenade_1","machine_gun_0","handgun_0"]
 }

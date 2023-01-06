@@ -47,6 +47,12 @@
   ],
   "_props": [
     {
+      "albedoScale": {
+        "__type__": "cc.Vec3",
+        "x": 4,
+        "y": 4,
+        "z": 4
+      },
       "emissive": {
         "__type__": "cc.Color",
         "r": 3,

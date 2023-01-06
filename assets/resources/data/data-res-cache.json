@@ -7,9 +7,13 @@
     ],
     "prefab":[
         "obj",
-        "fx"
+        "fx",
+        "actor"
     ],
     "sprite":[
         "icons"
+    ],
+    "sound":[
+        "sound"
     ]
 }

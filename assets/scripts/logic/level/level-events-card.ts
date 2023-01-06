@@ -1,6 +1,8 @@
-import { _decorator, Component, Node, randomRange, random } from 'cc';
+import { _decorator, Component, Node, randomRange, random, randomRangeInt } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { Level } from './level';
+import { DataUpgradeCardInst } from '../data/data-core';
+import { Local } from '../../core/localization/local';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelEventsCard')
@@ -12,8 +14,8 @@ export class LevelEventsCard extends Component {
     counter = 0;
     groupCounter:Array<number> | undefined;
 
+    currentCards: Array<{ name: string; info: any; }> = new Array(3);
     nextCounter = 2;
-
     counterCard = 0;
 
     start() {
@@ -22,6 +24,7 @@ export class LevelEventsCard extends Component {
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
         this.nextCounter = 2;
         Msg.bind('kill_enemy', this.checkNextEvent, this);
+
     }
 
     nextEvent() {
@@ -53,7 +56,15 @@ export class LevelEventsCard extends Component {
         }
 
         const excludeIndex = this.probability.weights_group[excludeGroupIndex];
-        const res = Level.Instance._data.items[excludeIndex];
+        
+        const cards = Level.Instance._data.cards;
+        for(let i = 0; i < cards.length; i++) {
+            if(excludeIndex === excludeIndex) continue;
+            this.currentCards[i] = {
+                name:cards[i],
+                info:this.calculateCardInfo(cards[i])
+            };
+        }
         
         Msg.emit('push', 'upgrade_cards');
 
@@ -62,21 +73,42 @@ export class LevelEventsCard extends Component {
 
     }
 
+    calculateCardInfo(name:string) {
+
+        const upgradeCards = DataUpgradeCardInst._data;
+        const selectCardData = upgradeCards[name];
+        const randomCardIndex = randomRangeInt(0, selectCardData.length);
+        const randomCardData = selectCardData[randomCardIndex];
+        const valueCount = randomCardData.values.length;
+
+        let values = new Array(valueCount);
+
+        let describe = Local.Instance.get(randomCardData.describe);
+
+        for(var i = 0; i < valueCount; i++) {
+            const tempData = randomCardData.values[i];
+            const tempValue = this.calculateRange(tempData.isFloat, tempData.range);
+            const showValue = tempData.isFloat ? `${tempValue * 100} %` : `${tempValue}`;
+            describe = describe.replace(`##${i}##`, showValue);
+            values[i] = {
+                "name":tempData.name,
+                "isFloat":tempData.isFloat,
+                "value": tempValue
+            }
+        }
+        
+        return { describe, values }
+
+    }
+
+    calculateRange(isFloat:boolean, range:number[]):number {
+        if(range.length !== 2) return 0;
+        return isFloat? randomRange(range[0], range[1]) : randomRangeInt(range[0], range[1]);
+    }
+
     checkNextEvent(counter:number) {
         if (counter > this.nextCounter) {
             this.nextEvent();
         }
     }
-
-    /*
-    update(deltaTime: number) {
-
-        if (!Level.Instance._isStart) return;
-        this._interval -= deltaTime;
-        if (this._interval <= 0) {
-            this.nextEvent();
-        }
-        
-    }
-    */
 }

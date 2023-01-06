@@ -15,8 +15,8 @@
       "id": "6c48a",
       "name": "texture",
       "userData": {
-        "wrapModeS": "repeat",
-        "wrapModeT": "repeat",
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
         "minfilter": "linear",
         "magfilter": "linear",
         "mipfilter": "none",
@@ -115,7 +115,8 @@
         },
         "isUuid": true,
         "imageUuidOrDatabaseUri": "3eaf2679-66c7-4696-8893-66ecd6a0ecc4@6c48a",
-        "atlasUuid": ""
+        "atlasUuid": "",
+        "mipfilter": "none"
       },
       "ver": "1.0.11",
       "imported": true,

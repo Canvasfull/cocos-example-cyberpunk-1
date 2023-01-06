@@ -135,4 +135,8 @@ export class Res {
         this.loadDir(path, SpriteFrame, cb);
     }
 
+    public static loadDirSound(path:string, cb?: (err:Error | null, asset?: AudioClip[] | null)=>void) {
+        this.loadDir(path, AudioClip, cb);
+    }
+
 }

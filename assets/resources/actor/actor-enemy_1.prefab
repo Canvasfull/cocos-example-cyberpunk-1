@@ -144,7 +144,7 @@
       "__uuid__": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@c8860",
       "__expectedType__": "cc.Mesh"
     },
-    "_shadowCastingMode": 0,
+    "_shadowCastingMode": 1,
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,
@@ -267,7 +267,7 @@
       "__uuid__": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@a11d0",
       "__expectedType__": "cc.Mesh"
     },
-    "_shadowCastingMode": 0,
+    "_shadowCastingMode": 1,
     "_shadowReceivingMode": 1,
     "_shadowBias": 0,
     "_shadowNormalBias": 0,

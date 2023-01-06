@@ -1,90 +1,213 @@
 {
-    "life":[
+    "life": [
         {
-            "name":"upgrade_card_name_hp_percent_lv0",
-            "detial":"upgrade_card_detail_hp_percent_lv0",
-            "icon":"img_icon_hp_percent_lv0",
-            "attribute":{
-                "hp_percent":[0.1, 0.2]
-            }
+            "describe": "card_hp_percent_l1",
+            "values": [
+                {
+                    "name": "hp_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.07,
+                        0.1
+                    ]
+                }
+            ]
         },
         {
-            "name":"upgrade_card_name_hp_percent_lv1",
-            "detial":"upgrade_card_detail_hp_percent_lv1",
-            "icon":"img_icon_hp_percent_lv1",
-            "attribute":{
-                "hp_percent":[0.2, 0.4]
-            }
+            "describe": "card_hp_percent_l2",
+            "values": [
+                {
+                    "name": "hp_percent",
+                    "isFloat":true, 
+                    "range": [
+                        0.15,
+                        0.2
+                    ]
+                }
+            ]
         },
         {
-            "name":"upgrade_card_name_hp_percent_lv2",
-            "detial":"upgrade_card_detail_hp_percent_lv2",
-            "icon":"img_icon_hp_percent_lv1",
-            "attribute":{
-                "hp_percent":[0.4, 0.6]
-            }
+            "describe": "card_hp_percent_l3",
+            "values": [
+                {
+                    "name": "hp_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.25,
+                        0.35
+                    ]
+                }
+            ]
         }
     ],
-    "defense":[
+    "defense": [
         {
-            "name":"upgrade_card_name_defense_percent_lv0",
-            "detial":"upgrade_card_detail_defense_percent_lv0",
-            "icon":"img_icon_defense_percent_lv0",
-            "attribute":{
-                "defense_percent":[0.1, 0.2]
-            }
+            "describe": "card_defense_percent_l1",
+            "values": [
+                {
+                    "name": "defense_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.07,
+                        0.10
+                    ]
+                }
+            ]
         },
         {
-            "name":"upgrade_card_name_defense_percent_lv1",
-            "detial":"upgrade_card_detail_defense_percent_lv1",
-            "icon":"img_icon_defense_percent_lv1",
-            "attribute":{
-                "defense_percent":[0.2, 0.4]
-            }
+            "describe": "card_defense_percent_l2",
+            "values": [
+                {
+                    "name": "defense_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.15,
+                        0.20
+                    ]
+                }
+            ]
         },
         {
-            "name":"upgrade_card_name_defense_percent_lv2",
-            "detial":"upgrade_card_detail_defense_percent_lv2",
-            "icon":"img_icon_defense_percent_lv1",
-            "attribute":{
-                "defense_percent":[0.4, 0.6]
-            }
+            "describe": "card_defense_percent_l3",
+            "values": [
+                {
+                    "name": "defense_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.25,
+                        0.35
+                    ]
+                }
+            ]
         }
     ],
-    "attack":[
+    "attack": [
         {
-            "name":"upgrade_card_name_attck_percent_lv0",
-            "detial":"upgrade_card_detail_attck_percent_lv0",
-            "icon":"img_icon_attck_percent_lv0",
-            "attribute":{
-                "attck_percent":[0.1, 0.2]
-            }
+            "describe": "card_range_weapon_percent_l1",
+            "values": [
+                {
+                    "name": "range_weapon_atk_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.07,
+                        0.1
+                    ]
+                }
+            ]
         },
         {
-            "name":"upgrade_card_name_attck_percent_lv1",
-            "detial":"upgrade_card_detail_attck_percent_lv1",
-            "icon":"img_icon_attck_percent_lv1",
-            "attribute":{
-                "attck_percent":[0.2, 0.4]
-            }
+            "describe": "card_range_weapon_percent_l2",
+            "values": [
+                {
+                    "name": "range_weapon_atk_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.15,
+                        0.2
+                    ]
+                }
+            ]
         },
         {
-            "name":"upgrade_card_name_attck_percent_lv2",
-            "detial":"upgrade_card_detail_attck_percent_lv2",
-            "icon":"img_icon_attck_percent_lv1",
-            "attribute":{
-                "attck_percent":[0.4, 0.6]
-            }
+            "describe": "card_range_weapon_percent_l3",
+            "values": [
+                {
+                    "name": "range_weapon_atk_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.25,
+                        0.35
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_melee_weapon_percent_l1",
+            "values": [
+                {
+                    "name": "melee_weapon_atk_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.07,
+                        0.1
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_melee_weapon_percent_l2",
+            "values": [
+                {
+                    "name": "melee_weapon_atk_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.15,
+                        0.2
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_melee_weapon_percent_l3",
+            "values": [
+                {
+                    "name": "melee_weapon_atk_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.25,
+                        0.35
+                    ]
+                }
+            ]
         }
     ],
-    "special":[
+    "special": [
         {
-            "name":"upgrade_card_name_static_invisibility",
-            "detial":"upgrade_card_detail_static_invisibility",
-            "icon":"img_icon_static_invisibility",
-            "attribute":{
-                "static_invisibility":true
-            }
+            "describe": "card_special_big_jump",
+            "values": [
+                {
+                    "name": "jump_force_y",
+                    "isFloat":false,
+                    "range": [
+                        2,
+                        5
+                    ]
+                },
+                {
+                    "name": "cost_jump_strength",
+                    "isFloat":false,
+                    "range": [
+                        2,
+                        3
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_special_damage_to_hp_percent",
+            "values": [
+                {
+                    "name": "damage_to_hp_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.1,
+                        0.2
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_special_damage_to_strength_percent",
+            "values": [
+                {
+                    "name": "damage_to_strength_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.1,
+                        0.3
+                    ]
+                }
+            ]
         }
     ]
 }

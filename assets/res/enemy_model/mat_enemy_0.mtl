@@ -47,6 +47,12 @@
   ],
   "_props": [
     {
+      "albedoScale": {
+        "__type__": "cc.Vec3",
+        "x": 4,
+        "y": 4,
+        "z": 4
+      },
       "mainTexture": {
         "__uuid__": "690dd834-33df-4796-9728-f2d4c03632dd@6c48a",
         "__expectedType__": "cc.Texture2D"

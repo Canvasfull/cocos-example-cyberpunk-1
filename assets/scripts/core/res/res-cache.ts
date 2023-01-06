@@ -1,5 +1,5 @@
 
-import { _decorator, JsonAsset, Prefab, TextAsset, SpriteFrame } from 'cc';
+import { _decorator, JsonAsset, Prefab, TextAsset, SpriteFrame, AudioClip } from 'cc';
 import { Singleton } from '../pattern/singleton';
 import { Res } from './res';
 import { ILoadMsg } from '../../logic/ui/ui-loading';
@@ -13,6 +13,7 @@ export class ResCache extends Singleton {
     private _prefab: { [name: string]: Prefab } = {};
     private _txt: { [name: string]: TextAsset } = {};
     private _sprite: { [name: string]: SpriteFrame } = {};
+    private _sound: { [name: string]: AudioClip } = {};
     private _callback: Function | undefined;
 
     msg:ILoadMsg | undefined;
@@ -34,6 +35,7 @@ export class ResCache extends Singleton {
             ResCache.Instance.loadJson(asset.json['json']);
             ResCache.Instance.loadPrefab(asset.json['prefab']);
             ResCache.Instance.loadSprite(asset.json['sprite']);
+            ResCache.Instance.loadSound(asset.json['sound']);
             Msg.emit('msg_loading',this.msg);
         });
     }
@@ -75,6 +77,15 @@ export class ResCache extends Singleton {
         }
     }
 
+    public getSound (name: string) {
+        const ret = this._sound[name];
+        if (ret !== undefined) {
+            return ret;
+        } else {
+            console.error('Res cache not find sound res:', name);
+        } 
+    }
+
     public setJson (asset: any[]) {
         asset.forEach(element => {
             this._json[element.name] = element;
@@ -94,8 +105,14 @@ export class ResCache extends Singleton {
     }
 
     public setSprite (asset: any[]) {
-            asset.forEach(element => {
+        asset.forEach(element => {
             this._sprite[element.name] = element;
+        });
+    }
+
+    public setSound (asset: any[]) {
+        asset.forEach(element => {
+            this._sound[element.name] = element;
         });
     }
 
@@ -143,6 +160,19 @@ export class ResCache extends Singleton {
         this.msg!.count++;
         paths.forEach(element => {
             Res.loadDirSprite(element, (err, asset) => {
+                if (asset) {
+                    ResCache.Instance.setSprite(asset);
+                    this.msg!.wait_count--;
+                }
+            })
+        });
+    }
+
+    public loadSound(paths: string[]) {
+        this.msg!.wait_count++;
+        this.msg!.count++;
+        paths.forEach(element => {
+            Res.loadDirSound(element, (err, asset) => {
                 if (asset) {
                     ResCache.Instance.setSprite(asset);
                     this.msg!.wait_count--;
