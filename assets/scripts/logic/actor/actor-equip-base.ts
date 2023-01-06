@@ -30,7 +30,7 @@ export class ActorEquipBase extends Component {
 
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
-        this._animationGraph = this.addComponent(ActorAnimationGraphGroup)!;
+        this._animationGraph = this.getComponent(ActorAnimationGraphGroup)!;
         this._muzzleNode = UtilNode.find(this.node, 'fx_muzzle');
         this._view = this.node.getChildByName('view')!;
         if (this.point_shoot === undefined || this._animationGraph === undefined || this._view === undefined) {

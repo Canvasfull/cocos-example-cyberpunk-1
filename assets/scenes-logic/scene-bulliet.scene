@@ -33,16 +33,16 @@
         "__id__": 34
       },
       {
-        "__id__": 46
+        "__id__": 42
       },
       {
-        "__id__": 48
+        "__id__": 44
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 51
+      "__id__": 47
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -73,7 +73,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 52
+      "__id__": 48
     },
     "_id": "733c0338-21ff-48d7-b550-37de730c13b1"
   },
@@ -727,15 +727,6 @@
       },
       {
         "__id__": 41
-      },
-      {
-        "__id__": 42
-      },
-      {
-        "__id__": 44
-      },
-      {
-        "__id__": 45
       }
     ],
     "removedComponents": []
@@ -803,59 +794,6 @@
     }
   },
   {
-    "__type__": "CCPropertyOverrideInfo",
-    "targetInfo": {
-      "__id__": 43
-    },
-    "propertyPath": [
-      "_lrot"
-    ],
-    "value": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": -0.5213149531931044,
-      "w": 0.8533643533551606
-    }
-  },
-  {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "90IyW8R5pEGrgUyfCFuM1Q",
-      "40Dgd7Vg9MNpsDti9M7wPc"
-    ]
-  },
-  {
-    "__type__": "CCPropertyOverrideInfo",
-    "targetInfo": {
-      "__id__": 43
-    },
-    "propertyPath": [
-      "_lscale"
-    ],
-    "value": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    }
-  },
-  {
-    "__type__": "CCPropertyOverrideInfo",
-    "targetInfo": {
-      "__id__": 43
-    },
-    "propertyPath": [
-      "_euler"
-    ],
-    "value": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": -62.84099471424118
-    }
-  },
-  {
     "__type__": "cc.Node",
     "_name": "test-stretchend-billbard",
     "_objFlags": 0,
@@ -866,7 +804,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 47
+        "__id__": 43
       }
     ],
     "_prefab": null,
@@ -904,12 +842,12 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 46
+      "__id__": 42
     },
     "_enabled": true,
     "__prefab": null,
     "target": {
-      "__id__": 48
+      "__id__": 44
     },
     "current": null,
     "updateTime": 1.0668999999761581,
@@ -926,7 +864,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 49
+        "__id__": 45
       }
     ],
     "_prefab": null,
@@ -964,7 +902,7 @@
     "_name": "Cube<ModelComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 48
+      "__id__": 44
     },
     "_enabled": true,
     "__prefab": null,
@@ -976,7 +914,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 50
+      "__id__": 46
     },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
@@ -1029,22 +967,22 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 53
+      "__id__": 49
     },
     "shadows": {
-      "__id__": 54
+      "__id__": 50
     },
     "_skybox": {
-      "__id__": 55
+      "__id__": 51
     },
     "fog": {
-      "__id__": 56
+      "__id__": 52
     },
     "octree": {
-      "__id__": 57
+      "__id__": 53
     },
     "lightProbeInfo": {
-      "__id__": 58
+      "__id__": 54
     },
     "bakedWithStationaryMainLight": false
   },

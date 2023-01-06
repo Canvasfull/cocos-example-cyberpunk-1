@@ -61,5 +61,12 @@
     "defense_percent":0,
     "nearest_node":-1,
     "default_equip_index": 0,
-    "bags":["axe_0", "machine_gun_1","handgun_1","grenade_0","grenade_1","machine_gun_0","handgun_0"]
+    "bags":["machine_gun_1", "axe_0","handgun_1","grenade_0","grenade_1","machine_gun_0","handgun_0"],
+    "weapon_bone":"bone_point_hand",
+    "cache_weapons":[
+        "handgun_0","handgun_1",
+        "machine_gun_0","machine_gun_1",
+        "grenade_0","grenade_1",
+        "axe_0"
+    ]
 }

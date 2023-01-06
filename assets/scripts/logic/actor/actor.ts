@@ -60,8 +60,10 @@ export class Actor extends ActorBase implements IActorInput {
                     let role_node = UtilNode.find(this.node, 'view_point');
                     this._view = Res.inst(asset, role_node);
                     this._animationGraph = this._view.addComponent(ActorAnimationGraph);
-                    //const actorSound = this._view.addComponent(ActorSound);
-                    //actorSound.init(this);
+                    if(this.isPlayer) {
+                        const actorSound = this._view.addComponent(ActorSound);
+                        actorSound.init(this);
+                    }
                     this.do('play');
                     //if (!Guide.Instance._has_guide) this.do('play');
                 }

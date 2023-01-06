@@ -179,7 +179,7 @@ export class InputKeyboardEight extends InputBase {
     
     onMouseMove(event: EventMouse) {
 
-        if (document.pointerLockElement === null && sys.isBrowser) return;
+        //if (document.pointerLockElement === null && sys.isBrowser) return;
 
         if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());
@@ -191,7 +191,7 @@ export class InputKeyboardEight extends InputBase {
 
     onMove(x:number, z:number) {
         
-        if (document.pointerLockElement === null && sys.isBrowser) return;
+        //if (document.pointerLockElement === null && sys.isBrowser) return;
 
         this._dir.x = clamp(this._dir.x + x, -1, 1);
         this._dir.z = clamp(this._dir.z + z, -1, 1);

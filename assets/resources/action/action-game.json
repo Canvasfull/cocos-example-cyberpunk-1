@@ -2,7 +2,8 @@
     "logo": {
         "start": [
             { "time": 0.5, "name": "on_ui", "data": "ui_logo" },
-            { "time": 0.6, "name": "on_inst", "data": "gun_tracer_pool"}
+            { "time": 0.6, "name": "on_inst", "data": "gun_tracer_pool"},
+            { "time": 0, "name": "on_bgm", "data": "bgm_logo"}
         ],
         "end": [
             { "time": 0.01, "name": "off_ui", "data": "ui_logo" },
@@ -11,6 +12,7 @@
     },
     "level": {
         "start": [
+            { "time": 0, "name": "on_bgm", "data": "bgm_level"},
             { "time": 0.1, "name": "on_ui", "data": "ui_level" },
             { "time": 0.3, "name": "on_msg_str", "data": { "key":"level_action", "value":"start" } }
         ],

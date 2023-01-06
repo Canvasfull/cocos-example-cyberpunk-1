@@ -17,6 +17,10 @@ export class TestAnimationGraph extends Component {
 
     keyDown(event: EventKeyboard) {
 
+        if(event.keyCode === KeyCode.KEY_D) {
+            this._animationGraph.play('trigger_draw', true);
+        }
+
         if (event.keyCode === KeyCode.KEY_F) {
             this._animationGraph.play('trigger_fire', true);
         }

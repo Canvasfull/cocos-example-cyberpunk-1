@@ -46,7 +46,9 @@
         "scale": 1.0831683026671408,
         "top": 30.168353296402405,
         "left": -9.088447082331811
-      }
+      },
+      "id": "16730152828910.40059198592870326",
+      "clone": null
     },
     "_states": [
       {
@@ -91,19 +93,19 @@
         "__id__": 23
       },
       {
-        "__id__": 24
+        "__id__": 25
       },
       {
-        "__id__": 26
+        "__id__": 27
       },
       {
-        "__id__": 28
+        "__id__": 29
       },
       {
-        "__id__": 30
+        "__id__": 31
       },
       {
-        "__id__": 32
+        "__id__": 33
       },
       {
         "__id__": 34
@@ -121,7 +123,7 @@
         "__id__": 38
       },
       {
-        "__id__": 39
+        "__id__": 40
       }
     ],
     "_entryState": {
@@ -137,14 +139,22 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -328.76051113448,
-      "centerY": -6.067640885091635,
-      "id": "16695264450140.8504986316639074"
+      "centerX": -384.1535648753058,
+      "centerY": 5.010969863073512,
+      "id": "16695264450140.8504986316639074",
+      "clone": null
     },
     "name": "Entry"
   },
   {
     "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.5440653019612001",
+      "clone": null,
+      "centerX": 125,
+      "centerY": 0
+    },
     "name": "Exit"
   },
   {
@@ -152,7 +162,8 @@
     "__editorExtras__": {
       "centerX": -12.957955462079951,
       "centerY": 168.99817168948766,
-      "id": "16695266884120.9218600131717307"
+      "id": "16695266884120.9218600131717307",
+      "clone": null
     },
     "name": "Any"
   },
@@ -161,7 +172,8 @@
     "__editorExtras__": {
       "centerX": -127.34175886288017,
       "centerY": -109.21290809210316,
-      "id": "16695264804710.05372123042056276"
+      "id": "16695264804710.05372123042056276",
+      "clone": null
     },
     "name": "M1911_Draw",
     "_components": [],
@@ -178,7 +190,8 @@
       "id": "16695264804680.5991782402977694",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@4cea5",
@@ -190,7 +203,8 @@
     "__editorExtras__": {
       "centerX": 60.642670157068096,
       "centerY": -121.77225130890054,
-      "id": "16695266668610.0318723345148515"
+      "id": "16695266668610.0318723345148515",
+      "clone": null
     },
     "name": "M1911_Idle",
     "_components": [],
@@ -207,7 +221,8 @@
       "id": "16695266668560.05249025035446131",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@d6bb9",
@@ -219,7 +234,8 @@
     "__editorExtras__": {
       "centerX": -171.16753926701563,
       "centerY": -229.5746073298429,
-      "id": "16695266741550.5328885400382095"
+      "id": "16695266741550.5328885400382095",
+      "clone": null
     },
     "name": "M1911_Hold",
     "_components": [],
@@ -236,7 +252,8 @@
       "id": "16695266741530.7928822511244964",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@f2916",
@@ -248,7 +265,8 @@
     "__editorExtras__": {
       "centerX": 150.47233749147938,
       "centerY": -239.07952820535223,
-      "id": "16695266932020.545369376377945"
+      "id": "16695266932020.545369376377945",
+      "clone": null
     },
     "name": "M1911_Fire",
     "_components": [],
@@ -265,7 +283,8 @@
       "id": "16695266931980.19889953160583573",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@77bbd",
@@ -277,7 +296,8 @@
     "__editorExtras__": {
       "centerX": 7,
       "centerY": -239.5,
-      "id": "16695266951540.8559239778875569"
+      "id": "16695266951540.8559239778875569",
+      "clone": null
     },
     "name": "M1911_AimFire",
     "_components": [],
@@ -294,7 +314,8 @@
       "id": "16695266951520.4273989556026343",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@5f47a",
@@ -306,7 +327,8 @@
     "__editorExtras__": {
       "centerX": 211.00130890052355,
       "centerY": 39.134816753926714,
-      "id": "16695267908860.02381196724680823"
+      "id": "16695267908860.02381196724680823",
+      "clone": null
     },
     "name": "M1911_Reload",
     "_components": [],
@@ -323,7 +345,8 @@
       "id": "16695267908800.5543211550940197",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@c5d04",
@@ -335,7 +358,8 @@
     "__editorExtras__": {
       "centerX": 344,
       "centerY": 17.5,
-      "id": "16695267941400.12132827568098725"
+      "id": "16695267941400.12132827568098725",
+      "clone": null
     },
     "name": "M1911_ReloadEmpty",
     "_components": [],
@@ -352,7 +376,8 @@
       "id": "16695267941350.7442408695293885",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@56ce3",
@@ -364,7 +389,8 @@
     "__editorExtras__": {
       "centerX": -196.03606440752856,
       "centerY": 164.51828310512263,
-      "id": "16695267998020.47117114798329784"
+      "id": "16695267998020.47117114798329784",
+      "clone": null
     },
     "name": "M1911_Holster",
     "_components": [],
@@ -381,7 +407,8 @@
       "id": "16695267998000.7257442857957366",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "27a25ca2-ec40-40f1-a846-0d8e11e58410@f22a8",
@@ -389,17 +416,12 @@
     }
   },
   {
-    "__type__": "cc.animation.Transition",
-    "from": {
-      "__id__": 3
-    },
-    "to": {
-      "__id__": 6
-    },
-    "conditions": []
-  },
-  {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.2927052108114716",
+      "clone": null
+    },
     "from": {
       "__id__": 10
     },
@@ -417,6 +439,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.45128765319790376",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -425,7 +452,7 @@
     },
     "conditions": [
       {
-        "__id__": 25
+        "__id__": 24
       }
     ],
     "duration": 0,
@@ -442,6 +469,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.948269938891612",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -450,7 +482,7 @@
     },
     "conditions": [
       {
-        "__id__": 27
+        "__id__": 26
       }
     ],
     "duration": 0.3,
@@ -467,6 +499,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.5551327538472142",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -475,7 +512,7 @@
     },
     "conditions": [
       {
-        "__id__": 29
+        "__id__": 28
       }
     ],
     "duration": 0,
@@ -492,6 +529,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.6812799958072189",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -500,7 +542,7 @@
     },
     "conditions": [
       {
-        "__id__": 31
+        "__id__": 30
       }
     ],
     "duration": 0,
@@ -517,6 +559,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.9906534989969775",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -525,7 +572,7 @@
     },
     "conditions": [
       {
-        "__id__": 33
+        "__id__": 32
       }
     ],
     "duration": 0,
@@ -542,6 +589,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.960984426521581",
+      "clone": null
+    },
     "from": {
       "__id__": 18
     },
@@ -559,6 +611,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.8091511450418702",
+      "clone": null
+    },
     "from": {
       "__id__": 16
     },
@@ -576,6 +633,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.18661821954036584",
+      "clone": null
+    },
     "from": {
       "__id__": 6
     },
@@ -593,6 +655,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.7949280940859575",
+      "clone": null
+    },
     "from": {
       "__id__": 12
     },
@@ -610,6 +677,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.912337071161804",
+      "clone": null
+    },
     "from": {
       "__id__": 14
     },
@@ -627,6 +699,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730152828910.65998822961848",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -635,7 +712,7 @@
     },
     "conditions": [
       {
-        "__id__": 40
+        "__id__": 39
       }
     ],
     "duration": 0.3,
@@ -651,8 +728,23 @@
     "trigger": "trigger_draw"
   },
   {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16730173274160.854724641656657",
+      "clone": null
+    },
+    "from": {
+      "__id__": 3
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": []
+  },
+  {
     "__type__": "cc.animation.TriggerVariable",
-    "_flags": 0
+    "_flags": 2
   },
   {
     "__type__": "cc.animation.TriggerVariable",

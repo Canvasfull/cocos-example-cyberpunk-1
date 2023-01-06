@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3, v3 } from 'cc';
+import { _decorator, Component, Node, Vec3, v3, randomRangeInt } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
@@ -10,13 +10,19 @@ export class DropItem extends Component {
     itemName:string;
 
     public init(name:string) {
+
         this.itemName = name;
         this.node.name = name;
         // Load Item.
         var prefab = ResCache.Instance.getPrefab(name + '_pickup');
         const dropNode = Res.inst(prefab, this.node, v3(0, 0, 0));
-
         this.node.on('picked', this.picked, this);
+
+        // random drop effect.
+        const index = randomRangeInt(0, 2);
+        this.node.children[index].active = true;
+
+
     }
 
     onDestroy() {

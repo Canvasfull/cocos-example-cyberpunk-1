@@ -44,9 +44,13 @@
     "items_count":[],
     "angle_vertical_max":30,
     "angle_vertical_min":-40,
-    "hp":500,
+    "hp":80,
     "hp_percent":0,
     "defense":1,
     "defense_percent":0,
-    "bags":["laser_gun_0"]
+    "bags":["laser_gun_0"],
+    "weapon_bone":"bone_point_hand",
+    "cache_weapons":[
+        "laser_gun_0"
+    ]
 }

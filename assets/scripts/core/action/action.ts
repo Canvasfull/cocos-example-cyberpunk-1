@@ -400,6 +400,9 @@ export class UtilAction {
 
     public static on_anig (data: any, actor: ActorBase) {
         if (actor._animationGraph && actor._animationGraph.play) {
+            if(actor.isPlayer) {
+                console.log('--------- on anig:', data);
+            }
             actor._animationGraph.play(data.key, data.value);
         } else
             console.log('Not register animationGraph.');
