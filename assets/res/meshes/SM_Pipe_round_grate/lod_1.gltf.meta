@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "338d4096-4ea0-483b-96d4-3f78c2edca03",
+  "files": [],
+  "subMetas": {
+    "91b10": {
+      "importer": "gltf-mesh",
+      "uuid": "338d4096-4ea0-483b-96d4-3f78c2edca03@91b10",
+      "displayName": "",
+      "id": "91b10",
+      "name": "SM_Pipe_round_grate.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "338d4096-4ea0-483b-96d4-3f78c2edca03@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "338d4096-4ea0-483b-96d4-3f78c2edca03@f0843",
+    "assetFinder": {
+      "meshes": [
+        "338d4096-4ea0-483b-96d4-3f78c2edca03@91b10"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "338d4096-4ea0-483b-96d4-3f78c2edca03@f0843"
+      ]
+    }
+  }
+}

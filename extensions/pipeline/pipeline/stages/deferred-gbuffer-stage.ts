@@ -1,4 +1,4 @@
-import { BaseStage, InputType } from "./base-stage";
+import { BaseStage } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys, director } from "cc";
 import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
 

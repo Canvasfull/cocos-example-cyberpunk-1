@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "bd68a174-1706-4eab-89e2-e5652ac0771f",
+  "files": [],
+  "subMetas": {
+    "df610": {
+      "importer": "gltf-mesh",
+      "uuid": "bd68a174-1706-4eab-89e2-e5652ac0771f@df610",
+      "displayName": "",
+      "id": "df610",
+      "name": "SM_CarPaintLight01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "bd68a174-1706-4eab-89e2-e5652ac0771f@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "bd68a174-1706-4eab-89e2-e5652ac0771f@f0843",
+    "assetFinder": {
+      "meshes": [
+        "bd68a174-1706-4eab-89e2-e5652ac0771f@df610"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "bd68a174-1706-4eab-89e2-e5652ac0771f@f0843"
+      ]
+    }
+  }
+}

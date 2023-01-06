@@ -6,6 +6,8 @@ import { EDITOR } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
 import { ReflectionProbes } from "../components/reflection-probe-utils";
 import { DeferredGBufferStage } from "./deferred-gbuffer-stage";
+import { settings } from "./setting";
+import { CustomShadowStage } from "./shadow-stage";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -67,18 +69,15 @@ export class DeferredLightingStage extends BaseStage {
         lightingPass.name = `CameraLightingPass${cameraID}`;
         lightingPass.setViewport(new Viewport(area.x, area.y, width, height));
 
-        // for (const dirShadowName of cameraInfo.mainLightShadowNames) {
-        //     if (ppl.containsResource(dirShadowName)) {
-        //         const computeView = new ComputeView();
-        //         lightingPass.addComputeView(dirShadowName, computeView);
-        //     }
-        // }
-        // for (const spotShadowName of cameraInfo.spotLightShadowNames) {
-        //     if (ppl.containsResource(spotShadowName)) {
-        //         const computeView = new ComputeView();
-        //         lightingPass.addComputeView(spotShadowName, computeView);
-        //     }
-        // }
+        let shadowStage: CustomShadowStage = settings.shadowStage;
+        if (shadowStage) {
+            for (const dirShadowName of shadowStage.mainLightShadows) {
+                if (ppl.containsResource(dirShadowName)) {
+                    const computeView = new ComputeView();
+                    lightingPass.addComputeView(dirShadowName, computeView);
+                }
+            }
+        }
 
         let input0 = this.lastStage.slotName(camera, 0);
         let input1 = this.lastStage.slotName(camera, 1);
@@ -138,6 +137,7 @@ export class DeferredLightingStage extends BaseStage {
                 })
                 material.recompileShaders({
                     // CC_USE_IBL: 0,
+                    CC_RECEIVE_SHADOW: 1,
                     REFLECTION_PROBE_COUNT: probes.length
                 })
             }

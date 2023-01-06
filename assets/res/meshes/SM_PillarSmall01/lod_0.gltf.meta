@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f0705360-cec6-4e96-a3d4-5285e592b252",
+  "files": [],
+  "subMetas": {
+    "727a2": {
+      "importer": "gltf-mesh",
+      "uuid": "f0705360-cec6-4e96-a3d4-5285e592b252@727a2",
+      "displayName": "",
+      "id": "727a2",
+      "name": "SM_PillarSmall01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "f0705360-cec6-4e96-a3d4-5285e592b252@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f0705360-cec6-4e96-a3d4-5285e592b252@9d156",
+    "assetFinder": {
+      "meshes": [
+        "f0705360-cec6-4e96-a3d4-5285e592b252@727a2"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f0705360-cec6-4e96-a3d4-5285e592b252@9d156"
+      ]
+    }
+  }
+}

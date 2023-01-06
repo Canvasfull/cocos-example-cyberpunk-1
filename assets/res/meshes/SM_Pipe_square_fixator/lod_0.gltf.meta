@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "20d7ed25-80b6-4090-8349-9d2113418894",
+  "files": [],
+  "subMetas": {
+    "45b70": {
+      "importer": "gltf-mesh",
+      "uuid": "20d7ed25-80b6-4090-8349-9d2113418894@45b70",
+      "displayName": "",
+      "id": "45b70",
+      "name": "SM_Pipe_square_fixator.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "20d7ed25-80b6-4090-8349-9d2113418894@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "20d7ed25-80b6-4090-8349-9d2113418894@9d156",
+    "assetFinder": {
+      "meshes": [
+        "20d7ed25-80b6-4090-8349-9d2113418894@45b70"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "20d7ed25-80b6-4090-8349-9d2113418894@9d156"
+      ]
+    }
+  }
+}

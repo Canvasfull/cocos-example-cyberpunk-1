@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "bb231943-8524-4a19-9ab5-c088c8c1838c",
+  "files": [],
+  "subMetas": {
+    "727a2": {
+      "importer": "gltf-mesh",
+      "uuid": "bb231943-8524-4a19-9ab5-c088c8c1838c@727a2",
+      "displayName": "",
+      "id": "727a2",
+      "name": "SM_PillarSmall01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "bb231943-8524-4a19-9ab5-c088c8c1838c@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "bb231943-8524-4a19-9ab5-c088c8c1838c@f0843",
+    "assetFinder": {
+      "meshes": [
+        "bb231943-8524-4a19-9ab5-c088c8c1838c@727a2"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "bb231943-8524-4a19-9ab5-c088c8c1838c@f0843"
+      ]
+    }
+  }
+}

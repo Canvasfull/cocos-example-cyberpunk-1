@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "3b45441d-7eff-45ef-aacd-f0bfc9517cc8",
+  "files": [],
+  "subMetas": {
+    "386c5": {
+      "importer": "gltf-mesh",
+      "uuid": "3b45441d-7eff-45ef-aacd-f0bfc9517cc8@386c5",
+      "displayName": "",
+      "id": "386c5",
+      "name": "SM_GateTopRight01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "3b45441d-7eff-45ef-aacd-f0bfc9517cc8@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "3b45441d-7eff-45ef-aacd-f0bfc9517cc8@f0843",
+    "assetFinder": {
+      "meshes": [
+        "3b45441d-7eff-45ef-aacd-f0bfc9517cc8@386c5"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "3b45441d-7eff-45ef-aacd-f0bfc9517cc8@f0843"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "eeea5706-f006-4200-848a-5deb136cf773",
+  "files": [],
+  "subMetas": {
+    "2808f": {
+      "importer": "gltf-mesh",
+      "uuid": "eeea5706-f006-4200-848a-5deb136cf773@2808f",
+      "displayName": "",
+      "id": "2808f",
+      "name": "SM_TilePlate_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "eeea5706-f006-4200-848a-5deb136cf773@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "eeea5706-f006-4200-848a-5deb136cf773@9d156",
+    "assetFinder": {
+      "meshes": [
+        "eeea5706-f006-4200-848a-5deb136cf773@2808f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "eeea5706-f006-4200-848a-5deb136cf773@9d156"
+      ]
+    }
+  }
+}

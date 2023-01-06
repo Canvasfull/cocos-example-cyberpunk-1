@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "3536f3a3-b47f-4bd5-8efd-4bf64b578911",
+  "files": [],
+  "subMetas": {
+    "6fa92": {
+      "importer": "gltf-mesh",
+      "uuid": "3536f3a3-b47f-4bd5-8efd-4bf64b578911@6fa92",
+      "displayName": "",
+      "id": "6fa92",
+      "name": "SM_GateDoor01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "3536f3a3-b47f-4bd5-8efd-4bf64b578911@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "3536f3a3-b47f-4bd5-8efd-4bf64b578911@f0843",
+    "assetFinder": {
+      "meshes": [
+        "3536f3a3-b47f-4bd5-8efd-4bf64b578911@6fa92"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "3536f3a3-b47f-4bd5-8efd-4bf64b578911@f0843"
+      ]
+    }
+  }
+}

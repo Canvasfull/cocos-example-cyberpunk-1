@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f1a24748-b5f4-4515-8330-47c6b6a16d9e",
+  "files": [],
+  "subMetas": {
+    "f4c95": {
+      "importer": "gltf-mesh",
+      "uuid": "f1a24748-b5f4-4515-8330-47c6b6a16d9e@f4c95",
+      "displayName": "",
+      "id": "f4c95",
+      "name": "SM_pipe_conditioning01_04.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "f1a24748-b5f4-4515-8330-47c6b6a16d9e@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f1a24748-b5f4-4515-8330-47c6b6a16d9e@9d156",
+    "assetFinder": {
+      "meshes": [
+        "f1a24748-b5f4-4515-8330-47c6b6a16d9e@f4c95"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f1a24748-b5f4-4515-8330-47c6b6a16d9e@9d156"
+      ]
+    }
+  }
+}

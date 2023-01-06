@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "b626d8d1-0c22-47b5-bcb4-d05cce1f3b14",
+  "files": [],
+  "subMetas": {
+    "583a6": {
+      "importer": "gltf-mesh",
+      "uuid": "b626d8d1-0c22-47b5-bcb4-d05cce1f3b14@583a6",
+      "displayName": "",
+      "id": "583a6",
+      "name": "SM_MetalBumper03.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "b626d8d1-0c22-47b5-bcb4-d05cce1f3b14@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "b626d8d1-0c22-47b5-bcb4-d05cce1f3b14@9d156",
+    "assetFinder": {
+      "meshes": [
+        "b626d8d1-0c22-47b5-bcb4-d05cce1f3b14@583a6"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "b626d8d1-0c22-47b5-bcb4-d05cce1f3b14@9d156"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Camera, Component, director, geometry, gfx, MeshRenderer, Node, Quat, renderer, Vec2, Vec3, _decorator, ccenum, Color, GeometryRenderer, Mat4, InstancedBuffer } from 'cc';
+import { Camera, Component, director, geometry, gfx, MeshRenderer, Node, Quat, renderer, Vec2, Vec3, _decorator, ccenum, Color, Mat4, InstancedBuffer } from 'cc';
 import { EDITOR } from 'cc/env';
 import { Pool } from './utils/pool';
 import raycast from './utils/raycast';
@@ -6,7 +6,7 @@ import raycastGpu from './utils/raycast-gpu';
 import { StaticOcclusionArea } from './static-occlusion-area';
 import { CullingBlock } from './static-occlusion-block';
 import { modelPoints, sphereDirections } from './utils/utils';
-import { CameraSetting } from '../../../camera-setting';
+import { getGeometryRenderer } from '../../../utils/debug';
 
 const { ccclass, property, type, executeInEditMode } = _decorator;
 
@@ -611,24 +611,7 @@ export class StaticOcclusionCulling extends Component {
     }
 
     debugDraw () {
-        let camera;
-        if (EDITOR) {
-            director.root.scenes.forEach(s => {
-                s.cameras.forEach(c => {
-                    if (c.name === 'Editor UIGizmoCamera') {
-                        camera = c;
-                    }
-                })
-            })
-        }
-        else {
-            camera = CameraSetting.mainCamera && CameraSetting.mainCamera.camera;
-        }
-
-        if (camera) {
-            camera.initGeometryRenderer();
-        }
-        let geometryRenderer: GeometryRenderer = camera && camera.geometryRenderer || director.root.pipeline.geometryRenderer;
+        let geometryRenderer = getGeometryRenderer();
         if (!geometryRenderer) {
             return;
         }

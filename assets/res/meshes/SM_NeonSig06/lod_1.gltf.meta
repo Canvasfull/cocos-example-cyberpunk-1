@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "40429db1-3cf1-463c-b4a8-06460bc4dc31",
+  "files": [],
+  "subMetas": {
+    "cb542": {
+      "importer": "gltf-mesh",
+      "uuid": "40429db1-3cf1-463c-b4a8-06460bc4dc31@cb542",
+      "displayName": "",
+      "id": "cb542",
+      "name": "SM_NeonSig06.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "40429db1-3cf1-463c-b4a8-06460bc4dc31@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "40429db1-3cf1-463c-b4a8-06460bc4dc31@f0843",
+    "assetFinder": {
+      "meshes": [
+        "40429db1-3cf1-463c-b4a8-06460bc4dc31@cb542"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "40429db1-3cf1-463c-b4a8-06460bc4dc31@f0843"
+      ]
+    }
+  }
+}

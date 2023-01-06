@@ -1,36 +1,7 @@
 export default {
-    "last_node_id": 25,
-    "last_link_id": 65,
+    "last_node_id": 26,
+    "last_link_id": 67,
     "nodes": [
-        {
-            "id": 1,
-            "type": "pipeline/Pipeline",
-            "pos": [
-                133,
-                617
-            ],
-            "size": {
-                "0": 210,
-                "1": 82
-            },
-            "flags": {},
-            "order": 0,
-            "mode": 0,
-            "outputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "links": [
-                        16
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "Name": "main",
-                "Enable": true
-            }
-        },
         {
             "id": 17,
             "type": "pipeline/TAAStage",
@@ -43,7 +14,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 12,
+            "order": 14,
             "mode": 0,
             "inputs": [
                 {
@@ -101,7 +72,7 @@ export default {
                 "1": 82
             },
             "flags": {},
-            "order": 1,
+            "order": 0,
             "mode": 0,
             "outputs": [
                 {
@@ -130,7 +101,7 @@ export default {
                 "1": 26
             },
             "flags": {},
-            "order": 10,
+            "order": 9,
             "mode": 0,
             "inputs": [
                 {
@@ -153,7 +124,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 4,
+            "order": 3,
             "mode": 0,
             "inputs": [
                 {
@@ -207,7 +178,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 7,
+            "order": 6,
             "mode": 0,
             "inputs": [
                 {
@@ -244,59 +215,6 @@ export default {
             }
         },
         {
-            "id": 10,
-            "type": "pipeline/DeferredGBufferStage",
-            "pos": [
-                444,
-                612
-            ],
-            "size": {
-                "0": 228.39999389648438,
-                "1": 146
-            },
-            "flags": {},
-            "order": 3,
-            "mode": 0,
-            "inputs": [
-                {
-                    "name": "Camera Output",
-                    "type": "Camera Output",
-                    "link": 16
-                },
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "link": null
-                },
-                {
-                    "name": "Custom Size",
-                    "type": "vec2",
-                    "link": null
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "RenderTexture",
-                    "type": "RenderTexture",
-                    "links": [
-                        17
-                    ],
-                    "slot_index": 0
-                }
-            ],
-            "properties": {
-                "showResult": false,
-                "enable": true,
-                "name": "DeferredGBuffer",
-                "shadingScale": 1,
-                "Name": "DeferredGBufferStage",
-                "Enable": true,
-                "CameraOutputType": "Color",
-                "Format": "RGBA8",
-                "material": "blit-screen"
-            }
-        },
-        {
             "id": 20,
             "type": "pipeline/Pipeline",
             "pos": [
@@ -308,7 +226,7 @@ export default {
                 "1": 82
             },
             "flags": {},
-            "order": 2,
+            "order": 1,
             "mode": 0,
             "outputs": [
                 {
@@ -337,7 +255,7 @@ export default {
                 "1": 26
             },
             "flags": {},
-            "order": 13,
+            "order": 12,
             "mode": 0,
             "inputs": [
                 {
@@ -360,7 +278,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 5,
+            "order": 4,
             "mode": 0,
             "inputs": [
                 {
@@ -413,7 +331,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 8,
+            "order": 7,
             "mode": 0,
             "inputs": [
                 {
@@ -466,7 +384,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 11,
+            "order": 10,
             "mode": 0,
             "inputs": [
                 {
@@ -519,7 +437,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 9,
+            "order": 13,
             "mode": 0,
             "inputs": [
                 {
@@ -576,7 +494,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 6,
+            "order": 11,
             "mode": 0,
             "inputs": [
                 {
@@ -629,7 +547,7 @@ export default {
                 "1": 170
             },
             "flags": {},
-            "order": 14,
+            "order": 15,
             "mode": 0,
             "inputs": [
                 {
@@ -682,7 +600,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 16,
+            "order": 17,
             "mode": 0,
             "inputs": [
                 {
@@ -735,7 +653,7 @@ export default {
                 "1": 26
             },
             "flags": {},
-            "order": 17,
+            "order": 18,
             "mode": 0,
             "inputs": [
                 {
@@ -758,7 +676,7 @@ export default {
                 "1": 146
             },
             "flags": {},
-            "order": 15,
+            "order": 16,
             "mode": 0,
             "inputs": [
                 {
@@ -793,17 +711,140 @@ export default {
                 "name": "ZoomScreenStage",
                 "shadingScale": 1
             }
+        },
+        {
+            "id": 1,
+            "type": "pipeline/Pipeline",
+            "pos": [
+                -223,
+                626
+            ],
+            "size": {
+                "0": 210,
+                "1": 82
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "links": [
+                        66
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Name": "main",
+                "Enable": true
+            }
+        },
+        {
+            "id": 26,
+            "type": "pipeline/CustomShadowStage",
+            "pos": [
+                103,
+                641
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 170
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": 66
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": null
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        67
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "CustomShadowStage",
+                "shadingScale": 1,
+                "textureFormat": 35
+            }
+        },
+        {
+            "id": 10,
+            "type": "pipeline/DeferredGBufferStage",
+            "pos": [
+                444,
+                612
+            ],
+            "size": {
+                "0": 228.39999389648438,
+                "1": 146
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "Camera Output",
+                    "type": "Camera Output",
+                    "link": null
+                },
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "link": 67
+                },
+                {
+                    "name": "Custom Size",
+                    "type": "vec2",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "RenderTexture",
+                    "type": "RenderTexture",
+                    "links": [
+                        17
+                    ],
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "showResult": false,
+                "enable": true,
+                "name": "DeferredGBuffer",
+                "shadingScale": 1,
+                "Name": "DeferredGBufferStage",
+                "Enable": true,
+                "CameraOutputType": "Color",
+                "Format": "RGBA8",
+                "material": "blit-screen"
+            }
         }
     ],
     "links": [
-        [
-            16,
-            1,
-            0,
-            10,
-            0,
-            "Camera Output"
-        ],
         [
             17,
             10,
@@ -913,6 +954,22 @@ export default {
             25,
             0,
             12,
+            1,
+            "RenderTexture"
+        ],
+        [
+            66,
+            1,
+            0,
+            26,
+            0,
+            "Camera Output"
+        ],
+        [
+            67,
+            26,
+            0,
+            10,
             1,
             "RenderTexture"
         ]

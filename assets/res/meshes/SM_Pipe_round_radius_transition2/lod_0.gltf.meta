@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "4d394274-3de1-46b2-9daa-2458bbf61e08",
+  "files": [],
+  "subMetas": {
+    "aea1e": {
+      "importer": "gltf-mesh",
+      "uuid": "4d394274-3de1-46b2-9daa-2458bbf61e08@aea1e",
+      "displayName": "",
+      "id": "aea1e",
+      "name": "SM_Pipe_round_radius_transition2.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "4d394274-3de1-46b2-9daa-2458bbf61e08@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "4d394274-3de1-46b2-9daa-2458bbf61e08@9d156",
+    "assetFinder": {
+      "meshes": [
+        "4d394274-3de1-46b2-9daa-2458bbf61e08@aea1e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "4d394274-3de1-46b2-9daa-2458bbf61e08@9d156"
+      ]
+    }
+  }
+}

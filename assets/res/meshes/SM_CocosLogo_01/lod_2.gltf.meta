@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "43281fa3-7f50-44c7-9336-43994cce2792",
+  "files": [],
+  "subMetas": {
+    "187f8": {
+      "importer": "gltf-mesh",
+      "uuid": "43281fa3-7f50-44c7-9336-43994cce2792@187f8",
+      "displayName": "",
+      "id": "187f8",
+      "name": "SM_CocosLogo_01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "43281fa3-7f50-44c7-9336-43994cce2792@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "43281fa3-7f50-44c7-9336-43994cce2792@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "43281fa3-7f50-44c7-9336-43994cce2792@187f8"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "43281fa3-7f50-44c7-9336-43994cce2792@53b6b"
+      ]
+    }
+  }
+}

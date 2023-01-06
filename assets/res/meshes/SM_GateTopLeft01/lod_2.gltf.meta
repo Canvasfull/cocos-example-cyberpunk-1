@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "347854b3-54f5-4ad6-b5c5-8d35eb355477",
+  "files": [],
+  "subMetas": {
+    "243ab": {
+      "importer": "gltf-mesh",
+      "uuid": "347854b3-54f5-4ad6-b5c5-8d35eb355477@243ab",
+      "displayName": "",
+      "id": "243ab",
+      "name": "SM_GateTopLeft01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "347854b3-54f5-4ad6-b5c5-8d35eb355477@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "347854b3-54f5-4ad6-b5c5-8d35eb355477@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "347854b3-54f5-4ad6-b5c5-8d35eb355477@243ab"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "347854b3-54f5-4ad6-b5c5-8d35eb355477@53b6b"
+      ]
+    }
+  }
+}

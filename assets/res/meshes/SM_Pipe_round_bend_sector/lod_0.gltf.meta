@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "9b269409-6f59-412f-a133-dbd74db72365",
+  "files": [],
+  "subMetas": {
+    "e2762": {
+      "importer": "gltf-mesh",
+      "uuid": "9b269409-6f59-412f-a133-dbd74db72365@e2762",
+      "displayName": "",
+      "id": "e2762",
+      "name": "SM_Pipe_round_bend_sector.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "9b269409-6f59-412f-a133-dbd74db72365@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "9b269409-6f59-412f-a133-dbd74db72365@9d156",
+    "assetFinder": {
+      "meshes": [
+        "9b269409-6f59-412f-a133-dbd74db72365@e2762"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "9b269409-6f59-412f-a133-dbd74db72365@9d156"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2a3e5765-78a7-4b08-a8cd-8e0919ac9de0",
+  "files": [],
+  "subMetas": {
+    "8334f": {
+      "importer": "gltf-mesh",
+      "uuid": "2a3e5765-78a7-4b08-a8cd-8e0919ac9de0@8334f",
+      "displayName": "",
+      "id": "8334f",
+      "name": "SM_Door01.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "53b6b": {
+      "importer": "gltf-scene",
+      "uuid": "2a3e5765-78a7-4b08-a8cd-8e0919ac9de0@53b6b",
+      "displayName": "",
+      "id": "53b6b",
+      "name": "lod_2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "2a3e5765-78a7-4b08-a8cd-8e0919ac9de0@53b6b",
+    "assetFinder": {
+      "meshes": [
+        "2a3e5765-78a7-4b08-a8cd-8e0919ac9de0@8334f"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "2a3e5765-78a7-4b08-a8cd-8e0919ac9de0@53b6b"
+      ]
+    }
+  }
+}

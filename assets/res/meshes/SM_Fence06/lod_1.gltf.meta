@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "5431f069-2735-4869-ad1f-5c68ccfa637f",
+  "files": [],
+  "subMetas": {
+    "97939": {
+      "importer": "gltf-mesh",
+      "uuid": "5431f069-2735-4869-ad1f-5c68ccfa637f@97939",
+      "displayName": "",
+      "id": "97939",
+      "name": "SM_Fence06.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f0843": {
+      "importer": "gltf-scene",
+      "uuid": "5431f069-2735-4869-ad1f-5c68ccfa637f@f0843",
+      "displayName": "",
+      "id": "f0843",
+      "name": "lod_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "5431f069-2735-4869-ad1f-5c68ccfa637f@f0843",
+    "assetFinder": {
+      "meshes": [
+        "5431f069-2735-4869-ad1f-5c68ccfa637f@97939"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "5431f069-2735-4869-ad1f-5c68ccfa637f@f0843"
+      ]
+    }
+  }
+}

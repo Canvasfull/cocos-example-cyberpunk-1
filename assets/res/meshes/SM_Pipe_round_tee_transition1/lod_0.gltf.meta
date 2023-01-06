@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "ec30d084-90d8-4c59-99d4-280f8bb64892",
+  "files": [],
+  "subMetas": {
+    "6591e": {
+      "importer": "gltf-mesh",
+      "uuid": "ec30d084-90d8-4c59-99d4-280f8bb64892@6591e",
+      "displayName": "",
+      "id": "6591e",
+      "name": "SM_Pipe_round_tee_transition1.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "ec30d084-90d8-4c59-99d4-280f8bb64892@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "ec30d084-90d8-4c59-99d4-280f8bb64892@9d156",
+    "assetFinder": {
+      "meshes": [
+        "ec30d084-90d8-4c59-99d4-280f8bb64892@6591e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "ec30d084-90d8-4c59-99d4-280f8bb64892@9d156"
+      ]
+    }
+  }
+}

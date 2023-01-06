@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "bb275c37-41c5-40a1-a812-5a047b5cc0f7",
+  "files": [],
+  "subMetas": {
+    "e6929": {
+      "importer": "gltf-mesh",
+      "uuid": "bb275c37-41c5-40a1-a812-5a047b5cc0f7@e6929",
+      "displayName": "",
+      "id": "e6929",
+      "name": "SM_GasStat_Column_02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "bb275c37-41c5-40a1-a812-5a047b5cc0f7@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "bb275c37-41c5-40a1-a812-5a047b5cc0f7@9d156",
+    "assetFinder": {
+      "meshes": [
+        "bb275c37-41c5-40a1-a812-5a047b5cc0f7@e6929"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "bb275c37-41c5-40a1-a812-5a047b5cc0f7@9d156"
+      ]
+    }
+  }
+}

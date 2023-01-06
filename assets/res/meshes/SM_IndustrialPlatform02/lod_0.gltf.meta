@@ -1,0 +1,57 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "749b6c42-ea23-44b0-b300-5f69b7135853",
+  "files": [],
+  "subMetas": {
+    "97504": {
+      "importer": "gltf-mesh",
+      "uuid": "749b6c42-ea23-44b0-b300-5f69b7135853@97504",
+      "displayName": "",
+      "id": "97504",
+      "name": "SM_IndustrialPlatform02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d156": {
+      "importer": "gltf-scene",
+      "uuid": "749b6c42-ea23-44b0-b300-5f69b7135853@9d156",
+      "displayName": "",
+      "id": "9d156",
+      "name": "lod_0.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "749b6c42-ea23-44b0-b300-5f69b7135853@9d156",
+    "assetFinder": {
+      "meshes": [
+        "749b6c42-ea23-44b0-b300-5f69b7135853@97504"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "749b6c42-ea23-44b0-b300-5f69b7135853@9d156"
+      ]
+    }
+  }
+}
