@@ -1,0 +1,75 @@
+{
+  "ver": "2.3.2",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "f4d52717-2dd6-4dad-9c1e-06db22e10908",
+  "files": [],
+  "subMetas": {
+    "29156": {
+      "importer": "gltf-material",
+      "uuid": "f4d52717-2dd6-4dad-9c1e-06db22e10908@29156",
+      "displayName": "",
+      "id": "29156",
+      "name": "MI_CyborgEnemy02.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "54b7e": {
+      "importer": "gltf-mesh",
+      "uuid": "f4d52717-2dd6-4dad-9c1e-06db22e10908@54b7e",
+      "displayName": "",
+      "id": "54b7e",
+      "name": "SM_CyborgEnemy02.001.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d288e": {
+      "importer": "gltf-scene",
+      "uuid": "f4d52717-2dd6-4dad-9c1e-06db22e10908@d288e",
+      "displayName": "",
+      "id": "d288e",
+      "name": "SM_CyborgEnemy02.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f4d52717-2dd6-4dad-9c1e-06db22e10908@d288e",
+    "assetFinder": {
+      "meshes": [
+        "f4d52717-2dd6-4dad-9c1e-06db22e10908@54b7e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "f4d52717-2dd6-4dad-9c1e-06db22e10908@29156"
+      ],
+      "scenes": [
+        "f4d52717-2dd6-4dad-9c1e-06db22e10908@d288e"
+      ]
+    }
+  }
+}
