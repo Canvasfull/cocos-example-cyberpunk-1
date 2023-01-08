@@ -1,6 +1,6 @@
 
 import { _decorator, Component, Node, find, v3 } from 'cc';
-import { u3 } from '../../core/util/util';
+import { UtilVec3 } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
 /**
@@ -34,7 +34,7 @@ export class Weather extends Component {
 
     update(deltaTime: number) {
         //     // [4]
-        u3.c(this._pos, this._flowTarget.worldPosition);
+        UtilVec3.copy(this._pos, this._flowTarget.worldPosition);
         this.node.setPosition(this._pos);
     }
 }

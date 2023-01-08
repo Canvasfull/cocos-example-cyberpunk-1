@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Vec3, v3 } from 'cc';
 import { Msg } from '../../core/msg/msg';
-import { u3 } from '../../core/util/util';
+import { UtilVec3 } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('SmoothLocalZ')
@@ -24,10 +24,10 @@ export class SmoothLocalZ extends Component {
 
     /*
     start () {
-        u3.c(this.pos, this.node.position);
-        u3.c(this.original, this.pos);
+        UtilVec3.copy(this.pos, this.node.position);
+        UtilVec3.copy(this.original, this.pos);
         this.pos.z = this.offset + this.original.z;
-        u3.c(this.cur, this.pos);
+        UtilVec3.copy(this.cur, this.pos);
         this.cur.z = 30;
         this.node.setPosition(this.cur);
         Msg.on('set_offset_x', this.setOffsetX.bind(this));
@@ -35,10 +35,10 @@ export class SmoothLocalZ extends Component {
     */
 
     init() {
-        u3.c(this.pos, this.node.position);
-        u3.c(this.original, this.pos);
+        UtilVec3.copy(this.pos, this.node.position);
+        UtilVec3.copy(this.original, this.pos);
         this.pos.z = this.offset + this.original.z;
-        u3.c(this.cur, this.pos);
+        UtilVec3.copy(this.cur, this.pos);
         this.cur.z = 30;
         this.pos.z = 30;
         this.node.setPosition(this.cur);

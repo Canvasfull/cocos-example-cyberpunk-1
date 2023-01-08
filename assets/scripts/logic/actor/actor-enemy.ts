@@ -2,7 +2,7 @@ import { _decorator, RigidBody, Vec3, Vec2, v3, game, Quat, Node } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { IActorInput } from '../../core/input/IActorInput';
 import { Res } from '../../core/res/res';
-import { u3, UtilNode } from '../../core/util/util';
+import { UtilVec3, UtilNode } from '../../core/util/util';
 import { Level } from '../level/level';
 import { ActorAnimationGraph } from './actor-animation-graph';
 import { ActorBuff } from './actor-buff';
@@ -83,7 +83,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     addAreaForce (force: Vec3) {
         if (this._data.is_glide) {
-            u3.c(this._area_force, force);
+            UtilVec3.copy(this._area_force, force);
             this._rigid!.applyForce(this._area_force);
         }
     }
@@ -131,7 +131,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         this._fps = game.frameRate as number;
 
         this._rigid!.getLinearVelocity(this._velocity);
-        u3.c(this._velocity_local, Vec3.ZERO);
+        UtilVec3.copy(this._velocity_local, Vec3.ZERO);
 
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime); 
@@ -149,7 +149,7 @@ export class ActorEnemy extends ActorBase implements IActorInput {
         this._velocity.z = this._velocity_local.z;
 
         this._rigid!.setLinearVelocity(this._velocity);
-        u3.c(this._curDir, this._dir);
+        UtilVec3.copy(this._curDir, this._dir);
         var angle = Vec3.angle(this._curDir, this.node.forward);
         var angleAbs = Math.abs(angle) * 5;
         if (angleAbs > 0.01) {
@@ -211,8 +211,8 @@ export class ActorEnemy extends ActorBase implements IActorInput {
 
     onMove (move: Vec3) {
 
-        if (this._data.is_dead) u3.c(this._move, Vec3.ZERO);
-        else u3.c(this._move, move);
+        if (this._data.is_dead) UtilVec3.copy(this._move, Vec3.ZERO);
+        else UtilVec3.copy(this._move, move);
     }
 
     onRotation (x: number, y: number) {

@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, geometry, PhysicsSystem, v3, Line, Vec3, Graphics, ParticleSystem, CurveRange } from 'cc';
-import { u3 } from '../util/util';
+import { UtilVec3 } from '../util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('FxActorFallPoint')
@@ -31,11 +31,11 @@ export class FxActorFallPoint extends Component {
     }
 
     detectPoint () {
-        u3.c(this._ray.o, this.node.worldPosition);
+        UtilVec3.copy(this._ray.o, this.node.worldPosition);
         if (PhysicsSystem.instance.raycastClosest(this._ray)) {
             var res = PhysicsSystem.instance.raycastClosestResult;
             this._height = this.node.worldPosition.y - res.hitPoint.y;
-            u3.c(this._hitPos, res.hitPoint);
+            UtilVec3.copy(this._hitPos, res.hitPoint);
             this._hitPos.y += 0.05;
             this.particle_high_light.startSpeed.constant = this._height * this.rate_high_light;//this._curverange;
         } else {

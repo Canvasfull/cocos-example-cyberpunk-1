@@ -13,7 +13,7 @@ import { Res } from '../res/res';
 import { ResCache } from '../res/res-cache';
 import { Queue } from '../util/data-structure';
 import { GMath } from '../util/g-math';
-import { UtilNode, u3 } from '../util/util';
+import { UtilNode, UtilVec3 } from '../util/util';
 import { FilSmooth } from './fil-smooth';
 
 export class UIBase {
@@ -467,7 +467,7 @@ export class GrpMap extends UICom {
 
         Msg.on('msg_update_map', ()=>{
 
-            u3.c(position, Level.Instance._actor.node.position);
+            UtilVec3.copy(position, Level.Instance._actor.node.position);
             const y = position.x * scale_x;
             const x = position.z * scale_y;
             position.z = 0;
@@ -485,7 +485,7 @@ export class GrpMap extends UICom {
                     currentNode.setPosition(10000, 0, 0);
                     continue;
                 }
-                u3.c(position, enemies[i].position);
+                UtilVec3.copy(position, enemies[i].position);
                 const y = position.x * scale_x;
                 const x = position.z * scale_y;
                 position.z = 0;

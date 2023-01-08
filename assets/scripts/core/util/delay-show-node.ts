@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Vec3, v3 } from 'cc';
 import { fun } from './fun';
-import { u3 } from './util';
+import { UtilVec3 } from './util';
 const { ccclass, property } = _decorator;
 
 @ccclass('delay_show_node')
@@ -12,7 +12,7 @@ export class delay_show_node extends Component {
     _scale = v3(0, 0, 0);
 
     onEnable () {
-        u3.c(this._scale, this.node.getWorldScale());
+        UtilVec3.copy(this._scale, this.node.getWorldScale());
         this.node.setScale(0, 0, 0);
     }
 

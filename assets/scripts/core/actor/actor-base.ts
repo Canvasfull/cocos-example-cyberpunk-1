@@ -5,7 +5,7 @@ import { KeyAnyType } from '../../logic/data/game-type';
 import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { ResCache } from '../res/res-cache';
-import { UtilNode, u3 } from '../util/util';
+import { UtilNode, UtilVec3 } from '../util/util';
 import { Level } from '../../logic/level/level';
 const { ccclass, property } = _decorator;
 
@@ -99,7 +99,7 @@ export class ActorBase extends Component {
     }
 
     setDir(dir:Vec3) {
-        u3.c(this._dir, dir);
+        UtilVec3.copy(this._dir, dir);
     }
 
     onDead() {

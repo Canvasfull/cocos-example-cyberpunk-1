@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, PhysicsSystem, Vec3, geometry, debug, Graphics, RenderPipeline, v3, math } from 'cc';
-import { u3 } from '../util/util';
+import { UtilVec3 } from '../util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('SensorRaysAngle')
@@ -81,7 +81,7 @@ export class SensorRaysAngle extends Component {
                 this._ray.o.z = this._origins![i].z + this.node.worldPosition.z;
                 if (PhysicsSystem.instance.raycastClosest(this._ray, this._mask, this.distance)) {
                     var res = PhysicsSystem.instance.raycastClosestResult;
-                    u3.c(this.hitPoint, res.hitPoint);
+                    UtilVec3.copy(this.hitPoint, res.hitPoint);
                     this.checked = true;
                     this.checkedNode = res.collider.node;
                     return;

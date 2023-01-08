@@ -7,7 +7,7 @@ const { ccclass, property } = _decorator;
 @ccclass('DropItem')
 export class DropItem extends Component {
 
-    itemName:string;
+    itemName:string = '';
 
     public init(name:string) {
 
@@ -15,7 +15,7 @@ export class DropItem extends Component {
         this.node.name = name;
         // Load Item.
         var prefab = ResCache.Instance.getPrefab(name + '_pickup');
-        const dropNode = Res.inst(prefab, this.node, v3(0, 0, 0));
+        const dropNode = Res.inst(prefab, this.node.children[2], v3(0, 0, 0));
         this.node.on('picked', this.picked, this);
 
         // random drop effect.

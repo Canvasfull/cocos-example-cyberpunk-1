@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, v3 } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
-import { u3 } from '../../core/util/util';
+import { UtilVec3 } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('camera_fps')
@@ -20,7 +20,7 @@ export class camera_fps extends Component {
 
     updateAngle() {
         
-        u3.c(this.angle, this.node.eulerAngles);
+        UtilVec3.copy(this.angle, this.node.eulerAngles);
         this.angle.x = this._actor._angleVertical;
         this.node.setRotationFromEuler(this.angle);
 

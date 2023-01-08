@@ -1,7 +1,7 @@
 import { _decorator, Component, Collider, ICollisionEvent, geometry, Node, PhysicsSystem, Vec3, v3, Color } from 'cc';
 import { Actor } from '../../logic/actor/actor';
 import { SubstanceCore } from '../../logic/item/substance-core';
-import { Gizmo, u3 } from '../util/util';
+import { Gizmo, UtilVec3 } from '../util/util';
 const { ccclass, property } = _decorator;
 
 @ccclass('SensorGround')
@@ -53,7 +53,7 @@ export class SensorGround extends Component {
     /*
     checkGroundOneRay() {
         const mask = (1 << this.maskNum);
-        u3.c(this._ray.o, this.node.worldPosition);
+        UtilVec3.copy(this._ray.o, this.node.worldPosition);
         if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.3)) {
             if (!this._isGround) {
                 this._isGround = true;
@@ -74,7 +74,7 @@ export class SensorGround extends Component {
         //if (this._velocity.y > 0) return;
         const mask = (1 << this.maskNum);
         let pos = v3(0, 0, 0);
-        u3.c(pos, this.node.worldPosition);
+        UtilVec3.copy(pos, this.node.worldPosition);
         for(let i = 0; i < this.original.length; i++) {
             let o = this.original[i];
             this._ray.o.x = pos.x + o.x;

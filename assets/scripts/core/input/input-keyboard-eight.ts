@@ -1,6 +1,6 @@
 import { _decorator, EventKeyboard, input, Input, KeyCode, game, v3, clamp, EventMouse, EventTouch, Canvas, v2, sys } from 'cc';
 import { Msg } from '../msg/msg';
-import { u3 } from '../util/util';
+import { UtilVec3 } from '../util/util';
 import { InputBase } from './input-base';
 import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
@@ -196,7 +196,7 @@ export class InputKeyboardEight extends InputBase {
         this._dir.x = clamp(this._dir.x + x, -1, 1);
         this._dir.z = clamp(this._dir.z + z, -1, 1);
         this._dir.y = 0;
-        u3.c(this._move_v3, this._dir);
+        UtilVec3.copy(this._move_v3, this._dir);
         this.onUpdateMove();
     }
 
@@ -214,7 +214,7 @@ export class InputKeyboardEight extends InputBase {
         this._move += (this.move_speed + this._v_increase_move) * game.deltaTime;
         if (this._move > 1) this._move = 1;
         this._move_v3.normalize().multiplyScalar(this._move);
-        if (this._move_v3.length() !== 0) u3.c(this._move_dir, this._move_v3);
+        if (this._move_v3.length() !== 0) UtilVec3.copy(this._move_dir, this._move_v3);
         this._actorInput?.onMove(this._move_v3);
     }
 

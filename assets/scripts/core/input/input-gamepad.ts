@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Input, EventGamepad, Vec2, v3, game, Vec3, input, v2 } from 'cc';
-import { u3 } from '../util/util';
+import { UtilVec3 } from '../util/util';
 import { InputBase } from './input-base';
 import { Msg } from '../msg/msg';
 const { ccclass, property } = _decorator;
@@ -90,9 +90,9 @@ export class InputGamepad extends InputBase {
     }
 
     onUpdateMove() {
-        u3.c(this._move_v3, this._dir);
+        UtilVec3.copy(this._move_v3, this._dir);
         Vec3.rotateY(this._move_v3, this._move_v3, Vec3.ZERO, this.offset_euler);
-        if (this._move_v3.length() !== 0) u3.c(this._move_dir, this._move_v3);
+        if (this._move_v3.length() !== 0) UtilVec3.copy(this._move_dir, this._move_v3);
         this._actorInput?.onMove(this._move_v3);
     }
 

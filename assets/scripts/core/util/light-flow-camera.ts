@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, find, Camera, v3 } from 'cc';
 import { Msg } from '../msg/msg';
-import { u3 } from './util';
+import { UtilVec3 } from './util';
 const { ccclass, property } = _decorator;
 
 @ccclass('LightFlowCamera')
@@ -21,7 +21,7 @@ export class LightFlowCamera extends Component {
                 }
             }
         } else {
-            u3.c(this._pos, this._camera.worldPosition);
+            UtilVec3.copy(this._pos, this._camera.worldPosition);
             this.node.setPosition(this._pos);
         }
     }

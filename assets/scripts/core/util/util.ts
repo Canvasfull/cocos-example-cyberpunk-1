@@ -40,6 +40,14 @@ export class Util {
         return { x: max_x, y: max_y, max: max };
     }
 
+    public static calculateMask(masks:number[]):number {
+        let mask = 0;
+        for(let i = 0; i < masks.length; i++)
+            mask = mask | 1 << masks[i];
+        
+        return mask;
+    }
+
 }
 
 export class UtilStr {
@@ -83,7 +91,7 @@ export class UtilMaterial {
 
 }
 
-export class u3 {
+export class UtilVec3 {
 
     public static deltaLimit (vec: Vec3, delta: Vec3, speed: number, min: Vec3, max: Vec3) {
 
@@ -93,20 +101,21 @@ export class u3 {
 
     }
 
-    public static c (a: Vec3, b: Vec3) {
+    public static copy (a: Vec3, b: Vec3) {
         a.x = b.x;
         a.y = b.y;
         a.z = b.z;
     }
 
-    public static c2 (a: Vec3, b: Vec2) {
-        a.x = b.x;
-        a.y = b.y;
+    public static scaleDirection(a: Vec3, direction: Vec3, scale:number) {
+        a.x = direction.x * scale;
+        a.y = direction.y * scale;
+        a.z = direction.z * scale;
     }
 
 }
 
-export class u2 {
+export class UtilVec2 {
 
     public static deltaLimit (vec: Vec2, delta: Vec2, speed: number, min: Vec2, max: Vec2) {
 
@@ -116,11 +125,6 @@ export class u2 {
     }
 
     public static c (a: Vec2, b: Vec2) {
-        a.x = b.x;
-        a.y = b.y;
-    }
-
-    public static c3 (a: Vec2, b: Vec3) {
         a.x = b.x;
         a.y = b.y;
     }

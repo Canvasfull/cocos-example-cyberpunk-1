@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, SkinnedMeshRenderer, v4, v3, Vec3, clamp01, Material } from 'cc';
-import { u3 } from '../../core/util/util';
+import { UtilVec3 } from '../../core/util/util';
 import { TestColliderMeshSwitch } from '../../test/test-collider-mesh-switch';
 const { ccclass, property } = _decorator;
 
@@ -32,7 +32,7 @@ export class FxGhostVertex extends Component {
     }
 
     update(deltaTime: number) {
-        u3.c(this.currentPosition!, this.node.worldPosition);
+        UtilVec3.copy(this.currentPosition!, this.node.worldPosition);
 
         if (this.currentPosition!.equals(this.lastPosition!)) {
             this.t = 0;

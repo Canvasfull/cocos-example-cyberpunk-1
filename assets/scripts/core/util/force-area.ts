@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Vec3, Collider, ITriggerEvent, v3, math, game } from 'cc';
 import { Game } from '../../logic/data/game';
-import { u3 } from './util';
+import { UtilVec3 } from './util';
 const { ccclass, property } = _decorator;
 
 @ccclass('ForceArea')
@@ -30,7 +30,7 @@ export class ForceArea extends Component {
     }
 
     forceRate (other: Node): Vec3 {
-        u3.c(this._force, this.force);
+        UtilVec3.copy(this._force, this.force);
         if (this.posScale.x !== 0) this._force.x = this.calculate(other.worldPosition.x - this.node.worldPosition.x, this.posScale.x, this.force.x);
         if (this.posScale.y !== 0) this._force.y = this.calculate(other.worldPosition.y - this.node.worldPosition.y, this.posScale.y, this.force.y);
         if (this.posScale.z !== 0) this._force.z = this.calculate(other.worldPosition.z - this.node.worldPosition.z, this.posScale.z, this.force.z);

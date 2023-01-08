@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, v3, AudioSource, math, ParticleSystem, PhysicsSystem, geometry } from 'cc';
 import { Sound } from '../../core/audio/sound';
 import { fx_group } from '../../core/effect/fx-group';
-import { u3 } from '../../core/util/util';
+import { UtilVec3 } from '../../core/util/util';
 import { Actor } from './actor';
 const { ccclass, property } = _decorator;
 
@@ -65,11 +65,11 @@ export class ActorPushBox extends Component {
         this._actor._rigid.getLinearVelocity(this.velocity);
         if (Math.abs(this.velocity.y) > 0.1) return false;
 
-        u3.c(this._ray.d, this._actor._dir);
+        UtilVec3.copy(this._ray.d, this._actor._dir);
         
         if (!this._actor._data.is_ground) return false;
         const mask = (1 << 0);
-        u3.c(this._ray.o, this.node.worldPosition);
+        UtilVec3.copy(this._ray.o, this.node.worldPosition);
         this._ray.o.y += 0.5;
         if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 1)) {
             var res = PhysicsSystem.instance.raycastClosestResult;

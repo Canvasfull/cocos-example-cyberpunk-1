@@ -2,7 +2,7 @@
 import { _decorator, Component, Node, find, Vec3, v3 } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { GVec3 } from '../../core/util/g-math';
-import { u3 } from '../../core/util/util';
+import { UtilVec3 } from '../../core/util/util';
 import { SmoothLocalZ } from './smooth-local-z';
 const { ccclass, property } = _decorator;
 @ccclass('CameraController')
@@ -29,7 +29,7 @@ export class CameraController extends Component {
     start () {
         this._followTarget = find(this.target);
         this._target = this._followTarget.position.clone();
-        u3.c(this._pos, this._target);
+        UtilVec3.copy(this._pos, this._target);
         this.node.setWorldPosition(this._target);
         this.controlZ = this.node.children[0].children[0].getComponent(SmoothLocalZ);
         Msg.bind('set_camera_len', this.setLen, this);
@@ -58,9 +58,9 @@ export class CameraController extends Component {
     }
 
     smoothDamp (deltaTime: number) {
-        //u3.c(this._pos, this.node.position);
-        u3.c(this._target, this._followTarget.position);
-        u3.c(this._dir, this._followTarget.forward);
+        //UtilVec3.copy(this._pos, this.node.position);
+        UtilVec3.copy(this._target, this._followTarget.position);
+        UtilVec3.copy(this._dir, this._followTarget.forward);
         if (this._offsetZScale > 0)
             this._target.add(this._dir.multiplyScalar(this._offsetZ * this._offsetZScale));
         GVec3.smoothDamp(this._pos, this._target, this._velocity, this.smooth, deltaTime);

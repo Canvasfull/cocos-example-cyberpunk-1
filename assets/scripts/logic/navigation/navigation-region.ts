@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, v3, Color, geometry, Vec3, PhysicsSystem, math, JsonAsset, IVec3Like } from 'cc';
 import { EDITOR } from 'cc/env';
 import { JsonTool } from '../../core/io/json-tool';
-import { Gizmo, u3 } from '../../core/util/util';
+import { Gizmo, UtilVec3 } from '../../core/util/util';
 import { NavigationPoint } from './navigation-point';
 import { NavPoints } from './navigation-system';
 const { ccclass, property, executeInEditMode } = _decorator;
@@ -109,7 +109,7 @@ export class NavigationRegion extends Component {
         for(let i = 0; i < children.length; i++) {
             const child = children[i];
             if (child === node) continue;
-            u3.c(position, child.worldPosition);
+            UtilVec3.copy(position, child.worldPosition);
             ray.d = position.subtract(origin).normalize();
             const distance = Vec3.distance(origin, child.worldPosition);
             if (distance > this.maxDistance) continue;
@@ -146,8 +146,8 @@ export class NavigationRegion extends Component {
         for (let i = 1; i < this.findPaths.length; i++) {
             const start = this.findPaths![i - 1] as Vec3;
             const end = this.findPaths![i] as Vec3;
-            u3.c(p0, start);
-            u3.c(p1, end);
+            UtilVec3.copy(p0, start);
+            UtilVec3.copy(p1, end);
             p0.y += 0.1;
             p1.y += 0.1;
             Gizmo.drawCircle(p1, 1, Color.RED);

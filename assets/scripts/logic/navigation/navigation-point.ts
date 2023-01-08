@@ -1,7 +1,7 @@
 import { _decorator, Component, Node, debug, Camera, Vec3, v3, PhysicsSystem, geometry, IVec3Like, math, url } from 'cc';
 import { EDITOR } from 'cc/env';
 import { DebugUtil } from '../../core/util/debug-util';
-import { Gizmo, u3 } from '../../core/util/util';
+import { Gizmo, UtilVec3 } from '../../core/util/util';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 @ccclass('NavigationPoint')
@@ -62,7 +62,7 @@ export class NavigationPoint extends Component {
             if(this.showRay) {
                 for(let i = 0; i < this._rays!.length; i++) {
                     let target = v3(0, 0, 0);
-                    u3.c(target, this._rays![i]);
+                    UtilVec3.copy(target, this._rays![i]);
                     Gizmo.drawLine(this.node.worldPosition, target.add(this.node.worldPosition));
                 }
             }

@@ -1,15 +1,13 @@
 
 import { _decorator, RigidBody, Vec3, v3, game, Node, math } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
-import { Guide } from '../../core/guide/guide';
 import { IActorInput } from '../../core/input/IActorInput';
 import { Local } from '../../core/localization/local';
 import { Msg } from '../../core/msg/msg';
 import { Res } from '../../core/res/res';
-import { u3, UtilNode } from '../../core/util/util';
+import { UtilVec3, UtilNode } from '../../core/util/util';
 import { ActorAnimationGraph } from './actor-animation-graph';
 import { ActorBag } from './actor-bag';
-import { ActorBuff } from './actor-buff';
 import { ActorEquipment } from './actor-equipment';
 import { ActorSensorDropItem } from './actor-sensor-drop-item';
 import { ActorSound } from './actor-sound';
@@ -74,7 +72,7 @@ export class Actor extends ActorBase implements IActorInput {
 
     addAreaForce (force: Vec3) {
         if (this._data.is_glide) {
-            u3.c(this._areaForce, force);
+            UtilVec3.copy(this._areaForce, force);
             this._rigid.applyForce(this._areaForce);
         }
     }
@@ -128,7 +126,7 @@ export class Actor extends ActorBase implements IActorInput {
         //this._actorBuff?.update(deltaTime);
         this._fps = game.frameRate as number;
         this._rigid.getLinearVelocity(this._velocity);
-        u3.c(this._velocityLocal, Vec3.ZERO);
+        UtilVec3.copy(this._velocityLocal, Vec3.ZERO);
 
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
@@ -144,7 +142,7 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorEquipment?.updateAim(this._velocity.z);
         this._rigid.setLinearVelocity(this._velocity);
 
-        u3.c(this._curDir, this._dir);
+        UtilVec3.copy(this._curDir, this._dir);
         var angle = Vec3.angle(this._curDir, this.node.forward);
         var angleAbs = Math.abs(angle);
         if (angleAbs > 0.01) {
@@ -208,8 +206,8 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onMove (move: Vec3) {
-        if (this._data.is_dead) u3.c(this._move, Vec3.ZERO);
-        else u3.c(this._move, move);
+        if (this._data.is_dead) UtilVec3.copy(this._move, Vec3.ZERO);
+        else UtilVec3.copy(this._move, move);
     }
 
     onRotation (x: number, y: number) {

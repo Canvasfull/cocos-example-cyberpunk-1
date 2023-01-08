@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Vec3, v3 } from 'cc';
-import { u3 } from './util';
+import { UtilVec3 } from './util';
 const { ccclass, property } = _decorator;
 
 @ccclass('ui_roller')
@@ -25,7 +25,7 @@ export class ui_roller extends Component {
         }
 
         this.node.setPosition(this._orignal.x, this._orignal.y, this._orignal.z);
-        u3.c(this._pos, this._orignal);
+        UtilVec3.copy(this._pos, this._orignal);
     }
 
     update(deltaTime: number) {
