@@ -161,14 +161,8 @@ export class CustomPipelineBuilder {
 
         let taaStage = stages.find(s => s instanceof TAAStage) as TAAStage;
         if (taaStage && taaStage.checkEnable()) {
-            // (camera as any)._isProjDirty = true
-            // if (!camera._onCalcProjMat) {
-            //     camera._onCalcProjMat = function () {
-            //         this.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
-            //         this.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
-            //     }
-            // }
-            // camera.update(true)
+            (camera as any)._isProjDirty = true
+            camera.update(true)
 
             camera.matProj.m12 += globalThis.TAASetting.instance.sampleOffset.x;
             camera.matProj.m13 += globalThis.TAASetting.instance.sampleOffset.y;
