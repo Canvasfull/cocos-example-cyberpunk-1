@@ -137,7 +137,7 @@ export class ActorEquipBase extends Component {
     }
 
     onReload() {
-        this._bagData!.bulletCount = 10;
+        this._bagData!.bulletCount = 999;
     }
 
     onUse() {}

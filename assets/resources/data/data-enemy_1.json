@@ -53,5 +53,7 @@
     "bags":["laser_gun_0"],
     "cache_weapons":[
         "laser_gun_0"
-    ]
+    ],
+    "ai_nearby_distance": 10,
+    "ai_fire_angle": 10
 }

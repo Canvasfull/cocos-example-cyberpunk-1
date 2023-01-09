@@ -22,7 +22,7 @@ export class LevelEventsCard extends Component {
         this.probability = Level.Instance._data.probability_drop_card;
         this.groupCounter = new Array(Level.Instance._data.cards.length);
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
-        this.nextCounter = 2;
+        this.nextCounter = 100000;
         Msg.bind('kill_enemy', this.checkNextEvent, this);
 
     }

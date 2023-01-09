@@ -13,7 +13,7 @@ export class FxBulletTracer extends Component {
     segment = 5;
 
     @property
-    hiddenTime = 0.3;
+    hiddenTime = 0.05;
 
     pool:Array<Node> | undefined;
 

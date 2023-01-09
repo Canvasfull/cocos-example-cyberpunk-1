@@ -1,4 +1,4 @@
-import { _decorator, Vec3, randomRangeInt, path, IVec3Like, math, v3, randomRange } from 'cc';
+import { _decorator, Vec3, randomRangeInt, path, IVec3Like, math, v3, randomRange, Line, find } from 'cc';
 import { KeyAnyType } from '../data/game-type';
 const { ccclass, property, executeInEditMode } = _decorator;
 
@@ -52,7 +52,51 @@ export namespace NavPoints {
 
     }
 
+    export function randomFirePath(node:number) {
+        
+        const length = randomRangeInt(5, 11);
+
+        let paths = Array<Vec3>(length);
+
+        const nodeData = data.nodes[node];
+
+        for(let i = 0; i < length; i++) {
+            let point = v3(
+                nodeData.x + randomRange(-nodeData.radius, nodeData.radius),
+                nodeData.y,
+                nodeData.z + randomRange(-nodeData.radius, nodeData.radius)
+            )
+            paths[i] = point;
+        }
+
+        return paths;
+
+    }
+
+    export function findNearest(position:Vec3):number {
+
+        const length = data.nodes.length;
+        let minlength = Number.MAX_VALUE;
+        let index = -1;
+        for(let i = 0; i < length; i++) {
+            const node = data.nodes[i];
+            const curLen = Vec3.distance(position, node);
+            if(curLen < minlength) {
+                index = i;
+                minlength = curLen;
+            }
+        }
+
+        return index;
+
+    }
+
+
     function findNearestPoint(position:Vec3):number {
+
+        return findNearest(position);
+
+        /*
 
         let nearestNode = -1;
 
@@ -80,6 +124,7 @@ export namespace NavPoints {
         } 
 
         return nearestNode;
+        */
     }
 
     function calculateRandomPaths(paths:Array<IVec3Like>, start:number, count:number) {
@@ -100,32 +145,98 @@ export namespace NavPoints {
     }
     
 
-    export function findPaths(position:Vec3, nearest:number = -1):IVec3Like[] {
+    export function findPaths(start:Vec3, nearest:number = -1, target:Vec3):NavPointType[] {
 
-        let paths = Array<IVec3Like>(length);
+        let paths = Array<NavPointType>(length);
+
+        // open table.
+        let openTable: any[] = [];
+
+        // close table.
+        let closeTable: number[] = [];
+
         if(nearest === -1) {
             // find nearest point.
-            nearest = findNearestPoint(position);
+            nearest = findNearestPoint(start);
+
+            openTable.push({ node:nearest, f:0 });
 
             if (nearest === -1) {
                 throw new Error(`'can not find target node.`);
             }
         }
 
-        // random node.
-        const targetNode = randomRangeInt(0, data.count);
+        const findMinCostPoint = function (): number {
+            let cost = Number.MAX_VALUE;
+            let minNode = -1;
+            for(let i = 0; i < openTable.length; i++) {
+                const current = openTable[i];
+                if(current.f < cost) {
+                    minNode = i;
+                    cost = current.f;
+                }
+            }
+            return minNode;
+        }
 
-        // open table.
-        let openTable = [];
+        const checkInOpenTable = function (node:number) {
+            for(let openTableI = 0; openTableI < openTable.length; openTableI++) {
+                if(openTable[openTableI].node === node) return true;
+            } 
+            return false;
+        }
 
-        // close table.
-        let closeTable = [];
+        const pushOpenTable = function (node:number) {
 
-        const f_cost = function (start:IVec3Like, end:IVec3Like) {
-            return Math.abs(start.x - end.x) + Math.abs(start.z - end.z) + Math.abs(start.y - end.z);
+            const nodeData = data[node];
+
+            const distanceStart = Vec3.distance(start, nodeData);
+            
+            const distanceTarget = Vec3.distance(nodeData, target);
+
+            const f = distanceStart + distanceTarget;
+
+            console.log(distanceStart, distanceTarget, f);
+
+            openTable.push({node, f, distanceStart, distanceTarget});
+
+            // find target.
+            if(distanceTarget < 5) return true;
+            
+            return false;
+        }
+
+        const searchNeighbor = function (node:number) {
+
+            const links = data.links[node];
+
+            for(let i = 0; i < links.length; i++) {
+
+                // find in close table.
+                if(closeTable.indexOf(links[i]) > 1) continue;
+
+                // find in open table.
+                if(checkInOpenTable(node)) continue;
+
+                // push in open table.
+                if(pushOpenTable(node)) {
+                    
+                }
+
+            }
+
         }
 
         const calculatePaths = function (node:number) {
+
+            // find min cost point.
+            const minNode = findMinCostPoint();
+
+            // insert closeTable.
+            closeTable.push(minNode);
+
+            // search neighbors
+            searchNeighbor(minNode);
 
         }
 

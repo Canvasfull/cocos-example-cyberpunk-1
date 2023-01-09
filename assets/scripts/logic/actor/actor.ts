@@ -32,9 +32,11 @@ export class Actor extends ActorBase implements IActorInput {
     _actorEquipment: ActorEquipment | undefined;
     _actorSensorDropItem: ActorSensorDropItem | undefined;
     _viewNoWeapon:Node = Object.create(null);
-    _forwardNode:Node = Object.create(null);
+    _forwardNode:Node | undefined;
     _viewRoot:Node | undefined;
     _fps = 0;
+
+    isSlope = false;
 
     get noAction () {
         return this._data.is_dead || this._data.is_win;
@@ -49,7 +51,9 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
+        
         this._forwardNode = UtilNode.find(this.node, 'camera_root');
+
         this._viewRoot = UtilNode.getChildByName(this.node, 'view_root');
 
         var load = async ()=> {
@@ -321,7 +325,7 @@ export class Actor extends ActorBase implements IActorInput {
     calculateStrengthUseEquip():boolean {
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
-        console.log(this._data.strength, this._data.cost_use_equip_strength);
+        //console.log(this._data.strength, this._data.cost_use_equip_strength);
         if (canUseEquip) {
             this._data.strength -= this._data.cost_use_equip_strength;
             this._data.changed_strength = true;

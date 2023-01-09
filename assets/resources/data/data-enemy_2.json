@@ -54,5 +54,8 @@
     "weapon_bone":"bone_point_hand",
     "cache_weapons":[
         "laser_gun_0"
-    ]
+    ],
+    "ai_nearby_distance": 10,
+    "ai_fire_angle": 10
+    
 }

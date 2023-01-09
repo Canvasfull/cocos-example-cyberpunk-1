@@ -111,7 +111,7 @@ export class ActorEquipment {
         if (this.curData === undefined) {
             if (this.stableValue !== 0){
                 this.stableValue = 0;
-                if(this._actor._data.need_update_aim_hud) Msg.emit('msg_update_aim',  this.stableValue);
+                if(this._actor.isPlayer) Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
             const equipStable = this.curData.data.stable_value;
@@ -120,7 +120,7 @@ export class ActorEquipment {
                 curStable = Math.abs(stable) <= 0.001 ? this.curData.data.stable_min_value : equipStable;
             }
             this.stableValue = math.lerp(this.stableValue, curStable, game.deltaTime * 2);
-            if(this._actor._data.need_update_aim_hud) Msg.emit('msg_update_aim', this.stableValue);
+            if(this._actor.isPlayer) Msg.emit('msg_update_aim', this.stableValue);
         }
     }
 

@@ -8,10 +8,14 @@ export class camera_fps extends Component {
 
     angle = v3(0, 0, 0);
 
-    _actor:ActorBase = null;
+    @property(Node)
+    root:Node | undefined;
+
+    @property(ActorBase)
+    _actor:ActorBase | undefined;
 
     start() {
-        this._actor = this.node.parent.parent.getComponent(ActorBase);
+        this._actor = this.root?.getComponent(ActorBase)!;
     }
 
     update(deltaTime: number) {
@@ -21,7 +25,7 @@ export class camera_fps extends Component {
     updateAngle() {
         
         UtilVec3.copy(this.angle, this.node.eulerAngles);
-        this.angle.x = this._actor._angleVertical;
+        this.angle.x = this._actor!._angleVertical;
         this.node.setRotationFromEuler(this.angle);
 
     }
