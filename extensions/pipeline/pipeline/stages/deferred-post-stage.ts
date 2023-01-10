@@ -53,7 +53,7 @@ export class DeferredPostStage extends BaseStage {
             )
         );
 
-        passUtils.addRasterPass(width, height, 'Postprocess', `CameraPostprocessPass${cameraID}`)
+        passUtils.addRasterPass(width, height, 'post-process', `CameraPostprocessPass${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA8, false)

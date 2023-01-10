@@ -45,7 +45,7 @@ export class ForwardPostStage extends BaseStage {
         let shadingScale = this.finalShadingScale()
         let isOffScreen = director.root.mainWindow !== camera.window;
 
-        passUtils.addRasterPass(width, height, 'Postprocess', `CameraPostprocessPass${cameraID}`)
+        passUtils.addRasterPass(width, height, 'post-process', `CameraPostprocessPass${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA8, isOffScreen)

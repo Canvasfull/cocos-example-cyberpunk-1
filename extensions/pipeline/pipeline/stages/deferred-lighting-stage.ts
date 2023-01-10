@@ -1,6 +1,6 @@
 
 import { BaseStage, } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbeManager, ReflectionProbe } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbe } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { EDITOR } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
@@ -8,6 +8,7 @@ import { ReflectionProbes } from "../components/reflection-probe-utils";
 import { DeferredGBufferStage } from "./deferred-gbuffer-stage";
 import { settings } from "./setting";
 import { CustomShadowStage } from "./shadow-stage";
+import { LightWorldCluster } from "../components/cluster/light-cluster";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -40,6 +41,37 @@ export class DeferredLightingStage extends BaseStage {
     @property({ override: true, type: CCString })
     outputNames = ['DeferredLightingColor', 'gBufferDS']
 
+    updateClusterUBO (setter: any, material: Material) {
+        let cluster = globalThis.LightWorldCluster.instance as LightWorldCluster;
+        material.setProperty('light_cluster_BoundsMin', tempVec4.set(cluster.boundsMin.x, cluster.boundsMin.y, cluster.boundsMin.z, 1))
+        material.setProperty('light_cluster_BoundsDelta', tempVec4.set(cluster.boundsDelta.x, cluster.boundsDelta.y, cluster.boundsDelta.z, 1))
+        material.setProperty('light_cluster_CellsDot', cluster.clusterCellsDotData)
+        material.setProperty('light_cluster_CellsMax', cluster.clusterCellsMaxData)
+        material.setProperty('light_cluster_TextureSize', cluster.clusterTextureSizeData)
+        material.setProperty('light_cluster_InfoTextureInvSize', cluster.infoTextureInvSizeData)
+        material.setProperty('light_cluster_CellsCountByBoundsSizeAndPixelsPerCell', cluster.clusterCellsCountByBoundsSizeData)
+
+        if (EDITOR) {
+            material.setProperty('light_cluster_InfoTexture', cluster.dataInfoTextureFloat)
+            material.setProperty('light_cluster_Texture', cluster.clusterTexture)
+
+            let pass = material.passes[0];
+            let pointSampler = director.root.pipeline.globalDSManager.pointSampler
+            let binding = pass.getBinding('light_cluster_InfoTexture')
+            pass.bindSampler(binding, pointSampler)
+            binding = pass.getBinding('light_cluster_Texture')
+            pass.bindSampler(binding, pointSampler)
+        }
+        else {
+            setter.setTexture('light_cluster_InfoTexture', cluster.dataInfoTextureFloat);
+            setter.setTexture('light_cluster_Texture', cluster.clusterTexture);
+
+            let pointSampler = director.root.pipeline.globalDSManager.pointSampler
+            setter.setSampler('light_cluster_InfoTexture', pointSampler)
+            setter.setSampler('light_cluster_Texture', pointSampler)
+        }
+    }
+
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
         // const cameraName = `Camera${cameraID}`;
@@ -57,15 +89,15 @@ export class DeferredLightingStage extends BaseStage {
         }
 
         let slot1 = this.slotName(camera, 1);
-        if (this.lastStage instanceof DeferredGBufferStage) {
-            slot1 = this.lastStage.slotName(camera, 4);
+        if (settings.gbufferStage) {
+            slot1 = settings.gbufferStage.slotName(camera, 4);
         }
         if (!ppl.containsResource(slot1)) {
             ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
         }
 
         // lighting pass
-        const lightingPass = ppl.addRasterPass(width, height, 'Lighting');
+        const lightingPass = ppl.addRasterPass(width, height, 'deferred-lighting');
         lightingPass.name = `CameraLightingPass${cameraID}`;
         lightingPass.setViewport(new Viewport(area.x, area.y, width, height));
 
@@ -148,6 +180,8 @@ export class DeferredLightingStage extends BaseStage {
             material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
         }
 
+        let setter = lightingPass as any;
+        setter.addConstant('CustomLightingUBO', 'deferred-lighting');
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
             if (!probe) break;
@@ -155,13 +189,20 @@ export class DeferredLightingStage extends BaseStage {
             let pos = probe.node.worldPosition;
             let range = Math.max(probe.size.x, probe.size.y, probe.size.z)
 
-            material.setProperty('light_ibl_Texture' + i, (probe as any)._cubemap)
             material.setProperty('light_ibl_posRange' + i, tempVec4.set(pos.x, pos.y, pos.z, range))
+            if (EDITOR) {
+                material.setProperty('light_ibl_Texture' + i, (probe as any)._cubemap)
+            }
+            else {
+                setter.setTexture('light_ibl_Texture' + i, (probe as any)._cubemap.getGFXTexture())
+                let linearSampler = director.root.pipeline.globalDSManager.linearSampler
+                setter.setSampler('light_ibl_Texture' + i, linearSampler)
+            }
         }
 
         this.probes = probes;
 
-        material.setProperty('inputViewPort', new Vec4(width / Math.floor(game.canvas.width * this.finalShadingScale()), height / Math.floor(game.canvas.height * this.finalShadingScale()), 0, 0));
+        this.updateClusterUBO(setter, material);
 
         fogUBO.update(material);
 

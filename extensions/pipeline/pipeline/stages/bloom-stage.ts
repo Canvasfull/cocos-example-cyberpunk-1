@@ -1,6 +1,6 @@
 
 import { BaseStage, } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Vec4, Material, CCString, input } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Vec4, Material, CCString, input, director } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { BloomSetting } from "../components/bloom";
 import { passUtils } from "../utils/pass-utils";
@@ -26,6 +26,11 @@ let defaultSetting = {
 }
 
 const tempVec4 = new Vec4();
+
+let clampSampler = new gfx.Sampler(new gfx.SamplerInfo(
+    gfx.Filter.LINEAR, gfx.Filter.LINEAR, undefined,
+    gfx.Address.CLAMP, gfx.Address.CLAMP
+), 0);
 
 @ccclass('custom.BloomStage')
 export class BloomStage extends BaseStage {
@@ -70,12 +75,11 @@ export class BloomStage extends BaseStage {
         material.setProperty('texSize', new Vec4(0, 0, setting.threshold, 0), BLOOM_PREFILTERPASS_INDEX);
 
         let input0 = this.lastStage.slotName(camera, 0)
-        passUtils.addRasterPass(width, height, 'Bloom_Prefilter', `CameraBloomPrefilterPass${cameraID}`)
+        passUtils.addRasterPass(width, height, 'bloom-prefilter', `CameraBloomPrefilterPass${cameraID}`)
             .setViewport(area.x, area.y, width, height)
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(bloomPassPrefilterRTName, format)
             .blitScreen(BLOOM_PREFILTERPASS_INDEX)
-
         // === Bloom downSampler ===
         let inputName = bloomPassPrefilterRTName;
         let iterations = setting.iterations;
@@ -95,11 +99,16 @@ export class BloomStage extends BaseStage {
                 }
                 material.setProperty('texSize', params, BLOOM_DOWNSAMPLEPASS_INDEX + downIndex);
 
-                passUtils.addRasterPass(width, height, `Bloom_Downsample${downIndex}`, `CameraBloomDownSamplePass${cameraID}${downIndex}`)
+                let layoutName = `bloom-downsample${downIndex}`
+                passUtils.addRasterPass(width, height, layoutName, `CameraBloomDownSamplePass${cameraID}${downIndex}`)
                     .setViewport(area.x, area.y, width, height)
                     .setPassInput(inputName, 'bloomTexture')
                     .addRasterView(bloomPassDownSampleRTName, format)
                     .blitScreen(BLOOM_DOWNSAMPLEPASS_INDEX + downIndex)
+
+                // let setter = (passUtils.pass as any);
+                // setter.addConstant('BloomUBO', layoutName);
+                // setter.setSampler('bloomTexture', clampSampler)
 
                 inputName = bloomPassDownSampleRTName;
                 downIndex++;
@@ -115,7 +124,7 @@ export class BloomStage extends BaseStage {
             material.setProperty('texSize', new Vec4(1, 1, 0, 0), BLOOM_UPSAMPLEPASS_INDEX + i);
 
             const bloomPassUpSampleRTName = `dsBloomPassUpSampleColor${cameraName}${i}`;
-            passUtils.addRasterPass(width, height, `Bloom_Upsample${i}`, `CameraBloomUpSamplePass${cameraID}${i}`)
+            passUtils.addRasterPass(width, height, `bloom-upsample${i}`, `CameraBloomUpSamplePass${cameraID}${i}`)
                 .setViewport(area.x, area.y, width, height)
                 .setPassInput(inputName, 'outputResultMap')
                 .setPassInput(`dsBloomPassDownSampleColor${cameraName}${i * 2 + 1}`, 'bloomTexture')
@@ -129,7 +138,7 @@ export class BloomStage extends BaseStage {
         const slot0 = this.slotName(camera, 0);
         material.setProperty('texSize', new Vec4(setting.intensity, 1, 0, 0), BLOOM_COMBINEPASS_INDEX);
 
-        passUtils.addRasterPass(area.width, area.height, 'Bloom_Combine', `CameraBloomCombinePass${cameraID}`)
+        passUtils.addRasterPass(area.width, area.height, 'bloom-combine', `CameraBloomCombinePass${cameraID}`)
             .setPassInput(input0, 'outputResultMap')
             .setPassInput(inputName, 'bloomTexture')
             .addRasterView(slot0, format)

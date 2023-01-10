@@ -1,6 +1,7 @@
 import { BaseStage } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys, director } from "cc";
 import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
+import { settings } from "./setting";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -17,6 +18,8 @@ export class DeferredGBufferStage extends BaseStage {
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
+        settings.gbufferStage = this;
+
         // hack: use fog uniform to set deferred pipeline
         director.root.pipeline.pipelineSceneData.fog.fogStart = 1;
 
@@ -52,7 +55,7 @@ export class DeferredGBufferStage extends BaseStage {
         }
 
         // gbuffer pass
-        const pass = ppl.addRasterPass(width, height, 'Geometry',);
+        const pass = ppl.addRasterPass(width, height, 'default',);
         pass.name = `${slot0}_Pass`
         pass.setViewport(new Viewport(area.x, area.y, width, height));
 

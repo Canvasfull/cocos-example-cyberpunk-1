@@ -36,19 +36,7 @@ export class CustomPipelineBuilder {
         return this._shadowStage
     }
 
-    public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
-        if (!globalThis.pipelineAssets) {
-            return;
-        }
-
-        director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
-
-        // if (EDITOR) {
-        //     excludes.push('Main Camera')
-        // }
-
-        passUtils.ppl = ppl;
-
+    setupReflectionProbe (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline) {
         const probes = ReflectionProbeManager.probeManager.getProbes();
         for (let i = 0; i < probes.length; i++) {
             let probe = probes[i];
@@ -106,7 +94,18 @@ export class CustomPipelineBuilder {
                 settings.bakingReflection = false;
             }
         }
+    }
 
+    public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
+        if (!globalThis.pipelineAssets) {
+            return;
+        }
+
+        director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
+
+        passUtils.ppl = ppl;
+
+        this.setupReflectionProbe(cameras, ppl);
 
         for (let i = 0; i < cameras.length; i++) {
             const camera = cameras[i];
@@ -133,10 +132,12 @@ export class CustomPipelineBuilder {
 
         // reset states
         {
-            settings.shadowStage = undefined;
             settings.tonemapped = false;
-            camera._submitInfo = null;
-            camera.culled = false;
+            settings.shadowStage = undefined;
+            settings.gbufferStage = false;
+
+            // camera._submitInfo = null;
+            // camera.culled = false;
         }
 
         let cameraSetting = camera.node.getComponent(CameraSetting);
@@ -214,6 +215,10 @@ director.runSceneImmediate = function (scene, onBeforeLoadScene, onLaunched) {
 
 if (!EDITOR) {
     game.on(Game.EVENT_GAME_INITED, () => {
-        profiler.showStats()
+        ReflectionProbeManager.probeManager.onUpdateProbes = function () { }
+
+        if (HrefSetting.fps) {
+            profiler.showStats()
+        }
     })
 }
