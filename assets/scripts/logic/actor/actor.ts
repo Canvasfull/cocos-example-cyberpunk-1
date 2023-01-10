@@ -52,10 +52,12 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
-
         this._actorMoveSlope = this.node.getComponent(ActorMoveSlope)!;
-
         this._forwardNode = UtilNode.find(this.node, 'camera_root');
+
+        if(!this._forwardNode) {
+            console.log('can not find forward.');
+        }
 
         this._viewRoot = UtilNode.getChildByName(this.node, 'view_root');
 

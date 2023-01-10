@@ -21,7 +21,8 @@
     "hit_gun": {
         "start":[
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_hit", "value":true } },
-            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 1.2} }
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 1} },
+            { "time": 0, "name": "on_msg", "data": { "key":"msg_ui_fx_open", "value": "effect_hit"} }
         ]
     },
     "rebirth":{

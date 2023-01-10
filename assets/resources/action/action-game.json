@@ -14,10 +14,12 @@
         "start": [
             { "time": 0, "name": "on_bgm", "data": "bgm_level"},
             { "time": 0.1, "name": "on_ui", "data": "ui_level" },
+            { "time": 0.3, "name": "on_ui", "data": "ui_fx" },
             { "time": 0.3, "name": "on_msg_str", "data": { "key":"level_action", "value":"start" } }
         ],
         "end": [
-            { "time": 0.1, "name": "off_ui", "data": "ui_level" }
+            { "time": 0.1, "name": "off_ui", "data": "ui_level" },
+            { "time": 0.3, "name": "off_ui", "data": "ui_fx" }
         ]
     },
     "menu": {

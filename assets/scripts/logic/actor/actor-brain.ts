@@ -158,18 +158,19 @@ export class ActorBrain extends Component {
         this._moveDir.z = -1; //(this._targetNode!.worldPosition.z - this._actor!.node.worldPosition.z);
 
         this.onMove();
-
         if (random() < 0.1) this.onJump();
 
     }
 
     checkFire() {
 
-        const forward = this._actor?._forwardNode!.forward!;
-        if(forward === undefined) {
+        
+        if(this._actor?._forwardNode!.forward === undefined) {
             console.error(this._actor?.name, 'forward is undefined.');
             return;
         }
+
+        const forward = this._actor?._forwardNode!.forward!;
 
         UtilVec3.copy(this.fireDirection, this._targetNode!.worldPosition);
         this.fireDirection.subtract(this._actor!.node.worldPosition);

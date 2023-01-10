@@ -38356,7 +38356,7 @@
     "__prefab": {
       "__id__": 1939
     },
-    "meshRenderState": false,
+    "meshRenderState": true,
     "_id": ""
   },
   {
@@ -39707,6 +39707,7 @@
       "__id__": 0
     },
     "fileId": "44jzpkgyxOEqDwIMKfdHaP",
+    "instance": null,
     "targetOverrides": []
   }
 ]
