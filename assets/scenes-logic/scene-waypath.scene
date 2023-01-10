@@ -30,13 +30,13 @@
         "__id__": 66
       },
       {
-        "__id__": 68
+        "__id__": 69
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 72
+      "__id__": 73
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -67,7 +67,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 73
+      "__id__": 74
     },
     "_id": "e967c2e2-7f3a-449f-ab12-1b0fd235dc5b"
   },
@@ -1185,14 +1185,17 @@
     "_components": [
       {
         "__id__": 67
+      },
+      {
+        "__id__": 68
       }
     ],
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -0.255,
-      "y": 0.159,
-      "z": -0.123
+      "x": -0.047,
+      "y": 0.152,
+      "z": -0.055
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1229,6 +1232,26 @@
     "_id": "89meUKTHNK4Z2OcVUccPID"
   },
   {
+    "__type__": "e5fb3ZKGlFNUL8ucHOfA/bk",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 66
+    },
+    "_enabled": false,
+    "__prefab": null,
+    "normal": {
+      "__id__": 67
+    },
+    "moveDirection": {
+      "__type__": "cc.Vec3",
+      "x": 0.5,
+      "y": 0,
+      "z": 0.5
+    },
+    "_id": "b2cwke/uNHcK69qycSXgs7"
+  },
+  {
     "__type__": "cc.Node",
     "_name": "Cube",
     "_objFlags": 0,
@@ -1239,10 +1262,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 69
+        "__id__": 70
       },
       {
-        "__id__": 71
+        "__id__": 72
       }
     ],
     "_prefab": null,
@@ -1280,7 +1303,7 @@
     "_name": "Cube<ModelComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 68
+      "__id__": 69
     },
     "_enabled": true,
     "__prefab": null,
@@ -1292,7 +1315,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 70
+      "__id__": 71
     },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
@@ -1331,7 +1354,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 68
+      "__id__": 69
     },
     "_enabled": true,
     "__prefab": null,
@@ -1370,22 +1393,22 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 74
-    },
-    "shadows": {
       "__id__": 75
     },
-    "_skybox": {
+    "shadows": {
       "__id__": 76
     },
-    "fog": {
+    "_skybox": {
       "__id__": 77
     },
-    "octree": {
+    "fog": {
       "__id__": 78
     },
-    "lightProbeInfo": {
+    "octree": {
       "__id__": 79
+    },
+    "lightProbeInfo": {
+      "__id__": 80
     },
     "bakedWithStationaryMainLight": false
   },

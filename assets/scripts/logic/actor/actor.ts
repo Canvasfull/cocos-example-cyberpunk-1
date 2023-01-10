@@ -11,6 +11,7 @@ import { ActorBag } from './actor-bag';
 import { ActorEquipment } from './actor-equipment';
 import { ActorSensorDropItem } from './actor-sensor-drop-item';
 import { ActorSound } from './actor-sound';
+import { ActorMoveSlope } from './actor-move-slope';
 const { ccclass } = _decorator;
 
 @ccclass('Actor')
@@ -36,7 +37,7 @@ export class Actor extends ActorBase implements IActorInput {
     _viewRoot:Node | undefined;
     _fps = 0;
 
-    isSlope = false;
+    _actorMoveSlope:ActorMoveSlope | undefined;
 
     get noAction () {
         return this._data.is_dead || this._data.is_win;
@@ -51,7 +52,9 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
-        
+
+        this._actorMoveSlope = this.node.getComponent(ActorMoveSlope)!;
+
         this._forwardNode = UtilNode.find(this.node, 'camera_root');
 
         this._viewRoot = UtilNode.getChildByName(this.node, 'view_root');
@@ -137,6 +140,10 @@ export class Actor extends ActorBase implements IActorInput {
         if (this._move.z > 0) this._velocityLocal.z = this._data.move_speed.y;
         if (this._move.z < 0) this._velocityLocal.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
         if (this._move.x !== 0) this._velocityLocal.x = this._data.move_speed.x * this._move.x;
+
+        // look at slope.
+        const slopeMove = this._actorMoveSlope?.updateSlope(this._move);
+        UtilVec3.copy(this._move, slopeMove!);
 
         //rotate y.
         Vec3.rotateY(this._velocityLocal, this._velocityLocal, Vec3.ZERO, this.node.eulerAngles.y * Math.PI / 180);

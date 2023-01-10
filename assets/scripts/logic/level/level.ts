@@ -94,7 +94,7 @@ export class Level extends Singleton {
     public addEnemy(res:string, groupID:number) {
         const point = NavPoints.randomPoint();
         var prefab = ResCache.Instance.getPrefab('enemy');
-        var enemy = Res.inst(prefab, undefined, point.position);
+        var enemy = Res.inst(prefab, this._objectNode!, point.position);
         const actor = enemy.getComponent(ActorBase);
         enemy.addComponent(ActorInputBrain);
         enemy.addComponent(ActorBrain);
@@ -119,7 +119,7 @@ export class Level extends Singleton {
             pos = point.position;
         } 
         const prefab = ResCache.Instance.getPrefab('drop_item');
-        const dropNode = Res.inst(prefab, undefined, pos);
+        const dropNode = Res.inst(prefab, this._objectNode!, pos);
         const drop = dropNode.getComponent(DropItem);
 
         if (drop === null) {

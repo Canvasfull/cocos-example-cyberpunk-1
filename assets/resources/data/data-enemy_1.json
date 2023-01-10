@@ -50,10 +50,11 @@
     "defense_percent":0,
     "nearest_node":-1,
     "default_equip_index": 0,
+    "weapon_bone":"bone_point_hand",
     "bags":["laser_gun_0"],
     "cache_weapons":[
         "laser_gun_0"
     ],
-    "ai_nearby_distance": 10,
+    "ai_nearby_distance": 20,
     "ai_fire_angle": 10
 }

@@ -8,7 +8,7 @@ export class ActorHandgun extends ActorEquipBase {
 
     onFire() {
         this._bagData!.bulletCount--;
-        const forwardNode = this._actor!._forwardNode;
+        const forwardNode = this._actor!._forwardNode!;
         const origin = forwardNode.worldPosition;
         const dir = forwardNode.forward;
         let ray = new geometry.Ray(origin.x, origin.y, origin.z, dir.x, dir.y , dir.z);

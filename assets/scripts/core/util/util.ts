@@ -1,4 +1,4 @@
-import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry, GeometryRenderer } from 'cc';
+import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry, GeometryRenderer, IVec3 } from 'cc';
 import { fun } from './fun';
 import { GRandom } from './grandom';
 import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
@@ -101,7 +101,7 @@ export class UtilVec3 {
 
     }
 
-    public static copy (a: Vec3, b: Vec3) {
+    public static copy (a: Vec3, b: IVec3) {
         a.x = b.x;
         a.y = b.y;
         a.z = b.z;

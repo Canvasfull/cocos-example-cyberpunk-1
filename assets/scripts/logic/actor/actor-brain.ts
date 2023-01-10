@@ -1,4 +1,4 @@
-import { _decorator, Component, find, Vec2, Vec3, v3, v2, random, IVec3Like, randomRangeInt, Node } from 'cc';
+import { _decorator, Component, find, Vec2, Vec3, v3, v2, random, IVec3Like, randomRangeInt, Node, math } from 'cc';
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { SensorRaysAngle } from '../../core/sensor/sensor-rays-angle';
@@ -17,7 +17,7 @@ export class ActorBrain extends Component {
     _actor:Actor | undefined;
     _wayPoints:NavPoints.NavPointType[] = [];
     _moveDir:Vec3 = v3(0, 0, 1);
-    _rotation:Vec2 = v2(0, 0);
+    _rotation:Vec3 = v3(0, 0, 0);
     input:ActorInputBrain | undefined;
     sensorRays:SensorRaysAngle | undefined;
     is_waypoints_move = false;
@@ -48,7 +48,7 @@ export class ActorBrain extends Component {
 
     onMove() {
         this.input!.onMove(this._moveDir);
-        this.input!.onDir(this._rotation.x, this._rotation.y);
+        this.input!.onDir(this._rotation.x, this._rotation.z);
         this.input!.onRun(random() < 0.05);
     }
 
@@ -109,8 +109,8 @@ export class ActorBrain extends Component {
                 if (this.waypointsIndex >= this._wayPoints.length) this.is_waypoints_move = false;
                 else this.nearestNode = this._wayPoints[this.waypointsIndex].id;
             }else{
-                this._rotation.x = target.x - worldPosition.x;
-                this._rotation.y = target.z - worldPosition.z;
+                UtilVec3.copy(this._rotation, target);
+                this._rotation.subtract(worldPosition).normalize();
                 this._moveDir.x = 0;
                 this._moveDir.y = 0;
                 this._moveDir.z = -1;
@@ -142,18 +142,20 @@ export class ActorBrain extends Component {
             }
         }
 
+        const player = Level.Instance._actor;
+
         // Look at target.
-        this._rotation.x = this.targetPosition.x - this._targetNode!.worldPosition.x;
-        this._rotation.y = this.targetPosition.z - this._targetNode!.worldPosition.z;
+        this._rotation.x = this._targetNode!.worldPosition.x - this._actor!.node.worldPosition.x;
+        this._rotation.z = this._targetNode!.worldPosition.z - this._actor!.node.worldPosition.z;
 
         UtilVec3.copy(this._moveDir, this._targetNode!.worldPosition);
 
         //this._moveDir.subtract(this._actor!.node.worldPosition);
 
         // Move direction.
-        this._moveDir.x = 0;
+        this._moveDir.x = 0; //this._targetNode!.worldPosition.x - this._actor!.node.worldPosition.x;
         this._moveDir.y = 0;
-        this._moveDir.z = -1;
+        this._moveDir.z = -1; //(this._targetNode!.worldPosition.z - this._actor!.node.worldPosition.z);
 
         this.onMove();
 
@@ -162,17 +164,16 @@ export class ActorBrain extends Component {
     }
 
     checkFire() {
-        const forward = this._actor?._forwardNode.forward!;
 
+        const forward = this._actor?._forwardNode!.forward!;
         if(forward === undefined) {
             console.error(this._actor?.name, 'forward is undefined.');
             return;
         }
 
         UtilVec3.copy(this.fireDirection, this._targetNode!.worldPosition);
-        
         this.fireDirection.subtract(this._actor!.node.worldPosition);
-        const angle = Vec3.angle(forward, this.fireDirection);
+        const angle = math.toDegree(Vec3.angle(forward, this.fireDirection));
         if(angle < 10) this.onFire();
     }
 
