@@ -1,0 +1,60 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f954653b-bd41-4aac-8da1-f609e7f465c6",
+  "files": [],
+  "subMetas": {
+    "b8a2d": {
+      "importer": "gltf-mesh",
+      "uuid": "f954653b-bd41-4aac-8da1-f609e7f465c6@b8a2d",
+      "displayName": "",
+      "id": "b8a2d",
+      "name": "Plane001.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fb58a": {
+      "importer": "gltf-scene",
+      "uuid": "f954653b-bd41-4aac-8da1-f609e7f465c6@fb58a",
+      "displayName": "",
+      "id": "fb58a",
+      "name": "hitlightmodel001.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "f954653b-bd41-4aac-8da1-f609e7f465c6@fb58a",
+    "assetFinder": {
+      "meshes": [
+        "f954653b-bd41-4aac-8da1-f609e7f465c6@b8a2d"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f954653b-bd41-4aac-8da1-f609e7f465c6@fb58a"
+      ]
+    }
+  }
+}

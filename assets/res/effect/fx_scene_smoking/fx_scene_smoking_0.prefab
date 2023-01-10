@@ -219,7 +219,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "96Lvi3Ry5GTY5D5Xfb0Rww"
+    "fileId": "4e49woPjZCapimZMcolhw9"
   },
   {
     "__type__": "cc.GradientRange",
@@ -254,7 +254,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 3,
-    "constantMin": 0.2,
+    "constantMin": 0.3,
     "constantMax": 0.5,
     "multiplier": 1
   },
@@ -368,7 +368,7 @@
       "b": 255,
       "a": 255
     },
-    "time": 1
+    "time": 0.5022321428571428
   },
   {
     "__type__": "cc.AlphaKey",
@@ -554,7 +554,7 @@
     "__type__": "cc.RealCurve",
     "_times": [
       0,
-      0.6128205128205129,
+      0.6,
       1
     ],
     "_values": [
@@ -574,7 +574,7 @@
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 2,
         "tangentWeightMode": 0,
-        "value": 0.2037037037037037,
+        "value": 0.3888888888888889,
         "rightTangent": 0,
         "rightTangentWeight": 0,
         "leftTangent": 0,
@@ -586,10 +586,10 @@
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 2,
         "tangentWeightMode": 0,
-        "value": 0.17407407407407408,
-        "rightTangent": -0.12839506172839496,
+        "value": 0.3962962962962963,
+        "rightTangent": 0.030092592592592636,
         "rightTangentWeight": 0,
-        "leftTangent": -0.12839506172839496,
+        "leftTangent": 0.030092592592592636,
         "leftTangentWeight": 0,
         "easingMethod": 0,
         "__editorExtras__": null
@@ -932,7 +932,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "6djRZ0YGlBNbPmQPcanhjF",
+    "fileId": "d0Ebu7RnZPpZ7LpTDjIuHJ",
     "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
@@ -945,7 +945,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "d9gaekZIdPAJpTgB4hWEDz",
+    "fileId": "4dFZoxbKdEK6XvModoCMBm",
     "targetOverrides": null
   }
 ]

@@ -54,7 +54,6 @@ export class FxBulletTracer extends Component {
             const currentLength = eachSegment;
             const currentNode = this.pool![i];
             currentNode.active = true;
-            console.log(startPosition);
             currentNode.setPosition(startPosition);
             currentNode.lookAt(end);
             currentNode.setScale(0.3, 1, randomRange(0.3, currentLength));

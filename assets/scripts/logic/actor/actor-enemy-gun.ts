@@ -10,6 +10,8 @@ export class ActorEnemyGun extends ActorEquipBase {
     onFire() {
         this._bagData!.bulletCount--;
         const forwardNode = this._actor!._forwardNode!;
+        // hard code.
+        if(!forwardNode) return;
         const origin = forwardNode.worldPosition;
         const dir = forwardNode.forward;
         let ray = new geometry.Ray(origin.x, origin.y, origin.z, dir.x, dir.y , dir.z);

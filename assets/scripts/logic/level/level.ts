@@ -8,7 +8,7 @@ import { ResCache } from '../../core/res/res-cache';
 import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 import { NavPoints } from '../navigation/navigation-system';
-import { DataNavigationInst } from '../data/data-core';
+import { DataEquipInst, DataNavigationInst } from '../data/data-core';
 import { ActorBase } from '../../core/actor/actor-base';
 import { ActorInputBrain } from '../actor/actor-input-brain';
 import { ActorBrain } from '../actor/actor-brain';
@@ -122,11 +122,12 @@ export class Level extends Singleton {
         const dropNode = Res.inst(prefab, this._objectNode!, pos);
         const drop = dropNode.getComponent(DropItem);
 
+        const data = DataEquipInst.get(res);
         if (drop === null) {
             throw new Error(`Drop node can not add component Drop Item.`);
         }
 
-        drop.init(res);
+        drop.init(res, data.drop_effect_index);
 
     }
 

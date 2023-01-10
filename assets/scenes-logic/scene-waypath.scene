@@ -660,7 +660,7 @@
       3.94,
       2.868
     ],
-    "radius": 200,
+    "radius": 2.965,
     "showRay": false,
     "segment": 20,
     "_id": "caa3PkUatO/I/xSWTuD5vG"
@@ -833,7 +833,7 @@
       9.055,
       8.195
     ],
-    "radius": 200,
+    "radius": 2.106,
     "showRay": false,
     "segment": 20,
     "_id": "25HeuyKM1GlYMpqZ77ep5b"
@@ -1229,6 +1229,12 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "moveDirection": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": "89meUKTHNK4Z2OcVUccPID"
   },
   {
@@ -1240,9 +1246,6 @@
     },
     "_enabled": false,
     "__prefab": null,
-    "normal": {
-      "__id__": 67
-    },
     "moveDirection": {
       "__type__": "cc.Vec3",
       "x": 0.5,

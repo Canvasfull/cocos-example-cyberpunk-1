@@ -156,13 +156,14 @@ export class Actor extends ActorBase implements IActorInput {
         UtilVec3.copy(this._curDir, this._dir);
         var angle = Vec3.angle(this._curDir, this.node.forward);
         var angleAbs = Math.abs(angle);
-        if (angleAbs > 0.01) {
+        if (angleAbs > 0.001) {
             var side = Math.sign(-this._curDir.clone().cross(this.node.forward).y);
             var angleVel = new Vec3(0, side * angleAbs * 5, 0);
             this._rigid.setAngularVelocity(angleVel);
         }
 
         this.recoverStrength();
+        
         if (this._data.changed_strength) this.updateStrengthInfo();
     }
 
