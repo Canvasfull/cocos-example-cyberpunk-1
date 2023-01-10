@@ -1,0 +1,78 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "92d36f7a-978f-4914-b6a8-f3c5b0d21079",
+  "files": [],
+  "subMetas": {
+    "fc2ce": {
+      "importer": "gltf-mesh",
+      "uuid": "92d36f7a-978f-4914-b6a8-f3c5b0d21079@fc2ce",
+      "displayName": "",
+      "id": "fc2ce",
+      "name": "LampPostLight02.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f70bc": {
+      "importer": "gltf-mesh",
+      "uuid": "92d36f7a-978f-4914-b6a8-f3c5b0d21079@f70bc",
+      "displayName": "",
+      "id": "f70bc",
+      "name": "LampPostLight01.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1396d": {
+      "importer": "gltf-scene",
+      "uuid": "92d36f7a-978f-4914-b6a8-f3c5b0d21079@1396d",
+      "displayName": "",
+      "id": "1396d",
+      "name": "LampPostLight.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "92d36f7a-978f-4914-b6a8-f3c5b0d21079@1396d",
+    "assetFinder": {
+      "meshes": [
+        "92d36f7a-978f-4914-b6a8-f3c5b0d21079@fc2ce",
+        "92d36f7a-978f-4914-b6a8-f3c5b0d21079@f70bc"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "92d36f7a-978f-4914-b6a8-f3c5b0d21079@1396d"
+      ]
+    }
+  }
+}

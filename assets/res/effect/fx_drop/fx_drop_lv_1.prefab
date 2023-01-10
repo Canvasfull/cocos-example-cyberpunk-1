@@ -39,7 +39,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0.311
+      "z": 0
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -819,7 +819,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -0.778,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -2314,7 +2314,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 0.541,
       "z": 0
     },
     "_lrot": {
@@ -2627,7 +2627,7 @@
     "randomDirectionAmount": 0,
     "sphericalDirectionAmount": 0,
     "randomPositionAmount": 0,
-    "radius": 0.5,
+    "radius": 0.3,
     "radiusThickness": 0.2,
     "arcMode": 0,
     "arcSpread": 0,
@@ -3122,6 +3122,6 @@
       "__id__": 0
     },
     "fileId": "10c/Vs7VJM1IRmbT531Af9",
-    "targetOverrides": null
+    "targetOverrides": []
   }
 ]
