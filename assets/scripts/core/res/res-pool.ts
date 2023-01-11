@@ -122,14 +122,14 @@ export class pool {
         this.checkAndIncreaseSize();
 
         // Inst new node.
-        var newnode = Res.inst(this._prefab, this._root);
+        const newNode = Res.inst(this._prefab, this._root);
         this._index = this._max;
         this._max++;
-        if (newnode['pool_index'] !== undefined) {
+        if (newNode['pool_index'] !== undefined) {
             console.log('pool create error.');
         }
-        newnode['pool_index'] = this._index;
-        this._items[this._index] = newnode;
+        newNode['pool_index'] = this._index;
+        this._items[this._index] = newNode;
         this._state[this._index] = 2;
         return newnode;
 

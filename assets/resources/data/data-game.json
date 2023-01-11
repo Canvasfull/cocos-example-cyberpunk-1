@@ -8,6 +8,7 @@
     "count_bag_count": 8,
     "max_history_statistics":100,
     "sensitivity_select_weapon":1,
+    "show_collider":true,
     "res_ui_root":"ui/",
     "ui_order":{
         "ui_logo":1,
