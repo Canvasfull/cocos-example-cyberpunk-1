@@ -135,6 +135,7 @@ export class CustomPipelineBuilder {
             settings.tonemapped = false;
             settings.shadowStage = undefined;
             settings.gbufferStage = false;
+            settings.renderedProfiler = false;
 
             // camera._submitInfo = null;
             // camera.culled = false;

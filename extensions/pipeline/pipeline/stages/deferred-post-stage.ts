@@ -60,7 +60,10 @@ export class DeferredPostStage extends BaseStage {
             .blitScreen(0)
         // ppl.updateRenderWindow(slot0, camera.window);
 
-        passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
-            SceneFlags.UI | SceneFlags.PROFILER);
+        if (!settings.renderedProfiler) {
+            passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
+                SceneFlags.UI | SceneFlags.PROFILER);
+            settings.renderedProfiler = true;
+        }
     }
 }

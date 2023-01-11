@@ -6,4 +6,6 @@ export let settings = {
 
     shadowStage: undefined,
     gbufferStage: undefined,
+
+    renderedProfiler: false,
 }
