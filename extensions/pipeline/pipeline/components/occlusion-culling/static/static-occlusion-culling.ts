@@ -184,11 +184,14 @@ export class StaticOcclusionCulling extends Component {
                 r.model._originUpdateUBOs = r.model.updateUBOs
                 r.model._uboDirty = true
                 r.model.updateUBOs = function (stamp: number) {
-                    if (!r.model._uboDirty) {
+                    if (r.model && !r.model._uboDirty) {
                         return;
                     }
                     this._originUpdateUBOs(stamp)
-                    r.model._uboDirty = false;
+
+                    if (r.model) {
+                        r.model._uboDirty = false;
+                    }
                 }
             }
 
