@@ -303,13 +303,20 @@ export class StaticAreaBatch extends Component {
                 blocks.push(block)
             }
 
-            mr.model.subModels.forEach((subModel, idx) => {
+            mr.sharedMaterials.forEach((mat, idx) => {
                 let smr = new SubMeshRenderer(idx, mr)
-                let renderers = block.renderers.get(mr.sharedMaterials[idx])
+                if (!mat) {
+                    console.warn(`${mr.model.node.name} material ${idx} is empty`)
+                    return;
+                }
+                if (!mr.model.subModels[idx]) {
+                    return;
+                }
+                let renderers = block.renderers.get(mat)
                 if (!renderers) {
                     renderers = []
                     block._materialCount++;
-                    block.renderers.set(mr.sharedMaterials[idx], renderers);
+                    block.renderers.set(mat, renderers);
                 }
                 block._totalCount++;
                 this._totalCount++;

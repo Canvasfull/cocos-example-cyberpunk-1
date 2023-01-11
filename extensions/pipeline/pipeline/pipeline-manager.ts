@@ -215,7 +215,7 @@ director.runSceneImmediate = function (scene, onBeforeLoadScene, onLaunched) {
 
 if (!EDITOR) {
     game.on(Game.EVENT_GAME_INITED, () => {
-        ReflectionProbeManager.probeManager.onUpdateProbes = function () { }
+        director.off(Director.EVENT_BEFORE_UPDATE, ReflectionProbeManager.probeManager.onUpdateProbes, ReflectionProbeManager.probeManager);
 
         if (HrefSetting.fps) {
             profiler.showStats()

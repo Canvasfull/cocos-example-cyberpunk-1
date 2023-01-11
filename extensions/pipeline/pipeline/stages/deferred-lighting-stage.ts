@@ -1,6 +1,6 @@
 
 import { BaseStage, } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbe } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbe, TextureCube } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
 import { EDITOR } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
@@ -190,13 +190,13 @@ export class DeferredLightingStage extends BaseStage {
             let range = Math.max(probe.size.x, probe.size.y, probe.size.z)
 
             material.setProperty('light_ibl_posRange' + i, tempVec4.set(pos.x, pos.y, pos.z, range))
+            let cubemap: TextureCube = (probe as any)._cubemap
             if (EDITOR) {
-                material.setProperty('light_ibl_Texture' + i, (probe as any)._cubemap)
+                material.setProperty('light_ibl_Texture' + i, cubemap)
             }
             else {
-                setter.setTexture('light_ibl_Texture' + i, (probe as any)._cubemap.getGFXTexture())
-                let linearSampler = director.root.pipeline.globalDSManager.linearSampler
-                setter.setSampler('light_ibl_Texture' + i, linearSampler)
+                setter.setTexture('light_ibl_Texture' + i, cubemap.getGFXTexture())
+                setter.setSampler('light_ibl_Texture' + i, cubemap.getGFXSampler())
             }
         }
 

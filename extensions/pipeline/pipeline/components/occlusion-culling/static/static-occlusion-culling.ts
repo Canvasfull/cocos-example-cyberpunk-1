@@ -169,8 +169,8 @@ export class StaticOcclusionCulling extends Component {
 
         }
 
+        let renderers = this.renderers;
         if (this._enabledCulling && this.bakeInstances) {
-            let renderers = this.renderers;
             for (let i = 0; i < renderers.length; i++) {
                 let model = renderers[i].model;
                 if (model) {
@@ -178,6 +178,21 @@ export class StaticOcclusionCulling extends Component {
                 }
             }
         }
+
+        renderers.forEach(r => {
+            if (!r.model._originUpdateUBOs) {
+                r.model._originUpdateUBOs = r.model.updateUBOs
+                r.model._uboDirty = true
+                r.model.updateUBOs = function (stamp: number) {
+                    if (!r.model._uboDirty) {
+                        return;
+                    }
+                    this._originUpdateUBOs(stamp)
+                    r.model._uboDirty = false;
+                }
+            }
+
+        })
 
         this._loadCompeleted = true;
     }
@@ -256,6 +271,9 @@ export class StaticOcclusionCulling extends Component {
                 for (let i = 0; i < block.renderers.length; i++) {
                     let model = block.renderers[i] && block.renderers[i].model;
                     if (model) {
+                        if (!model.enabled) {
+                            model._uboDirty = true
+                        }
                         model.enabled = true;
                     }
                 }
