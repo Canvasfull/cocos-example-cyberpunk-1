@@ -1,4 +1,6 @@
 import { gfx, Material, renderer, rendering } from "cc";
+import { EDITOR } from "cc/env";
+import { settings } from "../stages/setting";
 
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
 const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
@@ -12,6 +14,13 @@ class PassUtils {
     pass: rendering.RasterPassBuilder | undefined
     rasterWidth = 0
     rasterHeight = 0
+
+    end () {
+        if (!EDITOR) {
+            settings.passPathName += '_' + this.pass.name;
+            this.pass.setVersion(settings.passPathName, 0);
+        }
+    }
 
     addRasterPass (width: number, height: number, layoutName: string, passName: string) {
         const pass = this.ppl.addRasterPass(width, height, layoutName);

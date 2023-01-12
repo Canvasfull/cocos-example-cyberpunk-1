@@ -80,6 +80,8 @@ export class BloomStage extends BaseStage {
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(bloomPassPrefilterRTName, format)
             .blitScreen(BLOOM_PREFILTERPASS_INDEX)
+            .end()
+
         // === Bloom downSampler ===
         let inputName = bloomPassPrefilterRTName;
         let iterations = setting.iterations;
@@ -105,6 +107,7 @@ export class BloomStage extends BaseStage {
                     .setPassInput(inputName, 'bloomTexture')
                     .addRasterView(bloomPassDownSampleRTName, format)
                     .blitScreen(BLOOM_DOWNSAMPLEPASS_INDEX + downIndex)
+                    .end()
 
                 // let setter = (passUtils.pass as any);
                 // setter.addConstant('BloomUBO', layoutName);
@@ -129,7 +132,8 @@ export class BloomStage extends BaseStage {
                 .setPassInput(inputName, 'outputResultMap')
                 .setPassInput(`dsBloomPassDownSampleColor${cameraName}${i * 2 + 1}`, 'bloomTexture')
                 .addRasterView(bloomPassUpSampleRTName, format)
-                .blitScreen(BLOOM_UPSAMPLEPASS_INDEX + i);
+                .blitScreen(BLOOM_UPSAMPLEPASS_INDEX + i)
+                .end()
 
             inputName = bloomPassUpSampleRTName;
         }
@@ -142,6 +146,8 @@ export class BloomStage extends BaseStage {
             .setPassInput(input0, 'outputResultMap')
             .setPassInput(inputName, 'bloomTexture')
             .addRasterView(slot0, format)
-            .blitScreen(BLOOM_COMBINEPASS_INDEX);
+            .blitScreen(BLOOM_COMBINEPASS_INDEX)
+            .end()
+
     }
 }

@@ -97,16 +97,16 @@ export class DeferredLightingStage extends BaseStage {
         }
 
         // lighting pass
-        const lightingPass = ppl.addRasterPass(width, height, 'deferred-lighting');
-        lightingPass.name = `CameraLightingPass${cameraID}`;
-        lightingPass.setViewport(new Viewport(area.x, area.y, width, height));
+        const pass = ppl.addRasterPass(width, height, 'deferred-lighting');
+        pass.name = `CameraLightingPass${cameraID}`;
+        pass.setViewport(new Viewport(area.x, area.y, width, height));
 
         let shadowStage: CustomShadowStage = settings.shadowStage;
         if (shadowStage) {
             for (const dirShadowName of shadowStage.mainLightShadows) {
                 if (ppl.containsResource(dirShadowName)) {
                     const computeView = new ComputeView();
-                    lightingPass.addComputeView(dirShadowName, computeView);
+                    pass.addComputeView(dirShadowName, computeView);
                 }
             }
         }
@@ -118,19 +118,19 @@ export class DeferredLightingStage extends BaseStage {
         if (ppl.containsResource(input0)) {
             const computeView = new ComputeView();
             computeView.name = 'gbuffer_albedoMap';
-            lightingPass.addComputeView(input0, computeView);
+            pass.addComputeView(input0, computeView);
 
             const computeNormalView = new ComputeView();
             computeNormalView.name = 'gbuffer_normalMap';
-            lightingPass.addComputeView(input1, computeNormalView);
+            pass.addComputeView(input1, computeNormalView);
 
             const computeEmissiveView = new ComputeView();
             computeEmissiveView.name = 'gbuffer_emissiveMap';
-            lightingPass.addComputeView(input2, computeEmissiveView);
+            pass.addComputeView(input2, computeEmissiveView);
 
             const computeDepthView = new ComputeView();
             computeDepthView.name = 'gbuffer_posMap';
-            lightingPass.addComputeView(input3, computeDepthView);
+            pass.addComputeView(input3, computeDepthView);
         }
 
         const lightingClearColor = new Color(0, 0, 0, 1);
@@ -139,13 +139,13 @@ export class DeferredLightingStage extends BaseStage {
             LoadOp.CLEAR, StoreOp.STORE,
             gfx.ClearFlagBit.COLOR,
             lightingClearColor);
-        lightingPass.addRasterView(slot0, slot0View);
+        pass.addRasterView(slot0, slot0View);
         const slot1View = new RasterView('_',
             AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
             LoadOp.LOAD, StoreOp.STORE,
             gfx.ClearFlagBit.NONE,
             lightingClearColor);
-        lightingPass.addRasterView(slot1, slot1View);
+        pass.addRasterView(slot1, slot1View);
 
         let probes = ReflectionProbes.probes
         probes = probes.filter(p => {
@@ -180,7 +180,7 @@ export class DeferredLightingStage extends BaseStage {
             material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
         }
 
-        let setter = lightingPass as any;
+        let setter = pass as any;
         setter.addConstant('CustomLightingUBO', 'deferred-lighting');
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
@@ -206,11 +206,16 @@ export class DeferredLightingStage extends BaseStage {
 
         fogUBO.update(material);
 
-        lightingPass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
+        pass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
             camera, material, 0,
             SceneFlags.VOLUMETRIC_LIGHTING,
         );
-        lightingPass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
+        pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
             SceneFlags.TRANSPARENT_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.GEOMETRY);
+
+        if (!EDITOR) {
+            settings.passPathName += pass.name;
+            pass.setVersion(settings.passPathName, 0);
+        }
     }
 }

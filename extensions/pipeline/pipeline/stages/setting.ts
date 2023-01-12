@@ -8,4 +8,6 @@ export let settings = {
     gbufferStage: undefined,
 
     renderedProfiler: false,
+
+    passPathName: ''
 }

@@ -8,6 +8,7 @@ import { settings } from './stages/setting';
 import { HrefSetting } from './settings/href-setting';
 import { TAAStage } from './stages/taa-stage';
 import { CustomShadowStage } from './stages/shadow-stage';
+import { getCameraUniqueID } from './utils/utils';
 
 let EditorCameras = [
     'scene:material-previewcamera',
@@ -136,6 +137,7 @@ export class CustomPipelineBuilder {
             settings.shadowStage = undefined;
             settings.gbufferStage = false;
             settings.renderedProfiler = false;
+            settings.passPathName = '';
 
             // camera._submitInfo = null;
             // camera.culled = false;
@@ -175,8 +177,18 @@ export class CustomPipelineBuilder {
             camera.frustum.update(camera.matViewProj, camera.matViewProjInv);
         }
 
+        settings.passPathName += getCameraUniqueID(camera);
+        let lastStage: BaseStage | undefined = undefined;
         for (let i = 0; i < stages.length; i++) {
-            stages[i].render(camera, ppl);
+            let stage = stages[i];
+            if (!stage.checkEnable()) {
+                continue;
+            }
+            stage.lastStage = lastStage;
+            // settings.passPathName += '_' + stage.name;
+            stage.render(camera, ppl);
+
+            lastStage = stage
         }
     }
 }

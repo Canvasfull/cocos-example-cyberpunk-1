@@ -112,6 +112,7 @@ export class TAAStage extends BaseStage {
             .setPassInput(historyTexture, 'taaPrevTexture')
             .addRasterView(slot0, gfx.Format.RGBA16F, true, rendering.ResourceResidency.PERSISTENT)
             .blitScreen(0)
+            .end()
     }
 }
 

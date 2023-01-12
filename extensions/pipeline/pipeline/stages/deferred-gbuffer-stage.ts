@@ -2,6 +2,7 @@ import { BaseStage } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys, director } from "cc";
 import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
 import { settings } from "./setting";
+import { EDITOR } from "cc/env";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -101,5 +102,10 @@ export class DeferredGBufferStage extends BaseStage {
         pass.addRasterView(slot4, slot4View);
         pass.addQueue(QueueHint.RENDER_OPAQUE)
             .addSceneOfCamera(camera, new LightInfo(), SceneFlags.OPAQUE_OBJECT | SceneFlags.CUTOUT_OBJECT | SceneFlags.DRAW_INSTANCING);
+
+        if (!EDITOR) {
+            settings.passPathName += pass.name;
+            pass.setVersion(settings.passPathName, 0);
+        }
     }
 }

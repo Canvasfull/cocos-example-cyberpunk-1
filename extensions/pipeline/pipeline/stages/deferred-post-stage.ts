@@ -3,6 +3,7 @@ import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, V
 import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
+import { EDITOR } from "cc/env";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -58,11 +59,18 @@ export class DeferredPostStage extends BaseStage {
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA8, false)
             .blitScreen(0)
-        // ppl.updateRenderWindow(slot0, camera.window);
+            .end()
 
-        if (!settings.renderedProfiler) {
+        if (!settings.renderedProfiler && !EDITOR) {
+            passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+            passUtils.addRasterPass(width, height, 'default', `CameraProfiler${cameraID}`)
+                .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
+                .addRasterView(slot0, Format.RGBA8, false)
+
             passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
                 SceneFlags.UI | SceneFlags.PROFILER);
+            passUtils.end();
+
             settings.renderedProfiler = true;
         }
     }
