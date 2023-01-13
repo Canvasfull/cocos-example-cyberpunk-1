@@ -14,10 +14,11 @@ class PassUtils {
     pass: rendering.RasterPassBuilder | undefined
     rasterWidth = 0
     rasterHeight = 0
+    layoutName = ''
 
     end () {
         if (!EDITOR) {
-            settings.passPathName += '_' + this.pass.name;
+            settings.passPathName += `_${this.pass.name}_${this.layoutName}`;
             this.pass.setVersion(settings.passPathName, 0);
         }
     }
@@ -28,6 +29,7 @@ class PassUtils {
         this.pass = pass;
         this.rasterWidth = width;
         this.rasterHeight = height;
+        this.layoutName = layoutName;
         return this;
     }
     setViewport (x, y, w, h) {

@@ -51,25 +51,25 @@ export class DeferredLightingStage extends BaseStage {
         material.setProperty('light_cluster_InfoTextureInvSize', cluster.infoTextureInvSizeData)
         material.setProperty('light_cluster_CellsCountByBoundsSizeAndPixelsPerCell', cluster.clusterCellsCountByBoundsSizeData)
 
-        if (EDITOR) {
-            material.setProperty('light_cluster_InfoTexture', cluster.dataInfoTextureFloat)
-            material.setProperty('light_cluster_Texture', cluster.clusterTexture)
+        // if (EDITOR) {
+        //     material.setProperty('light_cluster_InfoTexture', cluster.dataInfoTextureFloat)
+        //     material.setProperty('light_cluster_Texture', cluster.clusterTexture)
 
-            let pass = material.passes[0];
-            let pointSampler = director.root.pipeline.globalDSManager.pointSampler
-            let binding = pass.getBinding('light_cluster_InfoTexture')
-            pass.bindSampler(binding, pointSampler)
-            binding = pass.getBinding('light_cluster_Texture')
-            pass.bindSampler(binding, pointSampler)
-        }
-        else {
-            setter.setTexture('light_cluster_InfoTexture', cluster.dataInfoTextureFloat);
-            setter.setTexture('light_cluster_Texture', cluster.clusterTexture);
+        //     let pass = material.passes[0];
+        //     let pointSampler = director.root.pipeline.globalDSManager.pointSampler
+        //     let binding = pass.getBinding('light_cluster_InfoTexture')
+        //     pass.bindSampler(binding, pointSampler)
+        //     binding = pass.getBinding('light_cluster_Texture')
+        //     pass.bindSampler(binding, pointSampler)
+        // }
+        // else {
+        setter.setTexture('light_cluster_InfoTexture', cluster.dataInfoTextureFloat);
+        setter.setTexture('light_cluster_Texture', cluster.clusterTexture);
 
-            let pointSampler = director.root.pipeline.globalDSManager.pointSampler
-            setter.setSampler('light_cluster_InfoTexture', pointSampler)
-            setter.setSampler('light_cluster_Texture', pointSampler)
-        }
+        let pointSampler = director.root.pipeline.globalDSManager.pointSampler
+        setter.setSampler('light_cluster_InfoTexture', pointSampler)
+        setter.setSampler('light_cluster_Texture', pointSampler)
+        // }
     }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
@@ -191,13 +191,13 @@ export class DeferredLightingStage extends BaseStage {
 
             material.setProperty('light_ibl_posRange' + i, tempVec4.set(pos.x, pos.y, pos.z, range))
             let cubemap: TextureCube = (probe as any)._cubemap
-            if (EDITOR) {
-                material.setProperty('light_ibl_Texture' + i, cubemap)
-            }
-            else {
-                setter.setTexture('light_ibl_Texture' + i, cubemap.getGFXTexture())
-                setter.setSampler('light_ibl_Texture' + i, cubemap.getGFXSampler())
-            }
+            // if (EDITOR) {
+            //     material.setProperty('light_ibl_Texture' + i, cubemap)
+            // }
+            // else {
+            setter.setTexture('light_ibl_Texture' + i, cubemap.getGFXTexture())
+            setter.setSampler('light_ibl_Texture' + i, cubemap.getGFXSampler())
+            // }
         }
 
         this.probes = probes;

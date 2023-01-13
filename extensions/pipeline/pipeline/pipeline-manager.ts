@@ -1,7 +1,7 @@
 import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler, Mat4, assetManager, instantiate, Prefab, director, Director } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
-import { EDITOR } from 'cc/env';
+import { EDITOR, JSB } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
@@ -11,9 +11,9 @@ import { CustomShadowStage } from './stages/shadow-stage';
 import { getCameraUniqueID } from './utils/utils';
 
 let EditorCameras = [
-    'scene:material-previewcamera',
-    'Scene Gizmo Camera',
-    'Editor UIGizmoCamera',
+    // 'scene:material-previewcamera',
+    // 'Scene Gizmo Camera',
+    // 'Editor UIGizmoCamera',
 
     // 'Main Camera'
 ]
@@ -38,6 +38,10 @@ export class CustomPipelineBuilder {
     }
 
     setupReflectionProbe (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline) {
+        if (ReflectionProbeManager === undefined) {
+            return;
+        }
+
         const probes = ReflectionProbeManager.probeManager.getProbes();
         for (let i = 0; i < probes.length; i++) {
             let probe = probes[i];
@@ -127,9 +131,9 @@ export class CustomPipelineBuilder {
         // const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
         // || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
 
-        // if (EditorCameras.includes(camera.name)) {
-        //     return
-        // }
+        if (EditorCameras.includes(camera.name)) {
+            return
+        }
 
         // reset states
         {
@@ -193,7 +197,7 @@ export class CustomPipelineBuilder {
     }
 }
 
-// if (!EDITOR) {
-rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
-// }
+if (!JSB) {
+    rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
+}
 

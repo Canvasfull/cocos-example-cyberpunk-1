@@ -47,7 +47,7 @@ export class ForwardPostStage extends BaseStage {
 
         passUtils.addRasterPass(width, height, 'post-process', `CameraPostprocessPass${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
-            .setPassInput(input0, 'outputResultMap')
+            .setPassInput(input0, 'inputTexture')
             .addRasterView(slot0, Format.RGBA8, isOffScreen)
             .blitScreen(0)
         // ppl.updateRenderWindow(slot0, camera.window);

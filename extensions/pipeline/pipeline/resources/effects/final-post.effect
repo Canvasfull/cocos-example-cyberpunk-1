@@ -40,13 +40,13 @@ CCProgram fs %{
   uniform PostUBO {
     vec4 inputViewPort;
   };
-  #pragma rate outputResultMap pass
-  uniform sampler2D outputResultMap;
+  #pragma rate inputTexture pass
+  uniform sampler2D inputTexture;
 
   layout(location = 0) out vec4 fragColor;
 
   void main () {
-    fragColor = texture(outputResultMap, v_uv);
+    fragColor = texture(inputTexture, v_uv);
     
     if (inputViewPort.z == 1.) {
       // need blend one zero 
