@@ -5,6 +5,7 @@ CCEffect %{
   - passes:
     - vert: vs
       frag: fs
+      pass: post-process
       rasterizerState:
         cullMode: none
       depthStencilState:
@@ -30,7 +31,6 @@ CCProgram vs %{
 CCProgram fs %{
   precision highp float;
 
-  #include <builtin/uniforms/cc-global>
   #include <legacy/output-standard>
 
   #include <unpack>
@@ -40,12 +40,13 @@ CCProgram fs %{
   uniform PostUBO {
     vec4 inputViewPort;
   };
-  uniform sampler2D outputResultMap;
+  #pragma rate inputTexture pass
+  uniform sampler2D inputTexture;
 
   layout(location = 0) out vec4 fragColor;
 
   void main () {
-    fragColor = texture(outputResultMap, v_uv);
+    fragColor = texture(inputTexture, v_uv);
     
     if (inputViewPort.z == 1.) {
       // need blend one zero 

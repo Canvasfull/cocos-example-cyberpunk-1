@@ -5,4 +5,9 @@ export let settings = {
     tonemapped: false,
 
     shadowStage: undefined,
+    gbufferStage: undefined,
+
+    renderedProfiler: false,
+
+    passPathName: ''
 }

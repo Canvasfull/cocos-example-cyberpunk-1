@@ -54,6 +54,8 @@ export default class OrbitCamera extends Component {
     }
 
     onTouchStart () {
+        this._targetRotation.set(this.node.eulerAngles);
+        this._rotation.set(this.node.rotation);
         this._touched = true;
     }
     onTouchMove (touch: Touch, event?: EventTouch) {

@@ -131,11 +131,6 @@ export function createStageGraph (sclass: typeof BaseStage) {
             stage.renderToScreen = false;
             // stage.outputName = ''
 
-            let isFirst = stages.length === 0
-            if (!isFirst) {
-                stage.lastStage = (prev as any).stage;
-            }
-
             if (stage.checkEnable()) {
                 let customSize = self.getInputData(2);
                 if (customSize) {
