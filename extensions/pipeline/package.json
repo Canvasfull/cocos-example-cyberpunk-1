@@ -5,7 +5,6 @@
     "description": "i18n:pipeline.description",
     "main": "./dist/main.js",
     "dependencies": {
-        "detect-gpu": "^4.0.40",
         "fs-extra": "^10.0.0",
         "vue": "^3.1.4"
     },

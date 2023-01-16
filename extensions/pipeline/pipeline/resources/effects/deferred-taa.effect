@@ -192,35 +192,6 @@ CCProgram fs %{
   	return vec2(BlendA, BlendB);
   }
   
-  
-  void minmax2(sampler2D inputTexture, in vec2 uv, in vec2 velocity, bool isSky, out vec4 colorMin, out vec4 colorMax) {
-    float wsum = 0.0;
-    vec3 vsum = vec3(0.);
-    vec3 vsum2 = vec3(0.);
-    vec3 neigh;
-    float w;
-    for (float y = -1.; y <= 1.; ++y) {
-      for (float x = -1.; x <= 1.; ++x) {
-          neigh = taaSampleTex(inputTexture, uv + vec2(x, y) * taaInputTexSize()).xyz;
-          w = exp(-3.0 * (x * x + y * y) / ((1. + 1.0) * (1. + 1.0)));
-          vsum2 += neigh * neigh * w;
-          vsum += neigh * w;
-          wsum += w;
-        }
-    }
-  
-    // Calculate mean and standard deviation
-    vec3 ex = vsum / wsum;
-    vec3 ex2 = vsum2 / wsum;
-    vec3 dev = sqrt(max(ex2 - ex * ex, 0.));
-  
-    float boxSize = lerp(0.5, 2.5, isSky ? 0. : smoothstep(0.02, 0., length(velocity)));
-  
-    colorMin.rgb = ex - dev * boxSize;
-    colorMax.rgb = ex + dev * boxSize;
-  }
-  
-  
   vec4 temporalAAPS (sampler2D taaPrevTexture, sampler2D inputTexture, sampler2D depthBuffer, vec2 uv) {
       vec2 unjittedUV = uv - taaParams1.xy / 2.;
       vec2 scaledUnjittedUV = unjittedUV;
@@ -229,16 +200,13 @@ CCProgram fs %{
   
       float depth = 0.;
       vec2 velocity = vec2(0.);//getVelocity(depthBuffer, scaledUnjittedUV, uv, depth);
-      // bool isSky = depth > 0.9;
   
       vec4 prevColor = taaSampleTex(taaPrevTexture, uv + velocity);
-      // vec4 prevColor = SampleHistoryCatmullRom(taaPrevTexture, uv + velocity, taaPrevTexSize());
   
       vec4 color = taaSampleTex(inputTexture, scaledUnjittedUV);
   
       vec4 colorMin, colorMax;
       minmax(inputTexture, scaledUnjittedUV, colorMin, colorMax);
-      // minmax2(inputTexture, scaledUnjittedUV, velocity, isSky, colorMin, colorMax);
   
       vec3 resultColor;
   

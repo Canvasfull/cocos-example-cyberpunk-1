@@ -183,7 +183,7 @@ export class ZoomScreenStage extends BaseStage {
 
         const input0 = this.lastStage.slotName(camera, 0);
         const slot0 = this.slotName(camera, 0);
-        passUtils.addRasterPass(outWidth, outHeight, 'Postprocess', `Camera_DebugScreen_Pass${cameraID}`);
+        passUtils.addRasterPass(outWidth, outHeight, 'post-process', `Camera_DebugScreen_Pass${cameraID}`);
 
         // let setter = (passUtils.pass as any);
         // setter.setSampler('outputResultMap', director.root.pipeline.globalDSManager.pointSampler);

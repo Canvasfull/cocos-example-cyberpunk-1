@@ -45,7 +45,7 @@ if (!EDITOR) {
             director.off(Director.EVENT_BEFORE_UPDATE, ReflectionProbeManager.probeManager.onUpdateProbes, ReflectionProbeManager.probeManager);
         }
 
-        if (HrefSetting.fps) {
+        if (HrefSetting.showFps) {
             profiler.showStats()
         }
     })
