@@ -5,20 +5,28 @@ CCEffect %{
   - passes:
     - vert: vs
       frag: fs
-      rasterizerState:
-        cullMode: none
-      depthStencilState:
+      pass: DeferredTAA0
+      rasterizerState: &rasterizerState
+      depthStencilState: &depthStencilState
+        targets:
+          - blend: true
+            blendSrc: one
+            blendDst: zero
+      blendState: &blendState
         depthTest: false
         depthWrite: false
-      blendState:
-        targets:
-        - blend: true
-          blendSrc: one
-          blendDst: zero
-          # blendSrc: src_alpha
-          # blendDst: one_minus_src_alpha
-          # blendSrcAlpha: src_alpha
-          # blendDstAlpha: one_minus_src_alpha
+    - vert: vs
+      frag: fs
+      pass: DeferredTAA1
+      rasterizerState: *rasterizerState
+      depthStencilState: *depthStencilState
+      blendState: *blendState
+    - vert: vs
+      frag: fs
+      pass: DeferredTAA-1
+      rasterizerState: *rasterizerState
+      depthStencilState: *depthStencilState
+      blendState: *blendState
 }%
 
 
@@ -43,8 +51,11 @@ CCProgram fs %{
     vec4 taaParams1;      // xy: offset, z: feedback
     mat4 taaPrevViewProj;
   };
+  #pragma rate inputTexture pass
   uniform sampler2D inputTexture;
+  #pragma rate depthBuffer pass
   uniform sampler2D depthBuffer;
+  #pragma rate taaPrevTexture pass
   uniform sampler2D taaPrevTexture;
 
   // screen position (0-1)

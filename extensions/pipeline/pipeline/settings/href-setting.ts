@@ -9,6 +9,7 @@ export const HrefSetting = {
     zoomScreen: 0,
     taa: 1,
     bloom: 1,
+    fps: 0,
 }
 globalThis.HrefSetting = HrefSetting
 

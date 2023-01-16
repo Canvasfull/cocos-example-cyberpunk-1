@@ -5,7 +5,7 @@ CCEffect %{
   - passes:
     - vert: lighting-vs
       frag: lighting-fs
-      phase: deferred-lighting
+      pass: deferred-lighting
       rasterizerState:
         cullMode: none
       depthStencilState:
@@ -36,8 +36,6 @@ CCProgram UBO %{
       vec4 fog_Parameters2;
       vec4 fog_Parameters3;
       vec4 fog_ColorParameters;
-
-      vec4 inputViewPort;
     };
 }%
 
@@ -56,7 +54,7 @@ CCProgram lighting-vs %{
     CCDecode(position);
     CC_HANDLE_GET_CLIP_FLIP(position.xy);
     gl_Position = vec4(position.x, position.y, 1.0, 1.0);
-    v_uv = a_texCoord;// * inputViewPort.xy;
+    v_uv = a_texCoord;
   }
 }%
 
@@ -80,11 +78,16 @@ CCProgram lighting-fs %{
 
   #include <UBO>
   
+    #pragma rate light_cluster_InfoTexture pass
   uniform sampler2D light_cluster_InfoTexture;
+    #pragma rate light_cluster_Texture pass
   uniform sampler2D light_cluster_Texture;
 
+  #pragma rate light_ibl_Texture0 pass
   uniform samplerCube light_ibl_Texture0;
+  #pragma rate light_ibl_Texture1 pass
   uniform samplerCube light_ibl_Texture1;
+  #pragma rate light_ibl_Texture2 pass
   uniform samplerCube light_ibl_Texture2;
   
   // #if CC_DEVICE_CAN_BENEFIT_FROM_INPUT_ATTACHMENT
@@ -103,9 +106,13 @@ CCProgram lighting-fs %{
   //     layout(binding = 3) uniform sampler2D depth_stencil;
   //   #endif
   // #else
+    #pragma rate gbuffer_albedoMap pass
     uniform sampler2D gbuffer_albedoMap;
+    #pragma rate gbuffer_normalMap pass
     uniform sampler2D gbuffer_normalMap;
+    #pragma rate gbuffer_emissiveMap pass
     uniform sampler2D gbuffer_emissiveMap;
+    #pragma rate gbuffer_posMap pass
     uniform sampler2D gbuffer_posMap;
   // #endif
 

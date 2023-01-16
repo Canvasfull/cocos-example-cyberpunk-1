@@ -45,14 +45,17 @@ export class ForwardPostStage extends BaseStage {
         let shadingScale = this.finalShadingScale()
         let isOffScreen = director.root.mainWindow !== camera.window;
 
-        passUtils.addRasterPass(width, height, 'Postprocess', `CameraPostprocessPass${cameraID}`)
+        passUtils.addRasterPass(width, height, 'post-process', `CameraPostprocessPass${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
-            .setPassInput(input0, 'outputResultMap')
+            .setPassInput(input0, 'inputTexture')
             .addRasterView(slot0, Format.RGBA8, isOffScreen)
             .blitScreen(0)
         // ppl.updateRenderWindow(slot0, camera.window);
 
-        passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
-            SceneFlags.UI | SceneFlags.PROFILER);
+        if (!settings.renderedProfiler) {
+            passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
+                SceneFlags.UI | SceneFlags.PROFILER);
+            settings.renderedProfiler = true
+        }
     }
 }

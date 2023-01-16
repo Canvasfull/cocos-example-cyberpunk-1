@@ -1,18 +1,19 @@
 import { _decorator, renderer, rendering, ReflectionProbeManager, ReflectionProbe, Node, CCObject, game, Game, debug, profiler, Mat4, assetManager, instantiate, Prefab, director, Director } from 'cc';
 import { BaseStage } from './stages/base-stage';
 import { CameraSetting } from './camera-setting';
-import { EDITOR } from 'cc/env';
+import { EDITOR, JSB } from 'cc/env';
 import { buildDeferred } from './test-custom';
 import { passUtils } from './utils/pass-utils';
 import { settings } from './stages/setting';
 import { HrefSetting } from './settings/href-setting';
 import { TAAStage } from './stages/taa-stage';
 import { CustomShadowStage } from './stages/shadow-stage';
+import { getCameraUniqueID } from './utils/utils';
 
 let EditorCameras = [
-    'scene:material-previewcamera',
-    'Scene Gizmo Camera',
-    'Editor UIGizmoCamera',
+    // 'scene:material-previewcamera',
+    // 'Scene Gizmo Camera',
+    // 'Editor UIGizmoCamera',
 
     // 'Main Camera'
 ]
@@ -36,18 +37,10 @@ export class CustomPipelineBuilder {
         return this._shadowStage
     }
 
-    public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
-        if (!globalThis.pipelineAssets) {
+    setupReflectionProbe (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline) {
+        if (ReflectionProbeManager === undefined) {
             return;
         }
-
-        director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
-
-        // if (EDITOR) {
-        //     excludes.push('Main Camera')
-        // }
-
-        passUtils.ppl = ppl;
 
         const probes = ReflectionProbeManager.probeManager.getProbes();
         for (let i = 0; i < probes.length; i++) {
@@ -106,7 +99,18 @@ export class CustomPipelineBuilder {
                 settings.bakingReflection = false;
             }
         }
+    }
 
+    public setup (cameras: renderer.scene.Camera[], ppl: rendering.Pipeline): void {
+        if (!globalThis.pipelineAssets) {
+            return;
+        }
+
+        director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
+
+        passUtils.ppl = ppl;
+
+        this.setupReflectionProbe(cameras, ppl);
 
         for (let i = 0; i < cameras.length; i++) {
             const camera = cameras[i];
@@ -127,16 +131,20 @@ export class CustomPipelineBuilder {
         // const isGameView = camera.cameraUsage === renderer.scene.CameraUsage.GAME
         // || camera.cameraUsage === renderer.scene.CameraUsage.GAME_VIEW;
 
-        // if (EditorCameras.includes(camera.name)) {
-        //     return
-        // }
+        if (EditorCameras.includes(camera.name)) {
+            return
+        }
 
         // reset states
         {
-            settings.shadowStage = undefined;
             settings.tonemapped = false;
-            camera._submitInfo = null;
-            camera.culled = false;
+            settings.shadowStage = undefined;
+            settings.gbufferStage = false;
+            settings.renderedProfiler = false;
+            settings.passPathName = '';
+
+            // camera._submitInfo = null;
+            // camera.culled = false;
         }
 
         let cameraSetting = camera.node.getComponent(CameraSetting);
@@ -173,47 +181,23 @@ export class CustomPipelineBuilder {
             camera.frustum.update(camera.matViewProj, camera.matViewProjInv);
         }
 
+        settings.passPathName += getCameraUniqueID(camera);
+        let lastStage: BaseStage | undefined = undefined;
         for (let i = 0; i < stages.length; i++) {
-            stages[i].render(camera, ppl);
+            let stage = stages[i];
+            if (!stage.checkEnable()) {
+                continue;
+            }
+            stage.lastStage = lastStage;
+            // settings.passPathName += '_' + stage.name;
+            stage.render(camera, ppl);
+
+            lastStage = stage
         }
     }
 }
 
-// if (!EDITOR) {
-rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
-// }
-
-
-game.on(Game.EVENT_GAME_INITED, () => {
-    if (!globalThis.__pipeline__) {
-        assetManager.loadAny('223548d6-e1d4-462a-99e1-f4046b1d0647', (err, pipPrefab: Prefab) => {
-            if (err) {
-                return console.error(err);
-            }
-            let p = instantiate(pipPrefab)
-            p.name = 'pipeline-default-persist';
-            p.hideFlags |= CCObject.Flags.DontSave;// | CCObject.Flags.HideInHierarchy;
-            globalThis.__pipeline__ = p;
-        })
-    }
-})
-
-if (!director.__runSceneImmediate) {
-    director.__runSceneImmediate = director.runSceneImmediate
-}
-director.runSceneImmediate = function (scene, onBeforeLoadScene, onLaunched) {
-    globalThis.__pipeline__.parent = null;
-
-    director.__runSceneImmediate.call(this, scene, onBeforeLoadScene, onLaunched)
-
-    if (!globalThis.pipelineAssets && globalThis.__pipeline__) {
-        globalThis.__pipeline__.parent = director.getScene()
-    }
+if (!JSB) {
+    rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 }
 
-
-if (!EDITOR) {
-    game.on(Game.EVENT_GAME_INITED, () => {
-        profiler.showStats()
-    })
-}

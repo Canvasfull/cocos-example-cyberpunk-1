@@ -52,6 +52,11 @@ export class CustomShadowStage extends BaseStage {
         const queue = pass.addQueue(QueueHint.RENDER_OPAQUE);
         queue.addSceneOfCamera(camera, new LightInfo(light, level),
             SceneFlags.SHADOW_CASTER);
+
+        if (!EDITOR) {
+            settings.passPathName += passName
+            pass.setVersion(settings.passPathName, 0);
+        }
     }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {

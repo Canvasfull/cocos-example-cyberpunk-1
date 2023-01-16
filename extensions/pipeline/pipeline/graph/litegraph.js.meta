@@ -10,6 +10,7 @@
   "userData": {
     "isPlugin": true,
     "loadPluginInEditor": true,
-    "loadPluginInWeb": true
+    "loadPluginInWeb": true,
+    "loadPluginInNative": true
   }
 }

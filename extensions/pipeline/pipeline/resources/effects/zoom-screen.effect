@@ -36,6 +36,7 @@ CCProgram fs %{
   uniform PostUBO {
     vec4 screenParams;
   };
+  #pragma rate outputResultMap pass
   uniform sampler2D outputResultMap;
 
   layout(location = 0) out vec4 fragColor;

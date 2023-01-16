@@ -2,7 +2,7 @@
 precision highp float;
   
 #include <legacy/input-standard>
-#include <builtin/uniforms/cc-global>
+// #include <builtin/uniforms/cc-global>
 #include <common/common-define>
 
 out vec2 v_uv;
@@ -10,7 +10,7 @@ out vec2 v_uv;
 void main () {
   StandardVertInput In;
   CCVertInput(In);
-  CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+  // CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
   gl_Position = In.position;
 
   v_uv = a_texCoord;

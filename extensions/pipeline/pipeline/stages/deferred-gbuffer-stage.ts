@@ -1,6 +1,8 @@
 import { BaseStage } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, sys, director } from "cc";
 import { getCameraUniqueID, getRenderArea, SRGBToLinear } from "../utils/utils";
+import { settings } from "./setting";
+import { EDITOR } from "cc/env";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -17,6 +19,8 @@ export class DeferredGBufferStage extends BaseStage {
     uniqueStage = true;
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
+        settings.gbufferStage = this;
+
         // hack: use fog uniform to set deferred pipeline
         director.root.pipeline.pipelineSceneData.fog.fogStart = 1;
 
@@ -52,7 +56,7 @@ export class DeferredGBufferStage extends BaseStage {
         }
 
         // gbuffer pass
-        const pass = ppl.addRasterPass(width, height, 'Geometry',);
+        const pass = ppl.addRasterPass(width, height, 'default',);
         pass.name = `${slot0}_Pass`
         pass.setViewport(new Viewport(area.x, area.y, width, height));
 
@@ -98,5 +102,10 @@ export class DeferredGBufferStage extends BaseStage {
         pass.addRasterView(slot4, slot4View);
         pass.addQueue(QueueHint.RENDER_OPAQUE)
             .addSceneOfCamera(camera, new LightInfo(), SceneFlags.OPAQUE_OBJECT | SceneFlags.CUTOUT_OBJECT | SceneFlags.DRAW_INSTANCING);
+
+        if (!EDITOR) {
+            settings.passPathName += pass.name;
+            pass.setVersion(settings.passPathName, 0);
+        }
     }
 }

@@ -11,6 +11,17 @@ let tempVec3 = new Vec3
 @ccclass('LightWorldCluster')
 @executeInEditMode
 export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
+    static instance: LightWorldCluster | undefined;
+
+    onEnable () {
+        LightWorldCluster.instance = this;
+    }
+    onDisable () {
+        if (LightWorldCluster.instance === this) {
+            LightWorldCluster.instance = undefined;
+        }
+    }
+
     // 0: pos.x, pos.y, pos.z, isSpotLight
     // 1: rgb: color, w: intensity
     // 2: x: size, y: range, z: spotAngle
@@ -125,27 +136,6 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
 
         super.update(dt)
 
-        let material = globalThis.pipelineAssets && globalThis.pipelineAssets.getMaterial('deferred-lighting')
-        if (material) {
-            material.setProperty('light_cluster_BoundsMin', new Vec4(this.boundsMin.x, this.boundsMin.y, this.boundsMin.z, 1))
-            material.setProperty('light_cluster_BoundsDelta', new Vec4(this.boundsDelta.x, this.boundsDelta.y, this.boundsDelta.z, 1))
-            material.setProperty('light_cluster_CellsDot', this.clusterCellsDotData)
-            material.setProperty('light_cluster_CellsMax', this.clusterCellsMaxData)
-            material.setProperty('light_cluster_TextureSize', this.clusterTextureSizeData)
-            material.setProperty('light_cluster_InfoTextureInvSize', this.infoTextureInvSizeData)
-            material.setProperty('light_cluster_CellsCountByBoundsSizeAndPixelsPerCell', this.clusterCellsCountByBoundsSizeData)
-
-            material.setProperty('light_cluster_InfoTexture', this.dataInfoTextureFloat);
-            material.setProperty('light_cluster_Texture', this.clusterTexture);
-
-            let pass = material.passes[0];
-            let pointSampler = director.root.pipeline.globalDSManager.pointSampler
-            let binding = pass.getBinding('light_cluster_InfoTexture')
-            pass.bindSampler(binding, pointSampler)
-            binding = pass.getBinding('light_cluster_Texture')
-            pass.bindSampler(binding, pointSampler)
-        }
-
         if (!this._dirtyTimeout) {
             this._dirtyTimeout = setTimeout(() => {
                 this.dirty = false;
@@ -155,3 +145,5 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
 
     }
 }
+
+globalThis.LightWorldCluster = LightWorldCluster
