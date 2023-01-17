@@ -59,7 +59,7 @@ export class NavigationRegion extends Component {
                 const child = children[i];
                 child.name = `point_${i}`;
                 const navigationPoint = child.getComponent(NavigationPoint);
-                if(navigationPoint === null) {
+                if(!navigationPoint) {
                     child.addComponent(NavigationPoint);
                 }
                 const worldPosition = child.worldPosition;
