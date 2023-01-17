@@ -13,7 +13,7 @@ if (!EDITOR && !JSB && HrefSetting.spector) {
             let queue: any;
             let callback: any;
 
-            useDist = true
+            // useDist = true
 
             let host = 'http://' + location.host.split(':')[0]
             if (EDITOR) {

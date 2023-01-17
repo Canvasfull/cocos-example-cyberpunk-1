@@ -16,11 +16,14 @@ class PassUtils {
     rasterHeight = 0
     layoutName = ''
 
-    end () {
+    version () {
         if (!EDITOR) {
             settings.passPathName += `_${this.pass.name}_${this.layoutName}`;
             this.pass.setVersion(settings.passPathName, 0);
         }
+    }
+    end () {
+        this.version()
     }
 
     addRasterPass (width: number, height: number, layoutName: string, passName: string) {
@@ -39,27 +42,47 @@ class PassUtils {
 
     addRasterView (name: string, format: gfx.Format, offscreen = true, residency?: rendering.ResourceResidency) {
         if (!this.ppl.containsResource(name)) {
-            if (offscreen) {
-                this.ppl.addRenderTarget(name, format, this.rasterWidth, this.rasterHeight, residency || ResourceResidency.MANAGED);
+            if (format === gfx.Format.DEPTH_STENCIL) {
+                this.ppl.addDepthStencil(name, format, this.rasterWidth, this.rasterHeight, ResourceResidency.MANAGED);
             }
             else {
-                this.ppl.addRenderTexture(name, format, this.rasterWidth, this.rasterHeight, this.camera.window);
+                if (offscreen) {
+                    this.ppl.addRenderTarget(name, format, this.rasterWidth, this.rasterHeight, residency || ResourceResidency.MANAGED);
+                }
+                else {
+                    this.ppl.addRenderTexture(name, format, this.rasterWidth, this.rasterHeight, this.camera.window);
+                }
+            }
+
+        }
+
+        if (format !== gfx.Format.DEPTH_STENCIL) {
+            if (!offscreen) {
+                this.ppl.updateRenderWindow(name, this.camera.window);
+            }
+            else {
+                this.ppl.updateRenderTarget(name, this.rasterWidth, this.rasterHeight);
             }
         }
 
-        if (!offscreen) {
-            this.ppl.updateRenderWindow(name, this.camera.window);
+        let view: rendering.RasterView;
+        if (format === gfx.Format.DEPTH_STENCIL) {
+            view = new RasterView('_',
+                AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
+                LoadOp.LOAD, StoreOp.STORE,
+                gfx.ClearFlagBit.NONE,
+                this.clearColor
+            );
         }
         else {
-            this.ppl.updateRenderTarget(name, this.rasterWidth, this.rasterHeight);
+            view = new RasterView('_',
+                AccessType.WRITE, AttachmentType.RENDER_TARGET,
+                this.clearFlag === ClearFlagBit.NONE ? LoadOp.LOAD : LoadOp.CLEAR,
+                StoreOp.STORE,
+                this.clearFlag,
+                this.clearColor
+            );
         }
-
-        const view = new RasterView('_',
-            AccessType.WRITE, AttachmentType.RENDER_TARGET,
-            this.clearFlag === ClearFlagBit.NONE ? LoadOp.LOAD : LoadOp.CLEAR,
-            StoreOp.STORE,
-            this.clearFlag,
-            this.clearColor);
         this.pass.addRasterView(name, view);
         return this;
     }
