@@ -99,7 +99,7 @@ export class DeferredLightingStage extends BaseStage {
         let shadowStage: CustomShadowStage = settings.shadowStage;
         if (shadowStage) {
             for (const dirShadowName of shadowStage.mainLightShadows) {
-                passUtils.setPassInput(dirShadowName, '');
+                passUtils.setPassInput(dirShadowName, 'cc_shadowMap');
             }
         }
 
