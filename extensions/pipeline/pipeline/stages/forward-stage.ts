@@ -172,11 +172,6 @@ export class ForwardStage extends BaseStage {
                 SceneFlags.OPAQUE_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.CUTOUT_OBJECT
                 | SceneFlags.DEFAULT_LIGHTING | SceneFlags.DRAW_INSTANCING);
         pass.addQueue(QueueHint.RENDER_TRANSPARENT)
-            .addSceneOfCamera(camera, new LightInfo(), SceneFlags.TRANSPARENT_OBJECT | SceneFlags.GEOMETRY);
-
-        if (!isOffScreen) {
-            pass.addQueue(QueueHint.RENDER_TRANSPARENT)
-                .addSceneOfCamera(camera, new LightInfo(), SceneFlags.UI | SceneFlags.PROFILER);
-        }
+            .addSceneOfCamera(camera, new LightInfo(), SceneFlags.UI | SceneFlags.TRANSPARENT_OBJECT | SceneFlags.GEOMETRY);
     }
 }

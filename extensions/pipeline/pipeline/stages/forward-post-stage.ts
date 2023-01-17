@@ -52,10 +52,6 @@ export class ForwardPostStage extends BaseStage {
             .blitScreen(0)
         // ppl.updateRenderWindow(slot0, camera.window);
 
-        if (!settings.renderedProfiler) {
-            passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
-                SceneFlags.UI | SceneFlags.PROFILER);
-            settings.renderedProfiler = true
-        }
+        this.renderProfiler(camera);
     }
 }

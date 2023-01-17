@@ -61,17 +61,6 @@ export class DeferredPostStage extends BaseStage {
             .blitScreen(0)
             .end()
 
-        if (!settings.renderedProfiler && !EDITOR) {
-            passUtils.clearFlag = gfx.ClearFlagBit.NONE;
-            passUtils.addRasterPass(width, height, 'default', `CameraProfiler${cameraID}`)
-                .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
-                .addRasterView(slot0, Format.RGBA8, false)
-
-            passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
-                SceneFlags.UI | SceneFlags.PROFILER);
-            passUtils.end();
-
-            settings.renderedProfiler = true;
-        }
+        this.renderProfiler(camera);
     }
 }
