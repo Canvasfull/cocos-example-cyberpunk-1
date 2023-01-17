@@ -5,6 +5,7 @@ CCEffect %{
   - passes:
     - vert: vs
       frag: fs
+      pass: post-process
       rasterizerState:
         cullMode: none
       depthStencilState:

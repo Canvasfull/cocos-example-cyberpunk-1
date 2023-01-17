@@ -61,14 +61,14 @@ export class FSRStage extends BaseStage {
 
         const input0 = this.lastStage.slotName(camera, 0);
         const easu = 'FSR_EASU'
-        passUtils.addRasterPass(outWidth, outHeight, 'Postprocess', `CameraFSR_EASU_Pass${cameraID}`)
+        passUtils.addRasterPass(outWidth, outHeight, 'post-process', `CameraFSR_EASU_Pass${cameraID}`)
             .setViewport(area.x, area.y, outWidth, outHeight)
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(easu, Format.RGBA8)
             .blitScreen(0);
 
         const slot0 = this.slotName(camera, 0);
-        passUtils.addRasterPass(outWidth, outHeight, 'Postprocess', `CameraFSR_RCAS_Pass${cameraID}`)
+        passUtils.addRasterPass(outWidth, outHeight, 'post-process', `CameraFSR_RCAS_Pass${cameraID}`)
             .setViewport(area.x, area.y, outWidth, outHeight)
             .setPassInput(easu, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA8)

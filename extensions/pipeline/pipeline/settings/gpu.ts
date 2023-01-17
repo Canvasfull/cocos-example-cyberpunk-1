@@ -1,14 +1,13 @@
 import { sys } from 'cc';
 import { MINIGAME } from 'cc/env';
-// @ts-ignore
-import detectGPU from 'detect-gpu';
 import Event from '../utils/event';
 
+import detectGPU from '../lib/detect-gpu.umd.js'
+
 export enum RenderQulity {
-    High,
-    Medium,
     Low,
-    SuperLow
+    Medium,
+    High,
 }
 
 
@@ -59,9 +58,7 @@ export async function waitForGpuInited () {
 }
 
 export function getTier () {
-    let tier = gpuTier.tier;
-    tier = Math.max(0, Math.min(tier, Tiers.length - 1));
-    return Tiers.length - 1 - tier;
+    return Math.max(0, gpuTier.tier);
 }
 
 export function getTierName () {
