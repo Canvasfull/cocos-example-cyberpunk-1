@@ -9,6 +9,7 @@ import { DeferredGBufferStage } from "./deferred-gbuffer-stage";
 import { settings } from "./setting";
 import { CustomShadowStage } from "./shadow-stage";
 import { LightWorldCluster } from "../components/cluster/light-cluster";
+import { passUtils } from "../utils/pass-utils";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -81,71 +82,31 @@ export class DeferredLightingStage extends BaseStage {
         const height = area.height;
 
         const slot0 = this.slotName(camera, 0);
-        if (!ppl.containsResource(slot0)) {
-            ppl.addRenderTarget(slot0, Format.RGBA16F, width, height, ResourceResidency.MANAGED);
-        }
-        else {
-            ppl.updateRenderTarget(slot0, width, height);
-        }
-
         let slot1 = this.slotName(camera, 1);
         if (settings.gbufferStage) {
             slot1 = settings.gbufferStage.slotName(camera, 4);
         }
-        if (!ppl.containsResource(slot1)) {
-            ppl.addDepthStencil(slot1, Format.DEPTH_STENCIL, width, height, ResourceResidency.MANAGED);
-        }
 
-        // lighting pass
-        const pass = ppl.addRasterPass(width, height, 'deferred-lighting');
-        pass.name = `CameraLightingPass${cameraID}`;
-        pass.setViewport(new Viewport(area.x, area.y, width, height));
+        let shadingScale = this.finalShadingScale()
+        passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+        passUtils.addRasterPass(width, height, 'deferred-lighting', `LightingShader${cameraID}`)
+            .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
+            .setPassInput(this.lastStage.slotName(camera, 0), 'gbuffer_albedoMap')
+            .setPassInput(this.lastStage.slotName(camera, 1), 'gbuffer_normalMap')
+            .setPassInput(this.lastStage.slotName(camera, 2), 'gbuffer_emissiveMap')
+            .setPassInput(this.lastStage.slotName(camera, 3), 'gbuffer_posMap');
 
         let shadowStage: CustomShadowStage = settings.shadowStage;
         if (shadowStage) {
             for (const dirShadowName of shadowStage.mainLightShadows) {
-                if (ppl.containsResource(dirShadowName)) {
-                    const computeView = new ComputeView();
-                    pass.addComputeView(dirShadowName, computeView);
-                }
+                passUtils.setPassInput(dirShadowName, '');
             }
         }
 
-        let input0 = this.lastStage.slotName(camera, 0);
-        let input1 = this.lastStage.slotName(camera, 1);
-        let input2 = this.lastStage.slotName(camera, 2);
-        let input3 = this.lastStage.slotName(camera, 3);
-        if (ppl.containsResource(input0)) {
-            const computeView = new ComputeView();
-            computeView.name = 'gbuffer_albedoMap';
-            pass.addComputeView(input0, computeView);
-
-            const computeNormalView = new ComputeView();
-            computeNormalView.name = 'gbuffer_normalMap';
-            pass.addComputeView(input1, computeNormalView);
-
-            const computeEmissiveView = new ComputeView();
-            computeEmissiveView.name = 'gbuffer_emissiveMap';
-            pass.addComputeView(input2, computeEmissiveView);
-
-            const computeDepthView = new ComputeView();
-            computeDepthView.name = 'gbuffer_posMap';
-            pass.addComputeView(input3, computeDepthView);
-        }
-
-        const lightingClearColor = new Color(0, 0, 0, 1);
-        const slot0View = new RasterView('_',
-            AccessType.WRITE, AttachmentType.RENDER_TARGET,
-            LoadOp.CLEAR, StoreOp.STORE,
-            gfx.ClearFlagBit.COLOR,
-            lightingClearColor);
-        pass.addRasterView(slot0, slot0View);
-        const slot1View = new RasterView('_',
-            AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
-            LoadOp.LOAD, StoreOp.STORE,
-            gfx.ClearFlagBit.NONE,
-            lightingClearColor);
-        pass.addRasterView(slot1, slot1View);
+        passUtils
+            .addRasterView(slot0, Format.RGBA16F, true)
+            .addRasterView(slot1, Format.DEPTH_STENCIL, true)
+            .version()
 
         let probes = ReflectionProbes.probes
         probes = probes.filter(p => {
@@ -180,7 +141,7 @@ export class DeferredLightingStage extends BaseStage {
             material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
         }
 
-        let setter = pass as any;
+        let setter = passUtils.pass as any;
         setter.addConstant('CustomLightingUBO', 'deferred-lighting');
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
@@ -206,16 +167,28 @@ export class DeferredLightingStage extends BaseStage {
 
         fogUBO.update(material);
 
-        pass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
+        passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
             camera, material, 0,
             SceneFlags.VOLUMETRIC_LIGHTING,
         );
-        pass.addQueue(QueueHint.RENDER_TRANSPARENT).addSceneOfCamera(camera, new LightInfo(),
-            SceneFlags.TRANSPARENT_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.GEOMETRY);
 
-        if (!EDITOR) {
-            settings.passPathName += pass.name;
-            pass.setVersion(settings.passPathName, 0);
+        // render transparent
+        // todo: remove this pass
+        {
+            let shadingScale = this.finalShadingScale()
+            passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+            passUtils.addRasterPass(width, height, 'default', `LightingTransparent${cameraID}`)
+                .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
+                .addRasterView(slot0, Format.RGBA16F, true)
+                .addRasterView(slot1, Format.DEPTH_STENCIL, true)
+                .version()
+
+            passUtils.pass
+                .addQueue(QueueHint.RENDER_TRANSPARENT)
+                .addSceneOfCamera(
+                    camera, new LightInfo(),
+                    SceneFlags.TRANSPARENT_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.GEOMETRY
+                )
         }
     }
 }
