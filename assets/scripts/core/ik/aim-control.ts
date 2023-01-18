@@ -138,7 +138,7 @@ export default class AimControl extends Component {
         	Quat.fromViewUp(_tempQuat, _tempVec3, new Vec3(0, 1, 0));
         	Quat.toEuler(this._dir, _tempQuat);
         	Vec3.add(this.ik!.solver.ikPosition, this._getPivot(), this._dir);
-            console.log('ikPosition:',this.ik!.solver.ikPosition);
+            //console.log('ikPosition:',this.ik!.solver.ikPosition);
         }
 
         // Min distance from the pivot

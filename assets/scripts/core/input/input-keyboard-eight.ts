@@ -24,10 +24,13 @@ export class InputKeyboardEight extends InputBase {
 
     _waitPointerTime = 2;
 
+    direction_up = 0;
+    direction_down = 0;
+    direction_left = 0;
+    direction_right = 0;
+
     start () {
-
-        console.log('init input keyboard.', this.node.name);
-
+        
         this._isPointerLock = false;
 
         // [3]
@@ -93,10 +96,10 @@ export class InputKeyboardEight extends InputBase {
             return;
         }
         
-        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.onMove(0, -1);
-        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.onMove(0, 1);
-        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.onMove(-1, 0);
-        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.onMove(1, 0);
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = -1;
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = 1; 
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = -1;
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 1;
 
 
         if (event.keyCode === KeyCode.SPACE) this._actorInput?.onJump();
@@ -130,30 +133,16 @@ export class InputKeyboardEight extends InputBase {
             return;
         }
 
-        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP)  this.onMove(0, 1);
-        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.onMove(0, -1);
-        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.onMove(1, 0);
-        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.onMove(-1, 0);
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP)  this.direction_up = 0;
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.direction_down = 0; 
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 0;
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 0;
+        this.onMove();
 
 
         if (this._dir.x === 0 && this._dir.z === 0) this.onMoveEnd();
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
         if (event.keyCode === KeyCode.ESCAPE) {
-            /*
-            console.log('ESCAPE:', document.pointerLockElement, this._isPointerLock);
-            if (document.pointerLockElement !== null && this._isPointerLock) {
-                try {
-                    console.log('enter event mouse pointer lock. exitPointerLock.');
-                    //document.exitPointerLock();
-                    //this._isPointerLock = false;
-                    this.onMoveEnd();
-                }catch (error) {
-                    console.warn(error);
-                }
-
-            }
-            console.log('on key up:', event.keyCode, this.node.uuid);
-            */
             this._actorInput?.onPause();
         }
 
@@ -185,16 +174,14 @@ export class InputKeyboardEight extends InputBase {
             Msg.emit('msg_select_equip', event.getDelta());
             return;
         }
-        //console.log(event.movementX, event.movementY, event.getDeltaX(), event.getDeltaY());
+        
         this._actorInput?.onRotation(event.movementX / 5, event.movementY / 10);
     }
 
-    onMove(x:number, z:number) {
-        
+    onMove() {
         //if (document.pointerLockElement === null && sys.isBrowser) return;
-
-        this._dir.x = clamp(this._dir.x + x, -1, 1);
-        this._dir.z = clamp(this._dir.z + z, -1, 1);
+        this._dir.x = this.direction_left + this.direction_right;
+        this._dir.z = this.direction_up + this.direction_down;
         this._dir.y = 0;
         UtilVec3.copy(this._move_v3, this._dir);
         this.onUpdateMove();
@@ -219,7 +206,6 @@ export class InputKeyboardEight extends InputBase {
     }
 
     update(deltaTime:number) {
-       
         /*
         if(document.pointerLockElement === null && this._isPointerLock) {
             console.log('enter event mouse pointer lock. exitPointerLock.');
@@ -227,7 +213,6 @@ export class InputKeyboardEight extends InputBase {
             this._isPointerLock = false;
         }
         */
-
     }
 }
 
