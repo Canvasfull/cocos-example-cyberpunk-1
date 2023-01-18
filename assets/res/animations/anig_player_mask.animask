@@ -289,12 +289,12 @@
   {
     "__type__": "cc.JointMask",
     "path": "root/pelvis",
-    "enabled": true
+    "enabled": false
   },
   {
     "__type__": "cc.JointMask",
     "path": "root/pelvis/spine_01",
-    "enabled": true
+    "enabled": false
   },
   {
     "__type__": "cc.JointMask",

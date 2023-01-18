@@ -3751,7 +3751,7 @@
         "__id__": 259
       }
     ],
-    "duration": 0.3,
+    "duration": 2,
     "relativeDuration": false,
     "exitConditionEnabled": false,
     "destinationStart": 0,
@@ -4892,7 +4892,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16740335673480.8124782672645641",
+      "clone": null
+    },
     "from": {
       "__id__": 333
     },
@@ -4903,7 +4907,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16740335673480.69701223341517",
+      "clone": null
+    },
     "from": {
       "__id__": 336
     },
@@ -4914,7 +4922,11 @@
   },
   {
     "__type__": "cc.animation.EmptyStateTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16740335673480.6530521934612705",
+      "clone": null
+    },
     "from": {
       "__id__": 353
     },

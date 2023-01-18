@@ -16,7 +16,6 @@ export class CameraTps extends Component {
     smoothAngle = 20;
 
     targetAngle = v3(0, 0, 0);
-
     currentAngle = v3(0, 0, 0);
 
     start() {

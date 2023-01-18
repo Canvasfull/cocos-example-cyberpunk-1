@@ -16,9 +16,11 @@ export class TestAmoyAnimation extends Component {
     direction_left = 0;
     direction_right = 0;
 
+    @property(Node)
+    view:Node | undefined;
+
     start() {
-        const view = this.node.getChildByName('view');
-        this._animationGraph = view?.getComponent(ActorAnimationGraph)!;
+        this._animationGraph = this.view?.getComponent(ActorAnimationGraph)!;
         input.on(Input.EventType.KEY_DOWN, this.keyDown, this);
         input.on(Input.EventType.KEY_UP, this.keyUp, this);
 

@@ -24,6 +24,8 @@ export class TestIk extends Component {
     animationGraph:ActorAnimationGraph | undefined | null;
 
     targetIndex = 0;
+
+    bool_iron_sights = false;
     
 
     start() {
@@ -38,7 +40,9 @@ export class TestIk extends Component {
     keyDown(event: EventKeyboard) {
 
         if(event.keyCode === KeyCode.KEY_S) {
-            this.animationGraph?.play('bool_iron_sights', true);
+            this.bool_iron_sights = this.bool_iron_sights ? false : true;
+            this.animationGraph?.play('bool_iron_sights', this.bool_iron_sights);
+            console.log('bool_iron_sights:', this.bool_iron_sights);
         }
 
         if (event.keyCode === KeyCode.KEY_F) {

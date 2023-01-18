@@ -202,7 +202,7 @@ export default class AimControl extends Component {
 
     		Quat.fromAxisAngle(_tempQuat, Vec3.UP, math.toRadian(rotation));
     		Quat.multiply(_tempQuat, _tempQuat, this.ik!.rootNode!.getWorldRotation());
-            this.ik!.rootNode!.setWorldRotation(_tempQuat);
+            //this.ik!.rootNode!.setWorldRotation(_tempQuat);
     	}
     }
 
