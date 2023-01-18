@@ -1,4 +1,4 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('DelayPlay')
@@ -14,9 +14,9 @@ export class DelayPlay extends Component {
     @property([String])
     animation_names = [];
 
-    start() {
+    start () {
 
-        
+
 
     }
 
