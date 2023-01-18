@@ -197,7 +197,7 @@ export class CustomPipelineBuilder {
     }
 }
 
-if (!JSB) {
-    rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
-}
+// if (!JSB) {
+rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
+// }
 
