@@ -5,7 +5,7 @@ const { ccclass, property } = _decorator;
 @ccclass('TestAnimationGraph')
 export class TestAnimationGraph extends Component {
 
-    _animationGraph:ActorAnimationGraphGroup;
+    _animationGraph:ActorAnimationGraphGroup | undefined;
 
     start() {
 
@@ -18,23 +18,23 @@ export class TestAnimationGraph extends Component {
     keyDown(event: EventKeyboard) {
 
         if(event.keyCode === KeyCode.KEY_D) {
-            this._animationGraph.play('trigger_draw', true);
+            this._animationGraph?.play('trigger_draw', true);
         }
 
         if (event.keyCode === KeyCode.KEY_F) {
-            this._animationGraph.play('trigger_fire', true);
+            this._animationGraph?.play('trigger_fire', true);
         }
 
         if (event.keyCode === KeyCode.KEY_R) {
-            this._animationGraph.play('trigger_reload', true);
+            this._animationGraph?.play('trigger_reload', true);
         }
 
         if (event.keyCode === KeyCode.KEY_E) {
-            this._animationGraph.play('trigger_reload_empty', true);
+            this._animationGraph?.play('trigger_reload_empty', true);
         }
 
         if (event.keyCode === KeyCode.KEY_H) {
-            this._animationGraph.play('trigger_holster', true);
+            this._animationGraph?.play('trigger_holster', true);
         }
         
     }

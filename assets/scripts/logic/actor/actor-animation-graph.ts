@@ -19,7 +19,10 @@ export class ActorAnimationGraph extends Component {
     }
 
     play (key: string, value: boolean | number) {
-        console.log(this._graph);
+        this._graph?.setValue(key, value);
+    }
+
+    setValue(key:string, value:number) {
         this._graph?.setValue(key, value);
     }
 

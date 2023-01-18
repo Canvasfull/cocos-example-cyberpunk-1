@@ -1,0 +1,92 @@
+import { _decorator, Component, EventKeyboard, EventMouse, Input, input, KeyCode, Node } from 'cc';
+import { ActorAnimationGraph } from '../logic/actor/actor-animation-graph';
+const { ccclass, property } = _decorator;
+
+@ccclass('TestAmoyAnimation')
+export class TestAmoyAnimation extends Component {
+
+    _animationGraph:ActorAnimationGraph | undefined;
+
+    bool_crouch = false;
+
+    bool_iron_sights = false;
+
+    direction_up = 0;
+    direction_down = 0;
+    direction_left = 0;
+    direction_right = 0;
+
+    start() {
+        const view = this.node.getChildByName('view');
+        this._animationGraph = view?.getComponent(ActorAnimationGraph)!;
+        input.on(Input.EventType.KEY_DOWN, this.keyDown, this);
+        input.on(Input.EventType.KEY_UP, this.keyUp, this);
+
+        input.on(Input.EventType.MOUSE_DOWN, this.onMouseDown, this);
+    }
+
+    update(deltaTime: number) {
+        
+    }
+
+    keyDown(event: EventKeyboard) {
+
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = -1;
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = 1; 
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = -1;
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 1;
+        
+        if(event.keyCode == KeyCode.KEY_I) {
+            this.bool_iron_sights = this.bool_iron_sights ? false : true;
+            console.log(this.bool_iron_sights);
+            this._animationGraph?.play('bool_iron_sights', this.bool_iron_sights);
+        }
+
+        if(event.keyCode == KeyCode.KEY_C) {
+            this.bool_crouch = this.bool_crouch ? false : true;
+            this._animationGraph?.play('bool_crouch', this.bool_crouch);
+        }
+
+        if(event.keyCode == KeyCode.SPACE) {
+            this._animationGraph?.play('trigger_jump', true);
+        }
+
+        if(event.keyCode === KeyCode.KEY_D) {
+            this._animationGraph?.play('trigger_draw', true);
+        }
+
+        if (event.keyCode === KeyCode.KEY_R) {
+            this._animationGraph?.play('trigger_reload', true);
+        }
+
+        if (event.keyCode === KeyCode.KEY_E) {
+            this._animationGraph?.play('trigger_reload_empty', true);
+        }
+
+        if (event.keyCode === KeyCode.KEY_H) {
+            this._animationGraph?.play('trigger_hit', true);
+        }
+
+        this.updateMove();
+
+    }
+
+    onMouseDown(event: EventMouse) {
+        this._animationGraph?.play('trigger_fire', true);
+    }
+
+    keyUp(event: EventKeyboard) {
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP)  this.direction_up = 0;
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.direction_down = 0; 
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 0;
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 0;
+        this.updateMove();
+    }
+
+    updateMove() {
+        this._animationGraph?.setValue('num_velocity_x', -(this.direction_left + this.direction_right));
+        this._animationGraph?.setValue('num_velocity_y', -(this.direction_down + this.direction_up));
+    }
+
+}
+
