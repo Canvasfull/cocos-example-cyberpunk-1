@@ -39,7 +39,7 @@ export class TestIk extends Component {
 
     keyDown(event: EventKeyboard) {
 
-        if(event.keyCode === KeyCode.KEY_S) {
+        if(event.keyCode === KeyCode.KEY_I) {
             this.bool_iron_sights = this.bool_iron_sights ? false : true;
             this.animationGraph?.play('bool_iron_sights', this.bool_iron_sights);
             console.log('bool_iron_sights:', this.bool_iron_sights);
@@ -63,6 +63,10 @@ export class TestIk extends Component {
 
         if (event.keyCode === KeyCode.KEY_H) {
             this.animationGraph!.play('trigger_holster', true);
+        }
+
+        if (event.keyCode === KeyCode.SPACE) {
+            this.animationGraph!.play('trigger_jump', true);
         }
         
     }
