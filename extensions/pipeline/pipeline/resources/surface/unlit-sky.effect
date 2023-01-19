@@ -25,8 +25,6 @@ CCEffect %{
 CCProgram unlit-fs %{
   precision highp float;
   #include <legacy/output>
-  #include <legacy/lighting>
-
   #include <common/data/unpack>
   #include <builtin/uniforms/cc-environment>
 
@@ -36,6 +34,11 @@ CCProgram unlit-fs %{
   uniform Constant {
     vec4 mainColor;
   };
+
+  #pragma define CC_PIPELINE_TYPE_FORWARD 0
+  #pragma define CC_PIPELINE_TYPE_DEFERRED 1
+  #pragma define-meta CC_PIPELINE_TYPE range([0, 1])
+  #pragma define-meta CC_FORCE_FORWARD_SHADING
 
 
   #if CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED                
