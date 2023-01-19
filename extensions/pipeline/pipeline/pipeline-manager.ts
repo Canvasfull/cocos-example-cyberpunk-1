@@ -201,3 +201,6 @@ export class CustomPipelineBuilder {
 rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 // }
 
+game.on(Game.EVENT_RENDERER_INITED, () => {
+    director.root.pipeline.setMacroInt('CC_PIPELINE_TYPE', 1);
+})

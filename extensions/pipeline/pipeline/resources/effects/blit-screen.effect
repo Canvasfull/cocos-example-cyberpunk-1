@@ -29,7 +29,7 @@ CCProgram vs %{
 CCProgram fs %{
   precision highp float;
 
-  #include <builtin/uniforms/cc-global>
+  // #include <builtin/uniforms/cc-global>
 
   in vec2 v_uv;
   
