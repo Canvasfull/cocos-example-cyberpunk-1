@@ -33,7 +33,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 271
+        "__id__": 270
       },
       {
         "__id__": 273
@@ -6242,7 +6242,7 @@
         "__id__": 242
       },
       {
-        "__id__": 255
+        "__id__": 254
       }
     ],
     "_active": true,
@@ -6301,7 +6301,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 254
+      "__id__": 256
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -6418,8 +6418,8 @@
     "targetNode": {
       "__id__": 242
     },
-    "smoothMove": 5,
-    "smoothAngle": 5,
+    "smoothMove": 1,
+    "smoothAngle": 2,
     "cameraNode": {
       "__id__": 244
     },
@@ -6429,8 +6429,12 @@
       },
       {
         "__id__": 252
+      },
+      {
+        "__id__": 254
       }
     ],
+    "waitTime": 3,
     "_id": ""
   },
   {
@@ -6523,10 +6527,10 @@
     },
     "_lrot": {
       "__type__": "cc.Quat",
-      "x": 0,
+      "x": -0.1062640713362332,
       "y": 0,
       "z": 0,
-      "w": 1
+      "w": 0.9943379441332046
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -6538,7 +6542,7 @@
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -12.2,
       "y": 0,
       "z": 0
     },
@@ -6698,21 +6702,8 @@
     "nestedPrefabInstanceRoots": null
   },
   {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "4aeLP63bVOkbP2g7YA/ygw",
-    "instance": null,
-    "targetOverrides": null,
-    "nestedPrefabInstanceRoots": null
-  },
-  {
     "__type__": "cc.Node",
-    "_name": "start_point",
+    "_name": "far_point",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -6722,7 +6713,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 256
+      "__id__": 255
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -6732,10 +6723,10 @@
     },
     "_lrot": {
       "__type__": "cc.Quat",
-      "x": 0,
+      "x": -0.1062640713362332,
       "y": 0,
       "z": 0,
-      "w": 1
+      "w": 0.9943379441332046
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -6747,7 +6738,7 @@
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -12.2,
       "y": 0,
       "z": 0
     },
@@ -6762,6 +6753,19 @@
       "__id__": 0
     },
     "fileId": "3aOP7BurJC0LjIPKyJGCVV",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "4aeLP63bVOkbP2g7YA/ygw",
     "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
@@ -6933,7 +6937,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 270
+      "__id__": 272
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -6975,27 +6979,18 @@
     "__prefab": {
       "__id__": 269
     },
+    "moveSpeedRate": 0.5,
     "view": {
       "__id__": 4
+    },
+    "targetRigid": {
+      "__id__": 270
     },
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "89knC/TpBMZpvMVHXINrCr"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "13YY7ZQ0tEqKqG13WDlSDQ",
-    "instance": null,
-    "targetOverrides": null,
-    "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.RigidBody",
@@ -7006,7 +7001,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 272
+      "__id__": 271
     },
     "_group": 1,
     "_type": 1,
@@ -7032,6 +7027,19 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "cdqA2u0zBJmaaHx4hUFlfo"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "13YY7ZQ0tEqKqG13WDlSDQ",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.CapsuleCollider",
