@@ -39,6 +39,9 @@
       },
       "trigger_hit": {
         "__id__": 366
+      },
+      "num_move_speed": {
+        "__id__": 367
       }
     }
   },
@@ -384,8 +387,8 @@
       "__id__": 14
     },
     "speed": 1,
-    "speedMultiplier": "",
-    "speedMultiplierEnabled": false
+    "speedMultiplier": "num_move_speed",
+    "speedMultiplierEnabled": true
   },
   {
     "__type__": "cc.animation.AnimationBlend2D",
@@ -1301,7 +1304,7 @@
       "__id__": 91
     },
     "speed": 1,
-    "speedMultiplier": "",
+    "speedMultiplier": "num_move_speed",
     "speedMultiplierEnabled": false
   },
   {
@@ -1310,9 +1313,9 @@
       "centerX": -72.72727272727275,
       "centerY": -13.636363636363626,
       "viewport": {
-        "scale": 1.12,
-        "top": 39.97363993792664,
-        "left": 72.2170581510353
+        "scale": 1.112000000000001,
+        "top": 39.11688379647135,
+        "left": 71.38377933091822
       },
       "id": "16734288609270.4394215611689587",
       "clone": null
@@ -4986,5 +4989,10 @@
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.PlainVariable",
+    "_type": 0,
+    "_value": 1
   }
 ]

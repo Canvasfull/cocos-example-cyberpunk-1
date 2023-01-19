@@ -18,14 +18,27 @@ export class CameraMoveTarget extends Component {
     @property( {type:Node, tooltip:'Camera Node.'} )
     cameraNode:Node | undefined;
 
+    @property( { type:[Node], tooltip:'Target node list.'})
+    targets:Node[] = [];
+
+    @property
+    waitTime = 10;
+
     currentPosition = v3(0, 0, 0);
     currentAngle = v3(0, 0, 0);
 
     start() {
         Msg.on('msg_change_tps_camera_target', this.setTarget.bind(this));
+        UtilVec3.copy(this.currentPosition, this.cameraNode!.position);
+        UtilVec3.copy(this.currentAngle, this.cameraNode!.eulerAngles);
     }
 
     update(deltaTime: number) {
+
+        if(this.waitTime > 0) {
+            this.waitTime -= deltaTime;
+            return;
+        }
 
         if(!this.targetNode) return;
 
@@ -40,10 +53,8 @@ export class CameraMoveTarget extends Component {
         
     }
 
-    setTarget(node:Node) {
-        
-        this.targetNode = node;
-
+    setTarget(index:number) {
+        this.targetNode = this.targets[index];
     }
 
 }

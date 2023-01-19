@@ -1,5 +1,6 @@
-import { _decorator, Component, EventKeyboard, EventMouse, Input, input, KeyCode, Node } from 'cc';
+import { _decorator, Component, EventKeyboard, EventMouse, Input, input, KeyCode, Node, RigidBody, v3 } from 'cc';
 import { ActorAnimationGraph } from '../logic/actor/actor-animation-graph';
+import { Msg } from '../core/msg/msg';
 const { ccclass, property } = _decorator;
 
 @ccclass('TestAmoyAnimation')
@@ -16,8 +17,19 @@ export class TestAmoyAnimation extends Component {
     direction_left = 0;
     direction_right = 0;
 
+    cameraTargetIndex = 0;
+
+    @property
+    moveSpeedRate = 0.7;
+
+    linearVelocity = v3(0, 0, 0);
+    moveSpeed = 1;
+
     @property(Node)
     view:Node | undefined;
+
+    @property(RigidBody)
+    targetRigid:RigidBody | undefined;
 
     start() {
         this._animationGraph = this.view?.getComponent(ActorAnimationGraph)!;
@@ -42,6 +54,8 @@ export class TestAmoyAnimation extends Component {
             this.bool_iron_sights = this.bool_iron_sights ? false : true;
             console.log(this.bool_iron_sights);
             this._animationGraph?.play('bool_iron_sights', this.bool_iron_sights);
+            this.cameraTargetIndex = this.bool_iron_sights? 1 : 0;
+            Msg.emit('msg_change_tps_camera_target', this.cameraTargetIndex);
         }
 
         if(event.keyCode == KeyCode.KEY_C) {
@@ -69,6 +83,15 @@ export class TestAmoyAnimation extends Component {
             this._animationGraph?.play('trigger_hit', true);
         }
 
+        if (event.keyCode == KeyCode.KEY_Z) {
+
+            if(this.cameraTargetIndex === 1) return;
+
+            this.cameraTargetIndex = this.cameraTargetIndex === 0 ? 2 : 0;
+            
+            Msg.emit('msg_change_tps_camera_target', this.cameraTargetIndex);
+        }
+
         this.updateMove();
 
     }
@@ -86,8 +109,13 @@ export class TestAmoyAnimation extends Component {
     }
 
     updateMove() {
-        this._animationGraph?.setValue('num_velocity_x', -(this.direction_left + this.direction_right));
+        this._animationGraph?.setValue('num_velocity_x', this.direction_left + this.direction_right);
         this._animationGraph?.setValue('num_velocity_y', -(this.direction_down + this.direction_up));
+
+        this.targetRigid!.getLinearVelocity(this.linearVelocity);
+        this.linearVelocity.y = 0;
+        this.moveSpeed = this.linearVelocity.length() * this.moveSpeedRate;
+        this._animationGraph?.setValue('num_move_speed', this.moveSpeed);
     }
 
 }
