@@ -10,6 +10,7 @@ import { settings } from "./setting";
 import { CustomShadowStage } from "./shadow-stage";
 import { LightWorldCluster } from "../components/cluster/light-cluster";
 import { passUtils } from "../utils/pass-utils";
+import { HrefSetting } from "../settings/href-setting";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -89,6 +90,7 @@ export class DeferredLightingStage extends BaseStage {
 
         let shadingScale = this.finalShadingScale()
         passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+        // passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
         passUtils.addRasterPass(width, height, 'deferred-lighting', `LightingShader${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
             .setPassInput(this.lastStage.slotName(camera, 0), 'gbuffer_albedoMap')
@@ -96,11 +98,21 @@ export class DeferredLightingStage extends BaseStage {
             .setPassInput(this.lastStage.slotName(camera, 2), 'gbuffer_emissiveMap')
             .setPassInput(this.lastStage.slotName(camera, 3), 'gbuffer_posMap');
 
+        let setter = passUtils.pass as any;
         let shadowStage: CustomShadowStage = settings.shadowStage;
         if (shadowStage) {
             for (const dirShadowName of shadowStage.mainLightShadows) {
                 passUtils.setPassInput(dirShadowName, 'cc_shadowMap');
             }
+
+            // not work, will override by queue data
+            // let frameBuffer = ppl.pipelineSceneData.shadowFrameBufferMap.get(camera.scene.mainLight);
+            // if (frameBuffer) {
+            //     setter.setTexture('cc_shadowMap', frameBuffer.colorTextures[0])
+
+            //     let pointSampler = director.root.pipeline.globalDSManager.pointSampler
+            //     setter.setSampler('cc_shadowMap', pointSampler)
+            // }
         }
 
         passUtils
@@ -141,7 +153,6 @@ export class DeferredLightingStage extends BaseStage {
             material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
         }
 
-        let setter = passUtils.pass as any;
         setter.addConstant('CustomLightingUBO', 'deferred-lighting');
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
@@ -167,16 +178,20 @@ export class DeferredLightingStage extends BaseStage {
 
         fogUBO.update(material);
 
-        passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
-            camera, material, 0,
-            SceneFlags.VOLUMETRIC_LIGHTING,
-        );
+        passUtils.pass
+            .addQueue(QueueHint.RENDER_TRANSPARENT)
+            .addCameraQuad(
+                camera, material, 0,
+                SceneFlags.VOLUMETRIC_LIGHTING,
+            );
 
         // render transparent
         // todo: remove this pass
-        {
+        if (HrefSetting.transparent) {
             let shadingScale = this.finalShadingScale()
-            passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+            // passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+            Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+            passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
             passUtils.addRasterPass(width, height, 'default', `LightingTransparent${cameraID}`)
                 .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
                 .addRasterView(slot0, Format.RGBA16F, true)

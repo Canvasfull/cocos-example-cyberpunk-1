@@ -96,7 +96,7 @@ export class BaseStage {
                 .addQueue(rendering.QueueHint.RENDER_TRANSPARENT)
                 .addSceneOfCamera(camera, new rendering.LightInfo(), rendering.SceneFlags.PROFILER);
 
-            passUtils.end();
+            passUtils.version();
 
             settings.renderedProfiler = true;
         }

@@ -59,7 +59,7 @@ export class DeferredPostStage extends BaseStage {
             .setPassInput(input0, 'inputTexture')
             .addRasterView(slot0, Format.RGBA8, false)
             .blitScreen(0)
-            .end()
+            .version()
 
         this.renderProfiler(camera);
     }
