@@ -63,25 +63,26 @@ class PassUtils {
             }
         }
 
+        let clearOp = LoadOp.CLEAR;
+        if (this.clearFlag === ClearFlagBit.NONE) {
+            if (JSB) {
+                clearOp = LoadOp.DISCARD;
+            }
+            else {
+                clearOp = LoadOp.LOAD;
+            }
+        }
+
         let view: rendering.RasterView;
         if (format === gfx.Format.DEPTH_STENCIL) {
             view = new RasterView('_',
                 AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
-                LoadOp.LOAD, StoreOp.STORE,
+                clearOp, StoreOp.STORE,
                 gfx.ClearFlagBit.NONE,
                 this.clearColor
             );
         }
         else {
-            let clearOp = this.clearFlag === ClearFlagBit.NONE ? LoadOp.LOAD : LoadOp.CLEAR;
-            if (this.clearFlag === ClearFlagBit.NONE) {
-                if (JSB) {
-                    clearOp = LoadOp.DISCARD;
-                }
-                else {
-                    clearOp = LoadOp.LOAD;
-                }
-            }
             view = new RasterView('_',
                 AccessType.WRITE, AttachmentType.RENDER_TARGET,
                 clearOp,

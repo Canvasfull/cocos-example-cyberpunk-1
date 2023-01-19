@@ -80,7 +80,7 @@ export class BaseStage {
     }
 
     renderProfiler (camera) {
-        if (!settings.renderedProfiler && !EDITOR) {
+        if (settings.renderedProfiler && !EDITOR) {
             const cameraID = getCameraUniqueID(camera);
             const area = this.getRenderArea(camera);
             const width = area.width;

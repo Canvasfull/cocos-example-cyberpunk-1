@@ -1,4 +1,4 @@
-import { EDITOR } from 'cc/env';
+import { EDITOR, JSB } from 'cc/env';
 import { getTier, gpuTierUpdated, RenderQulity } from './gpu';
 
 export const HrefSetting = {
@@ -15,6 +15,12 @@ export const HrefSetting = {
     transparent: 1
 }
 globalThis.HrefSetting = HrefSetting
+
+if (JSB) {
+    HrefSetting.transparent = 0
+    HrefSetting.taa = 0
+    HrefSetting.bloom = 0
+}
 
 export let changedMap: Map<string, boolean> = new Map
 

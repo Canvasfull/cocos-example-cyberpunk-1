@@ -25,7 +25,7 @@ CCEffect %{
 CCProgram unlit-fs %{
   precision highp float;
   #include <legacy/output>
-  #include <legacy/fog-fs>
+  #include <legacy/lighting>
 
   #include <common/data/unpack>
   #include <builtin/uniforms/cc-environment>
@@ -38,7 +38,7 @@ CCProgram unlit-fs %{
   };
 
 
-  // #if CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED                
+  #if CC_PIPELINE_TYPE == CC_PIPELINE_TYPE_DEFERRED                
     layout(location = 0) out vec4 fragColor0;
     layout(location = 1) out vec4 fragColor1;
     layout(location = 2) out vec4 fragColor2;
@@ -53,13 +53,11 @@ CCProgram unlit-fs %{
       fragColor2 = vec4(col.rgb * mainColor.rgb, 0.);
       fragColor3 = vec4(v_position, 0.);
     }
-  // #else
-  //   layout(location = 0) out vec4 fragColor0;
+  #else
+    layout(location = 0) out vec4 fragColor0;
 
-  //   void main () {
-  //     vec4 col = mainColor * texture(mainTexture, v_uv);
-  //     CC_APPLY_FOG(col, v_position);
-  //     fragColor0 = CCFragOutput(col);
-  //   }
-  // #endif
+    void main () {
+      fragColor0 = vec4(vec3(0.), 1.);
+    }
+  #endif
 }%

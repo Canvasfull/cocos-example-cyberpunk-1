@@ -2,7 +2,7 @@
 import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbe, TextureCube } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
-import { EDITOR } from "cc/env";
+import { EDITOR, JSB } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
 import { ReflectionProbes } from "../components/reflection-probe-utils";
 import { DeferredGBufferStage } from "./deferred-gbuffer-stage";
@@ -154,7 +154,9 @@ export class DeferredLightingStage extends BaseStage {
             material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
         }
 
-        setter.addConstant('CustomLightingUBO', 'deferred-lighting');
+        if (!JSB) {
+            setter.addConstant('CustomLightingUBO', 'deferred-lighting');
+        }
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
             if (!probe) break;
