@@ -89,8 +89,9 @@ export class DeferredLightingStage extends BaseStage {
         }
 
         let shadingScale = this.finalShadingScale()
-        passUtils.clearFlag = gfx.ClearFlagBit.NONE;
-        // passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
+        // passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+        passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
         passUtils.addRasterPass(width, height, 'deferred-lighting', `LightingShader${cameraID}`)
             .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
             .setPassInput(this.lastStage.slotName(camera, 0), 'gbuffer_albedoMap')
@@ -189,9 +190,7 @@ export class DeferredLightingStage extends BaseStage {
         // todo: remove this pass
         if (HrefSetting.transparent) {
             let shadingScale = this.finalShadingScale()
-            // passUtils.clearFlag = gfx.ClearFlagBit.NONE;
-            Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
-            passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
+            passUtils.clearFlag = gfx.ClearFlagBit.NONE;
             passUtils.addRasterPass(width, height, 'default', `LightingTransparent${cameraID}`)
                 .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
                 .addRasterView(slot0, Format.RGBA16F, true)
