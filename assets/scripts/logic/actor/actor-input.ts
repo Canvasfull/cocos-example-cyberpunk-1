@@ -16,7 +16,9 @@ export class ActorInput extends Component implements IActorInput {
 
     start () {
         this._actor = Level.Instance._actor;
-        if(sys.platform === sys.Platform.MOBILE_BROWSER) {
+        if(sys.platform === sys.Platform.MOBILE_BROWSER || 
+            sys.platform === sys.Platform.ANDROID || 
+            sys.platform === sys.Platform.IOS ) {
             this.node.children[1].active = true;
         }else {
             this.node.children[2].active = true;
