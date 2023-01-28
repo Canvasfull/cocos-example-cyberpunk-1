@@ -1,4 +1,4 @@
-import { _decorator, Component, EventKeyboard, EventMouse, Input, input, KeyCode, Node, RigidBody, v3 } from 'cc';
+import { _decorator, Component, EventKeyboard, EventMouse, Input, input, KeyCode, math, Node, RigidBody, v3 } from 'cc';
 import { ActorAnimationGraph } from '../logic/actor/actor-animation-graph';
 import { Msg } from '../core/msg/msg';
 const { ccclass, property } = _decorator;
@@ -39,8 +39,8 @@ export class TestAmoyAnimation extends Component {
         input.on(Input.EventType.MOUSE_DOWN, this.onMouseDown, this);
     }
 
-    update(deltaTime: number) {
-        
+    lateUpdate(deltaTime: number) {
+        this.updateMove();
     }
 
     keyDown(event: EventKeyboard) {
@@ -61,6 +61,7 @@ export class TestAmoyAnimation extends Component {
         if(event.keyCode == KeyCode.KEY_C) {
             this.bool_crouch = this.bool_crouch ? false : true;
             this._animationGraph?.play('bool_crouch', this.bool_crouch);
+            Msg.emit('msg_change_tps_camera_height', this.bool_crouch ? 1 : 1.377);
         }
 
         if(event.keyCode == KeyCode.SPACE) {
@@ -92,7 +93,7 @@ export class TestAmoyAnimation extends Component {
             Msg.emit('msg_change_tps_camera_target', this.cameraTargetIndex);
         }
 
-        this.updateMove();
+        //this.updateMove();
 
     }
 
@@ -105,16 +106,18 @@ export class TestAmoyAnimation extends Component {
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.direction_down = 0; 
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 0;
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 0;
-        this.updateMove();
+        //this.updateMove();
     }
 
     updateMove() {
         this._animationGraph?.setValue('num_velocity_x', this.direction_left + this.direction_right);
         this._animationGraph?.setValue('num_velocity_y', -(this.direction_down + this.direction_up));
-
         this.targetRigid!.getLinearVelocity(this.linearVelocity);
         this.linearVelocity.y = 0;
-        this.moveSpeed = this.linearVelocity.length() * this.moveSpeedRate;
+        const linearVelocityLength = this.linearVelocity.length();
+        const selfLength = Math.sqrt(this.linearVelocity.x * this.linearVelocity.x + this.linearVelocity.z * this.linearVelocity.z);
+        this.moveSpeed = linearVelocityLength * this.moveSpeedRate;
+        //console.log(this.linearVelocity, linearVelocityLength, selfLength, this.moveSpeedRate, this.moveSpeed);
         this._animationGraph?.setValue('num_move_speed', this.moveSpeed);
     }
 
