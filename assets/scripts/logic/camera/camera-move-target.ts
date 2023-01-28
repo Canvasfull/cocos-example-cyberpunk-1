@@ -1,6 +1,7 @@
-import { _decorator, Component, Node, v3, Vec3 } from 'cc';
+import { _decorator, Component, geometry, Node, physics, v3, Vec3 } from 'cc';
 import { UtilVec3 } from '../../core/util/util';
 import { Msg } from '../../core/msg/msg';
+import { SensorRayNodeToNode } from '../../core/sensor/sensor-ray-node-to-node';
 const { ccclass, property } = _decorator;
 
 @ccclass('CameraMoveTarget')
@@ -10,10 +11,13 @@ export class CameraMoveTarget extends Component {
     targetNode:Node | undefined;
 
     @property( { type: Number, tooltip:'Smooth position move.'})
-    smoothMove = 5.0;
+    smoothSlowMove = 5.0;
 
     @property ( {type: Number, tooltip:'Smooth angle.'} )
     smoothAngle = 5.0;
+
+    @property( { type: Number, tooltip:'Smooth position move.'})
+    smoothFastMove = 15;
 
     @property( {type:Node, tooltip:'Camera Node.'} )
     cameraNode:Node | undefined;
@@ -27,10 +31,17 @@ export class CameraMoveTarget extends Component {
     currentPosition = v3(0, 0, 0);
     currentAngle = v3(0, 0, 0);
 
+    sensor:SensorRayNodeToNode | undefined;
+
+    movePosition = v3(0, 0, 0);
+
+    smoothMove = 5.0;
+
     start() {
         Msg.on('msg_change_tps_camera_target', this.setTarget.bind(this));
         UtilVec3.copy(this.currentPosition, this.cameraNode!.position);
         UtilVec3.copy(this.currentAngle, this.cameraNode!.eulerAngles);
+        this.sensor = this.getComponent(SensorRayNodeToNode)!;
     }
 
     update(deltaTime: number) {
@@ -42,8 +53,22 @@ export class CameraMoveTarget extends Component {
 
         if(!this.targetNode) return;
 
+        // Calculate move position.
+        if(this.sensor!.hitPoint.length() > 0) {
+            UtilVec3.copy(this.movePosition, this.sensor!.hitPoint);
+            this.movePosition.subtract(this.node!.worldPosition);
+            const length = this.movePosition.length();
+            UtilVec3.copy(this.movePosition, this.targetNode.position);
+            this.movePosition.subtract(this.node.position).normalize().multiplyScalar(length);
+            this.smoothMove = this.smoothFastMove;
+        }else{
+            UtilVec3.copy(this.movePosition, this.targetNode.position);
+            this.smoothMove = this.smoothSlowMove;
+        }
+        //const targetPosition = this.sensor!.hitPoint.length() > 0 ? this.sensor!.hitPoint : this.targetNode.position;
+
         // Smooth move position.
-        Vec3.lerp(this.currentPosition, this.currentPosition, this.targetNode.position, this.smoothMove * deltaTime);
+        Vec3.lerp(this.currentPosition, this.currentPosition, this.movePosition, this.smoothMove * deltaTime);
         this.cameraNode?.setPosition(this.currentPosition);
 
 
@@ -55,6 +80,7 @@ export class CameraMoveTarget extends Component {
 
     setTarget(index:number) {
         this.targetNode = this.targets[index];
+        this.sensor!.endNode = this.targetNode;
     }
 
 }

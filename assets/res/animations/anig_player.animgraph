@@ -9,39 +9,39 @@
         "__id__": 1
       },
       {
-        "__id__": 331
+        "__id__": 328
       }
     ],
     "_variables": {
       "bool_crouch": {
-        "__id__": 358
+        "__id__": 395
       },
       "num_velocity_x": {
-        "__id__": 359
+        "__id__": 396
       },
       "num_velocity_y": {
-        "__id__": 360
+        "__id__": 397
       },
       "trigger_jump": {
-        "__id__": 361
+        "__id__": 398
       },
       "trigger_reload": {
-        "__id__": 362
+        "__id__": 399
       },
       "trigger_fire": {
-        "__id__": 363
+        "__id__": 400
       },
       "bool_iron_sights": {
-        "__id__": 364
+        "__id__": 401
       },
       "bool_shotgun": {
-        "__id__": 365
+        "__id__": 402
       },
       "trigger_hit": {
-        "__id__": 366
+        "__id__": 403
       },
       "num_move_speed": {
-        "__id__": 367
+        "__id__": 404
       }
     }
   },
@@ -135,10 +135,7 @@
         "__id__": 275
       },
       {
-        "__id__": 277
-      },
-      {
-        "__id__": 278
+        "__id__": 276
       },
       {
         "__id__": 279
@@ -147,31 +144,28 @@
         "__id__": 282
       },
       {
-        "__id__": 285
+        "__id__": 288
       },
       {
-        "__id__": 291
+        "__id__": 294
       },
       {
-        "__id__": 297
+        "__id__": 300
       },
       {
-        "__id__": 303
+        "__id__": 306
       },
       {
-        "__id__": 309
+        "__id__": 313
       },
       {
-        "__id__": 316
+        "__id__": 320
       },
       {
-        "__id__": 323
+        "__id__": 322
       },
       {
         "__id__": 325
-      },
-      {
-        "__id__": 328
       }
     ],
     "_entryState": {
@@ -3967,49 +3961,11 @@
     "__type__": "cc.animation.Transition",
     "__editorExtras__": {
       "name": "",
-      "id": "16734288609280.2632065154258647",
-      "clone": null
-    },
-    "from": {
-      "__id__": 179
-    },
-    "to": {
-      "__id__": 102
-    },
-    "conditions": [
-      {
-        "__id__": 276
-      }
-    ]
-  },
-  {
-    "__type__": "cc.animation.TriggerCondition",
-    "trigger": "trigger_reload"
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
       "id": "16734288609280.3639759456239675",
       "clone": null
     },
     "from": {
       "__id__": 139
-    },
-    "to": {
-      "__id__": 179
-    },
-    "conditions": []
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.4062260956023227",
-      "clone": null
-    },
-    "from": {
-      "__id__": 102
     },
     "to": {
       "__id__": 179
@@ -4031,7 +3987,7 @@
     },
     "conditions": [
       {
-        "__id__": 280
+        "__id__": 277
       }
     ]
   },
@@ -4039,7 +3995,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 281
+      "__id__": 278
     }
   },
   {
@@ -4062,7 +4018,7 @@
     },
     "conditions": [
       {
-        "__id__": 283
+        "__id__": 280
       }
     ]
   },
@@ -4070,7 +4026,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 284
+      "__id__": 281
     }
   },
   {
@@ -4093,10 +4049,10 @@
     },
     "conditions": [
       {
-        "__id__": 286
+        "__id__": 283
       },
       {
-        "__id__": 289
+        "__id__": 286
       }
     ]
   },
@@ -4104,10 +4060,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 287
+      "__id__": 284
     },
     "rhs": {
-      "__id__": 288
+      "__id__": 285
     }
   },
   {
@@ -4124,7 +4080,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 290
+      "__id__": 287
     }
   },
   {
@@ -4147,10 +4103,10 @@
     },
     "conditions": [
       {
-        "__id__": 292
+        "__id__": 289
       },
       {
-        "__id__": 295
+        "__id__": 292
       }
     ]
   },
@@ -4158,10 +4114,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 293
+      "__id__": 290
     },
     "rhs": {
-      "__id__": 294
+      "__id__": 291
     }
   },
   {
@@ -4178,7 +4134,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 296
+      "__id__": 293
     }
   },
   {
@@ -4201,10 +4157,10 @@
     },
     "conditions": [
       {
-        "__id__": 298
+        "__id__": 295
       },
       {
-        "__id__": 301
+        "__id__": 298
       }
     ]
   },
@@ -4212,10 +4168,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 299
+      "__id__": 296
     },
     "rhs": {
-      "__id__": 300
+      "__id__": 297
     }
   },
   {
@@ -4232,7 +4188,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 302
+      "__id__": 299
     }
   },
   {
@@ -4255,10 +4211,10 @@
     },
     "conditions": [
       {
-        "__id__": 304
+        "__id__": 301
       },
       {
-        "__id__": 307
+        "__id__": 304
       }
     ]
   },
@@ -4266,10 +4222,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 305
+      "__id__": 302
     },
     "rhs": {
-      "__id__": 306
+      "__id__": 303
     }
   },
   {
@@ -4286,7 +4242,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 308
+      "__id__": 305
     }
   },
   {
@@ -4309,10 +4265,10 @@
     },
     "conditions": [
       {
-        "__id__": 310
+        "__id__": 307
       },
       {
-        "__id__": 313
+        "__id__": 310
       }
     ],
     "duration": 0.3,
@@ -4327,10 +4283,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 311
+      "__id__": 308
     },
     "rhs": {
-      "__id__": 312
+      "__id__": 309
     }
   },
   {
@@ -4347,10 +4303,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 314
+      "__id__": 311
     },
     "rhs": {
-      "__id__": 315
+      "__id__": 312
     }
   },
   {
@@ -4378,10 +4334,10 @@
     },
     "conditions": [
       {
-        "__id__": 317
+        "__id__": 314
       },
       {
-        "__id__": 320
+        "__id__": 317
       }
     ],
     "duration": 0.1,
@@ -4396,10 +4352,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 318
+      "__id__": 315
     },
     "rhs": {
-      "__id__": 319
+      "__id__": 316
     }
   },
   {
@@ -4416,10 +4372,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 321
+      "__id__": 318
     },
     "rhs": {
-      "__id__": 322
+      "__id__": 319
     }
   },
   {
@@ -4447,7 +4403,7 @@
     },
     "conditions": [
       {
-        "__id__": 324
+        "__id__": 321
       }
     ],
     "duration": 0.1,
@@ -4477,7 +4433,7 @@
     },
     "conditions": [
       {
-        "__id__": 326
+        "__id__": 323
       }
     ]
   },
@@ -4485,7 +4441,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 327
+      "__id__": 324
     }
   },
   {
@@ -4508,7 +4464,7 @@
     },
     "conditions": [
       {
-        "__id__": 329
+        "__id__": 326
       }
     ]
   },
@@ -4516,7 +4472,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 330
+      "__id__": 327
     }
   },
   {
@@ -4527,7 +4483,7 @@
   {
     "__type__": "cc.animation.Layer",
     "_stateMachine": {
-      "__id__": 332
+      "__id__": 329
     },
     "name": "fire",
     "weight": 1,
@@ -4550,40 +4506,49 @@
     },
     "_states": [
       {
+        "__id__": 330
+      },
+      {
+        "__id__": 331
+      },
+      {
+        "__id__": 332
+      },
+      {
         "__id__": 333
       },
       {
-        "__id__": 334
+        "__id__": 350
       },
       {
-        "__id__": 335
-      },
-      {
-        "__id__": 336
-      },
-      {
-        "__id__": 353
+        "__id__": 351
       }
     ],
     "_transitions": [
       {
-        "__id__": 354
+        "__id__": 388
       },
       {
-        "__id__": 355
+        "__id__": 389
       },
       {
-        "__id__": 356
+        "__id__": 390
+      },
+      {
+        "__id__": 392
+      },
+      {
+        "__id__": 394
       }
     ],
     "_entryState": {
-      "__id__": 333
+      "__id__": 330
     },
     "_exitState": {
-      "__id__": 334
+      "__id__": 331
     },
     "_anyState": {
-      "__id__": 335
+      "__id__": 332
     }
   },
   {
@@ -4622,7 +4587,7 @@
   {
     "__type__": "cc.animation.SubStateMachine",
     "__editorExtras__": {
-      "centerX": 84,
+      "centerX": 91,
       "centerY": -74,
       "id": "16740286244960.8989226948573927",
       "clone": null
@@ -4630,7 +4595,7 @@
     "name": "Fire SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 337
+      "__id__": 334
     }
   },
   {
@@ -4642,22 +4607,25 @@
     },
     "_states": [
       {
+        "__id__": 335
+      },
+      {
+        "__id__": 336
+      },
+      {
+        "__id__": 337
+      },
+      {
         "__id__": 338
       },
       {
-        "__id__": 339
-      },
-      {
         "__id__": 340
-      },
-      {
-        "__id__": 341
-      },
-      {
-        "__id__": 343
       }
     ],
     "_transitions": [
+      {
+        "__id__": 342
+      },
       {
         "__id__": 345
       },
@@ -4665,20 +4633,17 @@
         "__id__": 348
       },
       {
-        "__id__": 351
-      },
-      {
-        "__id__": 352
+        "__id__": 349
       }
     ],
     "_entryState": {
-      "__id__": 338
+      "__id__": 335
     },
     "_exitState": {
-      "__id__": 339
+      "__id__": 336
     },
     "_anyState": {
-      "__id__": 340
+      "__id__": 337
     }
   },
   {
@@ -4687,8 +4652,8 @@
       "name": "",
       "id": "16740286244960.9462114012210041",
       "clone": null,
-      "centerX": -125,
-      "centerY": 0
+      "centerX": -169,
+      "centerY": -46
     },
     "name": "Entry"
   },
@@ -4717,8 +4682,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 67.95966569767438,
-      "centerY": 82.39534883720933,
+      "centerX": 24.95966569767438,
+      "centerY": 43.395348837209326,
       "id": "16740286244960.7336983962597075",
       "clone": null,
       "name": ""
@@ -4726,7 +4691,7 @@
     "name": "Fire Rifle Iron Sights",
     "_components": [],
     "motion": {
-      "__id__": 342
+      "__id__": 339
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -4748,8 +4713,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 61.33175872093034,
-      "centerY": -153.46511627906983,
+      "centerX": 0.3317587209303383,
+      "centerY": -95.46511627906983,
       "id": "16740286244960.5472577912319447",
       "clone": null,
       "name": ""
@@ -4757,7 +4722,7 @@
     "name": "Fire Rifle Hip",
     "_components": [],
     "motion": {
-      "__id__": 344
+      "__id__": 341
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -4784,14 +4749,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 338
+      "__id__": 335
     },
     "to": {
-      "__id__": 341
+      "__id__": 338
     },
     "conditions": [
       {
-        "__id__": 346
+        "__id__": 343
       }
     ]
   },
@@ -4799,7 +4764,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 347
+      "__id__": 344
     }
   },
   {
@@ -4815,14 +4780,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 338
+      "__id__": 335
     },
     "to": {
-      "__id__": 343
+      "__id__": 340
     },
     "conditions": [
       {
-        "__id__": 349
+        "__id__": 346
       }
     ]
   },
@@ -4830,7 +4795,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 350
+      "__id__": 347
     }
   },
   {
@@ -4846,10 +4811,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 343
+      "__id__": 340
     },
     "to": {
-      "__id__": 339
+      "__id__": 336
     },
     "conditions": [],
     "duration": 0.1,
@@ -4868,10 +4833,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 341
+      "__id__": 338
     },
     "to": {
-      "__id__": 339
+      "__id__": 336
     },
     "conditions": [],
     "duration": 0.1,
@@ -4888,10 +4853,519 @@
       "name": "",
       "id": "16740286970580.8875549109599687",
       "clone": null,
-      "centerX": -92,
+      "centerX": -91,
       "centerY": -68.5
     },
     "name": "Empty"
+  },
+  {
+    "__type__": "cc.animation.SubStateMachine",
+    "__editorExtras__": {
+      "centerX": -5,
+      "centerY": 48,
+      "id": "16748993944740.7251890095509368",
+      "clone": null
+    },
+    "name": "Reload SM",
+    "_components": [],
+    "_stateMachine": {
+      "__id__": 352
+    }
+  },
+  {
+    "__type__": "cc.animation.StateMachine",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.9916500378328994",
+      "clone": null
+    },
+    "_states": [
+      {
+        "__id__": 353
+      },
+      {
+        "__id__": 354
+      },
+      {
+        "__id__": 355
+      },
+      {
+        "__id__": 356
+      },
+      {
+        "__id__": 358
+      },
+      {
+        "__id__": 360
+      },
+      {
+        "__id__": 362
+      }
+    ],
+    "_transitions": [
+      {
+        "__id__": 364
+      },
+      {
+        "__id__": 365
+      },
+      {
+        "__id__": 366
+      },
+      {
+        "__id__": 367
+      },
+      {
+        "__id__": 368
+      },
+      {
+        "__id__": 373
+      },
+      {
+        "__id__": 378
+      },
+      {
+        "__id__": 383
+      }
+    ],
+    "_entryState": {
+      "__id__": 353
+    },
+    "_exitState": {
+      "__id__": 354
+    },
+    "_anyState": {
+      "__id__": 355
+    }
+  },
+  {
+    "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.9517807144577617",
+      "clone": null,
+      "centerX": -125,
+      "centerY": 0
+    },
+    "name": "Entry"
+  },
+  {
+    "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.28316203040306065",
+      "clone": null,
+      "centerX": 125,
+      "centerY": 0
+    },
+    "name": "Exit"
+  },
+  {
+    "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.5103054314269402",
+      "clone": null,
+      "centerX": 0,
+      "centerY": 75
+    },
+    "name": "Any"
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "centerX": -807.0170784883721,
+      "centerY": -108.65116279069764,
+      "id": "16748993944750.7112812754168765",
+      "clone": null,
+      "name": ""
+    },
+    "name": "Reload Rifle Iron-Sights",
+    "_components": [],
+    "motion": {
+      "__id__": 357
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "centerX": 0,
+      "centerY": 0,
+      "id": "16748993944750.8358846727350444",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "eb4091c8-baab-447d-ba06-2abfd2944492@d935c",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "centerX": -823.575218023256,
+      "centerY": -196.9302325581395,
+      "id": "16748993944750.9132457422679676",
+      "clone": null,
+      "name": ""
+    },
+    "name": "Reload Rifle Hip",
+    "_components": [],
+    "motion": {
+      "__id__": 359
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "centerX": 0,
+      "centerY": 0,
+      "id": "16748993944750.08394159809515722",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "3708d252-f37e-4c76-86e0-d2f0c51bf6a7@cbc49",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "centerX": -810.6914970930233,
+      "centerY": -20.953488372093034,
+      "id": "16748993944750.2584047012823758",
+      "clone": null,
+      "name": ""
+    },
+    "name": "Reload Shotgun Hip",
+    "_components": [],
+    "motion": {
+      "__id__": 361
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "centerX": 0,
+      "centerY": 0,
+      "id": "16748993944750.9064072069333797",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "f99399f3-6c12-441f-97a0-431f501f64c7@54729",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "centerX": -795.9705668604653,
+      "centerY": 75.46511627906978,
+      "id": "16748993944750.8267930119843914",
+      "clone": null,
+      "name": ""
+    },
+    "name": "Reload Shotgun Iron-Sights",
+    "_components": [],
+    "motion": {
+      "__id__": 363
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "centerX": 0,
+      "centerY": 0,
+      "id": "16748993944750.3700685971965969",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "30406afe-5e1a-44a7-9a75-657ad26e7ceb@7bbf9",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.053370926281759656",
+      "clone": null
+    },
+    "from": {
+      "__id__": 358
+    },
+    "to": {
+      "__id__": 354
+    },
+    "conditions": [],
+    "duration": 0.2,
+    "relativeDuration": true,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 0.8
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.26146421483600957",
+      "clone": null
+    },
+    "from": {
+      "__id__": 356
+    },
+    "to": {
+      "__id__": 354
+    },
+    "conditions": [],
+    "duration": 0.2,
+    "relativeDuration": true,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 0.8
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.7084732028174465",
+      "clone": null
+    },
+    "from": {
+      "__id__": 360
+    },
+    "to": {
+      "__id__": 354
+    },
+    "conditions": [],
+    "duration": 0.2,
+    "relativeDuration": true,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 0.8
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.3617174230327491",
+      "clone": null
+    },
+    "from": {
+      "__id__": 362
+    },
+    "to": {
+      "__id__": 354
+    },
+    "conditions": [],
+    "duration": 0.2,
+    "relativeDuration": true,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 0.8
+  },
+  {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.4101031428345814",
+      "clone": null
+    },
+    "from": {
+      "__id__": 353
+    },
+    "to": {
+      "__id__": 358
+    },
+    "conditions": [
+      {
+        "__id__": 369
+      },
+      {
+        "__id__": 371
+      }
+    ]
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 370
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_iron_sights",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 372
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_shotgun",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.017780803566581183",
+      "clone": null
+    },
+    "from": {
+      "__id__": 353
+    },
+    "to": {
+      "__id__": 356
+    },
+    "conditions": [
+      {
+        "__id__": 374
+      },
+      {
+        "__id__": 376
+      }
+    ]
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 375
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_iron_sights",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 377
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_shotgun",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.6738298837770376",
+      "clone": null
+    },
+    "from": {
+      "__id__": 353
+    },
+    "to": {
+      "__id__": 360
+    },
+    "conditions": [
+      {
+        "__id__": 379
+      },
+      {
+        "__id__": 381
+      }
+    ]
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 380
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_iron_sights",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 382
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_shotgun",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16748993944760.2803423329196595",
+      "clone": null
+    },
+    "from": {
+      "__id__": 353
+    },
+    "to": {
+      "__id__": 362
+    },
+    "conditions": [
+      {
+        "__id__": 384
+      },
+      {
+        "__id__": 386
+      }
+    ]
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 385
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_iron_sights",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 387
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_shotgun",
+    "value": false
   },
   {
     "__type__": "cc.animation.Transition",
@@ -4901,10 +5375,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 333
+      "__id__": 330
     },
     "to": {
-      "__id__": 353
+      "__id__": 350
     },
     "conditions": []
   },
@@ -4916,10 +5390,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 336
+      "__id__": 333
     },
     "to": {
-      "__id__": 353
+      "__id__": 350
     },
     "conditions": []
   },
@@ -4931,14 +5405,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 353
+      "__id__": 350
     },
     "to": {
-      "__id__": 336
+      "__id__": 333
     },
     "conditions": [
       {
-        "__id__": 357
+        "__id__": 391
       }
     ],
     "duration": 0.3,
@@ -4948,6 +5422,39 @@
   {
     "__type__": "cc.animation.TriggerCondition",
     "trigger": "trigger_fire"
+  },
+  {
+    "__type__": "cc.animation.EmptyStateTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 350
+    },
+    "to": {
+      "__id__": 351
+    },
+    "conditions": [
+      {
+        "__id__": 393
+      }
+    ],
+    "duration": 0.3,
+    "destinationStart": 0,
+    "relativeDestinationStart": false
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_reload"
+  },
+  {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 351
+    },
+    "to": {
+      "__id__": 350
+    },
+    "conditions": []
   },
   {
     "__type__": "cc.animation.PlainVariable",
