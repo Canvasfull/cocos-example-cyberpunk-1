@@ -1,6 +1,7 @@
 import { _decorator, Component, math, Node, RigidBody, v3, Vec3 } from 'cc';
 import { ActorMoveSlope } from './actor-move-slope';
 import { UtilVec3 } from '../../core/util/util';
+import { SensorSlope } from '../../core/sensor/sensor-slope';
 const { ccclass, property } = _decorator;
 
 
@@ -21,6 +22,9 @@ export class ActorMove extends Component {
 
     @property( { type: Number, tooltip: 'Default angle value' })
     angleVertical = 0;
+
+    @property( { type: SensorSlope, tooltip: ' Sensor slope.' })
+    sensorSlop: SensorSlope | undefined;
     
     velocity = v3(0, 0, 0);
     velocityLocal = v3(0, 0, 0);
@@ -42,7 +46,8 @@ export class ActorMove extends Component {
     start() {
 
         this.rigid = this.getComponent(RigidBody)!;
-        this.actorSlop = this.getComponent(ActorMoveSlope)!;
+        //this.actorSlop = this.getComponent(ActorMoveSlope)!;
+        this.sensorSlop = this.getComponent(SensorSlope)!;
 
     }
 
@@ -64,6 +69,13 @@ export class ActorMove extends Component {
 
         this.rigid?.getLinearVelocity(this.currentVelocity);
         this.velocity.y = this.currentVelocity.y;
+
+        if(this.sensorSlop!.checkSlope(this.velocity)) {
+            const moveLength = this.velocity.length();
+            UtilVec3.copy(this.velocity, this.sensorSlop!.vectorSlop);
+            this.velocity.normalize().multiplyScalar(moveLength);
+        }
+
         this.rigid?.setLinearVelocity(this.velocity);
     }
 

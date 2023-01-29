@@ -1,7 +1,8 @@
 import { _decorator, Color, Component, Node, Quat, v3, Vec3 } from 'cc';
 import { EDITOR } from 'cc/env';
-import { Gizmo } from '../core/util/util';
+import { Gizmo, UtilVec3 } from '../core/util/util';
 import { TestNormal } from './test-normal';
+import { TestSlopeVector } from './test-slope-vector';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 @ccclass('TestSlopeDirection')
@@ -14,21 +15,33 @@ export class TestSlopeDirection extends Component {
     @property(Vec3)
     moveDirection:Vec3 = v3(0, 0, 0);
 
+    @property(TestSlopeVector)
+    slopeDirection:TestSlopeVector | undefined | null;
+
+    endPosition = v3(0, 0, 0);
+
     update(deltaTime: number) {
 
         if(EDITOR) {
 
-            Gizmo.drawLine(this.node.worldPosition, this.moveDirection, Color.MAGENTA);
+            UtilVec3.copy(this.endPosition, this.node.worldPosition);
 
-            const direction = this.playerNode!.direction;
+            this.endPosition.add(this.moveDirection);
 
-            const planeNormal = this.playerNode!.normal;
+            Gizmo.drawLine(this.node.worldPosition, this.endPosition, Color.MAGENTA);
 
-            let project = v3(0, 0, 0);
+            UtilVec3.copy(this.slopeDirection!.direction, this.moveDirection);
 
-            Vec3.projectOnPlane(project, project, planeNormal);
+            //const direction = this.playerNode!.direction;
+            //const planeNormal = this.playerNode!.normal;
+            //let project = v3(0, 0, 0);
+            //Vec3.projectOnPlane(project, project, planeNormal);
 
-            Gizmo.drawLine(this.playerNode!.startPos, project, Color.YELLOW);
+            UtilVec3.copy(this.endPosition, this.node.worldPosition);
+
+            this.endPosition.add(this.slopeDirection!.vectorSlop);
+
+            Gizmo.drawLine(this.node.worldPosition, this.endPosition, Color.YELLOW);
 
         }
         
