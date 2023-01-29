@@ -2,6 +2,7 @@ import { _decorator, Component, math, Node, RigidBody, v3, Vec3 } from 'cc';
 import { ActorMoveSlope } from './actor-move-slope';
 import { UtilVec3 } from '../../core/util/util';
 import { SensorSlope } from '../../core/sensor/sensor-slope';
+import { SensorGround } from '../../core/sensor/sensor-ground';
 const { ccclass, property } = _decorator;
 
 
@@ -25,6 +26,9 @@ export class ActorMove extends Component {
 
     @property( { type: SensorSlope, tooltip: ' Sensor slope.' })
     sensorSlop: SensorSlope | undefined;
+
+    @property( { type: SensorGround, tooltip: ' Sensor ground.' })
+    sensorGround: SensorGround | undefined;
     
     velocity = v3(0, 0, 0);
     velocityLocal = v3(0, 0, 0);
@@ -43,19 +47,20 @@ export class ActorMove extends Component {
     @property
     angleVerticalMin = -30;
 
+    isJump = false;
+
     start() {
 
         this.rigid = this.getComponent(RigidBody)!;
         //this.actorSlop = this.getComponent(ActorMoveSlope)!;
         this.sensorSlop = this.getComponent(SensorSlope)!;
+        this.sensorGround = this.getComponent(SensorGround)!;
 
     }
 
-    update(deltaTime: number) {
-
+    lateUpdate(deltaTime: number) {
         this.movePosition(deltaTime);
         this.moveRotation();
-        
     }
 
     movePosition(deltaTime : number) {
@@ -70,7 +75,7 @@ export class ActorMove extends Component {
         this.rigid?.getLinearVelocity(this.currentVelocity);
         this.velocity.y = this.currentVelocity.y;
 
-        if(this.sensorSlop!.checkSlope(this.velocity)) {
+        if(this.sensorGround?._isGround && this.sensorSlop!.checkSlope(this.velocity)) {
             const moveLength = this.velocity.length();
             UtilVec3.copy(this.velocity, this.sensorSlop!.vectorSlop);
             this.velocity.normalize().multiplyScalar(moveLength);
@@ -96,7 +101,10 @@ export class ActorMove extends Component {
     }
 
     jump() {
-        this.rigid?.applyImpulse(this.jumpForce);
+        //this.rigid?.applyImpulse(this.jumpForce);
+        this.rigid?.getLinearVelocity(this.currentVelocity);
+        this.currentVelocity.y = 7;
+        this.rigid?.setLinearVelocity(this.currentVelocity);
     }
 
     onRotation(x: number, y: number) {

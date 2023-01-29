@@ -29,12 +29,8 @@ export class TestActorMove extends Component {
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = 1; 
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = -1;
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 1;
-
         if (event.keyCode == KeyCode.SPACE) this.actorMove?.jump();
-
-        this.onMove();
-
-        
+        this.onMove(); 
     }
 
     onKeyUp(event: EventKeyboard) {

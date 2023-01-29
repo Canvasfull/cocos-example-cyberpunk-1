@@ -58,9 +58,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 0.7980113971948667,
-        "top": 207.71190118320294,
-        "left": 509.80111332121476
+        "scale": 0.7970113971948669,
+        "top": 207.39684744334295,
+        "left": 509.0105200196053
       },
       "id": "16734288609270.4351687447096062",
       "clone": null
@@ -2028,8 +2028,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": 332.5581395348836,
-      "centerY": -61.627906976744185,
+      "centerX": 331.3953488372092,
+      "centerY": -15.116279069767415,
       "id": "16734288609280.9089964846050635",
       "clone": null
     },
@@ -2048,8 +2048,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -29.48219476744191,
-      "centerY": 95.04651162790702,
+      "centerX": 43.77361918604652,
+      "centerY": 92.7209302325582,
       "id": "16734288609280.1770981971163259",
       "clone": null
     },
@@ -2078,8 +2078,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 10.16896802325573,
-      "centerY": -68.97674418604663,
+      "centerX": 56.68059593023247,
+      "centerY": -82.93023255813966,
       "id": "16734288609280.2390607646443077",
       "clone": null
     },
@@ -2488,8 +2488,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -326.203125,
-      "centerY": -4,
+      "centerX": -264.953125,
+      "centerY": -5.25,
       "id": "16734288609280.034398739591539496",
       "clone": null
     },
@@ -2678,8 +2678,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -112.97056686046506,
-      "centerY": -184.34883720930236,
+      "centerX": -120.11342400332222,
+      "centerY": -155.77740863787378,
       "id": "16734288609280.5892510127234136",
       "clone": null
     },
@@ -2708,8 +2708,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -83.71475290697674,
-      "centerY": 125.6976744186046,
+      "centerX": -99.42903862126246,
+      "centerY": 38.55481727574744,
       "id": "16734288609280.5322783632919394",
       "clone": null
     },
@@ -2738,8 +2738,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 39.21547965116281,
-      "centerY": -331.2790697674419,
+      "centerX": -25.070234634551525,
+      "centerY": -294.13621262458474,
       "id": "16734288609280.7427229028116653",
       "clone": null
     },
@@ -5425,7 +5425,11 @@
   },
   {
     "__type__": "cc.animation.EmptyStateTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16749784103580.5735783376422681",
+      "clone": null
+    },
     "from": {
       "__id__": 350
     },
@@ -5447,7 +5451,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16749784103580.23788743217782415",
+      "clone": null
+    },
     "from": {
       "__id__": 351
     },
