@@ -9,9 +9,6 @@ const { ccclass, property } = _decorator;
 @ccclass('ActorMove')
 export class ActorMove extends Component {
 
-    @property( {type:ActorMoveSlope, tooltip:'Reference Actor Move Slope.'} )
-    actorSlop:ActorMoveSlope | undefined;
-
     @property( { type: Number, tooltip: 'Move Speed. '})
     speed = 1;
 
@@ -52,7 +49,6 @@ export class ActorMove extends Component {
     start() {
 
         this.rigid = this.getComponent(RigidBody)!;
-        //this.actorSlop = this.getComponent(ActorMoveSlope)!;
         this.sensorSlop = this.getComponent(SensorSlope)!;
         this.sensorGround = this.getComponent(SensorGround)!;
 
