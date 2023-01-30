@@ -55,18 +55,19 @@ export class SensorGround extends Component {
             if (PhysicsSystem.instance.raycastClosest(this._ray, this._mask, this.checkDistance)) {
                 const res = PhysicsSystem.instance.raycastClosestResult;
                 //this._actor!._data.walk_in_type = SubstanceCore.Instance.checkNodeType(res.collider.node);
+                
+                if(this._isGround === false) {
+                    console.log(`on ground: true`);
+                }
                 this._isGround = true;
                 return;
-                /*
-                if (!this._isGround) {
-                    this._isGround = true;
-                    //this._actor!.onGround();
-                }
-                return;
-                */
             }
         }
+
         
+        if(this._isGround) {
+            console.log(`off Ground: false`);
+        }
         this._isGround = false;
 
     }

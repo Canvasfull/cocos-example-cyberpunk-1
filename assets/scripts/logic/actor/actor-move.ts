@@ -99,11 +99,9 @@ export class ActorMove extends Component {
 
     jump() {
         //this.rigid?.applyImpulse(this.jumpForce);
-        //fun.delay(()=>{
-            this.rigid?.getLinearVelocity(this.currentVelocity);
-            this.currentVelocity.y = 7;
-            this.rigid?.setLinearVelocity(this.currentVelocity);
-        //}, 0.7);
+        this.rigid?.getLinearVelocity(this.currentVelocity);
+        this.currentVelocity.y = 7;
+        this.rigid?.setLinearVelocity(this.currentVelocity);
     }
 
     onRotation(x: number, y: number) {

@@ -6054,7 +6054,7 @@
       "__id__": 223
     },
     "graph": {
-      "__uuid__": "927d6b7b-173b-4707-aeac-57c7759d0e90",
+      "__uuid__": "fc09be0b-4e59-4355-ad55-e9dd5f6b633b",
       "__expectedType__": "cc.animation.AnimationGraph"
     },
     "_id": ""
@@ -6384,7 +6384,7 @@
       "y": 6,
       "z": 0
     },
-    "smoothMove": 15,
+    "smoothMove": 3,
     "angleVertical": 0,
     "angleVerticalMax": 30,
     "angleVerticalMin": -30,
@@ -7000,6 +7000,7 @@
       "__id__": 269
     },
     "moveSpeedRate": 0.5,
+    "angleSpeedRate": 0.05,
     "view": {
       "__id__": 4
     },
@@ -7259,6 +7260,30 @@
         "x": 0,
         "y": 0.2,
         "z": 0
+      },
+      {
+        "__type__": "cc.Vec3",
+        "x": 0.3,
+        "y": 0.2,
+        "z": 0
+      },
+      {
+        "__type__": "cc.Vec3",
+        "x": 0,
+        "y": 0.2,
+        "z": 0.3
+      },
+      {
+        "__type__": "cc.Vec3",
+        "x": -0.3,
+        "y": 0.2,
+        "z": 0
+      },
+      {
+        "__type__": "cc.Vec3",
+        "x": 0,
+        "y": 0.2,
+        "z": -0.3
       }
     ],
     "masks": [
