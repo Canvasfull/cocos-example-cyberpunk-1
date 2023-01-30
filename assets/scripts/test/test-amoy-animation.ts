@@ -130,19 +130,16 @@ export class TestAmoyAnimation extends Component {
         let num_velocity_x = this.linearVelocity.x;
         let num_velocity_y = this.linearVelocity.z;
 
+        this.moveSpeed = linearVelocityLength * this.moveSpeedRate;
+
         // Check rotation.
-        if(num_velocity_x == 0) {
+        if((this.direction_up + this.direction_left + this.direction_right + this.direction_down) == 0 && Math.abs(this.angleVelocity.y) > 1) {
             this.moveSpeed = this.angleVelocity.y * this.angleSpeedRate;
-            num_velocity_x = this.angleVelocity.y;
-            this._animationGraph?.setValue('num_move_speed', this.moveSpeed);
+            num_velocity_x = this.angleVelocity.y / 10;
         }
         
         this._animationGraph?.setValue('num_velocity_x', num_velocity_x);
-        this._animationGraph?.setValue('num_velocity_y', -num_velocity_y); //-(this.direction_down + this.direction_up));
-
-        //const selfLength = Math.sqrt(this.linearVelocity.x * this.linearVelocity.x + this.linearVelocity.z * this.linearVelocity.z);
-        this.moveSpeed = linearVelocityLength * this.moveSpeedRate;
-        //console.log(this.linearVelocity, linearVelocityLength, selfLength, this.moveSpeedRate, this.moveSpeed);
+        this._animationGraph?.setValue('num_velocity_y', -num_velocity_y);
         this._animationGraph?.setValue('num_move_speed', this.moveSpeed);
     }
 
