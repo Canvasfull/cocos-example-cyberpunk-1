@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, v3, Color, geometry, Vec3, PhysicsSystem, math, JsonAsset, IVec3Like, Input, input, EventKeyboard, KeyCode, color } from 'cc';
+import { _decorator, Component, Node, v3, Color, geometry, Vec3, PhysicsSystem, math, JsonAsset, IVec3Like, Input, input, EventKeyboard, KeyCode, color, game } from 'cc';
 import { EDITOR } from 'cc/env';
 import { JsonTool } from '../../core/io/json-tool';
 import { Gizmo, UtilVec3 } from '../../core/util/util';
@@ -104,7 +104,12 @@ export class NavigationRegion extends Component {
             //this.testRandomPath();
 
             // Test Find paths.
-            this.testFindPath();
+            const times = 10000;
+            let time = game.totalTime;
+            for(let i = 0; i < times; i++) {
+                this.testFindPath();
+            }
+            console.log('run ', times, ' time:', game.totalTime - time, ' ms');
 
         }
     }
@@ -191,13 +196,9 @@ export class NavigationRegion extends Component {
         // random end.
         const end = NavPoints.randomPoint();
 
-        //this.findPaths = [];
-        //this.findPaths.push(start.position);
-        //this.findPaths.push(end.position);
-
         this.findPaths = NavPoints.findPaths(start.position, -1, end.position);
 
-        console.log('find paths:', this.findPaths);
+        //console.log('find paths:', this.findPaths);
     }
 }
 

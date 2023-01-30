@@ -173,7 +173,7 @@ export namespace NavPoints {
 
         // find nearest end point.
         const endNearest = findNearestPoint(end);
-        console.log('endNearest id', endNearest);
+        //console.log('endNearest id', endNearest);
 
         // check start equal end.
         if(startNearest === endNearest) {
@@ -217,11 +217,11 @@ export namespace NavPoints {
 
             // find target.
             if(nodeData.id == endNearest) {
-                console.log('find target.', nodeData.id, ' target id:', endNearest);
+                //console.log('find target.', nodeData.id, ' target id:', endNearest);
                 return { node,  g:0, h:0, f:0, parent };
             }
 
-            console.log(start, nodeData);
+            //console.log(start, nodeData);
 
             const g = Vec3.distance(start, nodeData);
             
@@ -267,7 +267,7 @@ export namespace NavPoints {
             const minNodeIndex = findMinCostPoint();
 
             if(minNodeIndex == -1) {
-                console.log('can not find target.');
+                //console.log('can not find target.');
                 return null;
             }
 
@@ -285,7 +285,7 @@ export namespace NavPoints {
             // search neighbors.
             const findPathPoint = searchNeighbor(minNode);
             if(findPathPoint) {
-                console.log('find node target:', findPathPoint);
+                //console.log('find node target:', findPathPoint);
                 return findPathPoint;
             }
 
@@ -309,7 +309,7 @@ export namespace NavPoints {
 
         while(true) {
             index++;
-            console.log('index:', index, 'close table count:', closeTable.length, 'open table count:', openTable.length);
+            //console.log('index:', index, 'close table count:', closeTable.length, 'open table count:', openTable.length);
             if(index > max) break;
             findTargetPoint = find();
             if(findTargetPoint !== undefined) break;
@@ -318,7 +318,7 @@ export namespace NavPoints {
         //calculate paths
         if(findTargetPoint) {
 
-            console.log('find target point:', findTargetPoint);
+            //console.log('find target point:', findTargetPoint);
 
             // push end node.
             paths.push(data.nodes[endNearest]);
