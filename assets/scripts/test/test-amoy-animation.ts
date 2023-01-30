@@ -71,6 +71,7 @@ export class TestAmoyAnimation extends Component {
 
         if(event.keyCode == KeyCode.SPACE) {
             this._animationGraph?.play('trigger_jump', true);
+            this._animationGraph?.setValue('num_jump_speed', 0.8);
         }
 
         if(event.keyCode === KeyCode.KEY_D) {

@@ -3,6 +3,7 @@ import { ActorMoveSlope } from './actor-move-slope';
 import { UtilVec3 } from '../../core/util/util';
 import { SensorSlope } from '../../core/sensor/sensor-slope';
 import { SensorGround } from '../../core/sensor/sensor-ground';
+import { fun } from '../../core/util/fun';
 const { ccclass, property } = _decorator;
 
 
@@ -98,9 +99,11 @@ export class ActorMove extends Component {
 
     jump() {
         //this.rigid?.applyImpulse(this.jumpForce);
-        this.rigid?.getLinearVelocity(this.currentVelocity);
-        this.currentVelocity.y = 7;
-        this.rigid?.setLinearVelocity(this.currentVelocity);
+        //fun.delay(()=>{
+            this.rigid?.getLinearVelocity(this.currentVelocity);
+            this.currentVelocity.y = 7;
+            this.rigid?.setLinearVelocity(this.currentVelocity);
+        //}, 0.7);
     }
 
     onRotation(x: number, y: number) {

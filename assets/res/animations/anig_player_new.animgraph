@@ -9,39 +9,42 @@
         "__id__": 1
       },
       {
-        "__id__": 274
+        "__id__": 240
       }
     ],
     "_variables": {
       "bool_crouch": {
-        "__id__": 341
+        "__id__": 307
       },
       "num_velocity_x": {
-        "__id__": 342
+        "__id__": 308
       },
       "num_velocity_y": {
-        "__id__": 343
+        "__id__": 309
       },
       "trigger_jump": {
-        "__id__": 344
+        "__id__": 310
       },
       "trigger_reload": {
-        "__id__": 345
+        "__id__": 311
       },
       "trigger_fire": {
-        "__id__": 346
+        "__id__": 312
       },
       "bool_iron_sights": {
-        "__id__": 347
+        "__id__": 313
       },
       "bool_shotgun": {
-        "__id__": 348
+        "__id__": 314
       },
       "trigger_hit": {
-        "__id__": 349
+        "__id__": 315
       },
       "num_move_speed": {
-        "__id__": 350
+        "__id__": 316
+      },
+      "num_jump_speed": {
+        "__id__": 317
       }
     }
   },
@@ -58,9 +61,9 @@
     "__type__": "cc.animation.StateMachine",
     "__editorExtras__": {
       "viewport": {
-        "scale": 0.7970113971948669,
-        "top": 207.39684744334295,
-        "left": 509.0105200196053
+        "scale": 0.7818113971948673,
+        "top": 253.41905292185194,
+        "left": 453.7222304675765
       },
       "id": "16734288609270.4351687447096062",
       "clone": null
@@ -85,81 +88,63 @@
         "__id__": 102
       },
       {
-        "__id__": 119
+        "__id__": 116
       },
       {
-        "__id__": 133
+        "__id__": 158
       },
       {
-        "__id__": 142
-      },
-      {
-        "__id__": 184
+        "__id__": 175
       }
     ],
     "_transitions": [
       {
+        "__id__": 182
+      },
+      {
+        "__id__": 185
+      },
+      {
+        "__id__": 188
+      },
+      {
+        "__id__": 191
+      },
+      {
+        "__id__": 194
+      },
+      {
+        "__id__": 195
+      },
+      {
+        "__id__": 198
+      },
+      {
         "__id__": 201
-      },
-      {
-        "__id__": 204
-      },
-      {
-        "__id__": 206
       },
       {
         "__id__": 207
       },
       {
-        "__id__": 210
-      },
-      {
         "__id__": 213
       },
       {
-        "__id__": 216
+        "__id__": 220
       },
       {
-        "__id__": 218
+        "__id__": 227
       },
       {
-        "__id__": 219
+        "__id__": 229
       },
       {
-        "__id__": 221
+        "__id__": 232
       },
       {
-        "__id__": 222
+        "__id__": 235
       },
       {
-        "__id__": 225
-      },
-      {
-        "__id__": 228
-      },
-      {
-        "__id__": 234
-      },
-      {
-        "__id__": 240
-      },
-      {
-        "__id__": 246
-      },
-      {
-        "__id__": 252
-      },
-      {
-        "__id__": 259
-      },
-      {
-        "__id__": 266
-      },
-      {
-        "__id__": 268
-      },
-      {
-        "__id__": 271
+        "__id__": 239
       }
     ],
     "_entryState": {
@@ -175,8 +160,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -722.3360213230051,
-      "centerY": -556.6336072104547,
+      "centerX": -669.6391588341853,
+      "centerY": -555.37892000834,
       "id": "16734288609270.3233892778234533",
       "clone": null
     },
@@ -195,8 +180,8 @@
   {
     "__type__": "cc.animation.State",
     "__editorExtras__": {
-      "centerX": -333.98709200540407,
-      "centerY": -339.5905882098822,
+      "centerX": -271.2527318996663,
+      "centerY": -340.84527541199697,
       "id": "16734288609270.9139124703837702",
       "clone": null
     },
@@ -205,8 +190,8 @@
   {
     "__type__": "cc.animation.SubStateMachine",
     "__editorExtras__": {
-      "centerX": -514.1694054700217,
-      "centerY": -92.27976945972787,
+      "centerX": -664.7318697237924,
+      "centerY": -143.72194474643285,
       "id": "16734288609270.019114391862622204",
       "clone": null
     },
@@ -1286,8 +1271,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -739.1599266129859,
-      "centerY": -45.182480166843476,
+      "centerX": -922.3442581217403,
+      "centerY": -148.06683074025344,
       "id": "16734288609270.3867743477738044",
       "clone": null
     },
@@ -1443,279 +1428,17 @@
     "value": 0
   },
   {
-    "__type__": "cc.animation.SubStateMachine",
-    "__editorExtras__": {
-      "centerX": -971.5345953964104,
-      "centerY": -430.1941257577862,
-      "id": "16734288609280.4069798108934586",
-      "clone": null
-    },
-    "name": "Jump SM",
-    "_components": [],
-    "_stateMachine": {
-      "__id__": 103
-    }
-  },
-  {
-    "__type__": "cc.animation.StateMachine",
-    "__editorExtras__": {
-      "viewport": {
-        "scale": 0.8599999999999999,
-        "top": -2.908161091610083,
-        "left": -137.969940839758
-      },
-      "id": "16734288609280.346566625312819",
-      "clone": null
-    },
-    "_states": [
-      {
-        "__id__": 104
-      },
-      {
-        "__id__": 105
-      },
-      {
-        "__id__": 106
-      },
-      {
-        "__id__": 107
-      },
-      {
-        "__id__": 109
-      }
-    ],
-    "_transitions": [
-      {
-        "__id__": 111
-      },
-      {
-        "__id__": 114
-      },
-      {
-        "__id__": 117
-      },
-      {
-        "__id__": 118
-      }
-    ],
-    "_entryState": {
-      "__id__": 104
-    },
-    "_exitState": {
-      "__id__": 105
-    },
-    "_anyState": {
-      "__id__": 106
-    }
-  },
-  {
-    "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "centerX": -189.53488372093022,
-      "centerY": -4.651162790697697,
-      "id": "16734288609280.6203065730427544",
-      "clone": null
-    },
-    "name": "Entry"
-  },
-  {
-    "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "centerX": 331.3953488372092,
-      "centerY": -15.116279069767415,
-      "id": "16734288609280.9089964846050635",
-      "clone": null
-    },
-    "name": "Exit"
-  },
-  {
-    "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "centerX": 229.06976744186045,
-      "centerY": -240.6976744186047,
-      "id": "16734288609280.6230509178711814",
-      "clone": null
-    },
-    "name": "Any"
-  },
-  {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": 43.77361918604652,
-      "centerY": 92.7209302325582,
-      "id": "16734288609280.1770981971163259",
-      "clone": null
-    },
-    "name": "Jump From Stand IronSights",
-    "_components": [],
-    "motion": {
-      "__id__": 108
-    },
-    "speed": 1,
-    "speedMultiplier": "",
-    "speedMultiplierEnabled": false
-  },
-  {
-    "__type__": "cc.animation.ClipMotion",
-    "__editorExtras__": {
-      "centerX": 0,
-      "centerY": 0,
-      "id": "16734288609280.10386629786932611",
-      "clone": null
-    },
-    "clip": {
-      "__uuid__": "5ffd0866-62c6-40f9-b3b7-7593062998d7@35168",
-      "__expectedType__": "cc.AnimationClip"
-    }
-  },
-  {
-    "__type__": "cc.animation.Motion",
-    "__editorExtras__": {
-      "centerX": 56.68059593023247,
-      "centerY": -82.93023255813966,
-      "id": "16734288609280.2390607646443077",
-      "clone": null
-    },
-    "name": "Jump From Stand",
-    "_components": [],
-    "motion": {
-      "__id__": 110
-    },
-    "speed": 1,
-    "speedMultiplier": "",
-    "speedMultiplierEnabled": false
-  },
-  {
-    "__type__": "cc.animation.ClipMotion",
-    "__editorExtras__": {
-      "centerX": 0,
-      "centerY": 0,
-      "id": "16734288609280.6892002335709129",
-      "clone": null
-    },
-    "clip": {
-      "__uuid__": "654fea2f-b6e5-4b50-961a-76586952f98e@76b06",
-      "__expectedType__": "cc.AnimationClip"
-    }
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.36515937007635624",
-      "clone": null
-    },
-    "from": {
-      "__id__": 104
-    },
-    "to": {
-      "__id__": 107
-    },
-    "conditions": [
-      {
-        "__id__": 112
-      }
-    ]
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 0,
-    "operand": {
-      "__id__": 113
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "bool_iron_sights",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.2254955566861392",
-      "clone": null
-    },
-    "from": {
-      "__id__": 104
-    },
-    "to": {
-      "__id__": 109
-    },
-    "conditions": [
-      {
-        "__id__": 115
-      }
-    ]
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 1,
-    "operand": {
-      "__id__": 116
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "bool_iron_sights",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.25219501755587825",
-      "clone": null
-    },
-    "from": {
-      "__id__": 109
-    },
-    "to": {
-      "__id__": 105
-    },
-    "conditions": [],
-    "duration": 0.4,
-    "relativeDuration": true,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.6
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.7557091378909184",
-      "clone": null
-    },
-    "from": {
-      "__id__": 107
-    },
-    "to": {
-      "__id__": 105
-    },
-    "conditions": [],
-    "duration": 0.4,
-    "relativeDuration": true,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.6
-  },
-  {
-    "__type__": "cc.animation.Motion",
-    "__editorExtras__": {
-      "centerX": -940.756288054209,
-      "centerY": -182.10030090742714,
+      "centerX": -925.700041628832,
+      "centerY": -379.0861916394438,
       "id": "16734288609280.5231661815624162",
       "clone": null
     },
     "name": "Jog",
     "_components": [],
     "motion": {
-      "__id__": 120
+      "__id__": 103
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -1738,32 +1461,32 @@
     "algorithm": 0,
     "_items": [
       {
-        "__id__": 121
+        "__id__": 104
       },
       {
-        "__id__": 123
+        "__id__": 106
       },
       {
-        "__id__": 125
+        "__id__": 108
       },
       {
-        "__id__": 127
+        "__id__": 110
       },
       {
-        "__id__": 129
+        "__id__": 112
       }
     ],
     "paramX": {
-      "__id__": 131
+      "__id__": 114
     },
     "paramY": {
-      "__id__": 132
+      "__id__": 115
     }
   },
   {
     "__type__": "cc.animation.AnimationBlend2DItem",
     "motion": {
-      "__id__": 122
+      "__id__": 105
     },
     "threshold": {
       "__type__": "cc.Vec2",
@@ -1787,7 +1510,7 @@
   {
     "__type__": "cc.animation.AnimationBlend2DItem",
     "motion": {
-      "__id__": 124
+      "__id__": 107
     },
     "threshold": {
       "__type__": "cc.Vec2",
@@ -1811,7 +1534,7 @@
   {
     "__type__": "cc.animation.AnimationBlend2DItem",
     "motion": {
-      "__id__": 126
+      "__id__": 109
     },
     "threshold": {
       "__type__": "cc.Vec2",
@@ -1835,7 +1558,7 @@
   {
     "__type__": "cc.animation.AnimationBlend2DItem",
     "motion": {
-      "__id__": 128
+      "__id__": 111
     },
     "threshold": {
       "__type__": "cc.Vec2",
@@ -1859,7 +1582,7 @@
   {
     "__type__": "cc.animation.AnimationBlend2DItem",
     "motion": {
-      "__id__": 130
+      "__id__": 113
     },
     "threshold": {
       "__type__": "cc.Vec2",
@@ -1893,170 +1616,15 @@
   {
     "__type__": "cc.animation.SubStateMachine",
     "__editorExtras__": {
-      "centerX": -997.8406057852719,
-      "centerY": -300.0005237024342,
-      "id": "16734288609280.9602918387033954",
-      "clone": null
-    },
-    "name": "Jump From Jog",
-    "_components": [],
-    "_stateMachine": {
-      "__id__": 134
-    }
-  },
-  {
-    "__type__": "cc.animation.StateMachine",
-    "__editorExtras__": {
-      "viewport": {
-        "scale": 0.7999999999999998,
-        "top": -18.284832951128323,
-        "left": 170.717559160242
-      },
-      "id": "16734288609280.6614421771388188",
-      "clone": null
-    },
-    "_states": [
-      {
-        "__id__": 135
-      },
-      {
-        "__id__": 136
-      },
-      {
-        "__id__": 137
-      },
-      {
-        "__id__": 138
-      }
-    ],
-    "_transitions": [
-      {
-        "__id__": 140
-      },
-      {
-        "__id__": 141
-      }
-    ],
-    "_entryState": {
-      "__id__": 135
-    },
-    "_exitState": {
-      "__id__": 136
-    },
-    "_anyState": {
-      "__id__": 137
-    }
-  },
-  {
-    "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "centerX": -602.5000000000001,
-      "centerY": -32.5,
-      "id": "16734288609280.089680467944242",
-      "clone": null
-    },
-    "name": "Entry"
-  },
-  {
-    "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.07677813434371461",
-      "clone": null,
-      "centerX": 125,
-      "centerY": 0
-    },
-    "name": "Exit"
-  },
-  {
-    "__type__": "cc.animation.State",
-    "__editorExtras__": {
-      "centerX": -30,
-      "centerY": 140,
-      "id": "16734288609280.5688704945851717",
-      "clone": null
-    },
-    "name": "Any"
-  },
-  {
-    "__type__": "cc.animation.Motion",
-    "__editorExtras__": {
-      "centerX": -264.953125,
-      "centerY": -5.25,
-      "id": "16734288609280.034398739591539496",
-      "clone": null
-    },
-    "name": "Jump From Jog",
-    "_components": [],
-    "motion": {
-      "__id__": 139
-    },
-    "speed": 1,
-    "speedMultiplier": "",
-    "speedMultiplierEnabled": false
-  },
-  {
-    "__type__": "cc.animation.ClipMotion",
-    "__editorExtras__": {
-      "centerX": 0,
-      "centerY": 0,
-      "id": "16734288609280.33986029700916065",
-      "clone": null
-    },
-    "clip": {
-      "__uuid__": "6fd82bf7-a4b0-4725-872f-fbfd0ce57218@4932d",
-      "__expectedType__": "cc.AnimationClip"
-    }
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.4651755284773966",
-      "clone": null
-    },
-    "from": {
-      "__id__": 135
-    },
-    "to": {
-      "__id__": 138
-    },
-    "conditions": []
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.4125533446379228",
-      "clone": null
-    },
-    "from": {
-      "__id__": 138
-    },
-    "to": {
-      "__id__": 136
-    },
-    "conditions": [],
-    "duration": 0.4,
-    "relativeDuration": true,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.6
-  },
-  {
-    "__type__": "cc.animation.SubStateMachine",
-    "__editorExtras__": {
-      "centerX": -730.0811969525284,
-      "centerY": -376.4972933692431,
+      "centerX": -667.3468368467907,
+      "centerY": -380.2613549755873,
       "id": "16734288609280.9801074137812429",
       "clone": null
     },
     "name": "Idle SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 143
+      "__id__": 117
     }
   },
   {
@@ -2072,70 +1640,70 @@
     },
     "_states": [
       {
+        "__id__": 118
+      },
+      {
+        "__id__": 119
+      },
+      {
+        "__id__": 120
+      },
+      {
+        "__id__": 121
+      },
+      {
+        "__id__": 123
+      },
+      {
+        "__id__": 125
+      }
+    ],
+    "_transitions": [
+      {
+        "__id__": 127
+      },
+      {
+        "__id__": 130
+      },
+      {
+        "__id__": 133
+      },
+      {
+        "__id__": 134
+      },
+      {
+        "__id__": 135
+      },
+      {
+        "__id__": 137
+      },
+      {
+        "__id__": 139
+      },
+      {
+        "__id__": 141
+      },
+      {
         "__id__": 144
-      },
-      {
-        "__id__": 145
-      },
-      {
-        "__id__": 146
       },
       {
         "__id__": 147
       },
       {
-        "__id__": 149
+        "__id__": 150
       },
       {
-        "__id__": 151
-      }
-    ],
-    "_transitions": [
-      {
-        "__id__": 153
-      },
-      {
-        "__id__": 156
-      },
-      {
-        "__id__": 159
-      },
-      {
-        "__id__": 160
-      },
-      {
-        "__id__": 161
-      },
-      {
-        "__id__": 163
-      },
-      {
-        "__id__": 165
-      },
-      {
-        "__id__": 167
-      },
-      {
-        "__id__": 170
-      },
-      {
-        "__id__": 173
-      },
-      {
-        "__id__": 176
-      },
-      {
-        "__id__": 180
+        "__id__": 154
       }
     ],
     "_entryState": {
-      "__id__": 144
+      "__id__": 118
     },
     "_exitState": {
-      "__id__": 145
+      "__id__": 119
     },
     "_anyState": {
-      "__id__": 146
+      "__id__": 120
     }
   },
   {
@@ -2179,7 +1747,7 @@
     "name": "Idle Rifle Hip",
     "_components": [],
     "motion": {
-      "__id__": 148
+      "__id__": 122
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -2209,7 +1777,7 @@
     "name": "Idle Rifle Iron Sights",
     "_components": [],
     "motion": {
-      "__id__": 150
+      "__id__": 124
     },
     "speed": 0.2,
     "speedMultiplier": "",
@@ -2239,7 +1807,7 @@
     "name": "Idle Rifle Hip Break2",
     "_components": [],
     "motion": {
-      "__id__": 152
+      "__id__": 126
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -2266,14 +1834,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 144
+      "__id__": 118
     },
     "to": {
-      "__id__": 147
+      "__id__": 121
     },
     "conditions": [
       {
-        "__id__": 154
+        "__id__": 128
       }
     ]
   },
@@ -2281,7 +1849,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 155
+      "__id__": 129
     }
   },
   {
@@ -2297,14 +1865,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 144
+      "__id__": 118
     },
     "to": {
-      "__id__": 149
+      "__id__": 123
     },
     "conditions": [
       {
-        "__id__": 157
+        "__id__": 131
       }
     ]
   },
@@ -2312,7 +1880,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 158
+      "__id__": 132
     }
   },
   {
@@ -2328,10 +1896,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 147
+      "__id__": 121
     },
     "to": {
-      "__id__": 151
+      "__id__": 125
     },
     "conditions": [],
     "duration": 0.3,
@@ -2350,10 +1918,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 151
+      "__id__": 125
     },
     "to": {
-      "__id__": 147
+      "__id__": 121
     },
     "conditions": [],
     "duration": 0.2,
@@ -2372,14 +1940,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 146
+      "__id__": 120
     },
     "to": {
-      "__id__": 145
+      "__id__": 119
     },
     "conditions": [
       {
-        "__id__": 162
+        "__id__": 136
       }
     ],
     "duration": 0.2,
@@ -2402,14 +1970,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 146
+      "__id__": 120
     },
     "to": {
-      "__id__": 145
+      "__id__": 119
     },
     "conditions": [
       {
-        "__id__": 164
+        "__id__": 138
       }
     ],
     "duration": 0.2,
@@ -2432,14 +2000,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 146
+      "__id__": 120
     },
     "to": {
-      "__id__": 145
+      "__id__": 119
     },
     "conditions": [
       {
-        "__id__": 166
+        "__id__": 140
       }
     ],
     "duration": 0.2,
@@ -2462,14 +2030,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 146
+      "__id__": 120
     },
     "to": {
-      "__id__": 145
+      "__id__": 119
     },
     "conditions": [
       {
-        "__id__": 168
+        "__id__": 142
       }
     ],
     "duration": 0.2,
@@ -2484,7 +2052,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 169
+      "__id__": 143
     }
   },
   {
@@ -2500,14 +2068,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 149
+      "__id__": 123
     },
     "to": {
-      "__id__": 147
+      "__id__": 121
     },
     "conditions": [
       {
-        "__id__": 171
+        "__id__": 145
       }
     ],
     "duration": 0.3,
@@ -2522,7 +2090,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 172
+      "__id__": 146
     }
   },
   {
@@ -2538,14 +2106,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 147
+      "__id__": 121
     },
     "to": {
-      "__id__": 149
+      "__id__": 123
     },
     "conditions": [
       {
-        "__id__": 174
+        "__id__": 148
       }
     ],
     "duration": 0.3,
@@ -2560,7 +2128,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 175
+      "__id__": 149
     }
   },
   {
@@ -2576,14 +2144,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 146
+      "__id__": 120
     },
     "to": {
-      "__id__": 145
+      "__id__": 119
     },
     "conditions": [
       {
-        "__id__": 177
+        "__id__": 151
       }
     ],
     "duration": 0.1,
@@ -2598,10 +2166,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 178
+      "__id__": 152
     },
     "rhs": {
-      "__id__": 179
+      "__id__": 153
     }
   },
   {
@@ -2622,14 +2190,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 146
+      "__id__": 120
     },
     "to": {
-      "__id__": 145
+      "__id__": 119
     },
     "conditions": [
       {
-        "__id__": 181
+        "__id__": 155
       }
     ],
     "duration": 0.1,
@@ -2644,10 +2212,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 182
+      "__id__": 156
     },
     "rhs": {
-      "__id__": 183
+      "__id__": 157
     }
   },
   {
@@ -2671,7 +2239,7 @@
     "name": "Hit React SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 185
+      "__id__": 159
     }
   },
   {
@@ -2687,43 +2255,43 @@
     },
     "_states": [
       {
-        "__id__": 186
+        "__id__": 160
       },
       {
-        "__id__": 187
+        "__id__": 161
       },
       {
-        "__id__": 188
+        "__id__": 162
       },
       {
-        "__id__": 189
+        "__id__": 163
       },
       {
-        "__id__": 191
+        "__id__": 165
       }
     ],
     "_transitions": [
       {
-        "__id__": 193
+        "__id__": 167
       },
       {
-        "__id__": 196
+        "__id__": 170
       },
       {
-        "__id__": 197
+        "__id__": 171
       },
       {
-        "__id__": 200
+        "__id__": 174
       }
     ],
     "_entryState": {
-      "__id__": 186
+      "__id__": 160
     },
     "_exitState": {
-      "__id__": 187
+      "__id__": 161
     },
     "_anyState": {
-      "__id__": 188
+      "__id__": 162
     }
   },
   {
@@ -2760,15 +2328,15 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -354.203125,
-      "centerY": -243,
+      "centerX": -362.203125,
+      "centerY": -178,
       "id": "16734288609280.49391407611093396",
       "clone": null
     },
     "name": "Hit React 1",
     "_components": [],
     "motion": {
-      "__id__": 190
+      "__id__": 164
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -2798,7 +2366,7 @@
     "name": "Hit React Crouch",
     "_components": [],
     "motion": {
-      "__id__": 192
+      "__id__": 166
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -2825,14 +2393,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 186
+      "__id__": 160
     },
     "to": {
-      "__id__": 189
+      "__id__": 163
     },
     "conditions": [
       {
-        "__id__": 194
+        "__id__": 168
       }
     ]
   },
@@ -2840,7 +2408,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 195
+      "__id__": 169
     }
   },
   {
@@ -2856,10 +2424,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 189
+      "__id__": 163
     },
     "to": {
-      "__id__": 187
+      "__id__": 161
     },
     "conditions": [],
     "duration": 0.2,
@@ -2878,14 +2446,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 186
+      "__id__": 160
     },
     "to": {
-      "__id__": 191
+      "__id__": 165
     },
     "conditions": [
       {
-        "__id__": 198
+        "__id__": 172
       }
     ]
   },
@@ -2893,7 +2461,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 199
+      "__id__": 173
     }
   },
   {
@@ -2909,10 +2477,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 191
+      "__id__": 165
     },
     "to": {
-      "__id__": 187
+      "__id__": 161
     },
     "conditions": [],
     "duration": 0.2,
@@ -2922,6 +2490,99 @@
     "relativeDestinationStart": false,
     "interruptionSource": 0,
     "_exitCondition": 0.8
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "name": "Jump",
+      "id": "16750448343540.0625520533108499",
+      "clone": null,
+      "centerX": -431.37100906661493,
+      "centerY": -463.91783854585157
+    },
+    "name": "Jump",
+    "_components": [],
+    "motion": {
+      "__id__": 176
+    },
+    "speed": 1,
+    "speedMultiplier": "num_jump_speed",
+    "speedMultiplierEnabled": true
+  },
+  {
+    "__type__": "cc.animation.AnimationBlend1D",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16750448343550.8387382388202556",
+      "clone": null,
+      "autoThreshold": true,
+      "centerX": -86,
+      "centerY": -17,
+      "viewport": {
+        "scale": 1,
+        "top": 0,
+        "left": 0
+      }
+    },
+    "name": "Jump",
+    "_items": [
+      {
+        "__id__": 177
+      },
+      {
+        "__id__": 179
+      }
+    ],
+    "param": {
+      "__id__": 181
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationBlend1DItem",
+    "motion": {
+      "__id__": 178
+    },
+    "threshold": 0
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16750448487950.7283708438081096",
+      "clone": null,
+      "centerX": 36.5,
+      "centerY": -144.5
+    },
+    "clip": {
+      "__uuid__": "654fea2f-b6e5-4b50-961a-76586952f98e@76b06",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationBlend1DItem",
+    "motion": {
+      "__id__": 180
+    },
+    "threshold": 1
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16750449012130.7122264926242792",
+      "clone": null,
+      "centerX": 35.5,
+      "centerY": 84.5
+    },
+    "clip": {
+      "__uuid__": "6fd82bf7-a4b0-4725-872f-fbfd0ce57218@4932d",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableNumber",
+    "variable": "num_move_speed",
+    "value": 0
   },
   {
     "__type__": "cc.animation.AnimationTransition",
@@ -2938,7 +2599,7 @@
     },
     "conditions": [
       {
-        "__id__": 202
+        "__id__": 183
       }
     ],
     "duration": 0.3,
@@ -2953,7 +2614,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 203
+      "__id__": 184
     }
   },
   {
@@ -2965,63 +2626,18 @@
     "__type__": "cc.animation.AnimationTransition",
     "__editorExtras__": {
       "name": "",
-      "id": "16734288609280.39775769149299034",
-      "clone": null
-    },
-    "from": {
-      "__id__": 119
-    },
-    "to": {
-      "__id__": 133
-    },
-    "conditions": [
-      {
-        "__id__": 205
-      }
-    ],
-    "duration": 2,
-    "relativeDuration": false,
-    "exitConditionEnabled": false,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.TriggerCondition",
-    "trigger": "trigger_jump"
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.9059351659477473",
-      "clone": null
-    },
-    "from": {
-      "__id__": 133
-    },
-    "to": {
-      "__id__": 119
-    },
-    "conditions": []
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
       "id": "16734288609280.42570792826040615",
       "clone": null
     },
     "from": {
-      "__id__": 119
+      "__id__": 102
     },
     "to": {
       "__id__": 90
     },
     "conditions": [
       {
-        "__id__": 208
+        "__id__": 186
       }
     ],
     "duration": 0.2,
@@ -3036,7 +2652,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 209
+      "__id__": 187
     }
   },
   {
@@ -3055,11 +2671,11 @@
       "__id__": 90
     },
     "to": {
-      "__id__": 119
+      "__id__": 102
     },
     "conditions": [
       {
-        "__id__": 211
+        "__id__": 189
       }
     ],
     "duration": 0.2,
@@ -3074,7 +2690,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 212
+      "__id__": 190
     }
   },
   {
@@ -3090,14 +2706,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 119
+      "__id__": 102
     },
     "to": {
       "__id__": 6
     },
     "conditions": [
       {
-        "__id__": 214
+        "__id__": 192
       }
     ],
     "duration": 0.3,
@@ -3112,43 +2728,13 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 215
+      "__id__": 193
     }
   },
   {
     "__type__": "cc.animation.BindableBoolean",
     "variable": "bool_crouch",
     "value": false
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.25825774174855787",
-      "clone": null
-    },
-    "from": {
-      "__id__": 90
-    },
-    "to": {
-      "__id__": 102
-    },
-    "conditions": [
-      {
-        "__id__": 217
-      }
-    ],
-    "duration": 0.1,
-    "relativeDuration": false,
-    "exitConditionEnabled": false,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.9
-  },
-  {
-    "__type__": "cc.animation.TriggerCondition",
-    "trigger": "trigger_jump"
   },
   {
     "__type__": "cc.animation.Transition",
@@ -3161,45 +2747,7 @@
       "__id__": 3
     },
     "to": {
-      "__id__": 142
-    },
-    "conditions": []
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.598423130132917",
-      "clone": null
-    },
-    "from": {
-      "__id__": 142
-    },
-    "to": {
-      "__id__": 102
-    },
-    "conditions": [
-      {
-        "__id__": 220
-      }
-    ]
-  },
-  {
-    "__type__": "cc.animation.TriggerCondition",
-    "trigger": "trigger_jump"
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.3639759456239675",
-      "clone": null
-    },
-    "from": {
-      "__id__": 102
-    },
-    "to": {
-      "__id__": 142
+      "__id__": 116
     },
     "conditions": []
   },
@@ -3211,14 +2759,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 142
+      "__id__": 116
     },
     "to": {
       "__id__": 6
     },
     "conditions": [
       {
-        "__id__": 223
+        "__id__": 196
       }
     ]
   },
@@ -3226,7 +2774,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 224
+      "__id__": 197
     }
   },
   {
@@ -3245,11 +2793,11 @@
       "__id__": 6
     },
     "to": {
-      "__id__": 142
+      "__id__": 116
     },
     "conditions": [
       {
-        "__id__": 226
+        "__id__": 199
       }
     ]
   },
@@ -3257,7 +2805,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 227
+      "__id__": 200
     }
   },
   {
@@ -3269,75 +2817,21 @@
     "__type__": "cc.animation.Transition",
     "__editorExtras__": {
       "name": "",
-      "id": "16734288609280.5405041282883656",
-      "clone": null
-    },
-    "from": {
-      "__id__": 142
-    },
-    "to": {
-      "__id__": 90
-    },
-    "conditions": [
-      {
-        "__id__": 229
-      },
-      {
-        "__id__": 232
-      }
-    ]
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 1,
-    "lhs": {
-      "__id__": 230
-    },
-    "rhs": {
-      "__id__": 231
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "num_velocity_x",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 0,
-    "operand": {
-      "__id__": 233
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "bool_iron_sights",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
       "id": "16734288609280.33232561109852665",
       "clone": null
     },
     "from": {
-      "__id__": 142
+      "__id__": 116
     },
     "to": {
       "__id__": 90
     },
     "conditions": [
       {
-        "__id__": 235
+        "__id__": 202
       },
       {
-        "__id__": 238
+        "__id__": 205
       }
     ]
   },
@@ -3345,10 +2839,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 236
+      "__id__": 203
     },
     "rhs": {
-      "__id__": 237
+      "__id__": 204
     }
   },
   {
@@ -3365,61 +2859,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 239
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "bool_iron_sights",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16734288609280.16532396763787682",
-      "clone": null
-    },
-    "from": {
-      "__id__": 142
-    },
-    "to": {
-      "__id__": 119
-    },
-    "conditions": [
-      {
-        "__id__": 241
-      },
-      {
-        "__id__": 244
-      }
-    ]
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 1,
-    "lhs": {
-      "__id__": 242
-    },
-    "rhs": {
-      "__id__": 243
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "num_velocity_x",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 1,
-    "operand": {
-      "__id__": 245
+      "__id__": 206
     }
   },
   {
@@ -3435,17 +2875,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 142
+      "__id__": 116
     },
     "to": {
-      "__id__": 119
+      "__id__": 102
     },
     "conditions": [
       {
-        "__id__": 247
+        "__id__": 208
       },
       {
-        "__id__": 250
+        "__id__": 211
       }
     ]
   },
@@ -3453,10 +2893,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 248
+      "__id__": 209
     },
     "rhs": {
-      "__id__": 249
+      "__id__": 210
     }
   },
   {
@@ -3473,7 +2913,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 251
+      "__id__": 212
     }
   },
   {
@@ -3492,14 +2932,14 @@
       "__id__": 90
     },
     "to": {
-      "__id__": 142
+      "__id__": 116
     },
     "conditions": [
       {
-        "__id__": 253
+        "__id__": 214
       },
       {
-        "__id__": 256
+        "__id__": 217
       }
     ],
     "duration": 0.3,
@@ -3514,10 +2954,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 254
+      "__id__": 215
     },
     "rhs": {
-      "__id__": 255
+      "__id__": 216
     }
   },
   {
@@ -3534,10 +2974,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 257
+      "__id__": 218
     },
     "rhs": {
-      "__id__": 258
+      "__id__": 219
     }
   },
   {
@@ -3558,17 +2998,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 119
+      "__id__": 102
     },
     "to": {
-      "__id__": 142
+      "__id__": 116
     },
     "conditions": [
       {
-        "__id__": 260
+        "__id__": 221
       },
       {
-        "__id__": 263
+        "__id__": 224
       }
     ],
     "duration": 0.1,
@@ -3583,10 +3023,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 261
+      "__id__": 222
     },
     "rhs": {
-      "__id__": 262
+      "__id__": 223
     }
   },
   {
@@ -3603,10 +3043,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 264
+      "__id__": 225
     },
     "rhs": {
-      "__id__": 265
+      "__id__": 226
     }
   },
   {
@@ -3630,11 +3070,11 @@
       "__id__": 5
     },
     "to": {
-      "__id__": 184
+      "__id__": 158
     },
     "conditions": [
       {
-        "__id__": 267
+        "__id__": 228
       }
     ],
     "duration": 0.1,
@@ -3657,14 +3097,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 184
+      "__id__": 158
     },
     "to": {
-      "__id__": 142
+      "__id__": 116
     },
     "conditions": [
       {
-        "__id__": 269
+        "__id__": 230
       }
     ]
   },
@@ -3672,7 +3112,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 270
+      "__id__": 231
     }
   },
   {
@@ -3688,14 +3128,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 184
+      "__id__": 158
     },
     "to": {
       "__id__": 6
     },
     "conditions": [
       {
-        "__id__": 272
+        "__id__": 233
       }
     ]
   },
@@ -3703,7 +3143,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 273
+      "__id__": 234
     }
   },
   {
@@ -3712,9 +3152,72 @@
     "value": false
   },
   {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16750471470120.5205927935026431",
+      "clone": null
+    },
+    "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 175
+    },
+    "conditions": [
+      {
+        "__id__": 236
+      },
+      {
+        "__id__": 237
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_jump"
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 238
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "bool_crouch",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 175
+    },
+    "to": {
+      "__id__": 116
+    },
+    "conditions": [],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
     "__type__": "cc.animation.Layer",
     "_stateMachine": {
-      "__id__": 275
+      "__id__": 241
     },
     "name": "fire",
     "weight": 1,
@@ -3737,49 +3240,49 @@
     },
     "_states": [
       {
-        "__id__": 276
+        "__id__": 242
       },
       {
-        "__id__": 277
+        "__id__": 243
       },
       {
-        "__id__": 278
+        "__id__": 244
       },
       {
-        "__id__": 279
+        "__id__": 245
       },
       {
-        "__id__": 296
+        "__id__": 262
       },
       {
-        "__id__": 297
+        "__id__": 263
       }
     ],
     "_transitions": [
       {
-        "__id__": 334
+        "__id__": 300
       },
       {
-        "__id__": 335
+        "__id__": 301
       },
       {
-        "__id__": 336
+        "__id__": 302
       },
       {
-        "__id__": 338
+        "__id__": 304
       },
       {
-        "__id__": 340
+        "__id__": 306
       }
     ],
     "_entryState": {
-      "__id__": 276
+      "__id__": 242
     },
     "_exitState": {
-      "__id__": 277
+      "__id__": 243
     },
     "_anyState": {
-      "__id__": 278
+      "__id__": 244
     }
   },
   {
@@ -3826,7 +3329,7 @@
     "name": "Fire SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 280
+      "__id__": 246
     }
   },
   {
@@ -3838,43 +3341,43 @@
     },
     "_states": [
       {
-        "__id__": 281
+        "__id__": 247
       },
       {
-        "__id__": 282
+        "__id__": 248
       },
       {
-        "__id__": 283
+        "__id__": 249
       },
       {
-        "__id__": 284
+        "__id__": 250
       },
       {
-        "__id__": 286
+        "__id__": 252
       }
     ],
     "_transitions": [
       {
-        "__id__": 288
+        "__id__": 254
       },
       {
-        "__id__": 291
+        "__id__": 257
       },
       {
-        "__id__": 294
+        "__id__": 260
       },
       {
-        "__id__": 295
+        "__id__": 261
       }
     ],
     "_entryState": {
-      "__id__": 281
+      "__id__": 247
     },
     "_exitState": {
-      "__id__": 282
+      "__id__": 248
     },
     "_anyState": {
-      "__id__": 283
+      "__id__": 249
     }
   },
   {
@@ -3922,7 +3425,7 @@
     "name": "Fire Rifle Iron Sights",
     "_components": [],
     "motion": {
-      "__id__": 285
+      "__id__": 251
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -3953,7 +3456,7 @@
     "name": "Fire Rifle Hip",
     "_components": [],
     "motion": {
-      "__id__": 287
+      "__id__": 253
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -3980,14 +3483,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 281
+      "__id__": 247
     },
     "to": {
-      "__id__": 284
+      "__id__": 250
     },
     "conditions": [
       {
-        "__id__": 289
+        "__id__": 255
       }
     ]
   },
@@ -3995,7 +3498,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 290
+      "__id__": 256
     }
   },
   {
@@ -4011,14 +3514,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 281
+      "__id__": 247
     },
     "to": {
-      "__id__": 286
+      "__id__": 252
     },
     "conditions": [
       {
-        "__id__": 292
+        "__id__": 258
       }
     ]
   },
@@ -4026,7 +3529,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 293
+      "__id__": 259
     }
   },
   {
@@ -4042,10 +3545,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 286
+      "__id__": 252
     },
     "to": {
-      "__id__": 282
+      "__id__": 248
     },
     "conditions": [],
     "duration": 0.1,
@@ -4064,10 +3567,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 284
+      "__id__": 250
     },
     "to": {
-      "__id__": 282
+      "__id__": 248
     },
     "conditions": [],
     "duration": 0.1,
@@ -4100,7 +3603,7 @@
     "name": "Reload SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 298
+      "__id__": 264
     }
   },
   {
@@ -4112,61 +3615,61 @@
     },
     "_states": [
       {
-        "__id__": 299
+        "__id__": 265
       },
       {
-        "__id__": 300
+        "__id__": 266
       },
       {
-        "__id__": 301
+        "__id__": 267
       },
       {
-        "__id__": 302
+        "__id__": 268
       },
       {
-        "__id__": 304
+        "__id__": 270
       },
       {
-        "__id__": 306
+        "__id__": 272
       },
       {
-        "__id__": 308
+        "__id__": 274
       }
     ],
     "_transitions": [
       {
-        "__id__": 310
+        "__id__": 276
       },
       {
-        "__id__": 311
+        "__id__": 277
       },
       {
-        "__id__": 312
+        "__id__": 278
       },
       {
-        "__id__": 313
+        "__id__": 279
       },
       {
-        "__id__": 314
+        "__id__": 280
       },
       {
-        "__id__": 319
+        "__id__": 285
       },
       {
-        "__id__": 324
+        "__id__": 290
       },
       {
-        "__id__": 329
+        "__id__": 295
       }
     ],
     "_entryState": {
-      "__id__": 299
+      "__id__": 265
     },
     "_exitState": {
-      "__id__": 300
+      "__id__": 266
     },
     "_anyState": {
-      "__id__": 301
+      "__id__": 267
     }
   },
   {
@@ -4214,7 +3717,7 @@
     "name": "Reload Rifle Iron-Sights",
     "_components": [],
     "motion": {
-      "__id__": 303
+      "__id__": 269
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -4245,7 +3748,7 @@
     "name": "Reload Rifle Hip",
     "_components": [],
     "motion": {
-      "__id__": 305
+      "__id__": 271
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -4276,7 +3779,7 @@
     "name": "Reload Shotgun Hip",
     "_components": [],
     "motion": {
-      "__id__": 307
+      "__id__": 273
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -4307,7 +3810,7 @@
     "name": "Reload Shotgun Iron-Sights",
     "_components": [],
     "motion": {
-      "__id__": 309
+      "__id__": 275
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -4334,10 +3837,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 304
+      "__id__": 270
     },
     "to": {
-      "__id__": 300
+      "__id__": 266
     },
     "conditions": [],
     "duration": 0.2,
@@ -4356,10 +3859,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 302
+      "__id__": 268
     },
     "to": {
-      "__id__": 300
+      "__id__": 266
     },
     "conditions": [],
     "duration": 0.2,
@@ -4378,10 +3881,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 306
+      "__id__": 272
     },
     "to": {
-      "__id__": 300
+      "__id__": 266
     },
     "conditions": [],
     "duration": 0.2,
@@ -4400,10 +3903,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 308
+      "__id__": 274
     },
     "to": {
-      "__id__": 300
+      "__id__": 266
     },
     "conditions": [],
     "duration": 0.2,
@@ -4422,17 +3925,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 299
+      "__id__": 265
     },
     "to": {
-      "__id__": 304
+      "__id__": 270
     },
     "conditions": [
       {
-        "__id__": 315
+        "__id__": 281
       },
       {
-        "__id__": 317
+        "__id__": 283
       }
     ]
   },
@@ -4440,7 +3943,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 316
+      "__id__": 282
     }
   },
   {
@@ -4452,7 +3955,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 318
+      "__id__": 284
     }
   },
   {
@@ -4468,17 +3971,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 299
+      "__id__": 265
     },
     "to": {
-      "__id__": 302
+      "__id__": 268
     },
     "conditions": [
       {
-        "__id__": 320
+        "__id__": 286
       },
       {
-        "__id__": 322
+        "__id__": 288
       }
     ]
   },
@@ -4486,7 +3989,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 321
+      "__id__": 287
     }
   },
   {
@@ -4498,7 +4001,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 323
+      "__id__": 289
     }
   },
   {
@@ -4514,17 +4017,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 299
+      "__id__": 265
     },
     "to": {
-      "__id__": 306
+      "__id__": 272
     },
     "conditions": [
       {
-        "__id__": 325
+        "__id__": 291
       },
       {
-        "__id__": 327
+        "__id__": 293
       }
     ]
   },
@@ -4532,7 +4035,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 326
+      "__id__": 292
     }
   },
   {
@@ -4544,7 +4047,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 328
+      "__id__": 294
     }
   },
   {
@@ -4560,17 +4063,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 299
+      "__id__": 265
     },
     "to": {
-      "__id__": 308
+      "__id__": 274
     },
     "conditions": [
       {
-        "__id__": 330
+        "__id__": 296
       },
       {
-        "__id__": 332
+        "__id__": 298
       }
     ]
   },
@@ -4578,7 +4081,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 331
+      "__id__": 297
     }
   },
   {
@@ -4590,7 +4093,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 333
+      "__id__": 299
     }
   },
   {
@@ -4606,10 +4109,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 276
+      "__id__": 242
     },
     "to": {
-      "__id__": 296
+      "__id__": 262
     },
     "conditions": []
   },
@@ -4621,10 +4124,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 279
+      "__id__": 245
     },
     "to": {
-      "__id__": 296
+      "__id__": 262
     },
     "conditions": []
   },
@@ -4636,14 +4139,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 296
+      "__id__": 262
     },
     "to": {
-      "__id__": 279
+      "__id__": 245
     },
     "conditions": [
       {
-        "__id__": 337
+        "__id__": 303
       }
     ],
     "duration": 0.3,
@@ -4662,14 +4165,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 296
+      "__id__": 262
     },
     "to": {
-      "__id__": 297
+      "__id__": 263
     },
     "conditions": [
       {
-        "__id__": 339
+        "__id__": 305
       }
     ],
     "duration": 0.3,
@@ -4688,10 +4191,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 297
+      "__id__": 263
     },
     "to": {
-      "__id__": 296
+      "__id__": 262
     },
     "conditions": []
   },
@@ -4712,7 +4215,7 @@
   },
   {
     "__type__": "cc.animation.TriggerVariable",
-    "_flags": 2
+    "_flags": 3
   },
   {
     "__type__": "cc.animation.TriggerVariable",
@@ -4735,6 +4238,11 @@
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.PlainVariable",
+    "_type": 0,
+    "_value": 1
   },
   {
     "__type__": "cc.animation.PlainVariable",
