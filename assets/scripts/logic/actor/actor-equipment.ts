@@ -13,15 +13,10 @@ import { fun } from '../../core/util/fun';
 export class ActorEquipment {
 
     _actor:Actor;
-
     equipPool:{ [key:string]:Node } = {};
-
     equipBoneNode: { [key:string]:Node } = {};
-
     curEquip:Node | undefined;
-
     curData:BagItems | undefined;
-
     stableValue = 1;
 
     constructor(actor:Actor) {

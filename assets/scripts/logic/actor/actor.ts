@@ -18,12 +18,8 @@ let tempAngleVelocity = v3(0, 0, 0);
 
 @ccclass('Actor')
 export class Actor extends ActorBase implements IActorInput {
-    onChangeEquips(): boolean {
-        throw new Error('Method not implemented.');
-    }
 
     _move = v3(0, 0, 0);
-
     _actorBag: ActorBag | undefined;
     _actorEquipment: ActorEquipment | undefined;
     _actorSensorDropItem: ActorSensorDropItem | undefined;
@@ -52,7 +48,7 @@ export class Actor extends ActorBase implements IActorInput {
 
     onUpdate () {
         super.onUpdate();
-        this._updates.push(this.run.bind(this));
+        this._updates.push(this.updateAction.bind(this));
     }
 
     do (name: string) {
@@ -60,7 +56,7 @@ export class Actor extends ActorBase implements IActorInput {
         super.do(name);
     }
 
-    run (deltaTime: number) {
+    updateAction (deltaTime: number) {
 
         if(this._data.hit_recover > 0) {
             this._data.hit_recover -= deltaTime;
@@ -72,7 +68,7 @@ export class Actor extends ActorBase implements IActorInput {
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
         this._actorMove!.speed = canRun ? this._data.run_speed.z :  -this._data.move_speed.z;
-        //this._actorEquipment?.updateAim(this._velocity.z);
+        this._actorEquipment?.updateAim(this._velocity.z);
         this.recoverStrength();
     }
 
@@ -176,6 +172,8 @@ export class Actor extends ActorBase implements IActorInput {
             if(this._data.has_multi_res) this._viewNoWeapon.active = true;
         }
     }
+
+    onChangeEquips(): boolean { return false; }
 
     calculateStrengthUseEquip():boolean {
         
