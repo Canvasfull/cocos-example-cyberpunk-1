@@ -4961,7 +4961,7 @@
     "_mass": 1,
     "_allowSleep": true,
     "_linearDamping": 0.1,
-    "_angularDamping": 0.1,
+    "_angularDamping": 0,
     "_useGravity": true,
     "_linearFactor": {
       "__type__": "cc.Vec3",
@@ -4972,7 +4972,7 @@
     "_angularFactor": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 1,
+      "y": 0,
       "z": 0
     },
     "_id": ""

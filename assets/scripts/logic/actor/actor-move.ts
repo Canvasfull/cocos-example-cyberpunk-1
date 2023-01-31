@@ -87,8 +87,11 @@ export class ActorMove extends Component {
         var angleAbs = Math.abs(angle);
         if (angleAbs > 0.001) {
             var side = Math.sign(-this.currentDirection.clone().cross(this.node.forward).y);
-            var angleVel = new Vec3(0, side * angleAbs * 5, 0);
-            this.rigid?.setAngularVelocity(angleVel);
+            //var angleVel = new Vec3(0, side * angleAbs * 5, 0);
+            //this.rigid?.setAngularVelocity(angleVel);
+            const angle = side * angleAbs * 5 + this.node.eulerAngles.y;
+            this.node.setRotationFromEuler(0, angle, 0);
+            
         }
     }
 

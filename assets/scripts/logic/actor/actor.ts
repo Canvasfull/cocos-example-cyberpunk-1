@@ -35,7 +35,9 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     initView() {
+
         super.initView();
+
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
@@ -44,6 +46,7 @@ export class Actor extends ActorBase implements IActorInput {
         this._forwardNode = UtilNode.find(this.node, 'forwardNode');
         this._viewRoot = UtilNode.find(this.node, 'animation_view');
         this._animationGraph = this._viewRoot.getComponent(ActorAnimationGraph)!;
+
         this.do('play');
     }
 
@@ -64,11 +67,10 @@ export class Actor extends ActorBase implements IActorInput {
             this._actorMove?.stop();
         }
 
-        this._data.changed_strength = false;
         this._fps = game.frameRate as number;
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
-        this._actorMove!.speed = canRun ? this._data.run_speed.z :  -this._data.move_speed.z;
+        this._actorMove!.speed = canRun ? -this._data.run_speed.z :  -this._data.move_speed.z;
         //this._actorEquipment?.updateAim(this._velocity.z);
         this.recoverStrength();
     }
@@ -120,7 +122,6 @@ export class Actor extends ActorBase implements IActorInput {
 
         if (pickedNode !== undefined) {
             if (this._actorBag?.pickedItem(pickedNode.name)) {
-                console.log('picked item:', pickedNode.name);
                 pickedNode.emit('picked');
                 Msg.emit(
                     'msg_tips', 
@@ -158,6 +159,8 @@ export class Actor extends ActorBase implements IActorInput {
     onAim() {
         this._data.is_aim = this._data.is_aim ? false : true;
         this.do(this._data.is_aim ? 'on_aim': 'off_aim');
+        
+        if(this.isPlayer) Msg.emit('msg_change_tps_camera_target', this._data.is_aim? 1 : 0);
     }
     
     onFire() {
@@ -188,7 +191,7 @@ export class Actor extends ActorBase implements IActorInput {
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
         if (canUseEquip) {
             this._data.strength -= this._data.cost_use_equip_strength;
-            this._data.changed_strength = true;
+            this._data.strength = Math.max(this._data.strength, 0);
         }
 
         return canUseEquip;
@@ -198,28 +201,20 @@ export class Actor extends ActorBase implements IActorInput {
         const canRun = this._data.is_run && this._data.strength >= this._data.cost_run_strength;
         if (canRun) {
             this._data.strength -= this._data.cost_run_strength * deltaTime;
-            this._data.changed_strength = true;
+            this._data.strength = Math.max(this._data.strength, 0);
         }
         return canRun;
     }
 
     recoverStrength () {
-        if (this._data.changed_strength) return;
-        if (this._data.is_dead) return;
-        if (!this._data.is_ground) return;
-        if (this._data.is_run) return;
-        if (this._data.strength >= this._data.max_strength) return;
-        this._data.strength += this._data.recover_ground_strength * game.deltaTime;
-        if (this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
-        this._data.changed_strength = true;
-        if (this._data.changed_strength) this.updateStrengthInfo();
-    }
+        if (this._data.is_ground === false) return;
+        if (this._data.is_run === false) return;
 
-    updateStrengthInfo() {
+        this._data.strength += this._data.recover_ground_strength * game.deltaTime;
+        this._data.strength = Math.min(this._data.strength, this._data.max_strength);
         const percent_value = this._data.strength / this._data.max_strength;
-        if(this.isPlayer) {
-            Msg.emit('fil_strength', percent_value);
-        }
+
+        if(this.isPlayer) Msg.emit('fil_strength', percent_value);
     }
 
     lateUpdate(deltaTime:number) {
