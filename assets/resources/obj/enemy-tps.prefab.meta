@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "08f060ec-2871-4c4a-8e6f-5a9195c4bf1b",
+  "uuid": "fe4c9055-79fe-44d8-85f2-e876897534cb",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "player-tps"
+    "syncNodeName": "enemy-tps"
   }
 }

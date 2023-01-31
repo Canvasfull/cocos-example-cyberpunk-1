@@ -2,10 +2,7 @@
 import { _decorator, Component, find, Vec2, PhysicsSystem, input, Input, EventMouse, geometry, Camera, game, EventTouch, director, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
-import { Level } from '../level/level';
-import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
-import { ActorEnemy } from './actor-enemy';
 import { Actor } from './actor';
 
 

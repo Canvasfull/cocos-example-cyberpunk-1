@@ -12,24 +12,27 @@ import { DataEquipInst, DataNavigationInst } from '../data/data-core';
 import { ActorBase } from '../../core/actor/actor-base';
 import { ActorInputBrain } from '../actor/actor-input-brain';
 import { ActorBrain } from '../actor/actor-brain';
+import { ActorSound } from '../actor/actor-sound';
 const { ccclass, property } = _decorator;
 
 export class Level extends Singleton {
 
-    _player: Node | undefined;
-    _enemyList:Node | undefined;
+    
     _action: Action | undefined;
     _data:{[key:string]:any} = {};
     _time: number = 0;
-    _actor:Actor | undefined;
+
     _isStart = false;
     _spawns:{ position:Vec3, size:number }[] = [];
     _cur_spawn_idx = 0;
     _update = null;
     _node:Node | null | undefined;
     _spawn_pos = v3(0, 0, 0);
-    _enemies:Node[] = [];
     _score:number = 0;
+
+    _player:Actor | undefined;
+    _enemies:Node[] = [];
+    _enemyList:Node | undefined;
 
     _objectNode:Node | null | undefined;
 
@@ -82,16 +85,17 @@ export class Level extends Singleton {
     public addPlayer () {
         const point = NavPoints.randomPoint();
         const prefab = ResCache.Instance.getPrefab(this._data.prefab_player);
-        this._player = Res.inst(prefab, this._objectNode!, point.position);
-        //this._actor = this._player.getComponent(Actor)!;
-        //this._actor.isPlayer = true;
-        //this._actor.init('data-player');
-        if (this._actor === null ) {
+        const resPlayer = Res.inst(prefab, this._objectNode!, point.position);
+        this._player = resPlayer.getComponent(Actor)!;
+        if (this._player === null ) {
             throw new Error(`Level add player can not bind Actor Component.`);
         }
+        this._player.isPlayer = true;
+        this._player.init('data-player');
     }
 
     public addEnemy(res:string, groupID:number) {
+        return;
         const point = NavPoints.randomPoint();
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
@@ -114,6 +118,7 @@ export class Level extends Singleton {
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
+        return;
         if (pos === undefined) {
             const point = NavPoints.randomPoint();
             pos = point.position;

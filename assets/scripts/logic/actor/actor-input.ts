@@ -15,7 +15,7 @@ export class ActorInput extends Component implements IActorInput {
     _isOpenEquips = false;
 
     start () {
-        this._actor = Level.Instance._actor;
+        this._actor = Level.Instance._player;
         if(sys.platform === sys.Platform.MOBILE_BROWSER || 
             sys.platform === sys.Platform.ANDROID || 
             sys.platform === sys.Platform.IOS ) {

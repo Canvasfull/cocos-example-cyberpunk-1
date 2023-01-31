@@ -142,7 +142,7 @@ export class ActorBrain extends Component {
             }
         }
 
-        const player = Level.Instance._actor;
+        const player = Level.Instance._player;
 
         // Look at target.
         this._rotation.x = this._targetNode!.worldPosition.x - this._actor!.node.worldPosition.x;
@@ -193,13 +193,13 @@ export class ActorBrain extends Component {
 
     followTarget() {
         // calculate target.
-        this._wayPoints = NavPoints.findPaths(this._actor!.node.worldPosition, this.nearestNode, Level.Instance._actor!.node.worldPosition);
+        this._wayPoints = NavPoints.findPaths(this._actor!.node.worldPosition, this.nearestNode, Level.Instance._player!.node.worldPosition);
 
     }
 
     checkNearPlayer() {
 
-        const player = Level.Instance._actor;
+        const player = Level.Instance._player;
 
         const data = this._actor!._data;
 

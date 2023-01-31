@@ -118,6 +118,13 @@ export class ActorMove extends Component {
 
     }
 
+    stop() {
+        this.rigid!.getLinearVelocity(this.velocity);
+        this.velocity.x = 0;
+        this.velocity.z = 0;
+        this.rigid!.setLinearVelocity(this.velocity);
+    }
+
 
 }
 

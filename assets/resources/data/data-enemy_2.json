@@ -56,6 +56,9 @@
         "laser_gun_0"
     ],
     "ai_nearby_distance": 20,
-    "ai_fire_angle": 10
+    "ai_fire_angle": 10,
+    "linear_velocity_animation_rate":0.5,
+    "angle_velocity_animation_rate":0.05,
+    "angle_velocity_animation_scale":10
     
 }

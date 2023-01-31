@@ -7,8 +7,8 @@ const { ccclass, property } = _decorator;
 
 let _pointerLock = false;
 
-@ccclass('InputKeyboardEight')
-export class InputKeyboardEight extends InputBase {
+@ccclass('InputKeyboard')
+export class InputKeyboard extends InputBase {
 
     move_a = 50;
     move_speed = 50;
@@ -96,20 +96,22 @@ export class InputKeyboardEight extends InputBase {
             return;
         }
         
-        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = -1;
-        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = 1; 
-        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = -1;
-        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 1;
+        if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = 1;
+        if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = -1; 
+        if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 1;
+        if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = -1;
 
 
         if (event.keyCode === KeyCode.SPACE) this._actorInput?.onJump();
         if (event.keyCode === KeyCode.KEY_C) this._actorInput?.onCrouch();
-        if (event.keyCode === KeyCode.KEY_Z) this._actorInput?.onProne();
+        //if (event.keyCode === KeyCode.KEY_Z) this._actorInput?.onProne();
         if (event.keyCode === KeyCode.KEY_E) this._actorInput?.onPick();
         if (event.keyCode === KeyCode.KEY_G) this._actorInput?.onDrop();
         if (event.keyCode === KeyCode.KEY_R) this._actorInput?.onReload();
 
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(true);
+
+
 
     }
 
@@ -118,7 +120,6 @@ export class InputKeyboardEight extends InputBase {
         if (event.keyCode === 0 || this._key_count <= 0) {
             this._pressQ = false;
             this.onMoveEnd();
-            this.onUpdateMove();
             console.log('error keyboard event do.');
             return;
         }
@@ -137,8 +138,6 @@ export class InputKeyboardEight extends InputBase {
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.direction_down = 0; 
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 0;
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 0;
-        this.onMove();
-
 
         if (this._dir.x === 0 && this._dir.z === 0) this.onMoveEnd();
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
@@ -183,36 +182,18 @@ export class InputKeyboardEight extends InputBase {
         this._dir.x = this.direction_left + this.direction_right;
         this._dir.z = this.direction_up + this.direction_down;
         this._dir.y = 0;
-        UtilVec3.copy(this._move_v3, this._dir);
-        this.onUpdateMove();
+        this._actorInput?.onMove(this._dir.normalize());
     }
 
     onMoveEnd() {
-        this._move = 0.1;
-        this._dir.x = 0;
-        this._dir.y = 0;
-        this._dir.z = 0;
-        this._v_increase_move = 0;
-        this.onUpdateMove();
+        this.direction_up = 0;
+        this.direction_down = 0;
+        this.direction_left = 0;
+        this.direction_right = 0;
     }
-
-    onUpdateMove() {
-        this._v_increase_move += this.move_a * game.deltaTime;
-        this._move += (this.move_speed + this._v_increase_move) * game.deltaTime;
-        if (this._move > 1) this._move = 1;
-        this._move_v3.normalize().multiplyScalar(this._move);
-        if (this._move_v3.length() !== 0) UtilVec3.copy(this._move_dir, this._move_v3);
-        this._actorInput?.onMove(this._move_v3);
-    }
-
+    
     update(deltaTime:number) {
-        /*
-        if(document.pointerLockElement === null && this._isPointerLock) {
-            console.log('enter event mouse pointer lock. exitPointerLock.');
-            document.exitPointerLock();
-            this._isPointerLock = false;
-        }
-        */
+        this.onMove();
     }
 }
 

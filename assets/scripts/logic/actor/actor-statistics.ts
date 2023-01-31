@@ -22,7 +22,7 @@ export class ActorStatistics extends Component {
 
     update(deltaTime: number) {
 
-        this.actor?._rigid.getLinearVelocity(this._velocity);
+        this.actor?._actorMove?.rigid?.getLinearVelocity(this._velocity);
 
         this._velocity.y = 0;
 

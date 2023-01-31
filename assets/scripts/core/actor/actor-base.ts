@@ -12,19 +12,20 @@ const { ccclass, property } = _decorator;
 @ccclass('ActorBase')
 export class ActorBase extends Component {
 
-    _anim: SkeletalAnimation = Object.create(null);
-    _animationGraph: ActorAnimationGraph = Object.create(null);
     _action: ActionActor | undefined;
     _data:KeyAnyType = {};
     _updates: Function[] = [];
+
     _dir = new Vec3(0, 0, 0);
     _curDir = new Vec3(0, 0, 0);
-    _view: Node = Object.create(null);
-    _angleHead = 0;
+
     _angleVertical = 0;
     _groupIndex = -1;
 
     isPlayer = false;
+    
+    _anim: SkeletalAnimation | undefined;
+    _animationGraph: ActorAnimationGraph | undefined;
 
     _actionUpdate = () => { };
 

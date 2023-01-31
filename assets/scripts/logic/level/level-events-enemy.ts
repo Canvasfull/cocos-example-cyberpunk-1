@@ -57,7 +57,7 @@ export class LevelEventsEnemy extends Component {
         }
         const currentIndex = this.probability.weights_group[occurGroupIndex];
         const res = Level.Instance._data.enemies[currentIndex];
-        const enemy = Level.Instance.addEnemy(res, occurGroupIndex);
+        Level.Instance.addEnemy(res, occurGroupIndex);
         this.counter++;
         this.groupCounter![occurGroupIndex]++;
 

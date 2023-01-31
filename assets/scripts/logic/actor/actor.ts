@@ -1,18 +1,20 @@
 
-import { _decorator, RigidBody, Vec3, v3, game, Node, math } from 'cc';
+import { _decorator, Vec3, v3, game, Node, RigidBody, math } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { IActorInput } from '../../core/input/IActorInput';
 import { Local } from '../../core/localization/local';
 import { Msg } from '../../core/msg/msg';
-import { Res } from '../../core/res/res';
-import { UtilVec3, UtilNode } from '../../core/util/util';
+import { UtilNode } from '../../core/util/util';
 import { ActorAnimationGraph } from './actor-animation-graph';
 import { ActorBag } from './actor-bag';
 import { ActorEquipment } from './actor-equipment';
 import { ActorSensorDropItem } from './actor-sensor-drop-item';
-import { ActorSound } from './actor-sound';
-import { ActorMoveSlope } from './actor-move-slope';
+import { ActorMove } from './actor-move';
+import { SensorGround } from '../../core/sensor/sensor-ground';
 const { ccclass } = _decorator;
+
+let tempLinearVelocity = v3(0, 0, 0);
+let tempAngleVelocity = v3(0, 0, 0);
 
 @ccclass('Actor')
 export class Actor extends ActorBase implements IActorInput {
@@ -20,24 +22,17 @@ export class Actor extends ActorBase implements IActorInput {
         throw new Error('Method not implemented.');
     }
 
-    _velocity = v3(0, 0, 0);
-    _velocityLocal = v3(0, 0, 0);
-    _rigid: RigidBody = Object.create(null);
-
     _move = v3(0, 0, 0);
-    _force = v3(0, 0, 0);
-    _areaForce = v3(0, 0, 0);
-    
-    //_actorBuff: ActorBuff | undefined;
+
     _actorBag: ActorBag | undefined;
     _actorEquipment: ActorEquipment | undefined;
     _actorSensorDropItem: ActorSensorDropItem | undefined;
+    _actorSensorGround: SensorGround | undefined;
+    _actorMove: ActorMove | undefined;
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node | undefined;
     _viewRoot:Node | undefined;
     _fps = 0;
-
-    _actorMoveSlope:ActorMoveSlope | undefined;
 
     get noAction () {
         return this._data.is_dead || this._data.is_win;
@@ -45,74 +40,19 @@ export class Actor extends ActorBase implements IActorInput {
 
     initView() {
         super.initView();
-        this.node.setScale(v3(1, 1, 1).multiplyScalar(this._data.size));
-        this._rigid = this.node.getComponent(RigidBody)!;
-        this._rigid.useCCD = true;
-        //this._actorBuff = new ActorBuff(this);
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
-        this._actorMoveSlope = this.node.getComponent(ActorMoveSlope)!;
-        this._forwardNode = UtilNode.find(this.node, 'camera_root');
-
-        if(!this._forwardNode) {
-            console.log('can not find forward.');
-        }
-
-        this._viewRoot = UtilNode.getChildByName(this.node, 'view_root');
-
-        var load = async ()=> {
-            Res.loadPrefab(this._data['res'], (err, asset) => {
-                if (asset) {
-                    let role_node = UtilNode.find(this.node, 'view_point');
-                    this._view = Res.inst(asset, role_node);
-                    this._animationGraph = this._view.addComponent(ActorAnimationGraph);
-                    if(this.isPlayer) {
-                        const actorSound = this._view.addComponent(ActorSound);
-                        actorSound.init(this);
-                    }
-                    this.do('play');
-                    //if (!Guide.Instance._has_guide) this.do('play');
-                }
-            });
-        }
-        load();
-    }
-
-    addAreaForce (force: Vec3) {
-        if (this._data.is_glide) {
-            UtilVec3.copy(this._areaForce, force);
-            this._rigid.applyForce(this._areaForce);
-        }
-    }
-
-    onBind () {
-        super.onBind();
-        this.node.on('addAreaForce', this.addAreaForce, this);
-        Msg.bind('guide_end', this.guide_end, this);
-    }
-
-    offBind () {
-        super.offBind();
-        Msg.off('guide_end', this.guide_end);
-        this.node.off('addAreaForce', this.addAreaForce, this);
-        //this._actorBuff?.clear();
-        //this._actorBuff = undefined;
-    }
-
-    public guide_end() {
+        this._actorMove = this.getComponent(ActorMove)!;
+        this._forwardNode = UtilNode.find(this.node, 'forwardNode');
+        this._viewRoot = UtilNode.find(this.node, 'animation_view');
+        this._animationGraph = this._viewRoot.getComponent(ActorAnimationGraph)!;
         this.do('play');
     }
 
     onUpdate () {
         super.onUpdate();
         this._updates.push(this.run.bind(this));
-    }
-
-    offUpdate () {
-        super.offUpdate();
-        this._rigid.enabled = false;
-        this._rigid.setLinearVelocity(new Vec3(0, 0, 0));
     }
 
     do (name: string) {
@@ -124,139 +64,61 @@ export class Actor extends ActorBase implements IActorInput {
 
         if(this._data.hit_recover > 0) {
             this._data.hit_recover -= deltaTime;
-            this._rigid.getLinearVelocity(this._velocity);
-            this._velocity.x = 0;
-            this._velocity.z = 0;
-            this._rigid.setLinearVelocity(this._velocity);
+            this._actorMove?.stop();
         }
 
         this._data.changed_strength = false;
-
-        //this._actorBuff?.update(deltaTime);
         this._fps = game.frameRate as number;
-        this._rigid.getLinearVelocity(this._velocity);
-        UtilVec3.copy(this._velocityLocal, Vec3.ZERO);
-
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
-        if (this._move.z > 0) this._velocityLocal.z = this._data.move_speed.y;
-        if (this._move.z < 0) this._velocityLocal.z = canRun? -this._data.run_speed.z : -this._data.move_speed.z;
-        if (this._move.x !== 0) this._velocityLocal.x = this._data.move_speed.x * this._move.x;
-
-        // look at slope.
-        const slopeMove = this._actorMoveSlope?.updateSlope(this._move);
-        UtilVec3.copy(this._move, slopeMove!);
-
-        //rotate y.
-        Vec3.rotateY(this._velocityLocal, this._velocityLocal, Vec3.ZERO, this.node.eulerAngles.y * Math.PI / 180);
-        this._velocity.x = math.lerp(this._velocity.x, this._velocityLocal.x, deltaTime * 5);
-        this._velocity.z = math.lerp(this._velocity.z, this._velocityLocal.z, deltaTime * 5);
-
-        this._actorEquipment?.updateAim(this._velocity.z);
-        this._rigid.setLinearVelocity(this._velocity);
-
-        UtilVec3.copy(this._curDir, this._dir);
-        var angle = Vec3.angle(this._curDir, this.node.forward);
-        var angleAbs = Math.abs(angle);
-        if (angleAbs > 0.001) {
-            var side = Math.sign(-this._curDir.clone().cross(this.node.forward).y);
-            var angleVel = new Vec3(0, side * angleAbs * 5, 0);
-            this._rigid.setAngularVelocity(angleVel);
-        }
-
+        this._actorMove!.speed = canRun ? this._data.run_speed.z :  -this._data.move_speed.z;
+        //this._actorEquipment?.updateAim(this._velocity.z);
         this.recoverStrength();
-        
-        if (this._data.changed_strength) this.updateStrengthInfo();
-    }
-
-    onBuff(key:string) {
-        //this._actorBuff?.add(key);
-    }
-
-    updateGlide (deltaTime: number) {
-        this._rigid.getLinearVelocity(this._velocity);
-        if (this._data.is_glide && this._velocity.y < 0 && this._areaForce.y <= 0) {
-            this._velocity.y = this._data.glide_speed_y;
-            this._rigid.setLinearVelocity(this._velocity);
-        }
-
-        this._areaForce.y = 0;
     }
 
     onJump () {
 
-        if (this._data.is_win || this._data.is_dead) return;
-        //console.log('is jump:', this._data.is_jump, 'is ground:', this._data.is_ground);
-        if (this._data.is_ground) {
-            console.log('do jump action');
-            this.do('jump');
+        console.log(this._data.strength, this._data.cost_jump_strength);
+        if (this._data.strength >= this._data.cost_jump_strength) {
+            this._data.strength -= this._data.cost_jump_strength;
         }
+        
+        this.do('jump');
     }
 
     onGround () {
-        //if(!this._data.is_ground) 
         this.do('on_ground');
     }
 
     offGround () {
-        //if(this._data.is_ground) 
         this.do('off_ground');
     }
 
-    onWin () {
-        this._rigid.clearVelocity();
-        this._rigid.clearForces();
-    }
+    onWin () { }
 
     jump () {
-        
-        console.log(this._data.strength, this._data.cost_jump_strength);
-        if (this._data.strength >= this._data.cost_jump_strength) {
-            this._data.strength -= this._data.cost_jump_strength;
-            this._rigid.applyImpulse(v3(0, this._data.jump_force_y, 0));
-            this._data.changed_strength = true;
-        }
-
+        this._actorMove?.jump();
     }
 
     onMove (move: Vec3) {
-        if (this._data.is_dead) UtilVec3.copy(this._move, Vec3.ZERO);
-        else UtilVec3.copy(this._move, move);
+        this._actorMove?.moveDirection(move); 
     }
 
-    onRotation (x: number, y: number) {
-
-        if (this._data.is_dead) return;
-
-        this._angleHead += x;
-        this._dir.z = -Math.cos(Math.PI / 180.0 * this._angleHead);
-        this._dir.x = Math.sin(Math.PI / 180.0 * this._angleHead);
-        this._angleVertical -= y;
-
-        if (this._angleVertical >= this._data.angle_vertical_max) 
-            this._angleVertical = this._data.angle_vertical_max;
-
-        if (this._angleVertical <= this._data.angle_vertical_min)
-            this._angleVertical = this._data.angle_vertical_min;
-
-    }
+    onRotation (x: number, y: number) { this._actorMove?.onRotation(x, y); }
 
     onDir(x: number, z:number) {
         this._dir.z = z;
         this._dir.x = x;
     }
     
-    onPause() {
-        
-    }
+    onPause() {}
 
-    onRun(isRun:boolean) {
-        this._data.is_run = isRun;
-    }
+    onRun(isRun:boolean) { this._data.is_run = isRun; }
 
     onPick() {
 
         var pickedNode = this._actorSensorDropItem?.getPicked();
+
         if (pickedNode !== undefined) {
             if (this._actorBag?.pickedItem(pickedNode.name)) {
                 console.log('picked item:', pickedNode.name);
@@ -284,31 +146,14 @@ export class Actor extends ActorBase implements IActorInput {
 
     onCrouch() {
 
-        this._data.is_crouch = !this._data.is_crouch;
+        this._data.is_crouch = this._data.is_crouch ? false : true;
 
         // set view height.
         // set physic collider height.
         // set hit part height.
-        if (this._data.is_crouch === true) {
-            this._viewRoot?.setPosition(0, this._data.crouch_height, 0);
-        }else{
-            this._viewRoot?.setPosition(0, this._data.normal_height, 0);
-        }
+        this._animationGraph?.play('bool_crouch', this._data.is_crouch);
+        Msg.emit('msg_change_tps_camera_height', this._data.is_crouch ? this._data.stand_camera_height : this._data.crouch_camera_height);
 
-
-    }
-
-    onProne() {
-        this._data.is_prone = !this._data.is_prone;
-
-        // set view height.
-        // set physic collider height.
-        // set hit part height.
-        if (this._data.is_prone === true) {
-            this._viewRoot?.setPosition(0, this._data.prone_height, 0); 
-        }else{
-            this._viewRoot?.setPosition(0, this._data.normal_height, 0);
-        }
     }
     
     onFire() {
@@ -335,7 +180,6 @@ export class Actor extends ActorBase implements IActorInput {
     calculateStrengthUseEquip():boolean {
         
         const canUseEquip = this._data.strength >= this._data.cost_use_equip_strength;
-        //console.log(this._data.strength, this._data.cost_use_equip_strength);
         if (canUseEquip) {
             this._data.strength -= this._data.cost_use_equip_strength;
             this._data.changed_strength = true;
@@ -362,6 +206,7 @@ export class Actor extends ActorBase implements IActorInput {
         this._data.strength += this._data.recover_ground_strength * game.deltaTime;
         if (this._data.strength >= this._data.max_strength) this._data.strength = this._data.max_strength;
         this._data.changed_strength = true;
+        if (this._data.changed_strength) this.updateStrengthInfo();
     }
 
     updateStrengthInfo() {
@@ -371,5 +216,54 @@ export class Actor extends ActorBase implements IActorInput {
         }
     }
 
+    lateUpdate(deltaTime:number) {
+
+        // Synchronize animation setup data.
+        const rigidBody = this._actorMove?.rigid;
+
+        rigidBody!.getLinearVelocity(tempLinearVelocity);
+        rigidBody!.getAngularVelocity(tempAngleVelocity);
+
+        tempLinearVelocity.y = 0;
+        const linearVelocityLength = tempLinearVelocity.length();
+        const eulerAnglesY = rigidBody!.node.eulerAngles.y;
+
+        //rotate y.
+        Vec3.rotateY(tempLinearVelocity, tempLinearVelocity, Vec3.ZERO, math.toRadian(-eulerAnglesY));
+
+        let num_velocity_x = tempLinearVelocity.x;
+        let num_velocity_y = tempLinearVelocity.z;
+
+        let moveSpeed = linearVelocityLength * this._data.linear_velocity_animation_rate;
+
+        // Check rotation.
+        if(linearVelocityLength < 0.01 && Math.abs(tempAngleVelocity.y) > 1) {
+            moveSpeed = tempAngleVelocity.y * this._data.angle_velocity_animation_rate;
+            num_velocity_x = tempAngleVelocity.y / this._data.angle_velocity_animation_scale;
+        }
+        
+        this._animationGraph?.setValue('num_velocity_x', num_velocity_x);
+        this._animationGraph?.setValue('num_velocity_y', -num_velocity_y);
+        this._animationGraph?.setValue('num_move_speed', moveSpeed);
+    } 
+
 }
         
+
+/*
+var load = async ()=> {
+    Res.loadPrefab(this._data['res'], (err, asset) => {
+        if (asset) {
+            let role_node = UtilNode.find(this.node, 'view_point');
+            this._view = Res.inst(asset, role_node);
+            this._animationGraph = this._view.addComponent(ActorAnimationGraph);
+            if(this.isPlayer) {
+                const actorSound = this._view.addComponent(ActorSound);
+                actorSound.init(this);
+            }
+            this.do('play');
+        }
+    });
+}
+load();
+*/

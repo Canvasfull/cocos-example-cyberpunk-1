@@ -252,7 +252,7 @@ export class GrpSelectEquips extends UICom {
     }
 
     public on(): void {
-        const _player = Level.Instance._actor; 
+        const _player = Level.Instance._player; 
         // set equip info.
         const data = _player._data.items;
         const itemsName = _player._data.items_index;
@@ -270,7 +270,7 @@ export class GrpSelectEquips extends UICom {
 
     public off(): void {
         // off ui panel then.
-        Level.Instance._actor.onEquip(this._curIndex);
+        Level.Instance._player.onEquip(this._curIndex);
     }
 
 }
@@ -309,7 +309,7 @@ export class GrpEquipInfo extends UICom {
         super(node);
         this.txt_equip_info = UtilNode.getChildComponent(this._node, 'txt_equip_info', Label);
         Msg.on('msg_update_equip_info',()=>{
-            const _player = Level.Instance._actor;
+            const _player = Level.Instance._player;
             const items = _player._data.items;
             const items_index = _player._data.items_index;
             const cur_equip_bag_index = _player._data.cur_equip_bag_index;
@@ -345,7 +345,7 @@ export class GrpBag extends UICom {
             this.list[i] = new GrpBagItem(itemRoot.children[i], i + 1);
         }
         Msg.on('msg_update_bag', ()=>{
-            const _player = Level.Instance._actor;
+            const _player = Level.Instance._player;
             // set equip info.
             const data = _player._data.items;
             const itemsName = _player._data.items_index;
@@ -363,7 +363,7 @@ export class GrpBag extends UICom {
         })
 
         Msg.on('msg_change_equip', ()=> {
-            const _player = Level.Instance._actor;
+            const _player = Level.Instance._player;
             const cur_equip_bag_index = _player._data.cur_equip_bag_index;
             const hasHighLight = cur_equip_bag_index !== -1;
             this.img_highlight.active = hasHighLight;
@@ -465,16 +465,18 @@ export class GrpMap extends UICom {
         const scale_x = map_width / world_map_width;
         const scale_y = map_height / world_map_height;
 
-        Msg.on('msg_update_map', ()=>{
+        Msg.on('msg_update_map', ()=>{ 
 
-            UtilVec3.copy(position, Level.Instance._actor.node.position);
-            const y = position.x * scale_x;
-            const x = position.z * scale_y;
-            position.z = 0;
-            position.x = -x;
-            position.y = -y;
-            
-            this.map.setPosition(position);
+            const player = Level.Instance._player;
+            if(player !== undefined) {
+                UtilVec3.copy(position, Level.Instance._player.node.position);
+                const y = position.x * scale_x;
+                const x = position.z * scale_y;
+                position.z = 0;
+                position.x = -x;
+                position.y = -y; 
+                this.map.setPosition(position);
+            }
 
             const enemies = Level.Instance._enemies;
             const enemyCount = enemies.length;

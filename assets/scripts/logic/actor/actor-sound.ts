@@ -18,8 +18,8 @@ export class ActorSound extends Component {
 
     actor: Actor | undefined;
 
-    init (actor: Actor) {
-        this.actor = actor;
+    start() {
+        this.actor = this.getComponent(Actor)!;
         this._data = this.actor._data;
         Msg.on('msg_walk_sfx', this.walkSfx.bind(this));
     }
@@ -31,7 +31,7 @@ export class ActorSound extends Component {
     update(deltaTime:number) {
 
         if(this._data.is_ground)
-            this._currentStepLength += Math.abs(deltaTime * this.actor!._velocityLocal.length());
+            this._currentStepLength += Math.abs(deltaTime * this.actor!._actorMove!.velocityLocal?.length());
 
         if(this._currentStepLength >= this.stepLength) {
             this.walkSfx();

@@ -2,8 +2,8 @@
     "name":"Cyberpunk Scene",
     "total_time":300,
     "level_events":"level_events",
-    "prefab_player":"player-test",
-    "prefab_enemy":"enemy",
+    "prefab_player":"player-tps",
+    "prefab_enemy":"enemy-tps",
     "prefab_drop_item":"drop_item",
     "enemies":["enemy_0", "enemy_1", "enemy_2", "boss_0"],
     "score_level":[

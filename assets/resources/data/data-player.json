@@ -67,5 +67,10 @@
         "machine_gun_0","machine_gun_1",
         "grenade_0","grenade_1",
         "axe_0"
-    ]
+    ],
+    "linear_velocity_animation_rate":0.5,
+    "angle_velocity_animation_rate":0.05,
+    "angle_velocity_animation_scale":10,
+    "stand_camera_height": 1,
+    "crouch_camera_height": 1.377
 }
