@@ -1,6 +1,5 @@
 import { _decorator, EventKeyboard, input, Input, KeyCode, game, v3, clamp, EventMouse, EventTouch, Canvas, v2, sys } from 'cc';
 import { Msg } from '../msg/msg';
-import { UtilVec3 } from '../util/util';
 import { InputBase } from './input-base';
 import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;

@@ -68,7 +68,7 @@ export class Actor extends ActorBase implements IActorInput {
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
         this._actorMove!.speed = canRun ? this._data.run_speed.z :  -this._data.move_speed.z;
-        this._actorEquipment?.updateAim(this._velocity.z);
+        //this._actorEquipment?.updateAim(this._velocity.z);
         this.recoverStrength();
     }
 

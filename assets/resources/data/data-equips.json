@@ -10,6 +10,8 @@
         "stable_value":1.5,
         "stable_min_value": 0.5,
         "fov":45,
+        "bag_slot":0,
+        "bag_size":0.7,
         "damage":{
             "distance": 50,
             "range":1,
@@ -47,6 +49,8 @@
         "stable_value":1.5,
         "stable_min_value":0.5,
         "fov":45,
+        "bag_slot":0,
+        "bag_size":0.7,
         "damage":{
             "distance": 50,
             "range":1,
@@ -84,6 +88,8 @@
         "stable_value":2,
         "stable_min_value":1,
         "fov":48,
+        "bag_slot":3,
+        "bag_size":1,
         "damage":{
             "distance": 50,
             "range":1,
@@ -120,6 +126,8 @@
         "stable_value":2,
         "stable_min_value":1,
         "fov":60,
+        "bag_slot":3,
+        "bag_size":1,
         "damage":{
             "distance": 50,
             "range":1,
@@ -157,6 +165,8 @@
         "projectile_res":"projectile_grenade_0",
         "sound_explode":"sfx_grenade_explode",
         "fov":45,
+        "bag_slot":1,
+        "bag_size":1,
         "damage":{
             "distance":15,
             "range": 5,
@@ -195,6 +205,8 @@
         "projectile_res":"projectile_grenade_1",
         "sound_explode":"sfx_grenade_explode",
         "fov":45,
+        "bag_slot":1,
+        "bag_size":1,
         "damage":{
             "distance": 15,
             "range": 5,
@@ -229,6 +241,8 @@
         "drop_effect_index":0,
         "stable_value":0,
         "fov":45,
+        "bag_slot":2,
+        "bag_size":1,
         "damage":{
             "distance": 3,
             "range": 5,

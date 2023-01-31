@@ -5,6 +5,7 @@ import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
 import { BagItems } from './actor-bag';
 import { UtilNode } from '../../core/util/util';
 import { Msg } from '../../core/msg/msg';
+import { ActorAnimationGraph } from './actor-animation-graph';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorEquipBase')
@@ -12,7 +13,7 @@ export class ActorEquipBase extends Component {
 
     point_shoot:Node | undefined;
 
-    _animationGraph:ActorAnimationGraphGroup | undefined;
+    _animationGraph:ActorAnimationGraph | undefined;
 
     _view:Node | undefined;
 
@@ -30,13 +31,8 @@ export class ActorEquipBase extends Component {
 
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
-        this._animationGraph = this.getComponent(ActorAnimationGraphGroup)!;
         this._muzzleNode = UtilNode.find(this.node, 'fx_muzzle');
         this._view = this.node.getChildByName('view')!;
-        if (this.point_shoot === undefined || this._animationGraph === undefined || this._view === undefined) {
-            throw new Error(`${this.node.name} ActorEquipBase preload init error: may be lose point_shoot or animation graph or view node.`);
-        }
-
         this.node.on('do', this.do, this);
         this.node.on('init', this.init, this);
     }
@@ -48,6 +44,7 @@ export class ActorEquipBase extends Component {
         this._action = new ActionActorEquip(this._data.action, this);
         this._bagData.lastUseTime = game.totalTime/1000;
         this.isPlayer = this._actor.isPlayer;
+        this._animationGraph = this._actor._animationGraph;
     }
 
     onDestroy() {

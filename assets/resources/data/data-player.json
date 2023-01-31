@@ -61,12 +61,10 @@
     "nearest_node":-1,
     "default_equip_index": 0,
     "bags":["handgun_0", "machine_gun_1", "axe_0","handgun_1","grenade_0","grenade_1","machine_gun_0"],
-    "weapon_bone":"bone_point_hand",
+    "weapon_bone":"weapon_root",
     "cache_weapons":[
         "handgun_0","handgun_1",
-        "machine_gun_0","machine_gun_1",
-        "grenade_0","grenade_1",
-        "axe_0"
+        "machine_gun_0","machine_gun_1"
     ],
     "linear_velocity_animation_rate":0.5,
     "angle_velocity_animation_rate":0.05,

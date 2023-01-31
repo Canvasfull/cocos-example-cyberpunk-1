@@ -21,14 +21,14 @@ export class ActorEquipment {
 
     constructor(actor:Actor) {
         this._actor = actor;
-        this.equipBoneNode = UtilNode.getChildrenByNameBlur(this._actor.node, 'bone_point_');
+        this.equipBoneNode = UtilNode.getChildrenByNameBlur(this._actor.node, 'weapon_root');
 
         //cache weapons.
         const weapons = this._actor._data.cache_weapons;
         const count = weapons.length;
         for(let i = 0; i < count; i++) {
             const weaponName = weapons[i];
-            const prefab = ResCache.Instance.getPrefab(weaponName + '_fps');
+            const prefab = ResCache.Instance.getPrefab(weaponName + '_tps');
             const bindNode = this.equipBoneNode[this._actor._data.weapon_bone];
             const nodePrefab = Res.inst(prefab, bindNode);
             nodePrefab.setPosition(0, 0, 0);
