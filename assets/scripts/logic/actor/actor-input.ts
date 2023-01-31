@@ -46,8 +46,8 @@ export class ActorInput extends Component implements IActorInput {
         this._actor?.onCrouch();
     }
 
-    onProne(){
-        this._actor?.onProne();
+    onAim(){
+        this._actor?.onAim();
     }
 
     onFire() {

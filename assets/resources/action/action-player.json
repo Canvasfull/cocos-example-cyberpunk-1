@@ -62,6 +62,16 @@
             { "time": 0, "delay":0.5, "name": "on_msg", "data": "update_data"}
         ] 
     },
+    "on_aim": {
+        "start": [
+            {"time": 0, "name": "on_anig", "data":{ "key":"bool_iron_sights", "value":true } }
+        ]
+    },
+    "off_aim": {
+        "start": [
+            {"time": 0, "name": "on_anig", "data":{ "key":"bool_iron_sights", "value":false } }
+        ]
+    },
     "level_win": {
         "start":[
             { "time": 0, "name":"on_msg", "data":"stop_level"},

@@ -35,6 +35,7 @@
     "is_dead": false,
     "is_crouch": false,
     "is_prone": false,
+    "is_aim": false,
     "is_jump": false,
     "is_attack": false,
     "cards":[],

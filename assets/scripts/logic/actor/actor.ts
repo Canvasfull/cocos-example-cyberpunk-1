@@ -151,6 +151,11 @@ export class Actor extends ActorBase implements IActorInput {
         Msg.emit('msg_change_tps_camera_height', this._data.is_crouch ? this._data.stand_camera_height : this._data.crouch_camera_height);
 
     }
+
+    onAim() {
+        this._data.is_aim = this._data.is_aim ? false : true;
+        this.do(this._data.is_aim ? 'on_aim': 'off_aim');
+    }
     
     onFire() {
         const canUseEquip = this.calculateStrengthUseEquip();
