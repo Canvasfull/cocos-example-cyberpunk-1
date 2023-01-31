@@ -1,5 +1,4 @@
-
-import { _decorator, Vec3, v3, game, Node, RigidBody, math } from 'cc';
+import { _decorator, Vec3, v3, game, Node, math } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { IActorInput } from '../../core/input/IActorInput';
 import { Local } from '../../core/localization/local';
@@ -79,7 +78,6 @@ export class Actor extends ActorBase implements IActorInput {
 
         if(this._actorSensorGround!._isGround === false) return;
         
-        console.log(this._data.strength, this._data.cost_jump_strength);
         if (this._data.strength >= this._data.cost_jump_strength) {
             this._data.strength -= this._data.cost_jump_strength;
         }

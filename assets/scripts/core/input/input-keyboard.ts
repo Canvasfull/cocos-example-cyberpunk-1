@@ -11,31 +11,24 @@ export class InputKeyboard extends InputBase {
 
     move_a = 50;
     move_speed = 50;
-    _v_increase_move = 0;
-    _move = 0.1;
+
     _dir = v3(0, 0, 0);
-    _move_v3 = v3(0, 0, 0);
-    _key_count = 0;
-    _move_dir = v3(0, 0, 0);
+    key_count = 0;
 
-    _isPointerLock = false;
     _pressQ = false;
-
-    _waitPointerTime = 2;
 
     direction_up = 0;
     direction_down = 0;
     direction_left = 0;
     direction_right = 0;
 
-    start () {
-        
-        this._isPointerLock = false;
+    start () { 
 
-        // [3]
+        // Register keyboard events.
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
 
+        // Register mouse events.
         input.on(Input.EventType.MOUSE_DOWN, this.onMouseDown, this);
         input.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
 
@@ -87,7 +80,7 @@ export class InputKeyboard extends InputBase {
 
         if (!this.hasKey(event)) return;
 
-        this._key_count++;
+        this.key_count++;
 
         if (event.keyCode === KeyCode.KEY_Q) {
             Msg.emit('push', "select_equips");
@@ -116,16 +109,15 @@ export class InputKeyboard extends InputBase {
 
     onKeyUp(event: EventKeyboard) {
         
-        if (event.keyCode === 0 || this._key_count <= 0) {
+        if (event.keyCode === 0 || this.key_count <= 0) {
             this._pressQ = false;
-            this.onMoveEnd();
-            console.log('error keyboard event do.');
+            this.clear();
             return;
         }
 
         if (!this.hasKey(event)) return;
 
-        this._key_count--;
+        this.key_count--;
 
         if (event.keyCode === KeyCode.KEY_Q) {
             this._pressQ = false;
@@ -138,7 +130,6 @@ export class InputKeyboard extends InputBase {
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 0;
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = 0;
 
-        if (this._dir.x === 0 && this._dir.z === 0) this.onMoveEnd();
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(false);
         if (event.keyCode === KeyCode.ESCAPE) {
             this._actorInput?.onPause();
@@ -167,7 +158,6 @@ export class InputKeyboard extends InputBase {
     onMouseMove(event: EventMouse) {
 
         //if (document.pointerLockElement === null && sys.isBrowser) return;
-
         if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());
             return;
@@ -184,7 +174,7 @@ export class InputKeyboard extends InputBase {
         this._actorInput?.onMove(this._dir.normalize());
     }
 
-    onMoveEnd() {
+    clear() {
         this.direction_up = 0;
         this.direction_down = 0;
         this.direction_left = 0;

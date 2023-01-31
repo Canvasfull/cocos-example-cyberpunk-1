@@ -1,4 +1,4 @@
-import { _decorator, Node, find, Vec3, v3, director } from 'cc';
+import { _decorator, Node, find, Vec3, v3 } from 'cc';
 import { Action } from '../../core/action/action';
 import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
@@ -12,12 +12,10 @@ import { DataEquipInst, DataNavigationInst } from '../data/data-core';
 import { ActorBase } from '../../core/actor/actor-base';
 import { ActorInputBrain } from '../actor/actor-input-brain';
 import { ActorBrain } from '../actor/actor-brain';
-import { ActorSound } from '../actor/actor-sound';
 const { ccclass, property } = _decorator;
 
 export class Level extends Singleton {
 
-    
     _action: Action | undefined;
     _data:{[key:string]:any} = {};
     _time: number = 0;
@@ -40,21 +38,15 @@ export class Level extends Singleton {
 
         this._action = new Action('action-level');
         this._data = Object.assign(ResCache.Instance.getJson('data-level').json);
-
         this._objectNode = find('init')?.getChildByName('objects');
-
-        console.log('xxxxxxxxxxx:', this._objectNode);
-
         Msg.on('level_action', this.levelAction.bind(this));
         Msg.on('level_do', this.do.bind(this));
 
         const scoreLevel = this._data.score_level;
         for(let i = 0; i < scoreLevel.length; i++) {
             const infos = scoreLevel[i];
-            console.log(infos);
             for(let k in infos) {
                 if(k == 'score') continue;
-                console.log(k, infos[k]);
             }
         }
         

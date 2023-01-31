@@ -400,9 +400,6 @@ export class UtilAction {
 
     public static on_anig (data: any, actor: ActorBase) {
         if (actor._animationGraph && actor._animationGraph.play) {
-            if(actor.isPlayer) {
-                console.log('--------- on anig:', data);
-            }
             actor._animationGraph.play(data.key, data.value);
         } else
             console.log('Not register animationGraph.');
@@ -480,7 +477,6 @@ export class UtilActionEquip {
         const key = data.key;
         const range = data.value;
         const sfx = `${key}_${randomRangeInt(0, range)}`;
-        console.log(sfx);
         Sound.on(sfx);
     }
 
@@ -523,11 +519,10 @@ export class UtilActionEquip {
     }
 
     public static on_inst (key: string, actor: Actor) {
-
         var asset = ResCache.Instance.getPrefab(key);
         var obj = Res.inst(asset, Level.Instance._objectNode);
-        if (actor !== undefined && actor._view !== null) {
-            obj.parent = actor._view;
+        if (actor && actor._viewRoot) {
+            obj.parent = actor._viewRoot!;
             obj.setPosition(0, 0, 0);
         }
     }
