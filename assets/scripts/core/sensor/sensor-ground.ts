@@ -34,8 +34,7 @@ export class SensorGround extends Component {
         this._ray.d.x = 0;
         this._ray.d.y = -1;
         this._ray.d.z = 0;
-        //this._actor = this.node.parent?.getComponent(Actor);
-        //this._rigid = this.getComponent(RigidBody)!;
+        this._actor = this.node.getComponent(Actor);
 
         for(let i = 0; i < this.masks.length; i++)
             this._mask = this._mask | 1 << this.masks[i];
@@ -47,27 +46,19 @@ export class SensorGround extends Component {
 
     checkGroundRays() {
 
-        //this._rigid!.getLinearVelocity(this._velocity);
-        //if (this._velocity.y > 0) return;
         for(let i = 0; i < this.original.length; i++) {
             UtilVec3.copy(this._ray.o, this.node.worldPosition);
             this._ray.o.add(this.original[i]);
             if (PhysicsSystem.instance.raycastClosest(this._ray, this._mask, this.checkDistance)) {
                 const res = PhysicsSystem.instance.raycastClosestResult;
                 //this._actor!._data.walk_in_type = SubstanceCore.Instance.checkNodeType(res.collider.node);
-                
-                if(this._isGround === false) {
-                    console.log(`on ground: true`);
-                }
+                if(!this._isGround) this._actor?.onGround();
                 this._isGround = true;
                 return;
             }
         }
 
-        
-        if(this._isGround) {
-            console.log(`off Ground: false`);
-        }
+        if(this._isGround) this._actor?.offGround();
         this._isGround = false;
 
     }

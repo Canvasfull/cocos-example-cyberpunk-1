@@ -39,6 +39,7 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
         this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
+        this._actorSensorGround = this.node.getComponent(SensorGround)!;
         this._actorMove = this.getComponent(ActorMove)!;
         this._forwardNode = UtilNode.find(this.node, 'forwardNode');
         this._viewRoot = UtilNode.find(this.node, 'animation_view');
@@ -74,6 +75,8 @@ export class Actor extends ActorBase implements IActorInput {
 
     onJump () {
 
+        if(this._actorSensorGround!._isGround === false) return;
+        
         console.log(this._data.strength, this._data.cost_jump_strength);
         if (this._data.strength >= this._data.cost_jump_strength) {
             this._data.strength -= this._data.cost_jump_strength;

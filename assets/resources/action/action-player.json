@@ -36,7 +36,7 @@
         "start":[
             { "time": 0, "name": "on_set", "data": { "key":"is_ground", "value":true } },
             { "time": 0, "name": "on_set", "data": { "key":"is_jump", "value":false } },
-            { "time": 0, "name": "on_anig", "data": { "key":"is_ground", "value":true } },
+            { "time": 0, "name": "on_anig", "data": { "key":"bool_ground", "value":true } },
             { "time": 0, "name": "on_sfx", "data": "sfx_hit_ground" }
         ]
     },

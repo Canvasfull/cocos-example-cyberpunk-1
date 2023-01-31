@@ -45,6 +45,9 @@
       },
       "num_jump_speed": {
         "__id__": 317
+      },
+      "bool_ground": {
+        "__id__": 318
       }
     }
   },
@@ -3198,7 +3201,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16751627951960.6468312525677289",
+      "clone": null
+    },
     "from": {
       "__id__": 175
     },
@@ -4248,5 +4255,10 @@
     "__type__": "cc.animation.PlainVariable",
     "_type": 0,
     "_value": 1
+  },
+  {
+    "__type__": "cc.animation.PlainVariable",
+    "_type": 1,
+    "_value": false
   }
 ]
