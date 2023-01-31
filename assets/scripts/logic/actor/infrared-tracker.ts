@@ -3,8 +3,8 @@ import { Util, UtilVec3 } from '../../core/util/util';
 import { FxRayLine } from '../effect/fx-ray-line';
 const { ccclass, property } = _decorator;
 
-@ccclass('ActorEnemyGunDetector')
-export class ActorEnemyGunDetector extends Component {
+@ccclass('InfraredTracker')
+export class InfraredTracker extends Component {
 
     @property([Number])
     masks : number[] = [];

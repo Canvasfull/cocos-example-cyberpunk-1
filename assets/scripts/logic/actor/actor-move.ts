@@ -45,6 +45,8 @@ export class ActorMove extends Component {
     @property
     angleVerticalMin = -30;
 
+    angle = 0;
+
     isJump = false;
 
     start() {
@@ -83,13 +85,12 @@ export class ActorMove extends Component {
 
     moveRotation() {
         UtilVec3.copy(this.currentDirection, this.direction);
-        var angle = Vec3.angle(this.currentDirection, this.node.forward);
-        var angleAbs = Math.abs(angle);
-        if (angleAbs > 0.001) {
-            var side = Math.sign(-this.currentDirection.clone().cross(this.node.forward).y);
+        this.angle = Math.abs(Vec3.angle(this.currentDirection, this.node.forward));
+        if (this.angle > 0.001) {
+            const side = Math.sign(-this.currentDirection.clone().cross(this.node.forward).y);
             //var angleVel = new Vec3(0, side * angleAbs * 5, 0);
             //this.rigid?.setAngularVelocity(angleVel);
-            const angle = side * angleAbs * 5 + this.node.eulerAngles.y;
+            const angle = side * this.angle * 5 + this.node.eulerAngles.y;
             this.node.setRotationFromEuler(0, angle, 0);
             
         }

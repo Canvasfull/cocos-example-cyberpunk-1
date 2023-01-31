@@ -3,7 +3,6 @@ import { Msg } from "../../core/msg/msg";
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { UtilNode } from '../../core/util/util';
-import { Level } from '../level/level';
 import { Actor } from "./actor";
 import { BagItems } from './actor-bag';
 import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
@@ -68,10 +67,8 @@ export class ActorEquipment {
                     self.curEquip!.emit('do', 'take_out');
                     self._actor._data.cur_equip_bag_index = index;
                     if(this._actor.isPlayer) {
-                        const mainCamera = CameraSetting.main?.camera;
-                        if(mainCamera) mainCamera.fov = this.curData!.fov;
-                    }
-                    if(this._actor.isPlayer) {
+                        //const mainCamera = CameraSetting.main?.camera;
+                        //if(mainCamera) mainCamera.fov = this.curData!.fov;
                         Msg.emit('msg_change_equip');
                         Msg.emit('msg_update_equip_info');
                     }

@@ -45,6 +45,7 @@ export class ActorEquipBase extends Component {
         this._bagData.lastUseTime = game.totalTime/1000;
         this.isPlayer = this._actor.isPlayer;
         this._animationGraph = this._actor._animationGraph;
+        this._muzzleNode!.active = true;
     }
 
     onDestroy() {
@@ -71,6 +72,7 @@ export class ActorEquipBase extends Component {
 
     hiddenNode() {
         this.node.active = false;
+        this._muzzleNode!.active = false;
     }
 
     setFx (data: key_type_boolean) {

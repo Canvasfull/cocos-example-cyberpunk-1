@@ -219,13 +219,11 @@ export class Actor extends ActorBase implements IActorInput {
 
         // Synchronize animation setup data.
         const rigidBody = this._actorMove?.rigid;
-
         rigidBody!.getLinearVelocity(tempLinearVelocity);
-        rigidBody!.getAngularVelocity(tempAngleVelocity);
 
         tempLinearVelocity.y = 0;
         const linearVelocityLength = tempLinearVelocity.length();
-        const eulerAnglesY = rigidBody!.node.eulerAngles.y;
+        const eulerAnglesY = this.node.eulerAngles.y;
 
         //rotate y.
         Vec3.rotateY(tempLinearVelocity, tempLinearVelocity, Vec3.ZERO, math.toRadian(-eulerAnglesY));
@@ -236,9 +234,10 @@ export class Actor extends ActorBase implements IActorInput {
         let moveSpeed = linearVelocityLength * this._data.linear_velocity_animation_rate;
 
         // Check rotation.
-        if(linearVelocityLength < 0.01 && Math.abs(tempAngleVelocity.y) > 1) {
-            moveSpeed = tempAngleVelocity.y * this._data.angle_velocity_animation_rate;
-            num_velocity_x = tempAngleVelocity.y / this._data.angle_velocity_animation_scale;
+        const angleSpeed = this._actorMove!.angle;
+        if(linearVelocityLength < 0.01 && angleSpeed > 2) {
+            moveSpeed = angleSpeed * this._data.angle_velocity_animation_rate;
+            num_velocity_x = angleSpeed/ this._data.angle_velocity_animation_scale;
         }
         
         this._animationGraph?.setValue('num_velocity_x', num_velocity_x);

@@ -1143,8 +1143,8 @@
       "__expectedType__": "sp.SkeletonData"
     },
     "_premultipliedAlpha": true,
-    "defaultSkin": "",
-    "defaultAnimation": "",
+    "defaultSkin": "default",
+    "defaultAnimation": "animation",
     "_enableBatch": false,
     "_sockets": [],
     "_debugMesh": false,
