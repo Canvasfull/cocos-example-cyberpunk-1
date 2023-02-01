@@ -27,7 +27,7 @@ export class Actor extends ActorBase implements IActorInput {
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node | undefined;
     _viewRoot:Node | undefined;
-    _fps = 0;
+    _fps = 0; 
 
     get noAction () {
         return this._data.is_dead || this._data.is_win;
@@ -67,10 +67,12 @@ export class Actor extends ActorBase implements IActorInput {
         }
 
         this._fps = game.frameRate as number;
+
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
         this._actorMove!.speed = canRun ? -this._data.run_speed.z :  -this._data.move_speed.z;
-        this._actorEquipment?.updateAim(this._actorMove!.velocityLocal.z);
+        const normalizeSpeed = Math.abs(this._actorMove!.velocity.length() / this._actorMove!.speed);
+        this._actorEquipment?.updateAim(normalizeSpeed);
         this.recoverStrength();
     }
 
@@ -165,6 +167,7 @@ export class Actor extends ActorBase implements IActorInput {
         const canUseEquip = this.calculateStrengthUseEquip();
         if (canUseEquip) {
             this._actorEquipment?.do('fire');
+            this._actorEquipment?.updateAim(1, true);
         }
     }
 
@@ -245,22 +248,3 @@ export class Actor extends ActorBase implements IActorInput {
     } 
 
 }
-        
-
-/*
-var load = async ()=> {
-    Res.loadPrefab(this._data['res'], (err, asset) => {
-        if (asset) {
-            let role_node = UtilNode.find(this.node, 'view_point');
-            this._view = Res.inst(asset, role_node);
-            this._animationGraph = this._view.addComponent(ActorAnimationGraph);
-            if(this.isPlayer) {
-                const actorSound = this._view.addComponent(ActorSound);
-                actorSound.init(this);
-            }
-            this.do('play');
-        }
-    });
-}
-load();
-*/

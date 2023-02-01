@@ -43,7 +43,6 @@ export class UILoading extends Component {
         this.calculateLoading();
         this._percent = math.lerp(this._percent, this._realPercent, deltaTime);
         this.txtLoading!.string = this.current_msg;
-
         this.img_loading_bar!.fillRange = this._percent;
 
         if(this._percent >= 0.9999) {

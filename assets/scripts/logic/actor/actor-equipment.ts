@@ -98,7 +98,7 @@ export class ActorEquipment {
         this.curEquip?.emit('do', action);
     }
 
-    public updateAim(stable:number) {
+    public updateAim(normalizeSpeed:number, toMax = false) {
         
         if (this.curData === undefined) {
             if (this.stableValue !== 0){
@@ -106,12 +106,20 @@ export class ActorEquipment {
                 if(this._actor.isPlayer) Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
-            const equipStable = this.curData.data.stable_value;
-            let curStable = 0;
-            if (equipStable !== 0) {
-                curStable = Math.abs(stable) <= 0.001 ? this.curData.data.stable_min_value : equipStable;
+            const equipData = this.curData.data;
+            const equipStable = equipData.stable_max_value;
+            let currentStable = 0;
+            if(toMax) {
+                this.stableValue = equipData.stable_max_value;
+                currentStable = equipData.stable_max_value;
+            }else{
+                if (equipStable !== 0) {
+                    currentStable = Math.abs(normalizeSpeed) <= 0.001 ? equipData.stable_min_value : equipData.stable_max_value * normalizeSpeed;
+                    currentStable = Math.max(equipData.stable_min_value, currentStable);
+                }
+                this.stableValue = math.lerp(this.stableValue, currentStable, game.deltaTime * equipData.stable_smooth);
             }
-            this.stableValue = math.lerp(this.stableValue, curStable, game.deltaTime * 2);
+            
             if(this._actor.isPlayer) Msg.emit('msg_update_aim', this.stableValue);
         }
     }
