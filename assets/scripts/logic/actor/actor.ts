@@ -206,10 +206,10 @@ export class Actor extends ActorBase implements IActorInput {
 
     recoverStrength () {
         if (this._data.is_ground === false) return;
-        if (this._data.is_run === false) return;
+        if (this._data.is_run) return;
 
         this._data.strength += this._data.recover_ground_strength * game.deltaTime;
-        this._data.strength = Math.min(this._data.strength, this._data.max_strength);
+        if(this._data.strength > this._data.max_strength) this._data.strength = this._data.max_strength;
         const percent_value = this._data.strength / this._data.max_strength;
 
         if(this.isPlayer) Msg.emit('fil_strength', percent_value);
