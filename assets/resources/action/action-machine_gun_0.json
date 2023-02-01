@@ -1,7 +1,8 @@
 {
     "take_out": {
        "start": [
-            {"time": 1, "name": "on_anig", "data":{ "key":"trigger_draw", "value":true } }
+            {"time": 0, "name": "on_anig", "data": { "key":"num_weapon_type", "value": 1} },
+            {"time": 0.1, "name": "on_anig", "data":{ "key":"trigger_draw", "value":true } }
        ] 
     },
     "idle": {
