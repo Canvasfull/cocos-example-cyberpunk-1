@@ -104,7 +104,6 @@ export class ActorEquipBase extends Component {
             hitPosition = origin.clone();
             hitPosition.add3f(dir.x * 100, dir.y * 100, dir.z * 100);
         }
-        //console.log('weapon tracer origin:', origin, ' hit:', hitPosition)
         Msg.emit('msg_set_tracer', { start:origin, end:hitPosition});
     }
 
