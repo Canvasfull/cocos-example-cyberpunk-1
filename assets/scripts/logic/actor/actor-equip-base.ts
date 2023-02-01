@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult } from 'cc';
+import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
 import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
@@ -6,6 +6,8 @@ import { BagItems } from './actor-bag';
 import { UtilNode } from '../../core/util/util';
 import { Msg } from '../../core/msg/msg';
 import { ActorAnimationGraph } from './actor-animation-graph';
+import { FxBase } from '../../core/effect/fx-base';
+import { fx } from '../../core/effect/fx';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorEquipBase')
@@ -27,11 +29,11 @@ export class ActorEquipBase extends Component {
 
     isPlayer = false;
 
-    _muzzleNode:Node | undefined;
+    fxMuzzle:FxBase | undefined;
 
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
-        this._muzzleNode = UtilNode.find(this.node, 'fx_muzzle');
+        this.fxMuzzle = UtilNode.find(this.node, 'fx_muzzle').getComponent(FxBase)!;
         this._view = this.node.getChildByName('view')!;
         this.node.on('do', this.do, this);
         this.node.on('init', this.init, this);
@@ -45,7 +47,6 @@ export class ActorEquipBase extends Component {
         this._bagData.lastUseTime = game.totalTime/1000;
         this.isPlayer = this._actor.isPlayer;
         this._animationGraph = this._actor._animationGraph;
-        this._muzzleNode!.active = true;
     }
 
     onDestroy() {
@@ -72,39 +73,30 @@ export class ActorEquipBase extends Component {
 
     hiddenNode() {
         this.node.active = false;
-        this._muzzleNode!.active = false;
     }
 
     setFx (data: key_type_boolean) {
-        const pNode = UtilNode.find(this.node, data.key);
-        var particles = pNode?.getComponentsInChildren(ParticleSystem);
-        if (particles === undefined) {
-            console.warn(` effect can not find ${data}`);
-            return;
-        }
-        for (var i = 0; i < particles.length; i++) {
-            let p = particles[i];
-            p.loop = data.value;
-            if (data.value) p.play();
-        }
+        fx.playLoop(this.node, data.key, data.value);
     }
 
-    onFx (data: string) {
-        console.log(' ------ on fx', data);
-        const pNode = UtilNode.find(this.node, data);
-        var particles = pNode?.getComponentsInChildren(ParticleSystem);
-        if (particles === undefined) {
-            console.warn(` effect can not find ${data}`);
-            return;
-        }
-        for (var i = 0; i < particles.length; i++) {
-            let p = particles[i];
-            p.play();
-        }
+    showMuzzle() { this.fxMuzzle?.play(); }
+
+    onFx (name: string) {
+        fx.play(this.node, name);
     }
 
-    setWeaponTracer(hit:PhysicsRayResult | undefined, dir:Vec3) {
-        const origin = this._muzzleNode!.worldPosition;
+    onRecoil() {
+
+        const recoil_rate = this._actor!._data.is_aim ? this._data.recoil_aim_rate : 1;
+
+        const recoilX = randomRange(this._data.recoil_x[0], this._data.recoil_x[1]) * recoil_rate;
+        const recoilY = randomRange(this._data.recoil_y[0], this._data.recoil_y[1]) * recoil_rate;
+        
+        this._actor?.onRotation(recoilX, recoilY);
+    }
+
+    showTracer(hit:PhysicsRayResult | undefined, dir:Vec3) {
+        const origin = this.fxMuzzle!.node.worldPosition;
         let hitPosition:Vec3 | undefined;
         if(hit?.hitPoint !== undefined) {
             hitPosition = hit.hitPoint;
@@ -112,6 +104,7 @@ export class ActorEquipBase extends Component {
             hitPosition = origin.clone();
             hitPosition.add3f(dir.x * 100, dir.y * 100, dir.z * 100);
         }
+        //console.log('weapon tracer origin:', origin, ' hit:', hitPosition)
         Msg.emit('msg_set_tracer', { start:origin, end:hitPosition});
     }
 

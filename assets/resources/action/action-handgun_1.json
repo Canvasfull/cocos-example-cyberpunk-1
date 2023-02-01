@@ -18,13 +18,14 @@
     "fire": {
         "start": [
             {"time": 0, "name": "on_anig", "data":{ "key":"trigger_fire", "value":true } },
-            {"time": 0.1, "name": "on_sfx_random", "data": {"key": "sfx_handgun_shoot", "value": 1 } },
-            {"time": 0.2, "name": "on_call", "data": "onFire" },
-            {"time": 0.2, "name": "on_msg", "data": "msg_update_equip_info" },
-            {"time": 0.3, "name": "on_fx", "data": "fx_muzzle"},
-            {"time": 0.3, "name": "on_sfx", "data": "sfx_handgun_fire" },
-            {"time": 0.4, "name": "on_call", "data": "updateCooling" },
-            {"time": 0.5, "name": "on_sfx_random", "data": {"key": "sfx_cassing_drop", "value": 5 } }
+            {"time": 0, "name": "on_call", "data": "updateCooling" },
+            {"time": 0, "name": "on_sfx", "data": "sfx_handgun_fire" },
+            {"time": 0, "name": "on_call", "data": "onFire" },
+            {"time": 0.01, "name": "on_call", "data": "onRecoil" },
+            {"time": 0.01, "name": "on_call", "data": "showMuzzle"},
+            {"time": 0.05, "name": "on_sfx_random", "data": {"key": "sfx_handgun_shoot", "value": 1 } },
+            {"time": 0.07, "name": "on_msg", "data": "msg_update_equip_info" },
+            {"time": 0.2, "name": "on_sfx_random", "data": {"key": "sfx_cassing_drop", "value": 5 } }
         ]
     },
     "fire_empty": {

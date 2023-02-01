@@ -27,11 +27,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 266
+        "__id__": 268
       }
     ],
     "_prefab": {
-      "__id__": 268
+      "__id__": 270
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -381,10 +381,14 @@
         "__id__": 202
       }
     ],
-    "_active": false,
-    "_components": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 265
+      }
+    ],
     "_prefab": {
-      "__id__": 265
+      "__id__": 267
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -523,7 +527,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 28
     },
@@ -1256,7 +1260,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 89
     },
@@ -2014,7 +2018,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 150
     },
@@ -2825,7 +2829,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 215
     },
@@ -3541,6 +3545,24 @@
     "nestedPrefabInstanceRoots": null
   },
   {
+    "__type__": "a337dbviatHz4BIgY6tyVw5",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 14
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 266
+    },
+    "destroyTime": 3,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "744ZZVZyVDt6TDCLg/4Gha"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -3562,7 +3584,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 267
+      "__id__": 269
     },
     "_id": ""
   },
@@ -3579,6 +3601,7 @@
       "__id__": 0
     },
     "fileId": "b7uDJUntVFX6wUwfUyTRNV",
+    "instance": null,
     "targetOverrides": null
   }
 ]

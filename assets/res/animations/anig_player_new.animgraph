@@ -14,49 +14,49 @@
     ],
     "_variables": {
       "bool_crouch": {
-        "__id__": 344
+        "__id__": 338
       },
       "num_velocity_x": {
-        "__id__": 345
+        "__id__": 339
       },
       "num_velocity_y": {
-        "__id__": 346
+        "__id__": 340
       },
       "trigger_jump": {
-        "__id__": 347
+        "__id__": 341
       },
       "trigger_reload": {
-        "__id__": 348
+        "__id__": 342
       },
       "trigger_fire": {
-        "__id__": 349
+        "__id__": 343
       },
       "bool_iron_sights": {
-        "__id__": 350
+        "__id__": 344
       },
       "bool_shotgun": {
-        "__id__": 351
+        "__id__": 345
       },
       "trigger_hit": {
-        "__id__": 352
+        "__id__": 346
       },
       "num_move_speed": {
-        "__id__": 353
+        "__id__": 347
       },
       "num_jump_speed": {
-        "__id__": 354
+        "__id__": 348
       },
       "bool_ground": {
-        "__id__": 355
+        "__id__": 349
       },
       "trigger_draw": {
-        "__id__": 356
+        "__id__": 350
       },
       "trigger_holster": {
-        "__id__": 357
+        "__id__": 351
       },
       "num_weapon_type": {
-        "__id__": 358
+        "__id__": 352
       }
     }
   },
@@ -3274,13 +3274,25 @@
         "__id__": 267
       },
       {
-        "__id__": 292
+        "__id__": 286
       },
       {
-        "__id__": 311
+        "__id__": 305
       }
     ],
     "_transitions": [
+      {
+        "__id__": 325
+      },
+      {
+        "__id__": 326
+      },
+      {
+        "__id__": 327
+      },
+      {
+        "__id__": 329
+      },
       {
         "__id__": 331
       },
@@ -3294,19 +3306,7 @@
         "__id__": 335
       },
       {
-        "__id__": 337
-      },
-      {
-        "__id__": 338
-      },
-      {
-        "__id__": 339
-      },
-      {
-        "__id__": 341
-      },
-      {
-        "__id__": 342
+        "__id__": 336
       }
     ],
     "_entryState": {
@@ -3696,9 +3696,9 @@
       "id": "16748993944760.9916500378328994",
       "clone": null,
       "viewport": {
-        "scale": 0.7343629694938673,
-        "top": -4.810088658107316,
-        "left": 374.1345083600618
+        "scale": 0.804162969493867,
+        "top": 0.10389378400284269,
+        "left": 424.56961541575885
       }
     },
     "_states": [
@@ -3716,32 +3716,20 @@
       },
       {
         "__id__": 274
-      },
-      {
-        "__id__": 276
-      },
-      {
-        "__id__": 278
       }
     ],
     "_transitions": [
       {
-        "__id__": 280
+        "__id__": 276
       },
       {
-        "__id__": 281
+        "__id__": 277
+      },
+      {
+        "__id__": 278
       },
       {
         "__id__": 282
-      },
-      {
-        "__id__": 283
-      },
-      {
-        "__id__": 284
-      },
-      {
-        "__id__": 288
       }
     ],
     "_entryState": {
@@ -3821,68 +3809,6 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -729.6162319818496,
-      "centerY": -196.9302325581395,
-      "id": "16748993944750.9132457422679676",
-      "clone": null,
-      "name": ""
-    },
-    "name": "Reload Rifle Hip",
-    "_components": [],
-    "motion": {
-      "__id__": 275
-    },
-    "speed": 1,
-    "speedMultiplier": "",
-    "speedMultiplierEnabled": false
-  },
-  {
-    "__type__": "cc.animation.ClipMotion",
-    "__editorExtras__": {
-      "centerX": 0,
-      "centerY": 0,
-      "id": "16748993944750.08394159809515722",
-      "clone": null
-    },
-    "clip": {
-      "__uuid__": "3708d252-f37e-4c76-86e0-d2f0c51bf6a7@cbc49",
-      "__expectedType__": "cc.AnimationClip"
-    }
-  },
-  {
-    "__type__": "cc.animation.Motion",
-    "__editorExtras__": {
-      "centerX": -718.0942354869995,
-      "centerY": -34.57073272592004,
-      "id": "16748993944750.2584047012823758",
-      "clone": null,
-      "name": ""
-    },
-    "name": "Reload Shotgun Hip",
-    "_components": [],
-    "motion": {
-      "__id__": 277
-    },
-    "speed": 1,
-    "speedMultiplier": "",
-    "speedMultiplierEnabled": false
-  },
-  {
-    "__type__": "cc.animation.ClipMotion",
-    "__editorExtras__": {
-      "centerX": 0,
-      "centerY": 0,
-      "id": "16748993944750.9064072069333797",
-      "clone": null
-    },
-    "clip": {
-      "__uuid__": "f99399f3-6c12-441f-97a0-431f501f64c7@54729",
-      "__expectedType__": "cc.AnimationClip"
-    }
-  },
-  {
-    "__type__": "cc.animation.Motion",
-    "__editorExtras__": {
       "centerX": -710.1819274313552,
       "centerY": 46.868903136033055,
       "id": "16748993944750.8267930119843914",
@@ -3892,7 +3818,7 @@
     "name": "Reload Shotgun Iron-Sights",
     "_components": [],
     "motion": {
-      "__id__": 279
+      "__id__": 275
     },
     "speed": 1,
     "speedMultiplier": "",
@@ -3910,28 +3836,6 @@
       "__uuid__": "30406afe-5e1a-44a7-9a75-657ad26e7ceb@7bbf9",
       "__expectedType__": "cc.AnimationClip"
     }
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16748993944760.053370926281759656",
-      "clone": null
-    },
-    "from": {
-      "__id__": 274
-    },
-    "to": {
-      "__id__": 270
-    },
-    "conditions": [],
-    "duration": 0.2,
-    "relativeDuration": true,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.8
   },
   {
     "__type__": "cc.animation.AnimationTransition",
@@ -3959,33 +3863,11 @@
     "__type__": "cc.animation.AnimationTransition",
     "__editorExtras__": {
       "name": "",
-      "id": "16748993944760.7084732028174465",
-      "clone": null
-    },
-    "from": {
-      "__id__": 276
-    },
-    "to": {
-      "__id__": 270
-    },
-    "conditions": [],
-    "duration": 0.2,
-    "relativeDuration": true,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0.8
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
       "id": "16748993944760.3617174230327491",
       "clone": null
     },
     "from": {
-      "__id__": 278
+      "__id__": 274
     },
     "to": {
       "__id__": 270
@@ -4014,7 +3896,7 @@
     },
     "conditions": [
       {
-        "__id__": 285
+        "__id__": 279
       }
     ]
   },
@@ -4022,10 +3904,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 286
+      "__id__": 280
     },
     "rhs": {
-      "__id__": 287
+      "__id__": 281
     }
   },
   {
@@ -4049,11 +3931,11 @@
       "__id__": 269
     },
     "to": {
-      "__id__": 278
+      "__id__": 274
     },
     "conditions": [
       {
-        "__id__": 289
+        "__id__": 283
       }
     ]
   },
@@ -4061,10 +3943,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 290
+      "__id__": 284
     },
     "rhs": {
-      "__id__": 291
+      "__id__": 285
     }
   },
   {
@@ -4089,7 +3971,7 @@
     "name": "Draw SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 293
+      "__id__": 287
     }
   },
   {
@@ -4106,8 +3988,22 @@
     },
     "_states": [
       {
-        "__id__": 294
+        "__id__": 288
       },
+      {
+        "__id__": 289
+      },
+      {
+        "__id__": 290
+      },
+      {
+        "__id__": 291
+      },
+      {
+        "__id__": 293
+      }
+    ],
+    "_transitions": [
       {
         "__id__": 295
       },
@@ -4118,31 +4014,17 @@
         "__id__": 297
       },
       {
-        "__id__": 299
-      }
-    ],
-    "_transitions": [
-      {
         "__id__": 301
-      },
-      {
-        "__id__": 302
-      },
-      {
-        "__id__": 303
-      },
-      {
-        "__id__": 307
       }
     ],
     "_entryState": {
-      "__id__": 294
+      "__id__": 288
     },
     "_exitState": {
-      "__id__": 295
+      "__id__": 289
     },
     "_anyState": {
-      "__id__": 296
+      "__id__": 290
     }
   },
   {
@@ -4190,9 +4072,9 @@
     "name": "Reload Rifle Iron-Sights",
     "_components": [],
     "motion": {
-      "__id__": 298
+      "__id__": 292
     },
-    "speed": 1,
+    "speed": 5,
     "speedMultiplier": "",
     "speedMultiplierEnabled": false
   },
@@ -4221,9 +4103,9 @@
     "name": "Reload Shotgun Hip",
     "_components": [],
     "motion": {
-      "__id__": 300
+      "__id__": 294
     },
-    "speed": 1,
+    "speed": 5,
     "speedMultiplier": "",
     "speedMultiplierEnabled": false
   },
@@ -4248,10 +4130,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 297
+      "__id__": 291
     },
     "to": {
-      "__id__": 295
+      "__id__": 289
     },
     "conditions": [],
     "duration": 0.2,
@@ -4270,10 +4152,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 299
+      "__id__": 293
     },
     "to": {
-      "__id__": 295
+      "__id__": 289
     },
     "conditions": [],
     "duration": 0.2,
@@ -4292,14 +4174,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 294
+      "__id__": 288
     },
     "to": {
-      "__id__": 297
+      "__id__": 291
     },
     "conditions": [
       {
-        "__id__": 304
+        "__id__": 298
       }
     ]
   },
@@ -4307,10 +4189,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 305
+      "__id__": 299
     },
     "rhs": {
-      "__id__": 306
+      "__id__": 300
     }
   },
   {
@@ -4331,14 +4213,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 294
+      "__id__": 288
     },
     "to": {
-      "__id__": 299
+      "__id__": 293
     },
     "conditions": [
       {
-        "__id__": 308
+        "__id__": 302
       }
     ]
   },
@@ -4346,10 +4228,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 309
+      "__id__": 303
     },
     "rhs": {
-      "__id__": 310
+      "__id__": 304
     }
   },
   {
@@ -4374,7 +4256,7 @@
     "name": "Holster SM",
     "_components": [],
     "_stateMachine": {
-      "__id__": 312
+      "__id__": 306
     }
   },
   {
@@ -4391,8 +4273,22 @@
     },
     "_states": [
       {
-        "__id__": 313
+        "__id__": 307
       },
+      {
+        "__id__": 308
+      },
+      {
+        "__id__": 309
+      },
+      {
+        "__id__": 310
+      },
+      {
+        "__id__": 312
+      }
+    ],
+    "_transitions": [
       {
         "__id__": 314
       },
@@ -4403,31 +4299,17 @@
         "__id__": 316
       },
       {
-        "__id__": 318
-      }
-    ],
-    "_transitions": [
-      {
         "__id__": 320
-      },
-      {
-        "__id__": 321
-      },
-      {
-        "__id__": 322
-      },
-      {
-        "__id__": 326
       }
     ],
     "_entryState": {
-      "__id__": 313
+      "__id__": 307
     },
     "_exitState": {
-      "__id__": 314
+      "__id__": 308
     },
     "_anyState": {
-      "__id__": 315
+      "__id__": 309
     }
   },
   {
@@ -4475,9 +4357,9 @@
     "name": "Reload Rifle Hip",
     "_components": [],
     "motion": {
-      "__id__": 317
+      "__id__": 311
     },
-    "speed": 1,
+    "speed": 5,
     "speedMultiplier": "",
     "speedMultiplierEnabled": false
   },
@@ -4506,9 +4388,9 @@
     "name": "Reload Shotgun Iron-Sights",
     "_components": [],
     "motion": {
-      "__id__": 319
+      "__id__": 313
     },
-    "speed": 1,
+    "speed": 5,
     "speedMultiplier": "",
     "speedMultiplierEnabled": false
   },
@@ -4533,10 +4415,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 316
+      "__id__": 310
     },
     "to": {
-      "__id__": 314
+      "__id__": 308
     },
     "conditions": [],
     "duration": 0.2,
@@ -4555,10 +4437,10 @@
       "clone": null
     },
     "from": {
-      "__id__": 318
+      "__id__": 312
     },
     "to": {
-      "__id__": 314
+      "__id__": 308
     },
     "conditions": [],
     "duration": 0.2,
@@ -4577,14 +4459,14 @@
       "clone": null
     },
     "from": {
-      "__id__": 313
+      "__id__": 307
     },
     "to": {
-      "__id__": 316
+      "__id__": 310
     },
     "conditions": [
       {
-        "__id__": 323
+        "__id__": 317
       }
     ]
   },
@@ -4592,10 +4474,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 324
+      "__id__": 318
     },
     "rhs": {
-      "__id__": 325
+      "__id__": 319
     }
   },
   {
@@ -4616,17 +4498,17 @@
       "clone": null
     },
     "from": {
-      "__id__": 313
+      "__id__": 307
     },
     "to": {
-      "__id__": 318
+      "__id__": 312
     },
     "conditions": [
       {
-        "__id__": 327
+        "__id__": 321
       },
       {
-        "__id__": 329
+        "__id__": 323
       }
     ]
   },
@@ -4634,7 +4516,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 328
+      "__id__": 322
     }
   },
   {
@@ -4646,7 +4528,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 330
+      "__id__": 324
     }
   },
   {
@@ -4699,7 +4581,7 @@
     },
     "conditions": [
       {
-        "__id__": 334
+        "__id__": 328
       }
     ],
     "duration": 0.3,
@@ -4725,7 +4607,7 @@
     },
     "conditions": [
       {
-        "__id__": 336
+        "__id__": 330
       }
     ],
     "duration": 0.3,
@@ -4759,7 +4641,7 @@
       "clone": null
     },
     "from": {
-      "__id__": 292
+      "__id__": 286
     },
     "to": {
       "__id__": 266
@@ -4777,11 +4659,11 @@
       "__id__": 266
     },
     "to": {
-      "__id__": 292
+      "__id__": 286
     },
     "conditions": [
       {
-        "__id__": 340
+        "__id__": 334
       }
     ],
     "duration": 0.3,
@@ -4800,7 +4682,7 @@
       "clone": null
     },
     "from": {
-      "__id__": 311
+      "__id__": 305
     },
     "to": {
       "__id__": 266
@@ -4818,11 +4700,11 @@
       "__id__": 266
     },
     "to": {
-      "__id__": 311
+      "__id__": 305
     },
     "conditions": [
       {
-        "__id__": 343
+        "__id__": 337
       }
     ],
     "duration": 0.3,

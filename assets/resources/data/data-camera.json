@@ -9,5 +9,15 @@
         "pipeline":"forward",
         "is_main_camera":false,
         "is_bind_occlusion":false
+    },
+    "aim_point":{
+        "target_distance":2
+    },
+    "normal_point":{
+        "target_distance":4
+    },
+    "far_point": {
+        "target_distance":10
     }
+    
 }

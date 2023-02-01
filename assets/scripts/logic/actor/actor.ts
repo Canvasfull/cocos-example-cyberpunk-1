@@ -70,7 +70,7 @@ export class Actor extends ActorBase implements IActorInput {
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
         this._actorMove!.speed = canRun ? -this._data.run_speed.z :  -this._data.move_speed.z;
-        //this._actorEquipment?.updateAim(this._velocity.z);
+        this._actorEquipment?.updateAim(this._actorMove!.velocityLocal.z);
         this.recoverStrength();
     }
 
@@ -164,7 +164,6 @@ export class Actor extends ActorBase implements IActorInput {
     onFire() {
         const canUseEquip = this.calculateStrengthUseEquip();
         if (canUseEquip) {
-            console.log(' Use equip. --------- ');
             this._actorEquipment?.do('fire');
         }
     }

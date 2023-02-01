@@ -11,11 +11,11 @@ export class UIDisplayByState extends Component {
     @property(Number)
     smooth:number = 5.0;
 
-    _sprite:Sprite;
+    _sprite:Sprite | undefined;
 
     start() {
 
-        this._sprite = this.getComponent(SpriteComponent);
+        this._sprite = this.getComponent(SpriteComponent)!;
         Msg.bind(`msg_${this.node.name}`, this.onChangeState, this);
 
     }
@@ -25,7 +25,6 @@ export class UIDisplayByState extends Component {
     }
 
     onChangeState(value:number) {
-        console.log('on change state ' + this.node.name, value);
         this._color_a = value;
     }
 
@@ -33,7 +32,7 @@ export class UIDisplayByState extends Component {
 
         this._color.a = math.lerp(this._color.a, this._color_a, deltaTime * this.smooth);
 
-        this._sprite.color = this._color;
+        this._sprite!.color = this._color;
         
     }
 }

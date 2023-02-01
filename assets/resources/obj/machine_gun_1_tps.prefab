@@ -27,11 +27,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 321
+        "__id__": 323
       }
     ],
     "_prefab": {
-      "__id__": 323
+      "__id__": 325
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -227,10 +227,14 @@
         "__id__": 257
       }
     ],
-    "_active": false,
-    "_components": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 320
+      }
+    ],
     "_prefab": {
-      "__id__": 320
+      "__id__": 322
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -367,7 +371,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 21
     },
@@ -1136,7 +1140,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 83
     },
@@ -1869,7 +1873,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 144
     },
@@ -2627,7 +2631,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 205
     },
@@ -3438,7 +3442,7 @@
     "duration": 1,
     "loop": false,
     "simulationSpeed": 1,
-    "playOnAwake": true,
+    "playOnAwake": false,
     "gravityModifier": {
       "__id__": 270
     },
@@ -4154,6 +4158,24 @@
     "nestedPrefabInstanceRoots": null
   },
   {
+    "__type__": "a337dbviatHz4BIgY6tyVw5",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 7
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 321
+    },
+    "destroyTime": 3,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "7dEvjvpadBPYZM0cXTp7Uw"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -4176,7 +4198,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 322
+      "__id__": 324
     },
     "_id": ""
   },
@@ -4193,6 +4215,7 @@
       "__id__": 0
     },
     "fileId": "cf2oiD2HFDtKp/Bjv7/IW+",
+    "instance": null,
     "targetOverrides": null
   }
 ]

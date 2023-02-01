@@ -21,7 +21,7 @@
             {"time": 0.1, "name": "on_sfx_random", "data": {"key": "sfx_handgun_shoot", "value": 1 } },
             {"time": 0.2, "name": "on_call", "data": "onFire" },
             {"time": 0.2, "name": "on_msg", "data": "msg_update_equip_info" },
-            {"time": 0.3, "name": "on_fx", "data": "fx_muzzle"},
+            {"time": 0.3, "name": "on_call", "data": "showMuzzle"},
             {"time": 0.3, "name": "on_sfx", "data": "sfx_handgun_fire" },
             {"time": 0.4, "name": "on_call", "data": "updateCooling" },
             {"time": 0.5, "name": "on_sfx_random", "data": {"key": "sfx_cassing_drop", "value": 5 } }

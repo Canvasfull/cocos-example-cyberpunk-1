@@ -18,7 +18,7 @@ export class ActorHandgun extends ActorEquipBase {
         if (PhysicsSystem.instance.raycastClosest(ray, mask, distance)) {
             hit = PhysicsSystem.instance.raycastClosestResult;
         }
-        this.setWeaponTracer(hit, dir);
+        this.showTracer(hit, dir);
         calculateDamage(this._data, hit);
     }
 

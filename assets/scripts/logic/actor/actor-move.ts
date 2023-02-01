@@ -66,8 +66,8 @@ export class ActorMove extends Component {
 
         //Lerp velocity.
         Vec3.lerp(this.velocityLocal, this.velocityLocal, this.moveVec3, deltaTime * this.smoothMove);
-
         UtilVec3.copy(this.velocity, this.velocityLocal);
+
         //rotate y.
         Vec3.rotateY(this.velocity, this.velocity, Vec3.ZERO, math.toRadian(this.node.eulerAngles.y));
 
@@ -92,7 +92,6 @@ export class ActorMove extends Component {
             //this.rigid?.setAngularVelocity(angleVel);
             const angle = side * this.angle * 5 + this.node.eulerAngles.y;
             this.node.setRotationFromEuler(0, angle, 0);
-            
         }
     }
 
@@ -112,14 +111,12 @@ export class ActorMove extends Component {
         this.angleHead += x;
         this.direction.z = -Math.cos(Math.PI / 180.0 * this.angleHead);
         this.direction.x = Math.sin(Math.PI / 180.0 * this.angleHead);
-
         this.angleVertical -= y;
         if (this.angleVertical >= this.angleVerticalMax) 
             this.angleVertical = this.angleVerticalMax;
 
         if (this.angleVertical <= this.angleVerticalMin)
             this.angleVertical = this.angleVerticalMin;
-
     }
 
     stop() {

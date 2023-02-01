@@ -28,6 +28,9 @@ export class CameraMoveTarget extends Component {
     @property
     waitTime = 10;
 
+    @property( {type:Node, tooltip:'Look at target Node.'} )
+    lookAtTarget:Node | undefined;
+
     currentPosition = v3(0, 0, 0);
     currentAngle = v3(0, 0, 0);
 
@@ -75,6 +78,9 @@ export class CameraMoveTarget extends Component {
         // Smooth move angle.
         Vec3.lerp(this.currentAngle, this.currentAngle, this.targetNode.eulerAngles, this.smoothAngle * deltaTime);
         this.cameraNode?.setRotationFromEuler(this.currentAngle);
+
+        // Set Look at point.
+        this.lookAtTarget!.setPosition(0, 0, -this.cameraNode!.position.z - 5);
         
     }
 
