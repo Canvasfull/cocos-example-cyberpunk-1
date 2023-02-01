@@ -112,13 +112,14 @@ CCProgram vs %{
   precision highp float;
   
   #include <input-standard>
+  #include <builtin/uniforms/cc-global>
   
   out vec2 v_uv;
   
   void main () {
     StandardVertInput In;
     CCVertInput(In);
-    // CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
+    CC_HANDLE_GET_CLIP_FLIP(In.position.xy);
     gl_Position = In.position;
   
     v_uv = a_texCoord;
