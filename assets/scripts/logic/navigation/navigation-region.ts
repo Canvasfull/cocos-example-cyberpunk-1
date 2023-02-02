@@ -45,14 +45,6 @@ export class NavigationRegion extends Component {
     onEnable() {
         if(EDITOR) {
             this.refreshMapPoints();
-            /*
-            input.on(Input.EventType.KEY_DOWN, (event:EventKeyboard)=>{
-                if(event.keyCode === KeyCode.KEY_P){
-                    this.refreshMapPoints();
-                    console.log('refresh map points.');
-                } 
-            }, this)
-            */
         }
     }
 

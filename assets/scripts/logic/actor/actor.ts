@@ -10,7 +10,7 @@ import { ActorEquipment } from './actor-equipment';
 import { ActorSensorDropItem } from './actor-sensor-drop-item';
 import { ActorMove } from './actor-move';
 import { SensorGround } from '../../core/sensor/sensor-ground';
-const { ccclass } = _decorator;
+const { ccclass, property } = _decorator;
 
 let tempLinearVelocity = v3(0, 0, 0);
 let tempAngleVelocity = v3(0, 0, 0);
@@ -21,7 +21,10 @@ export class Actor extends ActorBase implements IActorInput {
     _move = v3(0, 0, 0);
     _actorBag: ActorBag | undefined;
     _actorEquipment: ActorEquipment | undefined;
-    _actorSensorDropItem: ActorSensorDropItem | undefined;
+
+    @property( { type:ActorSensorDropItem } )
+        actorSensorDropItem: ActorSensorDropItem | undefined;
+
     _actorSensorGround: SensorGround | undefined;
     _actorMove: ActorMove | undefined;
     _viewNoWeapon:Node = Object.create(null);
@@ -41,7 +44,7 @@ export class Actor extends ActorBase implements IActorInput {
 
         this._actorBag = new ActorBag(this);
         this._actorEquipment = new ActorEquipment(this);
-        this._actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
+        //this.actorSensorDropItem = this.node.getComponentInChildren(ActorSensorDropItem)!;
         this._actorSensorGround = this.node.getComponent(SensorGround)!;
         this._actorMove = this.getComponent(ActorMove)!;
         this._forwardNode = UtilNode.find(this.node, 'forwardNode');
@@ -122,7 +125,7 @@ export class Actor extends ActorBase implements IActorInput {
 
     onPick() {
 
-        var pickedNode = this._actorSensorDropItem?.getPicked();
+        var pickedNode = this.actorSensorDropItem?.getPicked();
 
         if (pickedNode !== undefined) {
             if (this._actorBag?.pickedItem(pickedNode.name)) {
