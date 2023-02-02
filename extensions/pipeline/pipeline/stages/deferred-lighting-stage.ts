@@ -122,7 +122,7 @@ export class DeferredLightingStage extends BaseStage {
 
         passUtils
             .addRasterView(slot0, Format.RGBA16F, true)
-            .addRasterView(slot1, Format.DEPTH_STENCIL, true)
+            // .addRasterView(slot1, Format.DEPTH_STENCIL, true)
             .version()
 
         let probes = ReflectionProbes.probes
