@@ -19,11 +19,6 @@ export const HrefSetting = {
 }
 globalThis.HrefSetting = HrefSetting
 
-if (JSB) {
-    HrefSetting.transparent = 0
-    HrefSetting.taa = 0
-    HrefSetting.bloom = 0
-}
 
 export let changedMap: Map<string, boolean> = new Map
 
@@ -56,7 +51,7 @@ const LowSetting = {
 }
 const MediumSetting = {
     bloom: 0,
-    shadingScale: 0.7,
+    shadingScale: 0.85,
     fps: 30
 }
 const HighSetting = {
@@ -81,5 +76,11 @@ gpuTierUpdated.once(() => {
         }
 
         HrefSetting[name] = qualitySetting[name]
+    }
+
+    if (JSB) {
+        HrefSetting.transparent = 0
+        // HrefSetting.taa = 0
+        HrefSetting.bloom = 0
     }
 })

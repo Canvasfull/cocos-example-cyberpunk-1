@@ -74,12 +74,12 @@ export class TAAStage extends BaseStage {
 
         passUtils.material = material;
 
-        material.setProperty('inputViewPort',
-            new Vec4(
-                width / game.canvas.width, height / game.canvas.height,
-                0, 0
-            )
-        );
+        // material.setProperty('inputViewPort',
+        //     new Vec4(
+        //         width / game.canvas.width, height / game.canvas.height,
+        //         0, 0
+        //     )
+        // );
 
         if (this.firstRender) {
             this.prevMatViewProj = camera.matViewProj;

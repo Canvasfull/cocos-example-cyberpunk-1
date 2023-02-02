@@ -3,6 +3,7 @@ import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString, V
 import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
+import { JSB } from "cc/env";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -24,7 +25,12 @@ export class FSRStage extends BaseStage {
     outputNames = ['FSRColor']
 
     checkEnable () {
-        return this.enable && this.finalShadingScale() < 1
+        let enable = this.enable;
+        // todo: remove jsb check
+        if (!JSB) {
+            enable = enable && this.finalShadingScale() < 1
+        }
+        return enable
     }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
