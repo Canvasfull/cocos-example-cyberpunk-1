@@ -3,10 +3,12 @@ import { getTier, gpuTierUpdated, RenderQulity } from './gpu';
 
 export const HrefSetting = {
     settings: 0,
-    spector: 0,
-    shadingScale: 1,
     graph: 0,
     pauseGraphAfterLoad: 1,
+    spector: 0,
+
+    // rendering setting
+    shadingScale: 1,
     zoomScreen: 0,
     taa: 1,
     bloom: 1,
@@ -15,7 +17,8 @@ export const HrefSetting = {
     transparent: 1,
     clusterLighting: 1,
     ibl: 1,
-    shadow: 0
+    shadow: 0,
+    fsr: 1,
 }
 globalThis.HrefSetting = HrefSetting
 
