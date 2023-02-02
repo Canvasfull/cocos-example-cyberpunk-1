@@ -7,10 +7,11 @@ const { ccclass, property } = _decorator;
 @ccclass('ActorPart')
 export class ActorPart extends Component {
 
+    @property( { type:ActorBase } )
     actor:ActorBase | undefined;
 
-    __preload() {
-        this.actor = UtilNode.getParentComponent(this.node, ActorBase);
-    }
+    @property
+    part = 'body';
+
 }
 

@@ -113,7 +113,7 @@ export class ActorBrain extends Component {
     }
 
     PathsFollowing() {
-        
+
         if (this.is_waypoints_move) {
 
             const worldPosition = this._actor!.node.worldPosition;
@@ -122,11 +122,13 @@ export class ActorBrain extends Component {
             UtilVec3.copy(this.targetPosition, target);
 
             // Detects if there is a character ahead.
+            /*
             if(this.sensorRays?.checkedNode) {
                 this.followPathsDirection = -1;
             }else{
                 this.followPathsDirection = 1;
             }
+            */
 
             // Detect distance to target point.
             if (Vec3.distance(worldPosition, target) <= 1) {
@@ -134,7 +136,7 @@ export class ActorBrain extends Component {
                 // Arrive current node.
                 this.waypointsIndex += this.followPathsDirection;
 
-                if(this.waypointsIndex >= this._wayPoints.length && this.waypointsIndex < 0) this.is_waypoints_move = false;
+                if(this.waypointsIndex >= this._wayPoints.length || this.waypointsIndex < 0) this.is_waypoints_move = false;
                 else this.nearestNode = this._wayPoints[this.waypointsIndex].id;
 
             }else{
@@ -172,7 +174,7 @@ export class ActorBrain extends Component {
         const angle = Math.abs(Vec3.angle(this._moveDir, this.node.forward));
         if (angle > 0.001) {
             const side = Math.sign(-tempRotationSideVector.cross(this.node.forward).y);
-            this.targetDirection.x = side * angle * 5 * game.deltaTime;
+            this.targetDirection.x = side * angle;// game.deltaTime;
             this.targetDirection.z = 0;
         }
     }

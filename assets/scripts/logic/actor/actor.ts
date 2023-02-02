@@ -63,13 +63,15 @@ export class Actor extends ActorBase implements IActorInput {
 
     updateAction (deltaTime: number) {
 
-        if(this._data.hit_recover > 0) {
-            this._data.hit_recover -= deltaTime;
-            this._actorMove?.stop();
-        }
-
         this._fps = game.frameRate as number;
 
+        if(this._data.hit_recover > 0) {
+            this._data.hit_recover -= deltaTime;
+            this._actorMove!.isStopMove = true;
+        }else{
+            this._actorMove!.isStopMove = false;
+        }
+        
         // Check run strength
         const canRun = this.calculateRunStrength(deltaTime);
         this._actorMove!.speed = canRun ? -this._data.run_speed.z :  -this._data.move_speed.z;

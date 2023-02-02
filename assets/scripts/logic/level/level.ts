@@ -91,15 +91,13 @@ export class Level extends Singleton {
     }
 
     public addEnemy(res:string, groupID:number) {
-        return;
         const point = NavSystem.randomPoint();
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
-        const actor = enemy.getComponent(ActorBase);
-        enemy.addComponent(ActorInputBrain);
-        enemy.addComponent(ActorBrain);
+        const actor = enemy.getComponent(Actor);
         actor!._groupIndex = groupID;
         actor!.init(`data-${res}`);
+        actor!.isReady = true;
         this._enemies.push(enemy);
         return enemy;
     }
@@ -114,16 +112,17 @@ export class Level extends Singleton {
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
-        return;
+
         if (pos === undefined) {
             const point = NavSystem.randomPoint();
             pos = point.position;
         } 
-        const prefab = ResCache.Instance.getPrefab(this._data.drop_item);
+        const prefab = ResCache.Instance.getPrefab(this._data.prefab_drop_item);
         const dropNode = Res.inst(prefab, this._objectNode!, pos);
         const drop = dropNode.getComponent(DropItem);
 
         const data = DataEquipInst.get(res);
+
         if (drop === null) {
             throw new Error(`Drop node can not add component Drop Item.`);
         }

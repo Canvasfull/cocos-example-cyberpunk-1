@@ -53,6 +53,8 @@ export class ActorMove extends Component {
 
     isJump = false;
 
+    isStopMove= false;
+
     start() {
 
         this.rigid = this.getComponent(RigidBody)!;
@@ -61,6 +63,7 @@ export class ActorMove extends Component {
     }
 
     lateUpdate(deltaTime: number) {
+        if(this.isStopMove) return;
         this.movePosition(deltaTime);
         this.moveRotation();
     }

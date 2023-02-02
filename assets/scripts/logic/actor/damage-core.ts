@@ -12,7 +12,7 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
     if (actorPart) {
-        const actorBodyName = node.name;
+        const actorBodyName = actorPart.part;
         const part_damage = damage[actorBodyName];
         if (part_damage === undefined) throw new Error(`${node.name} node hit part undefine '${actorBodyName}'`);
 
@@ -54,7 +54,7 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
     if (actorPart) {
-        const actorBodyName = node.name;
+        const actorBodyName = actorPart.part;
         const part_damage = damage[actorBodyName];
         if (part_damage === undefined) throw new Error(`${node.name} node hit part undefine '${actorBodyName}'`);
 

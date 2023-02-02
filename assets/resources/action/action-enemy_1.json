@@ -25,6 +25,16 @@
             { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 1.2} }
         ]
     },
+    "on_aim": {
+        "start": [
+            {"time": 0, "name": "on_anig", "data":{ "key":"bool_iron_sights", "value":true } }
+        ]
+    },
+    "off_aim": {
+        "start": [
+            {"time": 0, "name": "on_anig", "data":{ "key":"bool_iron_sights", "value":false } }
+        ]
+    },
     "rebirth":{
         "start":[
             {"time":0, "name": "on_msg", "data": "rebirth" }
