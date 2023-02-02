@@ -1,4 +1,5 @@
-import { _decorator, Component, Node, resources } from 'cc';
+import { _decorator, Component, Node, ParticleSystem, resources } from 'cc';
+import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
 
 @ccclass('FxBase')
@@ -6,22 +7,23 @@ export class FxBase extends Component {
 
     @property
     destroyTime = 3;
+    particles:ParticleSystem[] | undefined;
 
     start() {
-
-        this.node.children[0].active = true;
-
+        this.particles = this.node?.getComponentsInChildren(ParticleSystem);
     }
 
-    update(deltaTime: number) {
-
-        this.destroyTime -= deltaTime;
-
-        if (this.destroyTime < 0) {
-            this.node.destroy();
+    play() {
+        for (var i = 0; i < this.particles!.length; i++) {
+            const particle = this.particles![i];
+            particle.stop();
+            particle.play();
         }
-        
     }
 
+    remove() {
+        fun.delay(()=>{
+            this.node.destroy()
+        }, this.destroyTime);
+    }
 }
-

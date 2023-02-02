@@ -7,8 +7,8 @@
     "sfx_walk_grass":"sfx_walk_grass",
     "cost_jump_strength":2,
     "cost_run_strength":1,
-    "cost_use_equip_strength":2,
-    "recover_ground_strength":1,
+    "cost_use_equip_strength":1,
+    "recover_ground_strength":5,
     "changed_strength":false,
     "normal_height":1.6,
     "crouch_height":0.8,
@@ -16,7 +16,7 @@
     "size":1,
     "size_percent":1,
     "view_size": 0.8,
-    "strength": 30,
+    "strength": 40,
     "max_strength": 30,
     "max_move_rate": 1,
     "min_move_rate": 0.1,
@@ -42,6 +42,7 @@
     "is_dead": false,
     "is_crouch": false,
     "is_prone": false,
+    "is_aim": false,
     "is_jump": false,
     "is_attack": false,
     "in_water": false,
@@ -60,12 +61,15 @@
     "defense_percent":0,
     "nearest_node":-1,
     "default_equip_index": 0,
-    "bags":["handgun_0", "machine_gun_1", "axe_0","handgun_1","grenade_0","grenade_1","machine_gun_0"],
-    "weapon_bone":"bone_point_hand",
+    "bags":["handgun_0", "machine_gun_1", "handgun_1","machine_gun_0"],
+    "weapon_bone":"weapon_root",
     "cache_weapons":[
         "handgun_0","handgun_1",
-        "machine_gun_0","machine_gun_1",
-        "grenade_0","grenade_1",
-        "axe_0"
-    ]
+        "machine_gun_0","machine_gun_1"
+    ],
+    "linear_velocity_animation_rate":0.5,
+    "angle_velocity_animation_rate":0.05,
+    "angle_velocity_animation_scale":10,
+    "stand_camera_height": 1,
+    "crouch_camera_height": 1.377
 }

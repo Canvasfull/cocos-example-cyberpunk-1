@@ -14,12 +14,11 @@ export class ActorHandgun extends ActorEquipBase {
         let ray = new geometry.Ray(origin.x, origin.y, origin.z, dir.x, dir.y , dir.z);
         const mask = 1 << 3 | 1 << 4;
         const distance = this._data.damage.distance;
-        console.log(mask, distance);
         let hit:PhysicsRayResult | undefined;
         if (PhysicsSystem.instance.raycastClosest(ray, mask, distance)) {
             hit = PhysicsSystem.instance.raycastClosestResult;
         }
-        this.setWeaponTracer(hit, dir);
+        this.showTracer(hit, dir);
         calculateDamage(this._data, hit);
     }
 

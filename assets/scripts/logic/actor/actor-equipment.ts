@@ -3,7 +3,6 @@ import { Msg } from "../../core/msg/msg";
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { UtilNode } from '../../core/util/util';
-import { Level } from '../level/level';
 import { Actor } from "./actor";
 import { BagItems } from './actor-bag';
 import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
@@ -13,27 +12,22 @@ import { fun } from '../../core/util/fun';
 export class ActorEquipment {
 
     _actor:Actor;
-
     equipPool:{ [key:string]:Node } = {};
-
     equipBoneNode: { [key:string]:Node } = {};
-
     curEquip:Node | undefined;
-
     curData:BagItems | undefined;
-
     stableValue = 1;
 
     constructor(actor:Actor) {
         this._actor = actor;
-        this.equipBoneNode = UtilNode.getChildrenByNameBlur(this._actor.node, 'bone_point_');
+        this.equipBoneNode = UtilNode.getChildrenByNameBlur(this._actor.node, 'weapon_root');
 
         //cache weapons.
         const weapons = this._actor._data.cache_weapons;
         const count = weapons.length;
         for(let i = 0; i < count; i++) {
             const weaponName = weapons[i];
-            const prefab = ResCache.Instance.getPrefab(weaponName + '_fps');
+            const prefab = ResCache.Instance.getPrefab(weaponName + '_tps');
             const bindNode = this.equipBoneNode[this._actor._data.weapon_bone];
             const nodePrefab = Res.inst(prefab, bindNode);
             nodePrefab.setPosition(0, 0, 0);
@@ -73,10 +67,8 @@ export class ActorEquipment {
                     self.curEquip!.emit('do', 'take_out');
                     self._actor._data.cur_equip_bag_index = index;
                     if(this._actor.isPlayer) {
-                        const mainCamera = CameraSetting.main?.camera;
-                        if(mainCamera) mainCamera.fov = this.curData!.fov;
-                    }
-                    if(this._actor.isPlayer) {
+                        //const mainCamera = CameraSetting.main?.camera;
+                        //if(mainCamera) mainCamera.fov = this.curData!.fov;
                         Msg.emit('msg_change_equip');
                         Msg.emit('msg_update_equip_info');
                     }
@@ -106,7 +98,7 @@ export class ActorEquipment {
         this.curEquip?.emit('do', action);
     }
 
-    public updateAim(stable:number) {
+    public updateAim(normalizeSpeed:number, toMax = false) {
         
         if (this.curData === undefined) {
             if (this.stableValue !== 0){
@@ -114,12 +106,20 @@ export class ActorEquipment {
                 if(this._actor.isPlayer) Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
-            const equipStable = this.curData.data.stable_value;
-            let curStable = 0;
-            if (equipStable !== 0) {
-                curStable = Math.abs(stable) <= 0.001 ? this.curData.data.stable_min_value : equipStable;
+            const equipData = this.curData.data;
+            const equipStable = equipData.stable_max_value;
+            let currentStable = 0;
+            if(toMax) {
+                this.stableValue = equipData.stable_max_value;
+                currentStable = equipData.stable_max_value;
+            }else{
+                if (equipStable !== 0) {
+                    currentStable = Math.abs(normalizeSpeed) <= 0.001 ? equipData.stable_min_value : equipData.stable_max_value * normalizeSpeed;
+                    currentStable = Math.max(equipData.stable_min_value, currentStable);
+                }
+                this.stableValue = math.lerp(this.stableValue, currentStable, game.deltaTime * equipData.stable_smooth);
             }
-            this.stableValue = math.lerp(this.stableValue, curStable, game.deltaTime * 2);
+            
             if(this._actor.isPlayer) Msg.emit('msg_update_aim', this.stableValue);
         }
     }

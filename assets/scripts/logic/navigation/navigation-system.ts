@@ -87,6 +87,10 @@ export namespace NavPoints {
             }
         }
 
+        if (index === -1) {
+            throw new Error(`'can not find target node.`);
+        }
+
         return index;
 
     }
@@ -99,14 +103,12 @@ export namespace NavPoints {
         /*
 
         let nearestNode = -1;
-
         const x = Math.floor(position.x/data.blockX);
         const y = Math.floor(position.y/data.blockY);
         const z = Math.floor(position.z/data.blockZ);
 
         const key = `${x},${y},${z}`;
         const blockNodes = data.nodeMap[key];
-
         if(blockNodes === undefined) {
             console.warn(`Can not find block:${key}, position:${position}`)
             return -1;
@@ -143,30 +145,46 @@ export namespace NavPoints {
         }
 
     }
+
+    type PathPoint = {
+        node: number,
+        g:number,
+        h:number,
+        f:number,
+        parent:PathPoint | undefined
+    }
     
 
-    export function findPaths(start:Vec3, nearest:number = -1, target:Vec3):NavPointType[] {
+    export function findPaths(start:Vec3, startNearest:number = -1, end:Vec3):NavPointType[] {
 
-        let paths = Array<NavPointType>(length);
+        let paths = Array<NavPointType>();
 
         // open table.
-        let openTable: any[] = [];
+        let openTable: PathPoint[] = [];
 
         // close table.
-        let closeTable: number[] = [];
+        let closeTable: PathPoint[] = [];
 
-        if(nearest === -1) {
+        if(startNearest === -1) {
             // find nearest point.
-            nearest = findNearestPoint(start);
+            startNearest = findNearestPoint(start);
+            openTable.push({ node:startNearest, g:0, h:0, f:0, parent: undefined });
+        }
 
-            openTable.push({ node:nearest, f:0 });
+        // find nearest end point.
+        const endNearest = findNearestPoint(end);
+        //console.log('endNearest id', endNearest);
 
-            if (nearest === -1) {
-                throw new Error(`'can not find target node.`);
-            }
+        // check start equal end.
+        if(startNearest === endNearest) {
+            paths.push(data.nodes[startNearest]);
+            return paths;
         }
 
         const findMinCostPoint = function (): number {
+
+            if(openTable.length <= 0) return -1;
+
             let cost = Number.MAX_VALUE;
             let minNode = -1;
             for(let i = 0; i < openTable.length; i++) {
@@ -186,57 +204,129 @@ export namespace NavPoints {
             return false;
         }
 
-        const pushOpenTable = function (node:number) {
-
-            const nodeData = data[node];
-
-            const distanceStart = Vec3.distance(start, nodeData);
-            
-            const distanceTarget = Vec3.distance(nodeData, target);
-
-            const f = distanceStart + distanceTarget;
-
-            console.log(distanceStart, distanceTarget, f);
-
-            openTable.push({node, f, distanceStart, distanceTarget});
-
-            // find target.
-            if(distanceTarget < 5) return true;
-            
+        const checkInCloseTable = function (node:number) {
+            for(let closeTableI = 0; closeTableI < closeTable.length; closeTableI++) {
+                if(closeTable[closeTableI].node === node) return true;
+            } 
             return false;
         }
 
-        const searchNeighbor = function (node:number) {
+        const pushOpenTable = function (node:number, parent:PathPoint) {
 
-            const links = data.links[node];
+            const nodeData = data.nodes[node];
+
+            // find target.
+            if(nodeData.id == endNearest) {
+                //console.log('find target.', nodeData.id, ' target id:', endNearest);
+                return { node,  g:0, h:0, f:0, parent };
+            }
+
+            //console.log(start, nodeData);
+
+            const g = Vec3.distance(start, nodeData);
+            
+            const h = Vec3.distance(nodeData, end);
+
+            const f = g + h;
+
+            //console.log('distances start:', distanceStart, 'distances target:', distanceTarget, 'f:', f);
+
+            openTable.push({node, f, g, h, parent});
+            
+            return undefined
+        }
+
+        const searchNeighbor = function (parent:PathPoint) {
+
+            const links = data.links[parent.node];
+
+            //console.log('node:', node, 'neighbor links', links);
 
             for(let i = 0; i < links.length; i++) {
 
+                const linkNode = links[i];
                 // find in close table.
-                if(closeTable.indexOf(links[i]) > 1) continue;
+                // console.log('neighbor:', links[i], 'close table:', closeTable, 'state:', inCloseTable);
+                if(checkInCloseTable(linkNode)) continue;
 
                 // find in open table.
-                if(checkInOpenTable(node)) continue;
+                if(checkInOpenTable(linkNode)) continue;
 
                 // push in open table.
-                if(pushOpenTable(node)) {
-                    
-                }
-
+                const findPathPoint = pushOpenTable(linkNode, parent);
+                if(findPathPoint) return findPathPoint;
             }
+
+            return false;
 
         }
 
-        const calculatePaths = function (node:number) {
+        const find = function () {
 
             // find min cost point.
-            const minNode = findMinCostPoint();
+            const minNodeIndex = findMinCostPoint();
 
-            // insert closeTable.
+            if(minNodeIndex == -1) {
+                //console.log('can not find target.');
+                return null;
+            }
+
+            //console.log('open table:', openTable, 'minNode:', minNode);
+
+            // open table.
+            const minNode = openTable[minNodeIndex];
+
+            // remove open table.
+            openTable.splice(minNodeIndex, 1);
+
+            // insert close table.
             closeTable.push(minNode);
 
-            // search neighbors
-            searchNeighbor(minNode);
+            // search neighbors.
+            const findPathPoint = searchNeighbor(minNode);
+            if(findPathPoint) {
+                //console.log('find node target:', findPathPoint);
+                return findPathPoint;
+            }
+
+            return undefined;
+
+        }
+
+        const calculateParent = function(targetNode:PathPoint) {
+
+            const parent = targetNode.parent;
+            if(parent == undefined) return;
+            const node = data.nodes[parent.node];
+            paths.push(node);
+            calculateParent(parent);
+
+        }
+
+        let index = -1;
+        let max = 112;
+        let findTargetPoint:PathPoint | undefined | null;
+
+        while(true) {
+            index++;
+            //console.log('index:', index, 'close table count:', closeTable.length, 'open table count:', openTable.length);
+            if(index > max) break;
+            findTargetPoint = find();
+            if(findTargetPoint !== undefined) break;
+        }
+
+        //calculate paths
+        if(findTargetPoint) {
+
+            //console.log('find target point:', findTargetPoint);
+
+            // push end node.
+            paths.push(data.nodes[endNearest]);
+
+            // get end to start list.
+            calculateParent(findTargetPoint);
+
+            paths.reverse();
 
         }
 

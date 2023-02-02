@@ -8,7 +8,7 @@ export class LevelEnablePlay extends Component {
 
     onEnable() {
         if (Game.Instance._cur_name !== 'level') {
-            this.node.getComponent(animation.AnimationController).enabled = false;
+            this.node.getComponent(animation.AnimationController)!.enabled = false;
         }
     }
 }

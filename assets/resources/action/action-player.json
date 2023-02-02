@@ -3,7 +3,8 @@
         "start":[
             { "time": 1.5, "name": "on_call", "data": "onUpdate"},
             { "time": 1.5, "name": "on_inst_scene", "data": "actor_input"},
-            { "time": 1.5, "name": "on_com", "data":"ActorStatistics"}
+            { "time": 1.5, "name": "on_com", "data":"ActorStatistics"},
+            { "time": 1.5, "name": "on_com", "data":"ActorSound"}
         ]
     },
     "jump": {
@@ -35,7 +36,7 @@
         "start":[
             { "time": 0, "name": "on_set", "data": { "key":"is_ground", "value":true } },
             { "time": 0, "name": "on_set", "data": { "key":"is_jump", "value":false } },
-            { "time": 0, "name": "on_anig", "data": { "key":"is_ground", "value":true } },
+            { "time": 0, "name": "on_anig", "data": { "key":"bool_ground", "value":true } },
             { "time": 0, "name": "on_sfx", "data": "sfx_hit_ground" }
         ]
     },
@@ -60,6 +61,16 @@
             { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
             { "time": 0, "delay":0.5, "name": "on_msg", "data": "update_data"}
         ] 
+    },
+    "on_aim": {
+        "start": [
+            {"time": 0, "name": "on_anig", "data":{ "key":"bool_iron_sights", "value":true } }
+        ]
+    },
+    "off_aim": {
+        "start": [
+            {"time": 0, "name": "on_anig", "data":{ "key":"bool_iron_sights", "value":false } }
+        ]
     },
     "level_win": {
         "start":[

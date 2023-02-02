@@ -15,8 +15,10 @@ export class ActorInput extends Component implements IActorInput {
     _isOpenEquips = false;
 
     start () {
-        this._actor = Level.Instance._actor;
-        if(sys.platform === sys.Platform.MOBILE_BROWSER) {
+        this._actor = Level.Instance._player;
+        if(sys.platform === sys.Platform.MOBILE_BROWSER || 
+            sys.platform === sys.Platform.ANDROID || 
+            sys.platform === sys.Platform.IOS ) {
             this.node.children[1].active = true;
         }else {
             this.node.children[2].active = true;
@@ -44,8 +46,8 @@ export class ActorInput extends Component implements IActorInput {
         this._actor?.onCrouch();
     }
 
-    onProne(){
-        this._actor?.onProne();
+    onAim(){
+        this._actor?.onAim();
     }
 
     onFire() {

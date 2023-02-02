@@ -51,7 +51,7 @@
         "_value": false
       },
       "physics-2d": {
-        "_value": true,
+        "_value": false,
         "_option": "physics-2d-box2d"
       },
       "physics-2d-box2d": {
@@ -79,7 +79,7 @@
         "_value": false
       },
       "particle-2d": {
-        "_value": true
+        "_value": false
       },
       "audio": {
         "_value": true
@@ -94,25 +94,25 @@
         "_value": true
       },
       "websocket": {
-        "_value": true
+        "_value": false
       },
       "websocket-server": {
         "_value": false
       },
       "terrain": {
-        "_value": true
+        "_value": false
       },
       "light-probe": {
         "_value": true
       },
       "tiled-map": {
-        "_value": true
+        "_value": false
       },
       "spine": {
         "_value": true
       },
       "dragon-bones": {
-        "_value": true
+        "_value": false
       },
       "marionette": {
         "_value": true
@@ -133,7 +133,6 @@
       "audio",
       "base",
       "custom-pipeline",
-      "dragon-bones",
       "geometry-renderer",
       "gfx-webgl",
       "gfx-webgl2",
@@ -141,19 +140,14 @@
       "light-probe",
       "marionette",
       "particle",
-      "particle-2d",
-      "physics-2d-box2d",
       "physics-physx",
       "primitive",
       "profiler",
       "skeletal-animation",
       "spine",
-      "terrain",
-      "tiled-map",
       "tween",
       "ui",
       "video",
-      "websocket",
       "webview"
     ],
     "noDeprecatedFeatures": {

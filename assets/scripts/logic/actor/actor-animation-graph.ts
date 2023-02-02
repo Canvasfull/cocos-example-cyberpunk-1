@@ -1,6 +1,5 @@
 
 import { _decorator, Component, Node, animation, Vec3, v3 } from 'cc';
-import { Actor } from './actor';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorAnimationGraph')
@@ -20,6 +19,10 @@ export class ActorAnimationGraph extends Component {
     }
 
     play (key: string, value: boolean | number) {
+        this._graph?.setValue(key, value);
+    }
+
+    setValue(key:string, value:number) {
         this._graph?.setValue(key, value);
     }
 

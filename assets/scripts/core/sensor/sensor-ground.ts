@@ -1,4 +1,4 @@
-import { _decorator, Component, Collider, ICollisionEvent, geometry, Node, PhysicsSystem, Vec3, v3, Color } from 'cc';
+import { _decorator, Component, Collider, ICollisionEvent, geometry, Node, PhysicsSystem, Vec3, v3, Color, RigidBody } from 'cc';
 import { Actor } from '../../logic/actor/actor';
 import { SubstanceCore } from '../../logic/item/substance-core';
 import { Gizmo, UtilVec3 } from '../util/util';
@@ -13,11 +13,20 @@ export class SensorGround extends Component {
     _ray: geometry.Ray = new geometry.Ray();
     _velocity:Vec3 = v3(0, 0, 0);
 
+    _rigid:RigidBody | undefined;
+
+    @property(Number)
+    checkDistance = 0.2;
+
     @property([Vec3])
     original = []
 
-    @property
-    maskNum = 4;
+    @property([Number])
+    masks = [];
+
+    _mask = 0
+
+    pos = v3(0, 0, 0);
 
     start () {
 
@@ -25,76 +34,32 @@ export class SensorGround extends Component {
         this._ray.d.x = 0;
         this._ray.d.y = -1;
         this._ray.d.z = 0;
-        this._actor = this.node.parent?.getComponent(Actor);
-    }
+        this._actor = this.node.getComponent(Actor);
 
-    /*
-    onCollisionEnter (event: ICollisionEvent) {
-        if (this._isGround) return;
-        if (event.otherCollider.node.layer === 1 << 2) {
-            this._actor!.onGround();
-            this._isGround = true;
-        }
+        for(let i = 0; i < this.masks.length; i++)
+            this._mask = this._mask | 1 << this.masks[i];
     }
-
-    onCollisionExit (event: ICollisionEvent) {
-        if (!this._isGround) return;
-        if (event.otherCollider.node.layer === 1 << 2) {
-            this._actor!.offGround();
-            this._isGround = false;
-        }
-    }
-    */
 
     update (deltaTime: number) {
         this.checkGroundRays();
     }
 
-    /*
-    checkGroundOneRay() {
-        const mask = (1 << this.maskNum);
-        UtilVec3.copy(this._ray.o, this.node.worldPosition);
-        if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.3)) {
-            if (!this._isGround) {
-                this._isGround = true;
-                this._actor!.onGround();
-            }
-        } else {
-            if (this._isGround) {
-                this._isGround = false;
-                this._actor!.offGround();
-            }
-        }
-    }
-    */
-
     checkGroundRays() {
 
-        this._actor!._rigid.getLinearVelocity(this._velocity);
-        //if (this._velocity.y > 0) return;
-        const mask = (1 << this.maskNum);
-        let pos = v3(0, 0, 0);
-        UtilVec3.copy(pos, this.node.worldPosition);
         for(let i = 0; i < this.original.length; i++) {
-            let o = this.original[i];
-            this._ray.o.x = pos.x + o.x;
-            this._ray.o.z = pos.z + o.z;
-            this._ray.o.y = pos.y;
-            if (PhysicsSystem.instance.raycastClosest(this._ray, mask, 0.3)) {
+            UtilVec3.copy(this._ray.o, this.node.worldPosition);
+            this._ray.o.add(this.original[i]);
+            if (PhysicsSystem.instance.raycastClosest(this._ray, this._mask, this.checkDistance)) {
                 const res = PhysicsSystem.instance.raycastClosestResult;
-                this._actor!._data.walk_in_type = SubstanceCore.Instance.checkNodeType(res.collider.node);
-                if (!this._isGround) {
-                    this._isGround = true;
-                    this._actor!.onGround();
-                }
+                //this._actor!._data.walk_in_type = SubstanceCore.Instance.checkNodeType(res.collider.node);
+                if(!this._isGround) this._actor?.onGround();
+                this._isGround = true;
                 return;
             }
         }
 
-        if (this._isGround) {
-            this._isGround = false;
-            this._actor!.offGround();
-        }
+        if(this._isGround) this._actor?.offGround();
+        this._isGround = false;
 
     }
 

@@ -113,6 +113,14 @@ export class UtilVec3 {
         a.z = direction.z * scale;
     }
 
+    public static clampMagnitude(target: Vec3, length:number) {
+
+        if(target.length() > length) {
+            target.normalize().multiplyScalar(length);
+        }
+
+    }
+
 }
 
 export class UtilVec2 {
