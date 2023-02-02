@@ -12,7 +12,9 @@ export const HrefSetting = {
     bloom: 1,
     showFps: 0,
     fps: 60,
-    transparent: 1
+    transparent: 1,
+    clusterLighting: 1,
+    ibl: 1
 }
 globalThis.HrefSetting = HrefSetting
 
