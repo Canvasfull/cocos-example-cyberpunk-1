@@ -197,6 +197,10 @@ export class CustomPipelineBuilder {
     }
 }
 
+// if (JSB) {
+//     debugger;
+// }
+
 // if (!JSB) {
 rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
 // }

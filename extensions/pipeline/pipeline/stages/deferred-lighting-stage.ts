@@ -32,8 +32,10 @@ export class DeferredLightingStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     tempMat: Material
     clearMat: renderer.MaterialInstance
+
     enableClusterLighting = 0;
     enableIBL = 0;
+    enableShadow = 0;
 
     uniqueStage = true;
 
@@ -149,24 +151,29 @@ export class DeferredLightingStage extends BaseStage {
                     REFLECTION_PROBE_COUNT: probes.length,
                     ENABLE_CLUSTER_LIGHTING: HrefSetting.clusterLighting,
                     ENABLE_IBL: HrefSetting.ibl,
+                    ENABLE_SHADOW: HrefSetting.shadow,
                 })
 
                 this.enableClusterLighting = HrefSetting.clusterLighting
                 this.enableIBL = HrefSetting.ibl
+                this.enableShadow = HrefSetting.shadow
             }
             this.materialMap.set(camera, material);
         }
 
         if (probes.length !== this.probes.length ||
             this.enableClusterLighting !== HrefSetting.clusterLighting ||
-            this.enableIBL !== HrefSetting.ibl) {
+            this.enableIBL !== HrefSetting.ibl ||
+            this.enableShadow !== HrefSetting.shadow) {
             material.recompileShaders({
                 REFLECTION_PROBE_COUNT: probes.length,
                 ENABLE_CLUSTER_LIGHTING: HrefSetting.clusterLighting,
                 ENABLE_IBL: HrefSetting.ibl,
+                ENABLE_SHADOW: HrefSetting.shadow,
             })
             this.enableClusterLighting = HrefSetting.clusterLighting
             this.enableIBL = HrefSetting.ibl
+            this.enableShadow = HrefSetting.shadow
         }
 
         if (!JSB) {

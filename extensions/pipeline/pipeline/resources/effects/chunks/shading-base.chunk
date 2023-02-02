@@ -14,7 +14,7 @@ vec4 CCCustomShadingBase (StandardSurface s, vec4 shadowPos, out vec3 specular, 
   float NL = max(dot(N, L), 0.0);
 
   shadow = 1.0;
-  #if CC_RECEIVE_SHADOW && CC_SHADOW_TYPE == CC_SHADOW_MAP
+  #if CC_RECEIVE_SHADOW && CC_SHADOW_TYPE == CC_SHADOW_MAP && ENABLE_SHADOW
     if (NL > 0.0 && cc_mainLitDir.w > 0.0) {
       if (cc_shadowLPNNInfo.w > 0.0) {
         #if CC_DIR_LIGHT_SHADOW_TYPE == CC_DIR_LIGHT_SHADOW_CASCADED
