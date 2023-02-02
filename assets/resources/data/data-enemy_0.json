@@ -52,7 +52,7 @@
     "nearest_node":-1,
     "default_equip_index": 0,
     "bags":["laser_gun_0"],
-    "weapon_bone":"bone_point_hand",
+    "weapon_bone":"weapon_root",
     "cache_weapons":[
         "laser_gun_0"
     ],

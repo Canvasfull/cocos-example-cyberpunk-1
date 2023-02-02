@@ -1,4 +1,4 @@
-import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry, GeometryRenderer, IVec3 } from 'cc';
+import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry, GeometryRenderer, IVec3, Quat } from 'cc';
 import { fun } from './fun';
 import { GRandom } from './grandom';
 import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
@@ -270,6 +270,14 @@ export class UtilNode {
             return component;
         
         return this.getParentComponent(node.parent, type);
+    }
+
+    static _worldRotation:Quat = new Quat();
+    static _angle:Vec3 = v3(0, 0, 0);
+    public static getWorldEulerAngles(node: Node) {
+        node.getWorldRotation(this._worldRotation);
+        this._worldRotation.getEulerAngles(this._angle);
+        return this._angle;
     }
 
 }

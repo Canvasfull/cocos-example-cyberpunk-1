@@ -7,6 +7,7 @@
             { "time": 0.3, "name": "on_scene", "data": "scene-level"}
         ],
         "end": [
+            { "time": 0.01, "name": "on_msg", "data": "msg_play_animation" },
             { "time": 0.01, "name": "off_ui", "data": "ui_logo" },
             { "time": 0.03, "name": "on_msg", "data": "start_auto_save" }
         ]

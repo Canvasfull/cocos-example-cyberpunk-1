@@ -3,7 +3,7 @@ import { EDITOR } from 'cc/env';
 import { JsonTool } from '../../core/io/json-tool';
 import { Gizmo, UtilVec3 } from '../../core/util/util';
 import { NavigationPoint } from './navigation-point';
-import { NavPoints } from './navigation-system';
+import { NavSystem } from './navigation-system';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 @ccclass('NavigationRegion')
@@ -98,7 +98,7 @@ export class NavigationRegion extends Component {
 
         if(this.testPath) {
 
-            NavPoints.Init(data);
+            NavSystem.Init(data);
 
             // Test Random paths.
             //this.testRandomPath();
@@ -183,20 +183,20 @@ export class NavigationRegion extends Component {
 
     testRandomPath() {
         // random point.
-        const point = NavPoints.randomPoint();
+        const point = NavSystem.randomPoint();
         this.testNode?.setWorldPosition(point.position);
-        this.findPaths = NavPoints.randomPaths(this.testNode!.worldPosition, 20, point.nearestNode);
+        this.findPaths = NavSystem.randomPaths(this.testNode!.worldPosition, 20, point.nearestNode);
     }
 
     testFindPath() {
     
         // random start.
-        const start = NavPoints.randomPoint();
+        const start = NavSystem.randomPoint();
 
         // random end.
-        const end = NavPoints.randomPoint();
+        const end = NavSystem.randomPoint();
 
-        this.findPaths = NavPoints.findPaths(start.position, -1, end.position);
+        this.findPaths = NavSystem.findPaths(start.position, -1, end.position);
 
         //console.log('find paths:', this.findPaths);
     }
