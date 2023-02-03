@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange } from 'cc';
+import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange, geometry } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
 import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
@@ -32,6 +32,8 @@ export class ActorEquipBase extends Component {
     fxMuzzle:FxBase | undefined;
 
     isBulletEmpty = false;
+
+    mask = 1 << 3 | 1 << 4;
 
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;

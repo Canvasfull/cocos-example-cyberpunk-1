@@ -61,6 +61,9 @@ export class LevelEventsEnemy extends Component {
         this.counter++;
         this.groupCounter![occurGroupIndex]++;
 
+        // Send warning message.
+        Msg.emit('level_action', 'warning');
+
     }
 
     public remove(groupIndex:number) {

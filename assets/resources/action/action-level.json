@@ -12,6 +12,12 @@
             { "time": 1000, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
         ]
     },
+    "warning":{
+        "start":[
+            { "time": 0, "name": "on_msg", "data": { "key":"msg_ui_fx_open", "value": "effect_warning"} },
+            { "time": 5, "name": "on_msg", "data": { "key":"msg_ui_fx_close", "value": "effect_warning"} }
+        ] 
+    },
     "end":{
         "start":[
             { "time": 0.1, "name": "on_msg", "data": "game_dead"},
