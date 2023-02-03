@@ -45,8 +45,16 @@ export class ActorInputBrain extends Component implements IActorInput {
     }
 
     onProne(){
-        this._actor?.onProne();
+        //this._actor?.onProne();
     }
+
+    onAim(isAim:boolean | undefined): void {
+        this._actor?.onAim(isAim);
+    }
+    onChangeEquips(): boolean {
+        throw new Error('Method not implemented.');
+    }
+
 
     onFire() {
         this._actor?.onFire();

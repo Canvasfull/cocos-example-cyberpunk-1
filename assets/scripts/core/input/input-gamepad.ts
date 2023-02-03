@@ -70,8 +70,8 @@ export class InputGamepad extends InputBase {
         const isCrouch = event.gamepad.buttonWest.getValue();
         if(isCrouch) this._actorInput?.onCrouch();
 
-        const isProne = event.gamepad.buttonNorth.getValue();
-        if(isProne) this._actorInput?.onProne();
+        //const isProne = event.gamepad.buttonNorth.getValue();
+        //if(isProne) this._actorInput?.onProne();
 
         const isPick = event.gamepad.buttonSouth.getValue();
         if(isPick) this._actorInput?.onPick();

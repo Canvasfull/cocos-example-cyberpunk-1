@@ -25,10 +25,10 @@ export class CameraMoveTarget extends Component {
     @property( { type:[Node], tooltip:'Target node list.'})
     targets:Node[] = [];
 
-    @property
+    @property( { type:Number, tooltip:'Start the waiting time.'} )
     waitTime = 10;
 
-    @property( {type:Node, tooltip:'Look at target Node.'} )
+    @property( {type:Node, tooltip:'Look at target node.'} )
     lookAtTarget:Node | undefined;
 
     currentPosition = v3(0, 0, 0);
@@ -80,7 +80,7 @@ export class CameraMoveTarget extends Component {
         this.cameraNode?.setRotationFromEuler(this.currentAngle);
 
         // Set Look at point.
-        this.lookAtTarget!.setPosition(0, 0, -this.cameraNode!.position.z - 5);
+        this.lookAtTarget?.setPosition(0, 0, -this.cameraNode!.position.z - 5);
         
     }
 

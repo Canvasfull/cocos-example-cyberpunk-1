@@ -7,6 +7,7 @@ import { Actor } from "./actor";
 import { BagItems } from './actor-bag';
 import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
 import { fun } from '../../core/util/fun';
+import { ActorEquipBase } from './actor-equip-base';
 
 
 export class ActorEquipment {
@@ -14,8 +15,16 @@ export class ActorEquipment {
     _actor:Actor;
     equipPool:{ [key:string]:Node } = {};
     equipBoneNode: { [key:string]:Node } = {};
-    curEquip:Node | undefined;
-    curData:BagItems | undefined;
+
+    // Current equip node.
+    currentEquipNode:Node | undefined;
+
+    // Current equip bag info.
+    currentEquipBagItems:BagItems | undefined;
+
+    // Current equip.
+    currentEquip:ActorEquipBase | undefined;
+
     stableValue = 1;
 
     constructor(actor:Actor) {
@@ -46,38 +55,42 @@ export class ActorEquipment {
             const items = this._actor._data.items;
 
             // unEquip
-            if (curIndex !== -1) this.unEquip();
+            if (curIndex !== -1) this._actor._data.items_index = 0; //this.unEquip();
 
+            /*
             if (index === -1) {
                 this._actor._data.cur_equip_bag_index = -1;
-                this.curData = undefined;
-                // show hand.
+                this.currentEquipBagItems = undefined;
+                // Show hand.
                 return false;
             }
+            */
 
             // Change new weapon.
-            const curEquipName = items_index[index];
-            if (curEquipName.length > 0) {
+            const currentEquipNodeName = items_index[index];
+            if (currentEquipNodeName.length > 0) {
                 const self = this;
                 fun.delay(()=>{
-                    this.curEquip = this.equipPool[curEquipName];
-                    this.curData = items[curEquipName];
-                    self.curEquip!.active = true;
-                    self.curEquip!.emit('init',this.curData);
-                    self.curEquip!.emit('do', 'take_out');
+                    self.currentEquipNode = self.equipPool[currentEquipNodeName];
+                    self.currentEquipBagItems = items[currentEquipNodeName];
+                    self.currentEquipNode!.active = true;
+                    self.currentEquipNode!.emit('init',this.currentEquipBagItems);
+                    self.currentEquipNode!.emit('do', 'take_out');
                     self._actor._data.cur_equip_bag_index = index;
+                    self.currentEquip = self.currentEquipNode?.getComponent(ActorEquipBase)!;
+
                     if(this._actor.isPlayer) {
                         //const mainCamera = CameraSetting.main?.camera;
-                        //if(mainCamera) mainCamera.fov = this.curData!.fov;
+                        //if(mainCamera) mainCamera.fov = this.currentEquipBagItems!.fov;
                         Msg.emit('msg_change_equip');
                         Msg.emit('msg_update_equip_info');
                     }
-                }, 1)
+                }, 0.3)
             }
 
         }
 
-        return this.curEquip !== undefined;
+        return this.currentEquipNode !== undefined;
 
     }
 
@@ -95,18 +108,18 @@ export class ActorEquipment {
     }
 
     public do(action:string) {
-        this.curEquip?.emit('do', action);
+        this.currentEquipNode?.emit('do', action);
     }
 
     public updateAim(normalizeSpeed:number, toMax = false) {
         
-        if (this.curData === undefined) {
+        if (this.currentEquipBagItems === undefined) {
             if (this.stableValue !== 0){
                 this.stableValue = 0;
                 if(this._actor.isPlayer) Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
-            const equipData = this.curData.data;
+            const equipData = this.currentEquipBagItems.data;
             const equipStable = equipData.stable_max_value;
             let currentStable = 0;
             if(toMax) {

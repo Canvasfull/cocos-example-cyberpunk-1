@@ -31,6 +31,8 @@ export class ActorEquipBase extends Component {
 
     fxMuzzle:FxBase | undefined;
 
+    isBulletEmpty = false;
+
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
         this.fxMuzzle = UtilNode.find(this.node, 'fx_muzzle').getComponent(FxBase)!;
@@ -113,7 +115,8 @@ export class ActorEquipBase extends Component {
 
     checkUse():boolean {
         // Check bullet count.
-        if (this._bagData!.bulletCount <= 0 && this._bagData!.data.bullet_count !== -1) {
+        this.isBulletEmpty = this._bagData!.bulletCount <= 0 && this._bagData!.data.bullet_count !== -1;
+        if (this.isBulletEmpty) {
             this.do('fire_empty');
             return false;
         }
@@ -128,7 +131,8 @@ export class ActorEquipBase extends Component {
     }
 
     onReload() {
-        this._bagData!.bulletCount = 999;
+        this._bagData!.bulletCount = this._bagData?.data.bulletCount;
+        this.isBulletEmpty = false;
     }
 
     onUse() {}

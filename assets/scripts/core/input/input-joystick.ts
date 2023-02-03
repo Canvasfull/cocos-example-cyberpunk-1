@@ -31,7 +31,7 @@ export class InputJoystick extends InputBase {
     }
 
     onProne() {
-        this._actorInput?.onProne();
+        //this._actorInput?.onProne();
     }
 
     onPick() {

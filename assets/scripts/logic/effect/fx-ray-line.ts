@@ -12,7 +12,7 @@ export class FxRayLine extends Component {
         UtilVec3.copy(this.direction, end);
         this.direction.subtract(start);
         const length = this.direction.length();
-        this.node.lookAt(this.direction);
+        //this.node.lookAt(this.direction);
         this.node.setScale(0.1, 1, length);
 
     }

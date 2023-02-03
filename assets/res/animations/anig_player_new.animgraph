@@ -3294,16 +3294,16 @@
         "__id__": 329
       },
       {
-        "__id__": 331
+        "__id__": 330
       },
       {
-        "__id__": 332
+        "__id__": 331
       },
       {
         "__id__": 333
       },
       {
-        "__id__": 335
+        "__id__": 334
       },
       {
         "__id__": 336
@@ -3347,8 +3347,8 @@
       "name": "",
       "id": "16740286232930.37994699053631975",
       "clone": null,
-      "centerX": 10,
-      "centerY": -222
+      "centerX": 35,
+      "centerY": -225
     },
     "name": "Any"
   },
@@ -3678,8 +3678,8 @@
   {
     "__type__": "cc.animation.SubStateMachine",
     "__editorExtras__": {
-      "centerX": -5,
-      "centerY": 48,
+      "centerX": 117,
+      "centerY": -152,
       "id": "16748993944740.7251890095509368",
       "clone": null
     },
@@ -3748,8 +3748,8 @@
       "name": "",
       "id": "16748993944760.9517807144577617",
       "clone": null,
-      "centerX": -1132.6760821831986,
-      "centerY": -28.59621314303672
+      "centerX": -1000.8620046626738,
+      "centerY": -77.09384543832414
     },
     "name": "Entry"
   },
@@ -3778,8 +3778,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -723.9518879300274,
-      "centerY": -111.37461166146304,
+      "centerX": -664.2624943358275,
+      "centerY": -142.46283749177547,
       "id": "16748993944750.7112812754168765",
       "clone": null,
       "name": ""
@@ -3809,8 +3809,8 @@
   {
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
-      "centerX": -710.1819274313552,
-      "centerY": 46.868903136033055,
+      "centerX": -650.4925338371553,
+      "centerY": 43.138316036395565,
       "id": "16748993944750.8267930119843914",
       "clone": null,
       "name": ""
@@ -3962,8 +3962,8 @@
   {
     "__type__": "cc.animation.SubStateMachine",
     "__editorExtras__": {
-      "centerX": 71,
-      "centerY": -166,
+      "centerX": -6,
+      "centerY": 69,
       "id": "16752293985330.5402864624524255",
       "clone": null,
       "name": "Draw SM"
@@ -4247,7 +4247,7 @@
   {
     "__type__": "cc.animation.SubStateMachine",
     "__editorExtras__": {
-      "centerX": -99,
+      "centerX": -81,
       "centerY": -181,
       "id": "16752297329560.6221545917882993",
       "clone": null,
@@ -4593,32 +4593,6 @@
     "trigger": "trigger_fire"
   },
   {
-    "__type__": "cc.animation.EmptyStateTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16749784103580.5735783376422681",
-      "clone": null
-    },
-    "from": {
-      "__id__": 266
-    },
-    "to": {
-      "__id__": 267
-    },
-    "conditions": [
-      {
-        "__id__": 330
-      }
-    ],
-    "duration": 0.3,
-    "destinationStart": 0,
-    "relativeDestinationStart": false
-  },
-  {
-    "__type__": "cc.animation.TriggerCondition",
-    "trigger": "trigger_reload"
-  },
-  {
     "__type__": "cc.animation.Transition",
     "__editorExtras__": {
       "name": "",
@@ -4663,7 +4637,7 @@
     },
     "conditions": [
       {
-        "__id__": 334
+        "__id__": 332
       }
     ],
     "duration": 0.3,
@@ -4704,7 +4678,7 @@
     },
     "conditions": [
       {
-        "__id__": 337
+        "__id__": 335
       }
     ],
     "duration": 0.3,
@@ -4714,6 +4688,36 @@
   {
     "__type__": "cc.animation.TriggerCondition",
     "trigger": "trigger_holster"
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16754061718710.18539233611922068",
+      "clone": null
+    },
+    "from": {
+      "__id__": 244
+    },
+    "to": {
+      "__id__": 267
+    },
+    "conditions": [
+      {
+        "__id__": 337
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "trigger_reload"
   },
   {
     "__type__": "cc.animation.PlainVariable",

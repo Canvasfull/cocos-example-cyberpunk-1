@@ -6,7 +6,7 @@ export interface IActorInput {
     onDir(x:number, y:number):void;
     onJump():void;
     onCrouch():void;
-    onAim():void;
+    onAim(isAim:boolean | undefined):void;
     onFire():void;
     onReload():void;
     onPick():void;

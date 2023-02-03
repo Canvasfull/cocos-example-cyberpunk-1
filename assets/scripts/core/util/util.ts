@@ -108,9 +108,9 @@ export class UtilVec3 {
     }
 
     public static scaleDirection(a: Vec3, direction: Vec3, scale:number) {
-        a.x = direction.x * scale;
-        a.y = direction.y * scale;
-        a.z = direction.z * scale;
+        a.x += direction.x * scale;
+        a.y += direction.y * scale;
+        a.z += direction.z * scale;
     }
 
     public static clampMagnitude(target: Vec3, length:number) {

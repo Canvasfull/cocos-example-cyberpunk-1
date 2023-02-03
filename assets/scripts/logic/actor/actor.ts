@@ -10,6 +10,7 @@ import { ActorEquipment } from './actor-equipment';
 import { ActorSensorDropItem } from './actor-sensor-drop-item';
 import { ActorMove } from './actor-move';
 import { SensorGround } from '../../core/sensor/sensor-ground';
+import { ActorFace } from './actor-face';
 const { ccclass, property } = _decorator;
 
 let tempLinearVelocity = v3(0, 0, 0);
@@ -25,11 +26,15 @@ export class Actor extends ActorBase implements IActorInput {
     @property( { type:ActorSensorDropItem } )
         actorSensorDropItem: ActorSensorDropItem | undefined;
 
+    @property( {  type:ActorFace })
+        _actorFace:ActorFace | undefined;
+
     _actorSensorGround: SensorGround | undefined;
     _actorMove: ActorMove | undefined;
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node | undefined;
     _viewRoot:Node | undefined;
+   
     _fps = 0; 
 
     isReady = false;
@@ -163,14 +168,23 @@ export class Actor extends ActorBase implements IActorInput {
 
     }
 
-    onAim() {
-        this._data.is_aim = this._data.is_aim ? false : true;
+    onAim(isAim:boolean | undefined) {
+        if(isAim === undefined) {
+            this._data.is_aim = this._data.is_aim ? false : true;
+        }else{
+            if(isAim == this._data.is_aim) return;
+            this._data.is_aim = isAim;
+        }
+        
         this.do(this._data.is_aim ? 'on_aim': 'off_aim');
         
         if(this.isPlayer) Msg.emit('msg_change_tps_camera_target', this._data.is_aim? 1 : 0);
     }
     
     onFire() {
+
+        if(this._actorEquipment!.currentEquip?.checkUse() == false) return;
+
         const canUseEquip = this.calculateStrengthUseEquip();
         if (canUseEquip) {
             this._actorEquipment?.do('fire');

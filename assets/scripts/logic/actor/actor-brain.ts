@@ -33,6 +33,8 @@ export class ActorBrain extends Component {
     waypointsFire:Array<Vec3> | undefined;
     fireDirection = v3(0, 0, 0);
 
+    reloadTime = 0;
+
     // Follow paths direction.
     followPathsDirection = 1;
 
@@ -82,7 +84,9 @@ export class ActorBrain extends Component {
         // Check near has player.
         this.checkNearPlayer();
 
-        this._targetNode = undefined;
+        //this._targetNode = undefined;
+
+        //console.log('target node:', this._targetNode);
 
         // Go target position.
 
@@ -91,14 +95,31 @@ export class ActorBrain extends Component {
             this.shootFire();
         }else{ // Random move and find target.
             this.randomMove();
+            this.input?.onAim(false);
         }
 
     }
 
     shootFire() {
+
         // Fire move.
         this.moveFire();
 
+        // Wait reload weapon.
+        if(this.reloadTime > 0) {
+            this.reloadTime -= game.deltaTime;
+            return;
+        }
+
+        // Check bullet empty.
+        if(this._actor?._actorEquipment?.currentEquip?.isBulletEmpty) {
+            // Reload Bullet.
+            this.input?.onReload();
+            this.reloadTime = 3;
+            return;
+        }
+
+        this.input?.onAim(true);
         // Check fire.
         this.checkFire();
     }
@@ -151,7 +172,7 @@ export class ActorBrain extends Component {
                 this._moveDir.z = -this.targetDirection.z;
 
                 // Calculates the rotation angle of the target.
-                this.lookAtTarget();
+                this.lookAtTarget(this._moveDir);
 
                 // 
                 this.onMove();
@@ -168,10 +189,10 @@ export class ActorBrain extends Component {
 
     }
 
-    lookAtTarget() {
+    lookAtTarget(lookAtDirection:Vec3) {
 
-        UtilVec3.copy(tempRotationSideVector, this._moveDir);
-        const angle = Math.abs(Vec3.angle(this._moveDir, this.node.forward));
+        UtilVec3.copy(tempRotationSideVector, lookAtDirection);
+        const angle = Math.abs(Vec3.angle(lookAtDirection, this.node.forward));
         if (angle > 0.001) {
             const side = Math.sign(-tempRotationSideVector.cross(this.node.forward).y);
             this.targetDirection.x = side * angle;// game.deltaTime;
@@ -190,10 +211,19 @@ export class ActorBrain extends Component {
         const worldPosition = this._actor!.node.worldPosition;
         let target = this.waypointsFire![this.waypointsFireIndex];
 
-        if (Vec3.distance(worldPosition, target) <= 0.3) {
+        UtilVec3.copy(this.targetPosition, target);
+
+        const targetDistance = Vec3.distance(worldPosition, target);
+
+        //console.log('target distance:', targetDistance);
+
+        if (targetDistance <= 1) {
+
             // Next way
             this.waypointsFireIndex++;
+
             if (this.waypointsFireIndex >= this.waypointsFire!.length) {
+
                 this.nearestNode = NavSystem.findNearest(this._actor!.node.worldPosition);
                 this.waypointsFire = NavSystem.randomFirePath(this.nearestNode);
                 this.waypointsFireIndex = 0;
@@ -201,39 +231,41 @@ export class ActorBrain extends Component {
             }
         }
 
+        // Calculate move direction.
+        UtilVec3.copy(this.targetDirection, this.targetPosition);
+        this.targetDirection.y = worldPosition.y;
+        this.targetDirection.subtract(worldPosition).normalize().multiplyScalar(0.3);
+
+        this._moveDir.x = -this.targetDirection.x;
+        this._moveDir.y = 0;
+        this._moveDir.z = -this.targetDirection.z;
+
+        // Look at direction.
         const player = Level.Instance._player;
 
-        // Look at target.
-        this.targetDirection.x = this._targetNode!.worldPosition.x - this._actor!.node.worldPosition.x;
-        this.targetDirection.z = this._targetNode!.worldPosition.z - this._actor!.node.worldPosition.z;
+        UtilVec3.copy(this.targetDirection, worldPosition);
 
-        UtilVec3.copy(this._moveDir, this._targetNode!.worldPosition);
-
-        //this._moveDir.subtract(this._actor!.node.worldPosition);
-
-        // Move direction.
-        this._moveDir.x = 0; //this._targetNode!.worldPosition.x - this._actor!.node.worldPosition.x;
-        this._moveDir.y = 0;
-        this._moveDir.z = -1; //(this._targetNode!.worldPosition.z - this._actor!.node.worldPosition.z);
+        this.targetDirection.y += player._data.is_crouch ? 0.3 : 1;
+        this.targetDirection.subtract(player.node.worldPosition).normalize();
+        this.lookAtTarget(this.targetDirection);
 
         this.onMove();
-        if (random() < 0.1) 
-            this.onJump();
+
+        //if (random() < 0.1) this.onJump();
 
     }
 
     checkFire() {
-        
-        if(this._actor?._forwardNode!.forward === undefined) {
-            console.error(this._actor?.name, 'forward is undefined.');
-            return;
-        }
 
-        const forward = this._actor?._forwardNode!.forward!;
-
-        UtilVec3.copy(this.fireDirection, this._targetNode!.worldPosition);
+        // Check shoot angle.
+        const player = Level.Instance._player;
+        const forward = this._actor?.node.forward!;//this._actor?._forwardNode!.forward!;
+        UtilVec3.copy(this.fireDirection, player.node!.worldPosition);
         this.fireDirection.subtract(this._actor!.node.worldPosition);
         const angle = math.toDegree(Vec3.angle(forward, this.fireDirection));
+        
+        //console.log('fire angle:',  angle);
+
         if(angle < 10) this.onFire();
     }
 
@@ -247,7 +279,6 @@ export class ActorBrain extends Component {
 
     fleeTarget() {
         // calculate flee.
-
     }
 
     followTarget() {
@@ -261,10 +292,10 @@ export class ActorBrain extends Component {
         if(Level.Instance._player == undefined) return undefined;
 
         const player = Level.Instance._player;
-
         const data = this._actor!._data;
-
         const distance = Vec3.distance(player.node.worldPosition, this._actor!.node.worldPosition);
+
+        //console.log('target distance:', distance, ' nearby distance:', data._ai_nearby_distance);
 
         if(distance < data.ai_nearby_distance) {
             this._targetNode = player.node;
