@@ -9,9 +9,6 @@ import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 import { NavSystem } from '../navigation/navigation-system';
 import { DataEquipInst, DataNavigationInst } from '../data/data-core';
-import { ActorBase } from '../../core/actor/actor-base';
-import { ActorInputBrain } from '../actor/actor-input-brain';
-import { ActorBrain } from '../actor/actor-brain';
 import { UtilVec3 } from '../../core/util/util';
 const { ccclass, property } = _decorator;
 
@@ -72,7 +69,6 @@ export class Level extends Singleton {
     public levelAction (name: string) {
         console.log('-----------------on level event:', name)
         this._isStart = true;
-        this._time = 0;
         this._action!.on(name);
     }
 
@@ -94,6 +90,7 @@ export class Level extends Singleton {
         const point = NavSystem.randomPoint();
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
+        enemy.name = res;
         const actor = enemy.getComponent(Actor);
         actor!._groupIndex = groupID;
         actor!.init(`data-${res}`);
@@ -140,8 +137,10 @@ export class Level extends Singleton {
 
     public update (deltaTime: number): void {
         if (!this._isStart) return;
+
         this._time += deltaTime;
         this._action!.update(deltaTime);
+
         Msg.emit('msg_update_map');
     }
 

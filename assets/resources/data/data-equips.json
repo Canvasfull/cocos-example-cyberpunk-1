@@ -1,7 +1,7 @@
 {
     "handgun_0":{
         "type":"range",
-        "bullet_count":9,
+        "bullet_count":20,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",
@@ -44,7 +44,7 @@
     },
     "handgun_1":{
         "type":"range",
-        "bullet_count":9,
+        "bullet_count":20,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",
@@ -303,7 +303,7 @@
     },
     "laser_gun_0":{
         "type":"range",
-        "bullet_count":9,
+        "bullet_count":20,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",

@@ -1,9 +1,9 @@
 {
-    "name":"actor-enemy_2",
-    "brain":"brain-enemy_2",
-    "res":"actor/actor-enemy_2",
+    "name":"actor-enemy_0",
+    "brain":"brain-enemy_0",
+    "res":"actor/actor-enemy_0",
     "action":"action-enemy_0",
-    "groundIndex":2,
+    "groundIndex":0,
     "sfx_walk_ground":"sfx_walk_ground",
     "sfx_walk_grass":"sfx_walk_grass",
     "cost_jump_strength":2,
@@ -26,7 +26,7 @@
     "max_size":0.9,
     "min_size":0.15,
     "angle_speed": 50,
-    "inversion_control": 1, 
+    "inversion_control": 1,
     "dizzy":0,
     "hit_recover": 0,
     "is_ground": false,
@@ -52,7 +52,7 @@
     "nearest_node":-1,
     "default_equip_index": 0,
     "bags":["laser_gun_0"],
-    "weapon_bone":"bone_point_hand",
+    "weapon_bone":"weapon_root",
     "cache_weapons":[
         "laser_gun_0"
     ],
@@ -61,5 +61,4 @@
     "linear_velocity_animation_rate":0.5,
     "angle_velocity_animation_rate":0.05,
     "angle_velocity_animation_scale":10
-    
 }

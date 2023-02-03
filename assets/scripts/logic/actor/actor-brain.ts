@@ -81,6 +81,8 @@ export class ActorBrain extends Component {
         // Check if dead.
         if(this._actor?._data.is_dead) return;
 
+        if(Level.Instance._player._data.is_dead) return;
+
         // Check near has player.
         this.checkNearPlayer();
 
@@ -263,7 +265,7 @@ export class ActorBrain extends Component {
         UtilVec3.copy(this.fireDirection, player.node!.worldPosition);
         this.fireDirection.subtract(this._actor!.node.worldPosition);
         const angle = math.toDegree(Vec3.angle(forward, this.fireDirection));
-        
+
         //console.log('fire angle:',  angle);
 
         if(angle < 10) this.onFire();
@@ -311,7 +313,7 @@ export class ActorBrain extends Component {
             console.warn(`${this.node.name} can not find path`);
             return;
         }
-        console.log('this._wayPoints:', this._wayPoints);
+        //console.log('this._wayPoints:', this._wayPoints);
         this.is_waypoints_move = true;
         this.waypointsIndex = 0;
     }

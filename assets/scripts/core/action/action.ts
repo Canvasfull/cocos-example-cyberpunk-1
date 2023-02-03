@@ -406,7 +406,7 @@ export class UtilAction {
     }
 
     public static on_set (data: key_type, actor: ActorBase) {
-        console.log(`on set key:${data.key}  value:${data.value}`);
+        //console.log(`on set key:${data.key}  value:${data.value}`);
         actor._data[data.key] = data.value;
     }
 

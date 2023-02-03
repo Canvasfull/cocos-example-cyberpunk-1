@@ -5200,7 +5200,7 @@
     "node": {
       "__id__": 189
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 191
     },
@@ -5474,7 +5474,7 @@
         "__id__": 206
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 211
@@ -5856,6 +5856,7 @@
       "__id__": 0
     },
     "fileId": "61Tf1UhPtIlIH1tJfXA+58",
+    "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {

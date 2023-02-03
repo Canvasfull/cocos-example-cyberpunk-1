@@ -79,7 +79,7 @@ export class ActorBag {
             'stackable':bagData.stackable === undefined ? false : true,
             'count':1,
             'data':bagData,
-            'bulletCount': 5,//bagData.bullet_count,
+            'bulletCount': bagData.bullet_count,
             'lastUseTime': game.totalTime,
             'state':[state]
         }

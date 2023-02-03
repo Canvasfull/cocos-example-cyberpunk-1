@@ -50,7 +50,7 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
     const node:Node = hit.collider.node;
     const hitName = node.name.split('_')[0];
     let hitTag = `hit_${hitName}`;
-    console.log(`hit tag: ------- ${hitTag}`);
+    //console.log(`hit tag: ------- ${hitTag}`);
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
     if (actorPart) {

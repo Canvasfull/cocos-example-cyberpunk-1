@@ -8,14 +8,12 @@
             { "time": 0.3, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": false } },
             { "time": 0.5, "name": "on_inst", "data": "level_events_enemy" },
             { "time": 0.6, "name": "on_inst", "data": "level_events_items" }, 
-            { "time": 0.7, "name": "on_inst", "data": "level_events_card" },
-            { "time": 1000, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
+            { "time": 0.7, "name": "on_inst", "data": "level_events_card" } 
         ]
     },
     "warning":{
         "start":[
-            { "time": 0, "name": "on_msg", "data": { "key":"msg_ui_fx_open", "value": "effect_warning"} },
-            { "time": 5, "name": "on_msg", "data": { "key":"msg_ui_fx_close", "value": "effect_warning"} }
+            { "time": 0, "name": "on_msg", "data": { "key":"msg_ui_fx_open", "value": "effect_warning"} }
         ] 
     },
     "end":{

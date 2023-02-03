@@ -203,7 +203,7 @@ export class StaticOcclusionCulling extends Component {
     instances: Set<InstancedBuffer> | undefined;
 
     calcCulling () {
-        if (!this.camera || !this._loadCompeleted || this._isBaking) {
+        if (!this.camera || !this._loadCompeleted || this._isBaking || !this.camera.node) {
             return
         }
 

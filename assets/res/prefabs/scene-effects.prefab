@@ -48,16 +48,16 @@
         "__id__": 84
       },
       {
-        "__id__": 92
+        "__id__": 96
       },
       {
-        "__id__": 101
+        "__id__": 105
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 110
+      "__id__": 114
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1270,6 +1270,12 @@
       },
       {
         "__id__": 91
+      },
+      {
+        "__id__": 92
+      },
+      {
+        "__id__": 94
       }
     ],
     "removedComponents": []
@@ -1337,6 +1343,48 @@
     }
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 93
+    },
+    "propertyPath": [
+      "_lpos"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 8.175,
+      "z": 2.832
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "d2+cjNq+5JJo+RxfXrkjVw"
+    ]
+  },
+  {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 95
+    },
+    "propertyPath": [
+      "_lpos"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 7.626,
+      "z": 0.799
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "3d1lW9W3tBfpBotCHCaFqK"
+    ]
+  },
+  {
     "__type__": "cc.Node",
     "_name": "SM_Vent3_76",
     "_objFlags": 0,
@@ -1346,17 +1394,17 @@
     },
     "_children": [
       {
-        "__id__": 93
+        "__id__": 97
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 98
+        "__id__": 102
       }
     ],
     "_prefab": {
-      "__id__": 100
+      "__id__": 104
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1392,17 +1440,17 @@
     "_name": "Mesh",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 92
+      "__id__": 96
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 94
+        "__id__": 98
       }
     ],
     "_prefab": {
-      "__id__": 97
+      "__id__": 101
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1438,11 +1486,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 93
+      "__id__": 97
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 95
+      "__id__": 99
     },
     "_materials": [
       {
@@ -1452,7 +1500,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 96
+      "__id__": 100
     },
     "_mesh": {
       "__uuid__": "efd8bdb6-4438-4260-a8c7-2db2b6b0b2e1@828d8",
@@ -1511,11 +1559,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 92
+      "__id__": 96
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 99
+      "__id__": 103
     },
     "playOnLoad": true,
     "_clips": [
@@ -1557,17 +1605,17 @@
     },
     "_children": [
       {
-        "__id__": 102
+        "__id__": 106
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 107
+        "__id__": 111
       }
     ],
     "_prefab": {
-      "__id__": 109
+      "__id__": 113
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1603,17 +1651,17 @@
     "_name": "Mesh",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 101
+      "__id__": 105
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 103
+        "__id__": 107
       }
     ],
     "_prefab": {
-      "__id__": 106
+      "__id__": 110
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1649,11 +1697,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 102
+      "__id__": 106
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 104
+      "__id__": 108
     },
     "_materials": [
       {
@@ -1663,7 +1711,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 105
+      "__id__": 109
     },
     "_mesh": {
       "__uuid__": "efd8bdb6-4438-4260-a8c7-2db2b6b0b2e1@828d8",
@@ -1722,11 +1770,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 101
+      "__id__": 105
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 108
+      "__id__": 112
     },
     "playOnLoad": true,
     "_clips": [
@@ -1769,7 +1817,7 @@
     "fileId": "e0JOony/ZHUZ31PsWZhfda",
     "targetOverrides": [
       {
-        "__id__": 111
+        "__id__": 115
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -1811,7 +1859,7 @@
       "__id__": 2
     },
     "sourceInfo": {
-      "__id__": 112
+      "__id__": 116
     },
     "propertyPath": [
       "_trailModule",
@@ -1821,7 +1869,7 @@
       "__id__": 2
     },
     "targetInfo": {
-      "__id__": 113
+      "__id__": 117
     }
   },
   {

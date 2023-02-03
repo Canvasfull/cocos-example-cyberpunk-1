@@ -515,6 +515,7 @@ class GrpPickedTipsItem {
     constructor(node:Node) {
         this._node = node;
         this.txt_info = UtilNode.getChildComponent(this._node, 'txt_info', Label);
+        this.setDisplay(false);
     }
 
     refresh(msg:string) {

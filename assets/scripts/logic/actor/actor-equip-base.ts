@@ -133,7 +133,7 @@ export class ActorEquipBase extends Component {
     }
 
     onReload() {
-        this._bagData!.bulletCount = this._bagData?.data.bulletCount;
+        this._bagData!.bulletCount = this._bagData?.data.bullet_count;
         this.isBulletEmpty = false;
     }
 

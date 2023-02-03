@@ -16,7 +16,8 @@
     },
     "dead": {
         "start": [
-            { "time": 0, "name": "on_set", "data": { "key":"is_dead", "value":true } }
+            { "time": 0, "name": "on_set", "data": { "key":"is_dead", "value":true } },
+            { "time": 0, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
         ] 
     },
     "hit_gun": {

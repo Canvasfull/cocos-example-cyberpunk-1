@@ -55,7 +55,7 @@ export class InfraredTracker extends Component {
             UtilVec3.copy(this.endPosition, this.hit.hitPoint);
         }else{
             UtilVec3.copy(this.endPosition, this.node.worldPosition);
-            console.log('InfraredTracker forward:', this.direction);
+            //console.log('InfraredTracker forward:', this.direction);
             UtilVec3.scaleDirection(this.endPosition, this.direction, this.distance);
         }
 

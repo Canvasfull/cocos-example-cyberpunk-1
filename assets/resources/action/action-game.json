@@ -26,6 +26,7 @@
     },
     "menu": {
         "start": [
+            { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": true } },
             { "time": 0.6, "name": "on_ui", "data": "ui_menu" }
         ],
         "end": [

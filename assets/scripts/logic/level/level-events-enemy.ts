@@ -1,5 +1,4 @@
 import { _decorator, Component, Node, randomRange, random } from 'cc';
-import { ActorBase } from '../../core/actor/actor-base';
 import { Msg } from '../../core/msg/msg';
 import { Level } from './level';
 const { ccclass, property } = _decorator;
