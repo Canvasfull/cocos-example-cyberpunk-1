@@ -6,6 +6,7 @@ import { SensorGround } from '../../core/sensor/sensor-ground';
 import { fun } from '../../core/util/fun';
 const { ccclass, property } = _decorator;
 
+let tempRotationSideVector = v3(0, 0, 0);
 
 @ccclass('ActorMove')
 export class ActorMove extends Component {
@@ -45,6 +46,9 @@ export class ActorMove extends Component {
     @property
     angleVerticalMin = -30;
 
+    @property
+    faceMove = true;
+
     angle = 0;
 
     isJump = false;
@@ -54,7 +58,6 @@ export class ActorMove extends Component {
         this.rigid = this.getComponent(RigidBody)!;
         this.sensorSlop = this.getComponent(SensorSlope)!;
         this.sensorGround = this.getComponent(SensorGround)!;
-
     }
 
     lateUpdate(deltaTime: number) {
@@ -69,7 +72,8 @@ export class ActorMove extends Component {
         UtilVec3.copy(this.velocity, this.velocityLocal);
 
         //rotate y.
-        Vec3.rotateY(this.velocity, this.velocity, Vec3.ZERO, math.toRadian(this.node.eulerAngles.y));
+        if(this.faceMove)
+            Vec3.rotateY(this.velocity, this.velocity, Vec3.ZERO, math.toRadian(this.node.eulerAngles.y));
 
         this.rigid?.getLinearVelocity(this.currentVelocity);
         this.velocity.y = this.currentVelocity.y;
@@ -87,7 +91,8 @@ export class ActorMove extends Component {
         UtilVec3.copy(this.currentDirection, this.direction);
         this.angle = Math.abs(Vec3.angle(this.currentDirection, this.node.forward));
         if (this.angle > 0.001) {
-            const side = Math.sign(-this.currentDirection.clone().cross(this.node.forward).y);
+            UtilVec3.copy(tempRotationSideVector, this.currentDirection);
+            const side = Math.sign(-tempRotationSideVector.cross(this.node.forward).y);
             //var angleVel = new Vec3(0, side * angleAbs * 5, 0);
             //this.rigid?.setAngularVelocity(angleVel);
             const angle = side * this.angle * 5 + this.node.eulerAngles.y;
@@ -117,6 +122,20 @@ export class ActorMove extends Component {
 
         if (this.angleVertical <= this.angleVerticalMin)
             this.angleVertical = this.angleVerticalMin;
+    }
+
+    onDirection(x: number, y: number, z:number) {
+
+        this.direction.x = x;
+        this.direction.z = z;
+
+        this.angleVertical = y;
+        if (this.angleVertical >= this.angleVerticalMax) 
+            this.angleVertical = this.angleVerticalMax;
+
+        if (this.angleVertical <= this.angleVerticalMin)
+            this.angleVertical = this.angleVerticalMin; 
+        
     }
 
     stop() {

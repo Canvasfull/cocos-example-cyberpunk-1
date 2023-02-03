@@ -29,6 +29,8 @@ export class Actor extends ActorBase implements IActorInput {
     _viewRoot:Node | undefined;
     _fps = 0; 
 
+    isReady = false;
+
     get noAction () {
         return this._data.is_dead || this._data.is_win;
     }
@@ -218,6 +220,8 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     lateUpdate(deltaTime:number) {
+
+        if(this._actorMove == undefined) return;
 
         // Synchronize animation setup data.
         const rigidBody = this._actorMove?.rigid;

@@ -72,7 +72,8 @@ export class InputKeyboard extends InputBase {
             event.keyCode === KeyCode.ARROW_RIGHT || 
             event.keyCode === KeyCode.ARROW_DOWN ||
             event.keyCode === KeyCode.SHIFT_LEFT ||
-            event.keyCode === KeyCode.ESCAPE
+            event.keyCode === KeyCode.ESCAPE ||
+            event.keyCode === KeyCode.KEY_T
             );
     }
 
@@ -100,8 +101,9 @@ export class InputKeyboard extends InputBase {
         if (event.keyCode === KeyCode.KEY_E) this._actorInput?.onPick();
         if (event.keyCode === KeyCode.KEY_G) this._actorInput?.onDrop();
         if (event.keyCode === KeyCode.KEY_R) this._actorInput?.onReload();
-
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(true);
+
+        if(event.keyCode === KeyCode.KEY_T) Msg.emit('msg_change_tps_camera_target', 2);
 
 
 

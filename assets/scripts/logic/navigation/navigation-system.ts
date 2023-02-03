@@ -3,7 +3,7 @@ import { KeyAnyType } from '../data/game-type';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 
-export namespace NavPoints {
+export namespace NavSystem {
 
     export type NavPointType = {
         x:number,
@@ -17,6 +17,7 @@ export namespace NavPoints {
 
     export function Init(_data:any) {
         data = _data;
+        console.log('init navigation data.', data);
     }
 
     export function nodePosition(nodeID:number) {
@@ -98,6 +99,11 @@ export namespace NavPoints {
 
     function findNearestPoint(position:Vec3):number {
 
+        if(data == undefined) {
+            console.warn(' Navigation data not init.');
+            return 0;
+        }
+
         return findNearest(position);
 
         /*
@@ -130,6 +136,11 @@ export namespace NavPoints {
     }
 
     function calculateRandomPaths(paths:Array<IVec3Like>, start:number, count:number) {
+
+        if(data == undefined) {
+            console.warn(' Navigation data not init.');
+            return 0;
+        }
 
         paths[0] = data.nodes[start];
         //console.log('start node:', start, paths[0]);
