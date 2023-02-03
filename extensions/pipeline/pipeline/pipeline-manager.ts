@@ -155,7 +155,12 @@ export class CustomPipelineBuilder {
                 pipelineName = cameraSetting.pipeline;
             }
             else if (camera.name === 'Editor Camera') {
-                pipelineName = 'main';
+                if (camera.projectionType === renderer.scene.CameraProjection.ORTHO) {
+                    pipelineName = 'forward';
+                }
+                else {
+                    pipelineName = 'main';
+                }
             }
         }
         // else if (EDITOR && !EditorCameras.includes(camera.name)) {

@@ -49,6 +49,10 @@ export class DeferredLightingStage extends BaseStage {
 
     updateClusterUBO (setter: any, material: Material) {
         let cluster = globalThis.LightWorldCluster.instance as LightWorldCluster;
+        if (!cluster) {
+            return;
+        }
+
         material.setProperty('light_cluster_BoundsMin', tempVec4.set(cluster.boundsMin.x, cluster.boundsMin.y, cluster.boundsMin.z, 1))
         material.setProperty('light_cluster_BoundsDelta', tempVec4.set(cluster.boundsDelta.x, cluster.boundsDelta.y, cluster.boundsDelta.z, 1))
         material.setProperty('light_cluster_CellsDot', cluster.clusterCellsDotData)
@@ -219,11 +223,12 @@ export class DeferredLightingStage extends BaseStage {
                 .addRasterView(slot1, Format.DEPTH_STENCIL, true)
                 .version()
 
+            let flags = SceneFlags.TRANSPARENT_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.GEOMETRY;
             passUtils.pass
                 .addQueue(QueueHint.RENDER_TRANSPARENT)
                 .addSceneOfCamera(
                     camera, new LightInfo(),
-                    SceneFlags.TRANSPARENT_OBJECT | SceneFlags.PLANAR_SHADOW | SceneFlags.GEOMETRY
+                    flags
                 )
         }
     }
