@@ -8,6 +8,7 @@ CCEffect %{
       frag: unlit-fs
       properties: &props
         mainColor:      { value: [1, 1, 1, 1], editor: { type: color } }
+        envMap: { value: white }
   - name: transparent
     passes:
     - vert: general-vs:vert # builtin header
@@ -35,6 +36,8 @@ CCProgram unlit-fs %{
     vec4 mainColor;
   };
 
+  uniform samplerCube envMap;
+
   #pragma define CC_PIPELINE_TYPE_FORWARD 0
   #pragma define CC_PIPELINE_TYPE_DEFERRED 1
   #pragma define-meta CC_PIPELINE_TYPE range([0, 1])
@@ -51,7 +54,7 @@ CCProgram unlit-fs %{
       fragColor0 = vec4(vec3(0.), 1.);
       fragColor1 = vec4(vec3(0.), 1.);
 
-      vec4 col = texture(cc_environment, normalize(v_position));
+      vec4 col = texture(envMap, normalize(v_position));
       col.rgb = unpackRGBE(col);
       fragColor2 = vec4(col.rgb * mainColor.rgb, 0.);
       fragColor3 = vec4(v_position, 0.);
