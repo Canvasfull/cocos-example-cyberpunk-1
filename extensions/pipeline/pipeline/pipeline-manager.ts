@@ -197,7 +197,14 @@ export class CustomPipelineBuilder {
     }
 }
 
-if (!JSB) {
-    rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
-}
+// if (JSB) {
+//     debugger;
+// }
 
+// if (!JSB) {
+rendering.setCustomPipeline('Deferred', new CustomPipelineBuilder)
+// }
+
+game.on(Game.EVENT_RENDERER_INITED, () => {
+    director.root.pipeline.setMacroInt('CC_PIPELINE_TYPE', 1);
+})

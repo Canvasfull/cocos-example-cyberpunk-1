@@ -1,19 +1,27 @@
-import { EDITOR } from 'cc/env';
+import { EDITOR, JSB } from 'cc/env';
 import { getTier, gpuTierUpdated, RenderQulity } from './gpu';
 
 export const HrefSetting = {
     settings: 0,
-    spector: 0,
-    shadingScale: 1,
     graph: 0,
     pauseGraphAfterLoad: 1,
+    spector: 0,
+
+    // rendering setting
+    shadingScale: 1,
     zoomScreen: 0,
     taa: 1,
     bloom: 1,
     showFps: 0,
-    fps: 60
+    fps: 60,
+    transparent: 1,
+    clusterLighting: 1,
+    ibl: 1,
+    shadow: 0,
+    fsr: 1,
 }
 globalThis.HrefSetting = HrefSetting
+
 
 export let changedMap: Map<string, boolean> = new Map
 
@@ -46,7 +54,7 @@ const LowSetting = {
 }
 const MediumSetting = {
     bloom: 0,
-    shadingScale: 0.7,
+    shadingScale: 0.85,
     fps: 30
 }
 const HighSetting = {
@@ -71,5 +79,11 @@ gpuTierUpdated.once(() => {
         }
 
         HrefSetting[name] = qualitySetting[name]
+    }
+
+    if (JSB) {
+        HrefSetting.transparent = 0
+        // HrefSetting.taa = 0
+        HrefSetting.bloom = 0
     }
 })

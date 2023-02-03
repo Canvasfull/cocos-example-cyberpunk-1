@@ -1,12 +1,13 @@
 import { gfx, Material, renderer, rendering } from "cc";
-import { EDITOR } from "cc/env";
+import { EDITOR, JSB } from "cc/env";
 import { settings } from "../stages/setting";
 
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
 const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 
+
 class PassUtils {
-    clearFlag = gfx.ClearFlagBit.COLOR;
+    clearFlag: gfx.ClearFlagBit = gfx.ClearFlagBit.COLOR;
     clearColor = new gfx.Color()
     ppl: rendering.Pipeline | undefined;
     camera: renderer.scene.Camera | undefined;
@@ -21,9 +22,6 @@ class PassUtils {
             settings.passPathName += `_${this.pass.name}_${this.layoutName}`;
             this.pass.setVersion(settings.passPathName, 0);
         }
-    }
-    end () {
-        this.version()
     }
 
     addRasterPass (width: number, height: number, layoutName: string, passName: string) {
@@ -65,11 +63,21 @@ class PassUtils {
             }
         }
 
+        let clearOp = LoadOp.CLEAR;
+        if (this.clearFlag === ClearFlagBit.NONE) {
+            if (JSB) {
+                clearOp = LoadOp.DISCARD;
+            }
+            else {
+                clearOp = LoadOp.LOAD;
+            }
+        }
+
         let view: rendering.RasterView;
         if (format === gfx.Format.DEPTH_STENCIL) {
             view = new RasterView('_',
                 AccessType.WRITE, AttachmentType.DEPTH_STENCIL,
-                LoadOp.LOAD, StoreOp.STORE,
+                clearOp, StoreOp.STORE,
                 gfx.ClearFlagBit.NONE,
                 this.clearColor
             );
@@ -77,7 +85,7 @@ class PassUtils {
         else {
             view = new RasterView('_',
                 AccessType.WRITE, AttachmentType.RENDER_TARGET,
-                this.clearFlag === ClearFlagBit.NONE ? LoadOp.LOAD : LoadOp.CLEAR,
+                clearOp,
                 StoreOp.STORE,
                 this.clearFlag,
                 this.clearColor

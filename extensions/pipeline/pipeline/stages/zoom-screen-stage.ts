@@ -192,7 +192,7 @@ export class ZoomScreenStage extends BaseStage {
             .setPassInput(input0, 'outputResultMap')
             .addRasterView(slot0, Format.RGBA16F)
             .blitScreen(0)
-            .end()
+            .version()
 
     }
 }

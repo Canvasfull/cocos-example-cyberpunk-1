@@ -2,7 +2,7 @@
 import { BaseStage, } from "./base-stage";
 import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, Material, CCString, Vec4, game, director, ReflectionProbe, TextureCube } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea } from "../utils/utils";
-import { EDITOR } from "cc/env";
+import { EDITOR, JSB } from "cc/env";
 import { ExponentialHeightFog, fogUBO } from "../components/fog/height-fog";
 import { ReflectionProbes } from "../components/reflection-probe-utils";
 import { DeferredGBufferStage } from "./deferred-gbuffer-stage";
@@ -10,6 +10,7 @@ import { settings } from "./setting";
 import { CustomShadowStage } from "./shadow-stage";
 import { LightWorldCluster } from "../components/cluster/light-cluster";
 import { passUtils } from "../utils/pass-utils";
+import { HrefSetting } from "../settings/href-setting";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -31,6 +32,10 @@ export class DeferredLightingStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     tempMat: Material
     clearMat: renderer.MaterialInstance
+
+    enableClusterLighting = 0;
+    enableIBL = 0;
+    enableShadow = 0;
 
     uniqueStage = true;
 
@@ -87,25 +92,36 @@ export class DeferredLightingStage extends BaseStage {
             slot1 = settings.gbufferStage.slotName(camera, 4);
         }
 
-        let shadingScale = this.finalShadingScale()
-        passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+        // passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+        Vec4.set(passUtils.clearColor, 0, 0, 0, 1);
+        passUtils.clearFlag = gfx.ClearFlagBit.COLOR;
         passUtils.addRasterPass(width, height, 'deferred-lighting', `LightingShader${cameraID}`)
-            .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
+            .setViewport(area.x, area.y, width, height)
             .setPassInput(this.lastStage.slotName(camera, 0), 'gbuffer_albedoMap')
             .setPassInput(this.lastStage.slotName(camera, 1), 'gbuffer_normalMap')
             .setPassInput(this.lastStage.slotName(camera, 2), 'gbuffer_emissiveMap')
             .setPassInput(this.lastStage.slotName(camera, 3), 'gbuffer_posMap');
 
+        let setter = passUtils.pass as any;
         let shadowStage: CustomShadowStage = settings.shadowStage;
         if (shadowStage) {
             for (const dirShadowName of shadowStage.mainLightShadows) {
                 passUtils.setPassInput(dirShadowName, 'cc_shadowMap');
             }
+
+            // not work, will override by queue data
+            // let frameBuffer = ppl.pipelineSceneData.shadowFrameBufferMap.get(camera.scene.mainLight);
+            // if (frameBuffer) {
+            //     setter.setTexture('cc_shadowMap', frameBuffer.colorTextures[0])
+
+            //     let pointSampler = director.root.pipeline.globalDSManager.pointSampler
+            //     setter.setSampler('cc_shadowMap', pointSampler)
+            // }
         }
 
         passUtils
             .addRasterView(slot0, Format.RGBA16F, true)
-            .addRasterView(slot1, Format.DEPTH_STENCIL, true)
+            // .addRasterView(slot1, Format.DEPTH_STENCIL, true)
             .version()
 
         let probes = ReflectionProbes.probes
@@ -131,18 +147,37 @@ export class DeferredLightingStage extends BaseStage {
                 material.recompileShaders({
                     // CC_USE_IBL: 0,
                     CC_RECEIVE_SHADOW: 1,
-                    REFLECTION_PROBE_COUNT: probes.length
+                    REFLECTION_PROBE_COUNT: probes.length,
+                    ENABLE_CLUSTER_LIGHTING: HrefSetting.clusterLighting,
+                    ENABLE_IBL: HrefSetting.ibl,
+                    ENABLE_SHADOW: HrefSetting.shadow,
                 })
+
+                this.enableClusterLighting = HrefSetting.clusterLighting
+                this.enableIBL = HrefSetting.ibl
+                this.enableShadow = HrefSetting.shadow
             }
             this.materialMap.set(camera, material);
         }
 
-        if (probes.length !== this.probes.length) {
-            material.recompileShaders({ REFLECTION_PROBE_COUNT: probes.length })
+        if (probes.length !== this.probes.length ||
+            this.enableClusterLighting !== HrefSetting.clusterLighting ||
+            this.enableIBL !== HrefSetting.ibl ||
+            this.enableShadow !== HrefSetting.shadow) {
+            material.recompileShaders({
+                REFLECTION_PROBE_COUNT: probes.length,
+                ENABLE_CLUSTER_LIGHTING: HrefSetting.clusterLighting,
+                ENABLE_IBL: HrefSetting.ibl,
+                ENABLE_SHADOW: HrefSetting.shadow,
+            })
+            this.enableClusterLighting = HrefSetting.clusterLighting
+            this.enableIBL = HrefSetting.ibl
+            this.enableShadow = HrefSetting.shadow
         }
 
-        let setter = passUtils.pass as any;
-        setter.addConstant('CustomLightingUBO', 'deferred-lighting');
+        if (!JSB) {
+            setter.addConstant('CustomLightingUBO', 'deferred-lighting');
+        }
         for (let i = 0; i < 3; i++) {
             let probe = probes[i];
             if (!probe) break;
@@ -167,18 +202,19 @@ export class DeferredLightingStage extends BaseStage {
 
         fogUBO.update(material);
 
-        passUtils.pass.addQueue(QueueHint.RENDER_TRANSPARENT).addCameraQuad(
-            camera, material, 0,
-            SceneFlags.VOLUMETRIC_LIGHTING,
-        );
+        passUtils.pass
+            .addQueue(QueueHint.RENDER_TRANSPARENT)
+            .addCameraQuad(
+                camera, material, 0,
+                SceneFlags.VOLUMETRIC_LIGHTING,
+            );
 
         // render transparent
         // todo: remove this pass
-        {
-            let shadingScale = this.finalShadingScale()
+        if (HrefSetting.transparent) {
             passUtils.clearFlag = gfx.ClearFlagBit.NONE;
             passUtils.addRasterPass(width, height, 'default', `LightingTransparent${cameraID}`)
-                .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
+                .setViewport(area.x, area.y, width, height)
                 .addRasterView(slot0, Format.RGBA16F, true)
                 .addRasterView(slot1, Format.DEPTH_STENCIL, true)
                 .version()

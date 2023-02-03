@@ -80,7 +80,7 @@ export class BaseStage {
     }
 
     renderProfiler (camera) {
-        if (!settings.renderedProfiler && !EDITOR) {
+        if (settings.renderedProfiler && !EDITOR) {
             const cameraID = getCameraUniqueID(camera);
             const area = this.getRenderArea(camera);
             const width = area.width;
@@ -96,7 +96,7 @@ export class BaseStage {
                 .addQueue(rendering.QueueHint.RENDER_TRANSPARENT)
                 .addSceneOfCamera(camera, new rendering.LightInfo(), rendering.SceneFlags.PROFILER);
 
-            passUtils.end();
+            passUtils.version();
 
             settings.renderedProfiler = true;
         }

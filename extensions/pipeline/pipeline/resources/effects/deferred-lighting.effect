@@ -185,9 +185,14 @@ CCProgram lighting-fs %{
     vec3 specular;
     float shadow;
     vec4 color = CCCustomShadingBase(s, shadowPos, specular, shadow);
+    
+    #if ENABLE_CLUSTER_LIGHTING
     color += lightingAdd(s, shadowPos) * shadow;
+    #endif
 
-    color.rgb += lightingIbl(s, specular);
+    #if ENABLE_IBL
+      color.rgb += lightingIbl(s, specular);
+    #endif
 
     vec4 fogColor = calculateHeightFog(position.xyz - cc_cameraPos.xyz);
     color.rgb = color.rgb * fogColor.a + fogColor.rgb;

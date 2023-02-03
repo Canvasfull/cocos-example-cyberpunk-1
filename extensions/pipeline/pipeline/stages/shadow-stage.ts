@@ -3,6 +3,7 @@ import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, pipeline } 
 import { CameraInfo, getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea, validPunctualLightsCulling } from "../utils/utils";
 import { EDITOR } from "cc/env";
 import { settings } from "./setting";
+import { HrefSetting } from "../settings/href-setting";
 
 const { supportsR32FloatTexture } = pipeline
 const { ShadowType, LightType, SKYBOX_FLAG, CSMLevel } = renderer.scene
@@ -60,6 +61,10 @@ export class CustomShadowStage extends BaseStage {
     }
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
+        if (!HrefSetting.shadow) {
+            return;
+        }
+
         settings.shadowStage = this;
 
         // validPunctualLightsCulling(ppl, camera);

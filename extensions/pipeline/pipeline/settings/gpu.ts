@@ -1,5 +1,5 @@
 import { sys } from 'cc';
-import { MINIGAME } from 'cc/env';
+import { JSB, MINIGAME } from 'cc/env';
 import Event from '../utils/event';
 
 import detectGPU from '../lib/detect-gpu.umd.js'
@@ -33,7 +33,16 @@ detectGPU.getGPUTier({
         gpuTier[name] = tier[name];
     }
 
-    if (MINIGAME) {
+    // todo: support real jsb gpu check
+    if (JSB) {
+        if (sys.isMobile) {
+            gpuTier.tier = RenderQulity.Low
+        }
+        else {
+            gpuTier.tier = RenderQulity.High
+        }
+    }
+    else if (MINIGAME) {
         gpuTier.tier = 1;
     }
     else if (sys.isMobile) {
