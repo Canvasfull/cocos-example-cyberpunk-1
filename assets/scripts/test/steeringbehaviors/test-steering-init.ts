@@ -32,6 +32,10 @@ export class TestSteeringInit extends Component {
 
         ResCache.Instance.load(()=>{
 
+            const playerNode = this.node.getChildByName('player-tps');
+
+            this.player = playerNode?.getComponent(Actor)!;
+
             dataCore.Init();
 
             Save.Instance.init();
@@ -43,9 +47,7 @@ export class TestSteeringInit extends Component {
             Level.Instance._player = this.player;
 
             // Init sound.
-            Sound.init();
-
-            
+            Sound.init();  
 
             // Init enemy actors.
             const enemies = this.enemiesNode?.getComponentsInChildren(Actor)!;

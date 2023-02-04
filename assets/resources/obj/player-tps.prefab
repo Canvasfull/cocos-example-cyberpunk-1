@@ -13,7 +13,7 @@
   {
     "__type__": "cc.Node",
     "_name": "player-tps",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": null,
     "_children": [
@@ -50,9 +50,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
+      "x": 18.849,
+      "y": 0.972,
+      "z": -18.425
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -14828,7 +14828,6 @@
       "__id__": 0
     },
     "fileId": "6arEDWb3NE5J0biydi3aS3",
-    "instance": null,
     "targetOverrides": null
   }
 ]

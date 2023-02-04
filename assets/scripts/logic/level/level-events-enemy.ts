@@ -1,3 +1,27 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { _decorator, Component, Node, randomRange, random } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { Level } from './level';
@@ -9,7 +33,9 @@ export class LevelEventsEnemy extends Component {
     _interval:number = 0.1;
 
     probability:any;
+
     counter = 0;
+
     groupCounter:Array<number> | undefined;
 
     killCounter = 0;
@@ -29,7 +55,7 @@ export class LevelEventsEnemy extends Component {
 
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
 
-        if (this.counter >= this.probability.max) return;
+        if ((this.counter - this.killCounter) >= this.probability.max) return;
 
         const odds = random();
         const weights = this.probability.weights;

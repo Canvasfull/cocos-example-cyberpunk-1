@@ -58,7 +58,7 @@ export class ActorEquipBase extends Component {
 
     isBulletEmpty = false;
 
-    mask = 1 << 3 | 1 << 4;
+    mask = 1 << 2 | 1 << 3 | 1 << 4;
 
     __preload() {
         this.point_shoot = this.node.getChildByName('point_shoot')!;
@@ -149,7 +149,7 @@ export class ActorEquipBase extends Component {
             UtilVec3.copy(tracerEndPosition, origin);
             tracerEndPosition.add3f(dir.x * 100, dir.y * 100, dir.z * 100);
         }
-        console.log(origin, dir, tracerEndPosition);
+        //console.log(origin, dir, tracerEndPosition);
         Msg.emit('msg_set_tracer', { start:origin, end:tracerEndPosition});
     }
 
