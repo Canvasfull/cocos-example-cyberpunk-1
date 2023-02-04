@@ -23,25 +23,27 @@
 */
 
 import { _decorator, Component, director } from 'cc';
-import { Log } from '../../core/io/log';
 import { Game } from '../data/game'
 import { ResCache } from '../../core/res/res-cache';
 
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('Init')
 export class Init extends Component {
 
     start () {
-        // [3]
-        Log.info('init game start. ---- ');
+
+        // Set the change node not to be destroyed.
         director.addPersistRootNode(this.node);
+
+        // Load the resource cache data and execute the initialize game function.
         ResCache.Instance.load(Game.Instance.init.bind(Game.Instance));
 
     }
 
     update (deltaTime: number) {
 
+        // Update the main game logic with every frame.
         Game.Instance.update(deltaTime);
 
     }
