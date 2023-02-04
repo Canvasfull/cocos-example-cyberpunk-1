@@ -1,15 +1,15 @@
-import { _decorator, Component, Material, SkinnedMeshRenderer, Vec3, Vec4, v4, v3, clamp01, systemEvent, SystemEvent, EventKeyboard, KeyCode } from 'cc';
+import { _decorator, Component, Material, SkinnedMeshRenderer, Vec3, Vec4, v4, v3, clamp01, SystemEvent, EventKeyboard, KeyCode, input, Input } from 'cc';
 const { ccclass, executeInEditMode } = _decorator;
 
-@ccclass('SolderControllder')
-export class SolderControllder extends Component {
+@ccclass('SolderController')
+export class SolderController extends Component {
     private materials: Array<Material> = [];
 
     private directionUniform = v4();
     private direction: Vec3 = v3();
 
-    private currentPosition: Vec3 = null;
-    private lastPosition: Vec3 = null;
+    private currentPosition = v3(0, 0, 0);
+    private lastPosition = v3(0, 0, 0);
 
     private t = 0;
     private xAxis = 0;
@@ -27,14 +27,14 @@ export class SolderControllder extends Component {
             }
         );
 
-        systemEvent.on(
-            SystemEvent.EventType.KEY_DOWN,
+        input.on(
+            Input.EventType.KEY_DOWN,
             this.onKeyDown,
             this
         );
 
-        systemEvent.on(
-            SystemEvent.EventType.KEY_UP,
+        input.on(
+            Input.EventType.KEY_UP,
             this.onKeyUp,
             this
         );

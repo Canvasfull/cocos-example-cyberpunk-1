@@ -1,3 +1,27 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { randomRangeInt, _decorator } from 'cc';
 import { UI } from '../ui/ui';
 import { Sound } from '../audio/sound';
@@ -342,7 +366,7 @@ export class UtilAction {
 
         var asset = ResCache.Instance.getPrefab(key);
         var obj = Res.inst(asset, Level.Instance._objectNode);
-        if (actor !== undefined && actor._view !== null) {
+        if (actor !== undefined && actor._view) {
             obj.parent = actor._view;
             obj.setPosition(0, 0, 0);
         }
@@ -358,7 +382,7 @@ export class UtilAction {
         var bone = data.bone;
         var asset = ResCache.Instance.getPrefab(res);
         var obj = Res.inst(asset, Level.Instance._objectNode);
-        if (actor !== undefined && actor._view !== null) {
+        if (actor !== undefined && actor._view) {
             var bone_node = actor.node.getChildByName(bone);
             obj.parent = bone_node;
             obj.setPosition(0, 0, 0);

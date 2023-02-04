@@ -37,6 +37,8 @@ export class ActorEnemyGun extends ActorEquipBase {
      * Execute fire.
      */
     onFire() {
+
+        if(!this._actor?._forwardNode) return;
         
         // The number of bullets is reduced by one.
         this._bagData!.bulletCount--;

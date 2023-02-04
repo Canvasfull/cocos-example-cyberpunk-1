@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, input, Input, EventMouse, Sprite, SpriteComponent, Color, color, Button, ButtonComponent, EventTouch } from 'cc';
+import { _decorator, Component, input, Input, EventMouse, SpriteComponent, Color, Button, EventTouch } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('UIMoveShow')

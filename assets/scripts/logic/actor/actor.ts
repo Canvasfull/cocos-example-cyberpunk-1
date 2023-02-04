@@ -1,9 +1,33 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { _decorator, Vec3, v3, game, Node, math } from 'cc';
 import { ActorBase } from '../../core/actor/actor-base';
 import { IActorInput } from '../../core/input/IActorInput';
 import { Local } from '../../core/localization/local';
 import { Msg } from '../../core/msg/msg';
-import { UtilNode } from '../../core/util/util';
+import { UtilNode, UtilVec3 } from '../../core/util/util';
 import { ActorAnimationGraph } from './actor-animation-graph';
 import { ActorBag } from './actor-bag';
 import { ActorEquipment } from './actor-equipment';
@@ -34,6 +58,9 @@ export class Actor extends ActorBase implements IActorInput {
     _viewNoWeapon:Node = Object.create(null);
     _forwardNode:Node | undefined;
     _viewRoot:Node | undefined;
+
+    // forward
+    forward:Vec3 = v3(0, 0, 0);
    
     _fps = 0; 
 
@@ -86,6 +113,9 @@ export class Actor extends ActorBase implements IActorInput {
         const normalizeSpeed = Math.abs(this._actorMove!.velocity.length() / this._actorMove!.speed);
         this._actorEquipment?.updateAim(normalizeSpeed);
         this.recoverStrength();
+
+        // Update forward info.
+        if(this._forwardNode) UtilVec3.copy(this.forward, this._forwardNode?.forward);
     }
 
     onJump () {

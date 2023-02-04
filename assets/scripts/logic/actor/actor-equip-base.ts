@@ -153,9 +153,7 @@ export class ActorEquipBase extends Component {
         Msg.emit('msg_set_tracer', { start:origin, end:tracerEndPosition});
     }
 
-    actionEnd () {
-        var info = `actor info:\n`;
-    }
+    actionEnd () {}
 
     checkUse():boolean {
         // Check bullet count.
