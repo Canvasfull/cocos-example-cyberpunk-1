@@ -381,13 +381,13 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "SM_Gun03",
+    "_name": "SM_Gun04",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 11
@@ -436,12 +436,7 @@
     "__prefab": {
       "__id__": 12
     },
-    "_materials": [
-      {
-        "__uuid__": "bb6dc0aa-5016-4bf0-b62a-c1e75a935d14@f5de9",
-        "__expectedType__": "cc.Material"
-      }
-    ],
+    "_materials": [],
     "_visFlags": 0,
     "bakeSettings": {
       "__id__": 13
