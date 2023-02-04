@@ -40,8 +40,8 @@
     "is_attack": false,
     "cards":[],
     "items":[],
-    "items_index":[],
-    "cur_equip_bag_index": -1,
+    "equipment_name_list":[],
+    "current_equipment_index": -1,
     "items_count":[],
     "angle_vertical_max":30,
     "angle_vertical_min":-40,
@@ -53,7 +53,7 @@
     "default_equip_index": 0,
     "bags":["laser_gun_0"],
     "weapon_bone":"weapon_root",
-    "cache_weapons":[
+    "cache_equipment_list":[
         "laser_gun_0"
     ],
     "ai_nearby_distance": 20,

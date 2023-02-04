@@ -50,8 +50,8 @@
     "walk_in_type":"ground",
     "cards":[],
     "items":[],
-    "items_index":[],
-    "cur_equip_bag_index": -1,
+    "equipment_name_list":[],
+    "current_equipment_index": -1,
     "items_count":[],
     "angle_vertical_max":60,
     "angle_vertical_min":-60,
@@ -63,7 +63,7 @@
     "default_equip_index": 0,
     "bags":["handgun_0", "machine_gun_1", "handgun_1","machine_gun_0"],
     "weapon_bone":"weapon_root",
-    "cache_weapons":[
+    "cache_equipment_list":[
         "handgun_0","handgun_1",
         "machine_gun_0","machine_gun_1"
     ],
