@@ -13,9 +13,9 @@ export class ActorBag {
         this._actor = actor;
 
         // Init bag space.
-        this._actor._data.items_index = new Array<string>(Game.Instance._data.count_bag_count);
-        for(var i = 0; i < this._actor._data.items_index.length; i++)
-            this._actor._data.items_index[i] = '';
+        this._actor._data.equipment_name_list = new Array<string>(Game.Instance._data.count_bag_count);
+        for(var i = 0; i < this._actor._data.equipment_name_list.length; i++)
+            this._actor._data.equipment_name_list[i] = '';
 
         // picked default bags
         const bags = actor._data.bags;
@@ -25,8 +25,8 @@ export class ActorBag {
     }
 
     public checkIsFull():number {
-        for(let i = 0; i < this._actor._data.items_index.length; i++) {
-            if (this._actor._data.items_index[i].length <= 0) return i;
+        for(let i = 0; i < this._actor._data.equipment_name_list.length; i++) {
+            if (this._actor._data.equipment_name_list[i].length <= 0) return i;
         }
         return -1;
     }
@@ -36,7 +36,7 @@ export class ActorBag {
         var index = this.checkIsFull();
         if (index === -1) return false;
 
-        this._actor._data.items_index[index] = name;
+        this._actor._data.equipment_name_list[index] = name;
         let bagItems = this._actor._data.items[name];
 
         if (bagItems === undefined) {
@@ -50,8 +50,8 @@ export class ActorBag {
 
     public dropItem():boolean {
 
-        const curIndex = this._actor._data.cur_equip_bag_index;
-        const data = this._actor._data.items_index;
+        const curIndex = this._actor._data.current_equipment_index;
+        const data = this._actor._data.equipment_name_list;
         if (curIndex !== -1) {
             this._actor._actorEquipment?.unEquip();
             const name = data[curIndex];
@@ -59,7 +59,7 @@ export class ActorBag {
             const pos = this._actor.node.worldPosition;
             Level.Instance.addDrop(name, pos);
             data[curIndex] = '';
-            this._actor._data.cur_equip_bag_index = -1;
+            this._actor._data.current_equipment_index = -1;
             return true;
         }
         return false;

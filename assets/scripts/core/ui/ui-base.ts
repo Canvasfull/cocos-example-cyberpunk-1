@@ -255,7 +255,7 @@ export class GrpSelectEquips extends UICom {
         const _player = Level.Instance._player; 
         // set equip info.
         const data = _player._data.items;
-        const itemsName = _player._data.items_index;
+        const itemsName = _player._data.equipment_name_list;
         for(let i = 0; i < this.list.length; i++) {
             const itemName = itemsName[i];
             const itemObj = this.list[i];
@@ -311,12 +311,12 @@ export class GrpEquipInfo extends UICom {
         Msg.on('msg_update_equip_info',()=>{
             const _player = Level.Instance._player;
             const items = _player._data.items;
-            const items_index = _player._data.items_index;
-            const cur_equip_bag_index = _player._data.cur_equip_bag_index;
-            const hasHighLight = cur_equip_bag_index !== -1;
+            const equipment_name_list = _player._data.equipment_name_list;
+            const current_equipment_index = _player._data.current_equipment_index;
+            const hasHighLight = current_equipment_index !== -1;
             if (hasHighLight) {
                 // Get current data.
-                const itemName = items_index[cur_equip_bag_index];
+                const itemName = equipment_name_list[current_equipment_index];
                 const itemData = items[itemName];
                 if (itemName !== '') {
                     const isShow = itemData.data.bullet_count > 1;
@@ -348,7 +348,7 @@ export class GrpBag extends UICom {
             const _player = Level.Instance._player;
             // set equip info.
             const data = _player._data.items;
-            const itemsName = _player._data.items_index;
+            const itemsName = _player._data.equipment_name_list;
             for(let i = 0; i < this.list.length; i++) {
                 const itemName = itemsName[i];
                 const itemObj = this.list[i];
@@ -364,11 +364,11 @@ export class GrpBag extends UICom {
 
         Msg.on('msg_change_equip', ()=> {
             const _player = Level.Instance._player;
-            const cur_equip_bag_index = _player._data.cur_equip_bag_index;
-            const hasHighLight = cur_equip_bag_index !== -1;
+            const current_equipment_index = _player._data.current_equipment_index;
+            const hasHighLight = current_equipment_index !== -1;
             this.img_highlight.active = hasHighLight;
             if (hasHighLight) {
-                const highPos = this.list[cur_equip_bag_index]._node.position
+                const highPos = this.list[current_equipment_index]._node.position
                 this.img_highlight.setPosition(highPos.x, highPos.y, highPos.z);
             }
             Msg.emit('msg_grp_bag', 255);
