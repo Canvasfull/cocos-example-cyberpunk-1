@@ -76,7 +76,7 @@ export class Level extends Singleton {
         //const point = NavSystem.randomPoint();
         const prefab = ResCache.Instance.getPrefab(this._data.prefab_player);
         const resPlayer = Res.inst(prefab, this._objectNode!, v3(0, 2, 0));//point.position);
-        resPlayer.setRotationFromEuler(0, 180, 0);
+        //resPlayer.setRotationFromEuler(0, 180, 0);
         this._player = resPlayer.getComponent(Actor)!;
         if (this._player === null ) {
             throw new Error(`Level add player can not bind Actor Component.`);
