@@ -57,13 +57,13 @@
     "pickup": {
         "start":[
             { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
-            { "time": 0, "delay":0.5, "name": "on_msg", "data": "update_data"}
+            { "time": 0, "delay":0.5, "name": "on_msg", "data": "msg_count_events"}
         ]
     },
     "drop": {
         "start":[
             { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
-            { "time": 0, "delay":0.5, "name": "on_msg", "data": "update_data"}
+            { "time": 0, "delay":0.5, "name": "on_msg", "data": "msg_count_events"}
         ] 
     }
 }

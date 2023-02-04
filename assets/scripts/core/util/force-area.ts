@@ -25,7 +25,7 @@ export class ForceArea extends Component {
     }
 
     onEnable() {
-        var area_force = Game.Instance._cur_name === 'level';
+        var area_force = Game.Instance._currentGameNodeName === 'level';
         this._collider.enabled = area_force;
     }
 

@@ -14,7 +14,7 @@ export class Guide extends Singleton {
     _guide_name = '';
 
     _cur:[] = null;
-    _cur_name:string = '';
+    _currentGameNodeName:string = '';
     _has_guide = false;
 
     public init() {
@@ -73,7 +73,7 @@ export class Guide extends Singleton {
                 Msg.emit(guide_end_event);
             Msg.emit('msg_save_archive');
         }else{
-            this._cur_name = this._cur[this._cur_index];
+            this._currentGameNodeName = this._cur[this._cur_index];
             Msg.emit('guide_refresh');
         }
        

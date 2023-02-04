@@ -7,6 +7,7 @@ import * as dataCore from "../../logic/data/data-core";
 import { Level } from '../../logic/level/level';
 import { Actor } from '../../logic/actor/actor';
 import { Sound } from '../../core/audio/sound';
+import { Save } from '../../logic/data/save';
 
 const { ccclass, property } = _decorator;
 
@@ -33,6 +34,8 @@ export class TestSteeringInit extends Component {
 
             dataCore.Init();
 
+            Save.Instance.init();
+
             // Init player
             this.player?.init('data-player');
 
@@ -41,6 +44,8 @@ export class TestSteeringInit extends Component {
 
             // Init sound.
             Sound.init();
+
+            
 
             // Init enemy actors.
             const enemies = this.enemiesNode?.getComponentsInChildren(Actor)!;

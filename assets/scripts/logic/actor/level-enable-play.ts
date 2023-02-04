@@ -7,7 +7,7 @@ const { ccclass, property } = _decorator;
 export class LevelEnablePlay extends Component {
 
     onEnable() {
-        if (Game.Instance._cur_name !== 'level') {
+        if (Game.Instance._currentGameNodeName !== 'level') {
             this.node.getComponent(animation.AnimationController)!.enabled = false;
         }
     }

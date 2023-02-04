@@ -9,6 +9,8 @@
     "max_history_statistics":100,
     "sensitivity_select_weapon":1,
     "show_collider":false,
+    "start_auto_save":false,
+    "next_save_time": 20,
     "res_ui_root":"ui/",
     "ui_order":{
         "ui_logo":1,

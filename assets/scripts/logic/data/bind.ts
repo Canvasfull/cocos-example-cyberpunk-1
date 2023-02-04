@@ -15,35 +15,48 @@ import { Level } from "../level/level";
 
 export class Bind extends Singleton {
 
+    // Event dictionary, used to construct the mapping of keys to events.
     _map: { [name: string]: Function } = {}
 
-    _eventCount = 0;
+    // Total number of events.
+    totalEvents = 0;
 
     public init (): void {
 
+        // Initialize the UI binding.
         BindUI.init();
 
-        // Bind text value.
-        Msg.on('update_data', this.doEvent.bind(this));
+        // Registered events are used to count the total number of events.
+        Msg.on('msg_count_events', this.countEvents.bind(this));
 
-        // Bind button.
+        // Bind the button event of skill upgrade tab 0.
         this._map['btn_select_upgrade_0'] = ()=> {
             Msg.emit('back');
         }
 
+        // Bind the button event of skill upgrade tab 1.
         this._map['btn_select_upgrade_1'] = ()=> {
             Msg.emit('back'); 
         }
 
+        // Bind the button event of skill upgrade tab 2.
         this._map['btn_select_upgrade_2'] = ()=> {
             Msg.emit('back'); 
         }
 
+        // Bind the current language name.
         this._map['txt_language'] = () => Local.Instance.getShowName();
+
+        // Bind the current game quality name.
         this._map['txt_game_quality'] = () => GameQuality.Instance.getShowName();
+
+        // Bind the current volume value.
         this._map['sli_sound'] = () => Sound.volumeSound;
+
+        // Bind the current music volume value.
         this._map['sli_music'] = () => Sound.volumeMusic;
 
+        // Bind game result score.
         this._map['spr_score'] = () => {
             const imgSrc= `txt_score_${Level.Instance.getLevelScore()}`;
             console.log(imgSrc);
@@ -53,6 +66,9 @@ export class Bind extends Singleton {
     }
 
     public initData (data: [{ name: string, event: string, data: string | undefined }]) {
+
+        this.init();
+
         data.forEach(events => {
             let name = events.name;
             let event = events.event;
@@ -71,7 +87,7 @@ export class Bind extends Singleton {
         var event = this._map[key];
         if (event) {
             event();
-            this.doEvent();
+            this.countEvents();
         } else {
             console.log('Can not find key:' + key);
         }
@@ -85,14 +101,14 @@ export class Bind extends Singleton {
         return this._map[key] !== undefined;
     }
 
-    public doEvent () {
-        this._eventCount++;
+    public countEvents () {
+        this.totalEvents++;
     }
 
     public checkRefresh () {
-        if (this._eventCount > 0) {
+        if (this.totalEvents > 0) {
             Msg.emit("refresh_ui");
-            this._eventCount = 0;
+            this.totalEvents = 0;
         }
     }
 

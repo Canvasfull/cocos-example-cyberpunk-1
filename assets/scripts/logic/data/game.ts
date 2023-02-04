@@ -16,39 +16,68 @@ import * as dataCore from "./data-core";
 
 export class Game extends Singleton {
 
+    // Action objects are used to execute the current set of actions.
     _action: Action | undefined;
+
+    // The stack collection is used to manage the current node order.
     _stack: Stack<string> = new Stack(5);
 
+    // The key-value collection is used to store all the game node data.
     _nodes: { [key:string]:any } = {};
+
+    // Game data object to store static game data.
     _data: { [key:string]:any } = {};
 
+    // If or not the game is initialized, true is initialized, false is not initialized.
     _isInit = false;
     
-    _game_time = 0;
-    _next_save_time = 20;
-    _cur_name = '';
+    // Total game time, used to store the total time the game has been running. 
+    _totalGameTime = 0;
 
-    _start_auto_save = false;
+    // The next storage time point is used to control the event interval control for automatic storage. 
+    _nextSaveTime = 0;
+
+    // Current game node name, used to record the current game node name. 
+    _currentGameNodeName = '';
 
     public init (): void {
 
+        // Initialize local storage.
         Save.Instance.init();
 
+        // Initialize the game data.
         this._data = ResCache.Instance.getJson('data-game').json;
+
+        // Initialize game action data.
         this._action = new Action(this._data.action_data);
+
+        // Get the game node data.
         this._nodes = this._data['nodes'];
 
+        // Initialize the data core.
         dataCore.Init();
 
+        // Initialize the game quality.
         GameQuality.Instance.init();
+
         //GM.init();
+
+        // Initialize the sound manager.
         Sound.init();
+
         //Guide.Instance.init();
         //Achievement.Instance.init();
+
+        // Initialize localization.
         Local.Instance.init();
+
+        // Initialize the level object.
         Level.Instance.init();
-        Bind.Instance.init();
+
+        // Initialize the binder.
         Bind.Instance.initData(this._data['events']);
+
+        // Initialize the UI management object.
         UI.Instance.init();
 
         // Register event.
@@ -89,7 +118,7 @@ export class Game extends Singleton {
     }
 
     public push (name: string) {
-        this._cur_name = name;
+        this._currentGameNodeName = name;
         if (!this._nodes[name].is_pop && this._stack.size() > 0) {
             var pre = this._stack.pop();
             this._action!.off(pre);
@@ -101,17 +130,27 @@ export class Game extends Singleton {
 
     public update (deltaTime: number): void {
 
+        // If initialization false returns, initialization success continues.
         if (!this._isInit) return;
+
+        //Increase the game time, The accumulated time is the length of each frame.
+        this._totalGameTime += deltaTime;
+
+        // Update the game action logic every frame.
         Game.Instance._action.update(deltaTime);
+
+        // Update the level logic every frame.
         Level.Instance.update(deltaTime);
+
+        // Update the binder logic every frame.
         Bind.Instance.update(deltaTime);
         
-        if (this._start_auto_save) {
-            this._game_time += deltaTime;
-            if (this._game_time > this._next_save_time) {
-                Save.Instance.statisticsTime('game', Math.floor(this._game_time));
-                this._next_save_time = 20; 
-                this._game_time = 0;
+        // Automatic save judgment: true is on, false is off
+        if (this._data._start_auto_save) {
+            
+            if (this._totalGameTime > this._nextSaveTime) {
+                Save.Instance.statisticsTime('game', Math.floor(this._totalGameTime));
+                this._nextSaveTime = this._data.next_save_time
             }
         }
 
