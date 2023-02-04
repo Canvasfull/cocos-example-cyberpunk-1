@@ -73,6 +73,7 @@ export class Level extends Singleton {
     }
 
     public addPlayer () {
+        return;
         //const point = NavSystem.randomPoint();
         const prefab = ResCache.Instance.getPrefab(this._data.prefab_player);
         const resPlayer = Res.inst(prefab, this._objectNode!, v3(0, 2, 0));//point.position);

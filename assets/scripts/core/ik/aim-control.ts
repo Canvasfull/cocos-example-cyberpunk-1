@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3,  Quat, director, math } from 'cc';
+import { _decorator, Component, Node, Vec3,  Quat, director, math, game } from 'cc';
 import MathUtil from './math-util';
 import AimIK from './aim-ik';
 import IKSolverAim from './ik-solver-aim';
@@ -214,7 +214,7 @@ export default class AimControl extends Component {
     	while (this.turnToTargetMlp > 0.0)
     	{
     		// this.turnToTargetMlp = Mathf.SmoothDamp(turnToTargetMlp, 0f, ref turnToTargetMlpV, turnToTargetTime);
-    		this.turnToTargetMlp -= director.getDeltaTime();
+    		this.turnToTargetMlp -= game.deltaTime;
     		if (this.turnToTargetMlp < 0.01) this.turnToTargetMlp = 0.0;
     		return;
     	}

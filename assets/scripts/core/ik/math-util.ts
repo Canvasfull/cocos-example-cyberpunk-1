@@ -1,4 +1,4 @@
-import { _decorator, Vec3, Node, Mat4, Quat, geometry, PhysicsSystem, physics, Vec2, math, director, quat } from 'cc';
+import { _decorator, Vec3, Node, Mat4, Quat, geometry, PhysicsSystem, physics, Vec2, math, director, quat, game } from 'cc';
 //import { ColliderGroup, ControlType, CameraRotateType } from '../scene/define';
 const { ccclass, property } = _decorator;
 
@@ -213,20 +213,20 @@ export default class MathUtil {
     public static smoothDamp (current:number, target:number, currentVelocity: {value:number}, smoothTime:number, maxSpeed:number = 100) {
         smoothTime = Math.max(0.0001, smoothTime);
         let num1 = 2.0 / smoothTime;
-        let num2 = num1 * director.getDeltaTime();
+        let num2 = num1 * game.deltaTime;
         let num3 = (1.0 / (1.0 + num2 + 0.479999989271164 * num2 * num2 + 0.234999999403954 * num2 * num2 * num2));
         let num4 = current - target;
         let num5 = target;
         let max = maxSpeed * smoothTime;
         let num6 = MathUtil.clamp(num4, -max, max);
         target = current - num6;
-        let num7 = (currentVelocity.value + num1 * num6) * director.getDeltaTime();
+        let num7 = (currentVelocity.value + num1 * num6) * game.deltaTime;
         currentVelocity.value = (currentVelocity.value - num1 * num7) * num3;
         let num8 = target + (num6 + num7) * num3;
         if (num5 - current > 0.0 == num8 > num5)
         {
             num8 = num5;
-            currentVelocity.value = (num8 - num5) / director.getDeltaTime();
+            currentVelocity.value = (num8 - num5) / game.deltaTime;
         }
         return num8;
     }
