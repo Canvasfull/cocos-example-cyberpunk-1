@@ -1,3 +1,27 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { Action } from "../../core/action/action";
 import { Singleton } from "../../core/pattern/singleton";
 import { UI } from '../../core/ui/ui';
@@ -86,10 +110,6 @@ export class Game extends Singleton {
         Msg.on('next', () => { Game.Instance.next() });
         Msg.on('back', () => { Game.Instance.back() });
 
-        Msg.on('start_auto_save', () => {
-            this._start_auto_save = true;
-        });
-
         this.push(this._data['start_node']);
         this._isInit = true;
         Notify.Instance.check_notify();
@@ -98,6 +118,9 @@ export class Game extends Singleton {
 
     }
 
+    /**
+     * 
+     */
     public next (): void {
         var cur = this._stack.cur();
         const nextAction = this._nodes[cur].next;
@@ -146,8 +169,8 @@ export class Game extends Singleton {
         Bind.Instance.update(deltaTime);
         
         // Automatic save judgment: true is on, false is off
-        if (this._data._start_auto_save) {
-            
+        if (this._data.auto_save) {
+            // 
             if (this._totalGameTime > this._nextSaveTime) {
                 Save.Instance.statisticsTime('game', Math.floor(this._totalGameTime));
                 this._nextSaveTime = this._data.next_save_time

@@ -87,6 +87,7 @@ export class Level extends Singleton {
     }
 
     public addEnemy(res:string, groupID:number) {
+        return;
         const point = NavSystem.randomPoint();
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
@@ -109,7 +110,7 @@ export class Level extends Singleton {
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
-
+        return;
         if (pos === undefined) {
             const point = NavSystem.randomPoint();
             pos = point.position;
