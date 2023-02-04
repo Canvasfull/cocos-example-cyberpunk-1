@@ -29,7 +29,7 @@ export namespace NavSystem {
         const node = data.nodes[randomNode];
         const radius = node.radius - size;
         const position = v3(node.x + randomRange(-radius, radius), node.y, node.z + randomRange(-radius, radius));
-        return {nearestNode:randomNode, position:position};
+        return {closestNavigationPon:randomNode, position:position};
 
     }
 
@@ -108,7 +108,7 @@ export namespace NavSystem {
 
         /*
 
-        let nearestNode = -1;
+        let closestNavigationPon = -1;
         const x = Math.floor(position.x/data.blockX);
         const y = Math.floor(position.y/data.blockY);
         const z = Math.floor(position.z/data.blockZ);
@@ -127,11 +127,11 @@ export namespace NavSystem {
             const nodePosition = data.nodes[nodeID];
             const currentDistance = Vec3.distance(position, nodePosition);
             if(currentDistance < minDistance) {
-                nearestNode = nodeID;
+                closestNavigationPon = nodeID;
             }
         } 
 
-        return nearestNode;
+        return closestNavigationPon;
         */
     }
 

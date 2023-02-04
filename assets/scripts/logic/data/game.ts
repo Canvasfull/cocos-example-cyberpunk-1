@@ -84,13 +84,8 @@ export class Game extends Singleton {
         // Initialize the game quality.
         GameQuality.Instance.init();
 
-        //GM.init();
-
         // Initialize the sound manager.
         Sound.init();
-
-        //Guide.Instance.init();
-        //Achievement.Instance.init();
 
         // Initialize localization.
         Local.Instance.init();
@@ -104,22 +99,26 @@ export class Game extends Singleton {
         // Initialize the UI management object.
         UI.Instance.init();
 
-        // Register event.
+        // Register game node stack operation method.
         Msg.on('push', (key: string) => { Game.Instance.push(key); });
         Msg.on('root', (key: string) => { Game.Instance.root(key); });
         Msg.on('next', () => { Game.Instance.next() });
         Msg.on('back', () => { Game.Instance.back() });
 
+        // Push the game initial node into the stack data.
         this.push(this._data['start_node']);
-        this._isInit = true;
-        Notify.Instance.check_notify();
 
-        console.log('game init');
+        //Set game initialization to true.
+        this._isInit = true;
+
+        // Check if a message currently exists. 
+        // Why it is detected after initialization: because messages may not be displayed properly during initialization.
+        Notify.Instance.check_notify();
 
     }
 
     /**
-     * 
+     * Jump to the next game node. 
      */
     public next (): void {
         var cur = this._stack.cur();
@@ -127,11 +126,18 @@ export class Game extends Singleton {
         if (nextAction) this.push(nextAction);
     }
 
+    /**
+     * Return to the previous game node.
+     */
     public back (): void {
         const preNode = this._stack.pop();
         this._action!.off(preNode);
     }
 
+    /**
+     * Returns to the game root node corresponding to the name.
+     * @param name 
+     */
     public root (name: string): void {
         var size = this._stack.size() - 1;
         for (var i = 0; i < size - 1; i++) {
@@ -140,6 +146,10 @@ export class Game extends Singleton {
         }
     }
 
+    /**
+     * Pushes a new game node.
+     * @param name node name.
+     */
     public push (name: string) {
         this._currentGameNodeName = name;
         if (!this._nodes[name].is_pop && this._stack.size() > 0) {
@@ -170,10 +180,13 @@ export class Game extends Singleton {
         
         // Automatic save judgment: true is on, false is off
         if (this._data.auto_save) {
-            // 
+            // When the current total time of the game is greater than the next time node. 
+            // true is to update the game storage logic. 
+            // false is to wait.
             if (this._totalGameTime > this._nextSaveTime) {
-                Save.Instance.statisticsTime('game', Math.floor(this._totalGameTime));
-                this._nextSaveTime = this._data.next_save_time
+                // Updates the current game time stats.
+                Save.Instance.statisticsTime('game', Math.floor(this._data.next_save_time));
+                this._nextSaveTime += this._data.next_save_time
             }
         }
 

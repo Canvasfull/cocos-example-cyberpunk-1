@@ -1,3 +1,27 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { _decorator, Node, find, Vec3, v3 } from 'cc';
 import { Action } from '../../core/action/action';
 import { Save } from '../data/save';
@@ -14,33 +38,52 @@ const { ccclass, property } = _decorator;
 
 export class Level extends Singleton {
 
+    // Action objects are used to execute the current set of actions.
     _action: Action | undefined;
+
+    // Level data object to store static game data.
     _data:{[key:string]:any} = {};
+
+    // Level time.
     _time: number = 0;
 
+    // The state at the beginning of the level.
     _isStart = false;
-    _spawns:{ position:Vec3, size:number }[] = [];
-    _cur_spawn_idx = 0;
-    _update = null;
-    _node:Node | null | undefined;
-    _spawn_pos = v3(0, 0, 0);
+
+    // The spawn position of the player's level.
+    _spawn_pos = v3(0, 2, 0);
+
+    // The score of the level.
     _score:number = 0;
 
+    // The player's game object.
     _player:Actor | undefined;
-    _enemies:Node[] = [];
-    _enemyList:Node | undefined;
 
+    // List of nodes of level enemies.
+    _enemies:Node[] = [];
+
+    // The root node of all objects at game runtime.
     _objectNode:Node | null | undefined;
 
+    /**
+     * Initialize the level object.
+     */
     public init (): void {
 
-        this._action = new Action('action-level');
+        // Get the level data and copy it for storage.
         this._data = Object.assign(ResCache.Instance.getJson('data-level').json);
+
+        // Create an action object to manage the action of the level.
+        this._action = new Action('action-level');
+        
+        // Find the root node of all objects.
         this._objectNode = find('init')?.getChildByName('objects');
 
+        // Register external message access function mapping.
         Msg.on('level_action', this.levelAction.bind(this));
         Msg.on('level_do', this.do.bind(this));
 
+        // Test the score of the level data.
         const scoreLevel = this._data.score_level;
         for(let i = 0; i < scoreLevel.length; i++) {
             const infos = scoreLevel[i];
@@ -51,44 +94,69 @@ export class Level extends Singleton {
         
     }
 
+    /**
+     * Executes the function with the name specified by the current object.
+     * @param fun Name of the function to be executed.
+     */
     public do(fun:string) {
         this[fun]();
     }
 
+    /**
+     * This function is used to set the behavior related to the start of the level.
+     */
     public onLevelStart() {
+        // Switch to the next statistic.
         Save.Instance.nextStatistics();
-        console.log(Save.Instance._cur);
-    }
 
-    public initSpawn() {
-        this._node = this._objectNode?.getChildByName(this._data.level_events);
-        if(this._node === null) throw new Error(`Not find level ${this._data.level_events} node.`);
+        // Print the current statistics.
+        console.log(Save.Instance._cur);
+
+        // Initialize the current pathfinding data.
         NavSystem.Init(DataNavigationInst._data);
     }
 
     public levelAction (name: string) {
-        console.log('-----------------on level event:', name)
         this._isStart = true;
         this._action!.on(name);
     }
 
+    /**
+     * Added level role method.
+     * Used to initialize the character game object.
+     */
     public addPlayer () {
+
+        // Get a random node from the navigation system.
         //const point = NavSystem.randomPoint();
+
+        // Get the player's prefab object from the resource cache.
         const prefab = ResCache.Instance.getPrefab(this._data.prefab_player);
-        const resPlayer = Res.inst(prefab, this._objectNode!, v3(0, 2, 0));//point.position);
-        //resPlayer.setRotationFromEuler(0, 180, 0);
+
+        // Instantiate player level game object.
+        const resPlayer = Res.inst(prefab, this._objectNode!, this._data.spawn_pos);
+
+        // Get the Actor from the player level game object.
         this._player = resPlayer.getComponent(Actor)!;
+
+        // Detect if this actor exists
         if (this._player === null ) {
             throw new Error(`Level add player can not bind Actor Component.`);
         }
+
+        // Set the player tag value of this actor to true.
         this._player.isPlayer = true;
+
+        // Initialize the player object.
         this._player.init('data-player');
-        UtilVec3.copy(this._player._actorMove!.direction, resPlayer.forward);
+
     }
 
     public addEnemy(res:string, groupID:number) {
-        return;
+
+         // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
+
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
         enemy.name = res;
@@ -110,7 +178,6 @@ export class Level extends Singleton {
     }
 
     public addDrop(res:string, pos:Vec3 | undefined) {
-        return;
         if (pos === undefined) {
             const point = NavSystem.randomPoint();
             pos = point.position;

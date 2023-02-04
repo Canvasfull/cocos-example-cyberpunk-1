@@ -177,7 +177,7 @@ export class NavigationRegion extends Component {
         // random point.
         const point = NavSystem.randomPoint();
         this.testNode?.setWorldPosition(point.position);
-        this.findPaths = NavSystem.randomPaths(this.testNode!.worldPosition, 20, point.nearestNode);
+        this.findPaths = NavSystem.randomPaths(this.testNode!.worldPosition, 20, point.closestNavigationPon);
     }
 
     testFindPath() {
