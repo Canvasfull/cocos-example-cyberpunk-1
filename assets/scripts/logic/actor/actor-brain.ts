@@ -123,11 +123,13 @@ export class ActorBrain extends Component {
 
     update(deltaTime:Number) {
 
+        // Not ready returns do not execute the following logic.
         if(!this._actor!.isReady) return;
 
-        // Check if dead.
+        // If you die, you will return without executing the logic of your brain.
         if(this._actor?._data.is_dead) return;
 
+        // Returns without executing brain logic if the player dies.
         if(Level.Instance._player._data.is_dead) return;
 
         // Check near has player.

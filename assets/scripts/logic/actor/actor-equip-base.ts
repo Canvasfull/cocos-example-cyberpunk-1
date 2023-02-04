@@ -1,14 +1,39 @@
-import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange, geometry } from 'cc';
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
+import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange, geometry, v3 } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
-import { ActorAnimationGraphGroup } from './actor-animation-graph-group';
 import { BagItems } from './actor-bag';
-import { UtilNode } from '../../core/util/util';
+import { UtilNode, UtilVec3 } from '../../core/util/util';
 import { Msg } from '../../core/msg/msg';
 import { ActorAnimationGraph } from './actor-animation-graph';
 import { FxBase } from '../../core/effect/fx-base';
 import { fx } from '../../core/effect/fx';
 const { ccclass, property } = _decorator;
+
+let tracerEndPosition = v3(0, 0, 0);
 
 @ccclass('ActorEquipBase')
 export class ActorEquipBase extends Component {
@@ -89,26 +114,43 @@ export class ActorEquipBase extends Component {
         fx.play(this.node, name);
     }
 
+    /**
+     * Weapon recoil method
+     */
     onRecoil() {
 
+        // Get the recoil ratio.
+        // Aim state gets a specific value based on the gun's data, non-Aim state defaults to one.
         const recoil_rate = this._actor!._data.is_aim ? this._data.recoil_aim_rate : 1;
 
+        // Random recoil offset is performed.
         const recoilX = randomRange(this._data.recoil_x[0], this._data.recoil_x[1]) * recoil_rate;
         const recoilY = randomRange(this._data.recoil_y[0], this._data.recoil_y[1]) * recoil_rate;
         
+        // Set the offset of the recoil.
         this._actor?.onRotation(recoilX, recoilY);
     }
 
+
+    /**
+     * Display the current infrared tracking path.
+     * @param hit The location of the detection point.
+     * @param dir The direction of the target point.
+     */
     showTracer(hit:PhysicsRayResult | undefined, dir:Vec3) {
+
+        // Get the world coordinates of the firing point.
         const origin = this.fxMuzzle!.node.worldPosition;
-        let hitPosition:Vec3 | undefined;
-        if(hit?.hitPoint !== undefined) {
-            hitPosition = hit.hitPoint;
-        }else{
-            hitPosition = origin.clone();
-            hitPosition.add3f(dir.x * 100, dir.y * 100, dir.z * 100);
+
+        // The physical hit point exists set as the end coordinate.
+        if(hit?.hitPoint) {
+            UtilVec3.copy(tracerEndPosition, hit.hitPoint);
+        }else{  // If the physical hit point does not exist, the end point is extended by 100 units in the direction of fire.
+            UtilVec3.copy(tracerEndPosition, origin);
+            tracerEndPosition.add3f(dir.x * 100, dir.y * 100, dir.z * 100);
         }
-        Msg.emit('msg_set_tracer', { start:origin, end:hitPosition});
+        console.log(origin, dir, tracerEndPosition);
+        Msg.emit('msg_set_tracer', { start:origin, end:tracerEndPosition});
     }
 
     actionEnd () {

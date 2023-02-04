@@ -10,7 +10,8 @@ export class CameraAutoBindOcclusion extends Component {
     onEnable() {
         const culling = find('static-occlusion-culling');
         if (culling === undefined || culling === null) {
-            throw new Error(`Can not find static-occlusion-culling.`);
+            console.warn(`Can not find static-occlusion-culling.`);
+            return;
         }
         const occlusionCulling = culling.getComponent(StaticOcclusionCulling);
         if(occlusionCulling === null) throw new Error(`culling node not find 'StaticOcclusionCulling'`);

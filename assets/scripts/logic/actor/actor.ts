@@ -181,15 +181,26 @@ export class Actor extends ActorBase implements IActorInput {
         if(this.isPlayer) Msg.emit('msg_change_tps_camera_target', this._data.is_aim? 1 : 0);
     }
     
+    /**
+     * Open fire interface. 
+     * @returns 
+     */
     onFire() {
 
+        // Determines if the current equipment is ready to fire.
+        // Includes the number of rounds in the magazine and the firing cooldown.
         if(this._actorEquipment!.currentEquip?.checkUse() == false) return;
 
+        // Execute the fir action.
+        this._actorEquipment?.do('fire');
+
+        // Sets the aim stable value to the maximum.
+        this._actorEquipment?.updateAim(1, true);
+
+        /*
         const canUseEquip = this.calculateStrengthUseEquip();
-        if (canUseEquip) {
-            this._actorEquipment?.do('fire');
-            this._actorEquipment?.updateAim(1, true);
-        }
+        if (canUseEquip) {}
+        */
     }
 
     onReload() {
