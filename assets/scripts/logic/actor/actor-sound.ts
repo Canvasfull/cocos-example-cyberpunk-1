@@ -4,6 +4,7 @@ import { KeyAnyType } from '../data/game-type';
 import { Msg } from '../../core/msg/msg';
 import { Actor } from './actor';
 import { DataSoundInst } from '../data/data-core';
+import { Level } from '../level/level';
 const { ccclass, property } = _decorator;
 
 @ccclass('ActorSound')
@@ -29,6 +30,9 @@ export class ActorSound extends Component {
     }
 
     update(deltaTime:number) {
+
+        // If Level is stop return.
+        if(Level.Instance.stop) return;
 
         if(this._data.is_ground)
             this._currentStepLength += Math.abs(deltaTime * this.actor!._actorMove!.velocityLocal?.length());

@@ -126,6 +126,8 @@ export class ActorBrain extends Component {
 
     update(deltaTime:Number) {
 
+        if(Level.Instance.stop) return;
+
         // Not ready returns do not execute the following logic.
         if(!this._actor!.isReady) return;
 

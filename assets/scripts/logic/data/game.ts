@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { Node, find } from "cc";
+import { Node, find, game } from "cc";
 import { Action } from "../../core/action/action";
 import { Singleton } from "../../core/pattern/singleton";
 import { UI } from '../../core/ui/ui';
@@ -109,8 +109,8 @@ export class Game extends Singleton {
         // Register game node stack operation method.
         Msg.on('push', (key: string) => { Game.Instance.push(key); });
         Msg.on('root', (key: string) => { Game.Instance.root(key); });
-        Msg.on('next', () => { Game.Instance.next() });
-        Msg.on('back', () => { Game.Instance.back() });
+        Msg.on('next', this.next.bind(this));
+        Msg.on('back', this.back.bind(this));
 
         // Push the game initial node into the stack data.
         this.push(this._data['start_node']);
@@ -166,7 +166,6 @@ export class Game extends Singleton {
         this._stack.push(name);
         this._action!.on(name);
     }
-
 
     public update (deltaTime: number): void {
 

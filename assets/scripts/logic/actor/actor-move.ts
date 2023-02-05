@@ -4,6 +4,7 @@ import { UtilVec3 } from '../../core/util/util';
 import { SensorSlope } from '../../core/sensor/sensor-slope';
 import { SensorGround } from '../../core/sensor/sensor-ground';
 import { fun } from '../../core/util/fun';
+import { Level } from '../level/level';
 const { ccclass, property } = _decorator;
 
 let tempRotationSideVector = v3(0, 0, 0);
@@ -63,6 +64,10 @@ export class ActorMove extends Component {
     }
 
     lateUpdate(deltaTime: number) {
+        if(Level.Instance.stop) {
+            this.stop();
+            return;
+        }
         if(this.isStopMove) return;
         this.movePosition(deltaTime);
         this.moveRotation();
@@ -145,6 +150,7 @@ export class ActorMove extends Component {
         this.rigid!.getLinearVelocity(this.velocity);
         this.velocity.x = 0;
         this.velocity.z = 0;
+        this.velocity.y = 0;
         this.rigid!.setLinearVelocity(this.velocity);
     }
 

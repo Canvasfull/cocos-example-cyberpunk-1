@@ -2,6 +2,7 @@ import { _decorator, EventKeyboard, input, Input, KeyCode, game, v3, clamp, Even
 import { Msg } from '../msg/msg';
 import { InputBase } from './input-base';
 import { fun } from '../util/fun';
+import { Level } from '../../logic/level/level';
 const { ccclass, property } = _decorator;
 
 let _pointerLock = false;
@@ -79,6 +80,8 @@ export class InputKeyboard extends InputBase {
 
     onKeyDown(event: EventKeyboard) {
 
+        if(Level.Instance.stop) return;
+
         if (!this.hasKey(event)) return;
 
         this.key_count++;
@@ -110,6 +113,8 @@ export class InputKeyboard extends InputBase {
     }
 
     onKeyUp(event: EventKeyboard) {
+
+        if(Level.Instance.stop) return;
         
         if (event.keyCode === 0 || this.key_count <= 0) {
             this._pressQ = false;
@@ -140,6 +145,9 @@ export class InputKeyboard extends InputBase {
     }
 
     onMouseDown(event: EventMouse) {
+
+        if(Level.Instance.stop) return;
+
         if (!_pointerLock) {
             try {
                 if(game.canvas?.requestPointerLock) {
@@ -159,6 +167,8 @@ export class InputKeyboard extends InputBase {
     
     onMouseMove(event: EventMouse) {
 
+        if(Level.Instance.stop) return;
+        
         //if (document.pointerLockElement === null && sys.isBrowser) return;
         if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());

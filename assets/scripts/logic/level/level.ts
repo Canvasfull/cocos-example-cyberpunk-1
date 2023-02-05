@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Node, find, Vec3, v3 } from 'cc';
+import { _decorator, Node, find, Vec3, v3, game } from 'cc';
 import { Action } from '../../core/action/action';
 import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
@@ -68,6 +68,9 @@ export class Level extends Singleton {
     // Current upgrade cards.
     currentCards: Array<{ name: string; info: any; }> = new Array(3);
 
+    // Level stop.
+    stop = false;
+
     /**
      * Initialize the level object.
      */
@@ -100,6 +103,10 @@ export class Level extends Singleton {
      * This function is used to set the behavior related to the start of the level.
      */
     public onLevelStart() {
+
+        // Set level stop is false.
+        this.stop = false;
+
         // Switch to the next statistic.
         Save.Instance.nextStatistics();
 
@@ -108,6 +115,14 @@ export class Level extends Singleton {
 
         // Initialize the current pathfinding data.
         NavSystem.Init(DataNavigationInst._data);
+    }
+
+    public pause() {
+        this.stop = true;
+    }
+
+    public resume() {
+        this.stop = false;
     }
 
     public levelAction (name: string) {
@@ -200,6 +215,8 @@ export class Level extends Singleton {
     public update (deltaTime: number): void {
         if (!this._isStart) return;
 
+        if(this.stop) return;
+
         this._time += deltaTime;
         this._action!.update(deltaTime);
 
@@ -229,12 +246,16 @@ export class Level extends Singleton {
     }
 
     public gameOver () {
+
+        // Set level stop is true.
+        this.stop = true;
         this._isStart = false;
         Msg.emit('msg_stat_time', {key:'play', time:this._time});
         this.calculateScore();
         this._enemies = [];
         Save.Instance.saveGameOver(this._time, this._scoreRate);
         this._player = undefined;
+        
     }
 
 
