@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Component, Vec3, v3, random, randomRangeInt, Node, math, game } from 'cc';
+import { _decorator, Component, Vec3, v3, random, randomRangeInt, Node, math, game, randomRange, Game } from 'cc';
 import { SensorRaysAngle } from '../../core/sensor/sensor-rays-angle';
 import { UtilVec3 } from '../../core/util/util';
 import { NavSystem } from '../navigation/navigation-system';
@@ -84,6 +84,9 @@ export class ActorBrain extends Component {
 
     // Path following direction, 1 means move forward, -1 means move backwards.
     followPathsDirection = 1;
+
+    // Fire wait time.
+    fireWaitTime = 5;
 
     start() {
         this._actor = this.getComponent(Actor)!;
@@ -308,6 +311,11 @@ export class ActorBrain extends Component {
     }
 
     checkFire() {
+
+        // Brain wait fire logic.
+        this.fireWaitTime -= game.deltaTime;
+        if(this.fireWaitTime > 0) return;
+        this.fireWaitTime = randomRange(5, 10);
 
         // Check shoot angle.
         const player = Level.Instance._player;

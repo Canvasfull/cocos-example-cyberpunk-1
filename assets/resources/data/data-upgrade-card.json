@@ -1,4 +1,6 @@
 {
+    "next_show_card_param_a":1,
+    "next_show_card_param_b":1,
     "life": [
         {
             "describe": "card_hp_percent_l1",
@@ -35,6 +37,53 @@
                     "range": [
                         0.25,
                         0.35
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_special_damage_to_hp_percent",
+            "values": [
+                {
+                    "name": "damage_to_hp_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.1,
+                        0.2
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_special_damage_to_strength_percent",
+            "values": [
+                {
+                    "name": "damage_to_strength_percent",
+                    "isFloat":true,
+                    "range": [
+                        0.1,
+                        0.3
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "card_special_big_jump",
+            "values": [
+                {
+                    "name": "jump_force_y",
+                    "isFloat":false,
+                    "range": [
+                        2,
+                        5
+                    ]
+                },
+                {
+                    "name": "cost_jump_strength",
+                    "isFloat":false,
+                    "range": [
+                        2,
+                        3
                     ]
                 }
             ]

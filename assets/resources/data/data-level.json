@@ -68,7 +68,7 @@
             8
         ]
     },
-    "cards":["life", "defense", "attack", "special"],
+    "cards":["life", "attack", "defense", "special"],
     "probability_drop_card":{
         "interval":[1000, 3000],
         "count":[1, 1, 1, 1],

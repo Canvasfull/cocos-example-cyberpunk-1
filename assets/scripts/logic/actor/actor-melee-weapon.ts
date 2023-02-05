@@ -1,7 +1,5 @@
-import { _decorator, Component, Node, geometry, PhysicsSystem, PhysicsRayResult } from 'cc';
+import { _decorator, geometry, PhysicsSystem, PhysicsRayResult } from 'cc';
 import { ActorEquipBase } from './actor-equip-base';
-import { IActorEquip } from './actor-interface';
-import { ActorPart } from './actor-part';
 import { calculateDamage } from './damage-core';
 const { ccclass, property } = _decorator;
 

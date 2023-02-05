@@ -1,7 +1,5 @@
-import { _decorator, Component, Node, geometry, PhysicsSystem, game, PhysicsRayResult } from 'cc';
-import { ActorBase } from '../../core/actor/actor-base';
+import { _decorator, geometry, PhysicsSystem, PhysicsRayResult } from 'cc';
 import { ActorEquipBase } from './actor-equip-base';
-import { ActorPart } from './actor-part';
 import { calculateDamage } from './damage-core';
 import { UtilVec3 } from '../../core/util/util';
 const { ccclass, property } = _decorator;

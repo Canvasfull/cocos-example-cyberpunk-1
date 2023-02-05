@@ -1,3 +1,27 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { _decorator, Component, Node, randomRange, random, randomRangeInt } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { Level } from './level';
@@ -22,15 +46,21 @@ export class LevelEventsCard extends Component {
         this.probability = Level.Instance._data.probability_drop_card;
         this.groupCounter = new Array(Level.Instance._data.cards.length);
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
-        this.nextCounter = 100000;
-        Msg.bind('kill_enemy', this.checkNextEvent, this);
 
+        this.nextCounter = DataUpgradeCardInst._data.next_show_card_param_a;
+
+        Msg.on('kill_enemy', this.checkNextEvent.bind(this));
+    }
+
+    onDestroy() {
+        Msg.off('kill_enemy', this.checkNextEvent.bind(this));
     }
 
     nextEvent() {
 
         this.counterCard++;
-        this.nextCounter += this.counterCard * 2;
+        
+        this.nextCounter += DataUpgradeCardInst._data.next_show_card_param_a * DataUpgradeCardInst._data.next_show_card_param_b;
 
         const odds = random();
         const weights = this.probability.weights;
@@ -55,17 +85,23 @@ export class LevelEventsCard extends Component {
             return;
         }
 
-        const excludeIndex = this.probability.weights_group[excludeGroupIndex];
+        // Exclude 3, This is temp.
+        const excludeIndex = 3;//this.probability.weights_group[excludeGroupIndex];
         
+        // Get upgrade card list.
         const cards = Level.Instance._data.cards;
         for(let i = 0; i < cards.length; i++) {
-            if(excludeIndex === excludeIndex) continue;
+            if(i === excludeIndex) continue;
             this.currentCards[i] = {
                 name:cards[i],
                 info:this.calculateCardInfo(cards[i])
             };
         }
-        
+
+        Level.Instance.currentCards = this.currentCards;
+
+        console.log('Current cards:', this.currentCards);
+
         Msg.emit('push', 'upgrade_cards');
 
         this.counter++;

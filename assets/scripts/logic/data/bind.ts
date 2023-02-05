@@ -30,18 +30,30 @@ export class Bind extends Singleton {
         // Registered events are used to count the total number of events.
         Msg.on('msg_count_events', this.countEvents.bind(this));
 
+        // Bind the skill detail 0.
+        this._map['txt_upgrade_life_detail'] = ()=> Level.Instance.getUpgradeCardInfo(0);
+
+        // Bind the skill detail 1.
+        this._map['txt_upgrade_attack_detail'] = ()=> Level.Instance.getUpgradeCardInfo(1);
+
+        // Bind the skill detail 2.
+        this._map['txt_upgrade_defense_detail'] = ()=> Level.Instance.getUpgradeCardInfo(2);
+
         // Bind the button event of skill upgrade tab 0.
         this._map['btn_select_upgrade_0'] = ()=> {
+            Level.Instance.upgradePlayerAttributes(0);
             Msg.emit('back');
         }
 
         // Bind the button event of skill upgrade tab 1.
         this._map['btn_select_upgrade_1'] = ()=> {
+            Level.Instance.upgradePlayerAttributes(1);
             Msg.emit('back'); 
         }
 
         // Bind the button event of skill upgrade tab 2.
         this._map['btn_select_upgrade_2'] = ()=> {
+            Level.Instance.upgradePlayerAttributes(2);
             Msg.emit('back'); 
         }
 

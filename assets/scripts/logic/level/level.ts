@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Node, find, Vec3, v3, math } from 'cc';
+import { _decorator, Node, find, Vec3, v3 } from 'cc';
 import { Action } from '../../core/action/action';
 import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
@@ -64,6 +64,9 @@ export class Level extends Singleton {
 
     // The root node of all objects at game runtime.
     _objectNode:Node | null | undefined;
+
+    // Current upgrade cards.
+    currentCards: Array<{ name: string; info: any; }> = new Array(3);
 
     /**
      * Initialize the level object.
@@ -201,6 +204,28 @@ export class Level extends Singleton {
         this._action!.update(deltaTime);
 
         Msg.emit('msg_update_map');
+    }
+
+    /**
+     * Select a skill card to update player attributes.
+     * @param selectIndex Select upgrade card index.
+     */
+    public upgradePlayerAttributes(selectIndex:number) {
+        // Get upgrade values.
+        const upgradeValues = this.currentCards[selectIndex].info.values;
+        // Upgrade player data.
+        const length = upgradeValues.length;
+        //Update all attributes of the card.
+        for(let i = 0; i < length; i++) {
+            console.log(upgradeValues[i]);
+            const data = upgradeValues[i];
+            this._player!._data[data.name] = data.value;
+        }
+
+    }
+
+    public getUpgradeCardInfo(selectIndex:number) {
+        return this.currentCards[selectIndex].info.describe;
     }
 
     public gameOver () {

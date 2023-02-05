@@ -1,7 +1,5 @@
-import { _decorator, Component, Node, geometry, PhysicsSystem, v3 } from 'cc';
+import { _decorator, v3 } from 'cc';
 import { ActorEquipBase } from './actor-equip-base';
-import { IActorEquip } from './actor-interface';
-import { ActorPart } from './actor-part';
 import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { ProjectileGrenade } from './projectile-grenade';

@@ -6,14 +6,14 @@ import { Msg } from "../../core/msg/msg";
 import { ActorPart } from "./actor-part";
 import { Actor } from "./actor";
 
-export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
+export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3, shootActor:Actor | undefined) {
     const hitName = node.name.split('_')[0];
     let hitTag = `hit_${hitName}`;
     
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
 
-    if(data.actor.isPlayer) Msg.emit('msg_stat_times', `enemy_fire`);
+    if(shootActor?.isPlayer) Msg.emit('msg_stat_times', `enemy_fire`);
 
     if (actorPart) {
         const actorBodyName = actorPart.part;
@@ -23,7 +23,7 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
         const actor = actorPart.actor;
         if (actor === undefined) throw new Error(`${node.name} node hit part '${actorBodyName}' undefine actor`);
 
-        if(data.actor.isPlayer) {
+        if(shootActor?.isPlayer) {
             Msg.emit('msg_stat_times', `hit_${actorBodyName}`);
         }
 

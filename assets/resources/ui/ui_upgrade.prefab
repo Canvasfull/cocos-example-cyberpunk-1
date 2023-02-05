@@ -900,7 +900,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_upgrade_life_detial",
+    "_name": "txt_upgrade_life_detail",
     "_objFlags": 0,
     "_parent": {
       "__id__": 23
@@ -960,8 +960,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 144.511,
-      "height": 74.298
+      "width": 170,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -995,13 +995,13 @@
       "b": 255,
       "a": 255
     },
-    "_string": "labelsfasdfasdfadsfadsfasfasdfadsfadsfasdfa",
+    "_string": "Defense primary card, permanently increase defense percentage: ##0##",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 12,
     "_fontSize": 12,
     "_fontFamily": "Arial",
-    "_lineHeight": 20,
+    "_lineHeight": 14,
     "_overflow": 1,
     "_enableWrapText": true,
     "_font": null,
@@ -1512,7 +1512,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_upgrade_attack_detial",
+    "_name": "txt_upgrade_attack_detail",
     "_objFlags": 0,
     "_parent": {
       "__id__": 49
@@ -1572,8 +1572,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 144.511,
-      "height": 74.298
+      "width": 170,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1607,13 +1607,13 @@
       "b": 255,
       "a": 255
     },
-    "_string": "label",
+    "_string": "Defense primary card, permanently increase defense percentage: ##0##",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 12,
     "_fontSize": 12,
     "_fontFamily": "Arial",
-    "_lineHeight": 40,
+    "_lineHeight": 14,
     "_overflow": 1,
     "_enableWrapText": true,
     "_font": null,
@@ -2124,7 +2124,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_upgrade_defense_detial",
+    "_name": "txt_upgrade_defense_detail",
     "_objFlags": 0,
     "_parent": {
       "__id__": 75
@@ -2184,8 +2184,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 144.511,
-      "height": 74.298
+      "width": 170,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2219,13 +2219,13 @@
       "b": 255,
       "a": 255
     },
-    "_string": "label",
+    "_string": "Defense primary card, permanently increase defense percentage: ##0##",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 12,
     "_fontSize": 12,
     "_fontFamily": "Arial",
-    "_lineHeight": 40,
+    "_lineHeight": 14,
     "_overflow": 1,
     "_enableWrapText": true,
     "_font": null,
@@ -2598,6 +2598,7 @@
       "__id__": 0
     },
     "fileId": "e7LMo5dZpCpZajMazlfgEu",
-    "instance": null
+    "instance": null,
+    "targetOverrides": null
   }
 ]
