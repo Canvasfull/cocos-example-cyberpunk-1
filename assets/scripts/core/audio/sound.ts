@@ -38,6 +38,8 @@ export class Sound {
 
     public static volumeMusic: number = 1;
 
+    public static sceneMusicPercent: number = 1;
+
     public static _volumeLoad = 1;
     public static _sourcePoolCount = 30;
     public static _pool:AudioSource[] = [];
@@ -141,7 +143,7 @@ export class Sound {
     public static on (key: string, volumeMultiply: number = 1): void {
         Res.loadAudio(`sound/${key}`, (err, asset) => {
             if (asset) {
-                this._sfxAudio.playOneShot(asset, this.volumeSound * volumeMultiply);
+                this._sfxAudio.playOneShot(asset, this.volumeSound * volumeMultiply * this.sceneMusicPercent);
             }
         });
     }
@@ -185,6 +187,10 @@ export class Sound {
         this._bgmAudio.clip = null;
         this._bgmAudio.loop = false;
         
+    }
+
+    public static updateBGM() {
+        this._bgmAudio.volume = this.volumeMusic * this.sceneMusicPercent;
     }
 
     public static pauseBGM (): void {

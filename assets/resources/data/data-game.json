@@ -34,7 +34,7 @@
         { "name": "btn_next_quality", "event": "next_quality" },
         { "name": "btn_pre_quality", "event": "pre_quality" },
         { "name": "fil_strength" },
-        { "name": "fil_bag" }
+        { "name": "fil_hp" }
     ],
     "nodes":{
         "logo": { "next":"menu"},

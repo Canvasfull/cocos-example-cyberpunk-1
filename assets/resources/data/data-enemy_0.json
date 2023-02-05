@@ -16,6 +16,7 @@
     "view_size": 0.8,
     "strength": 100,
     "max_strength": 100,
+    "max_hp":60,
     "max_move_rate": 1,
     "min_move_rate": 0.1,
     "mass": 1,

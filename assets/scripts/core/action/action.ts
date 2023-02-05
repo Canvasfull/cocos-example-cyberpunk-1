@@ -345,6 +345,10 @@ export class UtilAction {
         Sound.offBGM(key);
     }
 
+    public static update_bgm() {
+        Sound.updateBGM(); 
+    }
+
     public static on_msg (key: string) {
         Msg.emit(key);
     }
@@ -530,6 +534,10 @@ export class UtilActionEquip {
 
     public static off_bgm (key: string) {
         Sound.offBGM(key);
+    }
+
+    public static update_bgm() {
+        Sound.updateBGM(); 
     }
 
     public static on_msg (key: string) {

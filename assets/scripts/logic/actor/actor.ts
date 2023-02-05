@@ -61,9 +61,7 @@ export class Actor extends ActorBase implements IActorInput {
 
     // forward
     forward:Vec3 = v3(0, 0, 0);
-   
     _fps = 0; 
-
     isReady = false;
 
     get noAction () {
@@ -276,7 +274,14 @@ export class Actor extends ActorBase implements IActorInput {
         if(this._data.strength > this._data.max_strength) this._data.strength = this._data.max_strength;
         const percent_value = this._data.strength / this._data.max_strength;
 
-        if(this.isPlayer) Msg.emit('fil_strength', percent_value);
+        if(this.isPlayer) {
+            Msg.emit('fil_strength', percent_value);
+            const percent_hp = this._data.hp / this._data.max_hp;
+            this._data.is_low_hp = percent_hp < 1;
+            Msg.emit('fil_hp', percent_hp);
+        }
+
+        
     }
 
     lateUpdate(deltaTime:number) {

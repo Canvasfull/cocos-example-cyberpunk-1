@@ -87,7 +87,7 @@ export class LevelEventsEnemy extends Component {
         this.groupCounter![occurGroupIndex]++;
 
         // Send warning message.
-        Msg.emit('level_action', 'warning');
+        if(this.counter % 7 == 0) Msg.emit('level_action', 'warning');
 
     }
 
