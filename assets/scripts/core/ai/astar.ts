@@ -33,7 +33,7 @@ export class AStar extends Singleton {
 
         // init map
         for(let i = 0; i < this.max_x; i++) {
-            var m = [];
+            let m = [];
             for(let j = 0; j < this.max_z; j++) {
                 var v = {'f':-1, 'state': _map[i][j]};
                 m.push(v);
@@ -53,7 +53,7 @@ export class AStar extends Singleton {
     }
 
     testNode(pos) {
-        var inst = instantiate(this._tempNode);
+        let inst = instantiate(this._tempNode);
         inst.parent = this._tempNode.parent;
         inst.setPosition(pos[0],0,pos[1]);
     }
@@ -102,7 +102,7 @@ export class AStar extends Singleton {
 
         var min_index = -1;
         // Calculate around
-        for(var i = 0; i < this.dir.length; i++) {
+        for(let i = 0; i < this.dir.length; i++) {
 
             var nx = pos.x + this.dir[i][0];
             var nz = pos.z + this.dir[i][1];
@@ -175,7 +175,7 @@ export class AStar extends Singleton {
         var min_cost_pos = { 'x': -1, 'z': -1 };
 
         // Calculate f_cost
-        for(var i = 0; i < this.dir.length; i++) {
+        for(let i = 0; i < this.dir.length; i++) {
             var nx = cur_pos.x + this.dir[i][0];
             var nz = cur_pos.z + this.dir[i][1];
 

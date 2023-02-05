@@ -30,27 +30,27 @@ export class FxGroup extends Component {
 
     setLoop(value:boolean) {
 
-        for(var i = 0; i < this._particles!.length; i++) {
+        for(let i = 0; i < this._particles!.length; i++) {
             this._particles![i].loop = value;
         }
         this._loop = value
     }
 
     setEnable(value:boolean) {
-        for(var i = 0; i < this._particles!.length; i++) {
+        for(let i = 0; i < this._particles!.length; i++) {
             this._particles![i].enabled = value;
         }
     }
 
 
     stop(value:boolean) {
-        for(var i = 0; i < this._particles!.length; i++) {
+        for(let i = 0; i < this._particles!.length; i++) {
             this._particles![i].stop();
         }
     }
 
     play(value:boolean) {
-        for(var i = 0; i < this._particles!.length; i++) {
+        for(let i = 0; i < this._particles!.length; i++) {
             this._particles![i].play();
         }
     }

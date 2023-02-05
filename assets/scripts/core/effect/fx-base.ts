@@ -14,7 +14,7 @@ export class FxBase extends Component {
     }
 
     play() {
-        for (var i = 0; i < this.particles!.length; i++) {
+        for (let i = 0; i < this.particles!.length; i++) {
             const particle = this.particles![i];
             particle.stop();
             particle.play();

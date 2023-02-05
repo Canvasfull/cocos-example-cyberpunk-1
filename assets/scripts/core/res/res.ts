@@ -81,7 +81,7 @@ export class Res {
 
 
     public static inst(asset: Prefab, root:Node | undefined = undefined,  pos:Vec3 = Vec3.ZERO) : Node {
-        var instObj = instantiate(asset);
+        const instObj = instantiate(asset);
         if (root === undefined) {
             director.getScene()?.addChild(instObj);
         }else{
@@ -93,7 +93,7 @@ export class Res {
     }
 
     public static instNode(node:Node, root:Node | undefined = undefined, pos:Vec3 = Vec3.ZERO) : Node {
-        var instObj = instantiate(node);
+        const instObj = instantiate(node);
         if (root === undefined) {
             director.getScene()?.addChild(instObj);
         }else{

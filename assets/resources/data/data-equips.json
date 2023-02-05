@@ -2,6 +2,7 @@
     "handgun_0":{
         "type":"range",
         "bullet_count":20,
+        "stackable":false,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",
@@ -45,6 +46,7 @@
     "handgun_1":{
         "type":"range",
         "bullet_count":20,
+        "stackable":false,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",
@@ -88,6 +90,7 @@
     "machine_gun_0":{
         "type":"range",
         "bullet_count":20,
+        "stackable":false,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_1",
         "bullet_check_type":"physic_ray",
@@ -130,6 +133,7 @@
     "machine_gun_1":{
         "type":"range",
         "bullet_count":20,
+        "stackable":false,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_1",
         "bullet_check_type":"physic_ray",
@@ -172,9 +176,9 @@
     "grenade_0":{
         "type":"range",
         "bullet_count":1,
+        "stackable":true,
         "bind_bone":"bone_point_hand",
         "bullet_check_type":"projectile",
-        "stackable":true,
         "action":"action-grenade_0",
         "drop_effect_index":0,
         "stable_max_value":0,
@@ -253,6 +257,7 @@
         "type":"melee",
         "bind_bone":"bone_point_hand",
         "bullet_count":-1,
+        "stackable":false,
         "action":"action-axe_0",
         "drop_effect_index":0,
         "stable_max_value":0,
@@ -287,23 +292,28 @@
     },
     "bullet_0":{
         "type":"bullet",
-        "stackable":true
+        "stackable":true,
+        "bullet_count": 20
     },
     "bullet_1":{
         "type":"bullet",
-        "stackable":true
+        "stackable":true,
+        "bullet_count": 20
     },
     "bullet_2":{
         "type":"bullet",
-        "stackable":true
+        "stackable":true,
+        "bullet_count": 20
     },
     "bullet_3":{
         "type":"bullet",
-        "stackable":true
+        "stackable":true,
+        "bullet_count": 20
     },
     "laser_gun_0":{
         "type":"range",
         "bullet_count":20,
+        "stackable":false,
         "bind_bone":"bone_point_hand",
         "bullet_type":"bullet_0",
         "bullet_check_type":"physic_ray",

@@ -23,7 +23,7 @@ export class Achievement extends Singleton {
             achi_save = Save.Instance.get('achievement');
         //} 
 
-        for(var i = 0; i < achievement.length; i++) {
+        for(let i = 0; i < achievement.length; i++) {
             var arch = achievement[i];
             var arch_save = achi_save[arch.name];
             if (arch_save === undefined) achi_save[arch.name] = { "name":arch.name,"condition":arch.condition,"value":arch.value,"percent":0,"stat_value":0 };

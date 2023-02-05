@@ -51,7 +51,7 @@ export class InputGamepad extends InputBase {
         const isFire = event.gamepad.buttonR1.getValue();
         if(isFire) this._actorInput?.onFire();
 
-        var isJump = event.gamepad.buttonR2.getValue();
+        const isJump = event.gamepad.buttonR2.getValue();
         if(isJump) this._actorInput?.onJump();
 
         const isRun = event.gamepad.buttonL2.getValue();

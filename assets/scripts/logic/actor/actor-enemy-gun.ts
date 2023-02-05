@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, v3 } from 'cc';
+import { _decorator } from 'cc';
 import { geometry, PhysicsSystem, PhysicsRayResult } from 'cc';
 import { ActorEquipBase } from './actor-equip-base';
 import { calculateDamage } from './damage-core';

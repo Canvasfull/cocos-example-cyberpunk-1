@@ -85,7 +85,7 @@ export class LevelEventsCard extends Component {
 
         let describe = Local.Instance.get(randomCardData.describe);
 
-        for(var i = 0; i < valueCount; i++) {
+        for(let i = 0; i < valueCount; i++) {
             const tempData = randomCardData.values[i];
             const tempValue = this.calculateRange(tempData.isFloat, tempData.range);
             const showValue = tempData.isFloat ? `${tempValue * 100} %` : `${tempValue}`;

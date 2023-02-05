@@ -158,7 +158,7 @@ export class BindUI {
         var comList: UICom[] = [];
 
         
-        for (var i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i++) {
             const tempi = children[i];
 
             // Bind local key.

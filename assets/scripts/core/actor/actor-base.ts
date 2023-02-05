@@ -58,7 +58,7 @@ export class ActorBase extends Component {
 
     init (actionName: string) {
 
-        Object.assign(this._data!, ResCache.Instance.getJson(actionName).json);
+        Object.assign(this._data, ResCache.Instance.getJson(actionName).json);
         this._action = new ActionActor(this._data.action, this);
         this._view = UtilNode.find(this.node, 'view');
 
@@ -95,7 +95,7 @@ export class ActorBase extends Component {
     update (deltaTime: number) {
         if (this._action) this._action.update(deltaTime);
         var count = this._updates.length;
-        for (var i = 0; i < count; i++)
+        for (let i = 0; i < count; i++)
             this._updates[i](deltaTime);
     }
 
@@ -109,7 +109,7 @@ export class ActorBase extends Component {
         const pNode = UtilNode.find(this.node, data.key);//this.node.getChildByName(data.key);
         const particles = pNode?.getComponentsInChildren(ParticleSystem);
         if (particles === undefined) return;
-        for (var i = 0; i < particles.length; i++) {
+        for (let i = 0; i < particles.length; i++) {
             let p = particles[i];
             p.loop = data.value;
             if (data.value) p.play();
@@ -120,7 +120,7 @@ export class ActorBase extends Component {
         const pNode = UtilNode.find(this.node, data);//this.node.getChildByName(data);
         const particles = pNode?.getComponentsInChildren(ParticleSystem);
         if (particles === undefined) return;
-        for (var i = 0; i < particles.length; i++) {
+        for (let i = 0; i < particles.length; i++) {
             let p = particles[i];
             p.play();
         }

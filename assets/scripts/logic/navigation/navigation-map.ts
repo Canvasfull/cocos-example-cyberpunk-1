@@ -28,7 +28,7 @@ export class NavigationMap extends Component {
     linkChildNode(root:Node) {
         const children = root.children;
         
-        for(var i = 0; i < children.length - 1; i++) {
+        for(let i = 0; i < children.length - 1; i++) {
             const p0 = children[i];
             const p1 = children[i + 1];
             const pos0 = p0.position;

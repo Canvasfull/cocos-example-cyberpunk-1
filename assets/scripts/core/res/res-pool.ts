@@ -77,7 +77,7 @@ export class pool {
 
     recycle() {
 
-        for(var i = 0; i < this._max; i++) {
+        for(let i = 0; i < this._max; i++) {
             this._state[i] = 1;
             this._items[i].active = false;
             this._items[i].setPosition(10000, 10000, 10000);
@@ -86,7 +86,7 @@ export class pool {
 
     public pop():Node {
         
-        for(var i = 0; i < this._max; i++) {
+        for(let i = 0; i < this._max; i++) {
             var state = this._state[this._index];
             if (state === 1) {
                 var n = this._items[this._index];

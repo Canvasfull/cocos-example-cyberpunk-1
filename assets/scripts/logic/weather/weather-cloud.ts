@@ -46,7 +46,7 @@ export class WeatherCloud extends Component {
     
     setDirection(x:number, z:number) {
         if (this.x === x && this.z === z) return;
-        for(var i = 0; i < this.particles.length; i++) {
+        for(let i = 0; i < this.particles.length; i++) {
             var pi = this.particles[i];
             pi.renderer.useGPU = false;
             pi.velocityOvertimeModule.x.constant = x;

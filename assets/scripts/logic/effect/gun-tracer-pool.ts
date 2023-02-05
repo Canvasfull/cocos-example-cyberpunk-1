@@ -30,7 +30,7 @@ const { ccclass, property } = _decorator;
 @ccclass('GunTracerPool')
 export class GunTracerPool extends Component {
 
-    // The depth of the object pool. 
+    //The depth of the object pool. 
     @property( {type: Number, tooltip: 'The depth of the object pool.' })
     poolCount = 20;
 
@@ -52,7 +52,7 @@ export class GunTracerPool extends Component {
         this.pool[0] = poolItem;
 
         // Starting from one, generate an object pool in a loop.
-        for(var i = 1; i < this.poolCount; i++) {
+        for(let i = 1; i < this.poolCount; i++) {
             // Instantiates a new object from the base object. And map to the current object pool index object.
             this.pool[i] = Res.instNode(poolItem, this.node);
             // Initialize this newly generated object.

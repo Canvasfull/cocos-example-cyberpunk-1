@@ -42,7 +42,7 @@ export class FxActorFallPoint extends Component {
             this._height = 0;
         }
         
-        var isShow = this._height > 0.3;
+        const isShow = this._height > 0.3;
         this._line.active = isShow;
         this._fxHit.active = isShow;
         this._line.setScale(1, this._height * 3, 1);

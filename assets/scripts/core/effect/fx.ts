@@ -32,7 +32,7 @@ export class fx {
             console.warn(` effect can not find ${name}`);
             return;
         }
-        for (var i = 0; i < particles.length; i++) {
+        for (let i = 0; i < particles.length; i++) {
             let p = particles[i];
             p.loop = isLoop;
             if (isLoop) p.play();

@@ -121,7 +121,7 @@ export class ActionParallel {
             console.error('Undefined action:', name);
             return;
         }
-        var info: ActionInfo[] = action[state];
+        const info: ActionInfo[] = action[state];
         let group = new ActionGroup(info);
         this._actions.push(group);
     }
@@ -129,10 +129,10 @@ export class ActionParallel {
     public update (deltaTime: number) {
         var count = this._actions.length;
         if (count <= 0) return;
-        for (var i = count - 1; i >= 0; i--) {
-            var element = this._actions[i];
+        for (let i = count - 1; i >= 0; i--) {
+            const element = this._actions[i];
             element.time += deltaTime;
-            var cur = element.data[element.idx];
+            const cur = element.data[element.idx];
             if (element.time >= cur.time) {
                 UtilAction.do(cur.name, cur.data);
                 element.idx += 1;
@@ -163,7 +163,7 @@ export class ActionActor extends Action {
         if (this._act) {
             this._act.time += deltaTime;
             var length = this._act.data.length;
-            for (var i = this._act.idx; i < length; i++)
+            for (let i = this._act.idx; i < length; i++)
                 if (!this.checkRunAction()) break;
         } else {
             if (!this._queue.empty()) this.pop();
@@ -214,7 +214,7 @@ export class ActionActorEquip extends Action {
         if (this._act) {
             this._act.time += deltaTime;
             var length = this._act.data.length;
-            for (var i = this._act.idx; i < length; i++)
+            for (let i = this._act.idx; i < length; i++)
                 if (!this.checkRunAction()) break;
         } else {
             if (!this._queue.empty()) this.pop();

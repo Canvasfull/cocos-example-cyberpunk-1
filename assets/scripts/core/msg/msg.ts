@@ -35,7 +35,7 @@ export class Msg<T> {
     }
 
     public static emit (key: string, data?: any): void {
-        var info = this._map[key];
+        const info = this._map[key];
         if (info) {
             
             info.forEach(item => {

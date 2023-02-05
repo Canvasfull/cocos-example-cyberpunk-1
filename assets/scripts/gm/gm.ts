@@ -26,7 +26,7 @@ export class GM {
             Save.Instance.set(data[1], data[2]);
         }
         this._dic['app'] = (data: string) => {
-            var info = data[1].split(':');
+            const info = data[1].split(':');
             Electron.sendAsync(info[0], info[1]);
         }
 
@@ -46,7 +46,7 @@ export class GM {
     }
 
     public static getHelp () {
-        var info = 'GM help:';
+        let info = 'GM help:';
         this._data['gm_help'].forEach(element => {
             info += element + '\n\n';
         });

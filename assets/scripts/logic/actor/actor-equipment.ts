@@ -48,7 +48,7 @@ export class ActorEquipment {
     // Current equipment node.
     currentEquipNode:Node | undefined;
 
-    // Backpack information of current equipment.
+    // bag information of current equipment.
     currentEquipBagItems:BagItems | undefined;
 
     // The component object of the current weapon.
@@ -99,14 +99,14 @@ export class ActorEquipment {
 
     public equip(replaceEquipmentIndex:number):boolean {
 
-        // Get the current backpack equipment index.
+        // Get the current bag equipment index.
         const currentEquipmentIndex = this._actor._data.current_equipment_index;
 
-        // If the current backpack index is the same as the updated backpack index, 
+        // If the current bag index is the same as the updated bag index, 
         // true is no need to switch weapons, false is need to switch weapons.
         if (currentEquipmentIndex !== replaceEquipmentIndex) {
 
-            // Get backpack equipment name list from player data.
+            // Get bag equipment name list from player data.
             const equipment_name_list = this._actor._data.equipment_name_list;
 
             // Get the name of the equipment name to be switched from the equipment list.

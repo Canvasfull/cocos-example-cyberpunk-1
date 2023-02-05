@@ -30,7 +30,7 @@ export class Sound {
         // Init pool.
         this._poolRoot = soundNode.getChildByName('pool_root')!;
         this._templateSource = soundNode.getChildByName('template')!;
-        for(var i = 0; i < this._sourcePoolCount; i++) this.addPool();
+        for(let i = 0; i < this._sourcePoolCount; i++) this.addPool();
 
         // Init sound volume.
         let volume = Save.Instance.get('sfx_volume');
@@ -77,7 +77,7 @@ export class Sound {
 
         //find unused.
         let index = -1;
-        for(var i = 0; i < this._pool.length; i++) {
+        for(let i = 0; i < this._pool.length; i++) {
             if (this._pool[i].clip === null) {
                 index = i;
                 break;

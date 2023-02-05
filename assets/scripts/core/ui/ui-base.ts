@@ -31,20 +31,20 @@ export class UIBase {
 
     public refresh (): void {
         if (!this.isOn) return;
-        for (var i = 0; i < this._map.length; i++)
+        for (let i = 0; i < this._map.length; i++)
             this._map[i].refresh();
     }
 
     public on (): void {
         this.isOn = true;
-        for (var i = 0; i < this._map.length; i++)
+        for (let i = 0; i < this._map.length; i++)
             this._map[i].on();
         this.node.active = true;
     }
 
     public off (): void {
         this.isOn = false;
-        for (var i = 0; i < this._map.length; i++)
+        for (let i = 0; i < this._map.length; i++)
             this._map[i].off();
         this.node.active = false;
     }

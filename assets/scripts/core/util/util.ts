@@ -54,7 +54,7 @@ export class UtilStr {
 
     public static equal (str: string, items: string[]): boolean {
         const count = items.length;
-        for (var i = 0; i < count; i++) {
+        for (let i = 0; i < count; i++) {
             var t = items[i]
             if (str === t) {
                 return true;
@@ -65,7 +65,7 @@ export class UtilStr {
 
     public static include (str: string, items: string[]): boolean {
         const count = items.length;
-        for (var i = 0; i < count; i++) {
+        for (let i = 0; i < count; i++) {
             const t = items[i];
             if (str.includes(t)) {
                 return true;
@@ -75,8 +75,8 @@ export class UtilStr {
     }
 
     public static selectFromItems (items: string[], len: number = -1): string {
-        var count = len === -1 ? items.length : len;
-        var idx = randomRangeInt(0, count);
+        const count = len === -1 ? items.length : len;
+        const idx = randomRangeInt(0, count);
         return items[idx];
     }
 
@@ -149,14 +149,14 @@ export class UtilArray {
 
     public static init (len: number, value: number = 0) {
         var a = [];
-        for (var i = 0; i < len; i++)
+        for (let i = 0; i < len; i++)
             a.push(value);
         return a;
     }
 
     public static init_3 (a0: number, a1: number, a2: number): number[][][] {
         var array = [];
-        for (var i = 0; i < a0; i++) {
+        for (let i = 0; i < a0; i++) {
             var ai = [];
             for (var j = 0; j < a1; j++) {
                 var aj = [];
@@ -174,7 +174,7 @@ export class UtilArray {
         const a0 = a.length;
         const a1 = a[0].length;
         const a2 = a[0][0].length;
-        for (var i = 0; i < a0; i++) {
+        for (let i = 0; i < a0; i++) {
             for (var j = 0; j < a1; j++) {
                 for (var k = 0; k < a2; k++) {
                     a[i][j][k] = value;
@@ -184,7 +184,7 @@ export class UtilArray {
     }
 
     public static addArray (a: number[], b: number[]) {
-        for (var i = 0; i < b.length; i++) {
+        for (let i = 0; i < b.length; i++) {
             a.push(b[i]);
         }
     }
@@ -284,7 +284,7 @@ export class UtilNode {
 
 export class UtilLog {
     public static children (node: Node) {
-        var info = `${node.name}:${node.children.length}:`;
+        let info = `${node.name}:${node.children.length}:`;
         node.children.forEach(n => {
             info += `${n.name},`;
         });
@@ -323,7 +323,7 @@ export class UtilCurve {
         // y = 1/2 * g * t * t.
         // g = 0.98.
         var cur_time = 0;
-        for (var i = 0; i <= segment; i++) {
+        for (let i = 0; i <= segment; i++) {
             var xi = vx * cur_time + x;
             var zi = vz * cur_time + z;
             var yi = vy * cur_time - 1 / 2 * g * cur_time * cur_time + y;
@@ -348,7 +348,7 @@ export class UtilCurve {
         // y = 1/2 * g * t * t.
         // g = 0.98.
         var cur_time = 0;
-        for (var i = 0; i <= segment; i++) {
+        for (let i = 0; i <= segment; i++) {
             var xi = vx * cur_time + x;
             var zi = vz * cur_time + z;
             var yi = vy * cur_time - 1 / 2 * g * cur_time * cur_time + y;

@@ -68,6 +68,7 @@ export class ActorEquipBase extends Component {
         this.node.on('init', this.init, this);
     }
 
+    
     init(bagData: BagItems) {
         this._actor = bagData.actor;
         this._bagData = bagData;

@@ -71,7 +71,7 @@ export class ActorBuff {
 
     public setFx(fx, state = 'on') {
         state += '_inst_fx';
-        for(var i = 0; i < fx.length; i++) {
+        for(let i = 0; i < fx.length; i++) {
             UtilAction.do(state, fx[i], this.actor);
         }
 
@@ -82,7 +82,7 @@ export class ActorBuff {
         for(let i = 0; i < sound.length; i++) {
             let sfx = sound[i];
             if (sfx.loop) {
-                var idx = Sound.playLoop(sfx.res, sfx.volume);
+                const idx = Sound.playLoop(sfx.res, sfx.volume);
                 buff.sound.push(idx);
             }else{
                 Sound.on(sfx.res, sfx.volume)
@@ -91,7 +91,7 @@ export class ActorBuff {
     }
 
     public offSfx(sound) {
-        for(var i = 0; i < sound.length; i++) {
+        for(let i = 0; i < sound.length; i++) {
             Sound.offing(sound[i]);
         }
     }

@@ -33,7 +33,7 @@ export class Local extends Singleton {
             var sys_language = window.navigator.language.toLocaleLowerCase();
             sys_language = sys_language.replace('-', '_');
             console.log(sys_language);
-            for(var i = 0; i < this._data.language.length; i++) {
+            for(let i = 0; i < this._data.language.length; i++) {
                 var name = this._data.language[i];
                 if (sys_language.includes(name)) {
                     this.index = i;

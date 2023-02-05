@@ -22,7 +22,7 @@ export class MusicComposeState extends Component {
 
     start() {
 
-        for(var i = 0; i < this.clips.length; i++) {
+        for(let i = 0; i < this.clips.length; i++) {
             var as = this.node.addComponent(AudioSource);
             as.clip = this.clips[i];
             as.volume = 0;
@@ -35,7 +35,7 @@ export class MusicComposeState extends Component {
     }
 
     update(deltaTime: number) {
-        for(var i = 0; i < this._audios.length; i++) {
+        for(let i = 0; i < this._audios.length; i++) {
             this._curs[i] = math.lerp(this._curs[i], this.selects[i], deltaTime * this.smooth);
             this._audios[i].volume = this._curs[i] * Sound.volume;
         }

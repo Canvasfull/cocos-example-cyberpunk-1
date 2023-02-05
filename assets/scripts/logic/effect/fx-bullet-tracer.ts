@@ -71,7 +71,7 @@ export class FxBulletTracer extends Component {
     }
 
     hiddenLines() {
-        for(var i = 0; i < this.poolCount; i++) this.pool![i].active = false;
+        for(let i = 0; i < this.poolCount; i++) this.pool![i].active = false;
     }
 }
 

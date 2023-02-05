@@ -140,7 +140,7 @@ export class Game extends Singleton {
      */
     public root (name: string): void {
         var size = this._stack.size() - 1;
-        for (var i = 0; i < size - 1; i++) {
+        for (let i = 0; i < size - 1; i++) {
             let pre = this._stack.pop();
             this._action!.off(pre);
         }

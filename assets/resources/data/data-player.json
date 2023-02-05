@@ -5,6 +5,7 @@
     "action":"action-player",
     "sfx_walk_ground":"sfx_walk_ground",
     "sfx_walk_grass":"sfx_walk_grass",
+    "bag_capacity":8,
     "cost_jump_strength":2,
     "cost_run_strength":1,
     "cost_use_equip_strength":1,
