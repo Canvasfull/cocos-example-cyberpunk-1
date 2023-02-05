@@ -43,24 +43,13 @@ export class ActorBag {
         // The character object to which the current equipment belongs.
         this._actor = actor;
 
-        if(this._actor._data.bag_capacity === undefined) {
-            console.log(this);
-        }
-
         // Set Bag capacity.
         this._capacity = this._actor._data.bag_capacity;
 
         // Initialize the bag space and set the default value.
         this._actor._data.equipment_name_list = new Array<string>(this._capacity);
         for(let i = 0; i < this._capacity; i++) {
-            if(i === undefined) {
-                console.log(i);
-            }
             this._actor._data.equipment_name_list[i] = '';
-        }
-
-        if(this._actor._data.equipment_name_list[0] === undefined) {
-            console.log(this._actor._data.equipment_name_list);
         }
 
         // Set the default value of the bag.
@@ -78,10 +67,6 @@ export class ActorBag {
 
         for(let i = 0; i < this._actor._data.equipment_name_list.length; i++) {
             const name = this._actor._data.equipment_name_list[i];
-            console.log('current equipment name:', name);
-            if(name === undefined) {
-                console.log('name is undefined.');
-            }
             if (name.length <= 0) return i;
         }
         return -1;
@@ -107,11 +92,6 @@ export class ActorBag {
 
             // Get the current empty slot index and determine if it exists.
             const index = this.getEmptySlot();
-
-            if(index === undefined) {
-                console.log('index is undefinded');
-            }
-
             if (index === -1) return false;
 
             // Create a backpack item.
