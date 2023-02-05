@@ -174,14 +174,16 @@ export class ActorBag {
      * This method is used to update the number of stackable props.
      * @param bagItems Current backpack information.
      */
-    public stackItem(bagItems:BagItems) {
+    public stackItem(bagItems:BagItem) {
         bagItems.count++;
         bagItems.bulletCount += bagItems.data.bullet_count;
     }
 
 }
 
-export interface BagItems {
+
+// The bag item data interface.
+export interface BagItem {
     fov: number;
     name:string,
     actor:Actor,

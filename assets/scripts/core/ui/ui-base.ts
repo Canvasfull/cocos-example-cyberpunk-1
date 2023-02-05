@@ -2,7 +2,7 @@
 import { _decorator, UITransform, Node, Button, Toggle, EditBox,
     Label, Sprite, Slider, math, SpriteComponent, SpriteFrame, v3, v2, Vec2, } from 'cc';
 import { GM } from '../../gm/gm';
-import { BagItems } from '../../logic/actor/actor-bag';
+import { BagItem } from '../../logic/actor/actor-bag';
 import { Bind, BindUI } from '../../logic/data/bind';
 import { Level } from '../../logic/level/level';
 import { Sound } from '../audio/sound';
@@ -253,6 +253,7 @@ export class GrpSelectEquips extends UICom {
 
     public on(): void {
         const _player = Level.Instance._player; 
+        if(!_player) return;
         // set equip info.
         const data = _player._data.items;
         const itemsName = _player._data.equipment_name_list;
@@ -295,7 +296,7 @@ class GrpSelectItem {
         this.img_icon!.node.active = isShow;
     }
 
-    setInfo(item:BagItems) {
+    setInfo(item:BagItem) {
         this.txt_nun!.string = item.count.toString();
         this.img_icon!.spriteFrame = ResCache.Instance.getSprite(`img_icon_${item.name}`);
     }
@@ -310,6 +311,7 @@ export class GrpEquipInfo extends UICom {
         this.txt_equip_info = UtilNode.getChildComponent(this._node, 'txt_equip_info', Label);
         Msg.on('msg_update_equip_info',()=>{
             const _player = Level.Instance._player;
+            if(!_player) return;
             const items = _player._data.items;
             const equipment_name_list = _player._data.equipment_name_list;
             const current_equipment_index = _player._data.current_equipment_index;
@@ -346,6 +348,7 @@ export class GrpBag extends UICom {
         }
         Msg.on('msg_update_bag', ()=>{
             const _player = Level.Instance._player;
+            if(!_player) return;
             // set equip info.
             const data = _player._data.items;
             const itemsName = _player._data.equipment_name_list;
@@ -364,6 +367,7 @@ export class GrpBag extends UICom {
 
         Msg.on('msg_change_equip', ()=> {
             const _player = Level.Instance._player;
+            if(!_player) return;
             const current_equipment_index = _player._data.current_equipment_index;
             const hasHighLight = current_equipment_index !== -1;
             this.img_highlight.active = hasHighLight;
@@ -395,7 +399,7 @@ class GrpBagItem {
         this.img_icon.node.active = isShow;
     }
 
-    setInfo(item:BagItems) {
+    setInfo(item:BagItem) {
         this.img_icon.spriteFrame = ResCache.Instance.getSprite(`img_icon_${item.name}`);
     }
 }
@@ -468,8 +472,8 @@ export class GrpMap extends UICom {
         Msg.on('msg_update_map', ()=>{ 
 
             const player = Level.Instance._player;
-            if(player !== undefined) {
-                UtilVec3.copy(position, Level.Instance._player.node.position);
+            if(player !== undefined && player.node) {
+                UtilVec3.copy(position, player.node.position);
                 const y = position.x * scale_x;
                 const x = position.z * scale_y;
                 position.z = 0;

@@ -25,7 +25,7 @@
 import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange, geometry, v3 } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
-import { BagItems } from './actor-bag';
+import { BagItem } from './actor-bag';
 import { UtilNode, UtilVec3 } from '../../core/util/util';
 import { Msg } from '../../core/msg/msg';
 import { ActorAnimationGraph } from './actor-animation-graph';
@@ -44,7 +44,7 @@ export class ActorEquipBase extends Component {
 
     _view:Node | undefined;
 
-    _bagData:BagItems | undefined;
+    _bagData:BagItem | undefined;
 
     _data:{ [key:string]:any } = {};
 
@@ -68,8 +68,8 @@ export class ActorEquipBase extends Component {
         this.node.on('init', this.init, this);
     }
 
-    
-    init(bagData: BagItems) {
+
+    init(bagData: BagItem) {
         this._actor = bagData.actor;
         this._bagData = bagData;
         this._data = this._bagData.data;

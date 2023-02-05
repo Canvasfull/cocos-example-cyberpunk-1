@@ -130,7 +130,8 @@ export class ActorBrain extends Component {
         if(this._actor?._data.is_dead) return;
 
         // Returns without executing brain logic if the player dies.
-        if(Level.Instance._player._data.is_dead) return;
+        const player = Level.Instance._player; 
+        if(!player || Level.Instance._player?._data.is_dead) return;
 
         // Check near has player.
         this.checkNearPlayer();
@@ -340,9 +341,10 @@ export class ActorBrain extends Component {
 
     checkNearPlayer() {
 
-        if(Level.Instance._player == undefined) return undefined;
-
         const player = Level.Instance._player;
+
+        if(!player) return undefined;
+
         const data = this._actor!._data;
         const distance = Vec3.distance(player.node.worldPosition, this._actor!.node.worldPosition);
 

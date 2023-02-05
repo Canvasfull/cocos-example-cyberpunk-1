@@ -22,6 +22,7 @@
  THE SOFTWARE.
 */
 
+import { Node, find } from "cc";
 import { Action } from "../../core/action/action";
 import { Singleton } from "../../core/pattern/singleton";
 import { UI } from '../../core/ui/ui';
@@ -64,7 +65,13 @@ export class Game extends Singleton {
     // Current game node name, used to record the current game node name. 
     _currentGameNodeName = '';
 
+    // The root node of all pool objects game runtime.
+    _poolNode: Node | null | undefined;
+
     public init (): void {
+
+        // Find the root node of all pool objects.
+        this._poolNode = find('init')?.getChildByName('objects-pool');
 
         // Initialize local storage.
         Save.Instance.init();

@@ -35,6 +35,7 @@ import { ActorBase } from '../actor/actor-base';
 import { fun } from '../util/fun';
 import { ActorEquipBase } from '../../logic/actor/actor-equip-base';
 import { Level } from '../../logic/level/level';
+import { Game } from '../../logic/data/game';
 
 export class Action {
 
@@ -372,6 +373,13 @@ export class UtilAction {
         }
 
     }
+
+    public static on_inst_pool (key: string ) {
+        var asset = ResCache.Instance.getPrefab(key);
+        var obj = Res.inst(asset, Game.Instance._poolNode);
+        obj.setPosition(0, 0, 0);
+    }
+
 
     public static off_inst (key: string, actor: ActorBase) {
 

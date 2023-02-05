@@ -47,6 +47,10 @@ export class CameraMoveTarget extends Component {
         this.sensor = this.getComponent(SensorRayNodeToNode)!;
     }
 
+    onDestroy() {
+        Msg.off('msg_change_tps_camera_target', this.setTarget.bind(this)); 
+    }
+
     update(deltaTime: number) {
 
         if(this.waitTime > 0) {

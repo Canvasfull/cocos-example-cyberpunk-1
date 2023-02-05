@@ -33,7 +33,7 @@ import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 import { NavSystem } from '../navigation/navigation-system';
 import { DataEquipInst, DataNavigationInst } from '../data/data-core';
-import { UtilVec3 } from '../../core/util/util';
+
 const { ccclass, property } = _decorator;
 
 export class Level extends Singleton {
@@ -218,6 +218,7 @@ export class Level extends Singleton {
         this.calculateScore();
         this._enemies = [];
         Save.Instance.saveGameOver(this._time, this._score);
+        this._player = undefined;
     }
 
     public calculateScore() {

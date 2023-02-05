@@ -28,7 +28,7 @@ import { Res } from '../../core/res/res';
 import { ResCache } from '../../core/res/res-cache';
 import { UtilNode } from '../../core/util/util';
 import { Actor } from "./actor";
-import { BagItems } from './actor-bag';
+import { BagItem } from './actor-bag';
 import { fun } from '../../core/util/fun';
 import { ActorEquipBase } from './actor-equip-base';
 
@@ -49,7 +49,7 @@ export class ActorEquipment {
     currentEquipNode:Node | undefined;
 
     // bag information of current equipment.
-    currentEquipBagItems:BagItems | undefined;
+    currentEquipItem:BagItem | undefined;
 
     // The component object of the current weapon.
     currentEquip:ActorEquipBase | undefined;
@@ -124,15 +124,15 @@ export class ActorEquipment {
             fun.delay(()=>{
                 const items = self._actor._data.items;
                 self.currentEquipNode = self.equipPool[changeEquipmentName];
-                self.currentEquipBagItems = items[changeEquipmentName];
+                self.currentEquipItem = items[changeEquipmentName];
                 self.currentEquipNode!.active = true;
-                self.currentEquipNode!.emit('init',this.currentEquipBagItems);
+                self.currentEquipNode!.emit('init',this.currentEquipItem);
                 self.currentEquipNode!.emit('do', 'take_out');
                 self._actor._data.current_equipment_index = replaceEquipmentIndex;
                 self.currentEquip = self.currentEquipNode?.getComponent(ActorEquipBase)!;
                 if(this._actor.isPlayer) {
                     //const mainCamera = CameraSetting.main?.camera;
-                    //if(mainCamera) mainCamera.fov = this.currentEquipBagItems!.fov;
+                    //if(mainCamera) mainCamera.fov = this.currentEquipItem!.fov;
                     Msg.emit('msg_change_equip');
                     Msg.emit('msg_update_equip_info');
                 }
@@ -200,13 +200,13 @@ export class ActorEquipment {
      */
     public updateAim(normalizeCharacterMoveSpeed:number, toMax = false) {
         
-        if (this.currentEquipBagItems === undefined) {
+        if (this.currentEquipItem === undefined) {
             if (this.stableValue !== 0){
                 this.stableValue = 0;
                 if(this._actor.isPlayer) Msg.emit('msg_update_aim',  this.stableValue);
             }
         }else{
-            const equipData = this.currentEquipBagItems.data;
+            const equipData = this.currentEquipItem.data;
             const equipStable = equipData.stable_max_value;
             let currentStable = 0;
             if(toMax) {

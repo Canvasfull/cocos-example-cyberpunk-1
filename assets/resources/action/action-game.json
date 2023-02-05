@@ -2,7 +2,7 @@
     "logo": {
         "start": [
             { "time": 0, "name": "on_ui", "data": "ui_logo" },
-            { "time": 0.1, "name": "on_inst", "data": "gun_tracer_pool"},
+            { "time": 0.1, "name": "on_inst_pool", "data": "gun_tracer_pool"},
             { "time": 0.2, "name": "on_bgm", "data": "bgm_logo"},
             { "time": 0.3, "name": "on_scene", "data": "scene"}
         ],
