@@ -1,21 +1,24 @@
 {
     "name":"Cyberpunk Scene",
     "total_time":300,
+    "each_rate_value":10000,
+    "killed_to_score":100,
+    "survival_time_to_score":10,
     "level_events":"level_events",
     "prefab_player":"player-tps",
     "prefab_enemy":"enemy-tps",
     "prefab_drop_item":"drop_item",
     "enemies":["enemy_0", "enemy_1", "enemy_2", "boss_0"],
     "score_level":[
-        { "score":"a+", "playTime": 500 },
-        { "score":"a", "playTime": 200 },
-        { "score":"a-", "playTime": 120 },
-        { "score":"b+", "playTime": 90 },
-        { "score":"b", "playTime": 90 },
-        { "score":"b-", "playTime": 70 },
-        { "score":"c+", "playTime": 50 },
-        { "score":"c", "playTime": 20 },
-        { "score":"c-", "playTime": 0 }
+        { "score":"a+", "level_score": 24000 },
+        { "score":"a", "level_score": 21000 },
+        { "score":"a-", "level_score": 18000 },
+        { "score":"b+", "level_score": 15000 },
+        { "score":"b", "level_score": 12000 },
+        { "score":"b-", "level_score": 9000 },
+        { "score":"c+", "level_score": 6000 },
+        { "score":"c", "level_score": 3000 },
+        { "score":"c-", "level_score": 0 }
     ],
     "items":[
         "handgun_0","handgun_1",

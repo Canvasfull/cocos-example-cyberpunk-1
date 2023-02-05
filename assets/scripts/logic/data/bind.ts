@@ -12,6 +12,7 @@ import { GameQuality } from "./GameQuality";
 import { Sound } from "../../core/audio/sound";
 import { ResCache } from "../../core/res/res-cache";
 import { Level } from "../level/level";
+import { Save } from "./save";
 
 export class Bind extends Singleton {
 
@@ -62,6 +63,27 @@ export class Bind extends Singleton {
             console.log(imgSrc);
             return ResCache.Instance.getSprite(imgSrc);
         }
+
+        // Bind level over killed value.
+        this._map['txt_killed'] = () => Save.Instance.getStatistics('killedTimes');
+        
+        // Bind level over hit value.
+        this._map['txt_hit_head'] = () => Save.Instance.getStatistics('hit_headTimes');
+
+        // Bind level over Hit Rate.
+        this._map['txt_hsp'] = () => `${(Save.Instance.getStatistics('hit_rate')*100).toFixed(2)} %`;
+
+        // Bind level over hit value.
+        this._map['txt_be_hit'] = () => Save.Instance.getStatistics('be_hit_times');
+
+        // Bind dodge rate.
+        this._map['txt_dodge'] = () => `${(Save.Instance.getStatistics('dodge_rate') * 100).toFixed(2)} %`;
+
+        // Bind level score.
+        this._map['txt_level_score'] = () => `${Save.Instance.getStatistics('level_score')}`;
+
+        // Bind day value.
+        this._map['txt_day_num'] = () => `${Save.Instance.get('day')}`;
 
     }
 

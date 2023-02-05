@@ -4,13 +4,17 @@ import { fx } from "../../core/effect/fx";
 import { Local } from "../../core/localization/local";
 import { Msg } from "../../core/msg/msg";
 import { ActorPart } from "./actor-part";
+import { Actor } from "./actor";
 
 export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
     const hitName = node.name.split('_')[0];
     let hitTag = `hit_${hitName}`;
-    console.log(`hit tag: ------- ${hitTag}`);
+    
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
+
+    if(data.actor.isPlayer) Msg.emit('msg_stat_times', `enemy_fire`);
+
     if (actorPart) {
         const actorBodyName = actorPart.part;
         const part_damage = damage[actorBodyName];
@@ -19,7 +23,7 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
         const actor = actorPart.actor;
         if (actor === undefined) throw new Error(`${node.name} node hit part '${actorBodyName}' undefine actor`);
 
-        if(data.isPlayer) {
+        if(data.actor.isPlayer) {
             Msg.emit('msg_stat_times', `hit_${actorBodyName}`);
         }
 
@@ -29,7 +33,8 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
 
         actor._data.hp -= part_damage;
         if (actor._data.hp <= 0) {
-            actor._data.hp = 1;
+            actor._data.hp = 0;
+            if(actor.isPlayer) Msg.emit('msg_stat_times', 'killed');
             actor.do('dead');
         }else{
             actor.do('hit_gun')
@@ -39,7 +44,10 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3) {
     calculateDamageView(damage[hitTag], hitPoint);
 } 
 
-export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
+export function calculateDamage(data:any, hit:PhysicsRayResult | undefined, shootActor:Actor | undefined) {
+
+    if(shootActor?.isPlayer) Msg.emit('msg_stat_times', `enemy_fire`);
+
     if (hit === undefined) {
         Msg.emit(
             'msg_tips', 
@@ -50,9 +58,10 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
     const node:Node = hit.collider.node;
     const hitName = node.name.split('_')[0];
     let hitTag = `hit_${hitName}`;
-    //console.log(`hit tag: ------- ${hitTag}`);
+
     const damage = data.damage;
     const actorPart = node.getComponent(ActorPart);
+
     if (actorPart) {
         const actorBodyName = actorPart.part;
         const part_damage = damage[actorBodyName];
@@ -61,7 +70,7 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
         const actor = actorPart.actor;
         if (actor === undefined) throw new Error(`${node.name} node hit part '${actorBodyName}' undefine actor`);
 
-        if(data.isPlayer) {
+        if(shootActor?.isPlayer) {
             Msg.emit('msg_stat_times', `hit_${actorBodyName}`);
         }
 
@@ -72,6 +81,7 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined) {
         actor._data.hp -= part_damage;
         if (actor._data.hp <= 0) {
             actor._data.hp = 1;
+            if(shootActor?.isPlayer) Msg.emit('msg_stat_times', 'killed');
             actor.do('dead');
         }else{
             actor.do('hit_gun')

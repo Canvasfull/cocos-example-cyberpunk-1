@@ -27,7 +27,7 @@ export class MusicComposeValue extends Component {
 
         Msg.on('music_level_by_speed', this.setValue.bind(this));
 
-        for(var i = 0; i < this.clips.length; i++) {
+        for(let i = 0; i < this.clips.length; i++) {
             var as = this.node.addComponent(AudioSource);
             as.clip = this.clips[i];
             as.volume = 0;
@@ -48,7 +48,7 @@ export class MusicComposeValue extends Component {
     setValue(speed:number) {
 
         this._value = speed;
-        for(var i = 0; i < this.clips.length; i++) {
+        for(let i = 0; i < this.clips.length; i++) {
             if (this.weight[i] <= this._value) this._selects[i] = 1;
             else this._selects[i] = 0;
         }
@@ -56,7 +56,7 @@ export class MusicComposeValue extends Component {
     }
 
     update(deltaTime: number) {
-        for(var i = 0; i < this._audios.length; i++) {
+        for(let i = 0; i < this._audios.length; i++) {
             this._curs[i] = math.lerp(this._curs[i], this._selects[i], deltaTime * this.smooth);
             this._audios[i].volume = this._curs[i] * Sound.volume;
         }

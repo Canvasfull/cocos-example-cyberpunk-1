@@ -24,7 +24,7 @@ export class ActorMachineGun extends ActorEquipBase {
             hit = PhysicsSystem.instance.raycastClosestResult;
         }
         this.showTracer(hit, dir);
-        calculateDamage(this._data, hit);
+        calculateDamage(this._data, hit, this._actor);
     }
 
 }

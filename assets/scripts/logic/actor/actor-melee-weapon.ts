@@ -10,7 +10,7 @@ export class ActorMeleeWeapon extends ActorEquipBase {
 
     onFire() {
         this._bagData!.bulletCount--;
-        const forwardNode = this._actor!._forwardNode;
+        const forwardNode = this._actor!._forwardNode!;
         const origin = forwardNode.worldPosition;
         const dir = forwardNode.forward;
         let ray = new geometry.Ray(origin.x, origin.y, origin.z, dir.x, dir.y , dir.z);
@@ -20,7 +20,7 @@ export class ActorMeleeWeapon extends ActorEquipBase {
         if (PhysicsSystem.instance.raycastClosest(ray, mask, distance)) {
             hit = PhysicsSystem.instance.raycastClosestResult;
         }
-        calculateDamage(this._data, hit);
+        calculateDamage(this._data, hit, this._actor);
     }
 
 }

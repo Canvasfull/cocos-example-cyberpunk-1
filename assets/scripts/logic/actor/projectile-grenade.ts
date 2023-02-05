@@ -1,6 +1,7 @@
 import { _decorator, Collider, Component, ITriggerEvent, Node, PhysicsSystem, RigidBody, v3, Vec3 } from 'cc';
 import { calculateDamageNode } from './damage-core';
 import { Sound } from '../../core/audio/sound';
+import { Actor } from './actor';
 const { ccclass, property } = _decorator;
 
 @ccclass('ProjectileGrenade')
@@ -24,8 +25,11 @@ export class ProjectileGrenade extends Component {
 
     updateFunction:Function | undefined;
 
-    onThrow(weaponData:any, force:Vec3) {
+    actor:Actor | undefined;
+
+    onThrow(weaponData:any, force:Vec3, shootActor:Actor | undefined) {
         this._data = weaponData;
+        this.actor = shootActor;
         this.rigidbody?.applyImpulse(force);
         this.updateFunction = this.waitExplode;
     }
@@ -46,7 +50,7 @@ export class ProjectileGrenade extends Component {
 
     onTriggerEnter (event: ITriggerEvent) {
         const hitPoint = event.otherCollider.node.getWorldPosition();
-        calculateDamageNode(this._data, event.otherCollider.node, hitPoint);
+        calculateDamageNode(this._data, event.otherCollider.node, hitPoint, this.actor);
     }
 
     waitExplode(deltaTime:number) {

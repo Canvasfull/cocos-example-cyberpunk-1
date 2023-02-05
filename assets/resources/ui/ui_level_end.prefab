@@ -535,7 +535,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 129.901,
+      "x": 190,
       "y": 0,
       "z": 0
     },
@@ -580,7 +580,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 1,
       "y": 0.5
     },
     "_id": ""
@@ -648,7 +648,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "local_hit",
+    "_name": "local_hit_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -708,7 +708,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 54.7066968425967,
+      "width": 119.7266968425967,
       "height": 39.06
     },
     "_anchorPoint": {
@@ -743,7 +743,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "HIT",
+    "_string": "HitHead",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
@@ -781,7 +781,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_hit",
+    "_name": "txt_hit_head",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -801,7 +801,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 129.901,
+      "x": 190,
       "y": -64.92,
       "z": 0
     },
@@ -846,7 +846,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 1,
       "y": 0.5
     },
     "_id": ""
@@ -1251,7 +1251,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 129.901,
+      "x": 190,
       "y": 5.525,
       "z": 0
     },
@@ -1296,7 +1296,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 1,
       "y": 0.5
     },
     "_id": ""
@@ -1364,7 +1364,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "local_Hited",
+    "_name": "local_be_hit",
     "_objFlags": 0,
     "_parent": {
       "__id__": 44
@@ -1424,7 +1424,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 81.3766968425967,
+      "width": 84.7166968425967,
       "height": 39.06
     },
     "_anchorPoint": {
@@ -1459,7 +1459,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "Hited",
+    "_string": "BeHIt",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
@@ -1497,7 +1497,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_hited",
+    "_name": "txt_be_hit",
     "_objFlags": 0,
     "_parent": {
       "__id__": 44
@@ -1517,7 +1517,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 129.901,
+      "x": 190,
       "y": -66.301,
       "z": 0
     },
@@ -1562,7 +1562,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 1,
       "y": 0.5
     },
     "_id": ""
@@ -1947,7 +1947,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_hited",
+    "_name": "txt_dodge",
     "_objFlags": 0,
     "_parent": {
       "__id__": 76
@@ -1967,7 +1967,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 129.901,
+      "x": 190,
       "y": 3.658,
       "z": 0
     },
@@ -2012,7 +2012,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 1,
       "y": 0.5
     },
     "_id": ""
@@ -2080,7 +2080,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "local_lowhp",
+    "_name": "local_level_score",
     "_objFlags": 0,
     "_parent": {
       "__id__": 76
@@ -2140,7 +2140,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 106.3566968425967,
+      "width": 89.7566968425967,
       "height": 39.06
     },
     "_anchorPoint": {
@@ -2175,7 +2175,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "LowHp",
+    "_string": "Score",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
@@ -2213,7 +2213,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "txt_lowhp",
+    "_name": "txt_level_score",
     "_objFlags": 0,
     "_parent": {
       "__id__": 76
@@ -2233,7 +2233,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 129.901,
+      "x": 190,
       "y": -56.085,
       "z": 0
     },
@@ -2273,12 +2273,12 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 66.4166968425967,
+      "width": 89.7966968425967,
       "height": 39.06
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 1,
       "y": 0.5
     },
     "_id": ""
@@ -2308,7 +2308,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "70%",
+    "_string": "29000",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 30,

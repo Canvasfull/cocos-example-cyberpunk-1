@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Node, find, Vec3, v3 } from 'cc';
+import { _decorator, Node, find, Vec3, v3, math } from 'cc';
 import { Action } from '../../core/action/action';
 import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
@@ -53,8 +53,8 @@ export class Level extends Singleton {
     // The spawn position of the player's level.
     _spawn_pos = v3(0, 2, 0);
 
-    // The score of the level.
-    _score:number = 0;
+    // The score rate of the level.
+    _scoreRate:number = 0;
 
     // The player's game object.
     _player:Actor | undefined;
@@ -82,15 +82,6 @@ export class Level extends Singleton {
         // Register external message access function mapping.
         Msg.on('level_action', this.levelAction.bind(this));
         Msg.on('level_do', this.do.bind(this));
-
-        // Test the score of the level data.
-        const scoreLevel = this._data.score_level;
-        for(let i = 0; i < scoreLevel.length; i++) {
-            const infos = scoreLevel[i];
-            for(let k in infos) {
-                if(k == 'score') continue;
-            }
-        }
         
     }
 
@@ -217,14 +208,53 @@ export class Level extends Singleton {
         Msg.emit('msg_stat_time', {key:'play', time:this._time});
         this.calculateScore();
         this._enemies = [];
-        Save.Instance.saveGameOver(this._time, this._score);
+        Save.Instance.saveGameOver(this._time, this._scoreRate);
         this._player = undefined;
     }
 
+
+    /**
+     * Calculate level score.
+     */
     public calculateScore() {
+
+        // Save day.
+        let day = Save.Instance.get('day');
+        if(day === undefined) day = 0;
+        else day++;
+        Save.Instance.setValue('day', day);
+
+        // Get killed number.
+        const killedTimes = Save.Instance.getStatistics('killedTime');
+
+        // Calculate hit rate.
+        const hitBodyTimes = Save.Instance.getStatistics('hit_bodyTimes'); 
+        const hitHeadTimes = Save.Instance.getStatistics('hit_headTimes');
+        let fireTimes = Save.Instance.getStatistics('fireTimes');
+        const hitRate = fireTimes == 0 ? 0 : ((hitBodyTimes + hitHeadTimes) / fireTimes);
+        Save.Instance.setStatistics('hit_rate', Number(hitRate.toFixed(4)));
+
+        // Calculate be hit times.
+        const beHitBodyTimes = Save.Instance.getStatistics('be_hit_bodyTimes'); 
+        const beHitHeadTimes = Save.Instance.getStatistics('be_hit_headTimes');
+        const beHitTimes = beHitBodyTimes + beHitHeadTimes;
+        Save.Instance.setStatistics('be_hit_times', beHitTimes);
+
+        // Calculate dodge rate.
+        const enemyFireTimes = Math.max(beHitTimes, Save.Instance.getStatistics('enemy_fireTimes'));
+        const dodgeRate = enemyFireTimes == 0 ? 0 : (1 - beHitTimes / enemyFireTimes);
+        Save.Instance.setStatistics('dodge_rate', Number(dodgeRate.toFixed(4)));
+        
+        // Calculate level score.
+        // level score = killed * killed_to_score + hitRate * eachRateValue + dodgeRate * eachRateValue + survivalTime * survival_time_to_score
+        const eachRateValue = this._data.each_rate_value;
+        const level_score = Math.floor(killedTimes * this._data.killed_to_score + hitRate * eachRateValue + dodgeRate * eachRateValue + this._time * this._data.survival_time_to_score);
+        Save.Instance.setStatistics('level_score', level_score);
+
+        // Calculate final score rate.
         const scoreLevels = this._data.score_level;
         let passLevel = true;
-        this._score = scoreLevels.length - 1;
+        this._scoreRate = scoreLevels.length - 1;
         for(let i = 0; i < scoreLevels.length; i++) {
             const infos = scoreLevels[i];
             console.log(infos);
@@ -238,14 +268,21 @@ export class Level extends Singleton {
                 }
             }
             if(passLevel) {
-                this._score = i;
+                this._scoreRate = i;
                 break;
             }
         }
+
+        // Save score rate.
+        Save.Instance.setStatistics('score_rate', this._scoreRate);
     }
 
+    /**
+     * Get final score rating
+     * @returns 
+     */
     public getLevelScore() {
-        return this._data.score_level[this._score].score;
+        return this._data.score_level[this._scoreRate].score;
     }
 
 }

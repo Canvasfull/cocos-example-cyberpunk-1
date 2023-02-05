@@ -12,7 +12,7 @@ const { ccclass, property } = _decorator;
 export class ActorGrenade extends ActorEquipBase {
 
     onFire() {
-        const forwardNode = this._actor!._forwardNode;
+        const forwardNode = this._actor!._forwardNode!;
         const origin = forwardNode.worldPosition;
         const dir = forwardNode.forward;
         const prefab = ResCache.Instance.getPrefab(this._data.projectile_res);
@@ -21,8 +21,7 @@ export class ActorGrenade extends ActorEquipBase {
         const projectile = Res.instNode(prefab, Level.Instance._objectNode, position);
         const projectileGrenade = projectile.getComponent(ProjectileGrenade);
         const throwDir = dir.multiplyScalar(10);
-        console.log('--------- throw direction.', throwDir);
-        projectileGrenade?.onThrow(this._data, throwDir);
+        projectileGrenade?.onThrow(this._data, throwDir, this._actor);
     }
 
 }
