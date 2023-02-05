@@ -277,7 +277,7 @@ export class Actor extends ActorBase implements IActorInput {
         if(this.isPlayer) {
             Msg.emit('fil_strength', percent_value);
             const percent_hp = this._data.hp / this._data.max_hp;
-            this._data.is_low_hp = percent_hp < 1;
+            this._data.is_low_hp = percent_hp < 0.5;
             Msg.emit('fil_hp', percent_hp);
         }
 

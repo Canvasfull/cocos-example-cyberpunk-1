@@ -29,7 +29,7 @@ export class SfxHeart extends Component {
 
         const player = Level.Instance._player;
         if(player) {
-            if(player._data.is_low_hp) {
+            if(player._data.is_low_hp && !player.is_dead) {
                 if(this.isLow == false) {
                     this.isLow = true;
                     Msg.emit('msg_ui_fx_open', 'effect_low_hp');

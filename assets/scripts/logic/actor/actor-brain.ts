@@ -317,7 +317,7 @@ export class ActorBrain extends Component {
         // Brain wait fire logic.
         this.fireWaitTime -= game.deltaTime;
         if(this.fireWaitTime > 0) return;
-        this.fireWaitTime = randomRange(5, 10);
+        this.fireWaitTime = randomRange(1, 3);
 
         // Check shoot angle.
         const player = Level.Instance._player;
