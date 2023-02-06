@@ -1,3 +1,27 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { Node } from "cc";
 import { LocalLabel } from "../../core/localization/local-label";
 import { Msg } from "../../core/msg/msg";
@@ -99,6 +123,10 @@ export class Bind extends Singleton {
 
     }
 
+    /**
+     * The method is used to initialize the event binder.
+     * @param data The data is game events mapping.
+     */
     public initData (data: [{ name: string, event: string, data: string | undefined }]) {
 
         this.init();
@@ -108,37 +136,54 @@ export class Bind extends Singleton {
             let event = events.event;
             let data = events.data;
             if (!events.data) data = undefined;
-            
             this._map[name] = () => {
-                console.log(name, event, data);
                 Msg.emit(event, data);
             }
         });
     }
 
+    /**
+     * This method is used to execute specific events by key.
+     * @param key The name of the event to execute.
+     */
     public on (key: string) {
-        console.log(key);
         var event = this._map[key];
         if (event) {
             event();
             this.countEvents();
         } else {
-            console.log('Can not find key:' + key);
+            console.warn('Can not find key:' + key);
         }
     }
 
+    /**
+     * This method is to get this event and return the result of executing the method.
+     * @param key The key is event to execute.
+     * @returns 
+     */
     public get (key: string) {
         return this._map[key]();
     }
 
+    /**
+     * This method is used to determine if the event is mapped or not.
+     * @param key The key of the event to be judged.
+     * @returns 
+     */
     public hasBind (key: string): boolean {
         return this._map[key] !== undefined;
     }
 
+    /**
+     * Current frame event execution statistics.
+     */
     public countEvents () {
         this.totalEvents++;
     }
 
+    /**
+     * Check if the count needs to be refreshed according to the current frame.
+     */
     public checkRefresh () {
         if (this.totalEvents > 0) {
             Msg.emit("refresh_ui");
@@ -146,7 +191,13 @@ export class Bind extends Singleton {
         }
     }
 
+    /**
+     * This method is an update function for each frame.
+     * @param deltaTime This value is the execution time per frame.
+     */
     public update (deltaTime: number): void {
+
+        // Check if a refresh is needed.
         this.checkRefresh();
     }
 
@@ -154,43 +205,64 @@ export class Bind extends Singleton {
 
 export class BindUI {
 
+    // User interface binding mapping.
     private static _map: { [com: string]: (node: Node) => UICom } = {};
 
+    /**
+     * Initialize the user interface binder.
+     */
     public static init () {
 
+        // Bind button game object node.
         this._map['btn'] = (node: Node) => new BtnBase(node);
 
+        // Bind label game object node.
         this._map['txt'] = (node: Node) => new TxtBase(node);
 
+        // Bind group game object node.
         this._map['grp'] = (node: Node) => new GrpBase(node);
 
+        // Bind sprite game object node.
         this._map['spr'] = (node: Node) => new SprBase(node);
 
+        // Bind toggle game object node.
         this._map['tgl'] = (node: Node) => new TglBase(node);
 
+        // Bind group game manager object node.
         this._map['grp_gm'] = (node: Node) => new GrpGM(node);
 
+        // Bind slider game object node.
         this._map['sli'] = (node: Node) => new SliBase(node);
 
+        // Bind fill sprite game object node.
         this._map['fil'] = (node: Node) => new FilBase(node);
 
+        // Bind group Picked Tips game object node.
         this._map['grp_picked_tips'] = (node:Node) => new GrpPickedTips(node);
 
+        // Bind group select equips game object node.
         this._map['grp_select_equips'] = (node:Node) => new GrpSelectEquips(node);
 
+        // Bind group equip info game object node.
         this._map['grp_equip_info'] = (node:Node) => new GrpEquipInfo(node);
 
+        // Bind group bag game object node.
         this._map['grp_bag'] = (node:Node) => new GrpBag(node);
 
+        // Bind group map game object node.
         this._map['grp_map'] = (node:Node) => new GrpMap(node);
 
     }
 
+    /**
+     * This method is used to detect and bind the nodes of the user interface.
+     * @param node Binding nodes need to be detected.
+     * @returns Array of components that have been bound.
+     */
     public static get (node: Node): UICom[] {
 
         var children = UtilNode.getChildren(node);
         var comList: UICom[] = [];
-
         
         for (let i = 0; i < children.length; i++) {
             const tempi = children[i];

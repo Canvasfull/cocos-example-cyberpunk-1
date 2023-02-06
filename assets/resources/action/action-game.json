@@ -8,7 +8,6 @@
             { "time": 0.3, "name": "on_scene", "data": "scene"}
         ],
         "end": [
-            { "time": 0.01, "name": "on_msg", "data": "msg_play_animation" },
             { "time": 0.01, "name": "off_ui", "data": "ui_logo" }
         ]
     },
@@ -26,6 +25,7 @@
     },
     "menu": {
         "start": [
+            { "time": 0.01, "name": "on_msg", "data": "msg_play_animation" },
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": true } },
             { "time": 0.6, "name": "on_ui", "data": "ui_menu" }
         ],
@@ -50,8 +50,8 @@
             { "time": 1.8, "name": "on_sfx", "data": "sfx_show_upgrade_card"}
         ],
         "end": [
-            { "time": 0.1, "name": "off_ui", "data": "ui_upgrade" },
-            { "time": 0.2, "name": "on_sfx", "data": "sfx_select_card"},
+            { "time": 0, "name": "off_ui", "data": "ui_upgrade" },
+            { "time": 0.1, "name": "on_sfx", "data": "sfx_select_card"},
             { "time": 1.5, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
         ]
     },
@@ -79,11 +79,13 @@
     "settings":{
         "start":[
             { "time": 0, "name": "on_ui", "data": "ui_settings" },
+            { "time": 0, "name": "on_msg_str", "data": { "key":"level_do", "value":"pause" } },
             { "time": 0.3, "name": "on_sfx", "data": "sfx_notify_tip"}
         ],
         "end":[
-            { "time": 0, "name": "off_ui", "data": "uisettings" },
-            { "time": 0.01, "name": "on_sfx", "data": "sfx_panel_close"}
+            { "time": 0, "name": "off_ui", "data": "ui_settings" },
+            { "time": 0.01, "name": "on_sfx", "data": "sfx_panel_close"},
+            { "time": 1, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
         ]
     },
     "notify":{

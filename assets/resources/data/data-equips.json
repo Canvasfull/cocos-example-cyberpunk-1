@@ -27,7 +27,7 @@
             "leg": 10,
             "other": 5,
             "hit_body":{
-                "fx": "fx_hit_body",
+                "fx": "fx_handgun_0_hit",
                 "sfx": "sfx_hit_body",
                 "notify": "Hit body"
             },

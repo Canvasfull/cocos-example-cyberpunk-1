@@ -2,7 +2,7 @@
   "ver": "1.0.25",
   "importer": "image",
   "imported": true,
-  "uuid": "aed228ca-c17a-4ec7-9807-69eded7db555",
+  "uuid": "67583377-9d99-4d36-ad38-02365efc3b4c",
   "files": [
     ".json",
     ".png"
@@ -10,7 +10,7 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "aed228ca-c17a-4ec7-9807-69eded7db555@6c48a",
+      "uuid": "67583377-9d99-4d36-ad38-02365efc3b4c@6c48a",
       "displayName": "laser002",
       "id": "6c48a",
       "name": "texture",
@@ -22,7 +22,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "aed228ca-c17a-4ec7-9807-69eded7db555",
+        "imageUuidOrDatabaseUri": "67583377-9d99-4d36-ad38-02365efc3b4c",
         "visible": true
       },
       "ver": "1.0.22",
@@ -36,7 +36,7 @@
   "userData": {
     "hasAlpha": true,
     "type": "texture",
-    "redirect": "aed228ca-c17a-4ec7-9807-69eded7db555@6c48a",
+    "redirect": "67583377-9d99-4d36-ad38-02365efc3b4c@6c48a",
     "fixAlphaTransparencyArtifacts": false
   }
 }

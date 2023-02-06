@@ -1629,6 +1629,8 @@
       "__id__": 0
     },
     "fileId": "a1q9aTU99DErEPQZhuG1Ij",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -4694,7 +4696,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "327cd66a-7a14-4b08-be86-d553249ab8c3@f9941",
+      "__uuid__": "e9dc765d-2b82-40e9-b508-2eb017dcc721@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -4764,7 +4766,7 @@
     },
     "clickEvents": [],
     "_interactable": true,
-    "_transition": 0,
+    "_transition": 2,
     "_normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -4794,12 +4796,21 @@
       "a": 255
     },
     "_normalSprite": {
-      "__uuid__": "327cd66a-7a14-4b08-be86-d553249ab8c3@f9941",
+      "__uuid__": "e9dc765d-2b82-40e9-b508-2eb017dcc721@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
-    "_hoverSprite": null,
-    "_pressedSprite": null,
-    "_disabledSprite": null,
+    "_hoverSprite": {
+      "__uuid__": "f2311631-be98-4d2b-ba72-682f57ef1c27@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "_pressedSprite": {
+      "__uuid__": "f2311631-be98-4d2b-ba72-682f57ef1c27@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "_disabledSprite": {
+      "__uuid__": "e9dc765d-2b82-40e9-b508-2eb017dcc721@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
     "_duration": 0.1,
     "_zoomScale": 1.2,
     "_target": null,

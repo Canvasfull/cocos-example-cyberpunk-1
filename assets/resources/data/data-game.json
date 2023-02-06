@@ -26,8 +26,9 @@
     },
     "events":[
         { "name": "btn_start", "event": "next" },
-        { "name": "btn_start_level", "event": "push", "data": "level"},
-        { "name": "btn_home", "event": "push", "data": "menu"},
+        { "name": "btn_start_level", "event": "push", "data": "level" },
+        { "name": "btn_home", "event": "push", "data": "menu" },
+        { "name": "btn_close", "event": "back" },
         { "name": "btn_settings", "event": "", "data": "settings"},
         { "name": "btn_next_language", "event": "next_language" },
         { "name": "btn_pre_language", "event": "pre_language" },

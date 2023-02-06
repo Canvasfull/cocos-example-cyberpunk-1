@@ -14,7 +14,7 @@
         "start":[
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_ui_fx_open", "value": "effect_warning"} },
             { "time": 0.2, "name": "on_sfx", "data": "sfx_warning" }, 
-            { "time": 1.7, "name": "on_msg_str", "data": { "key":"msg_ui_fx_close", "value": "effect_warning"} }
+            { "time": 3, "name": "on_msg_str", "data": { "key":"msg_ui_fx_close", "value": "effect_warning"} }
         ] 
     },
     "end":{

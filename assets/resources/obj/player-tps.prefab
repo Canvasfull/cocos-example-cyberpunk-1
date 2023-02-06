@@ -5487,10 +5487,10 @@
     },
     "_lrot": {
       "__type__": "cc.Quat",
-      "x": null,
-      "y": null,
-      "z": null,
-      "w": null
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -14828,6 +14828,7 @@
       "__id__": 0
     },
     "fileId": "6arEDWb3NE5J0biydi3aS3",
+    "instance": null,
     "targetOverrides": null
   }
 ]
