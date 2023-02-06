@@ -35,7 +35,7 @@ export namespace NavSystem {
 
     export function randomPaths(position:Vec3, count:number, nearest:number = -1):NavPointType[] {
 
-        let paths = Array<NavPointType>(length);
+        let paths = new Array<NavPointType>(count);
 
         if(nearest === -1) {
             // find nearest point.
@@ -57,7 +57,7 @@ export namespace NavSystem {
         
         const length = randomRangeInt(5, 11);
 
-        let paths = Array<Vec3>(length);
+        let paths = new Array<Vec3>(length);
 
         const nodeData = data.nodes[node];
 
@@ -168,7 +168,7 @@ export namespace NavSystem {
 
     export function findPaths(start:Vec3, startNearest:number = -1, end:Vec3):NavPointType[] {
 
-        let paths = Array<NavPointType>();
+        let paths = new Array<NavPointType>();
 
         // open table.
         let openTable: PathPoint[] = [];
