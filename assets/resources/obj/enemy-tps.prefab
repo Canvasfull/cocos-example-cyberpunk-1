@@ -6086,12 +6086,12 @@
       }
     ],
     "angle": 120,
-    "segment": 20,
+    "segment": 8,
     "masks": [
       2,
       5
     ],
-    "check_time": 0.01,
+    "check_time": 0.2,
     "distance": 5,
     "_id": ""
   },

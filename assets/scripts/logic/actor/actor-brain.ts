@@ -44,7 +44,7 @@ export class ActorBrain extends Component {
     _wayPoints = new Array<NavSystem.NavPointType>();
 
     // The direction the character moves.
-    _moveDir:Vec3 = v3(0, 0, 1);
+    _moveDir:Vec3 = v3(0, 0, 0);
 
     // Target distance from my direction.
     targetDirection:Vec3 = v3(0, 0, 0);

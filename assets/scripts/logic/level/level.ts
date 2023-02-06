@@ -86,6 +86,7 @@ export class Level extends Singleton {
         this._objectNode = find('init')?.getChildByName('objects');
 
         // Register external message access function mapping.
+        Msg.on('msg_level_start', this.onLevelStart.bind(this));
         Msg.on('level_action', this.levelAction.bind(this));
         Msg.on('level_do', this.do.bind(this));
         
@@ -106,6 +107,7 @@ export class Level extends Singleton {
 
         // Set level stop is false.
         this.stop = false;
+        this._isStart = true;
 
         // Switch to the next statistic.
         Save.Instance.nextStatistics();
@@ -115,6 +117,8 @@ export class Level extends Singleton {
 
         // Initialize the current pathfinding data.
         NavSystem.Init(DataNavigationInst._data);
+
+        this.levelAction('start');
     }
 
     public pause() {
@@ -126,7 +130,6 @@ export class Level extends Singleton {
     }
 
     public levelAction (name: string) {
-        this._isStart = true;
         this._action!.on(name);
     }
 

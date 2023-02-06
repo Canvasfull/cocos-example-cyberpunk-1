@@ -14,9 +14,10 @@
     "level": {
         "start": [
             { "time": 0, "name": "on_bgm", "data": "bgm_level"},
-            { "time": 0.1, "name": "on_ui", "data": "ui_level" },
-            { "time": 0.3, "name": "on_ui", "data": "ui_fx" },
-            { "time": 0.3, "name": "on_msg_str", "data": { "key":"level_action", "value":"start" } }
+            { "time": 0, "name": "on_ui", "data": "ui_fx" },
+            { "time": 0, "name": "on_msg", "data": "msg_level_start" },
+            { "time": 0.2, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": false } },
+            { "time": 2, "name": "on_ui", "data": "ui_level" }
         ],
         "end": [
             { "time": 0.1, "name": "off_ui", "data": "ui_level" },
@@ -24,8 +25,7 @@
         ]
     },
     "menu": {
-        "start": [
-            { "time": 0.01, "name": "on_msg", "data": "msg_play_animation" },
+        "start": [ 
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": true } },
             { "time": 0.6, "name": "on_ui", "data": "ui_menu" }
         ],

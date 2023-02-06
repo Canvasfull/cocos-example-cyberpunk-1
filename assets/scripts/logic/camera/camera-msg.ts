@@ -13,21 +13,19 @@ export class CameraMsg extends Component {
 
     _cameraNode:Node | undefined;
 
-    index = 0;
+    _camera:Camera | undefined;
 
     start() {
 
         Msg.bind(this.msg, this.setCamera, this);
         this._cameraNode = this.node.children[0];
+        this._camera = this._cameraNode.getComponent(Camera)!;
 
     }
 
     setCamera(active:boolean) {
         this._cameraNode!.active = active;
-        this.index++;
-
-        if(active && this.index > 1) {
-
+        if(active) {
             const culling = find('static-occlusion-culling');
             if (culling === undefined || culling === null) {
                 console.warn(`Can not find static-occlusion-culling.`);
@@ -36,7 +34,8 @@ export class CameraMsg extends Component {
             const occlusionCulling = culling.getComponent(StaticOcclusionCulling);
             if(occlusionCulling === null) throw new Error(`culling node not find 'StaticOcclusionCulling'`);
 
-            occlusionCulling.camera = this.getComponent(Camera);
+            if(this._camera)
+                occlusionCulling.camera = this._camera;
         }
 
     }
