@@ -1,5 +1,6 @@
 import { director, game, gfx, Material, PipelineStateManager, renderer, RenderStage, RenderTexture, Vec2, _decorator, pipeline, Enum, Node, ForwardStage, rendering, CCString, } from 'cc';
 import { EDITOR } from 'cc/env';
+import { HrefSetting } from '../settings/href-setting';
 import { passUtils } from '../utils/pass-utils';
 import { getCameraUniqueID, getQuadIA, getRenderArea } from '../utils/utils';
 import { settings } from './setting';
@@ -80,7 +81,7 @@ export class BaseStage {
     }
 
     renderProfiler (camera) {
-        if (settings.renderedProfiler && !EDITOR) {
+        if (HrefSetting.showFps && !settings.renderedProfiler && !EDITOR) {
             const cameraID = getCameraUniqueID(camera);
             const area = this.getRenderArea(camera);
             const width = area.width;
