@@ -41,7 +41,7 @@ export class ActorBrain extends Component {
     _actor:Actor | undefined;
 
     // The currently planned waypoint.
-    _wayPoints:NavSystem.NavPointType[] = [];
+    _wayPoints = new Array<NavSystem.NavPointType>();
 
     // The direction the character moves.
     _moveDir:Vec3 = v3(0, 0, 1);
@@ -74,7 +74,7 @@ export class ActorBrain extends Component {
     waypointsFireIndex = -1;
 
     // Open fire planning waypoints.
-    waypointsFire:Array<Vec3> | undefined;
+    waypointsFire = new Array<NavSystem.NavPointType>();
 
     // The direction of the open fire.
     fireDirection = v3(0, 0, 0);
@@ -261,7 +261,7 @@ export class ActorBrain extends Component {
 
         if(this.waypointsFireIndex === -1) {
             this.closestNavigationPon = NavSystem.findNearest(this._actor!.node.worldPosition);
-            this.waypointsFire = NavSystem.randomFirePath(this.closestNavigationPon);
+            NavSystem.randomFirePath(this.waypointsFire, this.closestNavigationPon);
             this.waypointsFireIndex = 0;
         }
 
@@ -282,7 +282,7 @@ export class ActorBrain extends Component {
             if (this.waypointsFireIndex >= this.waypointsFire!.length) {
 
                 this.closestNavigationPon = NavSystem.findNearest(this._actor!.node.worldPosition);
-                this.waypointsFire = NavSystem.randomFirePath(this.closestNavigationPon);
+                NavSystem.randomFirePath(this.waypointsFire, this.closestNavigationPon);
                 this.waypointsFireIndex = 0;
                 target = this.waypointsFire![this.waypointsFireIndex];
             }
@@ -332,7 +332,7 @@ export class ActorBrain extends Component {
     }
 
     freePathMove() {
-        this._wayPoints = NavSystem.randomPaths(this._actor!.node.worldPosition, randomRangeInt(5, 10), this.closestNavigationPon);
+        NavSystem.randomPaths(this._wayPoints, this._actor!.node.worldPosition, randomRangeInt(5, 10), this.closestNavigationPon);
         //Navigation.calculateRandomPoint(this._actor!.node.worldPosition);
         console.log('this._wayPoints:', this._wayPoints);
         this.isFollowWayPointsMove = true;
@@ -345,7 +345,7 @@ export class ActorBrain extends Component {
 
     followTarget() {
         // calculate target.
-        this._wayPoints = NavSystem.findPaths(this._actor!.node.worldPosition, this.closestNavigationPon, Level.Instance._player!.node.worldPosition);
+        NavSystem.findPaths(this._wayPoints, this._actor!.node.worldPosition, this.closestNavigationPon, Level.Instance._player!.node.worldPosition);
 
     }
 
@@ -369,7 +369,7 @@ export class ActorBrain extends Component {
     }
 
     calculateNextPosition() {
-        this._wayPoints = NavSystem.randomPaths(this._actor!.node.worldPosition, randomRangeInt(5, 10), );
+        NavSystem.randomPaths(this._wayPoints, this._actor!.node.worldPosition, randomRangeInt(5, 10), );
         if(this._wayPoints.length === 0) {
             console.warn(`${this.node.name} can not find path`);
             return;

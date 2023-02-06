@@ -33,9 +33,9 @@ export namespace NavSystem {
 
     }
 
-    export function randomPaths(position:Vec3, count:number, nearest:number = -1):NavPointType[] {
+    export function randomPaths(paths:Array<NavPointType>, position:Vec3, count:number, nearest:number = -1):NavPointType[] {
 
-        let paths = new Array<NavPointType>(count);
+        paths.length = 0;
 
         if(nearest === -1) {
             // find nearest point.
@@ -53,12 +53,10 @@ export namespace NavSystem {
 
     }
 
-    export function randomFirePath(node:number) {
+    export function randomFirePath(paths:Array<NavPointType>, node:number) {
         
+        paths.length = 0;
         const length = randomRangeInt(5, 11);
-
-        let paths = new Array<Vec3>(length);
-
         const nodeData = data.nodes[node];
 
         for(let i = 0; i < length; i++) {
@@ -67,7 +65,8 @@ export namespace NavSystem {
                 nodeData.y,
                 nodeData.z + randomRange(-nodeData.radius, nodeData.radius)
             )
-            paths[i] = point;
+            paths[i] = {x: point.x, y:point.y, z:point.z, id:nodeData.id, radius:nodeData.radius };
+
         }
 
         return paths;
@@ -166,9 +165,9 @@ export namespace NavSystem {
     }
     
 
-    export function findPaths(start:Vec3, startNearest:number = -1, end:Vec3):NavPointType[] {
+    export function findPaths(paths:Array<NavPointType>, start:Vec3, startNearest:number = -1, end:Vec3):NavPointType[] {
 
-        let paths = new Array<NavPointType>();
+        paths.length = 0;
 
         // open table.
         let openTable: PathPoint[] = [];

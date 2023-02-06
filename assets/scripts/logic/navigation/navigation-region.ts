@@ -40,7 +40,7 @@ export class NavigationRegion extends Component {
     @property(Node)
     testNode:Node | undefined;
 
-    findPaths:IVec3Like[] = [];
+    findPaths = Array<NavSystem.NavPointType>();
 
     onEnable() {
         if(EDITOR) {
@@ -153,11 +153,11 @@ export class NavigationRegion extends Component {
         let p1 = v3(0, 0, 0);
 
         //Gizmo.drawBox(p0, v3(10, 1, 10), Color.YELLOW);
-        Gizmo.drawBox(this.findPaths![0] as Vec3, Vec3.ONE, Color.WHITE);
+        Gizmo.drawBox(this.findPaths[0] as IVec3Like, Vec3.ONE, Color.WHITE);
 
         for (let i = 1; i < this.findPaths.length; i++) {
-            const start = this.findPaths![i - 1] as Vec3;
-            const end = this.findPaths![i] as Vec3;
+            const start = this.findPaths![i - 1] as IVec3Like;
+            const end = this.findPaths![i] as IVec3Like;
             UtilVec3.copy(p0, start);
             UtilVec3.copy(p1, end);
             p0.y += 0.1;
@@ -177,7 +177,7 @@ export class NavigationRegion extends Component {
         // random point.
         const point = NavSystem.randomPoint();
         this.testNode?.setWorldPosition(point.position);
-        this.findPaths = NavSystem.randomPaths(this.testNode!.worldPosition, 20, point.closestNavigationPon);
+        NavSystem.randomPaths(this.findPaths, this.testNode!.worldPosition, 20, point.closestNavigationPon);
     }
 
     testFindPath() {
@@ -188,7 +188,7 @@ export class NavigationRegion extends Component {
         // random end.
         const end = NavSystem.randomPoint();
 
-        this.findPaths = NavSystem.findPaths(start.position, -1, end.position);
+        NavSystem.findPaths(this.findPaths, start.position, -1, end.position);
 
         //console.log('find paths:', this.findPaths);
     }

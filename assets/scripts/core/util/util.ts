@@ -1,4 +1,4 @@
-import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry, GeometryRenderer, IVec3, Quat } from 'cc';
+import { _decorator, Node, Vec3, Vec2, Color, MeshRenderer, randomRangeInt, tween, Tween, v3, director, Sprite, Component, geometry, GeometryRenderer, IVec3, Quat, IVec3Like } from 'cc';
 import { fun } from './fun';
 import { GRandom } from './grandom';
 import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
@@ -416,7 +416,7 @@ export namespace Gizmo {
         geometryRenderer?.addCircle(center, radius, color, 10, true, undefined, undefined);
     }
 
-    export function drawBox(center:Vec3, size:Vec3, color:Color = Color.BLUE) {
+    export function drawBox(center:IVec3Like, size:Vec3, color:Color = Color.BLUE) {
         const geometryRenderer = getGeometryRender();
         if (!geometryRenderer) return;
         let border = new geometry.AABB(center.x, center.y, center.z, size.x, size.y, size.z);
