@@ -115,7 +115,7 @@ export class Level extends Singleton {
         // Print the current statistics.
         console.log(Save.Instance._cur);
 
-        // Initialize the current pathfinding data.
+        // Initialize the current path finding data.
         NavSystem.Init(DataNavigationInst._data);
 
         this.levelAction('start');
