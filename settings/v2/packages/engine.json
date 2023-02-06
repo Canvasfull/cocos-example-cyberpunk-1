@@ -156,7 +156,8 @@
     }
   },
   "macroConfig": {
-    "CUSTOM_PIPELINE_NAME": "Deferred"
+    "CUSTOM_PIPELINE_NAME": "Deferred",
+    "ENABLE_WEBGL_ANTIALIAS": false
   },
   "__version__": "1.0.7"
 }
