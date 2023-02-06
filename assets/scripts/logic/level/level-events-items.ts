@@ -70,7 +70,7 @@ export class LevelEventsItems extends Component {
 
     update(deltaTime: number) {
 
-        if (!Level.Instance._isStart) return;
+        if (!Level.Instance._isStart && Level.Instance.stop) return;
         this._interval -= deltaTime;
         if (this._interval <= 0) {
             this.nextEvent();

@@ -2,7 +2,7 @@
   "ver": "1.0.25",
   "importer": "image",
   "imported": true,
-  "uuid": "cc5d48cd-e756-4663-8318-44301f8fcc53",
+  "uuid": "2f0fb925-6dbf-469f-99cb-4b2579bb75f2",
   "files": [
     ".json",
     ".png"
@@ -10,7 +10,7 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "cc5d48cd-e756-4663-8318-44301f8fcc53@6c48a",
+      "uuid": "2f0fb925-6dbf-469f-99cb-4b2579bb75f2@6c48a",
       "displayName": "trailBall8",
       "id": "6c48a",
       "name": "texture",
@@ -22,7 +22,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "cc5d48cd-e756-4663-8318-44301f8fcc53",
+        "imageUuidOrDatabaseUri": "2f0fb925-6dbf-469f-99cb-4b2579bb75f2",
         "visible": true
       },
       "ver": "1.0.22",
@@ -36,7 +36,7 @@
   "userData": {
     "hasAlpha": true,
     "type": "texture",
-    "redirect": "cc5d48cd-e756-4663-8318-44301f8fcc53@6c48a",
+    "redirect": "2f0fb925-6dbf-469f-99cb-4b2579bb75f2@6c48a",
     "fixAlphaTransparencyArtifacts": false
   }
 }

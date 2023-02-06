@@ -139,7 +139,9 @@ export class LevelEventsCard extends Component {
 
     calculateRange(isFloat:boolean, range:number[]):number {
         if(range.length !== 2) return 0;
-        return isFloat? randomRange(range[0], range[1]) : randomRangeInt(range[0], range[1]);
+        let value = isFloat? randomRange(range[0], range[1]) : randomRangeInt(range[0], range[1]);
+        if(isFloat) value = Number(value.toFixed(2));
+        return value;
     }
 
     checkNextEvent(counter:number) {
