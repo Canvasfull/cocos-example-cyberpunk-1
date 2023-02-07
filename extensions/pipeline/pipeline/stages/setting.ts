@@ -9,5 +9,9 @@ export let settings = {
 
     renderedProfiler: false,
 
-    passPathName: ''
+    passPathName: '',
+
+    passVersion: 0
 }
+
+globalThis.ppSettings = settings;

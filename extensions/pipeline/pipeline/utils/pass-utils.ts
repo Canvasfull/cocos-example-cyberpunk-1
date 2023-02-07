@@ -20,7 +20,7 @@ class PassUtils {
     version () {
         if (!EDITOR) {
             settings.passPathName += `_${this.pass.name}_${this.layoutName}`;
-            this.pass.setVersion(settings.passPathName, 0);
+            this.pass.setVersion(settings.passPathName, settings.passVersion);
         }
     }
 
