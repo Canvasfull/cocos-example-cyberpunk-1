@@ -84,6 +84,6 @@ gpuTierUpdated.once(() => {
     if (JSB) {
         // HrefSetting.transparent = 0
         // HrefSetting.taa = 0
-        HrefSetting.bloom = 0
+        // HrefSetting.bloom = 0
     }
 })
