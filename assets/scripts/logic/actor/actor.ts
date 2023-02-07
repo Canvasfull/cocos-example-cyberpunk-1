@@ -145,7 +145,15 @@ export class Actor extends ActorBase implements IActorInput {
         this._actorMove?.moveDirection(move); 
     }
 
-    onRotation (x: number, y: number) { this._actorMove?.onRotation(x, y); }
+    onRotation (x: number, y: number) { 
+
+        console.log('on rotation x:', x, ' y:', y);
+
+        if(x > 90) x = 90;
+        if(x < -90) x= -90;
+
+        this._actorMove?.onRotation(x, y); 
+    }
 
     onDir(x: number, z:number) {
         this._dir.z = z;

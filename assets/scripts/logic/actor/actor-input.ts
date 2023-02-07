@@ -22,8 +22,8 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Component, Vec3, sys, Node } from 'cc';
-const { ccclass, property } = _decorator;
+import { _decorator, Component, Vec3, sys } from 'cc';
+const { ccclass } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
 import { Msg } from '../../core/msg/msg';
@@ -36,7 +36,23 @@ export class ActorInput extends Component implements IActorInput {
 
     _isOpenEquips = false;
 
-    start () {
+    start () {        
+        Msg.on('msg_set_input_active', this.setActive.bind(this));
+    }
+
+    onDestroy() {
+        Msg.off('msg_set_input_active', this.setActive.bind(this));
+    }
+
+    setActive(isShow:boolean) {
+        if(isShow) {
+            this.initInput();
+        }else{
+            for(let i = 0; i < this.node.children.length; i++) this.node.children[i].active = false;
+        }
+    }
+
+    initInput() {
 
         this._actor = Level.Instance._player;
 
@@ -50,8 +66,8 @@ export class ActorInput extends Component implements IActorInput {
             this.node.children[0].active = true;
         }
 
-        // 
-        this.node.children[1].active = true;
+        // Test touch. 
+        //this.node.children[1].active = true;
     }
 
     onMove(move:Vec3) {
@@ -75,7 +91,7 @@ export class ActorInput extends Component implements IActorInput {
     }
 
     onAim(){
-        this._actor?.onAim();
+        this._actor?.onAim(undefined);
     }
 
     onFire() {

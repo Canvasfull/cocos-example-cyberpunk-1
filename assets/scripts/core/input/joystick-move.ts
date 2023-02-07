@@ -87,10 +87,12 @@ export class JoystickMove extends Component {
 
         this._moveNode = this.node.children[1];
         this._bgNode = this.node.children[0];
+        
         Vec3.copy(this._center, this._moveNode.worldPosition);
         Vec3.copy(this._movePos, this._center);
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._tempMove, this._center);
+
         this.node.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -118,6 +120,7 @@ export class JoystickMove extends Component {
 
         this._start = true;
         
+        /*
         this._center.x = event.getLocationX() + this.centerOffset.x;
         this._center.y = event.getLocationY() + this.centerOffset.y;
 
@@ -125,6 +128,7 @@ export class JoystickMove extends Component {
         if (this._center.x > (this.range.x + this.range.width)) this._center.x = this.range.x + this.range.width;
         if (this._center.y < this.range.y) this._center.y = this.range.y;
         if (this._center.y > this.range.y + this.range.height) this._center.y = this.range.y + this.range.height;
+        */
 
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._movePos, this._center);
