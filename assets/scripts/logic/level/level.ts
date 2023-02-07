@@ -86,6 +86,7 @@ export class Level extends Singleton {
         this._objectNode = find('init')?.getChildByName('objects');
 
         // Register external message access function mapping.
+        Msg.on('msg_level_start', this.onLevelStart.bind(this));
         Msg.on('level_action', this.levelAction.bind(this));
         Msg.on('level_do', this.do.bind(this));
         
@@ -106,6 +107,7 @@ export class Level extends Singleton {
 
         // Set level stop is false.
         this.stop = false;
+        this._isStart = true;
 
         // Switch to the next statistic.
         Save.Instance.nextStatistics();
@@ -113,8 +115,10 @@ export class Level extends Singleton {
         // Print the current statistics.
         console.log(Save.Instance._cur);
 
-        // Initialize the current pathfinding data.
+        // Initialize the current path finding data.
         NavSystem.Init(DataNavigationInst._data);
+
+        this.levelAction('start');
     }
 
     public pause() {
@@ -126,7 +130,6 @@ export class Level extends Singleton {
     }
 
     public levelAction (name: string) {
-        this._isStart = true;
         this._action!.on(name);
     }
 
@@ -161,13 +164,23 @@ export class Level extends Singleton {
 
     }
 
+    /**
+     * Add level enemy method.
+     * @param res Add enemy resource name.
+     * @param groupID Enemy group id.
+     * @returns Enemy game object.
+     */
     public addEnemy(res:string, groupID:number) {
 
          // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
 
+        // Get the enemy's prefab object from the resource cache.
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
+
+        // Instantiate enemy level game object.
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
+        
         enemy.name = res;
         const actor = enemy.getComponent(Actor);
         actor!._groupIndex = groupID;

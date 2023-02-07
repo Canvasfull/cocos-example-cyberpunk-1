@@ -63,6 +63,8 @@ export class TestSteeringInit extends Component {
 
             Save.Instance.init();
 
+            
+
             // Init player
             this.player?.init('data-player');
 
@@ -78,6 +80,8 @@ export class TestSteeringInit extends Component {
                 enemies[i].init('data-enemy_0');
                 enemies[i].isReady = true;
             }
+
+            Level.Instance.stop = false;
         });
 
     }

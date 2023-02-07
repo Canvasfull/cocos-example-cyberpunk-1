@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, Label, math, Sprite } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { UtilNode } from '../../core/util/util';
+import { Game } from '../data/game';
 const { ccclass, property } = _decorator;
 
 @ccclass('UILoading')
@@ -54,6 +55,11 @@ export class UILoading extends Component {
     onLoadFinished() {
         this.isLoading = false;
         this.viewNode!.active = false;
+
+        // If current is menu replay animation.
+        if(Game.Instance._currentGameNodeName === 'menu')
+            Msg.emit('msg_play_animation');
+
     }
 
     calculateLoading() {

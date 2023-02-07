@@ -28,28 +28,26 @@ export class SfxHeart extends Component {
     update(deltaTime: number) {
 
         const player = Level.Instance._player;
-        if(player) {
-            if(player._data.is_low_hp && !player.is_dead && Level.Instance._isStart) {
-                if(this.isLow == false) {
-                    this.isLow = true;
-                    Msg.emit('msg_ui_fx_open', 'effect_low_hp');
-                }
-                this.currentVolume = Sound.volumeSound;
-                this.currentSceneVolume = 0.1;
-            }else{
-                if(this.isLow){
-                    this.isLow = false;
-                    Msg.emit('msg_ui_fx_close', 'effect_low_hp');
-                }
-                this.currentVolume = 0;
-                this.currentSceneVolume = 1;
+        if(player && player._data.is_low_hp && !player.is_dead) {
+            if(this.isLow == false) {
+                this.isLow = true;
+                Msg.emit('msg_ui_fx_open', 'effect_low_hp');
             }
-           this.volume = math.lerp(this.volume, this.currentVolume, deltaTime);
-           this.sceneVolume = math.lerp(this.sceneVolume, this.currentSceneVolume, deltaTime);
-           this._sfxAudio!.volume = this.volume;
-           Sound.sceneMusicPercent = this.sceneVolume;
-           Sound.updateBGM();
+            this.currentVolume = Sound.volumeSound;
+            this.currentSceneVolume = 0.1;
+        }else{
+            if(this.isLow){
+                this.isLow = false;
+                Msg.emit('msg_ui_fx_close', 'effect_low_hp');
+            }
+            this.currentVolume = 0;
+            this.currentSceneVolume = 1;
         }
+        this.volume = math.lerp(this.volume, this.currentVolume, deltaTime);
+        this.sceneVolume = math.lerp(this.sceneVolume, this.currentSceneVolume, deltaTime);
+        this._sfxAudio!.volume = this.volume;
+        Sound.sceneMusicPercent = this.sceneVolume;
+        Sound.updateBGM();
         
     }
 }

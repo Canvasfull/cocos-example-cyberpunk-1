@@ -1,9 +1,31 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
 
-import { _decorator, Component, find, Vec2, PhysicsSystem, input, Input, EventMouse, geometry, Camera, game, EventTouch, director, Vec3, sys } from 'cc';
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
+import { _decorator, Component, Vec3, sys, Node } from 'cc';
 const { ccclass, property } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
-import { Save } from '../data/save';
 import { Msg } from '../../core/msg/msg';
 
 @ccclass('ActorInput')
@@ -15,7 +37,10 @@ export class ActorInput extends Component implements IActorInput {
     _isOpenEquips = false;
 
     start () {
+
         this._actor = Level.Instance._player;
+
+        // Select the type of input device enabled based on the platform.
         if(sys.platform === sys.Platform.MOBILE_BROWSER || 
             sys.platform === sys.Platform.ANDROID || 
             sys.platform === sys.Platform.IOS ) {
@@ -24,6 +49,9 @@ export class ActorInput extends Component implements IActorInput {
             this.node.children[2].active = true;
             this.node.children[0].active = true;
         }
+
+        // 
+        this.node.children[1].active = true;
     }
 
     onMove(move:Vec3) {

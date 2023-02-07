@@ -2,12 +2,10 @@
     "start":{
         "start":[
             { "time": 0.1, "name": "on_inst", "data": "level_events"},
-            { "time": 0.15, "name": "on_msg_str", "data": { "key":"level_do", "value":"onLevelStart" } },
-            { "time": 0.3, "name": "on_msg_str", "data": { "key":"level_do", "value":"addPlayer" } },
-            { "time": 0.3, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": false } },
+            { "time": 0.2, "name": "on_msg_str", "data": { "key":"level_do", "value":"addPlayer" } },
             { "time": 0.5, "name": "on_inst", "data": "level_events_enemy" },
             { "time": 0.6, "name": "on_inst", "data": "level_events_items" }, 
-            { "time": 0.7, "name": "on_inst", "data": "level_events_card" } 
+            { "time": 0.7, "name": "on_inst", "data": "level_events_card" }
         ]
     },
     "warning":{
@@ -20,8 +18,7 @@
     "end":{
         "start":[
             { "time": 0.1, "name": "on_msg", "data": "game_dead"},
-            { "time": 0.2, "name": "on_bgm", "data": "sfx_lose" },
-            { "time": 0.3, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": true } }
+            { "time": 0.2, "name": "on_bgm", "data": "sfx_lose" }
         ] 
     }
 }

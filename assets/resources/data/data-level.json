@@ -1,6 +1,7 @@
 {
     "name":"Cyberpunk Scene",
     "total_time":300,
+    "close_blood_fx": true,
     "each_rate_value":10000,
     "killed_to_score":100,
     "survival_time_to_score":10,

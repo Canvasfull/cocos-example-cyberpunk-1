@@ -41,10 +41,10 @@ export class ActorBrain extends Component {
     _actor:Actor | undefined;
 
     // The currently planned waypoint.
-    _wayPoints:NavSystem.NavPointType[] = [];
+    _wayPoints = new Array<NavSystem.NavPointType>();
 
     // The direction the character moves.
-    _moveDir:Vec3 = v3(0, 0, 1);
+    _moveDir:Vec3 = v3(0, 0, 0);
 
     // Target distance from my direction.
     targetDirection:Vec3 = v3(0, 0, 0);
@@ -74,7 +74,7 @@ export class ActorBrain extends Component {
     waypointsFireIndex = -1;
 
     // Open fire planning waypoints.
-    waypointsFire:Array<Vec3> | undefined;
+    waypointsFire = new Array<NavSystem.NavPointType>();
 
     // The direction of the open fire.
     fireDirection = v3(0, 0, 0);
@@ -91,8 +91,6 @@ export class ActorBrain extends Component {
     start() {
         this._actor = this.getComponent(Actor)!;
         this.input = this.getComponent(ActorInputBrain)!;
-        //const prefab = ResCache.Instance.getPrefab('sensor_enemy');
-        //const sensorNode = Res.inst(prefab, this.node);
         const sensorNode = this.node.getChildByName('sensor_target')!;
         this.sensorRays = sensorNode.getComponent(SensorRaysAngle)!;
         this.closestNavigationPon = this._actor._data.nearest;
@@ -141,6 +139,7 @@ export class ActorBrain extends Component {
         // Check near has player.
         this.checkNearPlayer();
 
+        // Test to open and close enemy fire.
         //this._targetNode = undefined;
 
         //console.log('target node:', this._targetNode);
@@ -159,8 +158,11 @@ export class ActorBrain extends Component {
 
     shootFire() {
 
+
+        const angle = this.checkPlayerAngle();
+
         // Fire move.
-        this.moveFire();
+        this.moveFire(angle);
 
         // Wait reload weapon.
         if(this.reloadTime > 0) {
@@ -177,8 +179,10 @@ export class ActorBrain extends Component {
         }
 
         this.input?.onAim(true);
+
         // Check fire.
-        this.checkFire();
+        this.checkFire(angle);
+
     }
 
     randomMove() {
@@ -194,19 +198,12 @@ export class ActorBrain extends Component {
 
         if (this.isFollowWayPointsMove) {
 
+            this._actor!._actorMove!.faceMove = true;
+
             const worldPosition = this._actor!.node.worldPosition;
             const target = this._wayPoints[this.currentWaypointsIndex];
 
             UtilVec3.copy(this.targetPosition, target);
-
-            // Detects if there is a character ahead.
-            /*
-            if(this.sensorRays?.checkedNode) {
-                this.followPathsDirection = -1;
-            }else{
-                this.followPathsDirection = 1;
-            }
-            */
 
             // Detect distance to target point.
             if (Vec3.distance(worldPosition, target) <= 1) {
@@ -219,17 +216,49 @@ export class ActorBrain extends Component {
 
             }else{
 
-                // Calculate move direction.
-                UtilVec3.copy(this.targetDirection, this.targetPosition);
+                // Detects if there is a character ahead.
+                if(this.sensorRays?.checkedNode) {
+                    //this.followPathsDirection = -1;
+
+                    //Calculate checked node direction.
+                    UtilVec3.copy(this.targetDirection, this.sensorRays.checkedNode.worldPosition);
+                    this.targetDirection.y = this.node.worldPosition.y;
+
+                    let checkDirection = this.targetDirection.clone();
+                    checkDirection.subtract(this.node.worldPosition);
+
+                    //Calculate checked node side.
+                    const side = -this.targetDirection.clone().cross(this.node.forward).y
+
+                    //Calculate normal vector.
+                    let normal = checkDirection.clone();
+                    normal.cross(side > 0 ? v3(0, -1, 0) : v3(0, 1, 0));
+
+                    //Calculate new target direction.
+                    this.targetDirection.add(normal);
+
+                }else{
+
+                    // Calculate move direction.
+                    UtilVec3.copy(this.targetDirection, this.targetPosition);
+
+                    //this.followPathsDirection = 1;
+                }
+
                 this.targetDirection.y = worldPosition.y;
                 this.targetDirection.subtract(worldPosition).normalize();
 
+                // Set target move.
                 this._moveDir.x = -this.targetDirection.x;
                 this._moveDir.y = 0;
                 this._moveDir.z = -this.targetDirection.z;
 
                 // Calculates the rotation angle of the target.
                 this.lookAtTarget(this._moveDir);
+
+                this._moveDir.x = 0;
+                this._moveDir.y = 0;
+                this._moveDir.z = 1;
 
                 // 
                 this.onMove();
@@ -257,11 +286,13 @@ export class ActorBrain extends Component {
         }
     }
 
-    moveFire() {
+    moveFire(angle:number) {
+
+        this._actor!._actorMove!.faceMove = false;
 
         if(this.waypointsFireIndex === -1) {
             this.closestNavigationPon = NavSystem.findNearest(this._actor!.node.worldPosition);
-            this.waypointsFire = NavSystem.randomFirePath(this.closestNavigationPon);
+            NavSystem.randomFirePath(this.waypointsFire, this.closestNavigationPon);
             this.waypointsFireIndex = 0;
         }
 
@@ -282,7 +313,7 @@ export class ActorBrain extends Component {
             if (this.waypointsFireIndex >= this.waypointsFire!.length) {
 
                 this.closestNavigationPon = NavSystem.findNearest(this._actor!.node.worldPosition);
-                this.waypointsFire = NavSystem.randomFirePath(this.closestNavigationPon);
+                NavSystem.randomFirePath(this.waypointsFire, this.closestNavigationPon);
                 this.waypointsFireIndex = 0;
                 target = this.waypointsFire![this.waypointsFireIndex];
             }
@@ -291,7 +322,10 @@ export class ActorBrain extends Component {
         // Calculate move direction.
         UtilVec3.copy(this.targetDirection, this.targetPosition);
         this.targetDirection.y = worldPosition.y;
-        this.targetDirection.subtract(worldPosition).normalize().multiplyScalar(0.3);
+
+        // Calculate angle speed.
+        const angleSpeed = angle < 30 ? 0.3 : 0.8;
+        this.targetDirection.subtract(worldPosition).normalize().multiplyScalar(angleSpeed);
 
         this._moveDir.x = -this.targetDirection.x;
         this._moveDir.y = 0;
@@ -312,12 +346,7 @@ export class ActorBrain extends Component {
 
     }
 
-    checkFire() {
-
-        // Brain wait fire logic.
-        this.fireWaitTime -= game.deltaTime;
-        if(this.fireWaitTime > 0) return;
-        this.fireWaitTime = randomRange(1, 3);
+    checkPlayerAngle():number {
 
         // Check shoot angle.
         const player = Level.Instance._player;
@@ -326,13 +355,22 @@ export class ActorBrain extends Component {
         this.fireDirection.subtract(this._actor!.node.worldPosition);
         const angle = math.toDegree(Vec3.angle(forward, this.fireDirection));
 
-        //console.log('fire angle:',  angle);
+        return angle;
+    }
 
+    checkFire(angle:number) {
+
+        // Brain wait fire logic.
+        this.fireWaitTime -= game.deltaTime;
+        if(this.fireWaitTime > 0) return;
+        this.fireWaitTime = randomRange(1, 3);
+
+        //console.log('fire angle:',  angle);
         if(angle < 10) this.onFire();
     }
 
     freePathMove() {
-        this._wayPoints = NavSystem.randomPaths(this._actor!.node.worldPosition, randomRangeInt(5, 10), this.closestNavigationPon);
+        NavSystem.randomPaths(this._wayPoints, this._actor!.node.worldPosition, randomRangeInt(5, 10), this.closestNavigationPon);
         //Navigation.calculateRandomPoint(this._actor!.node.worldPosition);
         console.log('this._wayPoints:', this._wayPoints);
         this.isFollowWayPointsMove = true;
@@ -345,7 +383,7 @@ export class ActorBrain extends Component {
 
     followTarget() {
         // calculate target.
-        this._wayPoints = NavSystem.findPaths(this._actor!.node.worldPosition, this.closestNavigationPon, Level.Instance._player!.node.worldPosition);
+        NavSystem.findPaths(this._wayPoints, this._actor!.node.worldPosition, this.closestNavigationPon, Level.Instance._player!.node.worldPosition);
 
     }
 
@@ -369,7 +407,7 @@ export class ActorBrain extends Component {
     }
 
     calculateNextPosition() {
-        this._wayPoints = NavSystem.randomPaths(this._actor!.node.worldPosition, randomRangeInt(5, 10), );
+        NavSystem.randomPaths(this._wayPoints, this._actor!.node.worldPosition, randomRangeInt(5, 10), );
         if(this._wayPoints.length === 0) {
             console.warn(`${this.node.name} can not find path`);
             return;

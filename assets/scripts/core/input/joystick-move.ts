@@ -1,5 +1,28 @@
-import { _decorator, Component, Node, Vec3, input, Input, EventTouch, v3, Vec2, v2, Rect, math, UITransform, game } from 'cc';
-import { Msg } from '../msg/msg';
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
+import { _decorator, Component, Node, Vec3, Input, EventTouch, v3, Vec2, v2, Rect, UITransform } from 'cc';
 import { InputJoystick } from './input-joystick';
 const { ccclass, property } = _decorator;
 
@@ -29,8 +52,10 @@ export class JoystickMove extends Component {
 
     @property(Boolean)
     autoHidden:Boolean = false
-    
 
+    @property(Number)
+    runRadius = 80;
+    
     @property
     msg_move = '';
 
@@ -58,7 +83,6 @@ export class JoystickMove extends Component {
     start() {
 
         //bind input joystick
-
         this._input = this.node.parent!.getComponent(InputJoystick)!;
 
         this._moveNode = this.node.children[1];
@@ -111,6 +135,10 @@ export class JoystickMove extends Component {
 
     }
 
+    /**
+     * On touch move event.
+     * @param event 
+     */
     onTouchMove(event: EventTouch) {
 
         this._tempMove.x = event.getLocationX() + this.centerOffset.x;
@@ -121,6 +149,7 @@ export class JoystickMove extends Component {
         
         this._tempMove.z = 0;
         var len = this._tempMove.length();
+
         if (len > this.radius) {
             this._tempMove.normalize().multiplyScalar(this.radius).add(this._center);
             this._tempMove.z = 0;
@@ -132,13 +161,25 @@ export class JoystickMove extends Component {
             this._pos.y = event.getLocationY();
         }
 
-        this._tempMove.z = -this._tempMove.y;
+        this._tempMove.z = this._tempMove.y;
         this._tempMove.y = 0;
+
+        // 
         this._tempMove.multiplyScalar(1/this.radius);
+
+        // Inverts the left and right direction of the telemetry.
+        this._tempMove.x = -this._tempMove.x;
+
+        // Judging the magnitude of remote sensing to determine whether to run.
+        const isRun = this.radius > this.runRadius;
+
+        // Set the character's running state.
+        this._input?.onSetRun(isRun);
 
         //Vec3.rotateY(this._tempMove, this._tempMove, Vec3.ZERO, this.offset_euler);
 
-        this._input?.onMove(this._tempMove);
+        // Call the character input interface to perform the movement operation.
+        this._input?.onMove(this._tempMove.normalize());
 
     }
 
