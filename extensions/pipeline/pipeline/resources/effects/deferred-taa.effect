@@ -7,12 +7,12 @@ CCEffect %{
       frag: fs
       pass: DeferredTAA0
       rasterizerState: &rasterizerState
-      depthStencilState: &depthStencilState
+      blendState: &blendState
         targets:
           - blend: true
             blendSrc: one
             blendDst: zero
-      blendState: &blendState
+      depthStencilState: &depthStencilState
         depthTest: false
         depthWrite: false
     - vert: vs
