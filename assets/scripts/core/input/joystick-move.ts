@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Component, Node, Vec3, Input, EventTouch, v3, Vec2, v2, Rect, UITransform } from 'cc';
+import { _decorator, Component, Node, Vec3, Input, EventTouch, v3, Vec2, v2, Rect, UITransform, game } from 'cc';
 import { InputJoystick } from './input-joystick';
 const { ccclass, property } = _decorator;
 
@@ -89,7 +89,6 @@ export class JoystickMove extends Component {
         this._bgNode = this.node.children[0];
         
         Vec3.copy(this._center, this._moveNode.worldPosition);
-        
         Vec3.copy(this._movePos, this._center);
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._tempMove, this._center);
@@ -120,22 +119,23 @@ export class JoystickMove extends Component {
     onTouchStart(event: EventTouch) {
 
         this._start = true;
-        
-        /*
-        this._center.x = event.getLocationX() + this.centerOffset.x;
-        this._center.y = event.getLocationY() + this.centerOffset.y;
+    
+        //this._center.x = event.getLocationX() + this.centerOffset.x;
+        //this._center.y = event.getLocationY() + this.centerOffset.y;
 
+        /*
         if (this._center.x < this.range.x) this._center.x = this.range.x;
         if (this._center.x > (this.range.x + this.range.width)) this._center.x = this.range.x + this.range.width;
         if (this._center.y < this.range.y) this._center.y = this.range.y;
         if (this._center.y > this.range.y + this.range.height) this._center.y = this.range.y + this.range.height;
         */
+        
 
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._movePos, this._center);
         
-        //this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
-        this._moveNode!.setPosition(this._bgNode!.position);
+        this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
+        this._moveNode!.setWorldPosition(this._center.x, this._center.y, 0);
 
         if (this.autoHidden) this.node.emit('autoHidden', false);
 
@@ -147,12 +147,10 @@ export class JoystickMove extends Component {
      */
     onTouchMove(event: EventTouch) {
 
-        
-
         this._bgNode?.setWorldPosition(this._center);
 
-        this._tempMove.x = event.getLocationX();// + this.centerOffset.x;
-        this._tempMove.y = event.getLocationY();// + this.centerOffset.y;
+        this._tempMove.x = event.getLocationX() + this.centerOffset.x;
+        this._tempMove.y = event.getLocationY() + this.centerOffset.y;
         this._tempMove.z = 0;
 
         this._tempMove.subtract(this._center);
@@ -160,19 +158,15 @@ export class JoystickMove extends Component {
         this._tempMove.z = 0;
         var len = this._tempMove.length();
 
-        //console.log('len:',len, 'X:', event.getLocationX(), 'Y:', event.getLocationY());
-
         if (len > this.radius) {
-            console.log('reset position.');
             this._tempMove.normalize().multiplyScalar(this.radius).add(this._center);
             this._tempMove.z = 0;
             this._pos.x = this._tempMove.x;
             this._pos.y = this._tempMove.y;
             this._tempMove.subtract(this._center);
         }else{
-            console.log('set position.');
-            this._pos.x = event.getLocationX();
-            this._pos.y = event.getLocationY();
+            this._pos.x = event.getLocationX() + this.centerOffset.x;
+            this._pos.y = event.getLocationY() + this.centerOffset.y;
         }
 
         this._tempMove.z = this._tempMove.y;
