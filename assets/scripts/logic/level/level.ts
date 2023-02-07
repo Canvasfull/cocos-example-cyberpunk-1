@@ -164,13 +164,23 @@ export class Level extends Singleton {
 
     }
 
+    /**
+     * Add level enemy method.
+     * @param res Add enemy resource name.
+     * @param groupID Enemy group id.
+     * @returns Enemy game object.
+     */
     public addEnemy(res:string, groupID:number) {
 
          // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
 
+        // Get the enemy's prefab object from the resource cache.
         var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
+
+        // Instantiate enemy level game object.
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
+        
         enemy.name = res;
         const actor = enemy.getComponent(Actor);
         actor!._groupIndex = groupID;

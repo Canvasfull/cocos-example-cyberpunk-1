@@ -6041,7 +6041,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0.589,
-      "z": 0
+      "z": -0.5
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -6085,14 +6085,13 @@
         "z": -1
       }
     ],
-    "angle": 120,
-    "segment": 8,
+    "angle": 60,
+    "segment": 4,
     "masks": [
-      2,
       5
     ],
-    "check_time": 0.2,
-    "distance": 5,
+    "check_time": 0.01,
+    "distance": 3,
     "_id": ""
   },
   {

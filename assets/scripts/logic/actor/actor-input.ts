@@ -1,5 +1,5 @@
 
-import { _decorator, Component, find, Vec2, PhysicsSystem, input, Input, EventMouse, geometry, Camera, game, EventTouch, director, Vec3, sys } from 'cc';
+import { _decorator, Component, Vec3, sys, Node } from 'cc';
 const { ccclass, property } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
@@ -16,6 +16,8 @@ export class ActorInput extends Component implements IActorInput {
 
     start () {
         this._actor = Level.Instance._player;
+
+        /*
         if(sys.platform === sys.Platform.MOBILE_BROWSER || 
             sys.platform === sys.Platform.ANDROID || 
             sys.platform === sys.Platform.IOS ) {
@@ -24,6 +26,9 @@ export class ActorInput extends Component implements IActorInput {
             this.node.children[2].active = true;
             this.node.children[0].active = true;
         }
+        */
+
+        this.node.children[1].active = true;
     }
 
     onMove(move:Vec3) {

@@ -34,6 +34,10 @@ export class InputJoystick extends InputBase {
         //this._actorInput?.onProne();
     }
 
+    onAim() {
+        this._actorInput?.onAim(undefined);
+    }
+
     onPick() {
         this._actorInput?.onPick();
     }
@@ -49,6 +53,11 @@ export class InputJoystick extends InputBase {
     onRun() {
         this._isRun = !this._isRun;
         this._actorInput?.onRun(this._isRun);
+    }
+
+    onSetRun(isRun:boolean) {
+        this._isRun = isRun;
+        this._actorInput?.onRun(isRun);
     }
 
     onRotation(deltaX:number, deltaY:number) {
