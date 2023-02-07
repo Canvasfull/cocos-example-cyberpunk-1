@@ -3348,8 +3348,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -435.812,
-      "y": -159.719,
+      "x": -467,
+      "y": -181.486,
       "z": 0
     },
     "_lrot": {
@@ -3681,10 +3681,10 @@
     },
     "_alignFlags": 12,
     "_target": null,
-    "_left": 31.187999999999988,
+    "_left": 0,
     "_right": 0,
     "_top": 0,
-    "_bottom": 90.281,
+    "_bottom": 68.51400000000001,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
     "_isAbsLeft": true,
@@ -3719,8 +3719,8 @@
     "damping_smooth": 10,
     "centerOffset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -200,
+      "y": -125
     },
     "damping_a": 0.5,
     "damping_e_a": 5,
