@@ -64,10 +64,11 @@ export class ActorInput extends Component implements IActorInput {
         }else {
             this.node.children[2].active = true;
             this.node.children[0].active = true;
+            // Test touch. 
+            //this.node.children[1].active = true;
         }
 
-        // Test touch. 
-        //this.node.children[1].active = true;
+        
     }
 
     onMove(move:Vec3) {

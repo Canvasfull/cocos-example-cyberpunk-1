@@ -146,9 +146,7 @@ export class Actor extends ActorBase implements IActorInput {
     }
 
     onRotation (x: number, y: number) { 
-
-        console.log('on rotation x:', x, ' y:', y);
-
+        
         if(x > 90) x = 90;
         if(x < -90) x= -90;
 
