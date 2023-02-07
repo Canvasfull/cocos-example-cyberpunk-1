@@ -68,6 +68,9 @@ export class Game extends Singleton {
     // The root node of all pool objects game runtime.
     _poolNode: Node | null | undefined;
 
+    // Safe time for back
+    backSafeTime = 0;
+
     public init (): void {
 
         // Find the root node of all pool objects.
@@ -137,6 +140,8 @@ export class Game extends Singleton {
      * Return to the previous game node.
      */
     public back (): void {
+        if(game.totalTime - this.backSafeTime < 500) return;
+        this.backSafeTime = game.totalTime;
         const preNode = this._stack.pop();
         this._action!.off(preNode);
     }

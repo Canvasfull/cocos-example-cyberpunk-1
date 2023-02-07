@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Input, EventTouch } from 'cc';
+import { _decorator, Component, Node, Input, EventTouch, game } from 'cc';
 import { Msg } from '../msg/msg';
 import { InputJoystick } from './input-joystick';
 const { ccclass, property } = _decorator;
@@ -18,7 +18,17 @@ export class JoystickPadRotation extends Component {
     }
 
     onTouchMove(event: EventTouch) {
-        this._input?.onRotation(event.getDeltaX(), event.getDeltaY());
+
+        const x = event.getDeltaX();
+        const y = event.getDeltaY();
+
+        const screenXRate = x / game.canvas!.width;
+        const screenYRate = y / game.canvas!.height;
+
+        const rotateX = 180 * screenXRate * screenXRate;
+        const rotateY = 180 * screenYRate * screenXRate;
+
+        this._input?.onRotation(rotateX, rotateY);//event.getDeltaX(), event.getDeltaY());
     }
 
 }

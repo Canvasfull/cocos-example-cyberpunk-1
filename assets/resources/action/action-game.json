@@ -57,10 +57,12 @@
     },
     "select_equips": {
         "start": [
-            { "time": 0, "name": "on_ui", "data": "ui_select_equips" }
+            { "time": 0, "name": "on_ui", "data": "ui_select_equips" },
+            { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": false} }
         ],
         "end": [
-            { "time": 0.1, "name": "off_ui", "data": "ui_select_equips" }
+            { "time": 0.1, "name": "off_ui", "data": "ui_select_equips" },
+            { "time": 0.5, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": true} }
         ]
     },
     "level_end":{
@@ -80,12 +82,14 @@
         "start":[
             { "time": 0, "name": "on_ui", "data": "ui_settings" },
             { "time": 0, "name": "on_msg_str", "data": { "key":"level_do", "value":"pause" } },
-            { "time": 0.3, "name": "on_sfx", "data": "sfx_notify_tip"}
+            { "time": 0.3, "name": "on_sfx", "data": "sfx_notify_tip"},
+            { "time": 0.3, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": false} }
         ],
         "end":[
             { "time": 0, "name": "off_ui", "data": "ui_settings" },
             { "time": 0.01, "name": "on_sfx", "data": "sfx_panel_close"},
-            { "time": 1, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
+            { "time": 1, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } },
+            { "time": 0.3, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": true} }
         ]
     },
     "notify":{

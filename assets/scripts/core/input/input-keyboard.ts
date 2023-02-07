@@ -115,7 +115,7 @@ export class InputKeyboard extends InputBase {
 
         if (event.keyCode === KeyCode.KEY_Q) {
             Msg.emit('push', "select_equips");
-            this._pressQ = true;
+            //this._pressQ = true;
             return;
         }
         
@@ -156,11 +156,13 @@ export class InputKeyboard extends InputBase {
 
         this.key_count--;
 
+        /*
         if (event.keyCode === KeyCode.KEY_Q) {
             this._pressQ = false;
             Msg.emit('back');
             return;
         }
+        */
 
         if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP)  this.direction_up = 0;
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.direction_down = 0; 
@@ -210,8 +212,17 @@ export class InputKeyboard extends InputBase {
             Msg.emit('msg_select_equip', event.getDelta());
             return;
         }
+
+        const x = event.movementX;
+        const y = event.movementY;
+
+        const screenXRate = x / game.canvas!.width;
+        const screenYRate = y / game.canvas!.height;
+
+        const rotateX = 360 * screenXRate;
+        const rotateY = 180 * screenYRate;
         
-        this._actorInput?.onRotation(event.movementX / 5, event.movementY / 10);
+        this._actorInput?.onRotation(rotateX, rotateY);//event.movementX / 5, event.movementY / 10);
     }
 
     onMove() {
