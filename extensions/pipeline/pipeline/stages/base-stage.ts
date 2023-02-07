@@ -1,5 +1,5 @@
 import { director, game, gfx, Material, PipelineStateManager, renderer, RenderStage, RenderTexture, Vec2, _decorator, pipeline, Enum, Node, ForwardStage, rendering, CCString, } from 'cc';
-import { EDITOR } from 'cc/env';
+import { EDITOR, JSB } from 'cc/env';
 import { HrefSetting } from '../settings/href-setting';
 import { passUtils } from '../utils/pass-utils';
 import { getCameraUniqueID, getQuadIA, getRenderArea } from '../utils/utils';
@@ -82,22 +82,27 @@ export class BaseStage {
 
     renderProfiler (camera) {
         if (HrefSetting.showFps && !settings.renderedProfiler && !EDITOR) {
-            const cameraID = getCameraUniqueID(camera);
-            const area = this.getRenderArea(camera);
-            const width = area.width;
-            const height = area.height;
-            const shadingScale = this.finalShadingScale()
+            if (JSB) {
+                passUtils.pass.showStatistics = true
+            }
+            else {
+                const cameraID = getCameraUniqueID(camera);
+                const area = this.getRenderArea(camera);
+                const width = area.width;
+                const height = area.height;
+                const shadingScale = this.finalShadingScale()
 
-            passUtils.clearFlag = gfx.ClearFlagBit.NONE;
-            passUtils.addRasterPass(width, height, 'default', `CameraProfiler${cameraID}`)
-                .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
-                .addRasterView(`CameraProfiler${cameraID}`, gfx.Format.RGBA8, false)
+                passUtils.clearFlag = gfx.ClearFlagBit.NONE;
+                passUtils.addRasterPass(width, height, 'default', `CameraProfiler${cameraID}`)
+                    .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
+                    .addRasterView(`CameraProfiler${cameraID}`, gfx.Format.RGBA8, false)
 
-            passUtils.pass
-                .addQueue(rendering.QueueHint.RENDER_TRANSPARENT)
-                .addSceneOfCamera(camera, new rendering.LightInfo(), rendering.SceneFlags.PROFILER);
+                passUtils.pass
+                    .addQueue(rendering.QueueHint.RENDER_TRANSPARENT)
+                    .addSceneOfCamera(camera, new rendering.LightInfo(), rendering.SceneFlags.PROFILER);
 
-            passUtils.version();
+                passUtils.version();
+            }
 
             settings.renderedProfiler = true;
         }

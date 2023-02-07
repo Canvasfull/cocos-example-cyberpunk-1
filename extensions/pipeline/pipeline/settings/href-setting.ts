@@ -12,7 +12,7 @@ export const HrefSetting = {
     zoomScreen: 0,
     taa: 1,
     bloom: 1,
-    showFps: 0,
+    showFps: 1,
     fps: 30,
     transparent: 1,
     clusterLighting: 1,
