@@ -65,12 +65,12 @@ class PassUtils {
 
         let clearOp = LoadOp.CLEAR;
         if (this.clearFlag === ClearFlagBit.NONE) {
-            if (JSB) {
-                clearOp = LoadOp.DISCARD;
-            }
-            else {
-                clearOp = LoadOp.LOAD;
-            }
+            // if (JSB) {
+            //     clearOp = LoadOp.DISCARD;
+            // }
+            // else {
+            clearOp = LoadOp.LOAD;
+            // }
         }
 
         let view: rendering.RasterView;
