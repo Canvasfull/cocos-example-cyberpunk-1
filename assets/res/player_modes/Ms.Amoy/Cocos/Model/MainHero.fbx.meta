@@ -709,7 +709,9 @@
         "_techIdx": 0,
         "_defines": [
           {
-            "USE_ALBEDO_MAP": true
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_PBR_MAP": true
           },
           {},
           {}
@@ -754,7 +756,15 @@
             "roughness": 0.7071067690849304,
             "metallic": 0.4000000059604645,
             "mainTexture": {
-              "__uuid__": "8fe87933-401b-4d04-931c-a103ea1512d1@6dad7",
+              "__uuid__": "a040e6f4-689e-4f25-ac2f-7e3431f5bfb6@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "4bf46133-88c1-474b-a5e8-dcf8fae27fce@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "pbrMap": {
+              "__uuid__": "ca26f4d2-e2de-4dd0-a477-1cf819ef6e52@6c48a",
               "__expectedType__": "cc.Texture2D"
             }
           },
@@ -774,7 +784,9 @@
         "_techIdx": 0,
         "_defines": [
           {
-            "USE_ALBEDO_MAP": true
+            "USE_NORMAL_MAP": true,
+            "USE_ALBEDO_MAP": true,
+            "USE_PBR_MAP": true
           },
           {},
           {}
@@ -819,7 +831,15 @@
             "roughness": 0.7071067690849304,
             "metallic": 0.4000000059604645,
             "mainTexture": {
-              "__uuid__": "8fe87933-401b-4d04-931c-a103ea1512d1@ed98d",
+              "__uuid__": "a040e6f4-689e-4f25-ac2f-7e3431f5bfb6@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "normalMap": {
+              "__uuid__": "4bf46133-88c1-474b-a5e8-dcf8fae27fce@6c48a",
+              "__expectedType__": "cc.Texture2D"
+            },
+            "pbrMap": {
+              "__uuid__": "ca26f4d2-e2de-4dd0-a477-1cf819ef6e52@6c48a",
               "__expectedType__": "cc.Texture2D"
             }
           },
