@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "scene2",
+    "_name": "test-bake",
     "_objFlags": 0,
     "_native": "",
     "scene": {
@@ -3891,7 +3891,7 @@
         "__id__": 139
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 146
@@ -3906,7 +3906,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 667.0000000000001,
+      "x": 666.9999999999997,
       "y": 375,
       "z": 0
     },
@@ -3990,7 +3990,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 375.38139534883726,
+    "_orthoHeight": 375,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -4349,9 +4349,9 @@
     "__prefab": null,
     "_alignFlags": 45,
     "_target": null,
-    "_left": 1.1368683772161603e-13,
-    "_right": 3.410605131648481e-13,
-    "_top": 0.762790697674518,
+    "_left": -3.410605131648481e-13,
+    "_right": 1.1368683772161603e-13,
+    "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
@@ -5366,8 +5366,7 @@
     "lightProbeInfo": {
       "__id__": 218
     },
-    "bakedWithStationaryMainLight": false,
-    "bakedWithHighpLightmap": false
+    "bakedWithStationaryMainLight": false
   },
   {
     "__type__": "cc.AmbientInfo",
@@ -5458,7 +5457,7 @@
       "__expectedType__": "cc.TextureCube"
     },
     "_diffuseMapHDR": {
-      "__uuid__": "92fb4ad4-988a-42b1-b271-7b83e983fe01@b47c0",
+      "__uuid__": "a48dc255-1607-46c7-b32a-91422501cb84@b47c0",
       "__expectedType__": "cc.TextureCube"
     },
     "_diffuseMapLDR": null,
