@@ -37,12 +37,11 @@ export class Msg<T> {
     public static emit (key: string, data?: any): void {
         const info = this._map[key];
         if (info) {
-            
             info.forEach(item => {
                 item(data);
             })
         } else {
-            console.warn('Not register key:' + key);
+            //console.warn('Not register key:' + key);
         }
     }
 

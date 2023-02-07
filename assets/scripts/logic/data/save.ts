@@ -56,19 +56,14 @@ export class Save extends Singleton {
     public init (): void {
 
         this._saveJson = ResCache.Instance.getJson('data-save').json;
-        console.log(this._saveJson);
-        if (!IO.exist(this._archiveKey + '.json')) {
-            console.log('************ create new _archive key');
+        if (!IO.exist(this._archiveKey + '.json')) { 
             this._archiveList = [];
             this.newArchive();
         } else {
-            console.log('read archive.');
             this._archiveList = JsonTool.toIOObject(this._archiveKey);
             this._uuid = this._archiveList![0];
             this.loadArchive(this._uuid);
-            console.log('read uuid key:', this._uuidKey);
             this._uuid = IO.read(this._uuidKey + '.json');
-            console.log('load archive:', this._uuid);
         }
         Msg.on('msg_stat_times', this.statisticsTimes.bind(this));
         Msg.on('msg_stat_time', this.statisticsTime.bind(this));
@@ -118,7 +113,7 @@ export class Save extends Singleton {
         this._uuid = name;
         IO.write(this._uuidKey + '.json', this._uuid);
         let read_data = IO.read(name + '.json');
-        console.log(name, read_data);
+        //console.log(name, read_data);
         if (read_data === undefined) {
             console.error('can not read data uuid key:', this._uuid);
             this._cur = Object.assign(this._saveJson);

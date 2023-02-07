@@ -89,6 +89,7 @@ export class JoystickMove extends Component {
         this._bgNode = this.node.children[0];
         
         Vec3.copy(this._center, this._moveNode.worldPosition);
+        
         Vec3.copy(this._movePos, this._center);
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._tempMove, this._center);
@@ -132,6 +133,7 @@ export class JoystickMove extends Component {
 
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._movePos, this._center);
+        
         //this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
         this._moveNode!.setPosition(this._bgNode!.position);
 
@@ -145,22 +147,30 @@ export class JoystickMove extends Component {
      */
     onTouchMove(event: EventTouch) {
 
-        this._tempMove.x = event.getLocationX() + this.centerOffset.x;
-        this._tempMove.y = event.getLocationY() + this.centerOffset.y;
+        
+
+        this._bgNode?.setWorldPosition(this._center);
+
+        this._tempMove.x = event.getLocationX();// + this.centerOffset.x;
+        this._tempMove.y = event.getLocationY();// + this.centerOffset.y;
         this._tempMove.z = 0;
 
-        this._tempMove = this._tempMove.subtract(this._center);
+        this._tempMove.subtract(this._center);
         
         this._tempMove.z = 0;
         var len = this._tempMove.length();
 
+        //console.log('len:',len, 'X:', event.getLocationX(), 'Y:', event.getLocationY());
+
         if (len > this.radius) {
+            console.log('reset position.');
             this._tempMove.normalize().multiplyScalar(this.radius).add(this._center);
             this._tempMove.z = 0;
             this._pos.x = this._tempMove.x;
             this._pos.y = this._tempMove.y;
             this._tempMove.subtract(this._center);
         }else{
+            console.log('set position.');
             this._pos.x = event.getLocationX();
             this._pos.y = event.getLocationY();
         }
@@ -189,8 +199,6 @@ export class JoystickMove extends Component {
 
     onTouchEnd(event: EventTouch) {
 
-        console.log('on touch end');
-
         this._start = false;
 
         this._pos.x = this._center.x;
@@ -205,8 +213,6 @@ export class JoystickMove extends Component {
     }
 
     onTouchCancel(event: EventTouch) {
-       
-        console.log('on touch cancel');
 
         this._start = false;
 
@@ -223,7 +229,6 @@ export class JoystickMove extends Component {
 
     update(deltaTime: number) {
 
-        
         if (this._start) {
             Vec3.lerp(this._movePos, this._pos, this._movePos, deltaTime * this.smooth);
             this._moveNode!.setWorldPosition(this._movePos.x, this._movePos.y, 0);

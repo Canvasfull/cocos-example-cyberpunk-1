@@ -112,9 +112,6 @@ export class Level extends Singleton {
         // Switch to the next statistic.
         Save.Instance.nextStatistics();
 
-        // Print the current statistics.
-        console.log(Save.Instance._cur);
-
         // Initialize the current path finding data.
         NavSystem.Init(DataNavigationInst._data);
 
