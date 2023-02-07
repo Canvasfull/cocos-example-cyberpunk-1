@@ -27,6 +27,7 @@
     "menu": {
         "start": [ 
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": true } },
+            { "time": 0, "name": "on_msg", "data": "msg_play_animation" },
             { "time": 0.6, "name": "on_ui", "data": "ui_menu" }
         ],
         "end": [
@@ -58,7 +59,7 @@
     "select_equips": {
         "start": [
             { "time": 0, "name": "on_ui", "data": "ui_select_equips" },
-            { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": false} }
+            { "time": 0.1, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": false} }
         ],
         "end": [
             { "time": 0.1, "name": "off_ui", "data": "ui_select_equips" },

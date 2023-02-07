@@ -113,17 +113,21 @@ export class InputKeyboard extends InputBase {
 
         this.key_count++;
 
+        /*
         if (event.keyCode === KeyCode.KEY_Q) {
             Msg.emit('push', "select_equips");
             //this._pressQ = true;
             return;
         }
+        */
         
         if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = 1;
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = -1; 
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 1;
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = -1;
 
+
+        if(event.keyCode === KeyCode.KEY_Q) this._actorInput?.onChangeEquips();
 
         if (event.keyCode === KeyCode.SPACE) this._actorInput?.onJump();
         if (event.keyCode === KeyCode.KEY_C) this._actorInput?.onCrouch();
@@ -183,6 +187,7 @@ export class InputKeyboard extends InputBase {
             return;
         }
 
+        /*
         if (!_pointerLock) {
             try {
                 if(game.canvas?.requestPointerLock) {
@@ -193,6 +198,7 @@ export class InputKeyboard extends InputBase {
             }            
             return;
         }
+        */
        
         if (event.getButton() === 0) {
             this._actorInput?.onFire();
@@ -208,10 +214,12 @@ export class InputKeyboard extends InputBase {
         }
 
         //if (document.pointerLockElement === null && sys.isBrowser) return;
+        /*
         if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());
             return;
         }
+        */
 
         const x = event.movementX;
         const y = event.movementY;
