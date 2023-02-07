@@ -132,8 +132,8 @@ export class JoystickMove extends Component {
 
         Vec3.copy(this._pos, this._center);
         Vec3.copy(this._movePos, this._center);
-        this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
-        this._moveNode!.setPosition(0, 0, 0);
+        //this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
+        this._moveNode!.setPosition(this._bgNode!.position);
 
         if (this.autoHidden) this.node.emit('autoHidden', false);
 
@@ -223,6 +223,7 @@ export class JoystickMove extends Component {
 
     update(deltaTime: number) {
 
+        
         if (this._start) {
             Vec3.lerp(this._movePos, this._pos, this._movePos, deltaTime * this.smooth);
             this._moveNode!.setWorldPosition(this._movePos.x, this._movePos.y, 0);
