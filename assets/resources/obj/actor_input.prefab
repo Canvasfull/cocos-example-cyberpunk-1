@@ -2575,7 +2575,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -1103.308,
-      "y": 200.38,
+      "y": 254.734,
       "z": 0
     },
     "_lrot": {
@@ -3348,8 +3348,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -467,
-      "y": -250,
+      "x": -435.812,
+      "y": -159.719,
       "z": 0
     },
     "_lrot": {
@@ -3397,8 +3397,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 1.033,
-      "y": -1.923,
+      "x": 0,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -3530,8 +3530,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 1.033,
-      "y": -1.923,
+      "x": 0,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -3681,10 +3681,10 @@
     },
     "_alignFlags": 12,
     "_target": null,
-    "_left": 0,
+    "_left": 31.187999999999988,
     "_right": 0,
     "_top": 0,
-    "_bottom": 0,
+    "_bottom": 90.281,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
     "_isAbsLeft": true,
@@ -3714,7 +3714,7 @@
     "__prefab": {
       "__id__": 161
     },
-    "radius": 87,
+    "radius": 91,
     "smooth": 5,
     "damping_smooth": 10,
     "centerOffset": {
@@ -3726,8 +3726,8 @@
     "damping_e_a": 5,
     "range": {
       "__type__": "cc.Rect",
-      "x": 87,
-      "y": 87,
+      "x": 91,
+      "y": 91,
       "width": 400,
       "height": 250
     },

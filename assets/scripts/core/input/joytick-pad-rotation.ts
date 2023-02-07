@@ -25,8 +25,8 @@ export class JoystickPadRotation extends Component {
         const screenXRate = x / game.canvas!.width;
         const screenYRate = y / game.canvas!.height;
 
-        const rotateX = 360 * screenXRate;
-        const rotateY = 180 * screenYRate;
+        const rotateX = 3600 * screenXRate * 2;
+        const rotateY = 1800 * screenYRate;
         
         this._input?.onRotation(rotateX, rotateY);//event.movementX / 5, event.movementY / 10);
     }
