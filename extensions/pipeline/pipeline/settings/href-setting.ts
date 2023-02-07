@@ -12,7 +12,7 @@ export const HrefSetting = {
     zoomScreen: 0,
     taa: 1,
     bloom: 1,
-    showFps: 0,
+    showFps: 1,
     fps: 30,
     transparent: 1,
     clusterLighting: 1,
@@ -82,7 +82,7 @@ gpuTierUpdated.once(() => {
     }
 
     if (JSB) {
-        HrefSetting.transparent = 0
+        // HrefSetting.transparent = 0
         // HrefSetting.taa = 0
         HrefSetting.bloom = 0
     }
