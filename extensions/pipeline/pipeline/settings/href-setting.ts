@@ -1,3 +1,4 @@
+import { game, sys } from 'cc';
 import { EDITOR, JSB } from 'cc/env';
 import { getTier, gpuTierUpdated, RenderQulity } from './gpu';
 
@@ -10,7 +11,6 @@ export const HrefSetting = {
     // rendering setting
     shadingScale: 1,
     zoomScreen: 0,
-    taa: 1,
     bloom: 1,
     showFps: 1,
     fps: 30,
@@ -19,6 +19,9 @@ export const HrefSetting = {
     ibl: 1,
     shadow: 0,
     fsr: 1,
+
+    taa: 1,
+    fxaa: 1
 }
 globalThis.HrefSetting = HrefSetting
 
@@ -81,6 +84,7 @@ gpuTierUpdated.once(() => {
         HrefSetting[name] = qualitySetting[name]
     }
 
+    game.frameRate = HrefSetting.fps
     if (JSB) {
         // HrefSetting.transparent = 0
         // HrefSetting.taa = 0

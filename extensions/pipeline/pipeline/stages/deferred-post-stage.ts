@@ -4,6 +4,7 @@ import { getCameraUniqueID } from "../utils/utils";
 import { passUtils } from "../utils/pass-utils";
 import { settings } from "./setting";
 import { EDITOR } from "cc/env";
+import { HrefSetting } from "../settings/href-setting";
 
 const { type, property, ccclass } = _decorator;
 const { RasterView, AttachmentType, AccessType, ResourceResidency, LightInfo, SceneFlags, QueueHint, ComputeView } = rendering;
@@ -20,6 +21,9 @@ export class DeferredPostStage extends BaseStage {
 
     @property({ override: true, type: CCString })
     outputNames = ['DeferredPostColor', 'DeferredPostDS']
+
+    params1 = new Vec4
+    params2 = new Vec4
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {
         const cameraID = getCameraUniqueID(camera);
@@ -44,13 +48,17 @@ export class DeferredPostStage extends BaseStage {
         passUtils.material = material;
 
         let shadingScale = this.finalShadingScale()
-        material.setProperty('inputViewPort',
-            new Vec4(
-                // width / Math.floor(game.canvas.width * shadingScale), height / Math.floor(game.canvas.height * shadingScale),
-                // width / camera.window.width, height / camera.window.height,
-                1, 1,
+        material.setProperty('params1',
+            this.params1.set(
+                game.canvas.width, game.canvas.height,
                 settings.outputRGBE ? 1 : 0,
                 settings.tonemapped ? 0 : 1
+            )
+        );
+
+        material.setProperty('params2',
+            this.params2.set(
+                HrefSetting.fxaa, 0, 0, 0
             )
         );
 

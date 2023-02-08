@@ -35,10 +35,13 @@ CCProgram fs %{
 
   #include <unpack>
 
+  #include <./chunks/fxaa>
+
   in vec2 v_uv;
   
   uniform PostUBO {
-    vec4 inputViewPort;
+    vec4 params1;
+    vec4 params2;
   };
   #pragma rate inputTexture pass
   uniform sampler2D inputTexture;
@@ -46,18 +49,36 @@ CCProgram fs %{
   layout(location = 0) out vec4 fragColor;
 
   void main () {
-    fragColor = texture(inputTexture, v_uv);
-    
-    if (inputViewPort.z == 1.) {
+    if (params1.z == 1.) {
+      fragColor = texture(inputTexture, v_uv);
       // need blend one zero 
       // fragColor = vec4(vec3(0.5), 0.5);
       fragColor = packRGBE(fragColor.rgb);
       // fragColor = vec4(unpackRGBE(fragColor), 1.);
       // fragColor = vec4(fragColor.w);
     }
-    else if (inputViewPort.w == 1.) {
+    else if (params1.w == 1.) {
+      fragColor = texture(inputTexture, v_uv);
       fragColor = CCFragOutput(fragColor);
     }
+
+    if (params2.x == 1.) {
+      mediump vec2 v_rgbNW;
+      mediump vec2 v_rgbNE;
+      mediump vec2 v_rgbSW;
+      mediump vec2 v_rgbSE;
+      mediump vec2 v_rgbM;
+
+      vec2 resolution = params1.xy;
+      vec2 fragCoord = v_uv * resolution;
+
+      fxaaTexcoords(fragCoord, resolution, v_rgbNW, v_rgbNE, v_rgbSW, v_rgbSE, v_rgbM);
+      fragColor = fxaa(inputTexture, fragCoord, resolution, v_rgbNW, v_rgbNE, v_rgbSW, v_rgbSE, v_rgbM);
+    }
+    else {
+      fragColor = texture(inputTexture, v_uv);
+    }
+
   }
   
 }%
