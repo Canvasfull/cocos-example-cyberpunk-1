@@ -71,7 +71,7 @@
     },
     "cards":["life", "attack", "defense", "special"],
     "probability_drop_card":{
-        "interval":[1000, 3000],
+        "interval":[10000, 30000],
         "count":[1, 1, 1, 1],
         "weights":[0.91, 0.94, 0.97, 1],
         "weights_max":[-1, -1, -1, -1],
