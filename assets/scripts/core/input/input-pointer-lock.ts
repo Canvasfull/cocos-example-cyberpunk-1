@@ -1,5 +1,6 @@
-import { _decorator, Component, EventMouse, game, Input, input, Node } from 'cc';
+import { _decorator, Component, EventKeyboard, EventMouse, game, Input, input, KeyCode, Node } from 'cc';
 import { fun } from '../util/fun';
+import { Msg } from '../msg/msg';
 const { ccclass, property } = _decorator;
 
 export let _pointerLock = false;
@@ -10,6 +11,11 @@ export class InputPointerLock extends Component {
     start() {
         document.addEventListener('pointerlockchange', this.onPointerChange, false);
         input.on(Input.EventType.MOUSE_DOWN, this.onMouseDown, this);
+
+        // Register keyboard events.
+        input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
+
+        //Msg.on('msg_point')
     }
 
     onDestroy() {
@@ -28,6 +34,7 @@ export class InputPointerLock extends Component {
     }
 
     onMouseDown(event: EventMouse) {
+
         if (!_pointerLock) {
             try {
                 if(game.canvas?.requestPointerLock) {
@@ -37,6 +44,12 @@ export class InputPointerLock extends Component {
                 console.warn(error);
             }            
             return;
+        }
+    }
+
+    onKeyDown(event: EventKeyboard) {
+        if (event.keyCode === KeyCode.ESCAPE) {
+            document.exitPointerLock();
         }
     }
 

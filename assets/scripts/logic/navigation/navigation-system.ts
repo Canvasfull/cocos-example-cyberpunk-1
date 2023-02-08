@@ -17,7 +17,6 @@ export namespace NavSystem {
 
     export function Init(_data:any) {
         data = _data;
-        console.log('init navigation data.', data);
     }
 
     export function nodePosition(nodeID:number) {

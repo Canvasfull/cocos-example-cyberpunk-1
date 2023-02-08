@@ -169,7 +169,7 @@ export class Level extends Singleton {
      */
     public addEnemy(res:string, groupID:number) {
 
-         // Get a random node from the navigation system.
+        // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
 
         // Get the enemy's prefab object from the resource cache.

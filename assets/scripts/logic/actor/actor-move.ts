@@ -104,7 +104,7 @@ export class ActorMove extends Component {
         if (this.angle > 0.001) {
             UtilVec3.copy(tempRotationSideVector, this.currentDirection);
             const side = Math.sign(-tempRotationSideVector.cross(this.node.forward).y);
-            const angle = side * this.angle * 10 + this.node.eulerAngles.y;
+            const angle = side * this.angle * 20 + this.node.eulerAngles.y;
             this.node.setRotationFromEuler(0, angle, 0);
         }
     }
