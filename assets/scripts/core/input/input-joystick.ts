@@ -1,6 +1,9 @@
-import { _decorator, Component, Node, v2, Vec2, Vec3 } from 'cc';
+import { _decorator, Camera, Canvas, Component, Node, v2, Vec2, Vec3 } from 'cc';
 import { InputBase } from './input-base';
 import { Msg } from '../msg/msg';
+import { CameraSetting } from '../../../../extensions/pipeline/pipeline/camera-setting';
+import { UI } from '../ui/ui';
+import { ActorInput } from '../../logic/actor/actor-input';
 const { ccclass, property } = _decorator;
 
 @ccclass('InputJoystick')
@@ -9,6 +12,10 @@ export class InputJoystick extends InputBase {
     _isRun = false;
 
     _isChangeEquips:boolean | undefined = false;
+
+    onEnable () {
+        this._actorInput = ActorInput.inst;
+    }
 
     onChangeEquips() {
         this._isChangeEquips = this._actorInput?.onChangeEquips();
@@ -53,6 +60,10 @@ export class InputJoystick extends InputBase {
     onRun() {
         this._isRun = !this._isRun;
         this._actorInput?.onRun(this._isRun);
+    }
+
+    onPause() {
+        this._actorInput?.onPause();
     }
 
     onSetRun(isRun:boolean) {

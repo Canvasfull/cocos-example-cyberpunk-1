@@ -27,6 +27,7 @@ const { ccclass } = _decorator;
 import { IActorInput } from '../../core/input/IActorInput';
 import { Level } from '../level/level';
 import { Msg } from '../../core/msg/msg';
+import { UI } from '../../core/ui/ui';
 
 @ccclass('ActorInput')
 export class ActorInput extends Component implements IActorInput {
@@ -36,12 +37,16 @@ export class ActorInput extends Component implements IActorInput {
 
     _isOpenEquips = false;
 
+    public static inst:ActorInput | undefined;
+
     start () {        
         Msg.on('msg_set_input_active', this.setActive.bind(this));
+        ActorInput.inst = this;
     }
 
     onDestroy() {
         Msg.off('msg_set_input_active', this.setActive.bind(this));
+        UI.Instance.off('ui_joystick');
     }
 
     setActive(isShow:boolean) {
@@ -60,7 +65,8 @@ export class ActorInput extends Component implements IActorInput {
         if(sys.platform === sys.Platform.MOBILE_BROWSER || 
             sys.platform === sys.Platform.ANDROID || 
             sys.platform === sys.Platform.IOS ) {
-            this.node.children[1].active = true;
+            //this.node.children[1].active = true;
+            UI.Instance.on('ui_joystick');
         }else {
             this.node.children[2].active = true;
             this.node.children[0].active = true;

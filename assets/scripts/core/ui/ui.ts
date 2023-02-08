@@ -1,4 +1,4 @@
-import { _decorator, Node, game, director } from 'cc';
+import { _decorator, Node, game, director, Camera } from 'cc';
 import { Singleton } from "../pattern/singleton";
 import { Log } from "../io/log";
 import { UIBase } from "./ui-base";
@@ -12,9 +12,11 @@ export class UI extends Singleton {
     private _map: { [name: string]: UIBase } = {};
     public node: Node | undefined | null;
     public panelRoot: Node | undefined;
+    public camera: Camera | undefined;
 
     public init() {
         this.node = find('init/canvas');
+        this.camera = this.node?.children[0].getComponent(Camera)!;
         this.panelRoot = UtilNode.getChildByName(this.node!, 'panels');
         if(this.node === undefined || this.node == null) {
             throw new Error(`can not find canvas ui root.`);

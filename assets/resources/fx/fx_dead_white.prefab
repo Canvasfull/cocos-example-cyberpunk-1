@@ -241,14 +241,14 @@
       "r": 143,
       "g": 107,
       "b": 255,
-      "a": 255
+      "a": 128
     },
     "colorMax": {
       "__type__": "cc.Color",
       "r": 107,
       "g": 190,
       "b": 255,
-      "a": 255
+      "a": 128
     }
   },
   {
@@ -1684,6 +1684,7 @@
       "__id__": 0
     },
     "fileId": "07k5pChEBERo0q+QcJEWdD",
+    "instance": null,
     "targetOverrides": null
   }
 ]
