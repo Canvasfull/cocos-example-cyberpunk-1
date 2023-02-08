@@ -82,7 +82,7 @@ export class TAAStage extends BaseStage {
         // );
 
         if (this.firstRender) {
-            this.prevMatViewProj = camera.matViewProj;
+            this.prevMatViewProj.set(camera.matViewProj);
             this.firstRender = false;
         }
         material.setProperty('taaParams1', tempVec4.set(taa.sampleOffset.x, taa.sampleOffset.y, taa.feedback, 0))
