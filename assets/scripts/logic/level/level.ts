@@ -316,7 +316,6 @@ export class Level extends Singleton {
             passLevel = true;
             for(let k in infos) {
                 if(k == 'score') continue;
-                console.log(Save.Instance._currentStatistics[k], k, infos[k]);
                 if(Save.Instance._currentStatistics[k] < infos[k]) {
                     passLevel = false;
                     break;

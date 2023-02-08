@@ -10,6 +10,7 @@
     "prefab_enemy":"enemy-tps",
     "prefab_drop_item":"drop_item",
     "enemies":["enemy_0", "enemy_1", "enemy_2", "boss_0"],
+    "fx_dead":"fx_dead_white",
     "score_level":[
         { "score":"a+", "level_score": 24000 },
         { "score":"a", "level_score": 21000 },

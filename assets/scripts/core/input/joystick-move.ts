@@ -149,8 +149,8 @@ export class JoystickMove extends Component {
 
         this._bgNode?.setWorldPosition(this._center);
 
-        this._tempMove.x = event.getLocationX() + this.centerOffset.x;
-        this._tempMove.y = event.getLocationY() + this.centerOffset.y;
+        this._tempMove.x = event.getLocationX() * 0.7 + this.centerOffset.x;
+        this._tempMove.y = event.getLocationY() * 0.7 + this.centerOffset.y;
         this._tempMove.z = 0;
 
         this._tempMove.subtract(this._center);
@@ -165,8 +165,8 @@ export class JoystickMove extends Component {
             this._pos.y = this._tempMove.y;
             this._tempMove.subtract(this._center);
         }else{
-            this._pos.x = event.getLocationX() + this.centerOffset.x;
-            this._pos.y = event.getLocationY() + this.centerOffset.y;
+            this._pos.x = event.getLocationX() * 0.7 + this.centerOffset.x;
+            this._pos.y = event.getLocationY() * 0.7 + this.centerOffset.y;
         }
 
         this._tempMove.z = this._tempMove.y;
