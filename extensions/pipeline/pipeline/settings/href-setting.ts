@@ -63,7 +63,7 @@ const MediumSetting = {
 const HighSetting = {
     bloom: 1,
     shadingScale: 1,
-    fps: 30
+    fps: 60
 }
 
 gpuTierUpdated.once(() => {
@@ -84,10 +84,23 @@ gpuTierUpdated.once(() => {
         HrefSetting[name] = qualitySetting[name]
     }
 
+    if (game.canvas) {
+        if (sys.isMobile) {
+            // HrefSetting.shadingScale = Math.min(1024 / game.canvas.width, 1)
+            HrefSetting.shadingScale = 0.7
+            HrefSetting.bloom = 0
+            HrefSetting.fps = 30
+        }
+        // HrefSetting.fps = 60
+
+        console.log(`canvas size ${game.canvas.width}, ${game.canvas.height}`)
+        console.log(`rendering size ${game.canvas.width * HrefSetting.shadingScale}, ${game.canvas.height * HrefSetting.shadingScale}`)
+    }
+
     game.frameRate = HrefSetting.fps
-    if (JSB) {
-        // HrefSetting.transparent = 0
-        // HrefSetting.taa = 0
-        // HrefSetting.bloom = 0
+
+    if (sys.isMobile && !JSB) {
+        // todo: mobile particle rendering issue
+        HrefSetting.transparent = 0
     }
 })

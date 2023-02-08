@@ -33,16 +33,7 @@ detectGPU.getGPUTier({
         gpuTier[name] = tier[name];
     }
 
-    // todo: support real jsb gpu check
-    if (JSB) {
-        if (sys.isMobile) {
-            gpuTier.tier = RenderQulity.Low
-        }
-        else {
-            gpuTier.tier = RenderQulity.High
-        }
-    }
-    else if (MINIGAME) {
+    if (MINIGAME) {
         gpuTier.tier = 1;
     }
     else if (sys.isMobile) {
