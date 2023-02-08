@@ -41,7 +41,7 @@
         "weights_group":[ 0, 1, 2, 3]
     },
     "probability_drop_items":{
-        "interval":[3000, 20000],
+        "interval":[30000, 50000],
         "life_time":[30, 40],
         "drop_max": 4,
         "init_count":[7, 10],

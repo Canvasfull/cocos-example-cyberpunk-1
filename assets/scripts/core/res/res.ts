@@ -1,8 +1,5 @@
-import { _decorator, resources, Component, Node, Asset, error, Constructor, Prefab, instantiate, TextAsset, JsonAsset, Texture2D, Sprite, EffectAsset, AudioClip, AnimationClip, ImageAsset, SpriteFrame, SpriteAtlas, Mesh, Material, Skeleton, SceneAsset, Vec3, director } from 'cc';
+import { _decorator, resources, Node, Asset, error, Constructor, Prefab, instantiate, TextAsset, JsonAsset, Texture2D, EffectAsset, AudioClip, AnimationClip, ImageAsset, SpriteFrame, SpriteAtlas, Mesh, Material, Skeleton, SceneAsset, Vec3, director } from 'cc';
 import { Msg } from '../msg/msg';
-import { waitFor } from '../util/util';
-import { ResCache } from './res-cache';
-const { ccclass, property } = _decorator;
 
 export class Res {
 
@@ -19,7 +16,7 @@ export class Res {
             if (cb) {
                 cb(err, res);
             }
-            ResCache.Instance.checkEnd();
+            Msg.emit('msg_check_res_cache_end');
         });
     }
 
@@ -115,7 +112,7 @@ export class Res {
                 cb(err, res);
             }
             Res.count--;
-            ResCache.Instance.checkEnd();
+            Msg.emit('msg_check_res_cache_end');
         });
     }
 

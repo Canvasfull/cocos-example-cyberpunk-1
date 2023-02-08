@@ -43,10 +43,15 @@ export class ActorInput extends Component implements IActorInput {
         Msg.on('msg_set_input_active', this.setActive.bind(this));
         ActorInput.inst = this;
     }
-
+    
     onDestroy() {
         Msg.off('msg_set_input_active', this.setActive.bind(this));
-        UI.Instance.off('ui_joystick');
+
+        if(sys.platform === sys.Platform.MOBILE_BROWSER || 
+            sys.platform === sys.Platform.ANDROID || 
+            sys.platform === sys.Platform.IOS ) { 
+                UI.Instance.off('ui_joystick');
+            }
     }
 
     setActive(isShow:boolean) {
@@ -65,13 +70,10 @@ export class ActorInput extends Component implements IActorInput {
         if(sys.platform === sys.Platform.MOBILE_BROWSER || 
             sys.platform === sys.Platform.ANDROID || 
             sys.platform === sys.Platform.IOS ) {
-            //this.node.children[1].active = true;
             UI.Instance.on('ui_joystick');
         }else {
             this.node.children[2].active = true;
             this.node.children[0].active = true;
-            // Test touch. 
-            //this.node.children[1].active = true;
         }
 
         

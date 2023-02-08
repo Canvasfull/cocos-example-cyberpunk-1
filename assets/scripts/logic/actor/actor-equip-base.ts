@@ -22,7 +22,7 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Component, Node, ParticleSystem, game, Vec3, PhysicsRayResult, randomRange, geometry, v3 } from 'cc';
+import { _decorator, Component, Node, game, Vec3, PhysicsRayResult, randomRange, v3 } from 'cc';
 import { ActionActorEquip, key_type_boolean } from '../../core/action/action';
 import { Actor } from './actor';
 import { BagItem } from './actor-bag';

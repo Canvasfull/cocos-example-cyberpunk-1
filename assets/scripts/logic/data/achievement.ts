@@ -1,8 +1,8 @@
 import { _decorator, Component, Node } from 'cc';
 import { UtilTime } from '../../core/util/util';
 import { Save } from './save';
-import { Game } from './game';
 import { Singleton } from '../../core/pattern/singleton';
+import { DataGameInst } from './data-core';
 const { ccclass, property } = _decorator;
 
 @ccclass('Achievement')
@@ -14,7 +14,7 @@ export class Achievement extends Singleton {
 
     public init() {
 
-        var achievement = Game.Instance._data['achievement'];
+        var achievement = DataGameInst._data['achievement'];
         
         var achi_save = Save.Instance.get('achievement');
 

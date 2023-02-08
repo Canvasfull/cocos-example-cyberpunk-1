@@ -29,7 +29,6 @@ import { BagItem } from '../../logic/actor/actor-bag';
 import { Bind, BindUI } from '../../logic/data/bind';
 import { Level } from '../../logic/level/level';
 import { Sound } from '../audio/sound';
-import { Game } from '../../logic/data/game';
 import { Local } from '../localization/local';
 import { Msg } from '../msg/msg';
 import { Res } from '../res/res';
@@ -38,6 +37,7 @@ import { Queue } from '../util/data-structure';
 import { GMath } from '../util/g-math';
 import { UtilNode, UtilVec3 } from '../util/util';
 import { FilSmooth } from './fil-smooth';
+import { DataGameInst } from '../../logic/data/data-core';
 
 export class UIBase {
 
@@ -225,7 +225,7 @@ export class GrpSelectEquips extends UICom {
     constructor (node: Node) {
         super(node);
         //Init circle items.
-        const count = Game.Instance._data.count_bag_count;
+        const count = DataGameInst._data.count_bag_count;
         this.list = new Array<GrpSelectItem>(count);
         const angle = 360 / count;
         this.img_select_highlight = UtilNode.getChildByName(this._node, 'img_select_highlight');
@@ -253,7 +253,7 @@ export class GrpSelectEquips extends UICom {
 
         Msg.on('msg_select_equip', (dir:Vec2)=> {
 
-            if (dir.length() <= Game.Instance._data.sensitivity_select_weapon) return;
+            if (dir.length() <= DataGameInst._data.sensitivity_select_weapon) return;
             
             let curAngle = math.toDegree(Vec2.angle(dir, V2FORWARD));
             const projOrigin = v2(0, 1);
@@ -261,9 +261,9 @@ export class GrpSelectEquips extends UICom {
             if (dot < 0) curAngle = 360 - curAngle;
             this._curIndex = Math.round(curAngle / angle);
 
-            if (this._curIndex >= Game.Instance._data.count_bag_count) {
+            if (this._curIndex >= DataGameInst._data.count_bag_count) {
                 //console.error(` Calculate equip error current index: ${this._curIndex}, current Angle: ${curAngle}, dir: ${dir}`);
-                this._curIndex = Game.Instance._data.count_bag_count - 1;
+                this._curIndex = DataGameInst._data.count_bag_count - 1;
             }
 
             const selectAngle = math.toRadian(this._curIndex * angle + offset)
@@ -362,7 +362,7 @@ export class GrpBag extends UICom {
         super(node);
         this.img_highlight = UtilNode.getChildByName(this._node, 'img_highlight');
         if (this.img_highlight == undefined && this.img_highlight === null) throw new Error(`${this._node.name}`)
-        const count = Game.Instance._data.count_bag_count;
+        const count = DataGameInst._data.count_bag_count;
         this.list = new Array<GrpBagItem>(count);
         const itemRoot = UtilNode.getChildByName(this._node, 'items_root');
         this.img_highlight.active = false;
@@ -437,7 +437,7 @@ export class GrpPickedTips extends UICom {
     constructor (node:Node) {
         super(node);
         // Init deep default 10.
-        const count = Game.Instance._data.count_picked_info;
+        const count = DataGameInst._data.count_picked_info;
         this.list = new Array<GrpPickedTipsItem>(count);
         this.msgs = new Queue(count);
         const item = this._node.children[0];

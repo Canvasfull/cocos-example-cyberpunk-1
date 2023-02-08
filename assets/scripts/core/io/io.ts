@@ -17,12 +17,10 @@ export class IO {
 
     public static write (path: string, data: string): void {
         try { 
-            console.log('is native:', sys.isNative);
             if (sys.isNative) {
                 native.fileUtils.writeStringToFile(data, path);
             }else{
                 sys.localStorage.setItem(path, data);
-                console.log('set item end:');
             }
         } catch (error) {
             console.error('can not write:', error);

@@ -1,5 +1,5 @@
 import { _decorator, Component, MeshRenderer } from 'cc';
-import { Game } from '../logic/data/game';
+import { DataGameInst } from '../logic/data/data-core';
 const { ccclass, property } = _decorator;
 
 @ccclass('TestColliderMeshSwitch')
@@ -9,7 +9,7 @@ export class TestColliderMeshSwitch extends Component {
     meshRenderState:boolean = false;
 
     start() {
-        this.meshRenderState = Game.Instance._data.show_collider;
+        this.meshRenderState = DataGameInst._data.show_collider;
         console.log("meshRenderState:", this.meshRenderState);
         const meshRenders = this.getComponentsInChildren(MeshRenderer);
         for (let i = 0; i < meshRenders.length; i++) {

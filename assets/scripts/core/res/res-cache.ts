@@ -19,7 +19,9 @@ export class ResCache extends Singleton {
     msg:ILoadMsg | undefined;
 
     public load (callback: Function): void {
+
         this._callback = callback;
+
         Res.loadJson('data/data-res-cache', (err, asset) => {
             if (err) {
                 console.error('Load cache res error:', err);
@@ -38,6 +40,9 @@ export class ResCache extends Singleton {
             ResCache.Instance.loadSound(asset.json['sound']);
             Msg.emit('msg_loading',this.msg);
         });
+
+        Msg.on('msg_check_res_cache_end', this.checkEnd.bind(this));
+
     }
 
     public getJson (name: string) {
