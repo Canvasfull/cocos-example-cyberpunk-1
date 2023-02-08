@@ -313,7 +313,6 @@ export class Level extends Singleton {
         this._scoreRate = scoreLevels.length - 1;
         for(let i = 0; i < scoreLevels.length; i++) {
             const infos = scoreLevels[i];
-            console.log(infos);
             passLevel = true;
             for(let k in infos) {
                 if(k == 'score') continue;
