@@ -22,27 +22,47 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Component, EventKeyboard, EventMouse, EventTouch, Input, input, KeyCode } from 'cc';
+import { _decorator, Component, EventKeyboard, EventMouse, EventTouch, game, Input, input, KeyCode, v2, v3, Vec2 } from 'cc';
 import { Msg } from '../msg/msg';
-const { ccclass } = _decorator;
+import { UtilVec2 } from '../util/util';
+const { ccclass, property } = _decorator;
 
 @ccclass('InputEquipSelect')
 export class InputEquipSelect extends Component {
+
+    center:Vec2 = v2(0, 0);
+
+    current:Vec2 = v2(0, 0);
     
     start() {
-        input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        this.node.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
-        input.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
+        this.node.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
     }
 
     onTouchMove(event: EventTouch) {
-        Msg.emit('msg_select_equip', event.getDelta());
+
+        this.center.x = game.canvas!.width/2
+        this.center.y = game.canvas!.height/2;
+
+        UtilVec2.c(this.current, event.getLocation());
+        this.current.subtract(this.center);
+
+        Msg.emit('msg_select_equip', this.current.normalize());
     }
 
     onMouseMove(event: EventMouse) {
-        Msg.emit('msg_select_equip', event.getDelta());
+
+        this.center.x = game.canvas!.width/2
+        this.center.y = game.canvas!.height/2;
+
+        UtilVec2.c(this.current, event.getLocation());
+        this.current.subtract(this.center);
+
+        Msg.emit('msg_select_equip', this.current.normalize());
     }
 
+    
     onKeyUp(event: EventKeyboard) {
 
         if (event.keyCode === KeyCode.KEY_Q) Msg.emit('back');

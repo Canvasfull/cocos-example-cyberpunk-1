@@ -253,11 +253,12 @@ export class GrpSelectEquips extends UICom {
 
         Msg.on('msg_select_equip', (dir:Vec2)=> {
 
-            if (dir.length() <= DataGameInst._data.sensitivity_select_weapon) return;
+            //if (dir.length() <= DataGameInst._data.sensitivity_select_weapon) return;
             
             let curAngle = math.toDegree(Vec2.angle(dir, V2FORWARD));
             const projOrigin = v2(0, 1);
             const dot = Vec2.dot(projOrigin, dir);
+
             if (dot < 0) curAngle = 360 - curAngle;
             this._curIndex = Math.round(curAngle / angle);
 

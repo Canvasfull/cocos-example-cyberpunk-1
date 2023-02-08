@@ -22,12 +22,12 @@
  THE SOFTWARE.
 */
 
-import { Node, AudioSource, game, director } from "cc";
+import { Node, AudioSource } from "cc";
 import { Save } from "../../logic/data/save";
 import { Msg } from "../msg/msg";
 import { Res } from "../res/res";
-import { ResCache } from "../res/res-cache";
 import { Game } from "../../logic/data/game";
+import { ResCache } from "../res/res-cache";
 
 export class Sound {
 
@@ -50,8 +50,9 @@ export class Sound {
     public static init (): void {
 
         // Initialize sound prefab.
-        var prefab = ResCache.Instance.getPrefab('sound');
-        var soundNode = Res.inst(prefab, Game.Instance._poolNode);
+        const prefab = ResCache.Instance.getPrefab('sound');
+
+        const soundNode = Res.inst(prefab, Game.Instance._poolNode);
         this._sfxAudio = soundNode.getChildByName('sfx')?.getComponent(AudioSource)!;
         this._bgmAudio = soundNode.getChildByName('bgm')?.getComponent(AudioSource)!;
 

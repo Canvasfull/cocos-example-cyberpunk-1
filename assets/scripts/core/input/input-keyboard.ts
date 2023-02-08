@@ -127,7 +127,12 @@ export class InputKeyboard extends InputBase {
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = -1;
 
 
-        if(event.keyCode === KeyCode.KEY_Q) this._actorInput?.onChangeEquips();
+        if(event.keyCode === KeyCode.KEY_Q) { 
+            
+            this._actorInput?.onChangeEquips();
+            document.exitPointerLock();
+        
+        }
 
         if (event.keyCode === KeyCode.SPACE) this._actorInput?.onJump();
         if (event.keyCode === KeyCode.KEY_C) this._actorInput?.onCrouch();

@@ -1,5 +1,6 @@
 import { _decorator, resources, Node, Asset, error, Constructor, Prefab, instantiate, TextAsset, JsonAsset, Texture2D, EffectAsset, AudioClip, AnimationClip, ImageAsset, SpriteFrame, SpriteAtlas, Mesh, Material, Skeleton, SceneAsset, Vec3, director } from 'cc';
 import { Msg } from '../msg/msg';
+import { ResCache } from './res-cache';
 
 export class Res {
 
@@ -16,7 +17,7 @@ export class Res {
             if (cb) {
                 cb(err, res);
             }
-            Msg.emit('msg_check_res_cache_end');
+            ResCache.Instance.checkEnd();
         });
     }
 
@@ -112,7 +113,8 @@ export class Res {
                 cb(err, res);
             }
             Res.count--;
-            Msg.emit('msg_check_res_cache_end');
+            //Msg.emit('msg_check_res_cache_end');
+            ResCache.Instance.checkEnd();
         });
     }
 

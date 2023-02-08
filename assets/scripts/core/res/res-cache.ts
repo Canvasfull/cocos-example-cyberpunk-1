@@ -22,6 +22,8 @@ export class ResCache extends Singleton {
 
         this._callback = callback;
 
+        //Msg.on('msg_check_res_cache_end', this.checkEnd.bind(this));
+
         Res.loadJson('data/data-res-cache', (err, asset) => {
             if (err) {
                 console.error('Load cache res error:', err);
@@ -40,9 +42,6 @@ export class ResCache extends Singleton {
             ResCache.Instance.loadSound(asset.json['sound']);
             Msg.emit('msg_loading',this.msg);
         });
-
-        Msg.on('msg_check_res_cache_end', this.checkEnd.bind(this));
-
     }
 
     public getJson (name: string) {
@@ -61,6 +60,7 @@ export class ResCache extends Singleton {
             return ret;
         } else {
             console.error('Res cache not find prefab res:', name);
+            return undefined;
         }
     }
 
@@ -99,7 +99,8 @@ export class ResCache extends Singleton {
 
     public setPrefab (asset: any[]) {
         asset.forEach(element => {
-            this._prefab[element.data.name] = element;
+            console.log(element.name);
+            this._prefab[element.name] = element;
         });
     }
 

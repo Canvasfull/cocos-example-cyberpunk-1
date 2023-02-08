@@ -59,6 +59,7 @@ export class ActorInput extends Component implements IActorInput {
             this.initInput();
         }else{
             for(let i = 0; i < this.node.children.length; i++) this.node.children[i].active = false;
+            UI.Instance.off('ui_joystick');
         }
     }
 

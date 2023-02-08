@@ -39,9 +39,7 @@ export class UI extends Singleton {
     public camera: Camera | undefined;
 
     public init() {
-        this.node = find('init/canvas');
-        
-        this.camera = this.node?.getChildByName('Camera')?.getComponent(Camera)!;
+        this.node = find('init/canvas'); 
 
         this.panelRoot = UtilNode.getChildByName(this.node!, 'panels');
         if(this.node === undefined || this.node == null) {
@@ -49,6 +47,9 @@ export class UI extends Singleton {
         }
         director.addPersistRootNode(this.node!);
         Msg.on('refresh_ui', this.refresh.bind(this));
+
+
+        //this.camera = this.node?.getChildByName('Camera')?.getComponent(Camera)!;
     }
 
     public refresh() {
@@ -58,6 +59,7 @@ export class UI extends Singleton {
     }
 
     public on(name: string) {
+
         var load = async ()=>{
             const panel = this._map[name];
             if (panel) {

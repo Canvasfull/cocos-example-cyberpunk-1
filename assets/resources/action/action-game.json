@@ -5,7 +5,7 @@
             { "time": 0.1, "name": "on_inst_pool", "data": "gun_tracer_pool"},
             { "time": 0.15, "name": "on_inst_pool", "data": "sfx_heart"},
             { "time": 0.2, "name": "on_bgm", "data": "bgm_logo"},
-            { "time": 0.3, "name": "on_scene", "data": "scene"}
+            { "time": 0.7, "name": "on_scene", "data": "scene"}
         ],
         "end": [
             { "time": 0.01, "name": "off_ui", "data": "ui_logo" }
@@ -59,10 +59,12 @@
     "select_equips": {
         "start": [
             { "time": 0, "name": "on_ui", "data": "ui_select_equips" },
+            { "time": 0, "name": "on_msg_str", "data": { "key":"level_do", "value":"pause" } },
             { "time": 0.1, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": false} }
         ],
         "end": [
             { "time": 0.1, "name": "off_ui", "data": "ui_select_equips" },
+            { "time": 0, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } },
             { "time": 0.5, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": true} }
         ]
     },
