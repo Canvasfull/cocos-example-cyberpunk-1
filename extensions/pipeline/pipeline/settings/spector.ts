@@ -1,4 +1,4 @@
-import { Game, game } from 'cc';
+import { EventKeyboard, Game, game, Input, input, KeyCode } from 'cc';
 import { EDITOR, JSB } from 'cc/env';
 import { InPlayMode } from '../utils/npm';
 import { HrefSetting } from './href-setting';
@@ -126,6 +126,12 @@ if (!EDITOR && !JSB && HrefSetting.spector) {
             spector.captureCanvas(game.canvas, undefined, undefined, fullCapture);
             // game.frameRate = frameRate
         }
+
+        input.on(Input.EventType.KEY_DOWN, (e) => {
+            if (e.keyCode === KeyCode.KEY_H) {
+                spector.capture()
+            }
+        })
     }
 
     init()
