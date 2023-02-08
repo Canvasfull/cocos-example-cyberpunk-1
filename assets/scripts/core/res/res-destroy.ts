@@ -46,6 +46,13 @@ export class ResDestroy extends Component {
                 count:length,
             }
             Msg.emit('msg_loading', this.msg);
+
+            if ((globalThis as any).ppSettings) {
+                (globalThis as any).ppSettings.passVersion++;
+
+                console.log('msg_destroy_res: passVersion - ' + (globalThis as any).ppSettings.passVersion)
+            }
+
         }, this);
     }
 
