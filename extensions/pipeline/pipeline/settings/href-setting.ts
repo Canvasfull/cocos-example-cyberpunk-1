@@ -86,12 +86,12 @@ gpuTierUpdated.once(() => {
 
     if (game.canvas) {
         if (sys.isMobile) {
-            // HrefSetting.shadingScale = Math.min(1024 / game.canvas.width, 1)
-            HrefSetting.shadingScale = 0.7
+            HrefSetting.shadingScale = Math.min(1024 / game.canvas.width, 1)
+            // HrefSetting.shadingScale = 0.7
             HrefSetting.bloom = 0
-            HrefSetting.fps = 30
+            // HrefSetting.fps = 30
         }
-        // HrefSetting.fps = 60
+        HrefSetting.fps = 60
 
         console.log(`canvas size ${game.canvas.width}, ${game.canvas.height}`)
         console.log(`rendering size ${game.canvas.width * HrefSetting.shadingScale}, ${game.canvas.height * HrefSetting.shadingScale}`)
