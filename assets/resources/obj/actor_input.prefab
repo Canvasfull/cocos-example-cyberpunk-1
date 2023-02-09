@@ -3374,24 +3374,8 @@
     },
     "radius": 110,
     "smooth": 5,
-    "damping_smooth": 10,
-    "centerOffset": {
-      "__type__": "cc.Vec2",
-      "x": -200,
-      "y": -125
-    },
-    "damping_a": 0.5,
-    "damping_e_a": 5,
-    "range": {
-      "__type__": "cc.Rect",
-      "x": 91,
-      "y": 91,
-      "width": 400,
-      "height": 250
-    },
     "autoHidden": false,
     "runRadius": 100,
-    "msg_move": "",
     "_id": ""
   },
   {

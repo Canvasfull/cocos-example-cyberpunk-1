@@ -36,11 +36,18 @@ export class ResCache extends Singleton {
                 wait_count:0,
                 count:0
             }
+
+            if(!asset || !asset.json) {
+                console.error('resource cache data is null', asset)
+                return;
+            }
+
+            const jsonPrefab = asset.json['prefab'];
+            if(jsonPrefab)  ResCache.Instance.loadPrefab(jsonPrefab);
             ResCache.Instance.loadJson(asset.json['json']);
-            ResCache.Instance.loadPrefab(asset.json['prefab']);
             ResCache.Instance.loadSprite(asset.json['sprite']);
             ResCache.Instance.loadSound(asset.json['sound']);
-            
+
             Msg.emit('msg_loading',this.msg);
         });
     }
@@ -99,6 +106,7 @@ export class ResCache extends Singleton {
     }
 
     public setPrefab (asset: any[]) {
+        console.log(asset);
         asset.forEach(element => {
             console.log(element.name);
             this._prefab[element.name] = element;
@@ -190,7 +198,6 @@ export class ResCache extends Singleton {
 
     public checkEnd (): void {
         if (this._callback) {
-            console.log(Res.count);
             if (Res.count <= 0) {
                 this._callback();
                 this._callback = undefined;
