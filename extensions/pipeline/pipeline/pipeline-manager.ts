@@ -107,7 +107,7 @@ export class CustomPipelineBuilder {
         }
 
         director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
-        settings.renderedProfiler = false;
+        settings.renderProfiler = false;
 
         passUtils.ppl = ppl;
 
@@ -123,6 +123,9 @@ export class CustomPipelineBuilder {
             }
             // buildDeferred(camera, ppl);
 
+            if (i === cameras.length - 1) {
+                settings.renderProfiler = true;
+            }
 
             passUtils.camera = camera;
             this.renderCamera(camera, ppl)

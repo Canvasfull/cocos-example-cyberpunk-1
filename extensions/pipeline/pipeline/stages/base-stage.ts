@@ -81,9 +81,9 @@ export class BaseStage {
     }
 
     renderProfiler (camera) {
-        if (HrefSetting.showFps && !settings.renderedProfiler && !EDITOR) {
+        if (HrefSetting.showFps && settings.renderProfiler && !EDITOR) {
             passUtils.pass.showStatistics = true
-            settings.renderedProfiler = true;
+            settings.renderProfiler = false;
         }
     }
 
