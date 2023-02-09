@@ -57,12 +57,13 @@ CCProgram fs %{
       // fragColor = vec4(unpackRGBE(fragColor), 1.);
       // fragColor = vec4(fragColor.w);
     }
-    else if (params1.w == 1.) {
+    
+    if (params1.w == 1.) {
       fragColor = texture(inputTexture, v_uv);
       fragColor = CCFragOutput(fragColor);
     }
-
-    if (params2.x == 1.) {
+    else if (params2.x == 1.) {
+      // todo: need after tonemapped
       mediump vec2 v_rgbNW;
       mediump vec2 v_rgbNE;
       mediump vec2 v_rgbSW;
@@ -78,7 +79,6 @@ CCProgram fs %{
     else {
       fragColor = texture(inputTexture, v_uv);
     }
-
   }
   
 }%

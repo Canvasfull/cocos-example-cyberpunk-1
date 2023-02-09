@@ -91,6 +91,7 @@ gpuTierUpdated.once(() => {
             HrefSetting.bloom = 0
             // HrefSetting.fps = 30
             HrefSetting.fxaa = 0
+            // HrefSetting.fsr = 0
         }
         HrefSetting.fps = 60
 
