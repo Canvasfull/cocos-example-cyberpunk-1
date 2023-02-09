@@ -24,7 +24,7 @@
     "hit_gun": {
         "start":[
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_hit", "value":true } },
-            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 0.5} }
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 0.2} }
         ]
     },
     "on_aim": {
