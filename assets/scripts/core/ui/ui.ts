@@ -48,8 +48,7 @@ export class UI extends Singleton {
         director.addPersistRootNode(this.node!);
         Msg.on('refresh_ui', this.refresh.bind(this));
 
-
-        //this.camera = this.node?.getChildByName('Camera')?.getComponent(Camera)!;
+        this.camera = this.node?.getChildByName('Camera')?.getComponent(Camera)!;
     }
 
     public refresh() {

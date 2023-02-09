@@ -73,8 +73,9 @@ export class ActorInput extends Component implements IActorInput {
             sys.platform === sys.Platform.IOS ) {
             UI.Instance.on('ui_joystick');
         }else {
-            this.node.children[2].active = true;
+            this.node.children[1].active = true;
             this.node.children[0].active = true;
+            //UI.Instance.on('ui_joystick');
         }
 
         

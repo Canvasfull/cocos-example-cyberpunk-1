@@ -26,6 +26,7 @@ import { _decorator, Component, Node, Vec3, Input, EventTouch, v3, Vec2, v2, Rec
 import { InputJoystick } from './input-joystick';
 import { UI } from '../ui/ui';
 import { UtilVec3 } from '../util/util';
+import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
 
 @ccclass('JoystickMove')
@@ -57,6 +58,12 @@ export class JoystickMove extends Component {
 
     screenVec3 = v3(0, 0, 0);
     screenCenter = v3(0, 0, 0);
+    worldPosition = v3(0, 0, 0);
+
+    isStart = false;
+
+    @property(Node)
+    nodeTestCenter:Node | undefined;
 
     start() {
 
@@ -76,6 +83,12 @@ export class JoystickMove extends Component {
         //Get the ui camera.
         this.ui_camera = UI.Instance.camera;
 
+        fun.delay(()=>{
+            // Init default position.
+            UtilVec3.copy(this._pos, this.node.worldPosition);
+        }, 1)
+        
+
     }
 
     /**
@@ -90,10 +103,11 @@ export class JoystickMove extends Component {
 
     onTouchStart(event: EventTouch) {
 
+        this.isStart = true;
+
         // Get the center screen coordinates.
         this.ui_camera?.worldToScreen(this.node.worldPosition, this.screenCenter);
 
-        //
         this.calculateMoveDirection(event);
 
         if (this.autoHidden) this.node.emit('autoHidden', false);
@@ -129,16 +143,27 @@ export class JoystickMove extends Component {
      */
     calculateMoveDirection(event: EventTouch) {
 
+        this.isStart = false;
+
         // Get screen coordinates.
         this._pos.x = event.getLocationX();
         this._pos.y = event.getLocationY();
 
+        this.screenVec3.x = this._pos.x;
+        this.screenVec3.y = this._pos.y;
+
+        this.ui_camera?.screenToWorld(this.screenVec3, this._pos);
+
+        //UtilVec3.copy(this._)
+
         // Get the movement difference of the touch on the screen.
-        this._pos.subtract(this.screenCenter);
+        this._pos.subtract(this.node.worldPosition);
 
         // Get move length.
+        this._pos.z = 0;
         const len = this._pos.length();
-
+        
+        console.log('len:', len);
         // Override position beyond move radius.
         if (len > this.radius) {
             this._pos.normalize().multiplyScalar(this.radius);
@@ -161,6 +186,8 @@ export class JoystickMove extends Component {
 
         // Call the character input interface to perform the movement operation.
         this._input?.onMove(this._tempMove.normalize());
+
+        this._pos.add(this.node.worldPosition);
     }
 
     /**
@@ -168,7 +195,7 @@ export class JoystickMove extends Component {
      */
     cancelTouch() {
         // Reset the touch point to the center.
-        UtilVec3.copy(this._pos, Vec3.ZERO);
+        UtilVec3.copy(this._pos, this.node.worldPosition);
         this._input?.onMove(Vec3.ZERO);
         if (this.autoHidden) this.node.emit('autoHidden', true);
     }
@@ -180,7 +207,7 @@ export class JoystickMove extends Component {
     update(deltaTime: number) {
 
         Vec3.lerp(this._movePos, this._movePos, this._pos, deltaTime * this.smooth);
-        this._moveNode!.setPosition(this._movePos.x, this._movePos.y, 0);
+        this._moveNode!.setWorldPosition(this._movePos.x, this._movePos.y, 0);
         
     }
 }

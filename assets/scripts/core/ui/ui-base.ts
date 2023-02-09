@@ -310,7 +310,6 @@ class GrpSelectItem {
         this._node = node;
         const img_bg = UtilNode.getChildByName(this._node, 'img_bg');
         img_bg.setRotationFromEuler(0, 0, angle);
-        console.log(`item angle : ${angle}`);
         this.txt_nun = UtilNode.getChildComponent(this._node, 'txt_num', Label);
         this.img_icon = UtilNode.getChildComponent(this._node, 'img_icon', Sprite);
     }

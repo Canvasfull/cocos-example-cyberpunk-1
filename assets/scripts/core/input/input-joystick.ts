@@ -63,7 +63,8 @@ export class InputJoystick extends InputBase {
     }
 
     onPause() {
-        this._actorInput?.onPause();
+        //this._actorInput?.onPause();
+        Msg.emit('push', 'level_pause');
     }
 
     onSetRun(isRun:boolean) {
