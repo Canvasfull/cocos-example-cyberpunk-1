@@ -106,9 +106,7 @@ export class ResCache extends Singleton {
     }
 
     public setPrefab (asset: any[]) {
-        console.log(asset);
         asset.forEach(element => {
-            console.log(element.name);
             this._prefab[element.name] = element;
         });
     }
