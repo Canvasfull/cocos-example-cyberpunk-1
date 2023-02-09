@@ -47,6 +47,8 @@ export class Sound {
     private static _templateSource:Node;
     private static _poolRoot:Node;
 
+    private static currentBGMName = '';
+
     public static init (): void {
 
         // Initialize sound prefab.
@@ -169,6 +171,10 @@ export class Sound {
     }
 
     public static onBGM (key: string): void {
+
+        if(this.currentBGMName == key) return;
+        this.currentBGMName = key;
+
         Res.loadAudio(`sound/${key}`, (err, asset) => {
             if (err) {
                 throw new Error(`Can not find sound resource : sound/${key}`);
@@ -187,6 +193,7 @@ export class Sound {
         this._bgmAudio.stop();
         this._bgmAudio.clip = null;
         this._bgmAudio.loop = false;
+        this.currentBGMName = '';
         
     }
 
