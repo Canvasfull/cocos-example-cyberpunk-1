@@ -65,8 +65,6 @@ export class JoystickMove extends Component {
     @property(Node)
     nodeTestCenter:Node | undefined;
 
-    touchID:number | null = -1;
-
     start() {
 
         //bind input joystick
@@ -104,13 +102,6 @@ export class JoystickMove extends Component {
 
     onTouchStart(event: EventTouch) {
 
-        if(this.touchID != -1) return;
-
-        const currentTouchID = event.getID();
-        if(currentTouchID == null) return;
-
-        this.touchID = currentTouchID;
-
         this.isStart = true;
 
         // Get the center screen coordinates.
@@ -126,8 +117,6 @@ export class JoystickMove extends Component {
      * @param event 
      */
     onTouchMove(event: EventTouch) {
-
-        if(this.touchID != event.getID()) return;
 
         this.calculateMoveDirection(event);
     }
@@ -203,14 +192,10 @@ export class JoystickMove extends Component {
      */
     cancelTouch(event: EventTouch) {
 
-        if(this.touchID != event.getID()) return;
-
         // Reset the touch point to the center.
         UtilVec3.copy(this._pos, this.node.worldPosition);
         this._input?.onMove(Vec3.ZERO);
         if (this.autoHidden) this.node.emit('autoHidden', true);
-
-        this.touchID = -1;
     }
 
     /**
