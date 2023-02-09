@@ -24,23 +24,6 @@ CCEffect %{
         metallicRoughnessMap: { value: grey }
         occlusionMap:         { value: white }
         emissiveMap:          { value: grey }
-    - &forward-add
-      vert: standard-vs
-      frag: standard-fs
-      phase: forward-add
-      propertyIndex: 0
-      embeddedMacros: { CC_FORWARD_ADD: true }
-      depthStencilState:
-        depthFunc: equal
-        depthTest: true
-        depthWrite: false
-      blendState:
-        targets:
-        - blend: true
-          blendSrc: one
-          blendDst: one
-          blendSrcAlpha: zero
-          blendDstAlpha: one
     - &shadow-caster
       vert: shadow-caster-vs:vert
       frag: shadow-caster-fs:frag
@@ -69,7 +52,6 @@ CCEffect %{
           blendDst: one_minus_src_alpha
           blendDstAlpha: one_minus_src_alpha
       properties: *props
-    - *forward-add
     - *shadow-caster
 }%
 
