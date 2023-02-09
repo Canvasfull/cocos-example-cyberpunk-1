@@ -1,24 +1,19 @@
 # Cyberpunk
 
-### Version: 0.8 beta
+This is a high quality demo in Cyberpunk art style demonstrating the most advanced features in Cocos Creator engine, the whole project is built with Cocos Creator.
+
+### Version: 0.9 beta
 
 ### Get started
 
-1. Engineering Environment
+1. Cocos Creator version
 
-Engine branch: https://github.com/2youyou2/engine/tree/develop-custom
+This demo is made with Cocos Creator v3.7.1, only higher editor version can run this demo.
 
-2. Operation description
+2. Supported platform
+
+Windows, macOS, iOS, Android
+
+3. Operation description
    
-    W: Move forward.
-    S: Move backward.
-    A: Move to the left.
-    D: Move to the right.
-
-    Shift: Long press to run mode.
-
-    R: Change magazines.
-    Q: Pop-up screen to change weapons. Slide the mouse to change the gun.
-    E: Pick up the weapon on the ground.
-    C: Crouch down.
-    Space: Jump.
+Support both mobile touch screen and desktop keyboard and mouse. Please see detailed instruction in game
