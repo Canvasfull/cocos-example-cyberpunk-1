@@ -31,7 +31,7 @@
         "medkit"
     ],
     "probability_drop_enemy":{
-        "interval":[1, 5],
+        "interval":[7, 20],
         "interval_weight_max":1,
         "life_time":[30, 40],
         "max": 10,
@@ -41,7 +41,7 @@
         "weights_group":[ 0, 1, 2, 3]
     },
     "probability_drop_items":{
-        "interval":[30000, 50000],
+        "interval":[5, 30],
         "life_time":[30, 40],
         "drop_max": 4,
         "init_count":[7, 10],
