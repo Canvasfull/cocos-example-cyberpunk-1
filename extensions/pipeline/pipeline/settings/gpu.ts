@@ -1,4 +1,4 @@
-import { sys } from 'cc';
+import { director, game, sys } from 'cc';
 import { JSB, MINIGAME } from 'cc/env';
 import Event from '../utils/event';
 
@@ -50,26 +50,22 @@ export function getTierName () {
 (window as any).getGPUTier = detectGPU.getGPUTier;
 (window as any).getTierName = getTierName;
 
-let director = cc.director
-let game = cc.game
-
 // game.on(Game.EVENT_ENGINE_INITED, () => {
 let renderer = '';
 if (director.root && director.root.device) {
     renderer = director.root.device.renderer;
 }
-console.log('gpu : ' + renderer)
 
 detectGPU.getGPUTier({
     // benchmarksURL: 'https://preview.cocos.com/cyberpunk/',
-    mobileTiers: [0, 60, 150, 300],
+    mobileTiers: [0, 60],
     desktopTiers: [0, 60, 150, 300],
     override: {
         renderer,
         isMobile: sys.isMobile,
         screenSize: {
-            width: game.canvas.width,
-            height: game.canvas.height
+            width: game.canvas ? game.canvas.width : 1000,
+            height: game.canvas ? game.canvas.height : 1000,
         }
     }
 }).then((tier: any) => {
@@ -80,11 +76,11 @@ detectGPU.getGPUTier({
     }
 
     if (MINIGAME) {
-        gpuTier.tier = 1;
+        gpuTier.tier = 0;
     }
-    else if (sys.isMobile) {
-        gpuTier.tier -= 1;
-    }
+
+    console.log('gpu : ' + renderer)
+    console.log('gpuTier : ' + gpuTier.tier)
 
     inited = true;
     gpuTierUpdated.invoke();
