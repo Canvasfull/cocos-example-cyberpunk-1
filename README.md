@@ -8,12 +8,14 @@ This is a high quality demo in Cyberpunk art style demonstrating the most advanc
 
 1. Cocos Creator version
 
-This demo is made with Cocos Creator v3.7.1, only higher editor version can run this demo.
+    This demo is made with Cocos Creator v3.7.1, only higher editor version can run this demo.
+    - [Windows](https://download.cocos.org/CocosCreator/v3.7.1/CocosCreator-v3.7.1-win-020918.zip)
+    - [Mac OS](https://download.cocos.org/CocosCreator/v3.7.1/CocosCreator-v3.7.1-mac-020918.zip)
 
 2. Supported platform
 
-Windows, macOS, iOS, Android
+    Windows, macOS, iOS, Android
 
 3. Operation description
    
-Support both mobile touch screen and desktop keyboard and mouse. Please see detailed instruction in game
+    Support both mobile touch screen and desktop keyboard and mouse. Please see detailed instruction in game
