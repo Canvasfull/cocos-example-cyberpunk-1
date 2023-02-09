@@ -1,6 +1,6 @@
 # Cyberpunk Demo by Cocos Creator
 
-This is a high quality demo in Cyberpunk art style demonstrating the most advanced features in Cocos Creator engine, the whole project is built with Cocos Creator.
+This is a high quality demo in Cyberpunk art style demonstrating the most advanced features in [Cocos Creator](https://www.cocos.com/en/creator), the whole project is built with [Cocos Creator](https://www.cocos.com/en/creator).
 
 ### Version: 0.9 beta
 
