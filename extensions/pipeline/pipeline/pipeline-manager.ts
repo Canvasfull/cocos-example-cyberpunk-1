@@ -107,6 +107,7 @@ export class CustomPipelineBuilder {
         }
 
         director.root.pipeline.pipelineSceneData.shadingScale = HrefSetting.shadingScale
+        settings.renderedProfiler = false;
 
         passUtils.ppl = ppl;
 
@@ -140,7 +141,6 @@ export class CustomPipelineBuilder {
             settings.tonemapped = false;
             settings.shadowStage = undefined;
             settings.gbufferStage = false;
-            settings.renderedProfiler = false;
             settings.passPathName = '';
 
             // camera._submitInfo = null;
