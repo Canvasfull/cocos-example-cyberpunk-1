@@ -3,8 +3,9 @@ import { Res } from '../res/res';
 import { ResCache } from '../res/res-cache';
 import { UtilNode } from '../util/util';
 import { FxBase } from './fx-base';
-import { Level } from '../../logic/level/level';
 const { ccclass, property } = _decorator;
+
+let close_blood_fx = true;
 
 @ccclass('fx')
 export class fx {
@@ -17,8 +18,9 @@ export class fx {
 
     public static on(name:string, pos:Vec3) {
 
-        if(Level.Instance._data.close_blood_fx)
+        if(close_blood_fx)
             if(name == 'fx_hit_body') return;
+
         var prefab = ResCache.Instance.getPrefab(name);
         var newFx = Res.inst(prefab, this.node, pos);
     }

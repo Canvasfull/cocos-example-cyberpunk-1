@@ -17,6 +17,8 @@
     },
     "dead": {
         "start": [
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 1} },
+            { "time": 0, "name": "on_sfx", "data":"sfx_dead" },
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": false} },
             { "time": 0.1, "name": "on_set", "data": { "key":"is_dead", "value":true } },
             { "time": 0.2, "name": "on_msg_str", "data": { "key":"push", "value":"level_end" } }
@@ -25,9 +27,9 @@
     "hit_gun": {
         "start":[
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_hit", "value":true } },
-            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 0.3} },
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 0.5} },
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_ui_fx_open", "value": "effect_hit"} },
-            { "time": 0.7, "name": "on_msg_str", "data": { "key":"msg_ui_fx_close", "value": "effect_hit"} }
+            { "time": 0.5, "name": "on_msg_str", "data": { "key":"msg_ui_fx_close", "value": "effect_hit"} }
         ]
     },
     "rebirth":{
@@ -52,18 +54,12 @@
     },
     "pickup": {
         "start":[
-            { "time": 0, "name": "on_sfx", "data": "sfx_eat_candy" },
-            { "time": 0, "name": "on_fx", "data": "fx_eat_candy"},
-            { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
-            { "time": 0, "delay":0.5, "name": "on_msg", "data": "msg_count_events"}
+            { "time": 0, "name": "on_sfx", "data": "sfx_gems" }
         ]
     },
     "drop": {
         "start":[
-            { "time": 0, "name": "on_sfx", "data": "sfx_eat_candy" },
-            { "time": 0, "name": "on_fx", "data": "fx_eat_candy"},
-            { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
-            { "time": 0, "delay":0.5, "name": "on_msg", "data": "msg_count_events"}
+            { "time": 0, "name": "on_sfx", "data": "sfx_gems" }
         ] 
     },
     "on_aim": {

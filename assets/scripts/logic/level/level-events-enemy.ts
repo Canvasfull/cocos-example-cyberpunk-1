@@ -25,6 +25,7 @@
 import { _decorator, Component, Node, randomRange, random } from 'cc';
 import { Msg } from '../../core/msg/msg';
 import { Level } from './level';
+import { DataLevelInst } from '../data/data-core';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelEventsEnemy')
@@ -41,8 +42,8 @@ export class LevelEventsEnemy extends Component {
     killCounter = 0;
 
     start() {
-        this.probability = Level.Instance._data.probability_drop_enemy;
-        this.groupCounter = new Array(Level.Instance._data.enemies.length);
+        this.probability = DataLevelInst._data.probability_drop_enemy;
+        this.groupCounter = new Array(DataLevelInst._data.enemies.length);
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
         Msg.bind('msg_remove_enemy', this.remove, this);
     }
@@ -101,7 +102,7 @@ export class LevelEventsEnemy extends Component {
     }
 
     update(deltaTime: number) {
-        if (!Level.Instance._isStart && Level.Instance.stop) return;
+        if (!Level.Instance._isStart && Level.Instance.stop && !Level.Instance._player) return;
         this._interval -= deltaTime;
         if (this._interval <= 0) {
             this.nextEvent();

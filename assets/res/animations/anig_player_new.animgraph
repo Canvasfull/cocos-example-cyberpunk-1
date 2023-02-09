@@ -2341,7 +2341,7 @@
     "__type__": "cc.animation.Motion",
     "__editorExtras__": {
       "centerX": -362.203125,
-      "centerY": -178,
+      "centerY": -179,
       "id": "16734288609280.49391407611093396",
       "clone": null
     },
@@ -2350,7 +2350,7 @@
     "motion": {
       "__id__": 164
     },
-    "speed": 1,
+    "speed": 2,
     "speedMultiplier": "",
     "speedMultiplierEnabled": false
   },
@@ -2380,7 +2380,7 @@
     "motion": {
       "__id__": 166
     },
-    "speed": 1,
+    "speed": 2,
     "speedMultiplier": "",
     "speedMultiplierEnabled": false
   },

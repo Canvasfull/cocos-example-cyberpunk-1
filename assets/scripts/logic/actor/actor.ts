@@ -101,6 +101,7 @@ export class Actor extends ActorBase implements IActorInput {
         if(this._data.hit_recover > 0) {
             this._data.hit_recover -= deltaTime;
             this._actorMove!.isStopMove = true;
+            this._actorMove?.stop();
         }else{
             this._actorMove!.isStopMove = false;
         }

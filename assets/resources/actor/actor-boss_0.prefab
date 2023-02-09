@@ -31,13 +31,10 @@
     "_components": [
       {
         "__id__": 466
-      },
-      {
-        "__id__": 468
       }
     ],
     "_prefab": {
-      "__id__": 470
+      "__id__": 468
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -8392,27 +8389,6 @@
     "nestedPrefabInstanceRoots": null
   },
   {
-    "__type__": "cc.animation.AnimationController",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 467
-    },
-    "graph": {
-      "__uuid__": "6b0fc57e-451e-4813-adf1-6e4e00009428",
-      "__expectedType__": "cc.animation.AnimationGraph"
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "a42znk5UlECZ4vQdGePII/"
-  },
-  {
     "__type__": "2f0404bvmdBJYOUS4dso/Rx",
     "_name": "",
     "_objFlags": 0,
@@ -8422,7 +8398,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 469
+      "__id__": 467
     },
     "intensity": 4,
     "_id": ""
@@ -8440,6 +8416,7 @@
       "__id__": 0
     },
     "fileId": "a6wzy+q6FSrru7/sj2PTM6",
+    "instance": null,
     "targetOverrides": null
   }
 ]

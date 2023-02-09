@@ -5,6 +5,7 @@ import { Local } from "../../core/localization/local";
 import { Msg } from "../../core/msg/msg";
 import { ActorPart } from "./actor-part";
 import { Actor } from "./actor";
+import { DataLevelInst } from "../data/data-core";
 
 export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3, shootActor:Actor | undefined) {
     const hitName = node.name.split('_')[0];
@@ -34,6 +35,7 @@ export function calculateDamageNode(data:any, node:Node, hitPoint:Vec3, shootAct
         actor._data.hp -= part_damage;
         if (actor._data.hp <= 0) {
             actor._data.hp = 0;
+            fx.on(DataLevelInst._data.fx_dead, actor.node.worldPosition);
             if(actor.isPlayer) Msg.emit('msg_stat_times', 'killed');
             actor.do('dead');
         }else{
@@ -81,8 +83,10 @@ export function calculateDamage(data:any, hit:PhysicsRayResult | undefined, shoo
         actor._data.hp -= part_damage;
         if (actor._data.hp <= 0) {
             actor._data.hp = 1;
+            fx.on(DataLevelInst._data.fx_dead, actor.node.worldPosition);
             if(shootActor?.isPlayer) Msg.emit('msg_stat_times', 'killed');
             actor.do('dead');
+            
         }else{
             actor.do('hit_gun')
         }

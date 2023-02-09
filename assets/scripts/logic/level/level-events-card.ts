@@ -24,9 +24,9 @@
 
 import { _decorator, Component, Node, randomRange, random, randomRangeInt } from 'cc';
 import { Msg } from '../../core/msg/msg';
-import { Level } from './level';
-import { DataUpgradeCardInst } from '../data/data-core';
+import { DataLevelInst, DataUpgradeCardInst } from '../data/data-core';
 import { Local } from '../../core/localization/local';
+import { Level } from './level';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelEventsCard')
@@ -43,8 +43,8 @@ export class LevelEventsCard extends Component {
     counterCard = 0;
 
     start() {
-        this.probability = Level.Instance._data.probability_drop_card;
-        this.groupCounter = new Array(Level.Instance._data.cards.length);
+        this.probability = DataLevelInst._data.probability_drop_card;
+        this.groupCounter = new Array(DataLevelInst._data.cards.length);
         this._interval = randomRange(this.probability.interval[0], this.probability.interval[1]);
 
         this.nextCounter = DataUpgradeCardInst._data.next_show_card_param_a;
@@ -89,7 +89,7 @@ export class LevelEventsCard extends Component {
         const excludeIndex = 3;//this.probability.weights_group[excludeGroupIndex];
         
         // Get upgrade card list.
-        const cards = Level.Instance._data.cards;
+        const cards = DataLevelInst._data.cards;
         for(let i = 0; i < cards.length; i++) {
             if(i === excludeIndex) continue;
             this.currentCards[i] = {

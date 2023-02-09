@@ -1,21 +1,32 @@
+/*
+ Copyright (c) 2020-2023 Xiamen Yaji Software Co., Ltd.
+
+ https://www.cocos.com/
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 import { Save } from "../../logic/data/save";
-import { Log } from "../io/log";
 import { Msg } from "../msg/msg";
 import { Singleton } from "../pattern/singleton";
-import { Res } from "../res/res";
 import { ResCache } from "../res/res-cache";
 
-/**
- * Predefined variables
- * Name = local
- * DateTime = Mon Jan 17 2022 16:01:37 GMT+0800 (China Standard Time)
- * Author = canvas
- * FileBasename = local.ts
- * FileBasenameNoExtension = local
- * URL = db://assets/scripts/core/local/local.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/en/
- *
- */
 export class Local extends Singleton {
 
     index: number = 1;
@@ -46,14 +57,14 @@ export class Local extends Singleton {
         Msg.on('next_language', () => {
             this.index++;
             if (this.index >= this.max) this.index = 0;
-            Save.Instance._cur.languageIndex = this.index;
+            Msg.emit('msg_save_set', {key:'languageIndex', value:this.index});
             Local.Instance.refresh();
         });
 
         Msg.on('pre_language', () => {
             this.index--;
             if (this.index < 0) this.index = this.max - 1;
-            Save.Instance._cur.languageIndex = this.index;
+            Msg.emit('msg_save_set', {key:'languageIndex', value:this.index});
             Local.Instance.refresh();
         });
 

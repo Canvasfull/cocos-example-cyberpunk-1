@@ -28,6 +28,7 @@ export class SfxHeart extends Component {
     update(deltaTime: number) {
 
         const player = Level.Instance._player;
+
         if(player && player._data.is_low_hp && !player.is_dead) {
             if(this.isLow == false) {
                 this.isLow = true;

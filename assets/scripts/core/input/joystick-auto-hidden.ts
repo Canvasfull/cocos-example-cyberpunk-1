@@ -18,7 +18,7 @@ export class JoystickAutoHidden extends Component {
 
     _isHidden = false;
 
-    _sprite:SpriteComponent;
+    _sprite:SpriteComponent | undefined
 
     _alpha = 255;
 
@@ -27,7 +27,7 @@ export class JoystickAutoHidden extends Component {
     _delay = 0;
 
     start() {
-        this._sprite = this.getComponent(SpriteComponent);
+        this._sprite = this.getComponent(SpriteComponent)!;
         this.node.on('autoHidden', this.autoHidden, this);
         this._delay = this.hidden_delay_time;
 
@@ -42,7 +42,7 @@ export class JoystickAutoHidden extends Component {
         if (this._delay < 0) {
             this._cur_alpha = math.lerp(this._cur_alpha, this._alpha, deltaTime * this.smooth);
             this._color.a = this._cur_alpha;
-            this._sprite.color = this._color;
+            this._sprite!.color = this._color;
         }
         
     }

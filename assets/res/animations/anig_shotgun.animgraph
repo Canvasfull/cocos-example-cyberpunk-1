@@ -46,7 +46,9 @@
         "scale": 1,
         "top": 0,
         "left": 0
-      }
+      },
+      "id": "16758353238560.16806516404375427",
+      "clone": null
     },
     "_states": [
       {
@@ -142,12 +144,20 @@
     "__editorExtras__": {
       "centerX": -386,
       "centerY": -67,
-      "id": "16695264450140.8504986316639074"
+      "id": "16695264450140.8504986316639074",
+      "clone": null
     },
     "name": "Entry"
   },
   {
     "__type__": "cc.animation.State",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.21831480056171437",
+      "clone": null,
+      "centerX": 125,
+      "centerY": 0
+    },
     "name": "Exit"
   },
   {
@@ -155,7 +165,8 @@
     "__editorExtras__": {
       "centerX": -14,
       "centerY": 170,
-      "id": "16695266884120.9218600131717307"
+      "id": "16695266884120.9218600131717307",
+      "clone": null
     },
     "name": "Any"
   },
@@ -164,7 +175,8 @@
     "__editorExtras__": {
       "centerX": -261,
       "centerY": -108.5,
-      "id": "16695264804710.05372123042056276"
+      "id": "16695264804710.05372123042056276",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_Draw",
     "_components": [],
@@ -181,7 +193,8 @@
       "id": "16695264804680.5991782402977694",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@ad2d7",
@@ -193,7 +206,8 @@
     "__editorExtras__": {
       "centerX": -10,
       "centerY": -119.5,
-      "id": "16695266668610.0318723345148515"
+      "id": "16695266668610.0318723345148515",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_Idle",
     "_components": [],
@@ -210,7 +224,8 @@
       "id": "16695266668560.05249025035446131",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@e879d",
@@ -222,7 +237,8 @@
     "__editorExtras__": {
       "centerX": -268,
       "centerY": -265.5,
-      "id": "16695266741550.5328885400382095"
+      "id": "16695266741550.5328885400382095",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_Hold",
     "_components": [],
@@ -239,7 +255,8 @@
       "id": "16695266741530.7928822511244964",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@6f042",
@@ -251,7 +268,8 @@
     "__editorExtras__": {
       "centerX": -6,
       "centerY": 6.5,
-      "id": "16695266932020.545369376377945"
+      "id": "16695266932020.545369376377945",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_Fire",
     "_components": [],
@@ -268,7 +286,8 @@
       "id": "16695266931980.19889953160583573",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@095d3",
@@ -280,7 +299,8 @@
     "__editorExtras__": {
       "centerX": 7,
       "centerY": -239.5,
-      "id": "16695266951540.8559239778875569"
+      "id": "16695266951540.8559239778875569",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_AimFire",
     "_components": [],
@@ -297,7 +317,8 @@
       "id": "16695266951520.4273989556026343",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@7aaa8",
@@ -309,7 +330,8 @@
     "__editorExtras__": {
       "centerX": 220,
       "centerY": 28.5,
-      "id": "16695267908860.02381196724680823"
+      "id": "16695267908860.02381196724680823",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_Reload",
     "_components": [],
@@ -326,7 +348,8 @@
       "id": "16695267908800.5543211550940197",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@7ae89",
@@ -338,7 +361,8 @@
     "__editorExtras__": {
       "centerX": 344,
       "centerY": 17.5,
-      "id": "16695267941400.12132827568098725"
+      "id": "16695267941400.12132827568098725",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_ReloadEmpty",
     "_components": [],
@@ -355,7 +379,8 @@
       "id": "16695267941350.7442408695293885",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@188dc",
@@ -367,7 +392,8 @@
     "__editorExtras__": {
       "centerX": -211,
       "centerY": 168.5,
-      "id": "16695267998020.47117114798329784"
+      "id": "16695267998020.47117114798329784",
+      "clone": null
     },
     "name": "DoubleBarrelShotgun_Holster",
     "_components": [],
@@ -384,7 +410,8 @@
       "id": "16695267998000.7257442857957366",
       "centerX": 0,
       "centerY": 0,
-      "name": ""
+      "name": "",
+      "clone": null
     },
     "clip": {
       "__uuid__": "a6665f06-ae27-48ed-8d98-fa4f40d7e3bb@d30a1",
@@ -396,12 +423,18 @@
     "__editorExtras__": {
       "centerX": -386,
       "centerY": 185,
-      "id": "16721093152060.7535943233535067"
+      "id": "16721093152060.7535943233535067",
+      "clone": null
     },
     "name": "Empty"
   },
   {
     "__type__": "cc.animation.Transition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.04365254556243259",
+      "clone": null
+    },
     "from": {
       "__id__": 3
     },
@@ -412,6 +445,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.7074922964993944",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -437,6 +475,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.5509115696080642",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
@@ -462,6 +505,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.35844557165858926",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -487,6 +535,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.9503081019730899",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -512,6 +565,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.8545085723839354",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -537,6 +595,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.6839743287393056",
+      "clone": null
+    },
     "from": {
       "__id__": 18
     },
@@ -554,6 +617,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.5041911549841611",
+      "clone": null
+    },
     "from": {
       "__id__": 16
     },
@@ -571,6 +639,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.5051999908728575",
+      "clone": null
+    },
     "from": {
       "__id__": 6
     },
@@ -588,6 +661,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.41511731315997036",
+      "clone": null
+    },
     "from": {
       "__id__": 14
     },
@@ -605,6 +683,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.5357127646964617",
+      "clone": null
+    },
     "from": {
       "__id__": 12
     },
@@ -622,6 +705,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.6486606921235494",
+      "clone": null
+    },
     "from": {
       "__id__": 20
     },
@@ -639,6 +727,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": {
+      "name": "",
+      "id": "16758353238570.4953352594248295",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },

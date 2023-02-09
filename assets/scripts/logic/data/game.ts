@@ -140,7 +140,7 @@ export class Game extends Singleton {
      * Return to the previous game node.
      */
     public back (): void {
-        if(game.totalTime - this.backSafeTime < 500) return;
+        if(game.totalTime - this.backSafeTime < 50) return;
         this.backSafeTime = game.totalTime;
         const preNode = this._stack.pop();
         this._action!.off(preNode);

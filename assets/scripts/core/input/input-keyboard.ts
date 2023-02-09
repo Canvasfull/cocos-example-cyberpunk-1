@@ -89,7 +89,7 @@ export class InputKeyboard extends InputBase {
             event.keyCode === KeyCode.KEY_G ||
             event.keyCode === KeyCode.KEY_Q ||
             event.keyCode === KeyCode.KEY_C ||
-            event.keyCode === KeyCode.KEY_Z ||
+            event.keyCode === KeyCode.KEY_N ||
             event.keyCode === KeyCode.KEY_R ||
             event.keyCode === KeyCode.SPACE ||
             event.keyCode === KeyCode.ARROW_UP ||
@@ -113,11 +113,13 @@ export class InputKeyboard extends InputBase {
 
         this.key_count++;
 
+        /*
         if (event.keyCode === KeyCode.KEY_Q) {
             Msg.emit('push', "select_equips");
             //this._pressQ = true;
             return;
         }
+        */
         
         if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = 1;
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = -1; 
@@ -125,9 +127,16 @@ export class InputKeyboard extends InputBase {
         if (event.keyCode === KeyCode.KEY_D || event.keyCode === KeyCode.ARROW_RIGHT) this.direction_right = -1;
 
 
+        if(event.keyCode === KeyCode.KEY_Q) { 
+            
+            this._actorInput?.onChangeEquips();
+            document.exitPointerLock();
+        
+        }
+
         if (event.keyCode === KeyCode.SPACE) this._actorInput?.onJump();
         if (event.keyCode === KeyCode.KEY_C) this._actorInput?.onCrouch();
-        if (event.keyCode === KeyCode.KEY_Z) this._actorInput?.onAim(undefined);
+        if (event.keyCode === KeyCode.KEY_N) this._actorInput?.onAim(undefined);
         if (event.keyCode === KeyCode.KEY_E) this._actorInput?.onPick();
         if (event.keyCode === KeyCode.KEY_G) this._actorInput?.onDrop();
         if (event.keyCode === KeyCode.KEY_R) this._actorInput?.onReload();
@@ -183,6 +192,7 @@ export class InputKeyboard extends InputBase {
             return;
         }
 
+        /*
         if (!_pointerLock) {
             try {
                 if(game.canvas?.requestPointerLock) {
@@ -193,6 +203,7 @@ export class InputKeyboard extends InputBase {
             }            
             return;
         }
+        */
        
         if (event.getButton() === 0) {
             this._actorInput?.onFire();
@@ -208,10 +219,12 @@ export class InputKeyboard extends InputBase {
         }
 
         //if (document.pointerLockElement === null && sys.isBrowser) return;
+        /*
         if (this._pressQ) {
             Msg.emit('msg_select_equip', event.getDelta());
             return;
         }
+        */
 
         const x = event.movementX;
         const y = event.movementY;

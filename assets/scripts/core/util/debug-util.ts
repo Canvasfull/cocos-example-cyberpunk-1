@@ -1,9 +1,9 @@
 import { setDisplayStats } from "cc";
-import { Game } from "../../logic/data/game";
 import { Save } from "../../logic/data/save";
 import { Local } from "../localization/local";
 import { Msg } from "../msg/msg";
 import { Singleton } from "../pattern/singleton";
+import { DataGameInst } from "../../logic/data/data-core";
 
 export class DebugUtil extends Singleton {
 
@@ -15,7 +15,7 @@ export class DebugUtil extends Singleton {
             Save.Instance._cur.debugIndex = 0;
 
         this.index = Save.Instance._cur.debugIndex;
-        var gdata = Game.Instance._data;
+        var gdata = DataGameInst._data;
 
         this.CheckDisplayStats();
 
@@ -40,7 +40,7 @@ export class DebugUtil extends Singleton {
     }
 
     public getShowName() {
-        var gdata = Game.Instance._data;
+        var gdata = DataGameInst._data;
         return Local.Instance.get(gdata.debug_info[this.index]);
     }
 

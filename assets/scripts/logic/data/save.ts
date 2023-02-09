@@ -29,7 +29,8 @@ import { UtilArray } from "../../core/util/util";
 import { JsonTool } from "../../core/io/json-tool";
 import { Msg } from "../../core/msg/msg";
 import { ResCache } from "../../core/res/res-cache";
-import { Game } from "./game";
+
+const max_history_statistics = 30;
 
 interface key_any {
     [key: string]: any
@@ -65,6 +66,11 @@ export class Save extends Singleton {
             this.loadArchive(this._uuid);
             this._uuid = IO.read(this._uuidKey + '.json');
         }
+
+        Msg.on('msg_save_set', (data:{key:string, value:number})=>{
+            this.set(data.key, data.value);
+        });
+
         Msg.on('msg_stat_times', this.statisticsTimes.bind(this));
         Msg.on('msg_stat_time', this.statisticsTime.bind(this));
         Msg.on('msg_stat_distance', this.statisticsDistance.bind(this));
@@ -219,7 +225,7 @@ export class Save extends Singleton {
 
         console.log('history index:', this._cur.history_index);
 
-        if(this._cur.history_index > Game.Instance._data.max_history_statistics)
+        if(this._cur.history_index > max_history_statistics)
             this._cur.history_index = 0;
 
         if(this._cur.history === undefined) this._cur.history = [];

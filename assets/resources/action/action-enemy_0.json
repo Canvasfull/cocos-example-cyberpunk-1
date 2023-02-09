@@ -13,16 +13,18 @@
     },
     "dead": {
         "start": [
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 1} },
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_dead", "value":true } },
             { "time": 0, "name": "on_sfx", "data":"sfx_enemy_dead" },
             { "time": 0, "name": "on_set", "data": { "key":"is_dead", "value":true } },
-            { "time": 0.2, "name": "on_call", "data": "onDead" }
+            { "time": 0.3, "name": "on_sfx", "data":"sfx_dead" },
+            { "time": 0.5, "name": "on_call", "data": "onDead" }
         ] 
     },
     "hit_gun": {
         "start":[
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_hit", "value":true } },
-            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 0.3} }
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 0.5} }
         ]
     },
     "on_aim": {

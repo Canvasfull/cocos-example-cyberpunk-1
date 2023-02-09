@@ -324,7 +324,7 @@ export class ActorBrain extends Component {
         this.targetDirection.y = worldPosition.y;
 
         // Calculate angle speed.
-        const angleSpeed = angle < 30 ? 0.3 : 0.8;
+        const angleSpeed = angle < 10 ? 0.5 : 0.8;
         this.targetDirection.subtract(worldPosition).normalize().multiplyScalar(angleSpeed);
 
         this._moveDir.x = -this.targetDirection.x;
@@ -363,9 +363,8 @@ export class ActorBrain extends Component {
         // Brain wait fire logic.
         this.fireWaitTime -= game.deltaTime;
         if(this.fireWaitTime > 0) return;
-        this.fireWaitTime = randomRange(1, 3);
+        this.fireWaitTime = randomRange(0.3, 1.3);
 
-        //console.log('fire angle:',  angle);
         if(angle < 10) this.onFire();
     }
 

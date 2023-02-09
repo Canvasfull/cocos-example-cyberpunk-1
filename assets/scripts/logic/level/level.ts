@@ -169,7 +169,7 @@ export class Level extends Singleton {
      */
     public addEnemy(res:string, groupID:number) {
 
-         // Get a random node from the navigation system.
+        // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
 
         // Get the enemy's prefab object from the resource cache.
@@ -313,11 +313,9 @@ export class Level extends Singleton {
         this._scoreRate = scoreLevels.length - 1;
         for(let i = 0; i < scoreLevels.length; i++) {
             const infos = scoreLevels[i];
-            console.log(infos);
             passLevel = true;
             for(let k in infos) {
                 if(k == 'score') continue;
-                console.log(Save.Instance._currentStatistics[k], k, infos[k]);
                 if(Save.Instance._currentStatistics[k] < infos[k]) {
                     passLevel = false;
                     break;

@@ -22,8 +22,11 @@
  THE SOFTWARE.
 */
 
-import { _decorator, Component, Node, Vec3, Input, EventTouch, v3, Vec2, v2, Rect, UITransform, game } from 'cc';
+import { _decorator, Component, Node, Vec3, Input, EventTouch, v3, Vec2, v2, Rect, UITransform, game, Camera } from 'cc';
 import { InputJoystick } from './input-joystick';
+import { UI } from '../ui/ui';
+import { UtilVec3 } from '../util/util';
+import { fun } from '../util/fun';
 const { ccclass, property } = _decorator;
 
 @ccclass('JoystickMove')
@@ -35,36 +38,13 @@ export class JoystickMove extends Component {
     @property(Number)
     smooth = 5;
 
-    @property(Number)
-    damping_smooth = 10;
-
-    @property(Vec2)
-    centerOffset:Vec2 = v2(0, 0)
-
-    @property(Number)
-    damping_a = 0.5;
-
-    @property(Number)
-    damping_e_a = 5;
-
-    @property(Rect)
-    range:Rect = new Rect(100, 100, 300, 300);
-
     @property(Boolean)
     autoHidden:Boolean = false
 
     @property(Number)
     runRadius = 80;
-    
-    @property
-    msg_move = '';
-
-    offset_euler = -45;
-
-    _center:Vec3 = v3(0, 0, 0);
 
     _pos:Vec3 = v3(0, 0, 0);
-
     _movePos:Vec3 = v3(0, 0, 0);
 
     _tempMove:Vec3 = v3(0, 0, 0);
@@ -72,43 +52,48 @@ export class JoystickMove extends Component {
     _moveNode:Node | undefined;
     _bgNode:Node | undefined;
 
-    _value = 0;
-
-    _start = false;
-
-    _t = 0;
-
     _input:InputJoystick | undefined;
+
+    ui_camera:Camera | undefined;
+
+    screenVec3 = v3(0, 0, 0);
+    screenCenter = v3(0, 0, 0);
+    worldPosition = v3(0, 0, 0);
+
+    isStart = false;
+
+    @property(Node)
+    nodeTestCenter:Node | undefined;
 
     start() {
 
         //bind input joystick
         this._input = this.node.parent!.getComponent(InputJoystick)!;
 
-        this._moveNode = this.node.children[1];
+        //Get the joystick node.
         this._bgNode = this.node.children[0];
-        
-        Vec3.copy(this._center, this._moveNode.worldPosition);
-        Vec3.copy(this._movePos, this._center);
-        Vec3.copy(this._pos, this._center);
-        Vec3.copy(this._tempMove, this._center);
+        this._moveNode = this._bgNode.children[0];
 
+        // Register for touch events.
         this.node.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
         this.node.on(Input.EventType.TOUCH_CANCEL, this.onTouchCancel, this);
 
-        var bgHalfSize = this._bgNode.getComponent(UITransform)!.contentSize.width/2;
-        let uiTransform = this.node.getComponent(UITransform)!;
-        this.range.x = bgHalfSize;
-        this.range.y = bgHalfSize;
-        this.range.width = uiTransform.contentSize.width - bgHalfSize;
-        this.range.height = uiTransform.contentSize.height - bgHalfSize;
+        //Get the ui camera.
+        this.ui_camera = UI.Instance.camera;
 
-        this.offset_euler *= Math.PI / 180;
+        fun.delay(()=>{
+            // Init default position.
+            UtilVec3.copy(this._pos, this.node.worldPosition);
+        }, 1)
+        
 
     }
 
+    /**
+     * Unregister when the node is destroyed.
+     */
     onDestroy() {
         this.node.off(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.node.off(Input.EventType.TOUCH_START, this.onTouchStart, this);
@@ -118,27 +103,14 @@ export class JoystickMove extends Component {
 
     onTouchStart(event: EventTouch) {
 
-        this._start = true;
-    
-        //this._center.x = event.getLocationX() + this.centerOffset.x;
-        //this._center.y = event.getLocationY() + this.centerOffset.y;
+        this.isStart = true;
 
-        /*
-        if (this._center.x < this.range.x) this._center.x = this.range.x;
-        if (this._center.x > (this.range.x + this.range.width)) this._center.x = this.range.x + this.range.width;
-        if (this._center.y < this.range.y) this._center.y = this.range.y;
-        if (this._center.y > this.range.y + this.range.height) this._center.y = this.range.y + this.range.height;
-        */
-        
+        // Get the center screen coordinates.
+        this.ui_camera?.worldToScreen(this.node.worldPosition, this.screenCenter);
 
-        Vec3.copy(this._pos, this._center);
-        Vec3.copy(this._movePos, this._center);
-        
-        this._bgNode!.setWorldPosition(this._center.x, this._center.y, 0);
-        this._moveNode!.setWorldPosition(this._center.x, this._center.y, 0);
+        this.calculateMoveDirection(event);
 
         if (this.autoHidden) this.node.emit('autoHidden', false);
-
     }
 
     /**
@@ -146,100 +118,97 @@ export class JoystickMove extends Component {
      * @param event 
      */
     onTouchMove(event: EventTouch) {
+        this.calculateMoveDirection(event);
+    }
 
-        this._bgNode?.setWorldPosition(this._center);
+    /**
+     * On touch end event.
+     * @param event 
+     */
+    onTouchEnd(event: EventTouch) {
+        this.cancelTouch();
+    }
 
-        this._tempMove.x = event.getLocationX() + this.centerOffset.x;
-        this._tempMove.y = event.getLocationY() + this.centerOffset.y;
-        this._tempMove.z = 0;
+    /**
+     * On touch cancel event.
+     * @param event 
+     */
+    onTouchCancel(event: EventTouch) {
+        this.cancelTouch();
+    }
 
-        this._tempMove.subtract(this._center);
+    /**
+     * Calculate the direction of movement of the character.
+     * @param event 
+     */
+    calculateMoveDirection(event: EventTouch) {
+
+        this.isStart = false;
+
+        // Get screen coordinates.
+        this._pos.x = event.getLocationX();
+        this._pos.y = event.getLocationY();
+
+        this.screenVec3.x = this._pos.x;
+        this.screenVec3.y = this._pos.y;
+
+        this.ui_camera?.screenToWorld(this.screenVec3, this._pos);
+
+        //UtilVec3.copy(this._)
+
+        // Get the movement difference of the touch on the screen.
+        this._pos.subtract(this.node.worldPosition);
+
+        // Get move length.
+        this._pos.z = 0;
+        const len = this._pos.length();
         
-        this._tempMove.z = 0;
-        var len = this._tempMove.length();
-
+        console.log('len:', len);
+        // Override position beyond move radius.
         if (len > this.radius) {
-            this._tempMove.normalize().multiplyScalar(this.radius).add(this._center);
-            this._tempMove.z = 0;
-            this._pos.x = this._tempMove.x;
-            this._pos.y = this._tempMove.y;
-            this._tempMove.subtract(this._center);
-        }else{
-            this._pos.x = event.getLocationX() + this.centerOffset.x;
-            this._pos.y = event.getLocationY() + this.centerOffset.y;
+            this._pos.normalize().multiplyScalar(this.radius);
         }
 
+        // Judging the magnitude of remote sensing to determine whether to run.
+        const isRun = len > this.runRadius;
+
+        UtilVec3.copy(this._tempMove, this._pos);
+
+        //Assign the Y direction of the screen to the Z direction of the movement.
         this._tempMove.z = this._tempMove.y;
         this._tempMove.y = 0;
-
-        // 
-        this._tempMove.multiplyScalar(1/this.radius);
 
         // Inverts the left and right direction of the telemetry.
         this._tempMove.x = -this._tempMove.x;
 
-        // Judging the magnitude of remote sensing to determine whether to run.
-        const isRun = this.radius > this.runRadius;
-
         // Set the character's running state.
         this._input?.onSetRun(isRun);
-
-        //Vec3.rotateY(this._tempMove, this._tempMove, Vec3.ZERO, this.offset_euler);
 
         // Call the character input interface to perform the movement operation.
         this._input?.onMove(this._tempMove.normalize());
 
-    }
-
-    onTouchEnd(event: EventTouch) {
-
-        this._start = false;
-
-        this._pos.x = this._center.x;
-        this._pos.y = this._center.y;
-
-        this._t = 0;
-
-        this._input?.onMove(Vec3.ZERO);
-
-        if (this.autoHidden) this.node.emit('autoHidden', true);
-
-    }
-
-    onTouchCancel(event: EventTouch) {
-
-        this._start = false;
-
-        this._pos.x = this._center.x;
-        this._pos.y = this._center.y;
-
-        this._t = 0;
-
-        this._input?.onMove(Vec3.ZERO);
-
-        if (this.autoHidden) this.node.emit('autoHidden', true);
-
-    }
-
-    update(deltaTime: number) {
-
-        if (this._start) {
-            Vec3.lerp(this._movePos, this._pos, this._movePos, deltaTime * this.smooth);
-            this._moveNode!.setWorldPosition(this._movePos.x, this._movePos.y, 0);
-        }else{
-            this._t += deltaTime;
-            var x = this.math_Damping(this._movePos.x - this._pos.x, this._t * this.damping_smooth);
-            var y = this.math_Damping(this._movePos.y - this._pos.y, this._t * this.damping_smooth);
-            this._moveNode!.setWorldPosition(x + this._pos.x, y + this._pos.y, 0);
-        }
-        
+        this._pos.add(this.node.worldPosition);
     }
 
     /**
-     * y = scale * e^(-t) * cos(a * pi * t)
+     * The touch event is canceled.
      */
-    math_Damping(scale: number, t:number):number {
-        return scale * Math.exp(-t * this.damping_e_a) * Math.cos(this.damping_a * Math.PI * t);
+    cancelTouch() {
+        // Reset the touch point to the center.
+        UtilVec3.copy(this._pos, this.node.worldPosition);
+        this._input?.onMove(Vec3.ZERO);
+        if (this.autoHidden) this.node.emit('autoHidden', true);
+    }
+
+    /**
+     * Each frame smoothly updates the remote sensing position.
+     * @param deltaTime 
+     */
+    update(deltaTime: number) {
+
+        Vec3.lerp(this._movePos, this._movePos, this._pos, deltaTime * this.smooth);
+        this._moveNode!.setWorldPosition(this._movePos.x, this._movePos.y, 0);
+        
     }
 }
 

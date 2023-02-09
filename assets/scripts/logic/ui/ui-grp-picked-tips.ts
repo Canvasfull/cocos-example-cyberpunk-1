@@ -16,7 +16,7 @@
 //     constructor (node:Node) {
 //         super(node);
 //         // Init deep default 10.
-//         const count = Game.Instance._data.count_picked_info;
+//         const count = DataGameInst._data.count_picked_info;
 
 //         this.list = new Array<GrpPickedTipsItem>(count);
 

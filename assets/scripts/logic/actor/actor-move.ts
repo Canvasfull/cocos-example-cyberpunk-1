@@ -61,6 +61,9 @@ export class ActorMove extends Component {
         this.rigid = this.getComponent(RigidBody)!;
         this.sensorSlop = this.getComponent(SensorSlope)!;
         this.sensorGround = this.getComponent(SensorGround)!;
+
+        this.node.setRotationFromEuler(0, 180, 0);
+        this.onRotation(180, 0);
     }
 
     lateUpdate(deltaTime: number) {
@@ -101,9 +104,7 @@ export class ActorMove extends Component {
         if (this.angle > 0.001) {
             UtilVec3.copy(tempRotationSideVector, this.currentDirection);
             const side = Math.sign(-tempRotationSideVector.cross(this.node.forward).y);
-            //var angleVel = new Vec3(0, side * angleAbs * 5, 0);
-            //this.rigid?.setAngularVelocity(angleVel);
-            const angle = side * this.angle * 10 + this.node.eulerAngles.y;
+            const angle = side * this.angle * 20 + this.node.eulerAngles.y;
             this.node.setRotationFromEuler(0, angle, 0);
         }
     }

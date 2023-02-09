@@ -1,4 +1,4 @@
-import { sys } from "cc";
+import { sys, native } from "cc";
 
 export class IO {
     
@@ -17,13 +17,10 @@ export class IO {
 
     public static write (path: string, data: string): void {
         try { 
-            console.log('is native:', sys.isNative);
             if (sys.isNative) {
-                jsb.fileUtils.writeStringToFile(data, path);
+                native.fileUtils.writeStringToFile(data, path);
             }else{
-                console.log('set item start', path, data);
                 sys.localStorage.setItem(path, data);
-                console.log('set item end:');
             }
         } catch (error) {
             console.error('can not write:', error);
@@ -34,9 +31,8 @@ export class IO {
     public static read (path: string): string {
         try {
             if (sys.isNative) {
-                return jsb.fileUtils.getStringFromFile(path);
+                return native.fileUtils.getStringFromFile(path);
             }else{
-                console.log('get items:', path);
                 return sys.localStorage.getItem(path);
             }
             

@@ -10,6 +10,7 @@
     "prefab_enemy":"enemy-tps",
     "prefab_drop_item":"drop_item",
     "enemies":["enemy_0", "enemy_1", "enemy_2", "boss_0"],
+    "fx_dead":"fx_dead_white",
     "score_level":[
         { "score":"a+", "level_score": 24000 },
         { "score":"a", "level_score": 21000 },
@@ -30,7 +31,7 @@
         "medkit"
     ],
     "probability_drop_enemy":{
-        "interval":[1, 5],
+        "interval":[7, 20],
         "interval_weight_max":1,
         "life_time":[30, 40],
         "max": 10,
@@ -40,9 +41,9 @@
         "weights_group":[ 0, 1, 2, 3]
     },
     "probability_drop_items":{
-        "interval":[3, 20],
+        "interval":[5, 30],
         "life_time":[30, 40],
-        "drop_max": 10,
+        "drop_max": 4,
         "init_count":[7, 10],
         "weights":[
             0.05, 0.1, 
@@ -71,7 +72,7 @@
     },
     "cards":["life", "attack", "defense", "special"],
     "probability_drop_card":{
-        "interval":[1000, 3000],
+        "interval":[10000, 30000],
         "count":[1, 1, 1, 1],
         "weights":[0.91, 0.94, 0.97, 1],
         "weights_max":[-1, -1, -1, -1],
