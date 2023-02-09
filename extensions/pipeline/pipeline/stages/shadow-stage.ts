@@ -1,5 +1,5 @@
 import { BaseStage, } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, pipeline } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, pipeline, CCString } from "cc";
 import { CameraInfo, getCameraUniqueID, getLoadOpOfClearFlag, getRenderArea, validPunctualLightsCulling } from "../utils/utils";
 import { EDITOR } from "cc/env";
 import { settings } from "./setting";
@@ -16,7 +16,7 @@ const { ccclass, property } = _decorator
 export class CustomShadowStage extends BaseStage {
     _materialName = 'blit-screen';
 
-    @property
+    @property({ override: true })
     name = 'CustomShadowStage'
 
     @property

@@ -14,10 +14,10 @@ export class ForwardPostStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     // uniqueStage = true;
 
-    @property
+    @property({ override: true })
     name = 'ForwardPostStage'
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['ForwardPostColor']
 
     public render (camera: renderer.scene.Camera, ppl: rendering.Pipeline): void {

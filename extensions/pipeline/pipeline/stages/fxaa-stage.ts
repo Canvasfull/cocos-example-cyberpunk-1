@@ -21,10 +21,10 @@ export class FxaaStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     uniqueStage = true;
 
-    @property
+    @property({ override: true })
     name = 'FxaaStage'
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['FxaaStageColor']
 
     checkEnable () {

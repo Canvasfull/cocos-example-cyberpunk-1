@@ -16,10 +16,10 @@ export class DeferredPostStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     // uniqueStage = true;
 
-    @property
+    @property({ override: true })
     name = 'DeferredPostStage'
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['DeferredPostColor', 'DeferredPostDS']
 
     params1 = new Vec4

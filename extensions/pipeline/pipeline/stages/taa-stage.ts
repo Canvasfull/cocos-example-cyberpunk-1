@@ -1,4 +1,4 @@
-import { Camera, game, gfx, Mat4, Material, renderer, rendering, Vec2, Vec4, _decorator } from "cc";
+import { Camera, CCString, game, gfx, Mat4, Material, renderer, rendering, Vec2, Vec4, _decorator } from "cc";
 import { EDITOR } from "cc/env";
 import { CameraSetting } from "../camera-setting";
 import { TAASetting } from "../components/taa";
@@ -20,7 +20,7 @@ export class TAAStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     prevMatViewProj = new Mat4;
 
-    @property
+    @property({ override: true })
     name = 'TAAStage'
 
     checkEnable (): boolean {

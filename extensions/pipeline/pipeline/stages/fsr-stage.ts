@@ -16,13 +16,13 @@ export class FSRStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     uniqueStage = true;
 
-    @property
+    @property({ override: true })
     name = 'FSRStage'
 
     @property
     sharpness = 0.2
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['FSRColor']
 
     checkEnable () {
