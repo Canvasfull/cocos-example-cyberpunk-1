@@ -199,7 +199,8 @@ export default class IKSolverAim extends IKSolverHeuristic {
     			} else {
     				MathUtil.quatLerp(_tempQuat, Quat.IDENTITY, _tempQuat, weight);
     				Quat.multiply(_tempQuat, _tempQuat, bone.node!.getWorldRotation());
-                   bone.node!.setWorldRotation(_tempQuat);
+					Quat.normalize(_tempQuat, _tempQuat);
+                   	bone.node!.setWorldRotation(_tempQuat);
     			}
     		}
 
