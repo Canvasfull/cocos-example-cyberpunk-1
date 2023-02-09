@@ -100,15 +100,15 @@ export class TAAStage extends BaseStage {
 
         let slot0 = this.slotName(camera, 0);
 
-        let depthTex = 'gBufferDS'
+        let posTex = 'gBufferPosition'
         if (settings.gbufferStage) {
-            depthTex = settings.gbufferStage.slotName(camera, 4);
+            posTex = settings.gbufferStage.slotName(camera, 3);
         }
 
         passUtils.addRasterPass(width, height, 'DeferredTAA' + (taa.taaTextureIndex < 0 ? -1 : (taa.taaTextureIndex % 2)), `CameraTAAPass${cameraID}`)
             .setViewport(area.x, area.y, width, height)
             .setPassInput(input0, 'inputTexture')
-            .setPassInput(depthTex, 'depthBuffer')
+            .setPassInput(posTex, 'posTex')
             .setPassInput(historyTexture, 'taaPrevTexture')
             .addRasterView(slot0, gfx.Format.RGBA16F, true, rendering.ResourceResidency.PERSISTENT)
             .blitScreen(0)
