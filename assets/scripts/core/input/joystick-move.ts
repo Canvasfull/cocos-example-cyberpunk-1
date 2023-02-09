@@ -65,6 +65,8 @@ export class JoystickMove extends Component {
     @property(Node)
     nodeTestCenter:Node | undefined;
 
+    touchID:number | null = -1;
+
     start() {
 
         //bind input joystick
@@ -88,7 +90,6 @@ export class JoystickMove extends Component {
             UtilVec3.copy(this._pos, this.node.worldPosition);
         }, 1)
         
-
     }
 
     /**
@@ -102,6 +103,13 @@ export class JoystickMove extends Component {
     }
 
     onTouchStart(event: EventTouch) {
+
+        if(this.touchID != -1) return;
+
+        const currentTouchID = event.getID();
+        if(currentTouchID == null) return;
+
+        this.touchID = currentTouchID;
 
         this.isStart = true;
 
@@ -118,6 +126,9 @@ export class JoystickMove extends Component {
      * @param event 
      */
     onTouchMove(event: EventTouch) {
+
+        if(this.touchID != event.getID()) return;
+
         this.calculateMoveDirection(event);
     }
 
@@ -126,7 +137,7 @@ export class JoystickMove extends Component {
      * @param event 
      */
     onTouchEnd(event: EventTouch) {
-        this.cancelTouch();
+        this.cancelTouch(event);
     }
 
     /**
@@ -134,7 +145,7 @@ export class JoystickMove extends Component {
      * @param event 
      */
     onTouchCancel(event: EventTouch) {
-        this.cancelTouch();
+        this.cancelTouch(event);
     }
 
     /**
@@ -154,8 +165,6 @@ export class JoystickMove extends Component {
 
         this.ui_camera?.screenToWorld(this.screenVec3, this._pos);
 
-        //UtilVec3.copy(this._)
-
         // Get the movement difference of the touch on the screen.
         this._pos.subtract(this.node.worldPosition);
 
@@ -163,7 +172,6 @@ export class JoystickMove extends Component {
         this._pos.z = 0;
         const len = this._pos.length();
         
-        console.log('len:', len);
         // Override position beyond move radius.
         if (len > this.radius) {
             this._pos.normalize().multiplyScalar(this.radius);
@@ -193,11 +201,16 @@ export class JoystickMove extends Component {
     /**
      * The touch event is canceled.
      */
-    cancelTouch() {
+    cancelTouch(event: EventTouch) {
+
+        if(this.touchID != event.getID()) return;
+
         // Reset the touch point to the center.
         UtilVec3.copy(this._pos, this.node.worldPosition);
         this._input?.onMove(Vec3.ZERO);
         if (this.autoHidden) this.node.emit('autoHidden', true);
+
+        this.touchID = -1;
     }
 
     /**

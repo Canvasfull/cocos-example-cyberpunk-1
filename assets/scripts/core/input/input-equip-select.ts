@@ -33,10 +33,12 @@ export class InputEquipSelect extends Component {
     center:Vec2 = v2(0, 0);
 
     current:Vec2 = v2(0, 0);
+
+    time_wait = 0.3;
     
     start() {
         this.node.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
-        input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
+        //input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
         this.node.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
     }
 
@@ -60,13 +62,6 @@ export class InputEquipSelect extends Component {
         this.current.subtract(this.center);
 
         Msg.emit('msg_select_equip', this.current.normalize());
-    }
-
-    
-    onKeyUp(event: EventKeyboard) {
-
-        if (event.keyCode === KeyCode.KEY_Q) Msg.emit('back');
-
     }
 
 }

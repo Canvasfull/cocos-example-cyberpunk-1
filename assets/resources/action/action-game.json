@@ -53,7 +53,7 @@
         "end": [
             { "time": 0, "name": "off_ui", "data": "ui_upgrade" },
             { "time": 0.1, "name": "on_sfx", "data": "sfx_select_card"},
-            { "time": 1.5, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
+            { "time": 0.5, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
         ]
     },
     "select_equips": {
@@ -64,14 +64,15 @@
         ],
         "end": [
             { "time": 0, "name": "off_ui", "data": "ui_select_equips" },
-            { "time": 0.5, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": true} },
-            { "time": 0.1, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
+            { "time": 0.1, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": true} },
+            { "time": 0.2, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } }
         ]
     },
     "level_end":{
         "start":[
             { "time": 0, "name": "on_msg_str", "data": { "key":"level_do", "value":"gameOver" } },
             { "time": 0.3, "name": "on_ui", "data": "ui_level_end" },
+            { "time": 0.3, "name": "on_msg", "data":"msg_exit_pointer" },
             { "time": 0.4, "name": "on_msg", "data": "msg_save_archive"},
             { "time": 2, "name": "on_sfx", "data": "sfx_show_score_rate"},
             { "time": 3, "name": "on_bgm", "data": "bgm_level_over"}
@@ -90,8 +91,8 @@
         ],
         "end":[
             { "time": 0, "name": "off_ui", "data": "ui_settings" },
-            { "time": 0.01, "name": "on_sfx", "data": "sfx_panel_close"},
-            { "time": 1, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } },
+            { "time": 0.1, "name": "on_sfx", "data": "sfx_panel_close"},
+            { "time": 0.2, "name": "on_msg_str", "data": { "key":"level_do", "value":"resume" } },
             { "time": 0.3, "name": "on_msg_str", "data": { "key":"msg_set_input_active", "value": true} }
         ]
     },

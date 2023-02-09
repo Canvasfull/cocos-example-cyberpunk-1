@@ -76,19 +76,7 @@ export class ActorInputBrain extends Component implements IActorInput {
         this._actor?.onDrop();
     }
 
-    onPause() {
-
-        this._isPause = !this._isPause;
-
-        if (this._isPause) {
-            console.log('push level pause');
-            Msg.emit('push', 'level_pause');
-        }else{
-            Msg.emit('back');
-            console.log('back level pause.')
-        }
-
-    }
+    onPause() {}
     
 
 }
