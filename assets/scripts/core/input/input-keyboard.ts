@@ -46,6 +46,8 @@ export class InputKeyboard extends InputBase {
     direction_down = 0;
     direction_left = 0;
     direction_right = 0;
+    
+    _isPause = false;
 
     start () { 
 
@@ -58,6 +60,7 @@ export class InputKeyboard extends InputBase {
         input.on(Input.EventType.MOUSE_MOVE, this.onMouseMove, this);
 
         document.addEventListener('pointerlockchange', this.onPointerChange, false);
+
     }
 
     onPointerChange() {
@@ -112,14 +115,6 @@ export class InputKeyboard extends InputBase {
         if (!this.hasKey(event)) return;
 
         this.key_count++;
-
-        /*
-        if (event.keyCode === KeyCode.KEY_Q) {
-            Msg.emit('push', "select_equips");
-            //this._pressQ = true;
-            return;
-        }
-        */
         
         if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP) this.direction_up = 1;
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN) this.direction_down = -1; 
@@ -128,7 +123,6 @@ export class InputKeyboard extends InputBase {
 
 
         if(event.keyCode === KeyCode.KEY_Q) { 
-            
             this._actorInput?.onChangeEquips();
             document.exitPointerLock();
         
@@ -143,8 +137,6 @@ export class InputKeyboard extends InputBase {
         if (event.keyCode === KeyCode.SHIFT_LEFT) this._actorInput?.onRun(true);
 
         if(event.keyCode === KeyCode.KEY_T) Msg.emit('msg_change_tps_camera_target', 2);
-
-
 
     }
 
@@ -165,14 +157,6 @@ export class InputKeyboard extends InputBase {
 
         this.key_count--;
 
-        /*
-        if (event.keyCode === KeyCode.KEY_Q) {
-            this._pressQ = false;
-            Msg.emit('back');
-            return;
-        }
-        */
-
         if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.ARROW_UP)  this.direction_up = 0;
         if (event.keyCode === KeyCode.KEY_S || event.keyCode === KeyCode.ARROW_DOWN)  this.direction_down = 0; 
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.ARROW_LEFT) this.direction_left = 0;
@@ -191,19 +175,6 @@ export class InputKeyboard extends InputBase {
             this.clear();
             return;
         }
-
-        /*
-        if (!_pointerLock) {
-            try {
-                if(game.canvas?.requestPointerLock) {
-                    game.canvas?.requestPointerLock();
-                }
-            }catch (error) {
-                console.warn(error);
-            }            
-            return;
-        }
-        */
        
         if (event.getButton() === 0) {
             this._actorInput?.onFire();
@@ -217,14 +188,6 @@ export class InputKeyboard extends InputBase {
             this.clear();
             return;
         }
-
-        //if (document.pointerLockElement === null && sys.isBrowser) return;
-        /*
-        if (this._pressQ) {
-            Msg.emit('msg_select_equip', event.getDelta());
-            return;
-        }
-        */
 
         const x = event.movementX;
         const y = event.movementY;

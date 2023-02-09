@@ -28,6 +28,7 @@
     "events":[
         { "name": "btn_start", "event": "next" },
         { "name": "btn_start_level", "event": "push", "data": "level" },
+        { "name": "btn_replay", "event": "push", "data": "level" },
         { "name": "btn_home", "event": "push", "data": "menu" },
         { "name": "btn_close", "event": "back" },
         { "name": "btn_settings", "event": "", "data": "settings"},

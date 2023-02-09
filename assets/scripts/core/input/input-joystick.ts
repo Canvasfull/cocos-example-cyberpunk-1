@@ -18,7 +18,8 @@ export class InputJoystick extends InputBase {
     }
 
     onChangeEquips() {
-        this._isChangeEquips = this._actorInput?.onChangeEquips();
+        //this._isChangeEquips = this._actorInput?.onChangeEquips();
+        Msg.emit('push', 'select_equips');
     }
 
     onMove(dir:Vec3) {

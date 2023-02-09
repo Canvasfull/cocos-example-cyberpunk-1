@@ -42,10 +42,17 @@ export class ActorInput extends Component implements IActorInput {
     start () {        
         Msg.on('msg_set_input_active', this.setActive.bind(this));
         ActorInput.inst = this;
+
+        Msg.on('msg_exit_pointer',this.exitPointer.bind(this));
+    }
+
+    exitPointer() {
+        document.exitPointerLock();
     }
     
     onDestroy() {
         Msg.off('msg_set_input_active', this.setActive.bind(this));
+        Msg.off('msg_exit_pointer', this.exitPointer.bind(this));
 
         if(sys.platform === sys.Platform.MOBILE_BROWSER || 
             sys.platform === sys.Platform.ANDROID || 
@@ -131,25 +138,13 @@ export class ActorInput extends Component implements IActorInput {
     onPause() {
 
         this._isPause = !this._isPause;
-
-        if (this._isPause) {
-            console.log('push level pause');
-            Msg.emit('push', 'level_pause');
-        }else{
-            Msg.emit('back');
-            console.log('back level pause.')
-        }
+        Msg.emit('push', 'level_pause');
 
     }
 
     onChangeEquips() {
-        this._isOpenEquips = !this._isOpenEquips;
-        if(this._isOpenEquips)
-            Msg.emit('push', 'select_equips');
-        else
-            Msg.emit('back');
-
-        return this._isOpenEquips;
+        Msg.emit('push', 'select_equips');
+        return true;
     }
     
 
