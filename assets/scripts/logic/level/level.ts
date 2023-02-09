@@ -169,8 +169,6 @@ export class Level extends Singleton {
      */
     public addEnemy(res:string, groupID:number) {
 
-        return;
-
         // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
 

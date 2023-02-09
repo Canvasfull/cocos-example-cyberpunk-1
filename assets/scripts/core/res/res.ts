@@ -1,6 +1,5 @@
 import { _decorator, resources, Node, Asset, error, Constructor, Prefab, instantiate, TextAsset, JsonAsset, Texture2D, EffectAsset, AudioClip, AnimationClip, ImageAsset, SpriteFrame, SpriteAtlas, Mesh, Material, Skeleton, SceneAsset, Vec3, director } from 'cc';
 import { Msg } from '../msg/msg';
-import { ResCache } from './res-cache';
 
 export class Res {
 
@@ -9,7 +8,6 @@ export class Res {
     public static load<T extends Asset>(path: string, type: Constructor<T> | null, cb?: (err: Error | null, asset?: T | null)=>void) {
         this.count++;
         resources.load(path, type, function(err, res){
-            Res.count--;
             if (err){
                 error(path,err.message || err);
                 Msg.emit('msg_res_error');
@@ -17,7 +15,8 @@ export class Res {
             if (cb) {
                 cb(err, res);
             }
-            ResCache.Instance.checkEnd();
+            Res.count--;
+            Msg.emit('msg_check_res_cache_end');
         });
     }
 
@@ -113,8 +112,7 @@ export class Res {
                 cb(err, res);
             }
             Res.count--;
-            //Msg.emit('msg_check_res_cache_end');
-            ResCache.Instance.checkEnd();
+            Msg.emit('msg_check_res_cache_end');
         });
     }
 

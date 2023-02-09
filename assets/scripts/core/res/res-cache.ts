@@ -22,7 +22,7 @@ export class ResCache extends Singleton {
 
         this._callback = callback;
 
-        //Msg.on('msg_check_res_cache_end', this.checkEnd.bind(this));
+        Msg.on('msg_check_res_cache_end', this.checkEnd.bind(this));
 
         Res.loadJson('data/data-res-cache', (err, asset) => {
             if (err) {
@@ -40,6 +40,7 @@ export class ResCache extends Singleton {
             ResCache.Instance.loadPrefab(asset.json['prefab']);
             ResCache.Instance.loadSprite(asset.json['sprite']);
             ResCache.Instance.loadSound(asset.json['sound']);
+            
             Msg.emit('msg_loading',this.msg);
         });
     }
@@ -189,6 +190,7 @@ export class ResCache extends Singleton {
 
     public checkEnd (): void {
         if (this._callback) {
+            console.log(Res.count);
             if (Res.count <= 0) {
                 this._callback();
                 this._callback = undefined;
