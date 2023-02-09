@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Animation, systemEvent, SystemEvent, Quat, Vec3 } from 'cc';
+import { _decorator, Component, Node, Animation, Quat, Vec3, input, Input } from 'cc';
 import OrbitCamera from '../../extensions/pipeline/pipeline/utils/orbit-camera';
 const { ccclass, property } = _decorator;
 
@@ -7,20 +7,20 @@ let tempQuat = new Quat
 @ccclass('animation_to_oribit')
 export class animation_to_oribit extends Component {
     @property(Animation)
-    ani: Animation
+    ani: Animation | undefined
     @property(OrbitCamera)
-    orbit: OrbitCamera
+    orbit: OrbitCamera | undefined
 
     start () {
         // this.ani = this.getComponent(Animation)
         // this.orbit = this.getComponent(OrbitCamera)
 
-        systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart, this)
-        systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onTouchEnd, this)
+        input.on(Input.EventType.TOUCH_START, this.onTouchStart, this)
+        input.on(Input.EventType.TOUCH_END, this.onTouchEnd, this)
     }
 
     touched = false;
-    timeoutID;
+    timeoutID = undefined;
     onTouchStart () {
         if (!this.orbit || !this.ani) {
             return;

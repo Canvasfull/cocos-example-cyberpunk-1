@@ -1,4 +1,4 @@
-import { Component, _decorator, systemEvent, SystemEvent, SystemEventType, Vec3, EventTouch, Touch, Quat, Vec2, Node, EventMouse, lerp } from 'cc'
+import { Component, _decorator, Vec3, EventTouch, Touch, Quat, Vec2, Node, EventMouse, lerp, input, Input } from 'cc'
 import { EDITOR } from 'cc/env';
 const { ccclass, property, type } = _decorator;
 
@@ -42,9 +42,9 @@ export default class OrbitCamera extends Component {
 
     start () {
         if (this.enableTouch) {
-            systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart, this)
-            systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onTouchMove, this)
-            systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onTouchEnd, this)
+            input.on(Input.EventType.TOUCH_START, this.onTouchStart, this)
+            input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this)
+            input.on(Input.EventType.TOUCH_END, this.onTouchEnd, this)
         }
 
         this._targetRotation.set(this.node.eulerAngles);
@@ -58,7 +58,7 @@ export default class OrbitCamera extends Component {
         this._rotation.set(this.node.rotation);
         this._touched = true;
     }
-    onTouchMove (touch: Touch, event?: EventTouch) {
+    onTouchMove (touch: EventTouch) {
         // if (!this._touched) return;
         let delta = touch.getDelta()
 
