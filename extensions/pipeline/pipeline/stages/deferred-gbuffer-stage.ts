@@ -13,7 +13,7 @@ export class DeferredGBufferStage extends BaseStage {
     _name = 'DeferredGBufferStage'
     _materialName = 'blit-screen';
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['gBufferColor', 'gBufferNormal', 'gBufferEmissive', 'gBufferPosition', 'gBufferDS']
 
     uniqueStage = true;
@@ -107,5 +107,35 @@ export class DeferredGBufferStage extends BaseStage {
             settings.passPathName += pass.name;
             pass.setVersion(settings.passPathName, 0);
         }
+
+        // passUtils.clearColor.w = 1;
+        // if (camera.clearFlag & ClearFlagBit.COLOR) {
+        //     if (ppl.pipelineSceneData.isHDR) {
+        //         SRGBToLinear(passUtils.clearColor, camera.clearColor);
+        //     } else {
+        //         passUtils.clearColor.x = camera.clearColor.x;
+        //         passUtils.clearColor.y = camera.clearColor.y;
+        //         passUtils.clearColor.z = camera.clearColor.z;
+        //     }
+        // }
+
+        // const colFormat = Format.RGBA16F;
+        // let posFormat = colFormat;
+        // if (!sys.isMobile) {
+        //     posFormat = Format.RGBA32F
+        // }
+
+        // passUtils.addRasterPass(width, height, 'default', `${slot0}_Pass`)
+        //     .setViewport(area.x, area.y, width, height)
+        //     .addRasterView(slot0, colFormat, true)
+        //     .addRasterView(slot1, colFormat, true)
+        //     .addRasterView(slot2, colFormat, true)
+        //     .addRasterView(slot3, posFormat, true)
+        //     .addRasterView(slot4, Format.DEPTH_STENCIL, true)
+        //     .version()
+
+        // passUtils.pass
+        //     .addQueue(QueueHint.RENDER_OPAQUE)
+        //     .addSceneOfCamera(camera, new LightInfo(), SceneFlags.OPAQUE_OBJECT | SceneFlags.CUTOUT_OBJECT | SceneFlags.DRAW_INSTANCING);
     }
 }

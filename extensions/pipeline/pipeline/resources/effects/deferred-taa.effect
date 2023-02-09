@@ -54,8 +54,8 @@ CCProgram fs %{
   };
   #pragma rate inputTexture pass
   uniform sampler2D inputTexture;
-  #pragma rate depthBuffer pass
-  uniform sampler2D depthBuffer;
+  #pragma rate posTex pass
+  uniform highp sampler2D posTex;
   #pragma rate taaPrevTexture pass
   uniform sampler2D taaPrevTexture;
 
@@ -66,28 +66,7 @@ CCProgram fs %{
     world = world / world.w;
     return world.xyz;
   }
-  
-  vec3 posWS2screen (vec3 posWS) {
-    vec4 res = cc_view_origin_view_proj * vec4(posWS, 1.);
-    res.xyz /= res.w;
-    res.xyz = res.xyz * 0.5 + 0.5;
-    return res.xyz;
-  }
 
-  float linearizeDepth(float depth) {
-    float z = depth * 2.0 - 1.0; 
-    float near = cc_nearFar.x;
-    float far = cc_nearFar.y;
-    return (2.0 * near * far) / (far + near - z * (far - near));    
-  }
-  
-  float getDepth (sampler2D depthBuffer, vec2 uv) {
-    return texture(depthBuffer, uv).r;
-    // return float16to32(texture(depthBuffer, uv).xy);
-  }
-  
-  
-  
   vec2 taaInputTexSize();
   vec2 taaPrevTexSize();
   
@@ -99,13 +78,13 @@ CCProgram fs %{
   }
   
   
-  vec2 getVelocity(sampler2D depthBuffer, vec2 unjittedUV, vec2 uv, out float depth) {
-    // vec3 worldPos = texture(gbuffer_position_map, unjittedUV).xyz;
+  vec2 getVelocity(vec2 unjittedUV, vec2 uv, out float depth) {
+    vec3 worldPos = texture(posTex, uv).xyz;
   
     // use unjitted depth for unjitter matrix 
-    depth = getDepth(depthBuffer, unjittedUV);
-    vec3 worldPos = screen2WS(vec3(uv, depth));
-  
+    // depth = texture(depthBuffer, unjittedUV).r;
+    // vec3 worldPos = screen2WS(vec3(uv, depth));
+
     if (abs(worldPos.x) < 0.0001 && abs(worldPos.y) < 0.0001) {
       return vec2(0.);
     }
@@ -193,14 +172,14 @@ CCProgram fs %{
   	return vec2(BlendA, BlendB);
   }
   
-  vec4 temporalAAPS (sampler2D taaPrevTexture, sampler2D inputTexture, sampler2D depthBuffer, vec2 uv) {
+  vec4 temporalAAPS (sampler2D taaPrevTexture, sampler2D inputTexture, vec2 uv) {
       vec2 unjittedUV = uv - taaParams1.xy / 2.;
       vec2 scaledUnjittedUV = unjittedUV;
       // vec2 scaledUnjittedUV = (uv - taaParams1.xy / 2.) * cc_view_pr_parameters.x;
       // scaledUnjittedUV = min(vec2(cc_view_pr_parameters.x - taaInputTexSize()*2.), scaledUnjittedUV);
   
       float depth = 0.;
-      vec2 velocity = vec2(0.);//getVelocity(depthBuffer, scaledUnjittedUV, uv, depth);
+      vec2 velocity = getVelocity(scaledUnjittedUV, uv, depth);
   
       vec4 prevColor = taaSampleTex(taaPrevTexture, uv + velocity);
   
@@ -256,7 +235,7 @@ CCProgram fs %{
   }
 
   void main () {
-    fragColor = temporalAAPS(taaPrevTexture, inputTexture, depthBuffer, v_uv);
+    fragColor = temporalAAPS(taaPrevTexture, inputTexture, v_uv);
     // fragColor = texture(taaPrevTexture, v_uv);
     // fragColor = texture(depthBuffer, v_uv);
     // fragColor = texture(inputTexture, v_uv);

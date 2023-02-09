@@ -27,7 +27,7 @@ export class GameQuality extends Singleton {
         this._default = this.index;
         this.cur = this._data.set[this.index];
         PhysicsSystem.instance.maxSubSteps = 10;
-        game.frameRate = this.cur.fps;
+        // game.frameRate = this.cur.fps;
 
         Msg.on('next_quality', () => {
             this.index++;

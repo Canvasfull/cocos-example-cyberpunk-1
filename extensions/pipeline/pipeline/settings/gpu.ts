@@ -1,8 +1,10 @@
-import { sys } from 'cc';
+import { director, game, sys } from 'cc';
 import { JSB, MINIGAME } from 'cc/env';
 import Event from '../utils/event';
 
-import detectGPU from '../lib/detect-gpu.umd.js'
+// import detectGPU from '../lib/detect-gpu.umd.js'
+
+import * as detectGPU from '../lib/detect-gpu'
 
 export enum RenderQulity {
     Low,
@@ -22,36 +24,6 @@ export let gpuTier = {
 export let gpuTierUpdated = new Event;
 
 let inited = false;
-
-detectGPU.getGPUTier({
-    mobileTiers: [0, 60, 150, 300],
-    desktopTiers: [0, 60, 150, 300]
-}).then((tier: any) => {
-    gpuTier = tier;
-
-    for (let name in tier) {
-        gpuTier[name] = tier[name];
-    }
-
-    // todo: support real jsb gpu check
-    if (JSB) {
-        if (sys.isMobile) {
-            gpuTier.tier = RenderQulity.Low
-        }
-        else {
-            gpuTier.tier = RenderQulity.High
-        }
-    }
-    else if (MINIGAME) {
-        gpuTier.tier = 1;
-    }
-    else if (sys.isMobile) {
-        gpuTier.tier -= 1;
-    }
-
-    inited = true;
-    gpuTierUpdated.invoke();
-});
 
 export async function waitForGpuInited () {
     if (inited) {
@@ -77,3 +49,41 @@ export function getTierName () {
 
 (window as any).getGPUTier = detectGPU.getGPUTier;
 (window as any).getTierName = getTierName;
+
+// game.on(Game.EVENT_ENGINE_INITED, () => {
+let renderer = '';
+if (director.root && director.root.device) {
+    renderer = director.root.device.renderer;
+}
+
+detectGPU.getGPUTier({
+    // benchmarksURL: 'https://preview.cocos.com/cyberpunk/',
+    mobileTiers: [0, 60],
+    desktopTiers: [0, 60, 150, 300],
+    override: {
+        renderer,
+        isMobile: sys.isMobile,
+        screenSize: {
+            width: game.canvas ? game.canvas.width : 1000,
+            height: game.canvas ? game.canvas.height : 1000,
+        }
+    }
+}).then((tier: any) => {
+    gpuTier = tier;
+
+    for (let name in tier) {
+        gpuTier[name] = tier[name];
+    }
+
+    if (MINIGAME) {
+        gpuTier.tier = 0;
+    }
+
+    console.log('gpu : ' + renderer)
+    console.log('gpuTier : ' + gpuTier.tier)
+
+    inited = true;
+    gpuTierUpdated.invoke();
+});
+
+// })

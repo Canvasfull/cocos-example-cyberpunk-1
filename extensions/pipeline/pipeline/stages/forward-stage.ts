@@ -14,9 +14,9 @@ const { ccclass, property } = _decorator
 export class ForwardStage extends BaseStage {
     _materialName = 'blit-screen';
 
-    @property
+    @property({ override: true })
     name = 'custom.ForwardStage'
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['ForwardColor', 'ForwardDepth']
 
     buildShadowPass (passName: Readonly<string>,

@@ -81,30 +81,9 @@ export class BaseStage {
     }
 
     renderProfiler (camera) {
-        if (HrefSetting.showFps && !settings.renderedProfiler && !EDITOR) {
-            if (JSB) {
-                passUtils.pass.showStatistics = true
-            }
-            else {
-                const cameraID = getCameraUniqueID(camera);
-                const area = this.getRenderArea(camera);
-                const width = area.width;
-                const height = area.height;
-                const shadingScale = this.finalShadingScale()
-
-                passUtils.clearFlag = gfx.ClearFlagBit.NONE;
-                passUtils.addRasterPass(width, height, 'default', `CameraProfiler${cameraID}`)
-                    .setViewport(area.x, area.y, width / shadingScale, height / shadingScale)
-                    .addRasterView(`CameraProfiler${cameraID}`, gfx.Format.RGBA8, false)
-
-                passUtils.pass
-                    .addQueue(rendering.QueueHint.RENDER_TRANSPARENT)
-                    .addSceneOfCamera(camera, new rendering.LightInfo(), rendering.SceneFlags.PROFILER);
-
-                passUtils.version();
-            }
-
-            settings.renderedProfiler = true;
+        if (HrefSetting.showFps && settings.renderProfiler && !EDITOR) {
+            passUtils.pass.showStatistics = true
+            settings.renderProfiler = false;
         }
     }
 

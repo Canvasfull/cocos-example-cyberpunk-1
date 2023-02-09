@@ -1,3 +1,4 @@
+import { game, sys } from 'cc';
 import { EDITOR, JSB } from 'cc/env';
 import { getTier, gpuTierUpdated, RenderQulity } from './gpu';
 
@@ -10,7 +11,6 @@ export const HrefSetting = {
     // rendering setting
     shadingScale: 1,
     zoomScreen: 0,
-    taa: 1,
     bloom: 1,
     showFps: 1,
     fps: 30,
@@ -19,6 +19,9 @@ export const HrefSetting = {
     ibl: 1,
     shadow: 0,
     fsr: 1,
+
+    taa: 1,
+    fxaa: 1
 }
 globalThis.HrefSetting = HrefSetting
 
@@ -60,7 +63,7 @@ const MediumSetting = {
 const HighSetting = {
     bloom: 1,
     shadingScale: 1,
-    fps: 30
+    fps: 60
 }
 
 gpuTierUpdated.once(() => {
@@ -81,9 +84,24 @@ gpuTierUpdated.once(() => {
         HrefSetting[name] = qualitySetting[name]
     }
 
-    if (JSB) {
-        // HrefSetting.transparent = 0
-        // HrefSetting.taa = 0
-        // HrefSetting.bloom = 0
+    if (game.canvas) {
+        if (sys.isMobile) {
+            HrefSetting.shadingScale = Math.min(1024 / game.canvas.width, 1)
+            // HrefSetting.shadingScale = 0.7
+            HrefSetting.bloom = 0
+            // HrefSetting.fps = 30
+            HrefSetting.fxaa = 0
+        }
+        HrefSetting.fps = 60
+
+        console.log(`canvas size ${game.canvas.width}, ${game.canvas.height}`)
+        console.log(`rendering size ${game.canvas.width * HrefSetting.shadingScale}, ${game.canvas.height * HrefSetting.shadingScale}`)
+    }
+
+    game.frameRate = HrefSetting.fps
+
+    if (sys.isMobile && !JSB) {
+        // todo: mobile particle rendering issue
+        HrefSetting.transparent = 0
     }
 })

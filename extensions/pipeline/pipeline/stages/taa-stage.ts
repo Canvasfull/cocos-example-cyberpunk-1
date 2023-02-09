@@ -1,4 +1,4 @@
-import { Camera, game, gfx, Mat4, Material, renderer, rendering, Vec2, Vec4, _decorator } from "cc";
+import { Camera, CCString, game, gfx, Mat4, Material, renderer, rendering, Vec2, Vec4, _decorator } from "cc";
 import { EDITOR } from "cc/env";
 import { CameraSetting } from "../camera-setting";
 import { TAASetting } from "../components/taa";
@@ -20,7 +20,7 @@ export class TAAStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     prevMatViewProj = new Mat4;
 
-    @property
+    @property({ override: true })
     name = 'TAAStage'
 
     checkEnable (): boolean {
@@ -82,7 +82,7 @@ export class TAAStage extends BaseStage {
         // );
 
         if (this.firstRender) {
-            this.prevMatViewProj = camera.matViewProj;
+            this.prevMatViewProj.set(camera.matViewProj);
             this.firstRender = false;
         }
         material.setProperty('taaParams1', tempVec4.set(taa.sampleOffset.x, taa.sampleOffset.y, taa.feedback, 0))
@@ -100,15 +100,15 @@ export class TAAStage extends BaseStage {
 
         let slot0 = this.slotName(camera, 0);
 
-        let depthTex = 'gBufferDS'
+        let posTex = 'gBufferPosition'
         if (settings.gbufferStage) {
-            depthTex = settings.gbufferStage.slotName(camera, 4);
+            posTex = settings.gbufferStage.slotName(camera, 3);
         }
 
         passUtils.addRasterPass(width, height, 'DeferredTAA' + (taa.taaTextureIndex < 0 ? -1 : (taa.taaTextureIndex % 2)), `CameraTAAPass${cameraID}`)
             .setViewport(area.x, area.y, width, height)
             .setPassInput(input0, 'inputTexture')
-            .setPassInput(depthTex, 'depthBuffer')
+            .setPassInput(posTex, 'posTex')
             .setPassInput(historyTexture, 'taaPrevTexture')
             .addRasterView(slot0, gfx.Format.RGBA16F, true, rendering.ResourceResidency.PERSISTENT)
             .blitScreen(0)

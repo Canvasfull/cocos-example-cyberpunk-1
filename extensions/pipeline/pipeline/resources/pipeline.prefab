@@ -93,10 +93,6 @@
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "c428e413-3d90-4e18-8963-4369d6fa0bbe",
-        "__expectedType__": "cc.Material"
-      },
-      {
         "__uuid__": "e63afada-d49d-4101-a9f4-eafb60de81ee",
         "__expectedType__": "cc.Material"
       },
@@ -106,6 +102,10 @@
       },
       {
         "__uuid__": "b6f87a56-c9e2-40cd-b3fb-e09f2e0e3f7b",
+        "__expectedType__": "cc.Material"
+      },
+      {
+        "__uuid__": "9fb33105-e39f-4916-abbe-291fd1c01eb6",
         "__expectedType__": "cc.Material"
       }
     ],

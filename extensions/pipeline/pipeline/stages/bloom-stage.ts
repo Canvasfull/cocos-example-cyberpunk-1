@@ -37,10 +37,10 @@ export class BloomStage extends BaseStage {
     _materialName = 'blit-screen';
     uniqueStage = true;
 
-    @property
+    @property({ override: true })
     name = 'BloomStage'
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['BloomPassCombineColor']
 
     checkEnable () {

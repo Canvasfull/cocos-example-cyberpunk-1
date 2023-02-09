@@ -1,5 +1,5 @@
 import { BaseStage, } from "./base-stage";
-import { _decorator, renderer, gfx, builtinResMgr, Input, rendering } from "cc";
+import { _decorator, renderer, gfx, builtinResMgr, Input, rendering, CCString } from "cc";
 import { getCameraUniqueID, getLoadOpOfClearFlag } from "../utils/utils";
 import { EDITOR } from "cc/env";
 
@@ -11,7 +11,7 @@ const { Format, LoadOp, StoreOp, ClearFlagBit, Color, Viewport } = gfx
 export class BlitStage extends BaseStage {
     _materialName = 'blit-screen';
 
-    @property
+    @property({ override: true })
     name = 'BlitStage'
 
     @property

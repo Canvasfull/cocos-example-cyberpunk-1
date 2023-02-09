@@ -21,10 +21,10 @@ export class ZoomScreenStage extends BaseStage {
     materialMap: Map<renderer.scene.Camera, Material> = new Map
     uniqueStage = true;
 
-    @property
+    @property({ override: true })
     name = 'ZoomScreenStage'
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['ZoomScreenColor']
 
     constructor () {

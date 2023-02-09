@@ -41,10 +41,10 @@ export class DeferredLightingStage extends BaseStage {
 
     probes: ReflectionProbe[] = []
 
-    @property
+    @property({ override: true })
     name = 'DeferredLightingStage'
 
-    @property({ override: true, type: CCString })
+    @property({ override: true })
     outputNames = ['DeferredLightingColor', 'gBufferDS']
 
     updateClusterUBO (setter: any, material: Material) {

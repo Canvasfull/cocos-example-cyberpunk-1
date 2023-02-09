@@ -146,10 +146,10 @@ export class Preload extends Component {
         })
 
 
-        if (profiler._stats) {
-            (profiler._stats as any).fps.counter._accumValue = 120
-        }
-        setDisplayStats(Save.Instance._cur && Save.Instance._cur.debugIndex)
+        // if (profiler._stats) {
+        //     (profiler._stats as any).fps.counter._accumValue = 120
+        // }
+        // setDisplayStats(Save.Instance._cur && Save.Instance._cur.debugIndex)
 
         if (this.initGame) {
             Msg.emit('preload-inited-game', this.startTime)
