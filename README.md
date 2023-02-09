@@ -1,4 +1,4 @@
-# Cyberpunk
+# Cyberpunk Demo by Cocos Creator
 
 This is a high quality demo in Cyberpunk art style demonstrating the most advanced features in Cocos Creator engine, the whole project is built with Cocos Creator.
 
@@ -16,6 +16,13 @@ This is a high quality demo in Cyberpunk art style demonstrating the most advanc
 
     Windows, macOS, iOS, Android
 
-3. Operation description
+3. Baseline devices
+
+    - Android: Huawei Hisilicon 980 (Huawei P30 Pro), Qualcomm Snapdragon 845 (Mi8)
+    - iOS: Apple A11 Bionic (iPhone8)
+    
+    Performance related preset can be modified in [href-setting.ts](./extensions/pipeline/pipeline/settings/href-setting.ts).
+
+4. Operation description
    
     Support both mobile touch screen and desktop keyboard and mouse. Please see detailed instruction in game
