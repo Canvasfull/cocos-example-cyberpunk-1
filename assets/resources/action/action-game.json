@@ -26,6 +26,7 @@
     },
     "menu": {
         "start": [ 
+            { "time": 0.2, "name": "on_bgm", "data": "bgm_logo"},
             { "time": 0, "name": "on_msg_str", "data": { "key":"msg_set_camera", "value": true } },
             { "time": 0, "name": "on_msg", "data": "msg_play_animation" },
             { "time": 0.6, "name": "on_ui", "data": "ui_menu" }
@@ -79,6 +80,7 @@
         ],
         "end":[
             { "time": 0.1, "name": "off_ui", "data": "ui_level_end" },
+            { "time": 0.2, "name": "off_bgm", "data": "bgm_level_over"},
             { "time": 0.2, "name": "on_msg", "data": "msg_destroy_res" }
         ]
     },
