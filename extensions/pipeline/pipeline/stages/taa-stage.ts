@@ -81,7 +81,8 @@ export class TAAStage extends BaseStage {
         //     )
         // );
 
-        if (this.firstRender) {
+        let firstRender = this.firstRender
+        if (firstRender) {
             this.prevMatViewProj.set(camera.matViewProj);
             this.firstRender = false;
         }
@@ -94,7 +95,7 @@ export class TAAStage extends BaseStage {
         let input0 = this.lastStage.slotName(camera, 0);
         let historyTexture = slotNames[taa.taaTextureIndex % 2];
 
-        if (taa.taaTextureIndex < 0) {
+        if (firstRender) {
             historyTexture = input0;
         }
 
