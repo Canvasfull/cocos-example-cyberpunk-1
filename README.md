@@ -30,7 +30,7 @@ This is a high quality demo in Cyberpunk art style demonstrating the most advanc
 
 ### Asset guide
 
-- Playable scene (main scene to build): assets/scenes-logic/scene-level-logic.scene
+- Playable scene (main scene to build): assets/scene-game-start.scene
 - Cyberpunk city: assets/scene
 - Gameplay prefabs: assets/resources/obj
 - Gameplay logic: assets/scripts
