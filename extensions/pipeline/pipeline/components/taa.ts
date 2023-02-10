@@ -100,11 +100,11 @@ export class TAASetting extends Component {
     sampleIndex = -1;
 
     onEnable () {
-        TAASetting.instance = this
+        globalThis.TAASetting.instance = this
     }
     onDisable () {
-        if (TAASetting.instance === this) {
-            TAASetting.instance = undefined;
+        if (globalThis.TAASetting.instance === this) {
+            globalThis.TAASetting.instance = undefined;
         }
     }
 

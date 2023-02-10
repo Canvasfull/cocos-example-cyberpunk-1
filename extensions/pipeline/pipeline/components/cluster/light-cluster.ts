@@ -14,11 +14,11 @@ export class LightWorldCluster extends WorldCluster<SphereLight | SpotLight> {
     static instance: LightWorldCluster | undefined;
 
     onEnable () {
-        LightWorldCluster.instance = this;
+        globalThis.LightWorldCluster.instance = this;
     }
     onDisable () {
-        if (LightWorldCluster.instance === this) {
-            LightWorldCluster.instance = undefined;
+        if (globalThis.LightWorldCluster.instance === this) {
+            globalThis.LightWorldCluster.instance = undefined;
         }
     }
 
