@@ -35,3 +35,7 @@ This is a high quality demo in Cyberpunk art style demonstrating the most advanc
 - Gameplay prefabs: assets/resources/obj
 - Gameplay logic: assets/scripts
 - Render pipeline customization: extensions/pipeline/pipeline
+
+### Credits
+
+- The game scene artwork was built by [The Artcore studios](http://www.artcore-studios.com/)
