@@ -33,6 +33,7 @@ import { Actor } from '../actor/actor';
 import { DropItem } from '../item/drop-item';
 import { NavSystem } from '../navigation/navigation-system';
 import { DataEquipInst, DataNavigationInst } from '../data/data-core';
+import { fun } from '../../core/util/fun';
 
 const { ccclass, property } = _decorator;
 
@@ -89,6 +90,8 @@ export class Level extends Singleton {
         Msg.on('msg_level_start', this.onLevelStart.bind(this));
         Msg.on('level_action', this.levelAction.bind(this));
         Msg.on('level_do', this.do.bind(this));
+        Msg.on('msg_add_enemy', this.addEnemy.bind(this));
+        Msg.on('msg_replay', this.onReplay.bind(this));
         
     }
 
@@ -124,6 +127,15 @@ export class Level extends Singleton {
 
     public resume() {
         this.stop = false;
+    }
+
+    /**
+     * This method is used to restart the game.
+     */
+    public onReplay() {
+        fun.delay(()=>{
+            Msg.emit('push', 'level');
+        }, 2);
     }
 
     public levelAction (name: string) {
@@ -167,21 +179,21 @@ export class Level extends Singleton {
      * @param groupID Enemy group id.
      * @returns Enemy game object.
      */
-    public addEnemy(res:string, groupID:number) {
+    public addEnemy(data:{res:string, groupID:number}) {
 
         // Get a random node from the navigation system.
         const point = NavSystem.randomPoint();
 
         // Get the enemy's prefab object from the resource cache.
-        var prefab = ResCache.Instance.getPrefab(this._data.prefab_enemy);
+        var prefab = ResCache.Instance.getPrefab(data.res);
 
         // Instantiate enemy level game object.
         var enemy = Res.inst(prefab, this._objectNode!, point.position);
         
-        enemy.name = res;
+        enemy.name = data.res;
         const actor = enemy.getComponent(Actor);
-        actor!._groupIndex = groupID;
-        actor!.init(`data-${res}`);
+        actor!._groupIndex = data.groupID;
+        actor!.init(`data-${data.res}`);
         actor!.isReady = true;
         this._enemies.push(enemy);
         return enemy;

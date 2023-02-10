@@ -12,21 +12,12 @@
     {
       "USE_NORMAL_MAP": true,
       "USE_ALBEDO_MAP": true,
-      "USE_PBR_MAP": true
+      "USE_PBR_MAP": true,
+      "USE_EMISSIVE_MAP": true
     },
-    {},
     {}
   ],
   "_states": [
-    {
-      "rasterizerState": {},
-      "depthStencilState": {},
-      "blendState": {
-        "targets": [
-          {}
-        ]
-      }
-    },
     {
       "rasterizerState": {},
       "depthStencilState": {},
@@ -61,20 +52,30 @@
         "y": 4,
         "z": 4
       },
+      "emissive": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+      },
       "mainTexture": {
         "__uuid__": "690dd834-33df-4796-9728-f2d4c03632dd@6c48a",
         "__expectedType__": "cc.Texture2D"
       },
       "normalMap": {
-        "__uuid__": "ca8a1b85-d1bf-4054-aa5f-b713d67c9493@6c48a",
+        "__uuid__": "c4ae0520-e575-4875-a1e4-7e5a1b10da8b@6c48a",
         "__expectedType__": "cc.Texture2D"
       },
       "pbrMap": {
-        "__uuid__": "74abd63f-d12c-4a4a-800d-eca160db1613@6c48a",
+        "__uuid__": "dcee1125-6d74-4200-b37f-743b14f96fd3@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "emissiveMap": {
+        "__uuid__": "6abf86e6-282c-401a-af15-8927e89f72f6@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },
-    {},
     {}
   ]
 }

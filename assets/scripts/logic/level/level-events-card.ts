@@ -49,11 +49,11 @@ export class LevelEventsCard extends Component {
 
         this.nextCounter = DataUpgradeCardInst._data.next_show_card_param_a;
 
-        Msg.on('kill_enemy', this.checkNextEvent.bind(this));
+        Msg.on('msg_kill_enemy', this.checkNextEvent.bind(this));
     }
 
     onDestroy() {
-        Msg.off('kill_enemy', this.checkNextEvent.bind(this));
+        Msg.off('msg_kill_enemy', this.checkNextEvent.bind(this));
     }
 
     nextEvent() {

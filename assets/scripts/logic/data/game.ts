@@ -31,7 +31,6 @@ import { Local } from "../../core/localization/local";
 import { Save } from "./save";
 import { Msg } from "../../core/msg/msg";
 import { Stack } from "../../core/util/data-structure";
-import { ResCache } from "../../core/res/res-cache";
 import { Level } from "../level/level";
 import { Sound } from "../../core/audio/sound";
 import { Notify } from "../../core/io/notify";
@@ -76,20 +75,20 @@ export class Game extends Singleton {
         // Find the root node of all pool objects.
         this._poolNode = find('init')?.getChildByName('objects-pool');
 
+        // Initialize the data core.
+        dataCore.Init();
+
         // Initialize local storage.
         Save.Instance.init();
 
         // Initialize the game data.
-        this._data = ResCache.Instance.getJson('data-game').json;
+        this._data = dataCore.DataGameInst._data;
 
         // Initialize game action data.
         this._action = new Action(this._data.action_data);
 
         // Get the game node data.
         this._nodes = this._data['nodes'];
-
-        // Initialize the data core.
-        dataCore.Init();
 
         // Initialize the game quality.
         GameQuality.Instance.init();

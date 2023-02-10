@@ -6,7 +6,6 @@ import { DataLevel } from "./data-level";
 import { DataNavigation } from "./data-navigation";
 import { DataUpgradeCard } from "./data-upgrade-card";
 
-
 export const DataEquipInst = new DataEquip();
 export const DataSoundInst = new DataSound();
 export const DataCameraInst = new DataCamera();

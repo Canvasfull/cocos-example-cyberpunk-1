@@ -12,10 +12,11 @@ export class GameQuality extends Singleton {
     _data = Object.create(null);
     _map = Object.create(null);
     cur = {
-        "name": "gamequality_high",
+        "name": "game_quality_high",
         "level": -1,
         "fps": 59.9,
-        "maxSubSteps": 1
+        "maxSubSteps": 1,
+        "open_ik": true
     };
     _default = 0;
 

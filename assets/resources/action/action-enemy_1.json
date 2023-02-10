@@ -13,10 +13,12 @@
     },
     "dead": {
         "start": [
+            { "time": 0, "name": "on_set", "data": { "key":"hit_recover", "value": 1} },
             { "time": 0, "name": "on_anig", "data": { "key":"trigger_dead", "value":true } },
             { "time": 0, "name": "on_sfx", "data":"sfx_enemy_dead" },
             { "time": 0, "name": "on_set", "data": { "key":"is_dead", "value":true } },
-            { "time": 0.2, "name": "on_call", "data": "onDead" }
+            { "time": 0.3, "name": "on_sfx", "data":"sfx_dead" },
+            { "time": 0.5, "name": "on_call", "data": "onDead" }
         ] 
     },
     "hit_gun": {
@@ -44,8 +46,7 @@
         "start":[
             { "time": 0, "name": "on_set", "data": { "key":"is_ground", "value":true } },
             { "time": 0, "name": "on_set", "data": { "key":"is_jump", "value":false } },
-            { "time": 0, "name": "on_anig", "data": { "key":"is_ground", "value":true } },
-            { "time": 0, "name": "on_sfx", "data": "sfx_hit_ground" }
+            { "time": 0, "name": "on_anig", "data": { "key":"is_ground", "value":true } }
         ]
     },
     "off_ground":{
@@ -56,12 +57,15 @@
     },
     "pickup": {
         "start":[
+            { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
             { "time": 0, "delay":0.5, "name": "on_msg", "data": "msg_count_events"}
         ]
     },
     "drop": {
         "start":[
+            { "time": 0, "name": "on_sfx", "data": "sfx_eat_candy" },
+            { "time": 0, "delay":0.2, "name": "on_msg", "data": "pick_candy"},
             { "time": 0, "delay":0.5, "name": "on_msg", "data": "msg_count_events"}
         ] 
-    }
+    } 
 }
