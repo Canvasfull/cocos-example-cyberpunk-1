@@ -26,3 +26,12 @@ This is a high quality demo in Cyberpunk art style demonstrating the most advanc
 4. Operation description
    
     Support both mobile touch screen and desktop keyboard and mouse. Please see detailed instruction in game
+
+
+### Asset guide
+
+- Playable scene (main scene to build): assets/scenes-logic/scene-level-logic.scene
+- Cyberpunk city: assets/scene
+- Gameplay prefabs: assets/resources/obj
+- Gameplay logic: assets/scripts
+- Render pipeline customization: extensions/pipeline/pipeline
