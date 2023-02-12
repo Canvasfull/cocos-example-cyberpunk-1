@@ -24,11 +24,6 @@
             { "time": 0.3, "name": "off_ui", "data": "ui_fx" }
         ]
     },
-    "replay": {
-        "start": [
-            { "time": 0, "name": "on_msg", "data": "msg_replay" } 
-        ]
-    },
     "menu": {
         "start": [ 
             { "time": 0, "name": "on_bgm", "data": "bgm_logo"},
@@ -87,6 +82,11 @@
             { "time": 0.1, "name": "off_ui", "data": "ui_level_end" },
             { "time": 0.2, "name": "off_bgm", "data": "bgm_level_over"},
             { "time": 0.2, "name": "on_msg", "data": "msg_destroy_res" }
+        ]
+    },
+    "replay": {
+        "start": [
+            { "time": 1, "name": "on_msg", "data": "msg_replay" } 
         ]
     },
     "settings":{

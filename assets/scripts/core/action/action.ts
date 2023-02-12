@@ -66,6 +66,7 @@ export class Action {
             return;
         }
         var info: ActionInfo[] = action[state];
+        if(info === undefined) return;
         let group = new ActionGroup(info);
         this._queue.push(group);
     }
